@@ -12,7 +12,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Lars Yencken](https://github.com/larsyencken) @ [99designs] [99designs] (ETL design)
 * [Tom Erik Støwer](https://github.com/testower) (EmrEtlRunner bug fixes)
 * [Gilles Moncaubeig](https://github.com/moncaubeig) @ [OverBlog] [overblog] (user fingerprinting and Infobright improvements)
-* [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL bug fix)
+* [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL improvements)
 
 Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/rathko).
 
