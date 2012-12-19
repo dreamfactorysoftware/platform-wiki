@@ -11,7 +11,8 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Michael Tibben](https://github.com/mtibben) @ [99designs] [99designs] (EmrEtlRunner and HiveQL and Hive deserializer improvements)
 * [Lars Yencken](https://github.com/larsyencken) @ [99designs] [99designs] (ETL design)
 * [Tom Erik Støwer](https://github.com/testower) (EmrEtlRunner bug fixes)
-* [Gilles Moncaubeig](https://github.com/moncaubeig) @ [OverBlog] [overblog] (user fingerprinting)
+* [Gilles Moncaubeig](https://github.com/moncaubeig) @ [OverBlog] [overblog] (user fingerprinting and Infobright improvements)
+* [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL bug fix)
 
 Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/rathko).
 
@@ -19,3 +20,4 @@ Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/r
 [qwaya]: http://www.qwaya.com
 [99designs]: http://99designs.com
 [overblog]: www.over-blog.com/
+[meltmedia]: http://meltmedia.com/
