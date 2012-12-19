@@ -146,7 +146,7 @@ file template available in the SnowPlow GitHub repository at
 # Can bump the below as SnowPlow releases new versions
 :snowplow:
   :serde_version: 0.5.2
-  :hive_hiveql_version: 0.5.1
+  :hive_hiveql_version: 0.5.2
   :non_hive_hiveql_version: 0.0.3
 ```
 
