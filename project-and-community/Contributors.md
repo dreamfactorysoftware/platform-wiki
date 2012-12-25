@@ -13,6 +13,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Tom Erik Støwer](https://github.com/testower) (EmrEtlRunner bug fixes)
 * [Gilles Moncaubeig](https://github.com/moncaubeig) @ [OverBlog] [overblog] (user fingerprinting and Infobright improvements)
 * [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL improvements)
+* [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
 
 Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/rathko).
 
@@ -21,3 +22,4 @@ Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/r
 [99designs]: http://99designs.com
 [overblog]: www.over-blog.com/
 [meltmedia]: http://meltmedia.com/
+[verycd]: http://www.verycd.com/
