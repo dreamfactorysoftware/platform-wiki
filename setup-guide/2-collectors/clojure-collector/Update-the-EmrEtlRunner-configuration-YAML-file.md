@@ -14,4 +14,4 @@ to:
     :etl:
       :collector_format: clj-tomcat
 
-That's it! Once you have made this change, you can start processing your raw log files from the Clojure Collector. The rest of the process is unchanged.
+That's it! Once you have made this change, you can start processing your raw log files from the Clojure Collector. The rest of the ETL and storage processes are unchanged.
