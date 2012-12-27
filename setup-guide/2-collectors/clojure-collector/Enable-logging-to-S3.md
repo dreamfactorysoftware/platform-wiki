@@ -30,7 +30,7 @@ Now that we have those two identifiers, we can locate the logs in S3. In the web
 
 Select that bucket - you should find a folder within it called resources. Within that folder you should find another called `environments`. Within that folder you should find a logs folder, within that a publish folder and within that a folder with the security group identifier you noted above. (In our case `e-bgp9nsynv7`.) Within that folder you should find another with your instance identifier, also noted above. (In our case, `i-ff035fb4`.) The path to your logs is therefore:
 
-	s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/{{SECURITY GROUP IDENTIFIER}}/{{INSTANCE IDENTIFIER}}
+	s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}/{{INSTANCE IDENTIFIER}}
 
 These logs will be processed by the [EmrEtlRunner](#emr-etl-runner).
 
