@@ -59,8 +59,10 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 
 1. **Git** - see the [Git Installation Guide] [git-install]
 2. **Ruby** - see the [Ruby Download Instructions] [ruby-install]
-3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install]
-5. **Bundler** - this is a one-liner: `gem install bundler`
+3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install] and the warning below
+4. **Bundler** - this is a one-liner: `gem install bundler`
+
+**Important note:** if you are using a Ruby environment manager such as RVM or rbenv, you may already have some of these installed (e.g. RVM includes RubyGems).
 
 <a name="s3-buckets"/>
 #### S3 buckets
