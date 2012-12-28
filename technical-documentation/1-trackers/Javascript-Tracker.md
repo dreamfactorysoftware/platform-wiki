@@ -597,6 +597,7 @@ E.g.
 
 ```javascript
 enableActivityTracking(5, 10); // Ping every 10 seconds after an initial 5 second delay
+```
 
 [Back to top](#top)
 
