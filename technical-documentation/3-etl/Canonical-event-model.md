@@ -105,14 +105,14 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `user_domain`        | STRING         | Yes               | No            | User domain (based on IP address) |
 | `connection_type`    | STRING         | Yes               | No            | Type of connection |        
 | **Marketing**        |                |                   |               | _Marketing campaign attribution_ |
-| `mkt_referrerurl     | STRING         | Yes               | No            | URL of referrer. Same as `page_referrer` but only set where `page_referrer` is not the same domain as the website |
+| `mkt_referrerurl`    | STRING         | Yes               | No            | URL of referrer. Same as `page_referrer` but only set where `page_referrer` is not the same domain as the website |
 | **Social event**     |                |                   |               | Fields for social event tracking    |
 | `social_network`     | STRING         | Yes               | No            | Social network that action relates to e.g. `Facebook`, `Twitter` |
 | `social_action`      | STRING         | Yes               | No            | Action that user performed e.g. `like` |
 | `social_target`      | STRING         | Yes               | No            | The social object that the action was performed on e.g. the video that was 'liked' |
 | `social_pagepath`    | STRING         | Yes               | No            | The page URL the action was committed on |
 | **Browser**          |                |                   |               | _Information about the web browser_ |
-| `br_jsversion        | STRING         | Yes               | No            | Version of Javascript that browser is running |
+| `br_jsversion`       | STRING         | Yes               | No            | Version of Javascript that browser is running |
 | `br_windowheight`    | INT            | Yes               | No            | Height of browser window in pixels |
 | `br_windowwidth`     | INT            | Yes               | No            | Width of browser window in pixels  |
 | **Geo / location**   |                |                   |               | _Information on the location of the visitor, derived from IP address_ |
@@ -122,7 +122,7 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `geo_postcode`       | STRING         | Yes               | No            | Visitor postcode           |
 | `geo_latitude`       | STRING         | Yes               | No            | Visitor location latitude  |
 | `geo_longitude`      | STRING         | Yes               | No            | Visitor location longitude |
-| **Custom variables   |                |                   |               | _Customer variables_       |
+| **Custom variables** |                |                   |               | _Customer variables_       |
 | `cv_user1`           | STRING         | Yes               | No            | Custom variable with scope set at the `user_id` level. (Ie applies to this user over his / her lifetime ) |
 | `cv_user2`           | STRING         | Yes               | No            | _As above_ |
 | `cv_user3`           | STRING         | Yes               | No            | _As above_ |
