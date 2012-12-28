@@ -247,12 +247,13 @@ Back to [complete list of parameters](#allparams).
 
 | **Event type**            | **`e` value** |
 |:--------------------------|:--------------|
-| Pageview                  | `pv`          |
-| Download                  | `d`           |
-| Social                    | `s`           |
-| Ecommerce                 | `ec`          |
-| Ecommerce item            | `eci`         |
-| Error                     | `er`          |
+| Page view                 | `pv`          |
+| Page ping                 | `pp`          |
+| Log link                  | `linkType`    |
+| Custom event              | `ev`          |
+| Ad impression             | `ad`          |
+| Transaction               | `tr`          |
+| Transaction item          | `ti`          |
 
 
 Back to [complete list of parameters](#allparams).
