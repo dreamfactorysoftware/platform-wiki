@@ -13,6 +13,8 @@
 7. [Error tracking](#error)
 8. [Setting the application ID](#appid) 
 9. [Tracking ad impressions](#adimps)
+10. [Tracking activity on a page over time](#activitytracking)
+11. [Disabling client-side user identification](#userid)
 
 <a name="overview" />
 ## 1. Overview
@@ -567,6 +569,52 @@ An alternative approach is to ask your adserver provider to warehouse this data 
 
 [Back to top](#top)
 
+
+<a name="activitytracking"/>
+## 10. Tracking activity on a page over time
+
+Simply logging page loads (via page tracking) and AJAX events (via event tracking) isn't always enough. On some web pages with lots of content, for example, we might be interested in how long a user spends consuming the content on the screen. (Maybe they are only scrolling down the content as they read it.)
+
+The Javascript tracker includes a function called `enableActivityTracking`. When enabled, this sends 'page pings' to SnowPlow every `heartBeatDelay` seconds, as long as the visitor remains active (moving the mouse, clicking etc) on the page. The function is invoked asyncronously envoked by:
+
+```javascript
+_snaq.push(['enableActivityTracking', minimumVisitLength, timeBetweenPings]); 
+```
+
+E.g. 
+
+```javascript
+_snaq.push('enableActivityTracking', 5, 10); // Ping every 10 seconds after an initial 5 second delay
+```
+
+Or syncronously:
+
+```javascript
+enableActivityTracking(minimumVisitLength, timeBetweenPings);
+```
+
+E.g.
+
+```javascript
+enableActivityTracking(5, 10); // Ping every 10 seconds after an initial 5 second delay
+
+[Back to top](#top)
+
+
+<a name="userid"/>
+## 11. Disabling client-side user identification
+
+As standard, the Javascript tracker generates a `user_id` for every visitor, stores this `user_id` on a browser cookie and appends on the query string sent to the collector, so that it is possible for analysts to perform user-based analytics.
+
+This setup works perfectly for businesses using the [Cloudfront collector](setting-up-the-cloudfront-collector). However, it does not work for businesses using the [Clojure collector](setting-up-the-clojure-collector), because the Clojure collector generates a `user_id` server side and appends it as a key/value parameter to the query string in the logs. (The reason it generates `user_id`s server side is in order to make it possible to identify the same user across multiple domains.)
+
+For businesses who use the Clojure collector, therefore, it is essential to prevent the Javascript (client-side) generated `user_id` being included in the query string. This is achieved by simply executing the following function:
+
+```javascript
+_snaq.push(['attachUserId', false]);
+```
+
+[Back to top](#top)
 
 [openx]: http://www.openx.com/publisher/enterprise-ad-server
 [zoneappend]: /snowplow/snowplow/wiki/setup-guide/images/03a_zone_prepend_openx.png
