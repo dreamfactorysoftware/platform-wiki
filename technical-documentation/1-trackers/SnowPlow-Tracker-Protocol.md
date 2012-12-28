@@ -405,7 +405,9 @@ Most browser and OS fields in SnowPlow are inferred from the user agent string (
 | `f_java`               | `br_featurse` or `br_features_java`        | Yes   | `1`               |
 | `f_gears`              | `br_featurse` or `br_features_gears`       | Yes   | `1`               |
 | `f_ag`                 | `br_featurse` or `br_features_silverlight` | Yes   | `1`               |
+| `cd`                   | `br_colordepth`                 | Yes              | `24`              |
 | `res`                  | `dvce_screenheight` and `dvce_screenwidth` | Yes   | `1280x1024`       |
+
 
 Back to [complete list of parameters](#allparams).
 
