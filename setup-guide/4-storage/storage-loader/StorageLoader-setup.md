@@ -59,8 +59,10 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 
 1. **Git** - see the [Git Installation Guide] [git-install]
 2. **Ruby** - see the [Ruby Download Instructions] [ruby-install]
-3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install]
-5. **Bundler** - this is a one-liner: `gem install bundler`
+3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install] and the warning below
+4. **Bundler** - this is a one-liner: `gem install bundler`
+
+**Important note:** if you are using a Ruby environment manager such as RVM or rbenv, you may already have some of these installed (e.g. RVM includes RubyGems).
 
 <a name="s3-buckets"/>
 #### S3 buckets
@@ -121,7 +123,7 @@ file template available in the SnowPlow GitHub repository at
 :storage:
   :type: infobright # No other storage types supported yet
   :database: ADD HERE # Name of database
-  :table:    ADD HERE # Name of the table to populate
+  :table:    events_004 # Latest version of table
   :username: ADD HERE # Or leave blank to default to the user running the script
   :password: ADD HERE # Or leave blank if no password
 ```
