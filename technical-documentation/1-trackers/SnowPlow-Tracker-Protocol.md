@@ -399,10 +399,10 @@ Most browser and OS fields in SnowPlow are inferred from the user agent string (
 |:-----------------------|:--------------------------------|:-----------------|-------------------|
 | `cookie`               | `br_cookies`                    | Yes              | `1`               |
 | `lang`                 | `br_lang`                       | Yes              | `en-US`           |
-| `f_pdf                 | `br_features` or `br_features_pdf` | Yes           | `1`               |
+| `f_pdf`                | `br_features` or `br_features_pdf` | Yes           | `1`               |
 | `f_qt`                 | `br_features` or `br_features_quicktime` Yes       | `0`               |
 | `f_realp`              | `br_features` or `br_features_realplayer` | Yes    | `0`               |
-| `f_wma`                | `br_features` or `br_features_windowsmedia | Yes  | `0`                |
+| `f_wma`                | `br_features` or `br_features_windowsmedia` | Yes  | `0`                |
 | `f_dir`                | `br_featurse` or `br_features_director` | Yes      | `0`               |
 | `f_fla`                | `br_featurse` or `br_features_flash`       | Yes   | `1`               |
 | `f_java`               | `br_featurse` or `br_features_java`        | Yes   | `1`               |
