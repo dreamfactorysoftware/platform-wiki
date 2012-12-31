@@ -9,7 +9,7 @@ The technical documentation reflects the SnowPlow architecture, with five loosel
 [Javascript tracker (SnowPlow.js)](javascript-tracker)  
 [iOS tracker](ios-tracker)  
 
-### A. [SnowPlow tracker protocol](tracker-protocol)  
+### A. [SnowPlow tracker protocol](snowplow-tracker-protocol)  
 
 ## 2. Collectors
 [Collectors overview](collectors)  
