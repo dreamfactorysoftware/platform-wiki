@@ -69,9 +69,9 @@ The fields recorded in the *SnowPlow events table* today:
 | `ti_name`            | STRING         | Yes               | Item name |
 | `ti_category`        | STRING         | Yes               | Category of item |
 | `ti_price`           | DECIMAL        | Yes               | Item price |
+| `ti_quantity`        | INT            | Yes               | Quantity of item purchased |
 | **User Agent**       |                |                   |            |
 | `useragent`          | STRING         | Yes               | Raw useragent string |
-| `ti_quantity`        | INT            | Yes               | Quantity of item purchased |
 | **Browser**          |                |                   | _Information about the web browser_ |
 | `br_name`            | STRING         | Yes               | Browser name e.g. Internet Explorer |
 | `br_family`          | STRING         | Yes               | Browser family e.g. Chrome          |

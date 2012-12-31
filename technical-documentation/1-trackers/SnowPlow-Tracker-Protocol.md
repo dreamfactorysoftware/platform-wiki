@@ -44,7 +44,7 @@ Please note that the end point where the `GET` or `POST` request should be made 
 | `aid`         | `app_id`         | Unique identifier for website / app | `1`, `company-site`, `angry-birds-android` |
 | `p`           | `platform_id`    | Platform identifier           | `iOS`, `xBox`             |
 | `tstamp`      | `timestamp`      | Date / time when the event being logged took place. This is not useful for web tracking (when the events are `GET` requests are made by the Javascript tracker in realtime), in useful in mobile application tracking, where a batch of requests may be made after the events being tracked have already occured, to optimize connectivity |
-| `tv`          | `tracker_version`| Tracker ID incl. version number. Should make it clear from which tracker the data was generated | `js-0.5.2`,  `iOS-0.0.3` |
+| `tv`          | `v_tracker`| Tracker ID incl. version number. Should make it clear from which tracker the data was generated | `js-0.5.2`,  `iOS-0.0.3` |
 
 Back to [common event types](#common)
 
@@ -122,12 +122,15 @@ uid=aeb1691c5a0ee5a6    // User ID
 &aid=1                  // App ID
 &tv=js-0.5.2            // Tracker version
 
-&e=ec            // Ecomm event type.
-&ti=12345        // Order ID
-&ta=westernWear  // Transaction affiliation
-&tr=50.00        // Transaction revenue
-&ts=32.00        // Transaction shipping
-&tt=12.00        // Transaction tax
+&e=tr            	// Transacton event type.
+&tr_id=12345        // Order ID
+&tr_af=westernWear 	// Affiliation
+&tr_tt=19.99 		// Transaction total value
+&tr_tx=4.99 		// Transaction tax value
+&tr_sh=2.99 		// Transaction shipping price
+&tr_ci=london		// City on customer address
+&tr_st=london 		// State on customer address
+&tr_co=united kingdom	// Country on customer address
 ```
 
 Item hit example:
@@ -139,14 +142,13 @@ uid=aeb1691c5a0ee5a6    // User ID
 &aid=1                  // App ID
 &tv=js-0.5.2            // Tracker version
 
-&e=ei            // Ecomm item event type
-&ti=12345        // Order ID
-&ip=300          // Item price
-&iq=2            // Item quantity
-&ic=u3eqds43     // Item code / SKU
-&ip=300          // Item price
-&in=sofa         // Item name
-&ic=furniture    // Item category
+&e=ti 				// Transaction item event type
+&ti_id=12345 		// Order ID
+&ti_sk=pbz0025 		// Item SKU
+&ti_nm=black-tarot 	// Item name
+&ti_ca=tarot 		// Item category
+&ti_pr=7.99 		// Item price
+&ti_qu=1 			// Item quantity
 ```
 
 Back to [common event types](#common)
