@@ -24,6 +24,6 @@ Second, you will need to update the In Bucket specified:
 
 Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [[Enable logging to S3]] stage).
 
-**Important**: do not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging to multiple `{{INSTANCE IDENTIFIER}}` paths. By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances.
+**Important**: do not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances.
 
 That's it! Once you have made these two changes, you can start processing your raw log files from the Clojure Collector. The rest of the ETL and storage processes are unchanged.
