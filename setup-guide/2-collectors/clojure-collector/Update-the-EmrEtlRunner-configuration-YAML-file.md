@@ -14,7 +14,7 @@ to:
     :etl:
       :collector_format: clj-tomcat
 
-Second, you will need to update your In Bucket:
+Second, you will need to update the In Bucket specified:
 
     :s3:
       :region: eu-west-1
