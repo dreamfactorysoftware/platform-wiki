@@ -22,7 +22,7 @@ Second, you will need to update the In Bucket specified:
         # ...
         :in: s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}
 
-Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] stage).
+Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [[Enable logging to S3]] stage).
 
 **Important**: do not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging to multiple `{{INSTANCE IDENTIFIER}}` paths. By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances.
 
