@@ -16,11 +16,11 @@ to:
 
 Second, you will need to update your In Bucket:
 
-:s3:
-  :region: eu-west-1
-  :buckets:
-    # ...
-    :in: s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}
+    :s3:
+      :region: eu-west-1
+      :buckets:
+        # ...
+        :in: s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}
 
 Replace all of the `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] stage).
 
