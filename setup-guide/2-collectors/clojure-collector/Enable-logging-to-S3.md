@@ -32,7 +32,7 @@ Select that bucket - you should find a folder within it called resources. Within
 
 	s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}/{{INSTANCE IDENTIFIER}}
 
-These logs will be processed by the [EmrEtlRunner](#emr-etl-runner).
+Write this path down somewhere as you will need it later to configure [EmrEtlRunner](#emr-etl-runner).
 
 Note - if you cannot find the logs as described above, it may be because Amazon has not written any yet. You may need to wait an hour for the logs to appear.
 
