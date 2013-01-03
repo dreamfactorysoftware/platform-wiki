@@ -1,3 +1,5 @@
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](analytics-setup) > [**ChartIO**](chartio-setup)
+
 <a name="top" />
 ## Contents
 
