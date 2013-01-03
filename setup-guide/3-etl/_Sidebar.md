@@ -25,6 +25,7 @@
 [Analytics setup](analytics-setup)  
 [Analysis using Hive](hive analytics setup)  
 [Infobright based analytics](infobright-analytics-setup)  
+[ChartIO analytics setup](ChartIO-setup)  
 
 **Common**  
 [[Hosted assets]] 

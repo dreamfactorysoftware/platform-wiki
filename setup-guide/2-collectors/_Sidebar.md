@@ -25,6 +25,7 @@
 [Analytics setup](analytics-setup)  
 [Analysis using Hive](Querying the data using Hive)  
 [Infobright based analytics](infobright-analytics-setup)  
+[ChartIO analytics setup](ChartIO-setup)  
 
 **Common**  
 [[Setting up EMR]]  
