@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide)
 
-Setting up SnowPlow involve/s setting up one of each of the five modules that make up SnowPlow's architecture:
+Setting up SnowPlow involves setting up one of each of the five modules that make up SnowPlow's architecture:
 
 ![architecture] [conceptual-architecture]
 
