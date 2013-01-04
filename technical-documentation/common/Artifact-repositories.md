@@ -36,9 +36,11 @@ And then execute:
 
 ### Available libraries
 
-Just one currently:
+There are three currently:
 
 1. [Scala Util] [scala-util-maven] - reusable Scala code from SnowPlow Analytics ([GitHub repo] [scala-util-github])
+2. [RefererParser] [referer-parser-maven] - referer URL parsing in Java/Scala ([GitHub repo] [referer-parser-github])
+3. [Scala MaxMind Geo-IP] [scala-maxmind-geoip-maven] - Scala wrapper for the MaxMind Java Geo-IP library ([GitHub repo] [scala-maxmind-repo-github])
 
 ### Using in your project
 
@@ -101,3 +103,8 @@ Please see the [[Hosted assets]] wiki page for more information.
 [irl-github]: https://github.com/snowplow/infobright-ruby-loader
 [scala-util-maven]: http://maven.snplow.com/releases/com/snowplowanalytics/scala-util/0.1.0/
 [scala-util-github]: https://github.com/snowplow/scala-util
+
+[referer-parser-maven]: http://maven.snplow.com/releases/com/snowplowanalytics/referer-parser/0.0.1/
+
+[scala-maxmind-geoip-maven]: http://maven.snplow.com/releases/com/snowplowanalytics/scala-maxmind-geoip/0.0.1/
+[scala-maxmind-geoip-github]: https://github.com/snowplow/scala-maxmind-geoip
