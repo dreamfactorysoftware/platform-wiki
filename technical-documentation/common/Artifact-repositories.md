@@ -15,7 +15,7 @@ RubyGems.org is the Ruby community's gem hosting service. You can find all of ou
 
 Current libraries are:
 
-1. [Attlib] [attlib-rubygems] - extracts search marketing attribution data from referrer URLs ([GitHub repo] [attlib-github])
+1. [referer-parser] [referer-parser-rubygems] - extracts search marketing attribution data from referrer URLs ([GitHub repo] [referer-parser-github])
 2. [Infobright Loader] [irl-rubygems] - our data loader for Infobright ([GitHub repo] [irl-github])
 
 ### Using in your project
@@ -95,8 +95,8 @@ Please see the [[Hosted assets]] wiki page for more information.
 [rubygems]: https://rubygems.org/
 [maven-snplow]: http://maven.snplow.com/
 [rubygems-snowplow]: https://rubygems.org/profiles/62878
-[attlib-rubygems]: https://rubygems.org/gems/attlib
-[attlib-github]: https://github.com/snowplow/attlib
+[referer-parser-rubygems]: https://rubygems.org/gems/referer-parser
+[referer-parser-github]: https://github.com/snowplow/referer-parser
 [irl-rubygems]: https://rubygems.org/gems/infobright-loader
 [irl-github]: https://github.com/snowplow/infobright-ruby-loader
 [scala-util-maven]: http://maven.snplow.com/releases/com/snowplowanalytics/scala-util/0.1.0/
