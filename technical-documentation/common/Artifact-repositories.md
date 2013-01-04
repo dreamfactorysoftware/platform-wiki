@@ -23,7 +23,7 @@ Current libraries are:
 Add an appropriate line to your application's Gemfile:
 
 ```ruby
-gem 'attlib'
+gem 'referer-parser'
 ```
 
 And then execute:
