@@ -20,7 +20,7 @@ Current libraries are:
 
 ### Using in your project
 
-Add an appropriate line to your application's Gemfile:
+Add an appropriate line to your application's Gemfile, for example:
 
 ```ruby
 gem 'referer-parser'
