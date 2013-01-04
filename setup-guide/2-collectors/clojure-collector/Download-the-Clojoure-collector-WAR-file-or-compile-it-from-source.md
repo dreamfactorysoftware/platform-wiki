@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Download the Clojoure collector WAR file, or compile it from source]]
 
-You can download the WAR file directly from Github [here][github-download] or from S3 [here][s3-download].
+You can download the WAR file directly from our hosted assets bucket on Amazon S3 - please see our [Hosted assets][s3-download] page for details.
 
 Alternatively, you can build it from the source files. To do so, you will need [Leiningen][leiningen] installed. 
 
