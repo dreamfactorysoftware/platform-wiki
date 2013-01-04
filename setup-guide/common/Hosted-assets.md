@@ -18,7 +18,11 @@ The minified JavaScript tracker is hosted on CloudFront:
 
 ## 2. Collectors
 
-No hosted assets currently.
+### 2.1 Clojure collector resources
+
+The Clojure collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
+
+    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.1.0-standalone.war
 
 ## 3. ETL
 
