@@ -89,6 +89,8 @@ Done? Right, now we can install EmrEtlRunner.
 <a name="installation"/>
 ### Installation
 
+**Update:** We will shortly be updating these instructions to use RVM and `bundle install`. In the meantime, please proceed with the following instructions and if you have any issues, please consult the [[Troubleshooting]] wiki page.
+
 First, checkout the SnowPlow repository and navigate to the EmrEtlRunner root:
 
     $ git clone git://github.com/snowplow/snowplow.git
