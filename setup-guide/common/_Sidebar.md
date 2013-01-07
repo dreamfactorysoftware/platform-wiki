@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**ETL**](choosing-an-etl-module)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > **Common**
 
 **1. Trackers**  
 [Tracker setup: choosing a tracker](choosing-a-tracker)  
@@ -12,9 +12,9 @@
 [SnowCannon (node.js) setup](snowcannon-setup-guide) 
 
 **3. ETL**  
-[**ETL setup: choosing an ETL module**](choosing-an-etl-module)  
-[**Hive ETL**](hive-etl-setup)  
-[**Scalding / Cascading ETL**](scalding-etl-setup) 
+[ETL setup: choosing an ETL module](choosing-an-etl-module)  
+[Hive ETL](deploying-the-hive-emr-runner)  
+[Scalding / Cascading ETL](scalding-etl-setup) 
 
 **4. Storage**  
 [Storage setup: choosing a storage option](choosing-a-storage-module)  
@@ -27,6 +27,6 @@
 [Infobright based analytics](infobright-analytics-setup)  
 [ChartIO analytics setup](ChartIO-setup)  
 
-**Common**  
-[[Troubleshooting]]  
-[[Hosted assets]] 
+**COMMON**  
+[[**Troubleshooting**]]  
+[[**Hosted assets**]] 

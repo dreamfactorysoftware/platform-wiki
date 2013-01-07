@@ -28,5 +28,5 @@
 [ChartIO analytics setup](ChartIO-setup)  
 
 **Common**  
-[[Setting up EMR]]  
+[[Troubleshooting]]  
 [[Hosted assets]] 
