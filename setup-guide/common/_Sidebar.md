@@ -28,5 +28,5 @@
 [ChartIO analytics setup](ChartIO-setup)  
 
 **COMMON**  
-[[**Troubleshooting**]]  
-[[**Hosted assets**]] 
+[**Troubleshooting**](Troubleshooting)  
+[**Hosted assets**](Hosted assets)
