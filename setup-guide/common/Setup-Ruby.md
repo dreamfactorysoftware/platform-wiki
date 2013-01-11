@@ -16,7 +16,7 @@ First we want to install all the pre-requisites for RVM. Namely:
 		libreadline-dev curl git-core zlib1g zlib1g-dev libssl-dev \
 		libxslt-dev libxml2-dev git-core subversion autoconf	
 
-(A list of these can be printed by entering `rvm notes` at the command prompt.)
+(A list of these can be printed by entering `rvm notes` at the command prompt once you have RVM installed.)
 
 ## 2. Install RVM
 
