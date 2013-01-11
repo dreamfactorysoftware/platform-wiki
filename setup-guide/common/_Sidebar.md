@@ -29,4 +29,5 @@
 
 **COMMON**  
 [**Troubleshooting**](Troubleshooting)  
+[**Setup Ruby**]()
 [**Hosted assets**](Hosted assets)
