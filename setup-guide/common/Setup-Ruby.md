@@ -6,7 +6,7 @@ This is a short guide showing you how to setup [Ruby] [ruby] with [RVM] [rvm] (R
 
 This guide was written for [Ubuntu Server 12.10] [ubuntu], but should work with minor changes in Debian or other Linux distributions.
 
-## 1. Install RVM
+## 1. Install dependencies
 
 First we want to install all the pre-requisites for RVM. Namely:
 
