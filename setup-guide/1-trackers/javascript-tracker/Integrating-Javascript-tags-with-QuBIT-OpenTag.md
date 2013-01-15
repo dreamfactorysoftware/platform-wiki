@@ -13,7 +13,7 @@ This setup guide is divided into two sections:
 The following steps are required to setup OpenTag on your website:
 
 1. [Create an OpenTag account](#create-account)
-2. [Expose the data required by OpenTag and SnowPlow to OpenTag via the OpenTag Universal Variable](#expose-data)
+2. [Expose the data required by OpenTag and SnowPlow Universal Variable](#expose-data)
 3. [Integrate the container tag on your website](#container)
 
 The steps are reasonably straight forward, especially for anyone familiar with tag management or Open Tag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in step 2.
@@ -73,15 +73,20 @@ window.universal_variable.pushEvent({
 	'action': 'play',
 	'label': 'skateboarding-dog-00123'
 	'property': 'hd'
-	'value': 0.0
-})
+	'value': 1.0
+});
+```
+
+As part of the `Universal Variable` integration, then, it is critical that any AJAX events that you want to track in SnowPlow are identified, and exposed to OpenTag via the method outlined above.
+
+
 
 [Back to top] (#top)
 
 <a name="container" />
 ### 1.3 Integrate the container tag on your website 
 
-Text here
+
 
 [Back to top] (#top)
 
