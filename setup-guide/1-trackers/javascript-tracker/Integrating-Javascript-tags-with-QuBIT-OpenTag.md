@@ -55,7 +55,7 @@ However, implementing the `Universal Variable` as documented often is not enough
 
 When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to SnowPlow, is attached to the event. In order to accommodate this, we have extended the `Universal Variable` [event](https://github.com/QubitProducts/UniversalVariable#event) object to include a number of new fields:
 
-| ** Property** | **JSON key** | **Type** | **Description**                                         |
+| **Property**  | **JSON key** | **Type** | **Description**                                         |
 |:--------------|:-------------|:---------|:--------------------------------------------------------|
 | Event type    | type         | String   | This should be set to `struct` to indicate that the event is a structured event. (We are in the process of building out SnowPlow to accommodate unstructured event types) |
 | Event category| category     | String   | A category e.g. 'video' or 'ecomm', that groups actions together by theme |
@@ -64,18 +64,13 @@ When these events occur, we need to update the `Universal Variable` so that thes
 | Event property | property    | String   | An optional string describing the object or the action performed on it. This might be the quantity of the item added to basket, or the resolution of the video just played |
 | Event value   | value        | Number   | A value associated with the action. This might be the value of item added-to-basket, for example |
 
-When an AJAX event occurs, then, we need to update the `Universal Variable` to insert a new event with the relevant fields attached. We've developed a handy API to make this easy. (Our approach is modelled on that taken by Google Tag Manager with their `dataLayer` equivalent of the OpenTag `Unviersal Variable`.)
+When an AJAX event occurs, then, we need to update the `Universal Variable` to insert a new event with the relevant fields attached. We've developed a handy API to make this easy. (Our approach is modelled on that taken by Google Tag Manager with their `dataLayer` equivalent of the OpenTag `Universal Variable`.) When an AJAX event fires, you need to call the following Javascript function:
 
 ```javascript
-window.universal_variable.pushEvent({
-	'type': 'struct',
-	'category': 'video',
-	'action': 'play',
-	'label': 'skateboarding-dog-00123'
-	'property': 'hd'
-	'value': 1.0
-});
+trackStructEvent(category, action, label, property, value);
 ```
+
+When calling it, you need to set the `category`, `action`, `label`, `property` and `value` fields to the ones you want passed to the SnowPlow event tracker, as documented in the table above.
 
 As part of the `Universal Variable` integration, then, it is critical that any AJAX events that you want to track in SnowPlow are identified, and exposed to OpenTag via the method outlined above.
 
@@ -163,7 +158,7 @@ If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`,
 
 #### Updating the reference to `sp.js`
 
-The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. Teh vrsion loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
+The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
 
 If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your owon Cloudfrotn `{{SUBDOMAIN}} (the one from which you serve `sp.js`) in for ours:
 
@@ -179,6 +174,8 @@ We don't need to change any of the default options: it makes sense, for example,
 
 <a name="event-tracking" />
 ### 2.2 Integrating SnowPlow event tracking tags in OpenTag
+
+
 
 Text here
 
