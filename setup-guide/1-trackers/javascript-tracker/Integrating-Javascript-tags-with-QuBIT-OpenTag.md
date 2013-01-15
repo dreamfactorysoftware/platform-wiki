@@ -14,7 +14,7 @@ The following steps are required to setup OpenTag on your website:
 
 1. [Create an OpenTag account](#create-account)
 2. [Expose the data required by OpenTag and SnowPlow Universal Variable](#expose-data)
-3. [Integrate the container tag on your website](#container)
+3. [Create a container tag in OpenTag, and integrate it into your website](#container)
 
 The steps are reasonably straight forward, especially for anyone familiar with tag management or Open Tag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in step 2.
 
@@ -79,19 +79,37 @@ window.universal_variable.pushEvent({
 
 As part of the `Universal Variable` integration, then, it is critical that any AJAX events that you want to track in SnowPlow are identified, and exposed to OpenTag via the method outlined above.
 
-
+Once you have integrated the `Universal Variable` on your website, you can use OpenTag to test that data is successfully being passed into it. Instructions on doing so can be found [here] (http://opentagsupport.qubitproducts.com/help/kb/technical/testing-universal-variables).
 
 [Back to top] (#top)
 
 <a name="container" />
-### 1.3 Integrate the container tag on your website 
+### 1.3 Create a container tag in OpenTag, and integrate it into your website
 
+We need to create a container tag: this will be placed on every page on your website. This is what calls OpenTag, which then ensures that all the relevant tags that you want to fire from each web page are, indeed, called.
 
+Log into OpenTag, and click the **+CREATE A CONTAINER** button.
+
+[[/setup-guide/images/opentag/2.png]]
+
+Give your container a name and then save it. (We're going to call ours test.)
+
+Now we need to grab the embed code: this is what we'll insert on every page on our website. Click on the **`</> EMBED`** link on the container:
+
+[[/setup-guide/images/opentag/3.png]]
+
+The code appears in a popup. You can copy it to your clipboard directly.
+
+[[/setup-guide/images/opentag/4.png]]
+
+Implement this tag on every page of your website.
 
 [Back to top] (#top)
 
 <a name="snowplow-setup" />
 ## 2. Integrating SnowPlow Javascript tracking tags with OpenTag
+
+Once you've got OpenTag implemented on your website, you're in position to setup the SnowPlow tracking tags in OpenTag.
 
 1. [Integrating SnowPlow page tracking tags] (#page-tracking)
 2. [Integrating SnowPlow event tracking tags] (#event-tracking)
@@ -101,7 +119,61 @@ As part of the `Universal Variable` integration, then, it is critical that any A
 <a name="page-tracking" />
 ### 2.1 Integrating SnowPlow page tracking tags in OpenTag
 
-Text here
+The most straight forward SnowPlow tags to implement in OpenTag are the page tracking tags.
+
+Go into OpenTag, select your container and click the **`ADD NEW SCRIPT`** button. (OpenTag refer to tags in the UI, confusingly, as 'scripts'.):
+
+[[/setup-guide/images/opentag/5.png]]
+
+A new window opens which gives you the opportunity to name the script, and select the type of script.
+
+[[/setup-guide/images/opentag/6.png]]
+
+Give the script a suitable name e.g. 'SnowPlow PageTracker' and select the checkbox by 'Custom Script':
+
+[[/setup-guide/images/opentag/7.png]]
+
+Now we need to enter the SnowPlow page tracking code:
+
+```html
+<!-- SnowPlow starts plowing -->
+<script type="text/javascript">
+var _snaq = _snaq || [];
+
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['trackPageView']);
+_snaq.push(['enableLinkTracking']);
+
+(function() {
+var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+})();
+ </script>
+<!-- SnowPlow stops plowing -->
+```
+
+#### Setting the {{CLOUDFRONT DOMAIN}} value
+
+You must update `{{CLOUDFRONT DOMAIN}}` with the Cloudfront subdomain details you created as part of the [collector setup] (setting up the cloudfront collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with an Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`.
+
+If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`, then update the appropriate line in your header script to look like this:
+
+	_snaq.push(['setCollectorCf', 'd1x5tduoxffdr7']);
+
+#### Updating the reference to `sp.js`
+
+The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. Teh vrsion loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
+
+If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your owon Cloudfrotn `{{SUBDOMAIN}} (the one from which you serve `sp.js`) in for ours:
+
+	sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
+
+When you've entered the page tracking code, your page will look as follows:
+
+[[/setup-guide/images/opentag/8.png]]
+
+We don't need to change any of the default options: it makes sense, for example, to load the SnowPlow page tracking tag at the beginning of the `<head>` section of the web page. (Because it's an async tag, it wont slow down page loads.)
 
 [Back to top] (#top)
 
