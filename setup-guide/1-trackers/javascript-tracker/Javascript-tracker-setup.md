@@ -1,9 +1,12 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker) > [**Javascript tracker**](Javascript-tracker-setup)
 
-Setting up the Javascript tracker involves the following steps, only some of which are compulsory:
+Before you integrate SnowPlow's Javascript tracker, you need to decide whether you'll integrate it with your current tag management system, or implement a tag management system as part of the SnowPlow setup process.
 
-1. [Integrating SnowPlow Javascript tracking tags directly onto your website](integrating-javascript-tags-onto-your-website) (required).
-2. [Setting up Google Tag Manager (GTM) and integrating SnowPlow Javascript tracking tags via GTM](Integrating-javascript-tags-with-Google-Tag-Manager) (optional but recommended)
+We strongly advice new SnowPlow users to implement a Tag Management solution, and document how to perform the SnowPlow implementation using Google Tag Manager and QuBit's OpenTag.
+
+1. [Integrating SnowPlow Javascript tracking tags directly onto your website](integrating-javascript-tags-onto-your-website) 
+2. [Setting up Google Tag Manager (GTM) and integrating SnowPlow Javascript tracking tags via GTM](Integrating-javascript-tags-with-Google-Tag-Manager) 
+3. [Setting up QuBit's OpenTag and integrating SnowPlow Javascript tracking tags via OpenTag](Integrating=javascript-tags-with-qubit-opentag)
 2. [Setting up the hosting of SnowPlow.js](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
 3. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). SnowPlow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
 4. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. This is a guide on [how](modifying-snowplow-js).
