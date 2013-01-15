@@ -71,8 +71,8 @@ window.universal_variable.pushEvent({
 	'type': 'struct',
 	'category': 'video',
 	'action': 'play',
-	'label': 'skateboarding-dog-00123'
-	'property': 'hd'
+	'label': 'skateboarding-dog-00123',
+	'property': 'hd',
 	'value': 1.0
 });
 ```
