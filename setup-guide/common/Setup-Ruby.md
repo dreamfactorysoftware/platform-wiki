@@ -47,7 +47,7 @@ To use a particular version enter
 
 ## 4. Project-specific settings
 
-Any Ruby projects should have a `.rvmrc` file in their root, which specifies the Gem file name and the Ruby version to use.
+Any SnowPlow Ruby projects should have a `.rvmrc` file in their root, which specifies the Gem file name and the Ruby version to use.
 
 That's it! You are now ready to install any SnowPlow Ruby application, such as:
 
