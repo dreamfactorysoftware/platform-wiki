@@ -44,27 +44,30 @@ The primary way of passing data into OpenTag is using the [`window.universal_var
 
 There is detailed readme on the OpenTag [`Universal Variable` Github page](https://github.com/QubitProducts/UniversalVariable) detailing all the relevant fields for each object and giving practical advice on implementing the `Universal Variable` on your website.
 
-For SnowPlow, the detailed object model provided by OpenTag is great, because it means there's a rich set of data that can be passed into SnowPlow so that users can analyse e.g. conversion rates by product, or assess the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
+For SnowPlow, the detailed object model provided by OpenTag is great, because it means there's a rich set of dat that can be passed into SnowPlow so that users can analyse e.g. conversion rates by product, or assess the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
 
-However, implementing the `Universal Variable` as documented often is not enough for SnowPlow users. That is because we are not just intested in the contents of web pages when they are loaded, we are typically also interested in capturing events that occur on a web page between page loads (i.e. AJAX events), generally using [event tracking tags](#event-tracking). Examples of types of events we might track in this way are:
+However, implementing the `Universal Variable` as documented often is not enough for SnowPlow users. That is because we are not just intested in the contents of web pages when they are loaded, and the specific object and actions identified by OpenTag (e.g. baskets and transactions): we are typically also interested in capturing all interesting events that occur on a web page between page loads (i.e. AJAX events), generally using [event tracking tags](#event-tracking). Examples of types of events we might track in this way are:
 
 * Playing rich media (e.g. videos) 
 * Zoom in on product images
 * User logins
 * Add-to-baskets
 
-When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to SnowPlow, is attached to the event. In order to accommodate this, we have extended the `Universal Variable` [event](https://github.com/QubitProducts/UniversalVariable#event) object to include a number of new fields:
+When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to SnowPlow, is attached to the event. 
+
+Open Tag's Universal Variable has an [`EventList`] (https://github.com/QubitProducts/UniversalVariable#eventlist) object, which stores an array of [`Event`] (https://github.com/QubitProducts/UniversalVariable#event) objects. To meet SnowPlow's needs, we've added a number of fields to the Event object, and implemented an interface to make it straightforward for companies implementing OpenTag to push event data into the `Universal Variable` as / when they occur.
+
+The additional fields are:
 
 | **Property**  | **JSON key** | **Type** | **Description**                                         |
 |:--------------|:-------------|:---------|:--------------------------------------------------------|
-| Event type    | type         | String   | This should be set to `struct` to indicate that the event is a structured event. (We are in the process of building out SnowPlow to accommodate unstructured event types) |
 | Event category| category     | String   | A category e.g. 'video' or 'ecomm', that groups actions together by theme |
 | Event action  | action       | String   | The actual action performed by the user e.g. `add-to-basket` or `play-video` |
 | Event label   | label        | String   | An optional string describing the object or action performed on it. This might be the quantity of an item added to basket, or the id of the video just played |
 | Event property | property    | String   | An optional string describing the object or the action performed on it. This might be the quantity of the item added to basket, or the resolution of the video just played |
 | Event value   | value        | Number   | A value associated with the action. This might be the value of item added-to-basket, for example |
 
-When an AJAX event occurs, then, we need to update the `Universal Variable` to insert a new event with the relevant fields attached. We've developed a handy API to make this easy. (Our approach is modelled on that taken by Google Tag Manager with their `dataLayer` equivalent of the OpenTag `Universal Variable`.) When an AJAX event fires, you need to call the following Javascript function:
+When an AJAX event occurs on your webpage, you can push the required event data into the `Universal Variable` using the `trackStructEvent` method:
 
 ```javascript
 trackStructEvent(category, action, label, property, value);
@@ -72,7 +75,9 @@ trackStructEvent(category, action, label, property, value);
 
 When calling it, you need to set the `category`, `action`, `label`, `property` and `value` fields to the ones you want passed to the SnowPlow event tracker, as documented in the table above.
 
-As part of the `Universal Variable` integration, then, it is critical that any AJAX events that you want to track in SnowPlow are identified, and exposed to OpenTag via the method outlined above.
+As well as enabling easy updating of the `Universal Variable`, the above method also triggers an `OpenTagEvent` in the DOM. We can use this, when configuring SnowPlow event tracking tags in the OpenTag UI to create a [custom starter] (http://opentagsupport.qubitproducts.com/help/kb/technical/implementing-intelligent-tag-based-filtering) to trigger the firing of the SnowPlow event tracking tags.
+
+Note: in order to use the above method, you need to include the `snowplow-events-for-opentag.js`. This is covered [below] (#events-for-opentag-js).
 
 Once you have integrated the `Universal Variable` on your website, you can use OpenTag to test that data is successfully being passed into it. Instructions on doing so can be found [here] (http://opentagsupport.qubitproducts.com/help/kb/technical/testing-universal-variables).
 
@@ -97,7 +102,14 @@ The code appears in a popup. You can copy it to your clipboard directly.
 
 [[/setup-guide/images/opentag/4.png]]
 
-Implement this tag on every page of your website.
+You need to impelemnt this tag on every page of your website, *with* the `snowplow-events-for-opentag.js` file. This file is [hosted] (Hosted-assets) on [here] (https://s3-eu-west-1.amazonaws.com/snowplow-emr-assets/tracker/javascript-tracker/tag-management/opentag/snowplow-events-for-opentag.js).
+
+As a result, the code you insert onto every page (the container tag and include for the above Javascript file) will look something this:
+
+```html
+<script src='//path/to/snowplow-events-for-opentag.js'></script>
+<script src='//d3c3cq33003psk.cloudfront.net/opentag-67699-450363.js' async defer></script> 
+```
 
 [Back to top] (#top)
 
