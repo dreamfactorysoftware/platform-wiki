@@ -70,7 +70,7 @@ The additional fields are:
 When an AJAX event occurs on your webpage, you can push the required event data into the `Universal Variable` using the `trackStructEvent` method:
 
 ```javascript
-trackStructEvent(category, action, label, property, value);
+uvHelpers.trackStructEvent(category, action, label, property, value);
 ```
 
 When calling it, you need to set the `category`, `action`, `label`, `property` and `value` fields to the ones you want passed to the SnowPlow event tracker, as documented in the table above.
@@ -121,7 +121,7 @@ Once you've got OpenTag implemented on your website, you're in position to setup
 1. [Integrating SnowPlow page tracking tags] (#page-tracking)
 2. [Integrating SnowPlow event tracking tags] (#event-tracking)
 3. [Integrating SnowPlow ecommerce tracking tags] (#ecomm-tracking)
-4. [Publishing changes in Open Tag] (#publish)
+4. [Committing changes in Open Tag] (#publish)
 
 <a name="page-tracking" />
 ### 2.1 Integrating SnowPlow page tracking tags in OpenTag
@@ -158,7 +158,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 })();
  </script>
 <!-- SnowPlow stops plowing -->
-```
+``` 
 
 #### Setting the {{CLOUDFRONT DOMAIN}} value
 
@@ -172,7 +172,7 @@ If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`,
 
 The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
 
-If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your owon Cloudfrotn `{{SUBDOMAIN}} (the one from which you serve `sp.js`) in for ours:
+If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your owon Cloudfront `{{SUBDOMAIN}} (the one from which you serve `sp.js`) in for ours:
 
 	sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
 
@@ -187,9 +187,62 @@ We don't need to change any of the default options: it makes sense, for example,
 <a name="event-tracking" />
 ### 2.2 Integrating SnowPlow event tracking tags in OpenTag
 
+Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'SnowPlow EventTracker' and selec the checkbox next to **Custom Script**.
+
+[[/setup-guide/images/opentag/9.png]]
+
+We want the `EventTracker` to fire every time the `uvHelpers.trackStructEvent` method is called. The method triggers an `OpenTagEvent` to occur on the DOM: we need to tell OpenTag to trigger the SnowPlow EventTracker tag when that event occurs.
+
+To do this, we need to cinfigure what OpenTag calls a `custom starter`. Click on the **+ Advanced Features** link at the bottom of the screen, and tehn click the **Filter** tab:
+
+[[/setup-guide/images/opentag/10.png]]
+
+This section lets us create a set of rules (which OpenTag calls filters) which determine when the tag fires. Click the **CREATE NEW FILTER** button:
+
+[[/setup-guide/images/opentag/11.png]]
+
+Give the filter a sensible name. Change the option **Filter Based On** from `URL` to `Sesssion Variables`:
+
+[[/setup-guide/images/opentag/12.png]]
+
+Click on the **CUSTOMISE** button. We now have the opportunity to enter our `Custom Starter`. Paste the following text into the `Custom Starter` box. (Leave the `Custom Script` unchanged):
+
+```javascript
+function (session, cb) {window.addEventListener('OpenTagEvent', cb)}
+```
+
+This tells OpenTag to add a listener to the `OpenTagEvent`, and to fire the call back (`cb`) function when an event occurs. That call back function will be the SnowPlow event tracking tag, which we will set now.
+
+Your screen should look like this:
+
+[[/setup-guide/images/opentag/13.png]]
+
+Click the **SAVE FILTER** button. Your new filter should be visible in the list of filters. We can remove the default filter:
+
+[[/setup-guide/images/opentag/14.png]]
+
+Now we need to enter our script in the `Inline HTML` box. Copy the following code to that box:
+
+```html
+<script type="text/javascript">
+var i = window.universal_variable.events.length
+while (i--) {
+  e = window.universal_variable.events[i];
+  if (e.type == 'struct') {
+    _snaq.push(['trackEvent', e.category, e.action, e.label, e.property, e.value]); 
+    window.universal_variable.events.splice(i, 1);
+  }
+}
+</script>
+```
+
+The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwardsm it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page.)
+
+[[/setup-guide/images/opentag/15.png]]
+
+Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
 
 
-Text here
 
 [Back to top] (#top)
 

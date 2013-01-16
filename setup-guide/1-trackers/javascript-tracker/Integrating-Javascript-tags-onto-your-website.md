@@ -98,7 +98,7 @@ Here is an example of SnowPlow event tracking attached to a simple JavaScript ac
 <script type="text/javascript">
     function playVideo(){
         alert("Playing a video")
-        _snaq.push(['trackEvent', 'Videos', 'Play', 'Fargo', 'French-subtitles','320x200'])
+        _snaq.push(['trackEvent', 'Videos', 'Play', 'Fargo', 'French-subtitles','320x200']);
     }
 </script>
 ```
