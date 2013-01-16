@@ -125,7 +125,7 @@ _snaq.push(['trackEvent', 'category','action','object','property','value'])
 An example of tracking a user listening to a music mix:
 
 ```javascript
-_snaq.push(['trackEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', , '0.0'])
+_snaq.push(['trackEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0'])
 ```
 
 Note that in the above example no value is set for the `event property`.
