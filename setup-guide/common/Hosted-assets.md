@@ -24,6 +24,8 @@ The Clojure collector packaged as a complete WAR file, ready for Amazon Elastic 
 
     s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.1.0-standalone.war
 
+Right-click on this [Download link] [war-download] to save it down locally.
+
 ## 3. ETL
 
 ### 3.1 Hive ETL resources
@@ -54,3 +56,4 @@ As well as these hosted assets for running SnowPlow, the SnowPlow Analytics team
 Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
+[war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.1.0-standalone.war

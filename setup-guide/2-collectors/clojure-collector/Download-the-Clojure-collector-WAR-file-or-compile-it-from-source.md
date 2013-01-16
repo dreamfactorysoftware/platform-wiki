@@ -1,6 +1,8 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Download the Clojure collector WAR file or compile it from source]]
 
-You can download the WAR file directly from our hosted assets bucket on Amazon S3 - please see our [Hosted assets][s3-download] page for details.
+Elastic Beanstalk does not allow you to specify an S3 URL for your WAR file, so you will have to manually upload a local copy.
+
+To get a local copy, you can download the WAR file directly from our hosted assets bucket on Amazon S3 - please see our [Hosted assets][s3-download] page for details.
 
 Alternatively, you can build it from the source files. To do so, you will need [Leiningen][leiningen] installed. 
 
