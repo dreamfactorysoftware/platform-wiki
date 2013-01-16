@@ -102,12 +102,12 @@ The code appears in a popup. You can copy it to your clipboard directly.
 
 [[/setup-guide/images/opentag/4.png]]
 
-You need to impelemnt this tag on every page of your website, *with* the `snowplow-events-for-opentag.js` file. This file is [hosted] (Hosted-assets) on [here] (https://s3-eu-west-1.amazonaws.com/snowplow-emr-assets/tracker/javascript-tracker/tag-management/opentag/snowplow-events-for-opentag.js).
+You need to impelemnt this tag on every page of your website, *with* the `snowplow-events-for-opentag.js` file. This file is [hosted] (Hosted-assets) on [[https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/1-trackers/javascript-tracker/tag-management/opentag/snowplow-events-for-opentag.js]].
 
 As a result, the code you insert onto every page (the container tag and include for the above Javascript file) will look something this:
 
 ```html
-<script src='//path/to/snowplow-events-for-opentag.js'></script>
+<script src='//path/to/minified/snowplow-events-for-opentag.js'></script>
 <script src='//d3c3cq33003psk.cloudfront.net/opentag-67699-450363.js' async defer></script> 
 ```
 
