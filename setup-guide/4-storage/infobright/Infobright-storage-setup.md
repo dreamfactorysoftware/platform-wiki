@@ -112,6 +112,10 @@ Now exit from root:
 
 	$ exit
 
+And finally let's update the database used by `locate` (as our scripts depend on `locate` to find the Infobright executable):
+
+    $ sudo updatedb
+
 ### Configure memory
 
 ICE needs the appropriate Server Main Heap Size and Loader Main Heap Size based on how much physical RAM you have:
