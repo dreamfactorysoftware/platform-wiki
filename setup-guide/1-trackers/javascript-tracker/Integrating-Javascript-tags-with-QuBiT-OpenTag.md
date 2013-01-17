@@ -16,7 +16,7 @@ The following steps are required to setup OpenTag on your website:
 2. [Expose the data required by OpenTag and SnowPlow Universal Variable](#expose-data)
 3. [Create a container tag in OpenTag, and integrate it into your website](#container)
 
-The steps are reasonably straight forward, especially for anyone familiar with tag management or Open Tag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in step 2.
+The steps are reasonably straight forward, especially for anyone familiar with tag management or OpenTag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in step 2.
 
 <a name="create-account" />
 ### 1.1 Create an OpenTag account
@@ -55,7 +55,7 @@ However, implementing the `Universal Variable` as documented often is not enough
 
 When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to SnowPlow, is attached to the event. 
 
-Open Tag's Universal Variable has an [`EventList`] (https://github.com/QubitProducts/UniversalVariable#eventlist) object, which stores an array of [`Event`] (https://github.com/QubitProducts/UniversalVariable#event) objects. To meet SnowPlow's needs, we've added a number of fields to the Event object, and implemented an interface to make it straightforward for companies implementing OpenTag to push event data into the `Universal Variable` as / when they occur.
+OpenTag's Universal Variable has an [`EventList`] (https://github.com/QubitProducts/UniversalVariable#eventlist) object, which stores an array of [`Event`] (https://github.com/QubitProducts/UniversalVariable#event) objects. To meet SnowPlow's needs, we've added a number of fields to the Event object, and implemented an interface to make it straightforward for companies implementing OpenTag to push event data into the `Universal Variable` as / when they occur.
 
 The additional fields are:
 
@@ -121,7 +121,7 @@ Once you've got OpenTag implemented on your website, you're in position to setup
 1. [Integrating SnowPlow page tracking tags] (#page-tracking)
 2. [Integrating SnowPlow event tracking tags] (#event-tracking)
 3. [Integrating SnowPlow ecommerce tracking tags] (#ecomm-tracking)
-4. [Committing changes in Open Tag] (#publish)
+4. [Committing changes in OpenTag] (#publish)
 
 <a name="page-tracking" />
 ### 2.1 Integrating SnowPlow page tracking tags in OpenTag
