@@ -16,12 +16,12 @@ The following steps are required to setup OpenTag on your website:
 2. [Expose the data required by OpenTag and SnowPlow Universal Variable](#expose-data)
 3. [Create a container tag in OpenTag, and integrate it into your website](#container)
 
-The steps are reasonably straight forward, especially for anyone familiar with tag management or OpenTag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in step 2.
+The steps are reasonably straight forward, especially for anyone familiar with tag management or OpenTag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in [step 2] (#expose-data).
 
 <a name="create-account" />
 ### 1.1 Create an OpenTag account
 
-You can create an OpenTag account for free by signing up on the [QuBit website] (https://opentag.qubitproducts.com/QDashboard/register.html)
+You can create an OpenTag account for free by signing up on the [QuBit website] (https://opentag.qubitproducts.com/QDashboard/register.html).
 
 [[/setup-guide/images/opentag/1.png]]
 
@@ -44,7 +44,7 @@ The primary way of passing data into OpenTag is using the [`window.universal_var
 
 There is detailed readme on the OpenTag [`Universal Variable` Github page](https://github.com/QubitProducts/UniversalVariable) detailing all the relevant fields for each object and giving practical advice on implementing the `Universal Variable` on your website.
 
-For SnowPlow, the detailed object model provided by OpenTag is great, because it means there's a rich set of dat that can be passed into SnowPlow so that users can analyse e.g. conversion rates by product, or assess the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
+For SnowPlow, the detailed object model provided by OpenTag is great, because it means there's a rich set of page-level data that can be passed into SnowPlow so that users can analyse e.g. conversion rates by product, or the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
 
 However, implementing the `Universal Variable` as documented often is not enough for SnowPlow users. That is because we are not just intested in the contents of web pages when they are loaded, and the specific object and actions identified by OpenTag (e.g. baskets and transactions): we are typically also interested in capturing all interesting events that occur on a web page between page loads (i.e. AJAX events), generally using [event tracking tags](#event-tracking). Examples of types of events we might track in this way are:
 
@@ -77,7 +77,7 @@ When calling it, you need to set the `category`, `action`, `label`, `property` a
 
 As well as enabling easy updating of the `Universal Variable`, the above method also triggers an `OpenTagEvent` in the DOM. We can use this, when configuring SnowPlow event tracking tags in the OpenTag UI to create a [custom starter] (http://opentagsupport.qubitproducts.com/help/kb/technical/implementing-intelligent-tag-based-filtering) to trigger the firing of the SnowPlow event tracking tags.
 
-Note: in order to use the above method, you need to include the `snowplow-events-for-opentag.js`. This is covered [below] (#events-for-opentag-js).
+Note: in order to use the above method, you need to include the `opentag-event-extension.js.` This is covered below.
 
 Once you have integrated the `Universal Variable` on your website, you can use OpenTag to test that data is successfully being passed into it. Instructions on doing so can be found [here] (http://opentagsupport.qubitproducts.com/help/kb/technical/testing-universal-variables).
 
@@ -86,13 +86,13 @@ Once you have integrated the `Universal Variable` on your website, you can use O
 <a name="container" />
 ### 1.3 Create a container tag in OpenTag, and integrate it into your website
 
-We need to create a container tag: this will be placed on every page on your website. This is what calls OpenTag, which then ensures that all the relevant tags that you want to fire from each web page are, indeed, called.
+We need to create a container tag: this will be placed on every page on your website. This is what calls OpenTag, which then ensures that all the relevant tags that you want to fire from each web page are, indeed, fired.
 
-Log into OpenTag, and click the **+CREATE A CONTAINER** button.
+Log into OpenTag, and click the **+ CREATE A CONTAINER** button.
 
 [[/setup-guide/images/opentag/2.png]]
 
-Give your container a name and then save it. (We're going to call ours test.)
+Give your container a name and then save it. (We're going to call ours `test`.)
 
 Now we need to grab the embed code: this is what we'll insert on every page on our website. Click on the **`</> EMBED`** link on the container:
 
@@ -102,7 +102,7 @@ The code appears in a popup. You can copy it to your clipboard directly.
 
 [[/setup-guide/images/opentag/4.png]]
 
-You need to impelemnt this tag on every page of your website, *with* the `snowplow-events-for-opentag.js` file. This file is [hosted] (Hosted-assets) on [[https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/1-trackers/javascript-tracker/tag-management/opentag/opentag-event-extension.js]].
+You need to implement this tag on every page of your website, *with* the `opentag-event-extension.js` file. This file is [hosted] (Hosted-assets) on [[https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/1-trackers/javascript-tracker/tag-management/opentag/opentag-event-extension.js]].
 
 As a result, the code you insert onto every page (the container tag and include for the above Javascript file) will look something this:
 
@@ -297,7 +297,7 @@ _snaq.push(['addTrans',
 for(i=0; i < t.line_items.length; i++){
 	_snaq.push(['addItem',
 		t.order_id || '', 								// transaction Id
-		t.line_items[i].product.id || '', 				// producdt sku
+		t.line_items[i].product.id || '', 				// product sku
 		t.line_items[i].product.name || '' ,			// product name
 		t.line_items[i].product.category || '', 		// product category
 		quote(t.line_items[i].product.unit_sale_price), // product price
@@ -312,7 +312,7 @@ _snaq.push(['trackTrans']);
 
 Copy the above code into the **Inline HTML** box.
 
-The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...])` function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...]) function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
+The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...])` function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...])` function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
 
 #### 2.3.2 Triggering the code to fire on the order confirmation page
 
