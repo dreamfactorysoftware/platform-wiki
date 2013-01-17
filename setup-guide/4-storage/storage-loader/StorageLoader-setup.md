@@ -152,6 +152,8 @@ Each of the bucket variables must start with an S3 protocol - either
 `s3://` or `s3n://`. Each variable can include a sub-folder within the
 bucket as required, and a trailing slash is optional.
 
+**Important:** do not put your Archive Bucket location inside your In Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
+
 The following are examples of valid bucket settings:
 
     :buckets:
