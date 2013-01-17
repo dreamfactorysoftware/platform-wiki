@@ -8,5 +8,8 @@ _Guide to contributing coming soon_
 [[Contributors]]  
 [[Our users]]  
 
+**Guide to contributing**  
+[Documentation](Contributing-to-documentation)  
+
 **About the project**  
 [Copyright & legal](Copyright-and-legal)  
