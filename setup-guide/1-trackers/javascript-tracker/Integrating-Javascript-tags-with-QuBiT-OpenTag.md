@@ -199,7 +199,7 @@ Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give you
 
 We want the `EventTracker` to fire every time the `uvHelpers.trackStructEvent` method is called. The method triggers an `OpenTagEvent` to occur on the DOM: we need to tell OpenTag to trigger the SnowPlow EventTracker tag when that event occurs.
 
-To do this, we need to cinfigure what OpenTag calls a `custom starter`. Click on the **+ Advanced Features** link at the bottom of the screen, and tehn click the **Filter** tab:
+To do this, we need to cinfigure what OpenTag calls a `custom starter`. Click on the **+ Advanced Features** link at the bottom of the screen, and then click the **Filter** tab:
 
 [[/setup-guide/images/opentag/10.png]]
 
@@ -358,5 +358,7 @@ Click on the **COMMIT** button to push the changes live.
 OpenTag asks you to confirm you want to push the changes live. Type "COMMIT" in the box and click the button to do so. It will then take a few minutes (round about 15) for the changes to go live - whilst they're being published, you'll see an alert in the OpenTag UI:
 
 [[/setup-guide/images/opentag/22.png]]
+
+Once the message disappears your tags should be live! 
 
 [Back to top] (#top)
