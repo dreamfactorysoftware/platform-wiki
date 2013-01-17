@@ -183,10 +183,12 @@ Each of the bucket variables must start with an S3 protocol - either
 `s3://` or `s3n://`. Each variable can include a sub-folder within the
 bucket as required, and a trailing slash is optional.
 
-**Important:** there is a bug in Hive on Amazon EMR where Hive dies if 
+**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if 
 you attempt to write data to the root of an S3 bucket. **Therefore
 always specify a sub-folder (e.g. `/events/`) for the `out` bucket
 variable.**
+
+**Important 2:** do not put your Processing Bucket location inside your In Bucket, or your Out Bucket inside your Processing Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
 
 The following are all valid bucket settings:
 
