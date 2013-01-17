@@ -283,10 +283,10 @@ var t=window.universal_variable.transaction;
 
 // First fire the 'addTrans' event for the new transaction
 _snaq.push(['addTrans',
-	t.order_id || '',			// transactionId
-	'',							// transactionAffiliation
-	quote(t.total), 			// transactionTotal
-	quote(t.tax), 				// transactionTax
+	t.order_id || '',		// transactionId
+	'',					// transactionAffiliation
+	quote(t.total), 		// transactionTotal
+	quote(t.tax), 			// transactionTax
 	quote(t.shipping_cost), 	// transactionShipping
 	t.delivery.city || '', 		// city
 	t.delivery.state || '', 	// state
@@ -296,12 +296,12 @@ _snaq.push(['addTrans',
 // Second fire the 'addItem' event for each item included in the transaction
 for(i=0; i < t.line_items.length; i++){
 	_snaq.push(['addItem',
-		t.order_id || '', 								// transaction Id
-		t.line_items[i].product.id || '', 				// product sku
-		t.line_items[i].product.name || '' ,			// product name
-		t.line_items[i].product.category || '', 		// product category
+		t.order_id || '', 					// transaction Id
+		t.line_items[i].product.id || '', 		// product sku
+		t.line_items[i].product.name || '' ,		// product name
+		t.line_items[i].product.category || '', 	// product category
 		quote(t.line_items[i].product.unit_sale_price), // product price
-		quote(t.line_items[i].quantity) 				// product quantity
+		quote(t.line_items[i].quantity) 		// product quantity
 	]);
 }
 
@@ -340,7 +340,7 @@ Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Feat
 
 [[/setup-guide/images/opentag/16.png]]
 
-Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
+Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish).
 
 [Back to top] (#top)
 
