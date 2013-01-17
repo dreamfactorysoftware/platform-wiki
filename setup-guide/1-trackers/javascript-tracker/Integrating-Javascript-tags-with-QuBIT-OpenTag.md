@@ -107,7 +107,7 @@ You need to impelemnt this tag on every page of your website, *with* the `snowpl
 As a result, the code you insert onto every page (the container tag and include for the above Javascript file) will look something this:
 
 ```html
-<script src='//path/to/minified/opentag-event-extension.js'></script>
+<script src='//d1fc8wv8zag5ca.cloudfront.net/opentag/opentag-event-extension.js'></script>
 <script src='//d3c3cq33003psk.cloudfront.net/opentag-67699-450363.js' async defer></script> 
 ```
 
