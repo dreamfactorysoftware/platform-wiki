@@ -172,7 +172,7 @@ If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`,
 
 The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
 
-If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your owon Cloudfront `{{SUBDOMAIN}} (the one from which you serve `sp.js`) in for ours:
+If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js`) in for ours:
 
 	sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
 
@@ -182,7 +182,7 @@ When you've entered the page tracking code, your page will look as follows:
 
 We don't need to change any of the default options: it makes sense, for example, to load the SnowPlow page tracking tag at the beginning of the `<head>` section of the web page. (Because it's an async tag, it wont slow down page loads.)
 
-Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
+Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish).
 
 [Back to top] (#top)
 
@@ -191,7 +191,9 @@ Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
 
 #### 2.2.1 Setting up the event tracking tag to fire at the right time
 
-Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'SnowPlow EventTracker' and selec the checkbox next to **Custom Script**.
+We recommend tracking every single event that might occur on a user's journey, including all AJAX events between page loads. The SnowPlow event tracking tags were built to do this.
+
+Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'SnowPlow EventTracker' and select the checkbox next to **Custom Script**.
 
 [[/setup-guide/images/opentag/9.png]]
 
@@ -242,13 +244,13 @@ while (i--) {
 </script>
 ```
 
-The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwardsm it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page.)
+The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwards it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page in quick succession.)
 
 [[/setup-guide/images/opentag/15.png]]
 
 #### 2.2.3 Ensuring that the event tracking tag only fires _after_ the page tracking tag has fired
 
-The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackEvent` function that is called here.
+The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackEvent` function that is called in the tag.
 
 Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
 
@@ -271,11 +273,7 @@ A new window opens which gives you the opportunity to name the script, and selec
 
 [[/setup-guide/images/opentag/6.png]]
 
-Give the script a suitable name e.g. 'SnowPlow EcommTracker' and select the checkbox by 'Custom Script':
-
-[[/setup-guide/images/opentag/7.png]]
-
-Now we need to enter the SnowPlow ecommerce tracking code:
+Give the script a suitable name e.g. 'SnowPlow EcommTracker' and select the checkbox by 'Custom Script'. Now we need to enter the SnowPlow ecommerce tracking code into the `Inline HTML` text box:
 
 ```html
 <script type="text/javascript">
@@ -314,7 +312,7 @@ _snaq.push(['trackTrans']);
 
 Copy the above code into the **Inline HTML** box.
 
-The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...]) function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...]) function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
+The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...])` function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...]) function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
 
 #### 2.3.2 Triggering the code to fire on the order confirmation page
 
