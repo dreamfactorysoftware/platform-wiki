@@ -195,10 +195,19 @@ Note how similar the SnowPlow Ecommerce tracking is to the [Google equivalent](h
 <head>
 <title>Receipt for your clothing purchase from Acme Clothing</title>
 <script type="text/javascript">
-
   var _snaq = _snaq || [];
-  _snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
-  _snaq.push(['trackPageview']);
+
+  _snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
+  _snaq.push(['trackPageView']);
+  _snaq.push(['enableLinkTracking']);
+
+  (function() {
+  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+  sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+  })();
+
+
   _snaq.push(['addTrans',
     '1234',           // order ID - required
     'Acme Clothing',  // affiliation or store name
@@ -225,12 +234,6 @@ Note how similar the SnowPlow Ecommerce tracking is to the [Google equivalent](h
   // trackTrans sends the transaction to SnowPlow tracking servers.
   // Must be called last to commit the transaction.
   _snaq.push(['trackTrans']); //submits transaction to the Analytics servers
-
-  (function() {
-    var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-    sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/sp.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
-  })();
 
 </script>
 </head>
