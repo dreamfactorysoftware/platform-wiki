@@ -47,7 +47,7 @@ _snaq.push(['enableLinkTracking']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
@@ -71,12 +71,12 @@ By inserting the following code into the `<head>` section of each web page, view
 ```html
 <!-- SnowPlow starts plowing -->
 <script type="text/javascript">
-var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/sp.js';
+var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
 document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
-var snowplowTracker = SnowPlow.getTracker('{{ACCOUNT}}');
+var snowplowTracker = SnowPlow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
 snowplowTracker.trackPageView();
 snowplowTracker.enableLinkTracking();
 } catch ( err ) {}
@@ -84,7 +84,7 @@ snowplowTracker.enableLinkTracking();
 <!-- SnowPlow stops plowing -->
 ```
 
-Note: you will need to update the {{ACCOUNT}} field with an account ID provided by the SnowPlow team (if the SnowPlow team is hosting SnowPlow for you), or the self-generated account ID if you are hosting the SnowPlow Cloudfront collector yourself. Please refer to the [setup guide](https://github.com/snowplow/snowplow/wiki/Integrating-SnowPlow-into-your-website#wiki-self-hosting) for more details.
+Note: you will need to update the {{CLOUDFRONT DOMAIN}} field with an account ID provided by the SnowPlow team (if the SnowPlow team is hosting SnowPlow for you), or the self-generated account ID if you are hosting the SnowPlow Cloudfront collector yourself. Please refer to the [setup guide] (https://github.com/snowplow/snowplow/wiki/Integrating-SnowPlow-into-your-website#wiki-self-hosting) for more details.
 
 [Back to top](#top)
 
@@ -255,11 +255,11 @@ Again, note how similar the SnowPlow Ecommerce tracking is to the [Google equiva
 
 <body>
 
-  Thank you for your order.  You will receive an email containing all your order details.
+<p>Thank you for your order.  You will receive an email containing all your order details.</p>
 
 
 <script type="text/javascript">
-  var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/sp.js';
+  var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
   document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
