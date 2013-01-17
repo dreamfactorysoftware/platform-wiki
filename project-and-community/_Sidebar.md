@@ -1,15 +1,12 @@
 [**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community) > 
 
-**Get involved**  
-[[Talk to us]]  
-_Guide to contributing coming soon_  
-
 **Our community**  
 [[Contributors]]  
 [[Our users]]  
 
-**Guide to contributing**  
-[Documentation](Contributing-to-documentation)  
+**Get involved**  
+[[Talk to us]]  
+[Help with documentation](Contributing-to-documentation)  
 
 **About the project**  
 [Copyright & legal](Copyright-and-legal)  
