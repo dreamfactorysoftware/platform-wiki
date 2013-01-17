@@ -128,7 +128,7 @@ Once you've got OpenTag implemented on your website, you're in position to setup
 
 The most straight forward SnowPlow tags to implement in OpenTag are the page tracking tags.
 
-Go into OpenTag, select your container and click the **`ADD NEW SCRIPT`** button. (OpenTag refer to tags in the UI, confusingly, as 'scripts'.):
+Go into OpenTag, select your container and click the **`+ ADD NEW SCRIPT`** button. (OpenTag refer to tags in the UI, confusingly, as 'scripts'.):
 
 [[/setup-guide/images/opentag/5.png]]
 
@@ -182,10 +182,14 @@ When you've entered the page tracking code, your page will look as follows:
 
 We don't need to change any of the default options: it makes sense, for example, to load the SnowPlow page tracking tag at the beginning of the `<head>` section of the web page. (Because it's an async tag, it wont slow down page loads.)
 
+Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
+
 [Back to top] (#top)
 
 <a name="event-tracking" />
 ### 2.2 Integrating SnowPlow event tracking tags in OpenTag
+
+#### 2.2.1 Setting up the event tracking tag to fire at the right time
 
 Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'SnowPlow EventTracker' and selec the checkbox next to **Custom Script**.
 
@@ -221,6 +225,8 @@ Click the **SAVE FILTER** button. Your new filter should be visible in the list 
 
 [[/setup-guide/images/opentag/14.png]]
 
+#### 2.2.2 Defining the event tracking tag (script) itself. (I.e. what code will fire)
+
 Now we need to enter our script in the `Inline HTML` box. Copy the following code to that box:
 
 ```html
@@ -240,22 +246,119 @@ The above code is  straightforward: it examines the `Events` object in the `Univ
 
 [[/setup-guide/images/opentag/15.png]]
 
+#### 2.2.3 Ensuring that the event tracking tag only fires _after_ the page tracking tag has fired
+
+The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackEvent` function that is called here.
+
+Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
+
+[[/setup-guide/images/opentag/16.png]]
+
 Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
-
-
 
 [Back to top] (#top)
 
 <a name="ecomm-tracking" />
 ### 2.3 Integrating SnowPlow ecommerce tracking tags
 
-Text here
+#### 2.3.1 Creating the ecommerce tracking tag in OpenTag
+
+Go into OpenTag, select your container and click the **`+ ADD NEW SCRIPT`** button. 
+
+[[/setup-guide/images/opentag/5.png]]
+
+A new window opens which gives you the opportunity to name the script, and select the type of script.
+
+[[/setup-guide/images/opentag/6.png]]
+
+Give the script a suitable name e.g. 'SnowPlow EcommTracker' and select the checkbox by 'Custom Script':
+
+[[/setup-guide/images/opentag/7.png]]
+
+Now we need to enter the SnowPlow ecommerce tracking code:
+
+```html
+<script type="text/javascript">
+alert('Transaction object present!');
+
+var t=window.universal_variable.transaction;
+
+// First fire the 'addTrans' event for the new transaction
+_snaq.push(['addTrans',
+	t.order_id || '',			// transactionId
+	'',							// transactionAffiliation
+	quote(t.total), 			// transactionTotal
+	quote(t.tax), 				// transactionTax
+	quote(t.shipping_cost), 	// transactionShipping
+	t.delivery.city || '', 		// city
+	t.delivery.state || '', 	// state
+	t.delivery.country || ''	//country
+]);
+
+// Second fire the 'addItem' event for each item included in the transaction
+for(i=0; i < t.line_items.length; i++){
+	_snaq.push(['addItem',
+		t.order_id || '', 								// transaction Id
+		t.line_items[i].product.id || '', 				// producdt sku
+		t.line_items[i].product.name || '' ,			// product name
+		t.line_items[i].product.category || '', 		// product category
+		quote(t.line_items[i].product.unit_sale_price), // product price
+		quote(t.line_items[i].quantity) 				// product quantity
+	]);
+}
+
+// Finally fire the 'trackTrans' event to commit the transaction
+_snaq.push(['trackTrans']);
+</script>
+```
+
+Copy the above code into the **Inline HTML** box.
+
+The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...]) function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...]) function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
+
+#### 2.3.2 Triggering the code to fire on the order confirmation page
+
+In most cases, you would want the ecommerce tracking to fire on the order confirmation page of your website, once you know that a transaction has been successfully processed. 
+
+If this is the case, we need to tell OpenTag only to fire the EcommTracker on the order confirmation URL. To do so, click on the **Filter** tab under the **Advanced Features** section. You should see the default OpenTag filter present:
+
+[[/setup-guide/images/opentag/17.png]]
+
+Let's edit this filter so we **only** fire the tag on the designated URL. Select to edit the filter by hovering over it, and selecting the **EDIT** button:
+
+[[/setup-guide/images/opentag/18.png]]
+
+Give the filter an appropriate name e.g. "Order confirmation page" and set the options so that the filter correctly matches with the URL on your confirmation page e.g.:
+
+[[/setup-guide/images/opentag/19.png]]
+
+Save the filter.
+
+#### 2.3.3 Ensuring that the EcommTracker fires _after_ the PageTracker
+
+We need to ensure that the `EcommTracker` tag fires _after_ the `PageTracker` tag. That is because it is the `PageTracker` tag that loads the `sp.js` file, with the functions that are called by the `EcommTracker` tag. To do this, we create a dependency.
+
+Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
+
+[[/setup-guide/images/opentag/16.png]]
+
+Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
 
 [Back to top] (#top)
 
 <a name="publish" />
 ### 2.4 Publishing your changes in OpenTag
 
-Text here
+Once you have saved your changes to OpenTag, OpenTag warns that you have pending changes, and gives you the opportunity to **COMMIT** them:
+
+[[/setup-guide/images/opentag/17.png]]
+
+Click on the **COMMIT** button to push the changes live.
+
+[[/setup-guide/images/opentag/20.png]]
+
+OpenTag asks you to confirm you want to push the changes live. Type "COMMIT" in the box and click the button to do so. It will then take a few minutes (round about 15) for the changes to go live - whilst they're being published, you'll see an alert in the OpenTag UI:
+
+[[/setup-guide/images/opentag/22.png]]
 
 [Back to top] (#top)
