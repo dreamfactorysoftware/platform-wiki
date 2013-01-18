@@ -24,7 +24,7 @@ Now install RVM:
 	
 	$ curl -L https://get.rvm.io | bash -s stable
 
-Edit `.bashrc` or `.zshrc` file by adding the following line to the end of the file:
+Edit `~/.bashrc` or `~/.zshrc` file by adding the following line to the end of the file:
 
 	source $HOME/.rvm/scripts/rvm
 
