@@ -30,15 +30,13 @@ Edit `~/.bashrc` or `~/.zshrc` file by adding the following line to the end of t
 
 Save the above file and restart the terminal. (So the file loads.) 
 
-## 3. Install a specific version of Ruby (optional)
+## 3. Install a specific version of Ruby
 
-Now we can install all the required version of Ruby simply e.g:
+Now we can install all the required version of Ruby simply. The SnowPlow Ruby applications use Ruby 1.9.3, so let's install this:
 
 	$ rvm install 1.9.3
 
-(Ruby 1.9.3 is the version we use for SnowPlow Ruby applications.)
-
-To use a particular version enter:
+(Optional) To use a particular version enter:
 
 	$ rvm use 1.9.3
 	$ ruby -v # To check the version
