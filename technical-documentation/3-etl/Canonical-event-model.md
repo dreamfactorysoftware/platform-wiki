@@ -143,16 +143,6 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `cv_session8`        | STRING         | Yes               | No            | _As above_ |
 | `cv_session9`        | STRING         | Yes               | No            | _As above_ |
 | `cv_session10`       | STRING         | Yes               | No            | _As above_ |
-| `cv_event1`          | STRING         | Yes               | No            | Custom variable with scope set to the event level |
-| `cv_event2`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event3`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event4`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event5`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event6`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event7`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event8`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event9`          | STRING         | Yes               | No            | _As above_ |
-| `cv_event10`         | STRING         | Yes               | No            | _As above_ |
 | `cv_context1`        | STRING         | Yes               | No            | Custom variable with scope set to this particular context e.g. page, screen, widget... |
 | `cv_context2`        | STRING         | Yes               | No            | _As above_ |
 | `cv_context3`        | STRING         | Yes               | No            | _As above_ |
@@ -163,4 +153,14 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `cv_context8`        | STRING         | Yes               | No            | _As above_ |
 | `cv_context9`        | STRING         | Yes               | No            | _As above_ |
 | `cv_context10`       | STRING         | Yes               | No            | _As above_ |
+| `cv_event1`          | STRING         | Yes               | No            | Custom variable with scope set to the event level |
+| `cv_event2`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event3`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event4`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event5`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event6`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event7`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event8`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event9`          | STRING         | Yes               | No            | _As above_ |
+| `cv_event10`         | STRING         | Yes               | No            | _As above_ |
 | `cv_json`            | STRING         | Yes               | No            | Field that can be used to stuff any sort of custom event JSON if desired |
