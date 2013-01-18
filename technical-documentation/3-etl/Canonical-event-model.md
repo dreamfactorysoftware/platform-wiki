@@ -123,16 +123,16 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `geo_latitude`       | STRING         | Yes               | No            | Visitor location latitude  |
 | `geo_longitude`      | STRING         | Yes               | No            | Visitor location longitude |
 | **Custom variables** |                |                   |               | _Customer variables_       |
-| `cv_user1`           | STRING         | Yes               | No            | Custom variable with scope set at the `user_id` level. (Ie applies to this user over his / her lifetime ) |
-| `cv_user2`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user3`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user4`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user5`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user6`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user7`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user8`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user9`           | STRING         | Yes               | No            | _As above_ |
-| `cv_user10`          | STRING         | Yes               | No            | _As above_ |
+| `cv_persist1`           | STRING         | Yes               | No            | Custom variable which will persist across sessions (e.g. relates to the app install or the browser user) |
+| `cv_persist2`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist3`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist4`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist5`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist6`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist7`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist8`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist9`           | STRING         | Yes               | No            | _As above_ |
+| `cv_persist10`          | STRING         | Yes               | No            | _As above_ |
 | `cv_session1`        | STRING         | Yes               | No            | Custom variable with scope set at the session (e.g. `visit_id`) level. (Ie applies to this particular user engaged in this particular workflow.) | 
 | `cv_session2`        | STRING         | Yes               | No            | _As above_ |
 | `cv_session3`        | STRING         | Yes               | No            | _As above_ |
