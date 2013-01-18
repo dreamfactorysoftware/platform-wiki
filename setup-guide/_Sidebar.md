@@ -29,4 +29,5 @@
 
 **Common**  
 [[Troubleshooting]]  
+[[Ruby and RVM setup]]  
 [[Hosted assets]]  

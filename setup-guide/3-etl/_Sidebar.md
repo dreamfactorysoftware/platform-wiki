@@ -29,5 +29,5 @@
 
 **Common**  
 [[Troubleshooting]]  
-[Setup Ruby](Setup-Ruby)  
+[[Ruby and RVM setup]]  
 [[Hosted assets]] 

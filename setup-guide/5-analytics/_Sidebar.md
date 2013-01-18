@@ -13,7 +13,7 @@
 
 **3. ETL**  
 [ETL setup: choosing an ETL module](choosing-an-etl-module)  
-[Hive ETL](deploying-the-hive-emr-runner)  
+[Hive ETL](hive-etl-setup)  
 [Scalding / Cascading ETL](scalding-etl-setup) 
 
 **4. Storage**  
@@ -29,5 +29,5 @@
 
 **Common**  
 [[Troubleshooting]]  
-[Setup Ruby](Setup-Ruby)  
+[[Ruby and RVM setup]]  
 [[Hosted assets]] 
