@@ -345,11 +345,15 @@ The recommended way of scheduling the ETL process is as a daily cronjob using th
 shell script available in the SnowPlow GitHub repository at 
 [`/3-etl/emr-etl-runner/bin/snowplow-emr-etl-runner.sh`] [bash-script].
 
-You need to edit this script and update the two variables:
+You need to edit this script and update the three variables:
 
     rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
     RUNNER_PATH=/path/to/snowplow/3-etl/snowplow-emr-etl-runner
     RUNNER_CONFIG=/path/to/your-config.yml
+
+So for example if you installed RVM as the `admin` user, then you would set:
+
+    rvm_path=/home/admin/.rvm
 
 Now, assuming you're using the excellent [cronic] [cronic] as a wrapper for 
 your cronjobs, and that both cronic and Bundler are on your path, you can 
