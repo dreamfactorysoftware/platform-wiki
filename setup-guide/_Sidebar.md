@@ -18,7 +18,7 @@
 
 **4. Storage**  
 [Storage setup: choosing a storage option](choosing-a-storage-module)  
-[**EmrEtlRunner setup**](EmrEtlRunner-setup)  
+[EmrEtlRunner setup](EmrEtlRunner-setup)  
 [S3 / Hive storage setup](s3-hive-storage-setup)  
 [Infobright setup](infobright-storage-setup) 
 
