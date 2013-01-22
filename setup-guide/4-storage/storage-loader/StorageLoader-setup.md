@@ -58,11 +58,7 @@ Also, note that, in theory, StorageLoader should work with [Infobright Enterpris
 To install StorageLoader, first make sure that your server has **all** of the following installed:
 
 1. **Git** - see the [Git Installation Guide] [git-install]
-2. **Ruby** - see the [Ruby Download Instructions] [ruby-install]
-3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install] and the warning below
-4. **Bundler** - this is a one-liner: `gem install bundler`
-
-**Important note:** if you are using a Ruby environment manager such as RVM or rbenv, you may already have some of these installed (e.g. RVM includes RubyGems).
+2. **Ruby and RVM** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
 
 <a name="s3-buckets"/>
 #### S3 buckets
@@ -92,7 +88,26 @@ First, checkout the SnowPlow repository and navigate to the StorageLoader root:
 
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/4-storage/storage-loader
-    
+
+If RVM asks you if you want to trust the `.rvmrc` file, type `y`:
+
+    ==============================================================================
+    = NOTICE                                                                     =
+    ==============================================================================
+    = RVM has encountered a new or modified .rvmrc file in the current directory =
+    = This is a shell script and therefore may contain any shell commands.       =
+    =                                                                            =
+    = Examine the contents of this file carefully to be sure the contents are    =
+    = safe before trusting it! ( Choose v[iew] below to view the contents )      =
+    ==============================================================================
+    Do you wish to trust this .rvmrc file? (/home/admin/apps/snowplow/4-storage/storage-loader/.rvmrc)
+    y[es], n[o], v[iew], c[ancel]> y 
+    Using /home/admin/.rvm/gems/ruby-1.9.3-p374
+
+Next you are ready to install the application on your system:
+
+    $ bundle install --deployment
+
 Next install the application on your system:
 
     $ gem build snowplow-storage-loader.gemspec
@@ -101,7 +116,7 @@ Next install the application on your system:
 Check it worked okay:
 
     $ bundle exec snowplow-storage-loader --version
-    snowplow-storage-loader 0.0.1
+    snowplow-storage-loader 0.0.4
 
 <a name="configuration"/>
 ### Configuration
@@ -282,10 +297,15 @@ To consider each scheduling option in turn:
 The shell script [`/4-storage/storage-loader/bin/snowplow-storage-loader.sh`] [loader-bash]
 runs the StorageLoader app only.
 
-You need to edit this script and update the two variables:
+You need to edit this script and update the three variables at the top:
 
+    rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
     LOADER_PATH=/path/to/snowplow/4-storage/snowplow-storage-loader
     LOADER_CONFIG=/path/to/your-loader-config.yml
+
+So for example if you installed RVM as the `admin` user, then you would set:
+
+    rvm_path=/home/admin/.rvm
 
 Now, assuming you're using the excellent [cronic] [cronic] as a wrapper for 
 your cronjobs, and that both cronic and Bundler are on your path, you can 
@@ -306,13 +326,17 @@ SnowPlow, this is the scheduling option we use.
 
 If you use this script, you can delete any separate cronjob for the EmrEtlRunner alone.
 
-You need to update this script and update the **four** variables at the top:
+You need to update this script and update the **five** variables at the top:
 
+    rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
     RUNNER_PATH=/path/to/snowplow/3-etl/snowplow-emr-etl-runner
     LOADER_PATH=/path/to/snowplow/4-storage/snowplow-storage-loader
-
     RUNNER_CONFIG=/path/to/your-runner-config.yml
     LOADER_CONFIG=/path/to/your-loader-config.yml
+
+So for example if you installed RVM as the `admin` user, then you would set:
+
+    rvm_path=/home/admin/.rvm
 
 Using [cronic] [cronic] as a wrapper, and with cronic and Bundler on your path, configure
 your cronjob like so:
