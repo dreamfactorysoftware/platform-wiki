@@ -222,10 +222,10 @@ command-line options in the next section.
 
 Invoke StorageLoader using Bundler's `bundle exec` syntax:
 
-    $ bundle exec snowplow-storage-loader
+    $ bundle exec bin/snowplow-storage-loader
     
-Note that the `bundle exec` command will only work when you are inside the 
-`storage-loader` folder.
+Note the `bin/` sub-folder, and that the `bundle exec` command will
+only work when you are inside the `storage-loader` folder.
 
 The command-line options for StorageLoader look like this:
 
@@ -233,17 +233,16 @@ The command-line options for StorageLoader look like this:
 
     Specific options:
         -c, --config CONFIG              configuration file
-        -s, --skip download|load         skip work step(s)
+        -s, --skip download,load,archive skip work step(s)
 
     Common options:
         -h, --help                       Show this message
         -v, --version                    Show version
 
-A note on the `--skip` option: this skips the work steps **up to and
-including** the specified step. To give an example: `--skip load` skips
-downloading the logs from In Bucket **and** skips loading the files into
-your Infobright database, i.e. it **only** performs the final archiving
-step.
+A note on the `--skip` option: this skips the work steps listed. So
+for example `--skip download,load` would only run the final archive
+step. This is useful if you have an error in your load and need to
+re-run only part of it.
 
 <a name="running"/>
 ### Running

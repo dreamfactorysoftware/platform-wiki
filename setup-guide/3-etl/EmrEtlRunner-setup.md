@@ -261,10 +261,10 @@ those logs.
 
 Invoke EmrEtlRunner using Bundler's `bundle exec` syntax:
 
-    $ bundle exec snowplow-emr-etl-runner
+    $ bundle exec bin/snowplow-emr-etl-runner
     
-Note that the `bundle exec` command will only work when you are inside the 
-`emr-etl-runner` folder.
+Note the `bin/` sub-folder, and that the `bundle exec` command will
+only work when you are inside the `emr-etl-runner` folder.
 
 The command-line options for EmrEtlRunner look like this:
 
@@ -283,7 +283,8 @@ The command-line options for EmrEtlRunner look like this:
         -h, --help                       Show this message
         -v, --version                    Show version
 
-A note on the `--skip` option: this now takes a list of individual steps to skip. So for example you could run **only** the Hive job with the command-line option:
+A note on the `--skip` option: this takes a list of individual steps to skip.
+So for example you could run **only** the Hive job with the command-line option:
 
     $ bundle exec snowplow-emr-etl-runner --skip staging,archive --config ./config.yml
 
