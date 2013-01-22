@@ -51,10 +51,7 @@ _In theory EmrEtlRunner can be deployed onto a Windows-based server, using the W
 To install EmrEtlRunner, first make sure that your server has **all** of the following installed:
 
 1. **Git** - see the [Git Installation Guide] [git-install]
-2. **Ruby** - see the [Ruby Download Instructions] [ruby-install]
-3. **RubyGems** - see the [RubyGems Installation Instructions] [rubygems-install]
-4. **Nokogiri** - see the [Installing Nokogiri Guide] [nokogiri-install]
-5. **Bundler** - this is a one-liner: `gem install bundler`
+2. **Ruby and RVM** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
 
 #### EC2 key
 
@@ -96,19 +93,32 @@ First, checkout the SnowPlow repository and navigate to the EmrEtlRunner root:
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/3-etl/emr-etl-runner
     
-Next install the application on your system:
+If RVM asks you if you want to trust the `.rvmrc` file, type `y`:
 
-    $ sudo gem build snowplow-emr-etl-runner.gemspec
-    $ sudo gem install snowplow-emr-etl-runner-0.0.5.gem
+    ==============================================================================
+    = NOTICE                                                                     =
+    ==============================================================================
+    = RVM has encountered a new or modified .rvmrc file in the current directory =
+    = This is a shell script and therefore may contain any shell commands.       =
+    =                                                                            =
+    = Examine the contents of this file carefully to be sure the contents are    =
+    = safe before trusting it! ( Choose v[iew] below to view the contents )      =
+    ==============================================================================
+    Do you wish to trust this .rvmrc file? (/home/admin/apps/snowplow/3-etl/emr-etl-runner/.rvmrc)
+    y[es], n[o], v[iew], c[ancel]> y 
+    Using /home/admin/.rvm/gems/ruby-1.9.3-p374
+
+Next you are ready to install the application on your system:
+
+    $ bundle install --deployment
 
 Check it worked okay:
 
-    $ bundle exec snowplow-emr-etl-runner --version
-    snowplow-emr-etl-runner 0.0.5
+    $ bundle exec bin/snowplow-emr-etl-runner --version
+    snowplow-emr-etl-runner 0.0.8
 
-If you have any problems installing, it may be because of a missing dependency on the 
-Nokogiri library. See the [Installing Nokogiri] [nokogiri-install] guide for help 
-installing Nokogiri in your system.
+If you have any problems installing, please double-check that you have successfully 
+completed our [Ruby and RVM setup guide](Ruby-and-RVM-setup).
 
 <a name="configuration"/>
 ### Configuration
@@ -337,6 +347,7 @@ shell script available in the SnowPlow GitHub repository at
 
 You need to edit this script and update the two variables:
 
+    rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
     RUNNER_PATH=/path/to/snowplow/3-etl/snowplow-emr-etl-runner
     RUNNER_CONFIG=/path/to/your-config.yml
 
