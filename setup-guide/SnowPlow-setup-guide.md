@@ -17,6 +17,7 @@ Setting up SnowPlow involves setting up one of each of the five modules that mak
 
 ## 3. ETL
 [ETL setup: choosing an ETL module](choosing-an-etl-module)  
+[EmrEtlRunner setup](EmrEtlRunner-setup)  
 [Hive ETL](hive-etl-setup)  
 [Scalding / Cascading ETL](scalding-etl-setup)  
 

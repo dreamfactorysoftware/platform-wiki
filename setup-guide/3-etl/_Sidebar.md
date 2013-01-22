@@ -19,9 +19,9 @@
 
 **4. Storage**  
 [Storage setup: choosing a storage option](choosing-a-storage-module)  
+[StorageLoader setup](StorageLoader-setup)  
 [S3 / Hive storage setup](s3-hive-storage-setup)  
-[Infobright setup](infobright-storage-setup) 
-[StorageLoader setup]()
+[Infobright setup](infobright-storage-setup)  
 
 **5. Analytics**  
 [Analytics setup](analytics-setup)  

@@ -13,14 +13,15 @@
 
 **3. ETL**  
 [ETL setup: choosing an ETL module](choosing-an-etl-module)  
-[**EmrEtlRunner setup**](EmrEtlRunner-setup)  
+[EmrEtlRunner setup](EmrEtlRunner-setup)  
 [Hive ETL](hive-etl-setup)  
 [Scalding / Cascading ETL](scalding-etl-setup) 
 
 **4. Storage**  
 [Storage setup: choosing a storage option](choosing-a-storage-module)  
+[StorageLoader setup](StorageLoader-setup)  
 [S3 / Hive storage setup](s3-hive-storage-setup)  
-[Infobright setup](infobright-storage-setup) 
+[Infobright setup](infobright-storage-setup)  
 
 **5. Analytics**  
 [Analytics setup](analytics-setup)  
