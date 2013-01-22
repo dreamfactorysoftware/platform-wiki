@@ -13,6 +13,7 @@
 
 **3. ETL**  
 [ETL setup: choosing an ETL module](choosing-an-etl-module)  
+[**EmrEtlRunner setup**](EmrEtlRunner-setup)  
 [Hive ETL](hive-etl-setup)  
 [Scalding / Cascading ETL](scalding-etl-setup) 
 
