@@ -23,6 +23,7 @@ Setting up SnowPlow involves setting up one of each of the five modules that mak
 
 ## 4. Storage
 [Storage setup: choosing a storage option](choosing-a-storage-module)  
+[StorageLoader setup](StorageLoader-setup)  
 [S3 / Hive setup](s3-hive-storage-setup)  
 [Infobright setup](infobright-storage-setup)  
 
