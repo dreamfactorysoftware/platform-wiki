@@ -28,7 +28,7 @@ Edit `~/.bashrc` or `~/.zshrc` file by adding the following line to the end of t
 
 	source $HOME/.rvm/scripts/rvm
 
-Save the above file and restart the terminal. (So the file loads.) 
+Save the above file and **close this terminal** before proceeding. That way any further configuration or installation work will be RVM-aware. 
 
 ## 3. Install a specific version of Ruby
 
