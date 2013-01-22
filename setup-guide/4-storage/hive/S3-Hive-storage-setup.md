@@ -14,4 +14,4 @@ However, there are some disadvantages:
 
 ## Setting up S3 / Hive storage
 
-Currently there is no setup required to store your data on S3 / Hive - as this is handled automatically for you by the [EMR ETL Runner] (deploying-emretlrunner) used to perform the [etl] (hive-etl-setup). As a result, if you are in the process of setting up SnowPlow, and you have already set up your [collector](choosing-a-collector) and [tracker](choosing a tracker), we recommend proceeding to the [ETL setup](choosing an etl module) stage of the setup process.
+Currently there is no setup required to store your data on S3 / Hive - as this is handled automatically for you by the [EMR ETL Runner] (EmrEtlRunner-setup) used to perform the [etl] (hive-etl-setup). As a result, if you are in the process of setting up SnowPlow, and you have already set up your [collector](choosing-a-collector) and [tracker](choosing a tracker), we recommend proceeding to the [ETL setup](choosing an etl module) stage of the setup process.

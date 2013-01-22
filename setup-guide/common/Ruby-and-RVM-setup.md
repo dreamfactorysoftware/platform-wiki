@@ -47,7 +47,7 @@ Any SnowPlow Ruby projects should have a `.rvmrc` file in their root, which spec
 
 That's it! You are now ready to install any SnowPlow Ruby application, such as:
 
-1. [EmrEtlRunner](Deploying-EmrEtlRunner)
+1. [EmrEtlRunner](EmrEtlRunner-setup)
 2. [StorageLoader](StorageLoader-setup)
 
 [ruby]: http://www.ruby-lang.org/en/

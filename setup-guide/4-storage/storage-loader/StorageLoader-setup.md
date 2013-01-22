@@ -37,7 +37,7 @@ This guide will take you through installing and configuring StorageLoader on you
 
 This guide assumes that you have already:
 
-1. [Set up EmrEtlRunner](Deploying-EmrEtlRunner) to process SnowPlow events and warehouse them on Amazon S3
+1. [Set up EmrEtlRunner](EmrEtlRunner-setup) to process SnowPlow events and warehouse them on Amazon S3
 2. [Set up Infobright Community Edition (ICE)](Infobright-storage-setup) ready to store those same SnowPlow events
 
 If you have not completed these two steps yet, then please follow the linked setup guides.
