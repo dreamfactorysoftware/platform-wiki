@@ -106,14 +106,9 @@ Next you are ready to install the application on your system:
 
     $ bundle install --deployment
 
-Next install the application on your system:
-
-    $ gem build snowplow-storage-loader.gemspec
-    $ sudo gem install snowplow-storage-loader-0.0.1.gem
-
 Check it worked okay:
 
-    $ bundle exec snowplow-storage-loader --version
+    $ bundle exec bin/snowplow-storage-loader --version
     snowplow-storage-loader 0.0.4
 
 <a name="configuration"/>
