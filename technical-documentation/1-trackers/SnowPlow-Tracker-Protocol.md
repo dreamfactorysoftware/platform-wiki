@@ -243,7 +243,7 @@ Back to [complete list of parameters](#allparams).
 
 | **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `e`           | `event`          | Event type                    | No               | (See table below)         |
+| `e`           | `event`          | Event type                    | Yes              | (See table below)         |
 | `tid`         | `txn_id`         | Unique transaction / event ID | Yes              | 508780                    |
 
 **Potential `event` values**
@@ -252,7 +252,7 @@ Back to [complete list of parameters](#allparams).
 |:--------------------------|:--------------|
 | Page view                 | `pv`          |
 | Page ping                 | `pp`          |
-| Log link                  | `linkType`    |
+| Log link                  | TBD           |
 | Custom event              | `ev`          |
 | Ad impression             | `ad`          |
 | Transaction               | `tr`          |
