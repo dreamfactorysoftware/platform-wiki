@@ -14,6 +14,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Gilles Moncaubeig](https://github.com/moncaubeig) @ [OverBlog] [overblog] (user fingerprinting and Infobright improvements)
 * [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL improvements)
 * [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
+* [Angus Mark](https://github.com/ngsmrk) @ [Simply Business] [simply-business] (JavaScript tracker fixes)
 
 Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/rathko).
 
@@ -23,3 +24,4 @@ Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/r
 [overblog]: www.over-blog.com/
 [meltmedia]: http://meltmedia.com/
 [verycd]: http://www.verycd.com/
+[simply-business]: http://www.simplybusiness.co.uk/
