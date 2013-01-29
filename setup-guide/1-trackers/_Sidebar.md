@@ -3,6 +3,7 @@
 **1. TRACKERS**  
 [**Tracker setup: choosing a tracker**](choosing-a-tracker)  
 [**Javascript tracker setup**](javascript-tracker-setup)  
+[**No-JS tracker setup**](no-js-tracker-setup)  
 [**iOS tracker setup**](ios-tracker-setup)  
 
 **2. Collectors**  

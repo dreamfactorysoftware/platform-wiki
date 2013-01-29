@@ -9,6 +9,7 @@
 ## Tracker documentation
 
 [Javascript tracker (snowplow.js)](snowplow-js)  
+[No-JS tracker (pixel tracker)](no-js-tracker)
 [iOS tracker](ios)  
 [SnowPlow Tracker Protocol](snowplow-tracker-protocol) 
 

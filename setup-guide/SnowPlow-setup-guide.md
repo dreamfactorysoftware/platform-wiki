@@ -7,6 +7,7 @@ Setting up SnowPlow involves setting up one of each of the five modules that mak
 ## 1. Trackers
 [Tracker setup: choosing a tracker](choosing-a-tracker)  
 [Javascript tracker setup](javascript-tracker-setup)  
+[No-JS tracker setup](no-js-tracker-setup)  
 [iOS tracker setup](ios-tracker-setup)  
 
 ## 2. Collectors
