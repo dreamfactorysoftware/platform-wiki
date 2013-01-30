@@ -5,6 +5,7 @@ This guide covers:
 1. [What is the No-JS tracker](#what)
 2. [Anatomy of a No-JS tracking tag](#anatomy)
 3. [The tag-generating wizard](#wizard)
+4. [Using the No-JS tracker with the Clojure collector](#clojure)
 
 <a name="what" />
 ## 1. What is the No-JS tracker?
@@ -34,6 +35,7 @@ Some things to note about the tag:
 2. The endpoint is set to a Clojure collector that we are running at `collector.snplow.com`.
 3. Five data points are passed on the query string: the event type (`pageview`), the page name (`Root README`), the URL (`http://github.com/snowplow/snowplow`), the application id (`snowplow`), the platform (`web`) and the tracker version (`no-js-0.1.0`)
 
+<a name="wizard" />
 ## 3. The tag-generating wizard
 
 The [[wizard]] generates the a tracking tag given:
@@ -45,6 +47,13 @@ The [[wizard]] generates the a tracking tag given:
 * The application ID
 
 It takes care of URL encoding of values (e.g. for page title).
+
+<a name="clojure" />
+## 4. Using the No-JS tracker with the Clojure collector 
+
+When using the No-JS tracker with the Clojure collector, the Clojure collector sets a `user_id` and drops this on a browser cookie.
+
+Care must therefore be exercised when using the No-JS tracker on domains that you do not own. **It is your responsibility to abide by the terms and conditions of any domain owner for domains where you post content including uploading No-JS tracking tags.** Some domain owners forbid 3rd parties from dropping cookies on their domains. It is your responsibility to ensure you do not violate the terms and conditions of any domain owners that you work with.
 
 
 [wizard]: http://snowplowanalytics.com/no-js-tracker.html
