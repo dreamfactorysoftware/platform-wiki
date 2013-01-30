@@ -14,11 +14,13 @@
 
 SnowPlow trackers fire _events_, which are `GET` requests of a [SnowPlow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET`  requests, trackers can pass data into the collectors, for processing by SnowPlow. 
 
-The SnowPlow Tracker Protocol is the list of all the parameters that SnowPlow trackers use when firing events to push data into the [SnowPlow collectors] (collectors). Each parameter maps onto one or more fields in the [SnowPlow events table] (canonical-data-structure) employed in storage. Here we document which field in the [SnowPlow events table] (canonical-data-structure) each parameter added to the query string maps onto. 
+The SnowPlow Tracker Protocol is the list of all the parameters that SnowPlow trackers use when firing events to push data into the [SnowPlow collectors] (collectors). Each parameter maps onto one or more fields in the [SnowPlow events table] (canonical-event-model) employed in storage. Here we document which field in the [SnowPlow events table] (canonical-event-model) each parameter added to the query string maps onto. 
 
 SnowPlow has been architected to be as easy as possible for developers to create their own alternative subsystems. This documentation should be used by anyone who would like to build their own tracker: by utilising the parameters documented here, the author of a new tracker can be confident that his / her tracker will work with the rest of the SnowPlow stack, and be confident where the values associated with each parameter on every call will be available to query in SnowPlow, whether that's in Hive or Infobright or another database.
 
 Please note that the end point where the `GET` request should be made depends on which [collector](collectors) is used. Refer to the [collectors](collectors) documentation for more information.
+
+In the [first part of this guide](#common), we cover the parameters in the SnowPlow tracker protocol that are common across different event types. [In the second part](#events), we document the parameters that are relevant for specific events that are recognised in the SnowPlow event model. Please note: this model is evolving over time as we incorporate more events and grow the set of fields associated with each of the standard events. In all cases, we do our best to ensure that any changes are backwards compatible. (So we are happy adding new parameters, but do not remove parameters once they have been incorporated.)
 
 [Back to top](#top)
 
