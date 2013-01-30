@@ -174,15 +174,15 @@ Back to [top](#top).
 
 At it's heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events
 
-3.1 [Pageview tracking](#pageview)
-3.2 [Page pings](#pagepings)
-3.3 [Link click](#linkclick)
-3.4 [Custom event tracking](#event)
-3.5 [Ad impression tracking](#adimp)
-3.6 [Ecommerce transaction tracking](#ecomm)
-3.7 [Social tracking](#social)
-3.8 [Item view](#item)
-3.9 [Error tracking](#error)
+3.1 [Pageview tracking](#pageview)  
+3.2 [Page pings](#pagepings)  
+3.3 [Link click](#linkclick)  
+3.4 [Custom event tracking](#event)  
+3.5 [Ad impression tracking](#adimp)  
+3.6 [Ecommerce transaction tracking](#ecomm)  
+3.7 [Social tracking](#social)  
+3.8 [Item view](#item)  
+3.9 [Error tracking](#error)  
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
 
