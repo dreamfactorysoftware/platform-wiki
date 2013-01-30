@@ -2,7 +2,7 @@
 
 This guide covers:
 
-1. [What is the No-JS tracker](#what)
+1. [What is the No-JS tracker?](#what)
 2. [Anatomy of a No-JS tracking tag](#anatomy)
 3. [The tag-generating wizard](#wizard)
 4. [Using the No-JS tracker with the Clojure collector](#clojure)
