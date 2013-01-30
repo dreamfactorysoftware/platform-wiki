@@ -174,21 +174,23 @@ Back to [top](#top).
 <a name="events" />
 ## 3. Event tracking
 
-At it's heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events
+At it's heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
 
-3.1 [Pageview tracking](#pageview)  
-3.2 [Page pings](#pagepings)  
-3.3 [Link click](#linkclick)  
-3.4 [Custom event tracking](#event)  
-3.5 [Ad impression tracking](#adimp)  
-3.6 [Ecommerce transaction tracking](#ecomm)  
-3.7 [Social tracking](#social)  
-3.8 [Item view](#item)  
-3.9 [Error tracking](#error)  
+|    | **Type of tracking**          | **Event type (value of `e`)** |
+|:---|:------------------------------|:--------------------------|
+| 3.1| [Pageview tracking](#pageview)| `pv`                      | 
+| 3.2| [Page pings](#pagepings)      | `pp`                      |  
+| 3.3| [Link click](#linkclick)      | TBD                       | 
+| 3.4| [Custom event tracking](#event)| `c`                      |  
+| 3.5| [Ad impression tracking](#adimp)| `ad`                    |  
+| 3.6| [Ecommerce transaction tracking](#ecomm) | `tr` and `ti`  |  
+| 3.7| [Social tracking](#social)    | TBD                       |  
+| 3.8| [Item view](#item)            | TBD                       |  
+| 3.9| [Error tracking](#error)      | TBD                       |  
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
 
-In each case, we use the `&e` parameter to indicate the type of event that is being tracked by SnowPlow. For details see [here](#events2).
+In each case, we use the `&e` parameter to indicate the type of event that is being tracked by SnowPlow to the value indicated in the above table
 
 <a name="pageview" />
 ### 3.1 Pageview tracking
