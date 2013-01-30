@@ -35,9 +35,9 @@ Navigate to the [wizard] [no-js-wizard].
 
 **4. You may optionally enter a page URL**. Both the Clojure Collector and Cloudfront collector will be able to deduce the URL directly (without relying on a value entered in a query string), so this can be safely left out if you wish.
 
-**5. Select the type of collector you're using and enter either the Cloudfront subdomain (if you're running the Cloudfront collector) or the collector URL (if you're running the Clojure collector)**.
+**5. Select the type of collector you're using and enter the relevant details.** If you're using the Cloudfront collector you will need to enter the Cloudfront subdomain. If you're using the Clojure collector (or any other collector) you will need to enter the or the endpoint collector URL.
 
-**6. Select the `Generate No-JS tracking tag** button. The tracking code will be displayed below the wizard. Copy this to the clipboard.
+**6. Select the `Generate No-JS tracking tag button**. The tracking code will be displayed below the wizard. Copy this to the clipboard.
 
 <a name="embed" />
 ### 3. Insert the tracking code into the page you wish to track
@@ -51,7 +51,7 @@ The behaviour of the No-JS tracker is very different if used with the Clojure co
 
 When used with the Cloudfront collector, no `user_id` is set, because this has to be done client-side using Javascript. As a result, we **cannot** use the data to count e.g. the number of unique views of an HTML email or a Github README that contain the No-JS tracking tag. This limits the scope of the analysis that can be performed on the data.
 
-On the other hand, when used with the Clojure collector, a `user_id` is set. That is because it is set server side. The Clojure collector then drops a cookie with the stored `user_id` on the users browsers. If you were using this to track views of Github READMEs, for example, you would then be able to track specific user browsing behaviour across your site and your Github repos.
+On the other hand, when used with the Clojure collector, a `user_id` is set. That is because it is set server side. The Clojure collector then drops a cookie with the stored `user_id` on the user's browsers. If you were using this to track views of Github READMEs, for example, you would then be able to track specific user browsing behaviour across your site and your Github repos.
 
 That is great from an analytics perspective. However, you need to make sure that you are not violating the terms and conditions of any service providers by dropping the cookie. For example, [eBay expressively forbid the dropping of cookies on product listings] [ebay-prohibit]. It is **your** responsibility to make sure you abide by the terms and conditions of any service providers you use, when employing that No-JS tracker, in particular in conjunction with the Clojure collector. if you are tracking behaviour on domains that are not your own, **it is your responsibility to abide by the terms and conditions of that domain owner**. 
 
