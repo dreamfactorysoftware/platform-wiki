@@ -12,7 +12,7 @@
 <a name="overview" />
 ## 1. Overview
 
-SnowPlow trackers fire _events_, which are `GET` requests of a [SnowPlow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET` or `POST` requests, trackers can pass data into the collectors, for processing by SnowPlow. 
+SnowPlow trackers fire _events_, which are `GET` requests of a [SnowPlow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET`  requests, trackers can pass data into the collectors, for processing by SnowPlow. 
 
 The SnowPlow Tracker Protocol is the list of all the parameters that SnowPlow trackers use when firing events to push data into the [SnowPlow collectors] (collectors). Each parameter maps onto one or more fields in the [SnowPlow events table] (canonical-data-structure) employed in storage. Here we document which field in the [SnowPlow events table] (canonical-data-structure) each parameter added to the query string maps onto. 
 
@@ -25,8 +25,8 @@ Please note that the end point where the `GET` request should be made depends on
 <a name="common" />
 ## 2. Common field types 
 
-2.1 [Common parameters (platform and event independent)](#common-params)
-2.2 [Web-specific parameters (applicable across all events captured on the web)](#web)
+2.1 [Common parameters (platform and event independent)](#common-params)  
+2.2 [Web-specific parameters (applicable across all events captured on the web)](#web)  
 
 ### 2.1. Common parameters (platform and event independent)
 
@@ -136,22 +136,25 @@ We intend to build out the list of device related properties over time.
 In addition, there is a set of browser-specific parameters that only makes sense to record for events that happen on web platforms (`p=web`). These parameters are relevant across **all** web events, regardless of the event type. (E.g. if it is a pageview, pageping, transaction, media play etc...)
 
 
-| **Parameter** | **Maps to**      | **Type** |**Description**                                     | **Implemented?** | **Example values**| 
-|:--------------|:-----------------|:----------------------------------------------------|:-----------------|:------------------|
-| `fp`          | `user_fingerprint` | integer |User identifier based on (hopefully unique) browser features | yes |                     |
+| **Parameter** | **Maps to**      | **Type** |**Description**                                      | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:----------------------------------------------------|:-----------------|:------------------|
+| `url`         | `page_url`       | text     | Page URL                                            | Yes              | `http%3A%2F%2Ftest.psybazaar.com%2F2-tarot-cards` |
+| `page`        | `page_title`     | text     | Page title                                          | Yes              | `Tarot%20cards`   |
+| `refr`        | `page_referrer`  | text     | Referrer URL                                        | Yes              | `http%3A%2F%2Ftest.psybazaar.com%2F` |
+| `fp`          | `user_fingerprint`| integer | User identifier based on (hopefully unique) browser features | Yes     |                   |
 | `ctype`       | `connection_type`| text     | Type of connection                                  | No               |                   |
 | `cookie`      | `br_cookies`     | boolean  | Does the browser permit cookies?                    | Yes              | `1`               |
 | `lang`        | `br_lang`        | text     | Language the browser is set to                      | Yes              | `en-US`           |
-| `f_pdf`       | `br_features` or `br_features_pdf` | boolean |Adobe PDF plugin installed?       | Yes              | `1`               |
-| `f_qt`        | `br_features` or `br_features_quicktime` | boolean | Quicktime plugin installed? | Yes              | `0`               |
-| `f_realp`     | `br_features` or `br_features_realplayer` | boolean | Yes    | Realplayer plugin installed?         |`0`                |
-| `f_wma`       | `br_features` or `br_features_windowsmedia` | boolean | Windows media plugin instlaled? | Yes       | `0`               |
-| `f_dir`       | `br_featurse` or `br_features_director` | boolean | Director plugin installed?   | Yes              | `0`               |
-| `f_fla`       | `br_featurse` or `br_features_flash`    | boolean | Flash plugin installed?      | Yes              | `1`               |
-| `f_java`      | `br_featurse` or `br_features_java`     | boolean | Java plugin installed?       | Yes              | `1`               |
-| `f_gears`     | `br_featurse` or `br_features_gears`    | boolean | Google gears installed?      | Yes              | `1`               |
-| `f_ag`        | `br_featurse` or `br_features_silverlight` | boolean | Silverlight plugin installed? | Yes          | `1`               |
-| `cd`          | `br_colordepth`  | Browser color depth   | integer |                             | Yes              | `24`              |
+| `f_pdf`       | `br_features` or `br_features_pdf` | boolean |Adobe PDF plugin installed?         | Yes              | `1`               |
+| `f_qt`        | `br_features` or `br_features_quicktime` | boolean | Quicktime plugin installed?  | Yes              | `0`               |
+| `f_realp`     | `br_features` or `br_features_realplayer` | boolean   | Realplayer plugin installed?    | Yes        | `0`               |
+| `f_wma`       | `br_features` or `br_features_windowsmedia` | boolean | Windows media plugin instlaled? | Yes        | `0`               |
+| `f_dir`       | `br_featurse` or `br_features_director` | boolean | Director plugin installed?   | Yes               | `0`               |
+| `f_fla`       | `br_featurse` or `br_features_flash`    | boolean | Flash plugin installed?      | Yes               | `1`               |
+| `f_java`      | `br_featurse` or `br_features_java`     | boolean | Java plugin installed?       | Yes               | `1`               |
+| `f_gears`     | `br_featurse` or `br_features_gears`    | boolean | Google gears installed?      | Yes               | `1`               |
+| `f_ag`        | `br_featurse` or `br_features_silverlight` | boolean | Silverlight plugin installed? | Yes           | `1`               |
+| `cd`          | `br_colordepth`  | Browser color depth   | integer |                             | Yes               | `24`              |
 
 
 <a name="events" />
@@ -448,118 +451,12 @@ This functionality has not been developed yet. When it is, it will be documented
 
 This functionality has not been developed yet. When it is, it will be documented here.
 
-<a name="allparams" />
-## 3. Complete list of field names and parameters
-
-1. [Application parameters](#appid)  
-2. [Date / time parameter](#timestamp)  
-3. [Event / transaction parameters](#event2)  
-4. [SnowPlow tracker version](#version)  
-5. [User related parameters](#user)  
-6. [Page level parameters](#page)  
-7. [Custom event tracking parameters](#events3)
-8. [Social parameters](#social2)
-9. [Ecommerce parameters](#ecomm3)
-10. [Custom variables](#custom_variables)
-11. [Browser and OS parameters](#browserandos)
-
-<a name="appid" />
-### 3.1 Application parameters
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `aid`         | `app_id`         | Unique identifier for website / application    | Yes | `angry-birds-android` |
-| `p`           | `platform`       | The platform the app runs on  | No               | `ios`, `web`, `win-8`     |
-
-The application ID parameter is used to distinguish data from different website and applications.
-
-As a SnowPlow user, you can define application IDs for each of your different ditial products and track behaviour of your users across all of them using the same SnowPlow instance by setting the `app_id` in your tracker of choice.
-
-**Potential platform values**: (to finalise and complete...)
-
-| **Platform**                 | **`pl` value** |
-|:-----------------------------|:---------------|
-| Web                          | `w`            | 
-| iOS                          | `iOS`          |
-| Android                      | `a`            |
-| Windows                      | `win`          |
-| Blackberry                   | `b`            |
-| ...                          |                |
-
-Back to [complete list of parameters](#allparams).
-
-<a name="timestamp" />
-### 3.2 Date / time parameter
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `tstamp`      | `dt` and `tm`    | Timestamp when event occurred | Yes              |                           |
-| `tz`          | `os_timezone`    | Operating system time zone    | Yes              | `Europe%2FLondon`
-
-For some trackers e.g. the [Javascript tracker](javascript-tracker), tracking happens in real-time: so when an event occurs on a website being tracked, a SnowPlow event is fired almost simultaneously to record the event. For this type of setup, there is no need to explicitly track the timestamp for the event, as this can be inferred from the timestamp recorded on the collector log. (I.e. when the event fired was received by the collector.)
-
-For some trackers e.g. those that work on mobile platforms, it may not be optimal to fire tracking events as the events occur in real time: it may make more sense to store them locally and fire them the there is bandwidth available, for example. In these cases we cannot rely on the collector for the timestamp data because the collector may only receive the data some time after the event occured. In these situations we need to store the timestamp for each event when it occurs, and communicate that data to the collector using the `tstamp` parameter.
-
-Back to [complete list of parameters](#allparams).
-
-<a name="event2" />
-### 3.3 Event / transaction parameters
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `e`           | `event`          | Event type                    | Yes              | (See table below)         |
-| `tid`         | `txn_id`         | Unique transaction / event ID. Used to de-dupe records | Yes              | 508780                    |
-
-**Potential `event` values**
-
-| **Event type**            | **`e` value** |
-|:--------------------------|:--------------|
-| Page view                 | `pv`          |
-| Page ping                 | `pp`          |
-| Log link                  | TBD           |
-| Custom event              | `ev`          |
-| Ad impression             | `ad`          |
-| Transaction               | `tr`          |
-| Transaction item          | `ti`          |
-
-
-Back to [complete list of parameters](#allparams).
-
-<a name="version" />
-### 3.4 SnowPlow Tracker Version
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `tv`          | `v_tracker`      | Identifier for SnowPlow tracker | No             | `js-0.5.1`                |
-
-For deployments where multiple trackers are used (e.g. to track user behaviour across many platforms), it is useful to be able to distinguish data generated from each tracker. It can also be useful when tracker versions are updated, so that it is easier to see if an update in tracker accounts for a feature of the data at analysis time.
-
-Back to [complete list of parameters](#allparams).
-
-
-<a name="user" />
-### 3.5 User related parameters
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `uid`         | `user_id`        | Unique identifier for user    | Yes              | `aeb1691c5a0ee5a6`        |
-| `vid`         | `visit_id`       | Visit / session identifier for this user e.g. `1` is first visit | Yes       | `1`, `2`...|
-
-We recommend **always** setting the `uid` / `user_id` parameter: as this is the cornerstone of all customer-centric analytics.
-
-In contrast, setting `vid` / `visit_id` is optional. It is possible to define when sessions begin and end client-side, in the tracker. But it is equally possible to define session start and stop times at the ETL or analytics phase, in which case it need not be set in the tracker at all. Note: Google Analytics defines sessions server side.
-
-Back to [complete list of parameters](#allparams).
-
 
 <a name="page" />
 ### 3.6 Page-level parameters
 
 | **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `url`         | `page_url`       | Page URL                      | Yes              | `http%3A%2F%2Ftest.psybazaar.com%2F2-tarot-cards` |
-| `page`        | `page_title`     | Page title                    | Yes              | `Tarot%20cards  `         |
-| `refr`        | `page_referrer`  | Unique identifier for user    | Yes              | `http%3A%2F%2Ftest.psybazaar.com%2F` |
 
 For website tracking, page-level parameters are essential for pageview events. However, they may also be set on other events (e.g. add-to-baskets, or social interactions) so that an analyst can explore to what extent those actions are more prevalant on some pages than others.
 
