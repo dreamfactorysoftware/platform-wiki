@@ -1,20 +1,111 @@
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Storage**](storage documentation)
 
+<a name="top" />
 # Canonical data structure  
 
+1. [Overview](#overview)  
+2. [The SnowPlow canonical data structure: understanding the individual fields](#model)  
+3. [A note about data storage formats](#note)  
+
+<a name="overview" />
+## 1. Overview
+
+In order to analyse SnowPlow data, it is important to understand how it is structured. We have tried to make the structure of SnowPlow data as simple, logical, and easy-to-query as possible.
+
 * **Single table** SnowPlow data is stored in a single, "fat" (many columns) table. We call this the *SnowPlow events table*
-* **Each line represents one event**. Each line in the table represents a single *event*, be that a page view, add to basket, play video etc, facebook-like etc.
+* **Each line represents one event**. Each line in the table represents a single *event*, be that a *page view*, *add to basket*, *play video*, *like* etc.
 * **Immutable log**. The SnowPlow data table is designed to be immutable: the data in each line should not change over time. Data points that we would expect to change over time (e.g. what cohort a particular user belongs to, how we classify a particular visitor) can be derived from SnowPlow data. However, our recommendation is that these derived fields should be defined and calculated at analysis time, stored in a separate table and joined to the *SnowPlow events table* when performing any analysis
+* **Structured events**. SnowPlow explicitly recognises particular events that are common in web analytics (e.g. page views, transactions, ad impressions) as 'first class citizerns'. We have a model for the types of fields that may be captured when those events occur, and specific columns in the database that correspond to those fields
+* **Unstructured events**. We intend to build out support for unstructured events. (So that SnowPlow users will be able to construct their own arbritary JSONs of fields for their own event types.) When supported, these JSONs will be stored as-is e.g. in a single 'unstructured event' column in Hive
+* Whilst some fields are event specific (e.g. `tr_city` representing the city in a delivery address for an online transaction), others are platform specific (e.g. `page_url` for events that occur on the web) and some are relevant across platforms, devices and events (e.g. `dt` and `tm`, the date and time an event occurs, or `app_id`, the application ID).
+* **Evolving over time**. We are building out the canonical data structure to make its understanding of individual event-types richer (more events, more fields per events) and to support more platforms. This needs to be done in a collaborative way with the SnowPlow community, so that the events and fields that you need to track can easily be accommodated in this data structure. Please [get in touch] (Talk-to-us) to discuss your ideas and requirements
 
-### Contents
+<a name="model" />
+## 2. The SnowPlow canonical data structure: understanding the individual fields
 
-1. [Current SnowPlow data structure](#current)
-2. [Future SnowPlow data structure](#future)
-3. [S3 / Hive storage](s3-apache-hive-storage)
-4. [Infobright storage](infobright-storage)
+2.1 [Common fields (platform and event independent)](#common)
+	2.1.1 [Application fields](#application)
+	2.1.2 [Date / time fields](#date-time)
+	2.1.3 [Event / transaction fields](#eventtransaction)
+	2.1.4 [SnowPlow version fields](#version)
+	2.1.5 [User-related fields](#user)
+	2.1.6 [Device-related fields](#device)
+2.2 [Platform-specific fields](#platform)
+	2.2.1 [Web-specific fields](#web)
+2.3 [Event-specific fields](#event)
+	2.3.1 [Page views](#pageview)
+	2.3.2 [Page pings](#pagepings)
+	2.3.3 [Link clicks](#linkclicks)
+	2.3.4 [Ad impressions](#ad-imp)
+	2.3.5 [Ecommerce transations](#ecomm)
+	2.3.6 [Social events](#social)
+	2.3.7 [Item views](#itemview)
+	2.3.8 [Error tracking](#error)
+	2.3.9 [Custom structured events](#customstruct)
+	2.3.10 [Custom unstructured events](#customunstruct)
 
-<a name="current" />
-## Current SnowPlow data structure
+<a name="common" />
+### 2.1 Common fields (platform and event independent)
+
+Back to [top](#top).
+
+<a name="application" />
+#### 2.1.1 Application fields
+
+<a name="date-time" />
+#### 2.1.2 Date / time fields
+
+<a name="eventtransaction" />
+#### 2.1.3 Event / transaction fields
+
+<a name="version" />
+#### 2.1.4 SnowPlow version fields
+
+<a name="user" />
+#### 2.1.5 User-related fields
+
+<a name="device" />
+#### 2.1.6 Device-related fields
+
+<a name="platform" />
+### 2.2 Platform-specific fields
+
+<a name="web" />
+#### 2.2.1 Web-specific fields
+
+<a name="event" />
+### 2.3 Event-specific fields
+
+<a name="pageview" />
+#### 2.3.1 Page views
+
+<a name="pagepings" />
+#### 2.3.2 Page pings
+
+<a name="linkclicks" />
+#### 2.3.3 Link clicks
+
+<a name="ad-imp" />
+#### 2.3.4 Ad impressions
+
+<a name="ecomm" />
+#### 2.3.5 Ecommerce transactions
+
+<a name="social" />
+#### 2.3.6 Social events
+
+<a name="itemview" />
+#### 2.3.7 Item views
+
+<a name="error" />
+#### 2.3.8 Error tracking
+
+<a name="Custom structured events" />
+#### 2.3.9 Custom structured events
+
+<a name="Custom unstructured events" />
+#### 2.3.10 Custom unstructured events
+
 
 The fields recorded in the *SnowPlow events table* today:
 
@@ -164,3 +255,12 @@ We are building out the **SnowPlow events table** to incorporate additional fiel
 | `cv_event9`          | STRING         | Yes               | No            | _As above_ |
 | `cv_event10`         | STRING         | Yes               | No            | _As above_ |
 | `cv_json`            | STRING         | Yes               | No            | Field that can be used to stuff any sort of custom event JSON if desired |
+
+
+
+## 3. A note about storage data formats
+
+* Currently, SnowPlow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout) and Infobright (for processing by any SQL-compatible analytics package).
+* There are minor differences between the structure of data in both formats. These relate to data structures that Hive supports (e.g. maps, JSONs) that Infobright does not
+* Nevertheless, the structure of both is similar: representing a fat table
+* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical SnowPlow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data
