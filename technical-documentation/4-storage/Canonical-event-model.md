@@ -23,16 +23,16 @@ In order to analyse SnowPlow data, it is important to understand how it is struc
 <a name="model" />
 ## 2. The SnowPlow canonical data structure: understanding the individual fields
 
-- 2.1 [Common fields (platform and event independent)](#common)  
+- 2.1 [**Common fields (platform and event independent)**](#common)  
   - 2.1.1 [Application fields](#application)  
   - 2.1.2 [Date / time fields](#date-time)  
   - 2.1.3 [Event / transaction fields](#eventtransaction)  
   - 2.1.4 [SnowPlow version fields](#version)  
   - 2.1.5 [User-related fields](#user)  
-  - 2.1.6 [Device-related fields](#device)  
-- 2.2 [Platform-specific fields](#platform)  
-    2.2.1 [Web-specific fields](#web)  
-2.3 [Event-specific fields](#event)  
+  - 2.1.6 [Device and operating system fields](#device)  
+- 2.2 [**Platform-specific fields**](#platform)  
+  - 2.2.1 [Web-specific fields](#web)  
+- 2.3 [**Event-specific fields**](#event)  
   - 2.3.1 [Page views](#pageview)  
   - 2.3.2 [Page pings](#pagepings)  
   - 2.3.3 [Link clicks](#linkclicks)  
@@ -47,45 +47,102 @@ In order to analyse SnowPlow data, it is important to understand how it is struc
 <a name="common" />
 ### 2.1 Common fields (platform and event independent)
 
-Back to [top](#top).
-
 <a name="application" />
 #### 2.1.1 Application fields
+
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `app_id`        | text     | Application ID  | Yes       | Yes       | 'angry-birds'  |
+| `platform`      | text     | Platform        | Yes       | Yes       | 'web'          |    
+
+The application ID is used to distinguish different applications that are being tracked by the same SnowPlow stack.
+
+The platform ID is used to distinguish the same app running on different platforms e.g. `iOS` vs `web`.
 
 Back to [top](#top).
 
 <a name="date-time" />
 #### 2.1.2 Date / time fields
 
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `dt`            | date     | Date event occured | Yes    | Yes       | '2013-01-31'   |
+| `tm`            | time     | Time event occured | Yes    | Yes       | '11:35:30'     |
+| `os_timezone`   | text     | Client operating system timezone | No | Yes | Europe/London |
+
+We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/snowplow/snowplow/issues/149) for details.
+
 Back to [top](#top).
 
 <a name="eventtransaction" />
 #### 2.1.3 Event / transaction fields
+
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `event`         | text     | The type of event recorded | Yes | Yes  | `page_view`. A complete list of event types is given [here] (#event) |
+| `event_id`      | text     | A UUID for each event | Yes | Yes       | 'c6ef3124-b53a-4b13-a233-0088f79dcbcb' |
+| `txn_id`        | int      | Transaction ID set client-side, used to de-dupe records | No | Yes | 421828 |
 
 Back to [top](#top).
 
 <a name="version" />
 #### 2.1.4 SnowPlow version fields
 
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `v_tracker`     | text     | Tracker version | Yes       | Yes       | 'no-js-0.1.0'  |
+| `v_collector`   | text     | Collector version | Yes     | Yes       | 'clj-tomcat-0.1.0', 'cf' |
+| `v_etl`         | text     | ETL version     | Yes       | Yes       | 'serde-0.5.2'  |
+
 Back to [top](#top).
 
 <a name="user" />
 #### 2.1.5 User-related fields
 
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `user_id`       | text     | Unique ID for user set by SnowPlow | No | Yes | '1369c78d-2c11-4801-900e-7e186452193a' |
+| `user_ipaddress` | text    | Ueser IP address | No       | Yes       | '92.231.54.234' |
+| `visit_id`      | int      | A visit / session identifier | No | Yes | 3              |
+
+We intend to add a new field so that we can differentiate `domain_userid` and `network_userid`. For details see [issue 150] (https://github.com/snowplow/snowplow/issues/150).
+
 Back to [top](#top).
 
 <a name="device" />
-#### 2.1.6 Device-related fields
+#### 2.1.6 Device and operating system fields
+
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `dvce_type`     | text     | Type of device  | No        | Yes       | 'Computer'     |
+| `dvce_ismobile` | boolean  | Is the device mobile? | No  | Yes       | 1              |
+| `dvce_screenheight` | int  | Screen height in pixels | No | Yes      | 1024           |
+| `dvce_screenwidth`  | int  | Screen width in pixels  | No |          | 1900           |
+| `os_name`       | text     | Name of operating system | No | Yes     | 'Android'      | 
+| `os_family`     | text     | Operating system family | No | Yes      | 'Linux'        |
+| `os_manufacturer` | text   | Company responsible for OS | No | Yes   | 'Apple'        |
 
 Back to [top](#top).
 
 <a name="platform" />
 ### 2.2 Platform-specific fields
 
-Back to [top](#top).
+Currently the only platform supported is `web`. However, as we build trackers for more platforms (e.g. iOS, Windows 8) we would expect to add platforms that are specific to each of these platforms.
 
 <a name="web" />
 #### 2.2.1 Web-specific fields
+
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `page_url`      | text     | Web page URL    | No        | Yes       | 'http://snowplowanalytics.com/blog/2013/01/08/using-chartio-to-visualise-and-interrogate-snowplow-data/' |
+| `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualise and interrogate SnowPlow data - SnowPlow Analytics' |
+| `page_referrer` | text     | URL of previous page or link clicked that forwarded to page | No   | Yes       | 'http://t.co/UMzipsn1' | 
+| `user_fingerprint` | int   | A user fingerprint generated by looking at the individual browser features | No | Yes | 2161814971 |
+| `connection_type` | text   | Type of internet connection | No | No   | - |
+| `cookie`        | boolean  | Does the browser support persistent cookies? | Yes | 1 |
+| `br_lang`       | text     | Language the browser is set to  | Yes   | 'en-GB' |
+| `br_features`   | array    | An array of browser features that the browser supports | Yes | ['pdf', 'java', 'fla'] |
+| `br_colordepth` | int      | Bit depth of the browser color palette | No | Yes | 24 |
 
 Back to [top](#top).
 

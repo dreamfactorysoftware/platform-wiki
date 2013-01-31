@@ -85,7 +85,8 @@ Back to [common field types](#common).
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
-| `e`           | `event`          | text     | Event type                    | Yes              | (See table below)         |
+| `e`           | `event`          | text     | Event type                    | Yes              | (See table [below](#events))|
+| `tid`         | `txn_id`         | text     | Transaction ID                | Yes              | 352583                    |
 
 Every line of data passed from the tracker should contain an event field (`e`) to denote the type of event being tracked. For details about the potential values that `e` can take, and the corresponding event types that they refer to, see the section detailing [SnowPlow events](#events).
 
