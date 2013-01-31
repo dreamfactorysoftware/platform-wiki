@@ -86,21 +86,8 @@ Back to [common field types](#common).
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
 | `e`           | `event`          | text     | Event type                    | Yes              | (See table below)         |
-| `tid`         | `txn_id`         | integer  | Unique transaction / event ID. Used to de-dupe records | Yes              | 508780                    |
 
-Every line of data passed from the tracker should contain an event field (`e`) to denote the type of event being tracked. There are several potential values: we are in the process of building out the SnowPlow event model:
-
-**Potential `event` values**
-
-| **Event type**            | **`e` value** |
-|:--------------------------|:--------------|
-| Page view                 | `pv`          |
-| Page ping                 | `pp`          |
-| Log link                  | TBD           |
-| Custom event              | `ev`          |
-| Ad impression             | `ad`          |
-| Transaction               | `tr`          |
-| Transaction item          | `ti`          |
+Every line of data passed from the tracker should contain an event field (`e`) to denote the type of event being tracked. For details about the potential values that `e` can take, and the corresponding event types that they refer to, see the section detailing [SnowPlow events](#events).
 
 The transaction ID (`tid`) can be used in situations where there is a risk of duplicate records for the same event. In this case, the transaction ID can be used to aid deduping of records.
 
