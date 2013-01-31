@@ -179,12 +179,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `br_windowheight`| int     | Viewport height    | No     | No         | 1000 |
 | `br_windowwidth` | int     | Viewport width     | No     | No         | 1000 |
 
-In addition to the above fields, we plan to extend the data model to capture the following for all web events:
-
-* Document size (height and width)
-* Viewport size (height and width)
-
-See [issue 94](https://github.com/snowplow/snowplow/issues/94) for more details.
+See [issue 94](https://github.com/snowplow/snowplow/issues/94) for more details on `br_windowheight` and `br_windowwidth`.
 
 Back to [top](#top).
 

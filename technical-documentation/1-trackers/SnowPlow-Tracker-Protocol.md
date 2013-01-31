@@ -1,16 +1,8 @@
 <a name="top" />
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
 
-## Contents
-
-1. [Overview](#overview)
-2. [Common field types (across multiple events)](#common)
-3. [SnowPlow events](#events)
-4. [Passing additional data into SnowPlow: custom variables](#custom-variables)
-
-
 <a name="overview" />
-## 1. Overview
+## Overview
 
 SnowPlow trackers fire _events_, which are `GET` requests of a [SnowPlow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET`  requests, trackers can pass data into the collectors, for processing by SnowPlow. 
 
@@ -24,25 +16,35 @@ In the [first part of this guide](#common), we cover the parameters in the SnowP
 
 [Back to top](#top)
 
+
+## The SnowPlow Tracker protocol: individual parameters
+
+- 1. [Common parameters (platform and event independent)](#common)
+  - 1.1 [Application [parameters]](#appid)
+  - 1.2 [Date / time parameters](#timestamp)
+  - 1.3 [Event / transaction parameters](#event2)
+  - 1.4 [SnowPlow tracker version](#version)
+  - 1.5 [User parameters](#user)
+  - 1.6 [Device parameters](#device)
+- 2. [Platform-specific parameters](#platform)
+  - 2.1 [Web-specific parameters](#web)
+- 3. [SnowPlow events](#events)
+  - 3.1 [Pageview events](#pageview)
+  - 3.2 [Page pings](#pagepings)
+  - 3.3 [Link clicks](#linkclick)
+  - 3.4 [Ad impressions](#adimp)
+  - 3.5 [Ecommerce transactions](#ecomm)
+  - 3.6 [Social events](#social)
+  - 3.7 [Item views](#item)
+  - 3.8 [Error tracking](#error)
+  - 3.9 [Custom structured events](#event)
+  - 3.10 [Custom unstructured events](#unstructevent)
+
 <a name="common" />
-## 2. Common field types 
-
-2.1 [Common parameters (platform and event independent)](#common-params)  
-2.2 [Web-specific parameters (applicable across all events captured on the web)](#web)  
-
-### 2.1. Common parameters (platform and event independent)
-
-There are a set of parameters that make sense to include in query strings regardless of the tracker type, platform or event being tracked:
-
-2.1.1 [Application parameters](#appid)  
-2.1.2 [Date / time parameter](#timestamp)  
-2.1.3 [Event / transaction parameters](#event2)  
-2.1.4 [SnowPlow tracker version](#version)  
-2.1.5 [User related parameters](#user)  
-2.1.6 [Device related properties](#device)
+## 1. Common parameters (platform and event independent) 
 
 <a name="appid" />
-#### 2.1.1 Application parameters
+#### 1.1 Application parameters
 
 | **Parameter** | **Maps to**      | **Type** |**Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -67,7 +69,7 @@ As a SnowPlow user, you can define application IDs for each of your different di
 Back to [common field types](#common).
 
 <a name="timestamp" />
-#### 2.1.2 Date / time parameter
+#### 1.2 Date / time parameter
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -81,7 +83,7 @@ The tracker can pass a client-side timestamp to the collector using the above pa
 Back to [common field types](#common).
 
 <a name="event2" />
-#### 2.1.3 Event / transaction parameters
+#### 1.3 Event / transaction parameters
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -95,7 +97,7 @@ The transaction ID (`tid`) can be used in situations where there is a risk of du
 Back to [common field types](#common).
 
 <a name="version" />
-#### 2.1.4 SnowPlow Tracker Version
+#### 1.4 SnowPlow Tracker Version
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -106,7 +108,7 @@ For deployments where multiple trackers are used (e.g. for businesses that use t
 Back to [common field types](#common).
 
 <a name="user" />
-#### 2.1.5 User related parameters
+#### 1.5 User related parameters
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -120,7 +122,7 @@ In contrast, setting `vid` / `visit_id` is optional. It is possible to define wh
 Back to [common field types](#common).
 
 <a name="device" />
-#### 2.1.6 Device related properties
+#### 1.6 Device related properties
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
@@ -130,8 +132,11 @@ We intend to build out the list of device related properties over time.
 
 Back to [common field types](#common).
 
+<a name="platform" />
+### 2. Platform specific parameters
+
 <a name="web" />
-### 2.2. Web-specific parameters
+#### 2.1 Web-specific parameters
 
 In addition, there is a set of browser-specific parameters that only makes sense to record for events that happen on web platforms (`p=web`). These parameters are relevant across **all** web events, regardless of the event type. (E.g. if it is a pageview, pageping, transaction, media play etc...)
 
@@ -160,7 +165,7 @@ Back to [common field types](#common).
 Back to [top](#top).
 
 <a name="events" />
-## 3. Event tracking
+### 3. SnowPlow events
 
 At it's heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
 
@@ -169,19 +174,20 @@ At it's heart, SnowPlow is a platform for granular tracking of events. Currently
 | 3.1| [Pageview tracking](#pageview)| `pv`                      | 
 | 3.2| [Page pings](#pagepings)      | `pp`                      |  
 | 3.3| [Link click](#linkclick)      | TBD                       | 
-| 3.4| [Custom event tracking](#event)| `c`                      |  
-| 3.5| [Ad impression tracking](#adimp)| `ad`                    |  
-| 3.6| [Ecommerce transaction tracking](#ecomm) | `tr` and `ti`  |  
-| 3.7| [Social tracking](#social)    | TBD                       |  
-| 3.8| [Item view](#item)            | TBD                       |  
-| 3.9| [Error tracking](#error)      | TBD                       |  
+| 3.4| [Ad impression tracking](#adimp)| `ad`                    |  
+| 3.5| [Ecommerce transaction tracking](#ecomm) | `tr` and `ti`  |  
+| 3.6| [Social tracking](#social)    | TBD                       |  
+| 3.7| [Item view](#item)            | TBD                       |  
+| 3.8| [Error tracking](#error)      | TBD                       | 
+| 3.9| [Custom structured event](#event)| `c`                    | 
+| 3.10| [Custom unstructured event](#event)| `usc`               | 
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
 
 In each case, we use the `&e` parameter to indicate the type of event that is being tracked by SnowPlow to the value indicated in the above table
 
 <a name="pageview" />
-### 3.1 Pageview tracking
+#### 3.1 Pageview tracking
 
 Pageview tracking is used to record views of web pages. 
 
@@ -223,7 +229,7 @@ uid=aeb1691c5a0ee5a6    // User ID
 Back to [event tracking](#events).
 
 <a name="pagepings" />
-### 3.2 Page pings
+#### 3.2 Page pings
 
 Page pings are used to record users engaging with content on a web page after it has originally loaded. It can be used to track e.g. how far down an article a user scrolls. 
 
@@ -267,14 +273,162 @@ We do plan to extend pageping to record e.g. any scrolling that a user has done 
 Back to [event tracking](#events).
 
 <a name="linkclick" />
-### 3.3 Link click tracking
+#### 3.3 Link click tracking
 
 This is not currently supported: adding support is on the roadmap (https://github.com/snowplow/snowplow/issues/75). 
 
 Back to [event tracking](#events).
 
+
+<a name="adimp" />
+#### 3.4 Ad impression tracking
+
+As well as setting `e=ad`, there are four specific parameters that can be set when an ad impression is tracked:
+
+| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
+| `ad_ba`       | `adi_bannerid`    | text    | Banner ID            | No               | `126422315640`   |
+| `ad_ca`       | `adi_campaignid`  | text    | Campaign ID          | No               | `d-546135`       |
+| `ad_ad`       | `adi_advertiserid`| text    | Advertiser ID        | No               | `diageo`         |
+| `ad_uid`      | `adi_userid`      | text    | User (viewer) ID     | No               | `0cbffbf8-a9c5-426f-9369-6e53f1677efc` |
+
+Note: if possible, it often makes sense to pass in the `user_id` generated by your ad server into the `ad_uid` field, so that this can be matched with the `user_id` generated by SnowPlow at analysis time.
+
+Example:
+
+```javascript:
+uid=aeb1691c5a0ee5a6    // User ID  
+&vid=2                  // Visit ID (i.e. session number for this user_id)  
+&tid=508780             // Transaction ID  
+&aid=1                  // App ID
+&tv=js-0.5.2            // Tracker version
+
+&e=ad                    // event = ad impression
+&ad_ba=126422315640      // banner ID
+&ad_ca=d-546135          // campaign ID
+&ad_ad=diageo            // advertiser ID
+&ad_uid=0cbffbf8-a9c5-426f-9369-6e53f1677efc      // user ID
+```
+
+Back to [event tracking](#events).
+ 
+<a name="ecomm" />
+#### 3.5 Ecommerce tracking 
+
+To track an ecommerce transaction, fire a `transaction` event (`e=tr`) to register the transaction, and then fire `item` events (`e=ti`) to log specific data about the items that were part of that transaction. The `order_id`, (captured using the `ti` parameter) is used to link the transaction-level and item-level data at analysis time.
+
+##### 3.5.1 Transaction parameters
+
+| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
+| `tr_id`       | `tr_orderid`     | text     | Order ID             | Yes              | 12345             |
+| `tr_af`       | `tr_affiliation` | text     | Transaction affiliation (e.g. channel) | Yes | Web          |
+| `tr_tt`       | `tr_total`       | decimal  | Transaction total value | Yes           | 9.99              |
+| `tr_tx`       | `tr_tax`         | decimal  | Transaction tax value (i.e. amount of VAT included) | Yes | 1.98 |
+| `tr_sh`       | `tr_shipping`    | decimal  | Delivery cost charged | Yes             | 3.00              |
+| `tr_ci`       | `tr_city`        | text     | Delivery address: city | Yes            | 'London'          |
+| `tr_st`       | `tr_state`       | text     | Delivery address: state | Yes           | 'Denver'          |
+| `tr_co`       | `tr_country`     | text     | Delivery address: country | Yes         | 'United Kingdom'  |
+
+Transaction event example:
+
+```javascript
+uid=aeb1691c5a0ee5a6    // User ID  
+&vid=2                  // Visit ID (i.e. session number for this user_id)  
+&tid=508780             // Transaction ID  
+&aid=1                  // App ID
+&tv=js-0.5.2            // Tracker version
+
+&e=tr            	// Transacton event type.
+&tr_id=12345        // Order ID
+&tr_af=westernWear 	// Affiliation
+&tr_tt=19.99 		// Transaction total value
+&tr_tx=4.99 		// Transaction tax value
+&tr_sh=2.99 		// Transaction shipping price
+&tr_ci=london		// City on customer address
+&tr_st=london 		// State on customer address
+&tr_co=united kingdom	// Country on customer address
+```
+
+##### 3.5.2 Transaction item parameters
+
+| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
+| `ti_id`       | `ti_orderid`     | text     | Order ID             | Yes              | '12345'           |
+| `ti_sk`       | `ti_sku`         | text     | Item SKU             | Yes              | 'pbz0025'         |
+| `ti_nm`       | `ti_name`        | text     | Item name            | Yes              | 'black-tarot'     |
+| `ti_ca`       | `ti_category`    | text     | Item category        | Yes              | 'tarot'           |
+| `ti_pr`       | `ti_price`       | decimal  | Item price           | Yes              | 7.99              |
+| `ti_qu`       | `ti_quantity`    | integer  | Item quantity        | Yes              | 2                 |
+
+Item hit example:
+
+```javascript
+uid=aeb1691c5a0ee5a6    // User ID  
+&vid=2                  // Visit ID (i.e. session number for this user_id)  
+&tid=508780             // Transaction ID  
+&aid=1                  // App ID
+&tv=js-0.5.2            // Tracker version
+
+&e=ti 				// Transaction item event type
+&ti_id=12345 		// Order ID
+&ti_sk=pbz0025 		// Item SKU
+&ti_nm=black-tarot 	// Item name
+&ti_ca=tarot 		// Item category
+&ti_pr=7.99 		// Item price
+&ti_qu=1 			// Item quantity
+```
+
+Back to [event tracking](#events).
+
+<a name="social" />
+#### 3.6 Social tracking
+
+**Note!** This has not been implemented yet.
+
+| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
+|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
+| `sa`          | `social_action`  | Social action performed       | No               | `like`, `tweet`           |
+| `sn`          | `social_network` | Social network involved       | No               | `facebook`, `twitter`     |
+| `st`          | `social_target`  | Social action target e.g. object _liked_, article _tweeted_ | No | `like`, `tweet` |
+| `sp`          | `social_pagepath`| Page path action was performed on | No           |         |
+
+
+```javascript
+uid=aeb1691c5a0ee5a6    // User ID  
+&vid=2                  // Visit ID (i.e. session number for this user_id)  
+&tid=508780             // Transaction ID  
+&aid=1                  // App ID
+&tv=js-0.5.2            // Tracker version
+
+&e=s            // Social event type
+&sa=like        // Social Action
+&sn=facebook    // Social Network
+&st=/home       // Social Target
+```
+
+Back to [event tracking](#events).
+
+<a name="item" />
+#### 3.7 Item views
+
+Pageviews track page load events. Itemviews track views of specific items e.g. articles on a content site, videos on a video site, or products on an online retail site.
+
+This functionality has not been developed yet. When it is, it will be documented here.
+
+Back to [event tracking](#events).
+
+<a name="error" />
+### 3.8 Error tracking
+
+This functionality has not been developed yet. When it is, it will be documented here.
+
+Back to [event tracking](#events).
+
+Back to the [top](#top).
+
 <a name="event" />
-### 3.3. Custom event tracking
+#### 3.9. Custom structured event tracking
 
 Custom event tracking is used to track events that are not natively supported by SnowPlow. (Like ad impressions, page views, ecomm transactions.)
 
@@ -326,187 +480,10 @@ uid=aeb1691c5a0ee5a6    // User ID
 
 Back to [event tracking](#events).
 
-<a name="adimp" />
-### 3.4 Ad impression tracking
 
-As well as setting `e=ad`, there are four specific parameters that can be set when an ad impression is tracked:
+<a name="" />
+#### 3.10 Custom unstructured event tracking
 
-| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
-|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
-| `ad_ba`       | `adi_bannerid`    | text    | Banner ID            | No               | `126422315640`   |
-| `ad_ca`       | `adi_campaignid`  | text    | Campaign ID          | No               | `d-546135`       |
-| `ad_ad`       | `adi_advertiserid`| text    | Advertiser ID        | No               | `diageo`         |
-| `ad_uid`      | `adi_userid`      | text    | User (viewer) ID     | No               | `0cbffbf8-a9c5-426f-9369-6e53f1677efc` |
-
-Note: if possible, it often makes sense to pass in the `user_id` generated by your ad server into the `ad_uid` field, so that this can be matched with the `user_id` generated by SnowPlow at analysis time.
-
-Example:
-
-```javascript:
-uid=aeb1691c5a0ee5a6    // User ID  
-&vid=2                  // Visit ID (i.e. session number for this user_id)  
-&tid=508780             // Transaction ID  
-&aid=1                  // App ID
-&tv=js-0.5.2            // Tracker version
-
-&e=ad                    // event = ad impression
-&ad_ba=126422315640      // banner ID
-&ad_ca=d-546135          // campaign ID
-&ad_ad=diageo            // advertiser ID
-&ad_uid=0cbffbf8-a9c5-426f-9369-6e53f1677efc      // user ID
-```
+TO WRITE
 
 Back to [event tracking](#events).
- 
-<a name="ecomm" />
-### 3.5 Ecommerce tracking 
-
-To track an ecommerce transaction, fire a `transaction` event (`e=tr`) to register the transaction, and then fire `item` events (`e=ti`) to log specific data about the items that were part of that transaction. The `order_id`, (captured using the `ti` parameter) is used to link the transaction-level and item-level data at analysis time.
-
-#### 3.5.1 Transaction parameters
-
-| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
-|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
-| `tr_id`       | `tr_orderid`     | text     | Order ID             | Yes              | 12345             |
-| `tr_af`       | `tr_affiliation` | text     | Transaction affiliation (e.g. channel) | Yes | Web          |
-| `tr_tt`       | `tr_total`       | decimal  | Transaction total value | Yes           | 9.99              |
-| `tr_tx`       | `tr_tax`         | decimal  | Transaction tax value (i.e. amount of VAT included) | Yes | 1.98 |
-| `tr_sh`       | `tr_shipping`    | decimal  | Delivery cost charged | Yes             | 3.00              |
-| `tr_ci`       | `tr_city`        | text     | Delivery address: city | Yes            | 'London'          |
-| `tr_st`       | `tr_state`       | text     | Delivery address: state | Yes           | 'Denver'          |
-| `tr_co`       | `tr_country`     | text     | Delivery address: country | Yes         | 'United Kingdom'  |
-
-Transaction event example:
-
-```javascript
-uid=aeb1691c5a0ee5a6    // User ID  
-&vid=2                  // Visit ID (i.e. session number for this user_id)  
-&tid=508780             // Transaction ID  
-&aid=1                  // App ID
-&tv=js-0.5.2            // Tracker version
-
-&e=tr            	// Transacton event type.
-&tr_id=12345        // Order ID
-&tr_af=westernWear 	// Affiliation
-&tr_tt=19.99 		// Transaction total value
-&tr_tx=4.99 		// Transaction tax value
-&tr_sh=2.99 		// Transaction shipping price
-&tr_ci=london		// City on customer address
-&tr_st=london 		// State on customer address
-&tr_co=united kingdom	// Country on customer address
-```
-
-#### 3.5.2 Transaction item parameters
-
-| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
-|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
-| `ti_id`       | `ti_orderid`     | text     | Order ID             | Yes              | '12345'           |
-| `ti_sk`       | `ti_sku`         | text     | Item SKU             | Yes              | 'pbz0025'         |
-| `ti_nm`       | `ti_name`        | text     | Item name            | Yes              | 'black-tarot'     |
-| `ti_ca`       | `ti_category`    | text     | Item category        | Yes              | 'tarot'           |
-| `ti_pr`       | `ti_price`       | decimal  | Item price           | Yes              | 7.99              |
-| `ti_qu`       | `ti_quantity`    | integer  | Item quantity        | Yes              | 2                 |
-
-Item hit example:
-
-```javascript
-uid=aeb1691c5a0ee5a6    // User ID  
-&vid=2                  // Visit ID (i.e. session number for this user_id)  
-&tid=508780             // Transaction ID  
-&aid=1                  // App ID
-&tv=js-0.5.2            // Tracker version
-
-&e=ti 				// Transaction item event type
-&ti_id=12345 		// Order ID
-&ti_sk=pbz0025 		// Item SKU
-&ti_nm=black-tarot 	// Item name
-&ti_ca=tarot 		// Item category
-&ti_pr=7.99 		// Item price
-&ti_qu=1 			// Item quantity
-```
-
-Back to [event tracking](#events).
-
-<a name="social" />
-### 3.6 Social tracking
-
-**Note!** This has not been implemented yet.
-
-| **Parameter** | **Maps to**      | **Description**               | **Implemented?** | **Example values**        | 
-|:--------------|:-----------------|:------------------------------|:-----------------|:--------------------------|
-| `sa`          | `social_action`  | Social action performed       | No               | `like`, `tweet`           |
-| `sn`          | `social_network` | Social network involved       | No               | `facebook`, `twitter`     |
-| `st`          | `social_target`  | Social action target e.g. object _liked_, article _tweeted_ | No | `like`, `tweet` |
-| `sp`          | `social_pagepath`| Page path action was performed on | No           |         |
-
-
-```javascript
-uid=aeb1691c5a0ee5a6    // User ID  
-&vid=2                  // Visit ID (i.e. session number for this user_id)  
-&tid=508780             // Transaction ID  
-&aid=1                  // App ID
-&tv=js-0.5.2            // Tracker version
-
-&e=s            // Social event type
-&sa=like        // Social Action
-&sn=facebook    // Social Network
-&st=/home       // Social Target
-```
-
-Back to [event tracking](#events).
-
-<a name="item" />
-### 3.7 Item views
-
-Pageviews track page load events. Itemviews track views of specific items e.g. articles on a content site, videos on a video site, or products on an online retail site.
-
-This functionality has not been developed yet. When it is, it will be documented here.
-
-Back to [event tracking](#events).
-
-<a name="error" />
-### 3.8 Error tracking
-
-This functionality has not been developed yet. When it is, it will be documented here.
-
-Back to [event tracking](#events).
-
-Back to the [top](#top).
-
-<a name="custom-variables" />
-## 4. Passing additional data into SnowPlow: custom variables
-
-**Note! This is not currently supported**
-
-In situations where you want to pass data into SnowPlow that can not be accommodated in the above parameters / fields, SnowPlow provides 41 custom variables fields that can be populated with data that you want to pass in. There are four main types of custom variable, each defined by different scope:
-
-**`cv_user` fields (`cvu` parameters)**
-
-`cv_user` custom variables are used to store data associated with this particular user. These variables are perfect for storing data points like name, email address, date of birth, membership type etc., that you are likely to reference with respect to the user in future.
-
-**`cv_session` fields (`cvs` parameters)**
-
-`cv_session` are custom variables that are used to store data associated with this particular session. These variables are useful e.g. to game state for a mobile game.
-
-**`cv_event` fields (`cve` parameters)** 
-
-`cv_event` are custom variables that are used to store data associated with a particular event. They can often be used as additional locations to store data associated with custom events that cannot be accommodated in the five standard [custom event fields / parameters](#event2).
-
-**`cv_context` fields (`cvc` parameters)**
-
-`cv_context` are custom variables that are used to associate data related to the context an action of event takes place in. These variables can be used to differentiate two versions of a particular web page that is being A/B tested, for example.
-
-**`cv_json` field (`cvj` parameter)**
-
-In the event that you want to pass data associated with an action, event, context, session, user or anything else, that is not easily accommodated in any of the other fields / parameters, you can stuff them into a JSON and pass them into SnowPlow to be stored in the `cv_json` field.
-
-| **Parameters**         | **Maps to**                     | **Implemented?** |
-|:-----------------------|:--------------------------------|:-----------------|
-| `cvu1` -> `cvu10`      | `cv_user1` -> `cv_user10`       | No               |
-| `cvs1` -> `cvs10`      | `cv_session1` -> `cv_session10` | No               |
-| `cve1` -> `cve10`      | `cv_event1` -> `cv_event10`     | No               |
-| `cvc1` -> `cvc10`      | `cv_context1` -> `cv_context10` | No               |
-
-
-Back to the [top](#top).
-
