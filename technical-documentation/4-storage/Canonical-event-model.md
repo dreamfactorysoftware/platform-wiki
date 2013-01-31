@@ -297,7 +297,7 @@ This has not been implemented yet. The intention is to implement the following f
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | `item_id`         | text     | Item ID e.g. SKU if item is a product | Yes       | No        | 'pbz00123' |
 | `item_name`       | text     | Item name or title | Yes    | No        | 'Cone pendulum' |
-| `item_displayformat | text   | Type of item listing. Used to distinguish views of a product summary (in a catalogue page) vs a detailed view (on the product page). | No  | 'summary-view' |
+| `item_displayformat`| text   | Type of item listing. Used to distinguish views of a product summary (in a catalogue page) vs a detailed view (on the product page). | No  | 'summary-view' |
 | `item_rank`     | integer  | Item rank (position if there is a list of items displayed on the page) | No | No | 3 |
 | `item_location` | text     | Location of the item on the web page | No | No | 'div-cat-4' |
 | `item_dimension1` -> `item_dimension10` | text | Custom dimensions associated with each item / group of items | No | No | - |
