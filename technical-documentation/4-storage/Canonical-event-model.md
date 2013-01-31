@@ -23,26 +23,26 @@ In order to analyse SnowPlow data, it is important to understand how it is struc
 <a name="model" />
 ## 2. The SnowPlow canonical data structure: understanding the individual fields
 
-2.1 [Common fields (platform and event independent)](#common)
-	2.1.1 [Application fields](#application)
-	2.1.2 [Date / time fields](#date-time)
-	2.1.3 [Event / transaction fields](#eventtransaction)
-	2.1.4 [SnowPlow version fields](#version)
-	2.1.5 [User-related fields](#user)
-	2.1.6 [Device-related fields](#device)
-2.2 [Platform-specific fields](#platform)
-	2.2.1 [Web-specific fields](#web)
-2.3 [Event-specific fields](#event)
-	2.3.1 [Page views](#pageview)
-	2.3.2 [Page pings](#pagepings)
-	2.3.3 [Link clicks](#linkclicks)
-	2.3.4 [Ad impressions](#ad-imp)
-	2.3.5 [Ecommerce transations](#ecomm)
-	2.3.6 [Social events](#social)
-	2.3.7 [Item views](#itemview)
-	2.3.8 [Error tracking](#error)
-	2.3.9 [Custom structured events](#customstruct)
-	2.3.10 [Custom unstructured events](#customunstruct)
+2.1 [Common fields (platform and event independent)](#common)  
+	2.1.1 [Application fields](#application)  
+	2.1.2 [Date / time fields](#date-time)  
+	2.1.3 [Event / transaction fields](#eventtransaction)  
+	2.1.4 [SnowPlow version fields](#version)  
+	2.1.5 [User-related fields](#user)  
+	2.1.6 [Device-related fields](#device)  
+2.2 [Platform-specific fields](#platform)  
+	2.2.1 [Web-specific fields](#web)  
+2.3 [Event-specific fields](#event)  
+	2.3.1 [Page views](#pageview)  
+	2.3.2 [Page pings](#pagepings)  
+	2.3.3 [Link clicks](#linkclicks)  
+	2.3.4 [Ad impressions](#ad-imp)  
+	2.3.5 [Ecommerce transations](#ecomm)  
+	2.3.6 [Social events](#social)  
+	2.3.7 [Item views](#itemview)  
+	2.3.8 [Error tracking](#error)  
+	2.3.9 [Custom structured events](#customstruct)  
+	2.3.10 [Custom unstructured events](#customunstruct)  
 
 <a name="common" />
 ### 2.1 Common fields (platform and event independent)
@@ -52,59 +52,97 @@ Back to [top](#top).
 <a name="application" />
 #### 2.1.1 Application fields
 
+Back to [top](#top).
+
 <a name="date-time" />
 #### 2.1.2 Date / time fields
+
+Back to [top](#top).
 
 <a name="eventtransaction" />
 #### 2.1.3 Event / transaction fields
 
+Back to [top](#top).
+
 <a name="version" />
 #### 2.1.4 SnowPlow version fields
+
+Back to [top](#top).
 
 <a name="user" />
 #### 2.1.5 User-related fields
 
+Back to [top](#top).
+
 <a name="device" />
 #### 2.1.6 Device-related fields
+
+Back to [top](#top).
 
 <a name="platform" />
 ### 2.2 Platform-specific fields
 
+Back to [top](#top).
+
 <a name="web" />
 #### 2.2.1 Web-specific fields
+
+Back to [top](#top).
 
 <a name="event" />
 ### 2.3 Event-specific fields
 
+Back to [top](#top).
+
 <a name="pageview" />
 #### 2.3.1 Page views
+
+Back to [top](#top).
 
 <a name="pagepings" />
 #### 2.3.2 Page pings
 
+Back to [top](#top).
+
 <a name="linkclicks" />
 #### 2.3.3 Link clicks
+
+Back to [top](#top).
 
 <a name="ad-imp" />
 #### 2.3.4 Ad impressions
 
+Back to [top](#top).
+
 <a name="ecomm" />
 #### 2.3.5 Ecommerce transactions
+
+Back to [top](#top).
 
 <a name="social" />
 #### 2.3.6 Social events
 
+Back to [top](#top).
+
 <a name="itemview" />
 #### 2.3.7 Item views
+
+Back to [top](#top).
 
 <a name="error" />
 #### 2.3.8 Error tracking
 
+Back to [top](#top).
+
 <a name="Custom structured events" />
 #### 2.3.9 Custom structured events
 
+Back to [top](#top).
+
 <a name="Custom unstructured events" />
 #### 2.3.10 Custom unstructured events
+
+Back to [top](#top).
 
 
 The fields recorded in the *SnowPlow events table* today:
