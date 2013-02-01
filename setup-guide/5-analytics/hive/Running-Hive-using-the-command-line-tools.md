@@ -93,14 +93,78 @@ TO WRITE
 SnowPlow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
 
-```mysql:snowplow/snowplow/master/4-storage/hive-storage/hive-format-table-def.q```  
+```mysql
+	CREATE EXTERNAL TABLE IF NOT EXISTS `events` (
+		tm string,
+		txn_id string,
+		user_id string,
+		user_ipaddress string,
+		visit_id int,
+		page_url string,
+		page_title string,
+		page_referrer string,
+		mkt_source string,
+		mkt_medium string,
+		mkt_term string,
+		mkt_content string,
+		mkt_campaign string,
+		ev_category string,
+		ev_action string,
+		ev_label string,
+		ev_property string,
+		ev_value string,
+		tr_orderid string,
+		tr_affiliation string,
+		tr_total string,
+		tr_tax string,
+		tr_shipping string,
+		tr_city string,
+		tr_state string,
+		tr_country string,
+		ti_orderid string,
+		ti_sku string,
+		ti_name string,
+		ti_category string,
+		ti_price string,
+		ti_quantity string,
+		br_name string,
+		br_family string,
+		br_version string,
+		br_type string,
+		br_renderengine string,
+		br_lang string,
+		br_features array<string>,
+		br_cookies boolean,
+		os_name string,
+		os_family string,
+		os_manufacturer string,
+		dvce_type string,
+		dvce_ismobile boolean,
+		dvce_screenwidth int,
+		dvce_screenheight int,
+		app_id string,
+		platform string,
+		event string,
+		v_tracker string,
+		v_collector string,
+		v_etl string,
+		event_id string,
+		user_fingerprint string,
+		useragent string,
+		br_colordepth string,
+		os_timezone string
+	)
+	PARTITIONED BY (dt STRING)
+	LOCATION '${EVENTS_TABLE}' ;
+```  
 
 
 #### Notes:
 
-1. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3://snowplow-hive-tables/events/'`. 
-2. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
-3. You need to list every field in the statement, which is why it's so long. To save time, copy and paste the query to the command line :-)
+1. The table definition given above may be out-of-date as we build it out to accommodate additional events and fields. To check the most up-to-date copy see [[https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hive-format-table-def.q]]
+2. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3://snowplow-hive-tables/events/'`. 
+3. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
+4. You need to list every field in the statement, which is why it's so long. To save time, copy and paste the query to the command line :-)
 
 In general, SnowPlow users partition their data by date. We need to let Hive know that this table is partitioned, and to look to spot the partitions that already exist:
 
