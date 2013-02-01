@@ -92,7 +92,7 @@ TO WRITE
 
 SnowPlow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
-```mysql:snowplow/snowplow/master/blob/master/4-storage/hive-storage/hive-format-table-def.q```
+```mysql:snowplow/snowplow/master/4-storage/hive-storage/hive-format-table-def.q```
 
 **Notes:**
 
