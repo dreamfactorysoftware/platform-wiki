@@ -92,9 +92,10 @@ TO WRITE
 
 SnowPlow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
-```mysql:snowplow/snowplow/master/4-storage/hive-storage/hive-format-table-def.q```
+```sql:snowplow/snowplow/master/4-storage/hive-storage/hive-format-table-def.q``` 
 
-**Notes:**
+
+#### Notes:
 
 1. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3://snowplow-hive-tables/events/'`. 
 2. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
