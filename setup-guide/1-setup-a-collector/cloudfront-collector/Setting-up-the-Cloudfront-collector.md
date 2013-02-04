@@ -13,7 +13,7 @@ A tracking pixel (called `i`) is uploaded to Amazon Cloudfront CDN. The SnowPlow
 1. Simple and robust (no moving parts). All the collector does is faithfully log `GET` requests from trackers. Because logging is done using the standard Amazon Cloudfront logging, it is incredibly reliable.
 2. Scalable. The Cloudfront collector is powered by Amazon's cloud infrastructure: specifically its content delivery network, which is built to billions of requests per day.
 
-## Setting up the Cloudfront collector: an overview
+#### Setting up the Cloudfront collector: an overview
 
 Setting up the Cloudfront Collector is a five stage process:
 
@@ -28,7 +28,7 @@ In this guide we also cover:
 * [A note on privacy](#privacy)
 * [A note on non-production environments](#nonproduction)
 
-## Pre-requisites
+#### Pre-requisites
 
 If you want to self-host the tracking pixel, you will need the following:
 
@@ -185,4 +185,9 @@ If you prefer, the SnowPlow Analytics team maintains a publically available `/de
 
 ## All done?
 
-You have now competed the setup of the Cloudfront collector. As a next step, you should setup at least one [tracker](choosing-a-tracker).
+You have now competed the setup of the Cloudfront collector. You are now ready to [setup a tracker][tracker-setup].
+
+[Return to the setup guide][setup-guide].
+
+[setup-guide]: Setting-up-SnowPlow
+[tracker-setup]: Setting-up-SnowPlow#wiki-step2
