@@ -7,11 +7,11 @@ Before setting up SnowPlow, it is helpful to understand the steps involved, and 
 
 [[/images/2-collectors.png]] 
 
-The SnowPlow collector receives data from SnowPlow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the SnowPlow setup process, because without it you have no way of storing any data generated.
+The SnowPlow collector receives data from SnowPlow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the SnowPlow setup process.
 
-[Setup a SnowPlow collector now!](SnowPlow collector setup)
+[Setup a SnowPlow collector now!](Setup-a-collector)
 
-Setup your collector? Then proceed to step 2: setup a tracker.
+Setup your collector? Then proceed to [step 2: setup a tracker](#step2).
 
 <a name="step2" />
 ## Step 2: Setup a SnowPlow tracker
@@ -24,7 +24,7 @@ SnowPlow trackers generate event data and send that data to SnowPlow collectors 
 
 **Note: once you have setup a collector and tracker, you can pause and perform the remainder of the setup steps later**. That is because your data is being successfully generated and logged. When you eventually proceed to [step 3: Setup EMrEtlRunner](#step3), you will be able to process all the data you have logged since setup.
 
-Setup your tracker? Now proceed to step 3: setting up EmrEtlRunner.
+Setup your tracker? Now proceed to [step 3: setup EmrEtlRunner](#step3).
 
 <a name="step3" />
 ## Step 3: Setup EmrEtlRunner
@@ -41,8 +41,9 @@ Once you have setup EmrEtlRunner, the process for taking the raw data generated 
 
 [Setup EmrEtlRunner now!](EmrEtlRunner setup)
 
-Setup EmrEtlRunner? Proceed to step 4: setup the StorageLoader.
+Setup EmrEtlRunner? Proceed to [step 4: setup the StorageLoader](#step4).
 
+<a name="step4" />
 ## 4. Setup the StorageLoader
 
 [[/images/4-storage.png]] 
@@ -53,13 +54,15 @@ The StorageLoader is an application to regularly transfer data from S3 into othe
 
 [Setup the StorageLoader](StorageLoader-setup).
 
-Setup the StorageLoader? Then proceed to step 5: analyse your data!
+Setup the StorageLoader? Then proceed to [step 5: analyse your data](#step5).
 
 ## 5. Analyse your data!
 
 [[/images/5-analytics.png]] 
 
 Once your data is stored in S3 and Infobright, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
+
+[Analyse your data](Analytics-setup)
 
 ## Setup is complete!
 
