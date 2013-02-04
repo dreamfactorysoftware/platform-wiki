@@ -72,7 +72,13 @@ Use your standard asset pipelining strategy to upload the minified `sp.js` JavaS
 
 As a final step, you will want to just check that your customised `sp.js` JavaScript is working okay.
 
-To do this, please follow the testing instructions at the end of the guide to [[Integrating SnowPlow into your website]].
+To do this, please follow the testing instructions at the end of the guide to [Integrating SnowPlow tags directly onto your website] (Integrating Javascript tags onto your website#testing).
+
+## Next steps
+
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
+
+Return to the [setup guide] (Setting-up-SnowPlow).
 
 [aws]: http://aws.amazon.com/
 [yuic]: http://developer.yahoo.com/yui/compressor/

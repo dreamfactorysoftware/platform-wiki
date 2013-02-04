@@ -1,8 +1,8 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker) > [**Javascript tracker**](Javascript-tracker-setup)
 
-Before you integrate SnowPlow's Javascript tracker, you need to decide whether you'll integrate it with your current tag management system, or implement a tag management system as part of the SnowPlow setup process.
+Before you integrate SnowPlow's Javascript tracker, you need to decide whether you'll integrate it with a tag management system, or implement the SnowPlow tags directly onto your site.
 
-We strongly advice new SnowPlow users to implement a Tag Management solution, and document how to perform the SnowPlow implementation using Google Tag Manager and QuBit's OpenTag.
+We strongly advice new SnowPlow users who are not using a Tag Management solution to implement one before implementing SnowPlow, and integrate SnowPlow using it. We have documented [how to setup Google Tag Manager](Integrating-javascript-tags-with-Google-Tag-Manager) and [how to setup QuBit's OpenTag](Integrating Javascript tags with QuBit OpenTag), as well as how to integrate SnowPlow using both these solutions, as part of this setup guide.
 
 Select a setup option below based on your choice of Tag Management solution:
 
@@ -10,7 +10,7 @@ Select a setup option below based on your choice of Tag Management solution:
 2. [Setting up Google Tag Manager (GTM) and integrating SnowPlow Javascript tracking tags via GTM](Integrating-javascript-tags-with-Google-Tag-Manager) 
 3. [Setting up QuBit's OpenTag and integrating SnowPlow Javascript tracking tags via OpenTag](Integrating Javascript tags with QuBit OpenTag)
 
-Additional setup options:
+There are Additional setup options you may want to take:
 
 1. [Hosting SnowPlow.js yourself](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
 2. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. Find out [how](modifying-snowplow-js).

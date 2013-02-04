@@ -96,6 +96,12 @@ There may be many different creatives associated with each campaign in AdWords. 
 
 In the analysis phase, we can then look this creative id up via the AdWords API, to retrieve the actual ad contents displayed.
 
+## Next steps
+
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
+
+Return to the [setup guide] (Setting-up-SnowPlow).
+
 [gahelppage]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033863&ctx=cb&src=cb&cbid=-oxeewb61m1du&cbrank=1 
 [gaurlbuilder]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033867
 [gavaluetrackparameters]: http://support.google.com/adwords/bin/answer.py?hl=en&answer=2375447
