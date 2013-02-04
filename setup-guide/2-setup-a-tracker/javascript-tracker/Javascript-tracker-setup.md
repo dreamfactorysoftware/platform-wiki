@@ -4,9 +4,19 @@ Before you integrate SnowPlow's Javascript tracker, you need to decide whether y
 
 We strongly advice new SnowPlow users to implement a Tag Management solution, and document how to perform the SnowPlow implementation using Google Tag Manager and QuBit's OpenTag.
 
+Select a setup option below based on your choice of Tag Management solution:
+
 1. [Integrating SnowPlow Javascript tracking tags directly onto your website](integrating-javascript-tags-onto-your-website) 
 2. [Setting up Google Tag Manager (GTM) and integrating SnowPlow Javascript tracking tags via GTM](Integrating-javascript-tags-with-Google-Tag-Manager) 
 3. [Setting up QuBit's OpenTag and integrating SnowPlow Javascript tracking tags via OpenTag](Integrating Javascript tags with QuBit OpenTag)
-2. [Setting up the hosting of SnowPlow.js](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
+
+Additional setup options:
+
+1. [Setting up the hosting of SnowPlow.js](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
+2. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. This is a guide on [how](modifying-snowplow-js).
 3. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). SnowPlow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
-4. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. This is a guide on [how](modifying-snowplow-js).
+
+Back to [Tracker setup](Setting-up-a-tracker).
+
+Back to the [Setup Guide](Setting-up-SnowPlow).
+
