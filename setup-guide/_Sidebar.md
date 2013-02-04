@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow)
 
-**Setup SnowPlow**  
+[**Setup SnowPlow**](Setting-up-SnowPlow)    
 
 - [Step 1: Setup a Collector] (setting-up-a-collector)  
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  

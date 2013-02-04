@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker) > [**No-JS tracker**](No-JS-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Trackers**](Setting-up-a-Tracker) > [**No-JS tracker**](No-JS-tracker-setup)
 
 The No-JS tracker (pixel tracker) enables you to track page views of HTML pages where it is not possible to insert standard SnowPlow Javascript tracking tags: for example HTML emails or pages hosted with 3rd party service providers.
 

@@ -26,7 +26,7 @@ Setup your collector? Then proceed to [step 2: setup a tracker](#step2).
 
 SnowPlow trackers generate event data and send that data to SnowPlow collectors to be captured. The most common SnowPlow tracker used is the Javascript tracker, which is integrated in websites (either directly or via a tag management solution) the same way that any web analytics tracker (e.g. Google Analytics or Omniture tags) is integrated.
 
-[Setup a tracker now!](SnowPlow tracker setup)
+[Setup a tracker now!](Setting-up-a-Tracker)
 
 **Note: once you have setup a collector and tracker, you can pause and perform the remainder of the setup steps later**. That is because your data is being successfully generated and logged. When you eventually proceed to [step 3: Setup EMrEtlRunner](#step3), you will be able to process all the data you have logged since setup.
 

@@ -14,7 +14,7 @@ The SnowPlow collector receives data from SnowPlow trackers and logs that data t
 
 There are currently three collectors available:
 
-| **Tracker**                                    | **Description**                                     | **Status**       |
+| **Collector**                                  | **Description**                                     | **Status**       |
 |:-----------------------------------------------|:----------------------------------------------------|:-----------------|
 | [Cloudfront Collector] [cloudfront-collector]  | A simple, robust and scalable collector powered by AWS Cloudfront | Production-ready |
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Beta      |
