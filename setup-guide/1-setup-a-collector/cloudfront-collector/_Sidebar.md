@@ -1,6 +1,7 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: Setup a Collector**](setting-up-a-collector) > [**Setup the Cloudfront Collector**] (Setting-up-the-Cloudfront-collector)
 
 **Setup up SnowPlow**  
+
 - [**Step 1: Setup a Collector**] (setting-up-a-collector)  
   - [**Setup the Cloudfront Collector**] (setting-up-the-Cloudfront-collector)  
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  
@@ -9,6 +10,7 @@
 - [Step 5: Analyse your data!] (start-doing-analytics)  
 
 **Useful resources**  
-[[Troubleshooting]]  
-[[Ruby and RVM setup]]  
-[[Hosted assets]]  
+
+- [[Troubleshooting]]  
+- [[Ruby and RVM setup]]  
+- [[Hosted assets]]  

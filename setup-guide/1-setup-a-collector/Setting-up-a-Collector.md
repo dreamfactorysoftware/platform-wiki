@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) >> [**Step 1: setup a Collector](Setting-up-a-collector)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-collector)
 
 [[/images/2-collectors.png]]
 
@@ -45,5 +45,5 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 [clojure-collector]: Setting-up-the-Clojure-collector
 [snowcannon]: SnowCannon-setup-guide
 [setup-guide]: Setting-up-SnowPlow
-[tracker-setup]: Setting-up-SnowPlow#step2
-[emretlrunner]: Setting-up-SnowPlow#step3
+[tracker-setup]: Setting-up-SnowPlow#wiki-step2
+[emretlrunner]: Setting-up-SnowPlow#wiki-step3
