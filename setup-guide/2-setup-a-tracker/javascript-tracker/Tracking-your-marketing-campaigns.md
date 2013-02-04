@@ -7,7 +7,11 @@ A very common requirement for web analytics platforms including SnowPlow is that
 
 In order to ensure that the campaigns you setup are correctly tracked by SnowPlow, it is important that any links from those campaigns to your site have the relevant query string parameters (described below) included in them. The query string parameters used are exactly the same employed by Google Analytics: as a result, any campaign that is setup to be correctly tracked in Google Analytics should automatically be correctly tracked in SnowPlow. (The only exception is campaigns in AdWords, which Google uses an alternative, proprietary technique for joining AdWords data to Analytics data.)
 
-### Campaign tracking with SnowPlow: an overview
+1. [Campaign tracking with SnowPlow: an overview](#overview)
+2. [Example: tracking AdWords campaigns with SnowPlow](#adwords)
+
+<a name="overview" />
+### 1. Campaign tracking with SnowPlow: an overview
 
 Your different campaigns (PPC campaigns, display ads, email marketing messages, Facebook campaigns etc.) will include one or more links to your website e.g.:
 
@@ -33,7 +37,10 @@ As mentioned earlier, SnowPlow uses the same query parameters used by Google Ana
 
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
-### Tracking AdWords campaigns in SnowPlow
+<a name="adwords" />
+### 2. Tracking AdWords campaigns in SnowPlow
+
+As an example, we'll walk through the process of configuring AdWords to append the relevant parameters on ad links.
 
 When tracking AdWords campaigns in SnowPlow, 2 things should be highlighted:
 
@@ -97,6 +104,8 @@ There may be many different creatives associated with each campaign in AdWords. 
 In the analysis phase, we can then look this creative id up via the AdWords API, to retrieve the actual ad contents displayed.
 
 ## Next steps
+
+Hopefully setting up other marketing channels to include the query parameters necessary to do campaign tracking with SnowPlow should be straightforward, and work in a similar fashion to AdWords.
 
 Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
 
