@@ -9,6 +9,7 @@ SnowPlow Trackers generate event-data and send that data to [SnowPlow Collectors
 1. [Choose one (or more) Trackers](#choose)
 2. [Setup your Tracker(s)](#setup)
 
+<a name="choose" />
 ## 1. Choose a Tracker
 
 There are currently two trackers available:
@@ -22,7 +23,8 @@ An iOS and Android tracker are on the development roadmap.
 
 The [Javascript tracker](javascript-tracker-setup) is used to track the behaviour of users who visit your website / webapp. In addition, the [No-JS tracker](no-js-tracker-setup) is used to provide additional tracking of users in HTML environments that do not support Javascript, e.g. HTML emails, or content that you serve on 3rd party domains. (E.g. 3rd party marketplaces or services like Github.)
 
-## Setting up your tracker(s)
+<a name="setup" />
+## 2. Setup your tracker(s)
 
 1. [Setup the Javascript tracker](javascript-tracker-setup)
 2. [Setup the No-JS tracker](no-js-tracker-setup)

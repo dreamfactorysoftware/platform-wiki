@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker) > [**Javascript tracker**](Javascript-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Trackers**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [[Tracking your marketing campaigns]]
 
 A very common requirement for web analytics platforms including SnowPlow is that they correctly identify traffic from different campaigns, so that it is possible to:
 
