@@ -1,19 +1,26 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) > [**Cloudfront collector**](setting up the cloudfront collector)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > Overview
 
 ## Introduction
 
 The Cloudfront collector is the most common collector employed by SnowPlow uses. 
 
-#### How it works
+### How it works
 
 A tracking pixel (called `i`) is uploaded to Amazon Cloudfront CDN. The SnowPlow Tracker sends data to the collector by making a `GET` request for the pixel, and appending the data to be passed to the pixel query string. The Cloudfront Collector uses Cloudfront logging to record the request (including the query string) to S3.
 
-#### Advantages of the Cloudfront Collector:
+### Advantages of the Cloudfront Collector
 
 1. Simple and robust (no moving parts). All the collector does is faithfully log `GET` requests from trackers. Because logging is done using the standard Amazon Cloudfront logging, it is incredibly reliable.
 2. Scalable. The Cloudfront collector is powered by Amazon's cloud infrastructure: specifically its content delivery network, which is built to billions of requests per day.
 
-#### Setting up the Cloudfront collector: an overview
+## Setting up the Cloudfront collector: an overview
+
+### Pre-requisites
+
+This guide assumes you have:
+
+* An account with [Amazon Web Services](http://aws.amazon.com/)
+* S3 and Cloudfront enabled on your AWS account
 
 Setting up the Cloudfront Collector is a five stage process:
 
@@ -23,19 +30,11 @@ Setting up the Cloudfront Collector is a five stage process:
 4. [Create a Cloudfront distribution](#cloudfront-distribution) for serving the tracking pixel that is now stored in S3. This will ensure that the pixel is fetched very quickly (using Cloudfront's CDN) **and crucially** we will use Cloudfront logging to record every request made of the tracking pixel. These requests will contain all the data passed to the collector from the tracker, appended to the `GET` request in the form of a query string. 
 5. [Test your tracking pixel on Cloudfront](#test). 
 
-In this guide we also cover:
+## Notes
 
 * [A note on privacy](#privacy)
 * [A note on non-production environments](#nonproduction)
 
-#### Pre-requisites
-
-If you want to self-host the tracking pixel, you will need the following:
-
-* An account with [Amazon Web Services](http://aws.amazon.com/)
-* S3 and Cloudfront enabled on your AWS account
-
-Once you have the above, please read on...
 
 <a name="bucket1" />
 ## 1. Creating a bucket on S3 for the tracking pixel

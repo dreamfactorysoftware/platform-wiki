@@ -9,6 +9,7 @@
 - [Step 5: Analyse your data!] (start-doing-analytics)  
 
 **Useful resources**  
-[[Troubleshooting]]  
-[[Ruby and RVM setup]]  
-[[Hosted assets]]  
+
+- [[Troubleshooting]]  
+- [[Ruby and RVM setup]]  
+- [[Hosted assets]]  

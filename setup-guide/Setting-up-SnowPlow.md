@@ -9,7 +9,7 @@ Setting up SnowPlow is a five step process:
 5. [Analyse your data!](#step5)
 
 <a name="step1" />
-## Step 1: Setup a SnowPlow collector
+## Step 1: Setup a SnowPlow Collector
 
 [[/images/2-collectors.png]] 
 
@@ -20,7 +20,7 @@ The SnowPlow collector receives data from SnowPlow trackers and logs that data t
 Setup your collector? Then proceed to [step 2: setup a tracker](#step2).
 
 <a name="step2" />
-## Step 2: Setup a SnowPlow tracker
+## Step 2: Setup a SnowPlow Tracker
 
 [[/images/1-trackers.png]] 
 

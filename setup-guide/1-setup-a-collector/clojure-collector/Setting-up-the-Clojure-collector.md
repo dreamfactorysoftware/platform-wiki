@@ -2,7 +2,7 @@
 
 ## Overview of the Clojure Collector
 
-The Clojure collector has been designed to enable cross-domain SnowPlow deployments. As such, the Clojure collector performs one key function not performed by the [Cloudfront collector](setting up the cloudfront collector): it sets the user ID (used to identify unique visitors) server side, so that it is possible to reliably identify the same user across domains. This differs from the [Cloudfront collector](setting up the cloudfront collector), where user IDs are set on the client side.
+The Clojure collector has been designed to enable cross-domain SnowPlow deployments. As such, the Clojure collector performs one key function not performed by the [Cloudfront collector](setting up the cloudfront collector): it sets the `user_id` (used to identify unique visitors) server side, so that it is possible to reliably identify the same user across domains. This differs from the [Cloudfront collector](setting up the cloudfront collector), where user IDs are set on the client side.
 
 The Clojure collector has been designed to run on [Amazon's Elastic Beanstalk][eb]. This provides two key advantages:
 
