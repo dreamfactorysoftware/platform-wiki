@@ -72,15 +72,6 @@ For example, if your collector is at `c.snplow.com` then your tag would contain 
 _snaq.push(['setCollectorUrl', 'c.snplow.com']);
 ```
 
-#### 1.3 Configuring the header script: updating the reference to `sp.js`
-
-The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js'` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
-
-If you wish to host the SnowPlow JavaScript file yourself (see the guide to [[Self-hosting snowplow.js|Self hosting snowplow js]]), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
-
-```javascript
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
-```
 
 <a name="sync"/>
 ## 2. Synchronous integration
@@ -133,15 +124,6 @@ For example, if your collector is at `c.snplow.com` then your tag would contain 
 var snowplowTracker = SnowPlow.getTrackerUrl('c.snplow.com');
 ```
 
-### 2.3 Configuring the header script: updating the reference to `sp.js`
-
-The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js'` loads `sp.js`, the SnowPlwo Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
-
-If you wish to host the SnowPlow JavaScript file yourself (see the guide to [[Self-hosting snowplow.js|Self hosting snowplow js]]), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
-
-```javascript
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
-```
 
 <a name="events" />
 ## 3. Tracking more than just page views: event tracking, ecommerce tracking etc.
@@ -176,6 +158,9 @@ We recommend using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [f
 Note the three successful (status code 200) `GET`s to `i`. The first of these was triggered by the page load, and then there is one `GET` each for the two user actions (button clicks) that we're tracking. 
 If you have any problems getting this to run, please [contact] [contact] the **SnowPlow Analytics** team.
 
+### Testing your own integration
+
+Once you've tested snowplow.js is working, you can test the integration on your own site in exactly the same way: by using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [firebug] for Firefox to check that SnowPlow's JavaScript tracking is working correctly.
 
 <a name="next-steps" />
 ## 5. Next steps

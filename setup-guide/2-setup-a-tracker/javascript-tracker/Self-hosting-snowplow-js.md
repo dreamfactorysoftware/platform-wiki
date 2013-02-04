@@ -101,7 +101,37 @@ Done? Now just check that you can access your JavaScript file over both HTTP and
 
 If you have any problems, then double-check your CloudFront distribution's URL, and check the permissions on your `sp.js` file: it must be Openable by Everyone.
 
-All done! That's it - you now have a CloudFront distribution which will serve your SnowPlow JavaScript to anybody anywhere in the world, fast.
+That's it - you now have a CloudFront distribution which will serve your SnowPlow JavaScript to anybody anywhere in the world, fast. Now all that remains is to update your SnowPlow header tag to fetch your own version of `sp.js`, rather than the version hosted by the SnowPlow team.
+
+### 5. Update your tracking tags to use the self-hosted version of `SnowPlow.js`
+
+The standard SnowPlow tracking tag looks something like:
+
+```html
+<!-- SnowPlow starts plowing -->
+<script type="text/javascript">
+var _snaq = _snaq || [];
+
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['trackPageView']);
+_snaq.push(['enableLinkTracking']);
+
+(function() {
+var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+})();
+ </script>
+<!-- SnowPlow stops plowing -->
+```
+
+The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js'` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
+
+To use the version hosted yourself update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
+
+```javascript
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
+```
 
 <a name="advanced-options" />
 ## Advanced options
