@@ -6,6 +6,7 @@ This setup guide is divided into two sections:
 
 1. [Setting up QuBit OpenTag](#setup-opentag)
 2. [Integrating SnowPlow Javascript tracking tags with OpenTag](#snowplow-setup)
+3. [Next steps](#next-steps)
 
 <a name="setup-opentag" />
 ## 1. Setting up QuBit OpenTag
@@ -362,3 +363,17 @@ OpenTag asks you to confirm you want to push the changes live. Type "COMMIT" in 
 Once the message disappears your tags should be live! 
 
 [Back to top] (#top)
+
+<a name="next-steps" />
+## 3. Next steps
+
+There are a number of optional additional steps associated with Tracker Setup:
+
+* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). SnowPlow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
+* [Setup campaign tracking] (tracking-your-marketing-campaigns)
+* [Host SnowPlow.js yourself] (self-hosting-snowplow-js)
+* [Modify / hack on SnowPlow.js] (modifying-snowplow-js)
+
+Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+
+[Return to setup guide](Setting-up-SnowPlow).

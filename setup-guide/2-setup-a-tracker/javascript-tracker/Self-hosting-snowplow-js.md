@@ -7,13 +7,14 @@ We recommend self-hosting the SnowPlow tracking JavaScript, `snowplow.js` as it 
 1. Hosting your own JavaScript allows you to use your own JavaScript minification and asset pipelining approach (e.g. bundling all JavaScripts into one minified JavaScript)
 2. As [Douglas Crockford] [crockford] put it about third-party JavaScripts: _"it is extremely unwise to load code from servers you do not control."_
 
-The alternative to self-hosting `snowplow.js` is to use the version hosted by **SnowPlow Analytics**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets). But if you want to self-host `snowplow.js`, please read on...
+The alternative to self-hosting `snowplow.js` is to use the version hosted by **SnowPlow Analytics**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets)). But if you want to self-host `snowplow.js`, please read on...
 
 ## Contents
 
 1. [Pre-requisites](#prerequisites)
 2. [Self-hosting instructions](#self-hosting-instructions)
 3. [Advanced options](#advanced-options)
+4. [Next steps](#next-steps)
 
 <a name="prerequisites" />
 ## Pre-requisites
@@ -144,6 +145,16 @@ The guide above assumed that you were happy to take the already-minified `sp.js`
 The first option above is explored in more detail in the guide to [[Modifying snowplow.js|Modifying-snowplow-js]].
 
 The second option is out of the scope of the SnowPlow documentation but you should get some ideas as to how the minification should be handled from that same guide, [[Modifying snowplow.js|Modifying-snowplow-js]].
+
+<a name="next-steps" />
+## Next steps
+
+As well as self-hosting SnowPlow.js, you may also want to [modify SnowPlow.js](modifying-snowplow-js) to customise it for your individual needs. A guide can be found [here](modifying-snowplow-js).
+
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
+
+Return to the [setup guide] (Setting-up-SnowPlow).
+
 
 [aws]: http://aws.amazon.com/
 [yuic]: http://developer.yahoo.com/yui/compressor/

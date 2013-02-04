@@ -2,10 +2,11 @@
 
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker) > [**Javascript tracker**](Javascript-tracker-setup)
 
-This setup guide is divided into two sections:
+This setup guide is divided into three sections:
 
 1. [Setting up Google Tag Manager](#setup-gtm) (GTM)
 2. [Integrating SnowPlow Javascript tracking tags with Google Tag Manager](#snowplow-setup)
+3. [Next steps](#next-steps)
 
 If you have already setup Google Tag Manager on your website, you can proceed directly to [section 2](#snowplow-setup). However, we recommend at least skimming the section on [setting up Google Tag Manager](#setup-gtm), as we've seen a number of companies implement this badly, with the end result that they cannot pass all the data they would like to SnowPlow tags for analysis later.
 
@@ -494,6 +495,20 @@ If you are that the setup works as expected, click the **Save and publish** butt
 In the event that it is not working as expected, you can go back and make the changes you require. You will need to create a new version, with the updates, before you can either preview them, or publish them.
 
 [Back to top](#top)
+
+<a name="next-steps" />
+## 3. Next steps
+
+There are a number of optional additional steps associated with Tracker Setup:
+
+* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). SnowPlow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
+* [Setup campaign tracking] (tracking-your-marketing-campaigns)
+* [Host SnowPlow.js yourself] (self-hosting-snowplow-js)
+* [Modify / hack on SnowPlow.js] (modifying-snowplow-js)
+
+Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+
+[Return to setup guide](Setting-up-SnowPlow).
 
 [datalayer]: https://developers.google.com/tag-manager/reference
 [event-tracking]: https://github.com/snowplow/snowplow/wiki/javascript-tracker#wiki-events
