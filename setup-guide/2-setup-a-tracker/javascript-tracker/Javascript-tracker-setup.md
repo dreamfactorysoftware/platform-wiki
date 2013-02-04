@@ -12,11 +12,11 @@ Select a setup option below based on your choice of Tag Management solution:
 
 Additional setup options:
 
-1. [Setting up the hosting of SnowPlow.js](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
-2. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. This is a guide on [how](modifying-snowplow-js).
+1. [Hosting SnowPlow.js yourself](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of SnowPlow.js that any of our users are welcome to use. However, if you would like to host SnowPlow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
+2. [Modifying SnowPlow.js](modifying-snowplow-js) (optional). You may want to hack on SnowPlow.js yourself, to develop additional custom functionality. Find out [how](modifying-snowplow-js).
 3. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). SnowPlow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
 
-Back to [Tracker setup](Setting-up-a-tracker).
+Back to [Tracker Setup](Setting-up-a-tracker).
 
 Back to the [Setup Guide](Setting-up-SnowPlow).
 
