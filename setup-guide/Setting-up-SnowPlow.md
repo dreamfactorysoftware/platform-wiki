@@ -1,6 +1,12 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow)
 
-Before setting up SnowPlow, it is helpful to understand the steps involved, and what is accomplished at each step:
+Setting up SnowPlow is a five step process:
+
+1. [Setup a SnowPlow Collector](#step1)
+2. [Setup a SnowPlow Tracker](#step2)
+3. [Setup EmrEtlRunner](#step3)
+4. [Setup the StorageLoader](#step4)
+5. [Analyse your data!](#step5)
 
 <a name="step1" />
 ## Step 1: Setup a SnowPlow collector
@@ -9,7 +15,7 @@ Before setting up SnowPlow, it is helpful to understand the steps involved, and 
 
 The SnowPlow collector receives data from SnowPlow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the SnowPlow setup process.
 
-[Setup a SnowPlow collector now!](Setup-a-collector)
+[Setup a SnowPlow collector now!](Setting-up-a-collector)
 
 Setup your collector? Then proceed to [step 2: setup a tracker](#step2).
 

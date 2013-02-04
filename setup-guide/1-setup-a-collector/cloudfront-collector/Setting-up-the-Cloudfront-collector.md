@@ -2,14 +2,20 @@
 
 ## Introduction
 
-The Cloudfront collector is the most common collector employed by SnowPlow uses. It has a number of advantages:
+The Cloudfront collector is the most common collector employed by SnowPlow uses. 
+
+#### How it works
+
+A tracking pixel (called `i`) is uploaded to Amazon Cloudfront CDN. The SnowPlow Tracker sends data to the collector by making a `GET` request for the pixel, and appending the data to be passed to the pixel query string. The Cloudfront Collector uses Cloudfront logging to record the request (including the query string) to S3.
+
+#### Advantages of the Cloudfront Collector:
 
 1. Simple and robust (no moving parts). All the collector does is faithfully log `GET` requests from trackers. Because logging is done using the standard Amazon Cloudfront logging, it is incredibly reliable.
 2. Scalable. The Cloudfront collector is powered by Amazon's cloud infrastructure: specifically its content delivery network, which is built to billions of requests per day.
 
 ## Setting up the Cloudfront collector: an overview
 
-The basic process for setting up the Cloudfront collector is reasonably straightforward:
+Setting up the Cloudfront Collector is a five stage process:
 
 1. [Setup a bucket on Amazon S3 for the 1x1 tracking pixel](#bucket1) `i`. This is the pixel that will be requested by every `GET` made by the SnowPlow tracker.
 2. [Upload the tracking pixel](#upload-pixel) to the bucket.
@@ -17,11 +23,10 @@ The basic process for setting up the Cloudfront collector is reasonably straight
 4. [Create a Cloudfront distribution](#cloudfront-distribution) for serving the tracking pixel that is now stored in S3. This will ensure that the pixel is fetched very quickly (using Cloudfront's CDN) **and crucially** we will use Cloudfront logging to record every request made of the tracking pixel. These requests will contain all the data passed to the collector from the tracker, appended to the `GET` request in the form of a query string. 
 5. [Test your tracking pixel on Cloudfront](#test). 
 
-Also included in this guide is:
+In this guide we also cover:
 
 * [A note on privacy](#privacy)
 * [A note on non-production environments](#nonproduction)
-
 
 ## Pre-requisites
 
