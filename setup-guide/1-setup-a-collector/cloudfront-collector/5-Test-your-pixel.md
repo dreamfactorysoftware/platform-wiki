@@ -27,7 +27,7 @@ If you prefer, the SnowPlow Analytics team maintains a publically available `/de
 
 ## All done?
 
-Proceed to you are now ready to [setup a tracker][tracker-setup].
+You are now ready to [setup a tracker][tracker-setup].
 
 Return to the [setup guide](setting-up-SnowPlow).
 

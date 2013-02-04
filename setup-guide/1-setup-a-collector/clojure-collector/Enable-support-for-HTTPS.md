@@ -172,7 +172,7 @@ Click the **Apply Changes** button. The environment will update. When it has com
 
 Note the padlock icon by the address bar.
 
-Next: [[set your tracker to point at the Clojure collector endpoint]]
+Next: review the [[aditional configuration options]]
 
 
 [linode]: http://www.linode.com/

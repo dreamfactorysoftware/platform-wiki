@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Additional configuration options]]
 
-There are a environment configuration parameters that you may want to consider tailoring to your specific needs. All of them can be accessed via the **Edit Configuration** dialogue box in the AWS Managemetn Console.
+There are a environment configuration parameters that you may want to consider tailoring to your specific needs. All of them can be accessed via the **Edit Configuration** dialogue box in the AWS Management Console.
 
 <a name="3bi" ></a>
 
@@ -47,3 +47,12 @@ Basic settings (minimum and maximum numbers of servers) can be set in the config
 [[/setup-guide/images/clojure-collector-setup-guide/11.png]]
 
 You can tell Amazon in what circumstances to launch new instances by setting 'triggers'. More details on tuning Elastic Beanstalk can be found [here](http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/using-features.
+
+## All done?
+
+You have setup the Clojure collector! You are now ready to [setup a tracker][tracker-setup].
+
+Return to the [setup guide][setup-guide].
+
+[setup-guide]: Setting-up-SnowPlow
+[tracker-setup]: Setting-up-SnowPlow#wiki-step2
