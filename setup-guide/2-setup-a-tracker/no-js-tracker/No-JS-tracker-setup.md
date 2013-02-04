@@ -60,6 +60,13 @@ That is great from an analytics perspective. However, you need to make sure that
 
 For further information on the No-JS tracker, see this [introductory blog post] [intro-to-no-js-tracker].
 
+<a name="next-steps" />
+## Next steps
+
+Finished setting up your trackers? Now you can proceed to [setting up the EmrEtlRunner](Setting-up-SnowPlow#wiki-step3).
+
+Return to the [setup guide](Setting-up-SnowPlow).
+
 
 
 
