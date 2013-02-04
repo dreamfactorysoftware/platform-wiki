@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable support for HTTPS]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable support for HTTPS]]
 
 In order to track user behaviour on HTTPS web pages (e.g. shop checkouts), it is necessary to configure HTTPS for your AWS Elastic Beanstalk Environment. This requires that you use a custom domain as your endpoint (rather than the `{{ENVIRONMENT-NAME}}.elasticbeanstalk.com`) and have purchased an SSL certificate for that custom domain.
 
