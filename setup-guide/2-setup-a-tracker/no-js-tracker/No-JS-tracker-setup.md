@@ -27,17 +27,17 @@ Identify the event you wish to track. This may be opening a particular email tha
 
 Navigate to the [wizard] [no-js-wizard].
 
-**1. Enter an application ID**. If you are running SnowPlow to track user behaviour across multiple applications, you may want to have a different application ID for each. Most SnowPlow users track behaviour across a single website or webapp. For those users, it probably makes sense to set the application ID to the same value they use on their core website.
+**2.1. Enter an application ID**. If you are running SnowPlow to track user behaviour across multiple applications, you may want to have a different application ID for each. Most SnowPlow users track behaviour across a single website or webapp. For those users, it probably makes sense to set the application ID to the same value they use on their core website.
 
-**2. Select `http` or `https` depending on the scheme used on the pageview you wish to track**. If you are tracking a user opening an email, you should use `https`. If you're tracking a pageview on a 3rd party website where you're showing some content, you will need to check the scheme for the particular page you wish to track.
+**2.2. Select `http` or `https` depending on the scheme used on the pageview you wish to track**. If you are tracking a user opening an email, you should use `https`. If you're tracking a pageview on a 3rd party website where you're showing some content, you will need to check the scheme for the particular page you wish to track.
 
-**3. Enter a page title for the page**. Make it descriptive: it should be obvious from this field in the data what event this is referring to.
+**2.3. Enter a page title for the page**. Make it descriptive: it should be obvious from this field in the data what event this is referring to.
 
-**4. You may optionally enter a page URL**. Both the Clojure Collector and Cloudfront collector will be able to deduce the URL directly (without relying on a value entered in a query string), so this can be safely left out if you wish.
+**2.4. You may optionally enter a page URL**. Both the Clojure Collector and Cloudfront collector will be able to deduce the URL directly (without relying on a value entered in a query string), so this can be safely left out if you wish.
 
-**5. Select the type of collector you're using and enter the relevant details.** If you're using the Cloudfront collector you will need to enter the Cloudfront subdomain. If you're using the Clojure collector (or any other collector) you will need to enter the or the endpoint collector URL.
+**2.5. Select the type of collector you're using and enter the relevant details.** If you're using the Cloudfront collector you will need to enter the Cloudfront subdomain. If you're using the Clojure collector (or any other collector) you will need to enter the or the endpoint collector URL.
 
-**6. Select the `Generate No-JS tracking tag button**. The tracking code will be displayed below the wizard. Copy this to the clipboard.
+**2.6. Select the `Generate No-JS tracking tag button**. The tracking code will be displayed below the wizard. Copy this to the clipboard.
 
 <a name="embed" />
 ### 3. Insert the tracking code into the page you wish to track
