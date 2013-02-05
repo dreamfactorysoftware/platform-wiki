@@ -205,3 +205,6 @@ The `setup.sh` script will run the two 'sql' files in the [sql](https://github.c
 Now you have setup Infobright and a database / table in it for SnowPlow data, you are ready to [setup the StorageLoader to regularly upload SnowPlow data into the table] [storage-loader-for-infobright]. Click [here] [storage-loader-for-infobright] for step-by-step instruction on how.
 
 [Back to top](#top)
+
+
+[storage-loader-for-infobright]: 1-Installing-the-StorageLoader
