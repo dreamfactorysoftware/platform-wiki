@@ -111,7 +111,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :master_instance_type: m1.small
     :slave_instance_type: m1.small
 :etl:
-  :collector_format: cloudfront # No other formats supported yet
+  :collector_format: cloudfront 
   :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the serde throwing exceptions
   :storage_format: non-hive # Or switch to 'hive' if you're only using Hive for analysis
 # Can bump the below as SnowPlow releases new versions
@@ -146,7 +146,17 @@ Each of the bucket variables must start with an S3 protocol - either `s3://` or 
 
 **Important 2:** do not put your Processing Bucket location inside your In Bucket, or your Out Bucket inside your Processing Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
 
-The following are all valid bucket settings:
+**Important 3:** if you are using the **Clojure collector**, the path to your `in` bucket will be of the format: 
+
+	s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}
+
+Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] (Enable-logging-to-S3) stage of the Clojure Collector setup).
+
+Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
+
+**Example bucket settings**
+
+The following are all valid bucket settings. (For a business running the Cloudfront collector):
 
     :buckets:
       :assets: s3://my-public-snowplow-assets
@@ -173,7 +183,7 @@ Make sure that placement and the EC2 key you specify both belong to the same reg
 
 This section is where we configure exactly how we want our ETL process to operate:
 
-1. `collector_format`, what format is our collector saving data in? Currently the only supported format is "cloudfront", for the format saved by our CloudFront collector
+1. `collector_format`, what format is our collector saving data in? Currently two formats are supported: "cloudfront" (if you are running the Cloudfront collector), or "clj-tomcat" if you are running the Clojure collector
 2. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
 3. `storage_format`, can be "hive" or "non-hive". We discuss this further below
 
