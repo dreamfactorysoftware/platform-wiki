@@ -5,7 +5,7 @@ Setting up SnowPlow is a five step process:
 1. [Setup a SnowPlow Collector](#step1)
 2. [Setup a SnowPlow Tracker](#step2)
 3. [Setup EmrEtlRunner](#step3)
-4. [Setup the StorageLoader](#step4)
+4. [Setting up alternative data stores (e.g. Infobright, Redshift)](#step4)
 5. [Analyse your data!](#step5)
 
 <a name="step1" />
@@ -50,7 +50,7 @@ Once you have setup EmrEtlRunner, the process for taking the raw data generated 
 Setup EmrEtlRunner? Proceed to [step 4: setup the StorageLoader](#step4).
 
 <a name="step4" />
-## Step 4: Setup the StorageLoader
+## Step 4: Setup the alternative data stores (e.g. Infobright, Redshift)
 
 [[/images/4-storage.png]] 
 
@@ -58,7 +58,7 @@ Most SnowPlow users store their web event data in at least two places: S3 for pr
 
 The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Infobright. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you do want to use traditional OLAP tools to slice / dice your data, then you will need to setup additional databases (e.g. Infobright) and setup the StorageLoader to regularly transfer data from S3 into your additional data stores.
 
-[Setup the StorageLoader](Setting-up-the-StorageLoader).
+[Setup alternative data stores](Setting-up-alternative-data-stores).
 
 Setup the StorageLoader? Then proceed to [step 5: analyse your data](#step5).
 

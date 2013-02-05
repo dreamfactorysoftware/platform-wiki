@@ -1,8 +1,13 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up StorageLoader **](Setting-up-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting alternative data stores**](Setting-up-alternative-data-stores) 
 
 [[/images/4-storage.png]] 
+
+1. [Overview](#overview)
+2. [Setting up SnowPlow to work with additional data stores](#datastores)
+
+## Overview
 
 SnowPlow supports storing your data in multiple different data stores:
 
@@ -22,11 +27,18 @@ The [StorageLoader] [storageloader] is an application to make it simple to keep 
 1. Create a database and table in Infobright for the data
 2. Setup the [StorageLoader] [storageloader] so that it regularly updates that table with the latest data from S3
 
-In this guide we cover:
+<a name="datastores" />
+## Setting up SnowPlow to work with additional data stores
 
-1. [Setting up Infobright to work with SnowPlow] [setup-infobright]
-2. Setting up Redshift to work with SnowPlow (coming soon)
-3. Setting up SkyDB to work with SnowPlow (coming soon)
+Select the appropriate option below to walk through the steps necessary to setup SnowPlow with the following data stores:
+
+1. [Set up Infobright to work with SnowPlow] [setup-infobright]
+2. Setup Redshift to work with SnowPlow (coming soon)
+3. Setup SkyDB to work with SnowPlow (coming soon)
+
+**After** you have setup one or more of the above databases, you need to:
+
+* [Set up the StorageLoader to regularly transfer SnowPlow data into your new store] [storage-loader-setup]
 
 [emr]: http://aws.amazon.com/elasticmapreduce/
 [infobright]: http://www.infobright.org/
@@ -35,3 +47,4 @@ In this guide we cover:
 [chartio]: http://chartio.com/
 [storageloader]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader
 [setup-infobright]: Setting-up-Infobright
+[storage-loader-setup]: StorageLoader-setup
