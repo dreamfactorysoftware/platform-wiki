@@ -20,5 +20,5 @@ To start with [install] [installation] EmrEtlRunner.
 
 [installation]: 1-Installing-EmrEtlRunner
 [usage]: 2-Using-EmrEtlRunner
-[scheduling]: 3-Scheduling-EmrEtlRunner
+[schedule]: 3-Scheduling-EmrEtlRunner
 [emr-etl-runner]: https://github.com/snowplow/snowplow/tree/master/3-etl/emr-etl-runner
