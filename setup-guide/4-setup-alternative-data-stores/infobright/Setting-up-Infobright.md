@@ -5,7 +5,7 @@
 Setting up SnowPlow to work with Infobright is a five step process:
 
 1. [Installing ICE](#install)
-2. [Configuring ICE](#configure)
+2. [Configuring ICE](#config)
 3. [Testing ICE](#test)
 4. [Setting up the SnowPlow database and events table](#snowplow)
 5. [Automating the loading of SnowPlow data into Infobright](#storageloader)
@@ -23,7 +23,8 @@ You can download the latest version of ICE on the [Infobright downloads](http://
 	$ cd ~/downloads
 	$ wget http://www.infobright.org/downloads/ice/infobright-4.0.7-0-x86_64-ice.deb
 
-### Install
+<a name="install" />
+## 1. Install
 
 To install:
 	
@@ -152,7 +153,7 @@ And finally make sure that it survives reboot - you might not have to do this st
 
 [Back to top](#top)
 
-<a name="testing" />
+<a name="test" />
 ## 3. Testing ICE
 
 You can test ICE using standard MySQL client tools, although note Infobright's non-standard port number:
