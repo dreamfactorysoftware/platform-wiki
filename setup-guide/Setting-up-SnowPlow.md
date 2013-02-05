@@ -58,7 +58,7 @@ Most SnowPlow users store their web event data in at least two places: S3 for pr
 
 The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Infobright. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you do want to use traditional OLAP tools to slice / dice your data, then you will need to setup additional databases (e.g. Infobright) and setup the StorageLoader to regularly transfer data from S3 into your additional data stores.
 
-[Setup the StorageLoader](StorageLoader-setup).
+[Setup the StorageLoader](Setting-up-the-StorageLoader).
 
 Setup the StorageLoader? Then proceed to [step 5: analyse your data](#step5).
 
