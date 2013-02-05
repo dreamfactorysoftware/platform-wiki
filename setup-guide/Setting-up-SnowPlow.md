@@ -56,11 +56,11 @@ Setup EmrEtlRunner? Proceed to [step 4: setup the StorageLoader](#step4).
 
 Most SnowPlow users store their web event data in at least two places: S3 for processing in Hadoop (e.g. to enable machine learning via Mahout) and a columnar database (e.g. Infobright or Redshift) for more traditional OLAP analysis.
 
-The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Infobright. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you do want to use traditional OLAP tools to slice / dice your data, then you will need to setup additional databases (e.g. Infobright) and setup the StorageLoader to regularly transfer data from S3 into your additional data stores.
+The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Infobright or Redshift. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you would find it convenient to have your data in another data store (e.g. Infobright or Redshift) then you can set this up at this stage.
 
 [Setup alternative data stores](Setting-up-alternative-data-stores).
 
-Setup the StorageLoader? Then proceed to [step 5: analyse your data](#step5).
+Setup the alternative data stores? Then proceed to [step 5: analyse your data](#step5).
 
 <a name="step5" />
 ## Step 5: Analyse your data!
