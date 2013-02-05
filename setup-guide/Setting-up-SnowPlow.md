@@ -50,7 +50,7 @@ Once you have setup EmrEtlRunner, the process for taking the raw data generated 
 Setup EmrEtlRunner? Proceed to [step 4: setup the StorageLoader](#step4).
 
 <a name="step4" />
-## 4. Setup the StorageLoader
+## Step 4: Setup the StorageLoader
 
 [[/images/4-storage.png]] 
 
@@ -63,7 +63,7 @@ The StorageLoader is an application to regularly transfer data from S3 into othe
 Setup the StorageLoader? Then proceed to [step 5: analyse your data](#step5).
 
 <a name="step5" />
-## 5. Analyse your data!
+## Step 5: Analyse your data!
 
 [[/images/5-analytics.png]] 
 
