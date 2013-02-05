@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner **](Setting-up-a-EmrEtlRunner) > [2: Using EmrEtlRunner](2-Using-EmrEtlRunner)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner **](Setting-up-EmrEtlRunner) > [2: Using EmrEtlRunner](2-Using-EmrEtlRunner)
 
 1. [Overview](#usage-overview)
 2. [Command-line options](#cli-options)

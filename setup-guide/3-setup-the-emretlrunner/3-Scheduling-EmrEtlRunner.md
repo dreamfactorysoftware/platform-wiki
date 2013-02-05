@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner **](Setting-up-a-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner **](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
 
 1. [Overview](#scheduling-overview)
 2. [cron](#cron)
