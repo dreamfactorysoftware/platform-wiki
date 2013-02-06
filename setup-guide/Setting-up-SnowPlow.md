@@ -69,7 +69,7 @@ Setup the alternative data stores? Then proceed to [step 5: analyse your data](#
 
 Once your data is stored in S3 and Infobright, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
 
-[Analyse your data](Analytics-setup)
+[Get started analysing SnowPlow data](Getting-started-analysing-SnowPlow-data)
 
 ## Setup is complete!
 
