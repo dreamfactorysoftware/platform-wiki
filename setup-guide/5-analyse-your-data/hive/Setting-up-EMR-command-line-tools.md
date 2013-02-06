@@ -1,6 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up the EMR command line tools]]
-
-## Table of Contents
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up the EMR command line tools]]
 
 1. [Before you get started...](#intro)
 2. [A note on OSes](#oses)

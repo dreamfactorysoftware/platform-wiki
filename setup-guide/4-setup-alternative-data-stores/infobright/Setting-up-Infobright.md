@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up StorageLoader**](Setting-up-the-StorageLoader) > [Setting up Infobright to work with SnowPlow] (Setting-up-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-the-StorageLoader) > [Setting up Infobright to work with SnowPlow] (Setting-up-Infobright)
 
 Setting up SnowPlow to work with Infobright is a five step process:
 

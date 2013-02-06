@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR)
 
 ## An overview of Amazon Elastic Mapreduce
 

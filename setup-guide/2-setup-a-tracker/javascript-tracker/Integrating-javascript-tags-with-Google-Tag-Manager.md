@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Trackers**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with Google Tag Manager](Integrating-Javascript-tags-with-Google-Tag-Manager)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with Google Tag Manager](Integrating-Javascript-tags-with-Google-Tag-Manager)
 This setup guide is divided into three sections:
 
 1. [Setting up Google Tag Manager](#setup-gtm) (GTM)

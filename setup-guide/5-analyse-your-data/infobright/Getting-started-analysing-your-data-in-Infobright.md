@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started analysing your data in Infobright**](Getting-started-analysing-your-data-in-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [Getting started analysing your data in Infobright](Getting-started-analysing-your-data-in-Infobright)
 
 Broadly speaking, there are three ways to query your data in Infobright:
 
@@ -33,7 +33,7 @@ We can now query the events table directly. For example, to count the number of 
 	WHERE page_url IS NOT NULL
 	GROUP BY dt ;
 
-For more queries, please see the [analytics cookbook][analyst-cookbook]
+For more queries, please see the [analytics cookbook][analysts-cookbook].
 
 <a name="sql-admin" />
 ## 2. Querying the data in Infobright using a SQL admin tool
@@ -56,6 +56,6 @@ We will be adding guides to analysing your data using R and Weka to the [Analyts
 [tableau]: http://www.tableausoftware.com/
 [r]: http://www.r-project.org/
 [weka]: http://weka.pentaho.com/
-[chartio]: Setting-up-ChartIO-to-visualise-your-data
+[chartio]: Setting-up-ChartIO-to-visualise-your-data-in-Infobright
 [olap]: http://snowplowanalytics.com/analytics/tools-and-techniques/converting-snowplow-data-into-a-format-suitable-for-olap.html
 [analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html
