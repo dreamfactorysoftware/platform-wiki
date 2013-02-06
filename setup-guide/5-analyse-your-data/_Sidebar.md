@@ -1,35 +1,18 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](analytics-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data)  
 
-**1. Trackers**  
-[Tracker setup: choosing a tracker](choosing-a-tracker)  
-[Javascript tracker setup](javascript-tracker-setup)  
-[iOS tracker setup](ios-tracker-setup)  
+[**Setup SnowPlow**](Setting-up-SnowPlow)  
 
-**2. Collectors**  
-[Collectors setup: choosing a collector](choosing-a-collector)  
-[Cloudfront collector setup](setting-up-the-cloudfront-collector)  
-[Clojure collector setup](setting-up-the-clojure-collector)  
-[SnowCannon (node.js) setup](snowcannon-setup-guide) 
+- [Step 1: Setup a Collector] (setting-up-a-collector)  
+- [Step 2: Setup a Tracker] (setting-up-a-tracker)  
+- [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
+- [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
+- [Step 5: Analyse your data!] (start-doing-analytics)  
+  - [5.1: get started analysing your data in Hive] (getting-started-analysing-your-data-in-Hive)
+  - [5.2: get started analysing your data in Infobright] (getting-started-analysing-your-data-in-Infobright)
+  - [5.3: setting up ChartIO to visualise your data in Infobright] (Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
 
-**3. ETL**  
-[ETL setup: choosing an ETL module](choosing-an-etl-module)  
-[EmrEtlRunner setup](EmrEtlRunner-setup)  
-[Hive ETL](hive-etl-setup)  
-[Scalding / Cascading ETL](scalding-etl-setup) 
+**Useful resources**  
 
-**4. Storage**  
-[Storage setup: choosing a storage option](choosing-a-storage-module)  
-[StorageLoader setup](StorageLoader-setup)  
-[S3 / Hive storage setup](s3-hive-storage-setup)  
-[Infobright setup](infobright-storage-setup)  
-
-**5. Analytics**  
-[**Analytics setup**](analytics-setup)  
-[**Analysis using Hive**](hive analytics setup)  
-[**Infobright based analytics**](infobright-analytics-setup)  
-[**ChartIO analytics setup**](ChartIO-setup)  
-
-**Common**  
-[[Troubleshooting]]  
-[[Ruby and RVM setup]]  
-[[Hosted assets]] 
+- [[Troubleshooting]]  
+- [[Ruby and RVM setup]]  
+- [[Hosted assets]]  
