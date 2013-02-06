@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up StorageLoader**](Setting-up-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
 
 [[/images/4-storage.png]] 
 

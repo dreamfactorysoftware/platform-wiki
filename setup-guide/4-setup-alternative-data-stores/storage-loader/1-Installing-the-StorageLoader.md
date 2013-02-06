@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up StorageLoader**](Setting-up-the-StorageLoader) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
