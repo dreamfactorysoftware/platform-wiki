@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](analytics-setup) > [**ChartIO**](chartio-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow > [**Analytics**](Getting-started-analysing-SnowPlow-data) > [**Setting up ChartIO**](Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
 
 <a name="top" />
 ## Contents
@@ -6,9 +6,10 @@
 1. [What is ChartIO, and why use it to analyse / visualize SnowPlow data](#what-and-why)
 2. [Setting up a ChartIO account, and connecting it to SnowPlow data](#setup)
 3. [Creating your first SnowPlow dashboard in ChartIO](#1st-dashboard)
+4. [Next steps](#next-steps)
 
 <a name="what-and-why" />
-## What is ChartIO, and why use it to analyse / visualize SnowPlow data?
+## 1. What is ChartIO, and why use it to analyse / visualize SnowPlow data?
 
 [ChartIO] [ChartIO] is a fantastic BI tool that has a number of attractive features, especially for people who want to graph SnowPlow data sources quickly:
 
@@ -19,7 +20,7 @@
 [Back to top](#top)
 
 <a name="setup" />
-## Setting up a ChartIO account, and connecting it to SnowPlow data
+## 2. Setting up a ChartIO account, and connecting it to SnowPlow data
 
 1. Go to the [ChartIO website] [ChartIO], and setup a trial account by clicking the [Try it Free] [trial] button on the homepage. Enter an email address and password to sign up.
 
@@ -100,7 +101,7 @@ If you get back the path to MySQL you have MySQL and can skip to the next step. 
 [Back to top](#top)
 
 <a name="1st-dashboard" />
-## Creating your first SnowPlow dashboard in ChartIO
+## 3. Creating your first SnowPlow dashboard in ChartIO
 
 Now that we have a data connection setup between SnowPlow and ChartIO, we can start graphing SnowPlow data. ChartIO makes this very easy. To demonstrate, we'll create a graph that shows the number of unique visitors and visits to our website in the last 4 weeks:
 
@@ -158,8 +159,16 @@ Now that we have a data connection setup between SnowPlow and ChartIO, we can st
 
 (i) ChartIO let's us drag the ChartIO around the new dashboard. We can now create new charts in exactly the same way, save them to the same dashboard, and arrange them by simply dragging and dropping them!
 
-
 [Back to top](#top)
 
+<a name="next-steps" />
+## 4. Next steps
+
+Up and running with ChartIO on top of SnowPlow? Visit the [Analyst Cookbook][analyst-cookbook] to find out about more ways to drive value from SnowPlow data.
+
+Return to [getting started analysing your SnowPlow data](Getting-started-analysing-SnowPlow-data).
+
+Return to the [setup guide](Getting-started-with-SnowPlow).
 
 [ChartIO]: http://chartio.com/
+[analyst-cookbook]: http://snowplowanalytics.com/analytics/index.html

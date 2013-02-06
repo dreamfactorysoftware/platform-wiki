@@ -1,9 +1,20 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](choosing-an-etl-module) > [**Hive analytics setup**](hive-etl-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data)  
 
-1. [An introduction to using Hive and Hadoop to querying data in S3](hive analytics setup)
-2. [Setting up the EMR Command Line Tools](setting-up-emr-command-line-tools)
-3. [Running Hive queries using EMR Command Line Tools](Running-Hive-using-the-command-line-tools)  
+[**Setup SnowPlow**](Setting-up-SnowPlow)  
 
-[Back to **Analytics Setup**](analytics setup)  
-[Back to **SnowPlow Setup Guide**](SnowPlow setup guide)  
-[Back to **wiki home**](Home) 
+- [Step 1: Setup a Collector] (setting-up-a-collector)  
+- [Step 2: Setup a Tracker] (setting-up-a-tracker)  
+- [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
+- [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
+- [Step 5: Analyse your data!] (start-doing-analytics)  
+  - [5.1: get started analysing your data in EMR and Hive] (getting-started-analysing-your-data-in-Hive)
+    - [5.1.1: setting up the EMR command line tools](Setting-up-EMR-command-line-tools)
+    - [5.1.2: running Hive queries using the EMR command line tools](Running-Hive-using-the-command-line-tools)
+  - [5.2: get started analysing your data in Infobright] (getting-started-analysing-your-data-in-Infobright)
+  - [5.3: setting up ChartIO to visualise your data in Infobright] (Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
+
+**Useful resources**  
+
+- [[Troubleshooting]]  
+- [[Ruby and RVM setup]]  
+- [[Hosted assets]]  

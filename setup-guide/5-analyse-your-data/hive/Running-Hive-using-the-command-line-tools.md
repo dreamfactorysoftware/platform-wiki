@@ -1,6 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](analytics-setup) > [**Hive analytics setup**](hive-analytics-setup)
-
-# Querying your SnowPlow web analytics data using Hive
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
 
 Many of the analyses we perform in SnowPlow use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
 
@@ -16,7 +14,7 @@ Most of the analyses we perform are in Hive interactive sessions: because it is 
 New sessions can either be initiated at the command-line, or via aws.amazon.com console. 
 
 <a name="startingajob"/>
-## Starting a job
+## 1. Starting a job
 
 There are 2 ways to start a job / fire up instances to run Hive: 
 
@@ -24,9 +22,9 @@ There are 2 ways to start a job / fire up instances to run Hive:
 2. [From the Amazon Web UI](#fromtheamazonwebui)
 
 <a name="usingtherubyclient"/>
-### Starting a job using the Ruby Client
+### 1.1 Starting a job using the Ruby Client
 
-#### Starting a job using the Ruby Client on Mac / Linux
+#### 1.1.1 Starting a job using the Ruby Client on Mac / Linux
 
 To initiative a new session on Mac / Linux, navigate to the `elastic-mapreduce-cli` folder (where you saved the command-line tools) and enter
 
@@ -42,11 +40,12 @@ If rather than run an interactive version, you wanted to execute a script (i.e. 
 
 	$ ./elastic-mapreduce --create --name "script example" --hive-script s3://{{bucket-name}}/{{path of script file}}
 
-#### Starting a job using the Ruby Client on PC
+#### 1.1.2 Starting a job using the Ruby Client on PC
 
 TO WRITE: Add instructions to launch a session from the PC command-line, incl. setting up Putty and Pageant to SSH successfully
 
-### Starting a job using the web UI
+<a name="fromtheamazonwebui" />
+### 1.2 Starting a job using the web UI
 
 TO WRITE: Add instructions on creating jobs via the Amazon web UI. 
 
@@ -65,9 +64,9 @@ Note: you can also check on the status of your current jobs via the command-line
 The above command will list all the current jobs including their statuses.
 
 <a name="sshin"/>
-## Establishing an SSH connection
+## 2. Establishing an SSH connection
 
-### Establishing the SSH connection: Mac / Linux users
+### 2.1 Establishing the SSH connection: Mac / Linux users
 
 Return to the command-line, establish an SSH connection by entering the following
 
@@ -83,12 +82,12 @@ Now you can launch Hive by typing `Hive` at the command line:
 
 ![Launch a Hive session from the command-line](setup-guide/images/emr-guide/run-hive-interactive-session-4.jpg)
 
-### Establishing the SSH connection: PC users
+### 2.2 Establishing the SSH connection: PC users
 
 TO WRITE
 
 <a name="runninghivequeries"/>
-## Running Hive queries
+## 3. Running Hive queries
 
 SnowPlow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
@@ -229,9 +228,11 @@ The results of the queries can be copied and pasted directly into Excel or a tex
 
 There are many ways of fetching the data from S3, either directly via the S3 web UI, or programmatically via the API. 
 
+For more Hive and other queries, see the [Analysts Cookbook] [analysts-cookbook].
+
 
 <a name="terminatingthesession"/>
-## Terminating the session
+## 4. Terminating the session
 
 Interactive sessions have to be terminated manually. (Or else you risk running up high Amazon fees...) Sessions can either be terminated at the command-line, using the Ruby Client, or via the web UI.
 
@@ -245,6 +246,12 @@ To terminate the sessions via the command line, simply exit the session (by typi
 
 	./elastic-mapreduce --terminate --jobflow {{JOBFLOW ID}}
 
-## Want to learn more?
+## 5. Want to learn more?
 
-Consult the SnowPlow [Analytics Cookbook](http://snowplowanalytics.com/analytics/index.html) for more Hive recipes.
+Consult the SnowPlow [Analytics Cookbook] [analysts-cookbook] for more Hive recipes.
+
+Return to [get started analysing data](Getting-started-analysing-SnowPlow-data).
+
+Return to the [setup guide home](Setting-up-SnowPlow).
+
+[analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html

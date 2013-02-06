@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Analytics**](analytics-setup) > [**Hive analytics setup**](hive-analytics-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Getting started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up the EMR command line tools]]
 
 ## Table of Contents
 
@@ -6,25 +6,26 @@
 2. [A note on OSes](#oses)
 3. [Installing Ruby](#rubyinstall)
 4. [Installing the Amazon Elastic MapReduce Ruby Client](#rubyclient)
+5. [Next steps](#next-steps)
 
 <a name="intro"/>
-## Before you get started...
+## 1. Before you get started...
 
 This is a guide to setting up [Amazon Elastic MapReduce Ruby Client (command line tools)] (http://aws.amazon.com/developertools/Elastic-MapReduce/2264), with a view to using the tool to develop Hive queries. (Covered in the [next guide](querying the data using hive).) Amazon offers a number of other [tools to use Elastic MapReduce](http://aws.amazon.com/developertools/Elastic-MapReduce), however the Ruby Client is the only one we will cover in the documentation, and is the simplest one to get started with.
 
 Amazon has published a very good [getting started](http://docs.amazonwebservices.com/ElasticMapReduce/latest/GettingStartedGuide/Welcome.html?r=7956). This guide can be used as a standalone guide, or read in connection with Amazon's own guide.
 
 <a name="oses"/>
-## A note on OSes
+## 2. A note on OSes
 
 We have had reports from community members that setting up Ruby and Amazon's "EMR Ruby Client (command line tools)" is more straightforward in a Unix-based environment (such as Ubuntu or OS X) than it is in Windows.
 
 You may want to bear this in mind if you have a choice of different environments you can use to set up EMR.
 
 <a name="rubyinstall"/>
-## Installing Ruby
+## 3. Installing Ruby
 
-[Amazon Elastic MapReduce Ruby Client](http://aws.amazon.com/developertools/2264) is built in Ruby, so unless you have already have Ruby installed, you'll need to install it. Full instructions on downloading and setting up Ruby can be found [here](#http://www.ruby-lang.org/en/downloads/). There are many ways to install Ruby - if you don't have a strong preference for one of them, we recommend Mac OS X and Linux users use RVM, whilst Windows users use Ruby Installer.
+[Amazon Elastic MapReduce Ruby Client](http://aws.amazon.com/developertools/2264) is built in Ruby, so unless you have already have Ruby installed, you'll need to install it. Full instructions on downloading and setting up Ruby can be found [here](#http://www.ruby-lang.org/en/downloads/). There are many ways to install Ruby - if you don't have a strong preference for one of them, we recommend Mac OS X and Linux users use RVM, whilst Windows users use Ruby Installer. (A more thorough guide to installing Ruby using RVM can be found [here](Ruby-and-RVM-setup).)
 
 ### Installing Ruby on Mac
 
@@ -60,7 +61,7 @@ On a Debian-like OS, installing Ruby is easy:
 ![Verify installation was successful](setup-guide/images/emr-guide/ruby-6.PNG)
 
 <a name="rubyclient"/>
-## Installing the Amazon Elastic MapReduce Ruby Client
+## 4. Installing the Amazon Elastic MapReduce Ruby Client
 
 ### Downloading the Client 
 
@@ -229,3 +230,8 @@ And finally, let's try starting and ending a job:
 
 Obviously update the jobflow ID with yours. Excellent! Your EMR tool
 is now working. Next up, you can proceed to the guide to [[running Hive using the command line tools]].
+
+<a name="next-steps" />
+## 5. Next steps
+
+All done setting up the command-line tools? Then [get started querying your SnowPlow data with Hive](Running-Hive-using-the-command-line-tools).
