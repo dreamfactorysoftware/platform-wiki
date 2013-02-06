@@ -168,7 +168,7 @@ Up and running with ChartIO on top of SnowPlow? Visit the [Analyst Cookbook][ana
 
 Return to [getting started analysing your SnowPlow data](Getting-started-analysing-SnowPlow-data).
 
-Return to the [setup guide](Getting-started-with-SnowPlow).
+Return to the [setup guide](Setting-up-SnowPlow#wiki-step5).
 
 [ChartIO]: http://chartio.com/
 [analyst-cookbook]: http://snowplowanalytics.com/analytics/index.html
