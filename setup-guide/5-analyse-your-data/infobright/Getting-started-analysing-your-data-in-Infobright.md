@@ -7,7 +7,7 @@ Broadly speaking, there are three ways to query your data in Infobright:
 3. [Using a BI / analysis tool e.g. ChartIO, Tableau, R](#analysis-tool)
 
 <a name="command-line" />
-## Querying the data directly in Infobright, at the command line
+## 1. Querying the data directly in Infobright, at the command line
 
 It is possible to query the data directly in Infobright. SSH into the server running Infobright, then fire it up at the command line:
 
@@ -36,13 +36,14 @@ We can now query the events table directly. For example, to count the number of 
 For more queries, please see the [analytics cookbook][analyst-cookbook]
 
 <a name="sql-admin" />
-## Querying the data in Infobright using a SQL admin tool
+## 2. Querying the data in Infobright using a SQL admin tool
 
 There are a wide range of SQL admin tools that make executing SQL queries and performing analysis using SQL queries a lot easier. Because Infobright is a fork from MySQL, any SQL admin tool that works with MySQL will work with Infobright, via the MySQL JDBC driver. (A decent list is available [here](http://www.veign.com/blog/2010/05/03/top-15-mysql-managers-and-tools/).)
 
 When setting up your connection between your tool of choice and Infobright, follow the instructions as if you were setting up a connection between the tool and a MySQL database, but remember that Infobright's default port is `5029`. (Rather than MySQL's `3306`).
 
-## Querying the data in Infobright using an analysis tool e.g. Tableau, R, Weka
+<a name="analysis-tool" />
+## 3. Querying the data in Infobright using an analysis tool e.g. Tableau, R, Weka
 
 Because any tool that can read data from MySQL can also read data from Infobright, it is possible to access and process the data stored in Infobright using some very powerful analysis tools e.g. [ChartIO] [chartio], [Tableau] [tableau], [R] [r] and [Weka] [weka]. 
 
