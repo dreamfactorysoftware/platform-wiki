@@ -30,7 +30,7 @@ In pseudocode terms:
 	    Add the headers and payload to the output array
 	}
 
-The most recent version of the user cookie is sent back on every request, 
+The user cookie is updated with a new expires date and re-sent on every request, to extend the lifetime out.
 
 Note that this approach to tracking users across domains works on all browsers except mobile Safari.
 
