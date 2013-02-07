@@ -42,9 +42,17 @@ The Clojure Collector contains all of the configuration required to run the Cloj
 
 Note that, currently, the Clojure Collector logs the user ID by appending `&uid=` to the logged request. To prevent there being two `&uid=`s in the querystring (one set by the Clojure Collector, one by the JavaScript Tracker), in the setup guide we tell users to disable the `&uid=` attached by standard in the JavaScript Tracker.
 
+## Technical architecture
+
+The Clojure Collector is built on top of [Ring][ring] and [Compojure][compojure].
+
+To run it locally:
+
+    $ lein ring server
+
 ## See also
 
-* [GitHub repository] [github-repo]]
+* [GitHub repository] [github-repo]
 * [Setup guide] [setup-guide]
 
 ## Copyright and license
@@ -64,9 +72,9 @@ limitations under the License.
 [cloudfront-collector]: https://github.com/snowplow/snowplow/tree/master/2-collectors/cloudfront-collector
 [snowcannon]: https://github.com/shermozle/SnowCannon
 [snowplow-js]: https://github.com/snowplow/snowplow/tree/master/1-trackers/javascript
-[setup-guide]: https://github.com/snowplow/snowplow/wiki/Setting%20up%20the%20Clojure%20collector#wiki-war-file
 
 [elastic-beanstalk]: http://aws.amazon.com/elasticbeanstalk/
+[tomcat]: http://tomcat.apache.org/
 
 [github-repo]: https://github.com/snowplow/snowplow/tree/master/2-collectors/clojure-collector
 [setup-guide]: https://github.com/snowplow/snowplow/wiki/Setting-up-the-Clojure-collector
