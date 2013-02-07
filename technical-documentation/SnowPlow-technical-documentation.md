@@ -16,7 +16,7 @@ The technical documentation reflects the SnowPlow architecture, with five loosel
 [Collectors overview](collectors)  
 [Cloudfront collector](cloudfront)  
 [SnowCannon (node.js)](snowcannon)  
-[Clojure collector (Elastic Beanstalk)](clojure)  
+[Clojure collector (Elastic Beanstalk)](Clojure-collector)  
 
 ### B. [[Collector logging formats]]
 
