@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: Setup a Collector**](setting-up-EmrEtlRunner)  
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: Setup EmrEtlRunner**](setting-up-EmrEtlRunner)  
 
 [**Setup SnowPlow**](Setting-up-SnowPlow)  
 
