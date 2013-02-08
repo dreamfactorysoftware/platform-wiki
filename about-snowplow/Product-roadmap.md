@@ -33,10 +33,10 @@ The longer-term schedule of major developments is approximately as follows:
 
 | Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       |                      |           | 
-| **Q2** | Android Tracker<br>Lua Tracker | -          | Geo-IP lookup<br>Referer URI parsing                                | SkyDB support        |           | 
-| **Q3** | iOS Tracker     | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | MySQL support        |           | 
-| **Q4** | Python Tracker  | -          | Host business lookup                                 | MongoDB support      | Machine-learning using Mahout | 
+| **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       | -                    | -         | 
+| **Q2** | Android Tracker<br>Lua Tracker | -          | Geo-IP lookup<br>Referer URI parsing                                | SkyDB support        | -         | 
+| **Q3** | iOS Tracker     | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | MySQL support        | -         |
+| **Q4** | Python Tracker  | Scala Spray collector          | Host business lookup                                 | MongoDB support      | Machine-learning using Mahout | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
