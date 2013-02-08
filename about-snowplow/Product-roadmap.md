@@ -15,13 +15,13 @@ In this section we list out the series of 'point' releases (0.7.x, 0.7.y etc) th
 
 The planned releases are as follows:
 
-| Release           | Tickets                   | Objective(s)                                                                                           |
-|-------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **Version 0.7.3** | [See GitHub] [issues-073] | Clean up JavaScript Tracker, track additional data (e.g. page characterset, viewport), make page pings richer, extract page URI into component pieces, add an event_vendor field |
-| **Version 0.7.4** | [See GitHub] [issues-074] | Add support for Amazon Redshift                                                                        |
-| **Version 0.7.5** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
-| **Version 0.7.6** | [See GitHub] [issues-076] | Add support for ad impression tracking, ad click tracking, link click tracking and tracking item views |
-| **Version 0.7.7** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
+| Release   | Tickets                   | Objective(s)                                                                                           |
+|-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| **0.7.3** | [See GitHub] [issues-073] | Clean up JavaScript Tracker, track additional data (e.g. page characterset, viewport), make page pings richer, extract page URI into component pieces, add an event_vendor field |
+| **0.7.4** | [See GitHub] [issues-074] | Add support for Amazon Redshift                                                                        |
+| **0.7.5** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
+| **0.7.6** | [See GitHub] [issues-076] | Add support for ad impression tracking, ad click tracking, link click tracking and tracking item views |
+| **0.7.7** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
 
 ## Longer-term: approximate schedule
 
