@@ -25,7 +25,7 @@ The planned releases are as follows:
 
 ## Longer-term: approximate schedule
 
-In this section we set out an approximate map of the new components and capabilities we want to add to SnowPlow, segmented by sub-system and by priority.
+In this section we set out an approximate map of the new components and capabilities we want to add to SnowPlow, segmented by sub-system and by time (aka priority).
 
 **Warning:** this schedule is approximate, and the items on it are subject to change. If you are interested in a specific functionality listed here, feel free to [Contact us](Talk-to-us) to find out more about its likely path-to-release.
 
@@ -33,10 +33,15 @@ The longer-term schedule of major developments is approximately as follows:
 
 ADD
 
-| &darr; Time / Sub-system | Trackers   | Collectors | Enrichment | Storage | Analytics |
-|--------------------------|------------|------------|------------|---------|-----------|
-| **Q2**                   |            |            |            |         |           | 
-
+| &darr; Time | Trackers          | Collectors | Enrichment                                           | Storage                | Analytics |
+|-------------|-------------------|------------|------------------------------------------------------|------------------------|-----------|
+| **Q1**      | Arduino Tracker   | -          | New Scalding-based ETL process                       |                        |           | 
+| **Q2**      | * Android Tracker
+                * Lua Tracker     | -          | * Geo-IP lookup
+                                                 * Referer URI parsing                                | * SkyDB support        |           | 
+| **Q3**      | iOS Tracker       | -          | * Move to Avro for SnowPlow event files
+                                                 * ETL to transform Avro to our other storage targets | * MySQL support        |           | 
+| **Q4**      | Python Tracker    | -          | * Business lookup                                    | * MongoDB support      | Machine-learning using Mahout | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
