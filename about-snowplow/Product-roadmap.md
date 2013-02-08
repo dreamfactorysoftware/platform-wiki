@@ -34,8 +34,7 @@ The longer-term schedule of major developments is approximately as follows:
 | &darr; Time | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |-------------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
 | **Q1**      | Arduino Tracker | -          | New Scalding-based ETL process                       |                      |           | 
-| **Q2**      | Android Tracker
-                Lua Tracker     | -          | Geo-IP lookup
+| **Q2**      | Android Tracker<br>Lua Tracker     | -          | Geo-IP lookup
                                                Referer URI parsing                                | SkyDB support        |           | 
 | **Q3**      | iOS Tracker     | -          | Move to Avro for SnowPlow event files
                                                ETL to transform Avro to our other storage targets | MySQL support        |           | 
