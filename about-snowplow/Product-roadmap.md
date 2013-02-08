@@ -3,7 +3,7 @@
 The current release of SnowPlow is **0.7.2**. The planned roadmap for SnowPlow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
-2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new SnowPlow components and the like
+2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new SnowPlow components and other ambitious new developments
 
 We discuss each of these in turn below.
 
@@ -15,7 +15,13 @@ In this section we list out the series of 'point' releases (0.7.x, 0.7.y etc) th
 
 The planned releases are as follows:
 
-ADD
+| Release           | Tickets                   | Objective(s)                                                                                           |
+|-------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| **Version 0.7.3** | [See GitHub] [issues-073] | Clean up JavaScript Tracker, track additional data (e.g. page characterset, viewport), make page pings richer, extract page URI into component pieces, add an event_vendor field |
+| **Version 0.7.4** | [See GitHub] [issues-074] | Add support for Amazon Redshift                                                                        |
+| **Version 0.7.5** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
+| **Version 0.7.6** | [See GitHub] [issues-076] | Add support for ad impression tracking, ad click tracking, link click tracking and tracking item views |
+| **Version 0.7.7** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
 
 ## Longer-term: approximate schedule
 
@@ -27,6 +33,13 @@ The longer-term schedule is approximately as follows:
 
 ADD
 
-[scalding]: https://github.com/twitter/scalding
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
+
+[issues-073]: https://github.com/snowplow/snowplow/issues?milestone=8&state=open
+[issues-074]: https://github.com/snowplow/snowplow/issues?milestone=10&state=open
+[issues-075]: https://github.com/snowplow/snowplow/issues?milestone=11&state=open
+[issues-076]: https://github.com/snowplow/snowplow/issues?milestone=12&state=open
+[issues-077]: https://github.com/snowplow/snowplow/issues?milestone=13&state=open
+
+[scalding]: https://github.com/twitter/scalding
