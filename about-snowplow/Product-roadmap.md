@@ -31,8 +31,6 @@ In this section we set out an approximate map of the new components and capabili
 
 The longer-term schedule of major developments is approximately as follows:
 
-ADD
-
 | &darr; Time | Trackers          | Collectors | Enrichment                                           | Storage                | Analytics |
 |-------------|-------------------|------------|------------------------------------------------------|------------------------|-----------|
 | **Q1**      | Arduino Tracker   | -          | New Scalding-based ETL process                       |                        |           | 
