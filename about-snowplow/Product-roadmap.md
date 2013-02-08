@@ -29,9 +29,12 @@ In this section we set out an approximate map of the new components and capabili
 
 **Warning:** this schedule is approximate, and the items on it are subject to change. If you are interested in a specific functionality listed here, feel free to [Contact us](Talk-to-us) to find out more about its likely path-to-release.
 
-The longer-term schedule is approximately as follows:
+The longer-term schedule of major developments is approximately as follows:
 
 ADD
+
+| &darr; Time / Sub-system | Trackers   | Collectors | Enrichment | Storage | Analytics |
+| **Q2**                   |            |            |            |         |           | 
 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
