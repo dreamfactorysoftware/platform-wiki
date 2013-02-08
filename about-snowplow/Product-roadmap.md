@@ -31,12 +31,12 @@ In this section we set out an approximate map of the new components and capabili
 
 The longer-term schedule of major developments is approximately as follows:
 
-| &darr; Time | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
-|-------------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q1**      | Arduino Tracker | -          | New Scalding-based ETL process                       |                      |           | 
-| **Q2**      | Android Tracker<br>Lua Tracker | -          | Geo-IP lookup<br>Referer URI parsing                                | SkyDB support        |           | 
-| **Q3**      | iOS Tracker     | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | MySQL support        |           | 
-| **Q4**      | Python Tracker  | -          | Business lookup                                    | MongoDB support      | Machine-learning using Mahout | 
+| Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
+|--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
+| **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       |                      |           | 
+| **Q2** | Android Tracker<br>Lua Tracker | -          | Geo-IP lookup<br>Referer URI parsing                                | SkyDB support        |           | 
+| **Q3** | iOS Tracker     | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | MySQL support        |           | 
+| **Q4** | Python Tracker  | -          | Host business lookup                                 | MongoDB support      | Machine-learning using Mahout | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
