@@ -1,69 +1,79 @@
 ## Frequently Asked Questions
 
 1. [Is SnowPlow real-time?](#rt)
-2. [Does SnowPlow have a graphical user interface to enable me to analyse and visualise web analytics data?](#gui)
-3. [What's next on the roadmap?](#roadmap)
-4. [I want to use SnowPlow but not Amazon CloudFront - how?](#nocloudfront)
-5. [How can I contribute to SnowPlow?](#contribute)
-6. [Does implementing SnowPlow impact the performance of my site e.g. page load times?](#performance)
-7. [Does SnowPlow use first- or third-party cookies?](#cookies)
-8. [Is SnowPlow IPv6 compliant?](#ipv6)
+2. [Does implementing SnowPlow impact the performance of my site?](#performance)
+3. [Does SnowPlow have a graphical user interface?](#gui)
+4. [Does SnowPlow use first- or third-party cookies?](#cookies)
+5. [Does SnowPlow scale?](#scalability)
+6. [How reliable is the CloudFront collector?](#cfreliability)
+7. [Is SnowPlow IPv6 compliant?](#ipv6)
+8. [What's next on the roadmap?](#roadmap)
+9. [How can I contribute to SnowPlow?](#contribute)
+10. [Any other question?](#otherq)
 
 <a name="rt"/>
 ## Is SnowPlow real-time?
 
-No, currently SnowPlow is not a real-time analytics solution. This is because SnowPlow depends on CloudFront's [access logging] [cloudfrontlog] capability, and it can take 20-60 minutes (and sometimes even longer) for CloudFront access logs to appear in your Amazon S3 logging bucket. This makes the current version of SnowPlow better suited to "after the fact", batch-based analysis.
+No, currently SnowPlow is not a real-time analytics solution. This is for two main reasons:
 
-The SnowPlow team are exploring other (non-CloudFront) architectures to support a real-time analytics capability alongside (**not** replacing) the current SnowPlow platform.
+1. Both of the supported collectors (the CloudFront collector and the Clojure-based collector) feature a lag (typically 20-60 minutes) before events are written to Amazon S3
+2. Our ETL process (which takes raw SnowPlow events and enriches them) is based on Hadoop/Hive, which are batch-based processing tools. They are not designed for real-time (or near-real-time) data processing
 
-<a name="gui"/>
-## Does SnowPlow have a graphical user interface to enable me to analyse and visualise web analytics data?
-
-No, currently SnowPlow does not have a GUI. Analysts who want to query data collected by SnowPlow can use Hive, Pig or write MapReduce tasks in Java / Hadoop.
-
-There are a number of companies working to build GUIs to work on top of Hadoop. We are watching these developments closely, and hope that to make it easy to integrate these front-ends with SnowPlow in the future, to enable analysts less comfortable with e.g. Hive to use SnowPlow.
-
-We are also looking at possibilities of building GUIs to perform repeatable analyses that we see are popular amongst the SnowPlow community. However, we do not believe in general purpose GUIs for web analytics: the whole point of SnowPlow is to free the experienced analyst from the constraints of GUIs (with all their assumptions about how the analyst does and does not want to slice the data), so analysts can have maximum flexibility to slice, dice and model data to his / her heart's content.
-
-<a name="roadmap"/>
-## What's next on the roadmap?
-
-Lots! We will shortly be open sourcing our SnowPlow-specific Hive Deserializers for SnowPlow; in the meantime you can get started with this general-purpose [CloudFront Log Deserializer] [cflogde].
-
-Also on the roadmap is releasing the first of the "recipes" for Hive analyses on SnowPlow's clickstream data.
-
-On the ad serving analytics front, we are working on a micro-webserver to support redirection-based click-tracking, called [SnowHusky] [snowhusky].
-
-<a name="nocloudfront"/>
-## I want to use SnowPlow but not Amazon CloudFront - how?
-
-SnowPlowing without CloudFront is on the roadmap: we are currently building an ultra-fast, micro-webserver called [SnowHusky] [snowhusky] which you can use for impression as well as redirection-based click tracking. SnowHusky is being actively developed and is not yet ready for production deployment; [contact the SnowPlow team] [contact] if you want to find out more about SnowHusky.
-
-<a name="contribute" />
-## How can I contribute to SnowPlow?
-
-The SnowPlow team welcome contributions! The core team (funded by [Keplar] [keplar]) is small so we would love more people to join in and help realise our objectives of building the world's most powerful analytics platform. Stay tuned for a more detailed update on how best you can contribute to SnowPlow. 
+We have adding real-time support to SnowPlow on our radar, but this is not a priority currently.
 
 <a name="performance"/>
 ## Does implementing SnowPlow on my site effect site performance e.g. page load times?
 
-SnowPlow will have an impact on site performance, just as implementing any javascript-based tracking (e.g. another web analytics package) will impact site performance. However, we have done everything we can to minimise the effect on site performance.
+SnowPlow will have an impact on site performance, just as implementing any JavaScript-based tracking will impact site performance.
 
-Pages tracked using SnowPlow have to load the SnowPlow.js file. By hosting this page on Amazon's Cloudfront, the time takent to load the javascript is minimised. In addition, users have the choice to implement syncronous and asyncrounous tracking tags: if users wants to minimise the impact on page load times, for example, they should employ async tracking.
+However, we have done everything we can to minimise the effect on site performance: by default the SnowPlow JavaScript tracker is minified, and hosted on Amazon CloudFront. We also recommend using the JavaScript tracker's asynchronous tags to minimize impact on page load.
+
+<a name="gui"/>
+## Does SnowPlow have a graphical user interface to enable me to analyse and visualise web analytics data?
+
+No, currently SnowPlow does not have a GUI. Analysts who want to query data collected by SnowPlow can use any third-party tool, such as Tableau, Chartio or PowerPivot.
+
+We have written tutorials on using Tableau and Chartio to analyze SnowPlow data.
 
 <a name="cookies"/>
 ## Does SnowPlow use first- or third-party cookies?
 
-SnowPlow uses first-party cookies, which are generated by the SnowPlow tracking JavaScript running on your domain. Because our tracking pixel is served from CloudFront, we don't have the option to set an additional "third-party" cookie to join up user behaviours across multiple domains. We are exploring some workarounds for this - [contact the SnowPlow team] [contact] if you want to know more.
+The SnowPlow JavaScript tracker uses first-party cookies to track a unique user ID and the user's session information. The CloudFront collector simply logs this data.
+
+However, if you use the Clojure-based collector then this first-party user ID is overwritten with a unique user ID set server-side (i.e. a third-party cookie on the collector's own domain). This is useful for tracking users across multiple domains.
+
+<a name="scalability"/>
+## Does SnowPlow scale?
+
+Yes! In fact we designed SnowPlow primarily with extreme scalability in mind. In particular:
+
+* xxx
+* yyy
+* zzz
+
+<a name="cfreliability"/>
+## How reliable is the CloudFront collector?
+
+To write.
 
 <a name="ipv6"/>
 ## Is SnowPlow IPv6 compliant?
 
-IPv6 (Internet Protocol version 6) is a revision of the Internet Protocol (IP) which allows for far more addresses to be assigned than with the current IPv4. At the moment, the SnowPlow tracking is not IPv6 compliant - for the simple reason that Amazon CloudFront is not yet IPv6 compliant. The AWS team have yet to announce any specific plans or timeline to support IPv6 - but you can request this support in the [AWS usage survey] [awssurvey].
+IPv6 (Internet Protocol version 6) is a revision of the Internet Protocol (IP) which allows for far more addresses to be assigned than with the current IPv4.
 
-[cloudfrontlog]: http://aws.amazon.com/cloudfront/faqs/#Can_I_get_access_to_request_logs_for_content_delivered_through_CloudFront
-[snowhusky]: https://github.com/snowplow/snowhusky
-[cflogde]: https://github.com/snowplow/cloudfront-log-deserializer
-[awssurvey]: http://aws.qualtrics.com/SE/?SID=SV_9yvAN5PK8abJIFK
-[contact]: mailto:snowplow@keplarllp.com 
-[keplar]: http://www.keplarllp.com
+At the moment, the CloudFront-based collector is not IPv6 compliant - because Amazon CloudFront is not yet IPv6 compliant - however the Clojure-based collector running on Elastic Beanstalk is IPv6 compliant.
+
+<a name="roadmap"/>
+## What's next on the roadmap?
+
+Lots! Checkout our [[Product roadmap]] for details.
+
+<a name="contribute" />
+## How can I contribute to SnowPlow?
+
+The SnowPlow team welcomes contributions! The core team (SnowPlow Analytics Ltd) is small so we would love more people to join in and help realise our objectives of building the world's most powerful analytics platform. Stay tuned for a more detailed update on how best you can contribute to SnowPlow. 
+
+<a name="otherq">
+## Question not on this list?
+
+Get in touch with us and ask it! Check out our [[Talk to us]] page for details.
