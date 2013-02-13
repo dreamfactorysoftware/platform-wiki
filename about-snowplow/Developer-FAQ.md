@@ -29,7 +29,7 @@ SnowPlow will have an impact on site performance, just as implementing any JavaS
 However, we have done everything we can to minimise the effect on site performance: by default the SnowPlow JavaScript tracker is minified, and hosted on Amazon CloudFront. We also recommend using the JavaScript tracker's asynchronous tags to minimize impact on page load.
 
 <a name="gui"/>
-## Does SnowPlow have a graphical user interface to enable me to analyse and visualise web analytics data?
+## Does SnowPlow have a graphical user interface?
 
 No, currently SnowPlow does not have a GUI. Analysts who want to query data collected by SnowPlow can use any third-party tool, such as Tableau, Chartio or PowerPivot.
 
@@ -40,7 +40,7 @@ We have written tutorials on using Tableau and Chartio to analyze SnowPlow data.
 
 The SnowPlow JavaScript tracker uses first-party cookies to track a unique user ID and the user's session information. The CloudFront collector simply logs this data.
 
-However, if you use the Clojure-based collector then this first-party user ID is overwritten with a unique user ID set server-side (i.e. a third-party cookie on the collector's own domain). This is useful for tracking users across multiple domains.
+However, if you use the Clojure-based collector then this first-party user ID is overwritten with a unique user ID which is set server-side by the collector (i.e. a third-party cookie on the collector's own domain). This is extremely useful for tracking users across multiple domains.
 
 <a name="scalability"/>
 ## Does SnowPlow scale?
@@ -66,7 +66,7 @@ At the moment, the CloudFront-based collector is not IPv6 compliant - because Am
 <a name="roadmap"/>
 ## What's next on the roadmap?
 
-Lots! Checkout our [[Product roadmap]] for details.
+Plenty! Checkout our [[Product roadmap]] for details.
 
 <a name="contribute" />
 ## How can I contribute to SnowPlow?
@@ -76,4 +76,4 @@ The SnowPlow team welcomes contributions! The core team (SnowPlow Analytics Ltd)
 <a name="otherq">
 ## Question not on this list?
 
-Get in touch with us and ask it! Check out our [[Talk to us]] page for details.
+Get in touch with us and ask it! See our [[Talk to us]] page for contact details.
