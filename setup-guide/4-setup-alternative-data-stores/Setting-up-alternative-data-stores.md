@@ -22,10 +22,10 @@ By [setting up the EmrEtlRunner](setting-up-the-emretlrunner) (in the previous s
 
 If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio]), you will want to load your data into a columnar database like Infobright to support enable use of these tools.
 
-The [StorageLoader] [storageloader] is an application to make it simple to keep an updated copy of your data in multiple data sources including Infobright. Setting up SnowPlow so that you can maintain a copy of your data in a database like Infobright is a two step process:
+The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in multiple data sources including Infobright. Setting up SnowPlow so that you can maintain a copy of your data in a database like Infobright is a two step process:
 
-1. Create a database and table in Infobright for the data
-2. Setup the [StorageLoader] [storageloader] so that it regularly updates that table with the latest data from S3
+1. [Create a database and table in Infobright for the data] [setup-infobright]
+2. Setup the [StorageLoader] [storage-loader-setup] so that it regularly updates that table with the latest data from S3
 
 <a name="datastores" />
 ## Setting up SnowPlow to work with additional data stores
@@ -47,4 +47,4 @@ Select the appropriate option below to walk through the steps necessary to setup
 [chartio]: http://chartio.com/
 [storageloader]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader
 [setup-infobright]: Setting-up-Infobright
-[storage-loader-setup]: StorageLoader-setup
+[storage-loader-setup]: 1-Installing-the-StorageLoader
