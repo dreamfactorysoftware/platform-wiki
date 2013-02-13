@@ -47,4 +47,4 @@ Select the appropriate option below to walk through the steps necessary to setup
 [chartio]: http://chartio.com/
 [storageloader]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader
 [setup-infobright]: Setting-up-Infobright
-[storage-loader-setup]: StorageLoader-setup
+[storage-loader-setup]: 1-Installing-the-StorageLoader
