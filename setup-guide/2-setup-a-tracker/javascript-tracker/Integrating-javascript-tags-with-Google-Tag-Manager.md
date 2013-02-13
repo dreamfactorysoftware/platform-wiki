@@ -267,7 +267,7 @@ In the HTML box below, we need to paste the SnowPlow event tracking code. The ge
 ```html
 <!-- SnowPlow event tracking -->
 <script type="text/javascript">
-_snaq.push(['trackEvent', '{{CATEGORY}}', '{{ACTION}}', '{{LABEL}}', '{{PROPERTY}}', '{{VALUE}}']);
+_snaq.push(['trackEvent', {{CATEGORY}}, {{ACTION}}, {{LABEL}}, {{PROPERTY}}, {{VALUE}}]);
 </script>
 ```
 
@@ -296,7 +296,7 @@ To implement the above mapping, we update the HTML in the box to the following:
 ```html
 <!-- SnowPlow event tracking -->
 <script type="text/javascript">
-_snaq.push(['trackEvent', 'video', 'playVideo', '{{videoId}}', '{{videoFormat}}', '0.0']);
+_snaq.push(['trackEvent', 'video', 'playVideo', {{videoId}}, {{videoFormat}}, '0.0']);
 </script>
 ```
 
