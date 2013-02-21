@@ -32,8 +32,8 @@ The [StorageLoader] [storage-loader-setup] is an application to make it simple t
 
 Select the appropriate option below to walk through the steps necessary to setup SnowPlow with the following data stores:
 
-1. [Set up Infobright to work with SnowPlow] [setup-infobright]
-2. Setup Redshift to work with SnowPlow (coming soon)
+1. [Setup Redshift to work with SnwoPlow] [setup-redshift]
+2. [Set up Infobright to work with SnowPlow] [setup-infobright]
 3. Setup SkyDB to work with SnowPlow (coming soon)
 
 **After** you have setup one or more of the above databases, you need to:
@@ -46,5 +46,6 @@ Select the appropriate option below to walk through the steps necessary to setup
 [skydb]: http://skydb.io/
 [chartio]: http://chartio.com/
 [storageloader]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader
+[setup-redshift]: setting-up-redshift
 [setup-infobright]: Setting-up-Infobright
 [storage-loader-setup]: 1-Installing-the-StorageLoader
