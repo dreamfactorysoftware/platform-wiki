@@ -119,9 +119,11 @@ The Redshift cluster is now visible on Navicat, alongside every other database i
 TO WRITE
 
 <a name="db" />
-## 4. Setting up the SnowPlow database and events table
+## 4. Setting up the SnowPlow events table
 
-TO WRITE
+Now that you have Redshift up and running, you need to create your SnowPlow events table.
+
+The SnowPlow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the SnowPlow events table.
 
 <a name="load" />
 ## 5. Automating the loading of SnowPlow data into Redshift
@@ -133,3 +135,4 @@ Now that you have your SnowPlow database and table setup on Redshift, you are re
 
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
+[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/table-def.sql
