@@ -19,7 +19,7 @@ The planned releases are as follows:
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.7.4** | [See GitHub] [issues-074] | Clean up our data model (including client timestamps, business/network/domain user IDs)                |
 | **0.7.5** | [See GitHub] [issues-075] | Add support for [Amazon Redshift] [redshift]                                                           |
-| **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]) targeting Redshift                         |
+| **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]), targeting Redshift initially              |
 | **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
 | **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
 
