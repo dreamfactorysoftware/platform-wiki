@@ -18,12 +18,12 @@ The planned releases are as follows:
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.7.4** | [See GitHub] [issues-074] | Clean up our data model (including client timestamps, business/network/domain user IDs)                |
-| **0.7.5** | [See GitHub] [issues-075] | Add support for Amazon Redshift                                                                        |
-| **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]) targeting [Amazon Redshift] [redshift]     |
+| **0.7.5** | [See GitHub] [issues-075] | Add support for [Amazon Redshift] [redshift]                                                           |
+| **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]) targeting Redshift                         |
 | **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
 | **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
-| **0.8.3** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
-| **0.8.4** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
+| **0.8.3** | [See GitHub] [issues-083] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
+| **0.8.4** | [See GitHub] [issues-084] | Add support for unstructured events and loading into Postgres                                          |
 
 ## Longer-term: approximate schedule
 
@@ -37,8 +37,8 @@ The longer-term schedule of major developments is approximately as follows:
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
 | **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       | -                    | -         | 
 | **Q2** | Android Tracker<br>Lua Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | Postgres support        | -         | 
-| **Q3** | iOS Tracker     | -          |              | MySQL support        | Machine-learning using Mahout         |
-| **Q4** | Python Tracker  | Scala Spray-based Collector | Host business lookup                                 | MongoDB support      | - | 
+| **Q3** | iOS Tracker     | -          |              | MongoDB support        | Machine-learning using Mahout         |
+| **Q4** | Python Tracker  | Scala Spray-based Collector | Host business lookup                                 | SyDB support<br>MySQL support      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
