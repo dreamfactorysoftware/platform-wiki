@@ -1,6 +1,6 @@
 ## Overview
 
-The current release of SnowPlow is **0.7.2**. The planned roadmap for SnowPlow is divided in two:
+The current release of SnowPlow is **0.7.3**. The planned roadmap for SnowPlow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
 2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new SnowPlow components and other ambitious new developments
@@ -17,10 +17,13 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.7.4** | [See GitHub] [issues-074] | Add support for Amazon Redshift                                                                        |
-| **0.7.5** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
-| **0.7.6** | [See GitHub] [issues-076] | Add support for ad impression tracking, ad click tracking, link click tracking and tracking item views |
-| **0.7.7** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
+| **0.7.4** | [See GitHub] [issues-074] | Clean up our data model (including client timestamps, business/network/domain user IDs)                |
+| **0.7.5** | [See GitHub] [issues-075] | Add support for Amazon Redshift                                                                        |
+| **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]) targeting [Amazon Redshift] [redshift]     |
+| **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
+| **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
+| **0.8.3** | [See GitHub] [issues-075] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
+| **0.8.4** | [See GitHub] [issues-077] | Add support for unstructured events and loading into Postgres                                          |
 
 ## Longer-term: approximate schedule
 
@@ -33,16 +36,20 @@ The longer-term schedule of major developments is approximately as follows:
 | Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
 | **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       | -                    | -         | 
-| **Q2** | Android Tracker<br>Lua Tracker | -          | Geo-IP lookup<br>Referer URI parsing                                | SkyDB support        | -         | 
-| **Q3** | iOS Tracker     | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | MySQL support        | -         |
-| **Q4** | Python Tracker  | Scala Spray-based Collector | Host business lookup                                 | MongoDB support      | Machine-learning using Mahout | 
+| **Q2** | Android Tracker<br>Lua Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | Postgres support        | -         | 
+| **Q3** | iOS Tracker     | -          |              | MySQL support        | Machine-learning using Mahout         |
+| **Q4** | Python Tracker  | Scala Spray-based Collector | Host business lookup                                 | MongoDB support      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-073]: https://github.com/snowplow/snowplow/issues?milestone=8&state=open
 [issues-074]: https://github.com/snowplow/snowplow/issues?milestone=10&state=open
 [issues-075]: https://github.com/snowplow/snowplow/issues?milestone=11&state=open
-[issues-076]: https://github.com/snowplow/snowplow/issues?milestone=12&state=open
-[issues-077]: https://github.com/snowplow/snowplow/issues?milestone=13&state=open
+
+[issues-080]: https://github.com/snowplow/snowplow/issues?milestone=15&state=open
+[issues-081]: https://github.com/snowplow/snowplow/issues?milestone=16&state=open
+[issues-082]: https://github.com/snowplow/snowplow/issues?milestone=17&state=open
+[issues-083]: https://github.com/snowplow/snowplow/issues?milestone=14&state=open
+[issues-084]: https://github.com/snowplow/snowplow/issues?milestone=13&state=open
 
 [scalding]: https://github.com/twitter/scalding
+[redshift]: http://aws.amazon.com/redshift/
