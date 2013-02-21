@@ -22,8 +22,6 @@ The planned releases are as follows:
 | **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]) targeting Redshift                         |
 | **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
 | **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
-| **0.8.3** | [See GitHub] [issues-083] | Make it easier to monitor the EmrEtlRunner and StorageLoader and investigate any errors                |
-| **0.8.4** | [See GitHub] [issues-084] | Add support for unstructured events and loading into Postgres                                          |
 
 ## Longer-term: approximate schedule
 
@@ -37,7 +35,7 @@ The longer-term schedule of major developments is approximately as follows:
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
 | **Q1** | Arduino Tracker | -          | New Scalding-based ETL process                       | -                    | -         | 
 | **Q2** | Android Tracker<br>Lua Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | Postgres support        | -         | 
-| **Q3** | iOS Tracker     | -          |              | MongoDB support        | Machine-learning using Mahout         |
+| **Q3** | iOS Tracker     | -          | Support for unstructured events             | MongoDB support        | Machine-learning using Mahout         |
 | **Q4** | Python Tracker  | Scala Spray-based Collector | Host business lookup                                 | SyDB support<br>MySQL support      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
@@ -48,8 +46,6 @@ The longer-term schedule of major developments is approximately as follows:
 [issues-080]: https://github.com/snowplow/snowplow/issues?milestone=15&state=open
 [issues-081]: https://github.com/snowplow/snowplow/issues?milestone=16&state=open
 [issues-082]: https://github.com/snowplow/snowplow/issues?milestone=17&state=open
-[issues-083]: https://github.com/snowplow/snowplow/issues?milestone=14&state=open
-[issues-084]: https://github.com/snowplow/snowplow/issues?milestone=13&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
