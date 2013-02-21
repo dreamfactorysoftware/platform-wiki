@@ -56,8 +56,8 @@ Now that you have your SnowPlow database and table setup on Redshift, you are re
 
 [Back to top](#top).
 
-[image-1]: /images/redshift-setup-guide/1.png
-[image-2]: /images/redshift-setup-guide/2.png
-[image-3]: /images/redshift-setup-guide/3.png
-[image-4]: /images/redshift-setup-guide/4.png
+[image-1]: images/redshift-setup-guide/1.png
+[image-2]: images/redshift-setup-guide/2.png
+[image-3]: images/redshift-setup-guide/3.png
+[image-4]: images/redshift-setup-guide/4.png
 [storage-loader]: 1-Installing-the-StorageLoader
