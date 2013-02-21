@@ -5,4 +5,4 @@
 ## Contents
 
 1. [[Hive ETL]]
-2. [[Scalding ETL]]
+2. [[Hadoop ETL]]
