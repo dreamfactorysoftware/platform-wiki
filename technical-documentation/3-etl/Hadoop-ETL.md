@@ -10,17 +10,17 @@ This ETL process is being built in [Scalding] [scalding], which is a Scala API f
 
 There should be three main advantages to our new Hadoop-based ETL process over our current Hive-based approach:
 
-1. **Simpler to run** - the new ETL process won't require Hive to run, so fewer moving parts
-2. **Allows more complex enrichments** - we have pushed our Hive deserializer a long way, but for more complex enrichments such as referer parsing and geo-IP, we need to move to a more robust Hadoop-based approach
-3. **Supports aggregate processing** - our current Hive-based ETL process is row-based - all processing happens at the level of an individual event. A Hadoop-based approach will allow aggregate processing such as de-duping, grouping events and so on
+1. **Simpler to run** - the new ETL process won't require Hive to run, which means fewer moving parts
+2. **Allows more complex enrichments** - we have pushed our Hive deserializer a long way, but for more complex enrichments such as referer parsing and geo-IP lookups, we need a more robust Hadoop-based approach
+3. **Supports aggregate processing** - our current Hive-based ETL process is row-based - meaning that all processing happens at the level of an individual event. A Hadoop-based approach will support aggregate processing such as de-duping, grouping events and so on
 
-For more information on our thinking, please see our blog post, [The SnowPlow development roadmap for the ETL step - from ETL to enrichment] [etl-blog-post].
+To find out more, please see our blog post, [The SnowPlow development roadmap for the ETL step - from ETL to enrichment] [etl-blog-post].
 
 ## Status
 
-We plan to release our first prototype of the new Hadoop-based ETL process in SnowPlow version **0.8.0**, the next major release of SnowPlow. For more details on the roadmap, please see our [Product roadmap] [roadmap].
+We plan to release our first prototype of the new Hadoop-based ETL process in SnowPlow version **0.8.0**, the next major release of SnowPlow. For more information, please see our [Product roadmap] [roadmap].
 
-To see our progress on the Hadoop ETL component, you can check out the [feature/scalding-etl] [hadoop-branch] branch in our main repository.
+To see how the Hadoop ETL component is developing, check out the [feature/scalding-etl] [hadoop-branch] branch in our main SnowPlow repository.
 
 [scalding]: https://github.com/twitter/scalding
 [cascading]: https://github.com/twitter/scalding
