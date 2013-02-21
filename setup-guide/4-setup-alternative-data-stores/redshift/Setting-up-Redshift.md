@@ -14,21 +14,21 @@ Setting up Redshift is an X step process:
 
 Go into the Amazon webservices console and select "Redshift" from the list of services.
 
-![welcome-to-amazon-redshift][image-1]
+[[/setup-guide/images/redshift-setup-guide/1.png]]
 
 Click on the "Launch Cluster" button:
 
-![define-cluster][image-2]
+[[/setup-guide/images/redshift-setup-guide/2.png]]
 
 Enter suitable values for the cluster identifier, database name, port, username and password. Click the "Continue" button.
 
-![configure-cluster][image-3]
+[[/setup-guide/images/redshift-setup-guide/3.png]]
 
 We now need to configure the cluster size. Select the values that are most appropriate to your situation. We generally recommend starting with a single node cluster with node type `dw.hs1.xlarge`, and then adding nodes as your data volumes grow.
 
 You now have the opportunity to encrypt the database and and set the availability zone if you wish. Select your preferences and click "Continue".
 
-![configure-cluster][image-4]
+[[/setup-guide/images/redshift-setup-guide/4.png]]
 
 Amazon summarises your cluster information. Click "Launch Cluster" to fire your Redshift instance up. This will take a few minutes to complete.
 
@@ -56,8 +56,5 @@ Now that you have your SnowPlow database and table setup on Redshift, you are re
 
 [Back to top](#top).
 
-[image-1]: /setup-guide/images/redshift-setup-guide/1.png
-[image-2]: /setup-guide/images/redshift-setup-guide/2.png
-[image-3]: /setup-guide/images/redshift-setup-guide/3.png
-[image-4]: /setup-guide/images/redshift-setup-guide/4.png
+
 [storage-loader]: 1-Installing-the-StorageLoader
