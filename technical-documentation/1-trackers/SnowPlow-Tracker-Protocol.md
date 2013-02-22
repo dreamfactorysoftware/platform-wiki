@@ -160,6 +160,11 @@ In addition, there is a set of browser-specific parameters that only makes sense
 | `f_gears`     | `br_featurse` or `br_features_gears`    | boolean | Google gears installed?      | Yes               | `1`               |
 | `f_ag`        | `br_featurse` or `br_features_silverlight` | boolean | Silverlight plugin installed? | Yes           | `1`               |
 | `cd`          | `br_colordepth`  | Browser color depth   | integer |                             | Yes               | `24`              |
+| `ds`          | `doc_width` and `doc_height` | text | Web page width and height                  | Yes               | `1090x1152`       |
+| `cs`          | `doc_charset`    | text      | Web page's character encoding                     | Yes               | `UTF-8`
+| `vp`          | `br_viewwidth` and `br_viewheight` | text | Browser viewport width and height    | Yes               | `1105x390`        |
+
+
 
 Back to [common field types](#common).
 Back to [top](#top).
@@ -179,7 +184,7 @@ At it's heart, SnowPlow is a platform for granular tracking of events. Currently
 | 3.6| [Social tracking](#social)    | TBD                       |  
 | 3.7| [Item view](#item)            | TBD                       |  
 | 3.8| [Error tracking](#error)      | TBD                       | 
-| 3.9| [Custom structured event](#event)| `c`                    | 
+| 3.9| [Custom structured event](#event)| `se`                    | 
 | 3.10| [Custom unstructured event](#event)| `usc`               | 
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
@@ -235,40 +240,52 @@ Page pings are used to record users engaging with content on a web page after it
 
 If enabled, the page ping function checks for engagement with a page after load. (E.g. mousemovement, scrolling etc...) If there is some sort of engagement in a specified time interval, a page ping is sent.
 
-Like pageviews, the only field that needs to be set to record a pageping is `e=pp`. Otherwise, all the fields that are relevant for *any* web event can be set:
+Page pings are identified by `e=pp`. As well as all the standard web fields, there are four additional fields that `pp` includes, which are used to identify how users are scrolling over web pages:
+
+| **Parameter** | **Maps to**      | **Type** |**Description**       | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:---------------------|:-----------------|:------------------|
+| `pp_mix`      | `pp_xoffset_min` | integer  | Minimum page x offset seen in the last ping period | Yes | `0` |
+| `pp_max`      | `pp_xoffset_max` | integer  | Maximum page x offset seen in the last ping period | Yes | `100` |
+| `pp_miy`      | `pp_yoffset_min` | integer  | Minimum page y offset seen in the last ping period | Yes | `0` |
+| `pp_may`      | `pp_yoffset_max` | integer  | Maximum page y offset seen in the last ping period | Yes | `100` |
+
+Example:
 
 ```javascript
-// Key common parameters
-uid=2bfb7be74df650d7    // User ID
-&vid=2                  // Visit ID (i.e. session number for this user_id)
-&tid=426432             // Transaction ID
-&aid=pbzsite            // App ID
-&tv=js-0.9.1            // Tracker version
-
-// Key data points related to the page ping
-&e=pp                   // event = page ping
-&url=http%3A%2F%2Fwww.psychicbazaar.com%2F  // Page URL
-&page=Psychic%20Bazaar                      // Page title
-
-// Other browser-specific parameters
-&lang=en-US
-&fp=3511643688
-&f_pdf=1
-&f_qt=0
-&f_realp=0
-&f_wma=0
-&f_dir=0
-&f_fla=1
-&f_java=1
-&f_gears=0
-&f_ag=1
-&res=1280x1024
-&cd=32
-&cookie=1
-&tz=Europe%2FLondon
+e=pp
+page=Tarot cards - Psychic Bazaar
+pp_mix=0
+pp_max=7
+pp_miy=0
+pp_may=746
+dtm=1361534887845
+tid=344664
+vp=1105x390
+ds=1097x1413
+vid=1
+uid=91a88a7ec90ebbb1
+p=web
+tv=js-0.11.0
+fp=3324966434
+aid=pbzsite
+lang=en-GB
+cs=UTF-8
+tz=Europe/London
+refr=http=//www.psychicbazaar.com/
+f_pdf=0
+f_qt=1
+f_realp=0
+f_wma=1
+f_dir=0
+f_fla=1
+f_java=1
+f_gears=0
+f_ag=0
+res=1920x976
+cd=24
+cookie=1
+url=http://www.psychicbazaar.com/2-tarot-cards
 ```
-
-We do plan to extend pageping to record e.g. any scrolling that a user has done in the last time period. (See [the spec](https://github.com/snowplow/snowplow/issues/127) for details)
 
 Back to [event tracking](#events).
 
@@ -432,7 +449,7 @@ Back to the [top](#top).
 
 Custom event tracking is used to track events that are not natively supported by SnowPlow. (Like ad impressions, page views, ecomm transactions.)
 
-As well as setting `e=c`, there are five custom event specific parameters that can be set:
+As well as setting `e=se`, there are five custom event specific parameters that can be set:
 
 | **Parameter** | **Maps to**      | **Type** |**Description**                                     | **Implemented?** | **Example values**| 
 |:--------------|:-----------------|:---------|:---------------------------------------------------|:-----------------|:------------------|
@@ -451,7 +468,7 @@ uid=aeb1691c5a0ee5a6    // User ID
 &aid=1                  // App ID
 &tv=js-0.5.2            // Tracker version
 
-&e=c                    // event = custom  
+&e=se                    // event = custom  
 &ev_ca=ecomm            // event_category = ecomm  
 &ev_ac=add-to-basket    // event_action = add-to-basket  
 &ev_la=178              // event_label = 178 (product_id of item added to basket)  
