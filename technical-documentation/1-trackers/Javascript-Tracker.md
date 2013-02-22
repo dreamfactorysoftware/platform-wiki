@@ -20,7 +20,8 @@
     - 3.3.1 [`addTrans`](#addTrans)  
     - 3.3.2 [`addItem`](#addItem)  
     - 3.3.3 [`trackTrans`](#trackTrans)  
-  - 3.4 [Social tracking](#social)  
+  - 3.4 [Social tracking](#social) 
+    - 3.4.1 [`trackSocial`](#trackSocial) 
   - 3.5 [Campaign tracking](#campaign)  
   - 3.6 [Ad impression tracking](#adimps) 
     - 3.6.1 [`trackImpression`](#trackImpression)
@@ -51,7 +52,7 @@ There are two "global parameters" that should be set for the Javascript tracker:
 1. The [collector endpoint](#endpoint)
 2. The [application ID](#app-id)
 
-These are generally set as part of the pageview tracking tags e.g. 
+These are generally set as part of the pageview tracking tags, before the actual `trackPageView` method is called e.g. 
 
 ```javascript
 <!-- SnowPlow starts plowing -->
@@ -59,12 +60,12 @@ These are generally set as part of the pageview tracking tags e.g.
 var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
-_snaq.push(['trackPageView']);
 _snaq.push(['setSiteId', '{{MY-SITE-ID}}']);
+_snaq.push(['trackPageView']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.10.0/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
@@ -81,60 +82,270 @@ If you are using a Cloudfront collector you can use [setCollectorCf](#setCollect
 <a name="setCollectorCf" />
 #### 2.1.1 Setting a Cloudfront endpoint using `setCollectorCf`
 
+You can set the collector endpoint for the Cloudfront collector using:
+
+```javascript
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+```
+
+So if your domain is `d3rkrsqld9gmqf`, you would include:
+
+```javascript
+_snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
+```
+
+in your SnowPlow tag.
+
+
 [Back to top](#top)
 
 <a name="setCollectorUrl" />
 #### 2.1.2 Setting a collector endpoint (e.g. for the Clojure collector) using `setCollector URL`
 
-If you are running the Cloudfront collector you can set the endpoint 
+If you are running a different collector (not the Cloudfront collector) then you set the collector endpoint using:
+
+```javascript
+_snaq.push(['setCollectorUrl', '{{COLLECTOR-URL}}'])
+```
+
+E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would include
+
+```javascript
+_snaq.push(['setCollectorUrl', 'my-company.c.snplow.com'])
+```
+
+in your SnowPlow tags.
 
 [Back to top](#top)
 
 <a name="app-id" />
 ### 2.2 Setting the application ID
 
+You can set different appliation IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
+
 <a name="setSiteId" />
 #### 2.2.1 Setting the application ID using `setSiteId`
+
+To set the application ID, use the `setSiteId` method i.e.:
+
+```javascript
+_snaq.push(['setSiteId', 'my_application_id_here']);
+```
 
 [Back to top](#top)
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
+SnowPlow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+
 <a name="page" />
 ### 3.1 Pageviews
 
+Page views are tracked using the `trackPageView` method. This is generally part of the first SnowPlow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setSiteId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
+
+```javascript
+<!-- SnowPlow starts plowing -->
+<script type="text/javascript">
+var _snaq = _snaq || [];
+
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setSiteId', '{{MY-SITE-ID}}']);
+_snaq.push(['trackPageView']);
+
+(function() {
+var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.10.0/sp.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+})();
+ </script>
+<!-- SnowPlow stops plowing -->
+```
+
 <a name="trackPageView" />
 #### 3.1.1 `trackPageView`
+
+Track pageview is called using the simple:
+
+```javascript
+_snaq.push(['trackPageView']);
+```
+
+This method automatically captures the page title, URL and referrer.
+
+Note: going forwards we plan to extend this method to also capture page category.
 
 [Back to top](#top)
 
 <a name="Pagepings" />
 ### 3.2 Track engagement with a web page over time: page pings
 
+As well as tracking page views, we can monitor whether a user continues to engage with a page over time, and record how he / she digests content on the page over time.
+
+That is accomplished using 'page ping' events. If activity tracking is enabled, the web page is monitored to see if a user is engaging with it. (E.g. is the tab in focus, does the mouse move over the page, does the user scroll etc.) If any of these things occur in a set period of time, a page ping event fires, and records the maximum scroll left / right and up / down in the last ping period. If there is no activity in the page (e.g. because the user is on a different tab in his / her browser), no page ping fires.
+
 <a name="enableActivityTracking" />
 #### 3.2.1 `enableActivityTracking`
 
+Page pings are enabled by:
+
+```javascript
+_snaq.push(['enableActivityTracking', minimumVisitLength, heartBeat]);
+```
+
+where `minimumVisitLength` is the time period from page load before the first page ping occurs, in seconds. Heartbeat is the number of seconds between each page ping, once they have started. So, if you executed:
+
+```javascript
+_snaq.push(['enableActivityTracking', 30, 10]);
+```
+
+The first ping would occur after 30 seconds, and subsequent pings every 10 seconds as long as the user continued to browse the page actively.
+
+Note: in general this is executed as part of the main SnowPlow tracking tag. As a result, you can elect to enable this on specific pages.
 
 [Back to top](#top)
 
 <a name="ecommerce" />
 ### 3.3 Ecommerce tracking
 
+Modelled on Google Analytics ecommerce tracking capability, SnowPlow uses three methods that have to be used together track online transactions:
+
+1. **Create a transaction object**. Use `addTrans()` method to initialize a transaction object. This will be the object that is loaded with all the data relevant to the specific transaction that is being tracked including all the items in the order, the prices of the items, the price of shipping and the `order_id`.
+2. **Add items to the transaction.** Use the `addItem()` method to add data about each individual item to the transaction object.
+3. **Submit the transaction to SnowPlow** using the trackTrans() method, once all the relevant data has been loaded into the object.
+
 <a name="addTrans" >
 #### 3.3.1 `addTrans`
 
+The `addTrans` method creates a transaction object. It takes seven possible parameters, two of which are required:
+
+| **Parameter**                  | **Required?** | **Example value** | 
+|:-------------------------------|:--------------|:------------------|
+| `order ID`                     | Yes           | '1234'            |
+| `affiliation or store name`    | No            | 'Womens Apparel'  |
+| `total spend`                  | Yes           | '19.99'           |
+| `shipping cost`                | No            | '2.99'            |
+| `city`                         | No            | 'San Jose'        | 
+| `state or province`            | No            | 'California'      |
+| `country`                      | No            | 'USA'             |
+
+For example: 
+
+```javascript
+_snaq.push(['addTrans',
+    '1234',           // order ID - required
+    'Acme Clothing',  // affiliation or store name
+    '11.99',          // total - required
+    '1.29',           // tax
+    '5',              // shipping
+    'San Jose',       // city
+    'California',     // state or province
+    'USA'             // country
+  ]);
+```
 
 [Back to top](#top)
 
 <a name="addItem" />
 #### 3.3.2 `addItem`
 
+The `addItem` method is used to capture the details of each product item included in the transaction. It should therefore be called once for each item.
+
+There are six potential parameters that can be passed with each call, four of which are required:
+
+| **Parameter**                  | **Required?**                                     | **Example value** |
+|:-------------------------------|:--------------------------------------------------|:------------------|
+| `order ID`                     | Yes (in order to associate item with transaction) | '1234'            |
+| `SKU / product code`           | Yes                                               | 'pbz0001234'      |
+| `product name`                 | No, but advisable (to make interpreting SKU easier) | 'Black Tarot'   |
+| `category or variation`        | No                                                | 'Large'           |
+| `unit price`                   | Yes                                               | '9.99'            |
+| `quantity`                     | Yes                                               | '1'               |
+
+For example:
+
+```javascript
+_snaq.push(['addItem',
+    '1234',           // order ID - required
+    'DD44',           // SKU/code - required
+    'T-Shirt',        // product name
+    'Green Medium',   // category or variation
+    '11.99',          // unit price - required
+    '1'               // quantity - required
+  ]);
+```
 
 <a name="trackTrans" />
 #### 3.3.3 `trackTrans`
 
+Once the transaction object has been created (using `addTrans`) and the relevant item data added to it using the `addItem` method, we are ready to send the data to the collector. This is initiated using the `trackTrans` method:
+
+```javascript
+_snaq.push(['trackTrans']);
+```
+
+<a name="all-together" />
+#### 3.3.4 Putting the three methods together: a complete example
+
+```html
+<html>
+<head>
+<title>Receipt for your clothing purchase from Acme Clothing</title>
+<script type="text/javascript">
+  var _snaq = _snaq || [];
+
+  _snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
+  _snaq.push(['trackPageView']);
+  _snaq.push(['enableLinkTracking']);
+
+  (function() {
+  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+  sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+  })();
+
+
+  _snaq.push(['addTrans',
+    '1234',           // order ID - required
+    'Acme Clothing',  // affiliation or store name
+    '11.99',          // total - required
+    '1.29',           // tax
+    '5',              // shipping
+    'San Jose',       // city
+    'California',     // state or province
+    'USA'             // country
+  ]);
+
+   // add item might be called for every item in the shopping cart
+   // where your ecommerce engine loops through each item in the cart and
+   // prints out _addItem for each
+  _snaq.push(['addItem',
+    '1234',           // order ID - required
+    'DD44',           // SKU/code - required
+    'T-Shirt',        // product name
+    'Green Medium',   // category or variation
+    '11.99',          // unit price - required
+    '1'               // quantity - required
+  ]);
+
+  // trackTrans sends the transaction to SnowPlow tracking servers.
+  // Must be called last to commit the transaction.
+  _snaq.push(['trackTrans']); //submits transaction to the collector
+
+</script>
+</head>
+<body>
+
+  Thank you for your order.  You will receive an email containing all your order details.
+
+</body>
+</html>
+```
+
 [Back to top](#top)
+
+
+
 
 <a name="social" />
 ### 3.4 Social tracking
