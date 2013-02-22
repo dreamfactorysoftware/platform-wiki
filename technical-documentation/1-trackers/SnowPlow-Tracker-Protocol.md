@@ -112,8 +112,10 @@ Back to [common field types](#common).
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
-| `uid`         | `user_id`        | text     | Unique identifier for user    | Yes              | `aeb1691c5a0ee5a6`        |
-| `vid`         | `visit_id`       | int      | Visit / session identifier for this user e.g. `1` is first visit | Yes       | `1`, `2`...|
+| `duid`        | `domain_userid`  | text     | Unique identifier for a user, based on a first party cookie (so domain specific) | Yes | `aeb1691c5a0ee5a6` |
+| `nuid`        | `network_userid` | text     | Unique identifier for a user, based on a third party cookie (so set at a network level) | Yes | `ecdff4d0-9175-40ac-a8bb-325c49733607` |
+| `uid`         | `user_id`        | text     | Unique identifier for user, set by the business using `setUserId`    | Yes              | `jon.doe@email.com`  |
+| `vid`         | `domain_sessionidx`| int    | Index of number of visits that this user_id has made to this domain e.g. `1` is first visit | Yes       | `1`, `2`...|
 
 We recommend **always** setting the `uid` / `user_id` parameter: as this is the cornerstone of all customer-centric analytics.
 
