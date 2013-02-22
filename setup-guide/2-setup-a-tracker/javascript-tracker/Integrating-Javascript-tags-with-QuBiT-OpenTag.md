@@ -238,20 +238,20 @@ var i = window.universal_variable.events.length
 while (i--) {
   e = window.universal_variable.events[i];
   if (e.type == 'struct') {
-    _snaq.push(['trackEvent', e.category, e.action, e.label, e.property, e.value]); 
+    _snaq.push(['trackStructEvent', e.category, e.action, e.label, e.property, e.value]); 
     window.universal_variable.events.splice(i, 1);
   }
 }
 </script>
 ```
 
-The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwards it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page in quick succession.)
+The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackStructEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwards it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page in quick succession.)
 
 [[/setup-guide/images/opentag/15.png]]
 
 #### 2.2.3 Ensuring that the event tracking tag only fires _after_ the page tracking tag has fired
 
-The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackEvent` function that is called in the tag.
+The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackStructEvent` function that is called in the tag.
 
 Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
 

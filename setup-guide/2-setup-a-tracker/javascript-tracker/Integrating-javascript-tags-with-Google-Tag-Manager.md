@@ -267,7 +267,7 @@ In the HTML box below, we need to paste the SnowPlow event tracking code. The ge
 ```html
 <!-- SnowPlow event tracking -->
 <script type="text/javascript">
-_snaq.push(['trackEvent', {{CATEGORY}}, {{ACTION}}, {{LABEL}}, {{PROPERTY}}, {{VALUE}}]);
+_snaq.push(['trackStructEvent', {{CATEGORY}}, {{ACTION}}, {{LABEL}}, {{PROPERTY}}, {{VALUE}}]);
 </script>
 ```
 
@@ -296,7 +296,7 @@ To implement the above mapping, we update the HTML in the box to the following:
 ```html
 <!-- SnowPlow event tracking -->
 <script type="text/javascript">
-_snaq.push(['trackEvent', 'video', 'playVideo', {{videoId}}, {{videoFormat}}, '0.0']);
+_snaq.push(['trackStructEvent', 'video', 'playVideo', {{videoId}}, {{videoFormat}}, '0.0']);
 </script>
 ```
 
@@ -342,7 +342,7 @@ Then we can create a single SnowPlow event tag in GTM that is fired with every `
 ```html
 <!-- SnowPlow event tracking -->
 <script type="text/javascript">
-_snaq.push(['trackEvent', '{{eventCategory}}', '{{eventAction}}', '{{eventLabel}}', '{{eventProperty}}', '{{eventValue}}']);
+_snaq.push(['trackStructEvent', '{{eventCategory}}', '{{eventAction}}', '{{eventLabel}}', '{{eventProperty}}', '{{eventValue}}']);
 </script>
 ```
 
