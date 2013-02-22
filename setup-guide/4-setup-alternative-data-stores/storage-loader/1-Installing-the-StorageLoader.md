@@ -100,7 +100,7 @@ file template available in the SnowPlow GitHub repository at
 :storage:
   :type: infobright # No other storage types supported yet
   :database: ADD HERE # Name of database
-  :table:    events_006 # Latest version of table
+  :table:    events_007 # Latest version of table
   :username: ADD HERE # Or leave blank to default to the user running the script
   :password: ADD HERE # Or leave blank if no password
 ```
