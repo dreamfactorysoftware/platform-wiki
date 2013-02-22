@@ -156,7 +156,6 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | **Page fields** |          |                 |           |           |                |
-| `page_url`      | text     | Web page URL    | Yes       | Yes       | 'http://snowplowanalytics.com/blog/2013/01/08/using-chartio-to-visualise-and-interrogate-snowplow-data/' |
 | `page_urlscheme`| text     | Scheme aka protocol | Yes   | Yes       | 'https'        |
 | `page_urlhost`  | text     | Host aka domain | Yes       | yes       | '“www.snowplowanalytics.com' |
 | `page_urlport`  | int      | Port if specified, 80 if not| Yes       | 80             |
@@ -187,8 +186,8 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `br_features`   | array    | An array of browser features that the browser supports | No | Yes | ['pdf', 'java', 'fla'] |
 | `br_colordepth` | int      | Bit depth of the browser color palette  | No | Yes | 24 |
 | `br_jsversion`  | text     | Javascript version | No     | No        | - |
-| `br_windowheight`| int     | Viewport height    | No     | No         | 1000 |
-| `br_windowwidth` | int     | Viewport width     | No     | No         | 1000 |
+| `br_viewheight`| int     | Viewport height    | No     | No         | 1000 |
+| `br_viewwidth` | int     | Viewport width     | No     | No         | 1000 |
 
 See [issue 94](https://github.com/snowplow/snowplow/issues/94) for more details on `br_windowheight` and `br_windowwidth`.
 
@@ -205,7 +204,7 @@ Going forwards, we plan to enable users to define their own events and data mode
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| event_vendor    | text     | Company that developed the event model | Yes | Yes | `com.snowplowanalytics` |
+| event_vendor    | text     | Company that developed the event model | Yes | Yes | 'com.snowplowanalytics' |
 
 Note that to date, all event types have been defined by SnowPlow. Also note that `event_vendor` values follow the [Java package naming convention](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).
 
@@ -229,7 +228,7 @@ Details of which fields are available for which events are given below:
 <a name="pageview" />
 #### 2.3.2 Page views
 
-There are currently fields that are specific to `page_view` events: all the fields that are required are part of the standard fields available for any [web-based event](#web) e.g. `page_url`, `page_title`.
+There are currently fields that are specific to `page_view` events: all the fields that are required are part of the standard fields available for any [web-based event](#web) e.g. `page_urlscheme`, `page_title`.
 
 Back to [top](#top).
 
