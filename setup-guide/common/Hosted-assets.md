@@ -14,8 +14,6 @@ The minified JavaScript tracker is hosted on CloudFront:
 
     http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.0/sp.js
 
-**We will be updating this URL structure for the next version of the tracker.**
-
 ## 2. Collectors
 
 ### 2.1 Clojure collector resources
