@@ -206,7 +206,7 @@ Going forwards, we plan to enable users to define their own events and data mode
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| event_vendor    | text     | Company that developed the event model | Yes | Yes | 'com.snowplowanalytics' |
+| `event_vendor`  | text     | Company that developed the event model | Yes | Yes | 'com.snowplowanalytics' |
 
 Note that to date, all event types have been defined by SnowPlow. Also note that `event_vendor` values follow the [Java package naming convention](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).
 
