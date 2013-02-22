@@ -116,9 +116,9 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :storage_format: non-hive # Or switch to 'hive' if you're only using Hive for analysis
 # Can bump the below as SnowPlow releases new versions
 :snowplow:
-  :serde_version: 0.5.4
-  :hive_hiveql_version: 0.5.5
-  :non_hive_hiveql_version: 0.0.6
+  :serde_version: 0.5.5
+  :hive_hiveql_version: 0.5.6
+  :non_hive_hiveql_version: 0.0.7
 ```
 
 To take each section in turn:

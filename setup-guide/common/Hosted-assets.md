@@ -12,7 +12,7 @@ The **current versions** of the assets hosted by the SnowPlow Analytics team are
 
 The minified JavaScript tracker is hosted on CloudFront:
 
-    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.10.0/sp.js
+    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.0/sp.js
 
 **We will be updating this URL structure for the next version of the tracker.**
 
@@ -34,12 +34,12 @@ The Hive ETL process uses a HiveQL file and a Hive deserializer. These are both 
 
 #### HiveQL scripts
 
-    s3://snowplow-emr-assets/hive/hiveql/hive-rolling-etl-0.5.5.q
-    s3://snowplow-emr-assets/hive/hiveql/non-hive-rolling-etl-0.0.6.q
+    s3://snowplow-emr-assets/hive/hiveql/hive-rolling-etl-0.5.6.q
+    s3://snowplow-emr-assets/hive/hiveql/non-hive-rolling-etl-0.0.7.q
 
 #### Hive deserializer
 
-    s3://snowplow-emr-assets/hive/serdes/snowplow-log-deserializers-0.5.4.jar
+    s3://snowplow-emr-assets/hive/serdes/snowplow-log-deserializers-0.5.5.jar
 
 ## 4. Storage
 
@@ -56,4 +56,4 @@ As well as these hosted assets for running SnowPlow, the SnowPlow Analytics team
 Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
-[war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.2.0-standalone.war
+[war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.3.0-standalone.war
