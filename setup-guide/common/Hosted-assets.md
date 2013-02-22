@@ -22,7 +22,7 @@ The minified JavaScript tracker is hosted on CloudFront:
 
 The Clojure collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
 
-    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.2.0-standalone.war
+    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.3.0-standalone.war
 
 Right-click on this [Download link] [war-download] to save it down locally.
 
