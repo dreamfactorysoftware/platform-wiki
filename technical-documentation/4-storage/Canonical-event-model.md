@@ -68,8 +68,10 @@ Back to [top](#top).
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `dt`            | date     | Date event occured | Yes    | Yes       | '2013-01-31'   |
-| `tm`            | time     | Time event occured | Yes    | Yes       | '11:35:30'     |
+| `collector_dt`  | date     | Date event was recorded by the collector | Yes    | Yes       | '2013-01-31'   |
+| `collector_tm`  | time     | Time event was recorded by the collector | Yes    | Yes       | '11:35:30'     |
+| `dvce_dt`       | date     | Date event was recorded on the client device | No | Yes | '2013-02-05' |
+| `dvce_tm`       | time     | Time event was recorded on the client device | No | Yes | '11:27:45'
 | `os_timezone`   | text     | Client operating system timezone | No | Yes | 'Europe/London' |
 
 We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/snowplow/snowplow/issues/149) for details.
@@ -105,13 +107,13 @@ Back to [top](#top).
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `user_id`       | text     | Unique ID for user set by SnowPlow | No | Yes | '1369c78d-2c11-4801-900e-7e186452193a' |
+| `user_id`       | text     | Unique ID set by business | No | Yes | 'jon.doe@email.com' |
+| `domain_userid` | text     | User ID set by SnowPlow using 1st party cookie | No | Yes | 'bc2e92ec6c204a14' |
+| `network_userid`| text     | User ID set by SnowPlow using 3rd party cookie | No | Yes | 'ecdff4d0-9175-40ac-a8bb-325c49733607' |
 | `user_ipaddress` | text    | Ueser IP address | No       | Yes       | '92.231.54.234' |
 | `visit_id`      | int      | A visit / session identifier | No | Yes | 3              |
 | `user_dimension1` -> `user_dimension10` | text | Custom dimensions that are set at a user-level | No | No | 'member' |
 | `visit_dimension1` -> `visit_dimension10` | text | Custom dimensions that are set at a session-level | No | No | -   |
-
-We intend to add a new field so that we can differentiate `domain_userid` and `network_userid`. For details see [issue 150] (https://github.com/snowplow/snowplow/issues/150).
 
 Back to [top](#top).
 
