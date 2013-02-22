@@ -10,7 +10,7 @@
     - 2.1.1 [`setCollectorCf`](#setCollectorCf)  
     - 2.1.2 [`setCollectorUrl`](#setCollectorUrl)
   - 2.2 [Setting the application ID](#app-id)
-    - 2.2.1 [`setSiteId`](#setsiteid)  
+    - 2.2.1 [`ssetAppId`](#ssetAppId)  
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
@@ -63,7 +63,7 @@ These are generally set as part of the pageview tracking tags, before the actual
 var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
-_snaq.push(['setSiteId', '{{MY-SITE-ID}}']);
+_snaq.push(['ssetAppId', '{{MY-SITE-ID}}']);
 _snaq.push(['trackPageView']);
 
 (function() {
@@ -126,13 +126,13 @@ in your SnowPlow tags.
 
 You can set different appliation IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
 
-<a name="setSiteId" />
-#### 2.2.1 Setting the application ID using `setSiteId`
+<a name="ssetAppId" />
+#### 2.2.1 Setting the application ID using `ssetAppId`
 
-To set the application ID, use the `setSiteId` method i.e.:
+To set the application ID, use the `ssetAppId` method i.e.:
 
 ```javascript
-_snaq.push(['setSiteId', 'my_application_id_here']);
+_snaq.push(['ssetAppId', 'my_application_id_here']);
 ```
 
 [Back to top](#top)
@@ -145,7 +145,7 @@ SnowPlow has been built to enable users to track a wide range of events that occ
 <a name="page" />
 ### 3.1 Pageviews
 
-Page views are tracked using the `trackPageView` method. This is generally part of the first SnowPlow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setSiteId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
+Page views are tracked using the `trackPageView` method. This is generally part of the first SnowPlow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `ssetAppId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
 
 ```javascript
 <!-- SnowPlow starts plowing -->
@@ -153,7 +153,7 @@ Page views are tracked using the `trackPageView` method. This is generally part 
 var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
-_snaq.push(['setSiteId', '{{MY-SITE-ID}}']);
+_snaq.push(['ssetAppId', '{{MY-SITE-ID}}']);
 _snaq.push(['trackPageView']);
 
 (function() {
