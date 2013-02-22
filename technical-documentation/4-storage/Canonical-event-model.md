@@ -157,8 +157,18 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | **Page fields** |          |                 |           |           |                |
 | `page_url`      | text     | Web page URL    | Yes       | Yes       | 'http://snowplowanalytics.com/blog/2013/01/08/using-chartio-to-visualise-and-interrogate-snowplow-data/' |
+| `page_urlscheme`| text     | Scheme aka protocol | Yes   | Yes       | 'https'        |
+| `page_urlhost`  | text     | Host aka domain | Yes       | yes       | '“www.snowplowanalytics.com' |
+| `page_urlport`  | int      | Port if specified, 80 if not| Yes       | 80             |
+| `page_urlpath`  | text     | Path to page    | No        | Yes       | '/product/index.html' |
+| `page_urlquery` | text     | Querystring     | No        | Yes       | 'id=GTM-DLRG'  |
+| `page_urlfragment` | text  | Fragment aka anchor | No    | Yes       | '4-conclusion' |
 | `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualise and interrogate SnowPlow data - SnowPlow Analytics' |
 | `page_referrer` | text     | URL of previous page or link clicked that forwarded to page | No   | Yes       | 'http://t.co/UMzipsn1' | 
+| **Document fields** |      |                 |           |           |                |
+| `doc_charset`   | text     | The page’s character encoding | No | Yes | , 'UTF-8' |
+| `doc_width`     | int      | The page's width in pixels  | No | Yes  | 1024       |
+| `doc_height`    | int      | The page's height in pixels | No | Yes  | 3000       | 
 | `page_type`     | text     | Category of page| No        | No        | 'product', 'catalogue' |
 | `page_dimension1` -> `page_dimension10` | text | Custom dimensions associated with this web page | No | No | 
 | `page_metric1` -> `page_metric10` | decimal | Custom metric values with the loading of this web page | No | No | 3.5 |
