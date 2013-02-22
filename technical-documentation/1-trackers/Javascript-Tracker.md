@@ -20,9 +20,12 @@
     - 3.3.1 [`addTrans`](#addTrans)  
     - 3.3.2 [`addItem`](#addItem)  
     - 3.3.3 [`trackTrans`](#trackTrans)  
+    - 3.3.4 [Pulling it all together: an example](#ecomm-example)
   - 3.4 [Social tracking](#social) 
     - 3.4.1 [`trackSocial`](#trackSocial) 
   - 3.5 [Campaign tracking](#campaign)  
+    - 3.5.1 [Identifying paid sources](#identifying-paid-sources)  
+    - 3.5.2 [Anatomy of the query parameter](#anatomy-of-the-query-parameter)
   - 3.6 [Ad impression tracking](#adimps) 
     - 3.6.1 [`trackImpression`](#trackImpression)
   - 3.7 [Tracking custom structured events](#custom-structured-events)  
@@ -284,7 +287,7 @@ Once the transaction object has been created (using `addTrans`) and the relevant
 _snaq.push(['trackTrans']);
 ```
 
-<a name="all-together" />
+<a name="ecomm-example" />
 #### 3.3.4 Putting the three methods together: a complete example
 
 ```html
@@ -344,339 +347,17 @@ _snaq.push(['trackTrans']);
 
 [Back to top](#top)
 
-
-
-
 <a name="social" />
 ### 3.4 Social tracking
+
+Social tracking has not been implemented yet. However, the intention is to use a similar tracking function to that employed by Google Analytics.
+
+Social tracking will be used to track the way users interact with Facebook, Twitter and Google + widgets, e.g. to capture "like this" or "tweet this" events.
 
 <a name="trackSocial" />
 #### 3.4.1 `trackSocial`
 
-[Back to top](#top)
-
-<a name="campaign" />
-### 3.5 Campaign tracking
-
-
-[Back to top](#top)
-
-<a name="adimps" />
-### 3.6 Ad impression tracking
-
-<a name="trackImpression" />
-#### 3.6.1 `trackImpression`
-
-[Back to top](#top)
-
-<a name="custom-structured-events" />
-### 3.7 Tracking custom structured events
-
-#### 3.7.1 `trackStructEvent`
-
-[Back to top](#top)
-
-<a name="custom-unstructured-events" />
-### 3.8 Tracking custom unstructured events
-
-<a name="trackUnstructEvent" />
-#### 3.8.1 `trackUnstructEvent`
-
-<a name="link-click-tracking" />
-### 3.9 Link click tracking
-
-<a name="enableLinkTracking" />
-#### 3.9.1 `enableLinkTracking`
-
-[Back to top](#top)
-
-
-
-<a name="page" />
-## 2. Pageview tracking
-
-Pageview tracking is executed using the `trackPageView` function call. This is included in part of the core SnowPlow tag, added to the <head> section of the website(s) on which SnowPlow is implemented.
-
-#### Asyncronous implementation
-
-By inserting the following code into the `<head>` section of the each web page, views of those pages will be tracked in an 'async' manner:
-
-```html
-<!-- SnowPlow starts plowing -->
-<script type="text/javascript">
-var _snaq = _snaq || [];
-
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
-_snaq.push(['trackPageView']);
-_snaq.push(['enableLinkTracking']);
-
-(function() {
-var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
-})();
- </script>
-<!-- SnowPlow stops plowing -->
-```
-
-Note: you will need to update the {{ACCOUNT}} field with an account ID provided by the SnowPlow team (if the SnowPlow team is hosting SnowPlow for you), or the self-generated account ID if you are hosting the SnowPlow Cloudfront collector yourself. Please refer to the [setup guide](https://github.com/snowplow/snowplow/wiki/Integrating-SnowPlow-into-your-website#wiki-self-hosting) for more details.
-
-In the event that you want to manually trigger a Pageview (e.g. for an AJAX event that does not actually trigger a new page view), you can do so by calling the `trackPageView` function directly i.e.
-
-```javascript
-_snaq.push['trackPageView']
-```
-
-and bind the to the event you want to trigger it.
-
-#### Syncronous implementation
-
-By inserting the following code into the `<head>` section of each web page, views of those pages will be tracked in a 'sync' manner:
-
-```html
-<!-- SnowPlow starts plowing -->
-<script type="text/javascript">
-var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
-document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var snowplowTracker = SnowPlow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
-snowplowTracker.trackPageView();
-snowplowTracker.enableLinkTracking();
-} catch ( err ) {}
-</script>
-<!-- SnowPlow stops plowing -->
-```
-
-Note: you will need to update the {{CLOUDFRONT DOMAIN}} field with an account ID provided by the SnowPlow team (if the SnowPlow team is hosting SnowPlow for you), or the self-generated account ID if you are hosting the SnowPlow Cloudfront collector yourself. Please refer to the [setup guide] (https://github.com/snowplow/snowplow/wiki/Integrating-SnowPlow-into-your-website#wiki-self-hosting) for more details.
-
-[Back to top](#top)
-
-<a name="events" />
-## 3. Event tracking
-
-#### Philosophy
-
-The concept of event tracking is at the heart of SnowPlow. In the 'classical' model of web analytics, sensible analyses are agreed in advance, then formalised by being integrated into the site (e.g. by tracking goals and conversion funnels) and finally analysed. SnowPlow views this approach as out-dated: in the current era of cheap storage and growing computer power, we believe companies should log **all** identificable user events, and then figure out afterwards how to use that data to drive insight. We recommend that any on-page event that would not be captured by trackPageView (i.e. all AJAX events) are captured using Event tracking.
-
-#### Examples of events that you might want to track
-
-* Video / music plays
-* Downloads
-* Add-to-baskets
-* Favoriting content
-
-#### Anatomy of event tracking
-
-5 key attributes can be associated with each event that is fired in SnowPlow. Of them, only the first two are required:
-
-| **Name**    | **Required?** | **Description**                                                                          |
-|------------:|:--------------|:-----------------------------------------------------------------------------------------|
-|  `Category` | Yes           | The name you supply for the group of objects you want to track e.g. 'media', 'ecomm'     |
-|    `Action` | Yes           | A string which defines the type of user interaction for the web object e.g. 'play-video', 'add-to-basket' |
-|     `Label` | No            | An optional string which identifies the specific object being actioned e.g. ID of the video being played, or the SKU or the product added-to-basket |
-|  `Property` | No            | An optional string describing the object or the action performed on it. This might be the quantity of an item added to basket |
-|     `Value` | No            | An optional float to quantify or further describe the user action. This might be the price of an item added-to-basket, or the starting time of the video where play was just pressed |
-
-#### Calling the trackStructEvent method: asyncronous implementation
-
-The async specification for the `trackStructEvent` method is:
-
-```javascript
-_snaq.push(['trackStructEvent', 'category','action','object','property','value'])
-```
-
-An example of tracking a user listening to a music mix:
-
-```javascript
-_snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0'])
-```
-
-Note that in the above example no value is set for the `event property`.
-
-#### Calling the trackStructEvent method: syncronous implementation:
-
-The sync specification for the `trackStructEvent` method is:
-
-```javascript
-trackStructEvent('category','action','object','property','value')
-```
-
-An example of tracking a user adding an item to basket:
-
-```javascript
-trackStructEvent('Checkout', 'Add', 'ASO01043', 'blue:xxl', '2.0');
-```
-
-[Back to top](#top)
-
-<a name="ecommerce" />
-## 4. Ecommerce tracking
-
-Whilst it is possible to track all ecommerce events using SnowPlow's generic [event tracking](#events) (described [above](#events), it is also possible to track online transactions using dedicated Ecommerce Tracking, described here. Tracking purchase events using the Ecommerce Tracking is a 3 step process:
-
-1. **Create a transaction object**. Use `addTrans()` method to initialize a transaction object. This will be the object that is loaded with all the data relevant to the specific transaction that is being tracked including all the items in the order, the prices of the items, the price of shipping and the `order_id`.
-2. **Add items to the transaction.** Use the `addItem()` method to add data about each individual item to the transaction object.
-3. **Submit the transaction to SnowPlow** using the trackTrans() method, once all the relevant data has been loaded into the object.
-
-#### Anatomy of ecommerce tracking
-
-**The addTrans() method**
-
-| **Parameter**                  | **Required?** | **Example value** | 
-|:-------------------------------|:--------------|:------------------|
-| `order ID`                     | Yes           | '1234'            |
-| `affiliation or store name`    | No            | 'Womens Apparel'  |
-| `total spend`                  | Yes           | '19.99'           |
-| `shipping cost`                | No            | '2.99'            |
-| `city`                         | No            | 'San Jose'        | 
-| `state or province`            | No            | 'California'      |
-| `country`                      | No            | 'USA'             |
-
-**The addItem() method**
-
-| **Parameter**                  | **Required?**                                     | **Example value** |
-|:-------------------------------|:--------------------------------------------------|:------------------|
-| `order ID`                     | Yes (in order to associate item with transaction) | '1234'            |
-| `SKU / product code`           | Yes                                               | 'pbz0001234'      |
-| `product name`                 | No, but advisable (to make interpreting SKU easier) | 'Black Tarot'   |
-| `category or variation`        | No                                                | 'Large'           |
-| `unit price`                   | Yes                                               | '9.99'            |
-| `quantity`                     | Yes                                               | '1'               |
-
-**The trackTrans() method**
-
-This method is called without any parameters. It pings the SnowPlow Collector with the data added to the transaction object created using the `addTrans()` and `addItem()` method calls above.
-
-### Example ecommerce tracking code
-
-#### Async example
-
-Note how similar the SnowPlow Ecommerce tracking is to the [Google equivalent](https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingEcommerce). This should make adding SnowPlow tracking alongside Google Analytics tracking very straightforward.
-
-```html
-<html>
-<head>
-<title>Receipt for your clothing purchase from Acme Clothing</title>
-<script type="text/javascript">
-  var _snaq = _snaq || [];
-
-  _snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
-  _snaq.push(['trackPageView']);
-  _snaq.push(['enableLinkTracking']);
-
-  (function() {
-  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-  sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
-  })();
-
-
-  _snaq.push(['addTrans',
-    '1234',           // order ID - required
-    'Acme Clothing',  // affiliation or store name
-    '11.99',          // total - required
-    '1.29',           // tax
-    '5',              // shipping
-    'San Jose',       // city
-    'California',     // state or province
-    'USA'             // country
-  ]);
-
-   // add item might be called for every item in the shopping cart
-   // where your ecommerce engine loops through each item in the cart and
-   // prints out _addItem for each
-  _snaq.push(['addItem',
-    '1234',           // order ID - required
-    'DD44',           // SKU/code - required
-    'T-Shirt',        // product name
-    'Green Medium',   // category or variation
-    '11.99',          // unit price - required
-    '1'               // quantity - required
-  ]);
-
-  // trackTrans sends the transaction to SnowPlow tracking servers.
-  // Must be called last to commit the transaction.
-  _snaq.push(['trackTrans']); //submits transaction to the Analytics servers
-
-</script>
-</head>
-<body>
-
-  Thank you for your order.  You will receive an email containing all your order details.
-
-</body>
-</html>
-```
-
-
-#### Sync example
-
-Again, note how similar the SnowPlow Ecommerce tracking is to the [Google equivalent](https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingEcommerce). This should make adding SnowPlow tracking alongside Google Analytics tracking very straightforward.
-
-```html
-<html>
-<head>
-<title>Receipt for your clothing purchase from Acme Clothing</title>
-</head>
-
-<body>
-
-<p>Thank you for your order.  You will receive an email containing all your order details.</p>
-
-
-<script type="text/javascript">
-  var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.0/sp.js';
-  document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try{
-  var snowplowTracker = SnowPlow.getTracker('{{CLOUDFRONT DOMAIN}}');
-  snowplowTracker.trackPageView();
-  snowplowTracker.addTrans(
-      "1234",            // order ID - required
-      "Womens Apparel",  // affiliation or store name
-      "11.99",           // total - required
-      "1.29",            // tax
-      "15.00",           // shipping
-      "San Jose",        // city
-      "California",      // state or province
-      "USA"              // country
-    );
-
-
-   // add item might be called for every item in the shopping cart
-   // where your ecommerce engine loops through each item in the cart and
-   // prints out _addItem for each 
-   snowplowTracker.addItem(
-      "1234",           // order ID - necessary to associate item with transaction
-      "DD44",           // SKU/code - required
-      "T-Shirt",        // product name
-      "Olive Medium",   // category or variation
-      "11.99",          // unit price - required
-      "1"               // quantity - required
-   );
-
-   snowplowTracker.trackTrans(); //submits transaction to the Analytics servers
-} catch(err) {}
-</script>
-</body>
-</html>
-```
-
-[Back to top](#top)
-
-<a name="social" />
-## 5. Social tracking
-
-**THIS FUNCTIONALITY IS STILL IN DEVELOPMENT**
-
-Social tracking can be used to track users interacting with Facebook, Twitter and Google+ buttons and widgets.
-
-#### Anatomy of the `trackSocial` method
-
-Social tracking uses the `trackSocial` method, which takes four parameters: 
+The `trackSocial` method takes four parameters:
 
 | **Parameter** | **Description** | **Required?** | **Example value**     | 
 |:--------------|:----------------|:--------------|:----------------------|
@@ -685,9 +366,7 @@ Social tracking uses the `trackSocial` method, which takes four parameters:
 | `opt_target`  | Object social action is performed on e.g. page ID, product ID | No            | '19.99'               |
 | `opt_pagePath`| Page path of URL on which social action was carried out | No            | '2.99'                |
 
-#### `trackSocial` syntax
-
-The method is executed in an async manner as:
+The method is executed in as:
 
 ```javascript
 _snaq.push('trackSocial', network, socialAction, opt_target, opt_pagePath)
@@ -704,103 +383,10 @@ Or if the optional parameters were left off:
 ```javascript
 _snaq.push('trackSocial', 'facebook', 'like', '', '')
 ```
-
-And in a sync manner as:
-
-```javascript
-trackSocial(network, socialAction, opt_target, opt_pagePath)
-```
-
-For example:
-
-```javascript
-trackSocial('facebook', 'like', 'pbz00123', '/products/tarot/123-original-rider-waite')
-```
-
-Or if the optional parameters were left off:
-
-```javascript
-trackSocial('facebook', 'like', '', '')
-```
-
-#### Calling the `trackSocial` method
-
-The widgets provided by each social network (Google+, Facebook, Twitter) each have their own set of Javascript events associated with different user actions. Therefore, the details of how to implement Social tracking vary for each of them. In all cases, however, the key is to trigger the call to `trackSocial` when the specific social action (e.g. 'like' or 'retweet') has been completed.
-
-#### Tracking Facebook actions
-
-Social actions in Facebook can be tracked by subscribing to Facebook's `edge.create` events, that fire when a social action (e.g. a _like_ or a _share_) have been completed.
-
-**Recording _likes_**
-
-```javascript
-FB.Event.subscribe('edge.create', function(targetUrl) {
-  _snaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
-});
-```
-
-**Recording _unlikes_**
-
-```javascript
-FB.Event.subscribe('edge.remove', function(targetUrl) {
-  _snaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
-});
-```
-
-**Recording _shares_**
-
-```javascript
-FB.Event.subscribe('message.send', function(targetUrl) {
-  _snaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
-});
-```
-
-#### Tracking Twitter tweets
-
-When you insert a Twitter button onto your website, the Twitter button code creates a `twttr` object:
-
-```html
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-  <script type="text/javascript" charset="utf-8">
-    window.twttr = (function (d,s,id) {
-      var t, js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
-  </script>
-```
-
-To track Tweet Button events, you need to create a function that calls the `trackSocial` method with the relevant parameters, and bind it to the `twttr` object as an event binding:
-
-```javascript
-function trackTwitter(intent_event) {
-    if (intent_event) {
-      var opt_pagePath;
-      if (intent_event.target && intent_event.target.nodeName == 'IFRAME') {
-            opt_target = extractParamFromUri(intent_event.target.src, 'url');
-      }
-      _snaq.push(['_trackSocial', 'twitter', 'tweet', opt_pagePath]);
-    }
-  }
-
-  //Wrap event bindings - Wait for async js to load
-  twttr.ready(function (twttr) {
-    //event bindings
-    twttr.events.bind('tweet', trackTwitter);
-  });
-```
-
-#### Gracking Google +1s
-
-TO WRITE
-
 [Back to top](#top)
 
 <a name="campaign" />
-## 6. Campaign tracking
-
-#### Overview of the process by which traffic sources are ascribed to visits
+### 3.5 Campaign tracking
 
 Campaign tracking is used to identify the source of traffic coming to a website.
 
@@ -813,13 +399,14 @@ If the query parameters are not present, SnowPlow reasons that the user is from 
 1. If the URL is identified as a search engine, the traffic medium is set to "organic" and SnowPlow tries to derive the search engine name from the referrer URL domain and the keywords from the  query string.
 2. If the URL is a non-search 3rd party website, the medium is set to "referrer". SnowPlow derives the source from the referrer URL domain.
 
-#### Identifying paid sources
+<a name="identifying-paid-sources" />
+#### 3.5.1 Identifying paid sources
 
 Your different ad campaigns (PPC campaigns, display ads, email marketing messages, Facebook campaigns etc.) will include one or more links to your website e.g.:
 
-'''html
+```html
 <a href="http://mysite.com/myproduct.html">Visit website</a>
-'''
+```
 
 We want to be able to identify people who've clicked on ads e.g. in a marketing email as having come to the site having clicked on a link in that particular marketing email. To do that, we modify the link in the marketing email with query parameters, like so:
 
@@ -829,7 +416,8 @@ We want to be able to identify people who've clicked on ads e.g. in a marketing 
 
 For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at http://mysite.com/myproduct.html.) But SnowPlow then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = cn0201.
 
-#### Anatomy of the query parameters
+<a name="anatomy-of-the-query-parameters" />
+#### 3.5.2 Anatomy of the query parameters
 
 SnowPlow uses the same query parameters used by Google Analytics. Because of this, SnowPlow users who are also using GA do not need to do any additional work to make their campaigns trackable in SnowPlow as well as GA. Those parameters are:
 
@@ -843,45 +431,20 @@ SnowPlow uses the same query parameters used by Google Analytics. Because of thi
 
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
-[Back to top](#top)
-
-<a name="error" />
-## 7. Error tracking 
-
-COMING SOON
-
-## 8. Setting the application ID
-
-The application ID field (aka `app_id`) is useful for SnowPlow uses distinguishing between data from different digital applications, be they websites, mobile apps or other types of software application with SnowPlow tracking installed.
-
-To set the `app_id`, use the `setSiteId` function. This takes only one argument: the application ID you want to set. The async implementation is:
-
-```javascript
-_snaq.push(['setSiteId', 'my_application_id_here']);
-```
-
-The sync implementation is simply:
-
-```javascript
-setSiteId('my_application_id')
-```
 
 [Back to top](#top)
-
 
 <a name="adimps" />
-## 9. Tracking ad impressions
+### 3.6 Ad impression tracking
 
-SnowPlow can be used to track ad impressions, clicks and conversions. As a result, it is used by ad networks as a way to warehouse imp, click and conversion data.
+SnowPlow tracking code can be included in ad tags in order to track impressions. This is used by e.g. ad networks to identify which sites and web pages users visit across a network, so that they can be segmented, for example.
 
-**Note**: although the Javascript tracker supports capture of impression, click and conversion events, the SnowPlow ETL current does not. As a result, SnowPlow today can be used to warehouse this data, but only bespoke analysis on the raw logs is supported. Building support for ad related data into the other parts of the SnowPlow stack is on our roadmap.
+Impression tracking is accomplished using the `trackImpression` method.
 
-<a name="adimps"/>
-### 9a. Tracking ad impressions
+<a name="trackImpression" />
+#### 3.6.1 `trackImpression`
 
-#### Anatomy of a tracked impression
-
-Tracking ad impressions is handled by a dedicated SnowPlow JavaScript function, called `trackImpression()`. The arguments for impression tracking are as follows:
+The method takes four parameters:
 
 | **Name**       | **Required?** | **Description**                                                                              |
 |---------------:|:--------------|:---------------------------------------------------------------------------------------------|
@@ -892,11 +455,9 @@ Tracking ad impressions is handled by a dedicated SnowPlow JavaScript function, 
 
 You will want to set these arguments programmatically, across all of your ad zones/slots - for guidelines on how to achieve this with the [OpenX adserver] [openx], please see the following sub-sections.
 
-#### OpenX: Ad zone HTML append
+#### 3.6.2 Example: implementing impression tracking with SnowPlow and OpenX
 
-Assuming that you do not have access to the host website(s) to add the SnowPlow header script, you will need to add the SnowPlow header script and SnowPlow `trackImpression()` call as an append to each ad zone in your ad server.
-
-Here's what the zone append functionality looks like in the OpenX adserver (OnRamp edition): 
+Most ad servers enable you to append custom code to your ad tags. Here's what the zone append functionality looks like in the OpenX adserver (OnRamp edition): 
 
 ![zoneappend] [zoneappend]
 
@@ -925,65 +486,83 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 <!-- SnowPlow stops plowing -->
 ```
 
-Once you have appended this code to all of your active ad zones, SnowPlow should be collecting all of your ad impression data into Amazon S3.
-
-<a name="clicksconvs"/>
-### 9b. Tracking ad clicks and conversions
-
-At the moment, SnowPlow does not have built-in functionality to handle ad clicks or conversions. It may be possible to integrate SnowPlow into your adserver for click and conversion tracking - please [contact us] [contactus] if you want to find out more.
-
-An alternative approach is to ask your adserver provider to warehouse this data for you, and upload it to your Amazon S3 account.
-
+Once you have appended this code to all of your active ad zones, SnowPlow should be collecting all of your ad impression data.
 
 [Back to top](#top)
 
 
-<a name="activitytracking"/>
-## 10. Tracking activity on a page over time
+[Back to top](#top)
 
-Simply logging page loads (via page tracking) and AJAX events (via event tracking) isn't always enough. On some web pages with lots of content, for example, we might be interested in how long a user spends consuming the content on the screen. (Maybe they are only scrolling down the content as they read it.)
+<a name="custom-structured-events" />
+### 3.7 Tracking custom structured events
 
-The Javascript tracker includes a function called `enableActivityTracking`. When enabled, this sends 'page pings' to SnowPlow every `heartBeatDelay` seconds, as long as the visitor remains active (moving the mouse, clicking etc) on the page. The function is invoked asyncronously envoked by:
+There are likely to be a large number of AJAX events that can occur on your site, for which a specific tracking method is part of SnowPlow. Examples include:
+
+* Playing a video
+* Adding an item to basket
+* Submitting a lead form
+
+Our philosophy in creating SnowPlow is that users should capture "every" consumer interaction and work out later how to use this data. This is different from traditional web analytics and business intelligence, that argues that you should first work out what you need, and only then start capturing the data. 
+
+As part of a SnowPlow implementation, therefore, we recommend that you identify every type of AJAX interaction that a user might have with your site: each one of these is an event that will not be captured as part of the standard page view tracking. All of them are candidates to track using `trackStructEvent`, if none of the other event-specific methods outlined above are appropriate.
+
+#### 3.7.1 `trackStructEvent`
+
+There are 5 parameters can be associated with each structured event. Of them, only the first two are required:
+
+| **Name**    | **Required?** | **Description**                                                                          |
+|------------:|:--------------|:-----------------------------------------------------------------------------------------|
+|  `Category` | Yes           | The name you supply for the group of objects you want to track e.g. 'media', 'ecomm'     |
+|    `Action` | Yes           | A string which defines the type of user interaction for the web object e.g. 'play-video', 'add-to-basket' |
+|     `Label` | No            | An optional string which identifies the specific object being actioned e.g. ID of the video being played, or the SKU or the product added-to-basket |
+|  `Property` | No            | An optional string describing the object or the action performed on it. This might be the quantity of an item added to basket |
+|     `Value` | No            | An optional float to quantify or further describe the user action. This might be the price of an item added-to-basket, or the starting time of the video where play was just pressed |
+
+The async specification for the `trackStructEvent` method is:
 
 ```javascript
-_snaq.push(['enableActivityTracking', minimumVisitLength, timeBetweenPings]); 
+_snaq.push(['trackStructEvent', 'category','action','object','property','value'])
 ```
 
-E.g. 
+An example of tracking a user listening to a music mix:
 
 ```javascript
-_snaq.push('enableActivityTracking', 5, 10); // Ping every 10 seconds after an initial 5 second delay
+_snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0'])
 ```
 
-Or syncronously:
+Note that in the above example no value is set for the `event property`.
 
-```javascript
-enableActivityTracking(minimumVisitLength, timeBetweenPings);
-```
+[Back to top](#top)
 
-E.g.
+<a name="custom-unstructured-events" />
+### 3.8 Tracking custom unstructured events
 
-```javascript
-enableActivityTracking(5, 10); // Ping every 10 seconds after an initial 5 second delay
-```
+This feature is on the roadmap: it has not been developed yet.
+
+<a name="trackUnstructEvent" />
+#### 3.8.1 `trackUnstructEvent`
+
+This feature is on the roadmap: it has not been developed yet.
+
+[Back to top](#top)
+
+<a name="link-click-tracking" />
+### 3.9 Link click tracking
+
+This feature is on the roadmap: it has not been developed yet.
+
+<a name="enableLinkTracking" />
+#### 3.9.1 `enableLinkTracking`
+
+This feature is on the roadmap: it has not been developed yet.
 
 [Back to top](#top)
 
 
-<a name="userid"/>
-## 11. Disabling client-side user identification
 
-As standard, the Javascript tracker generates a `user_id` for every visitor, stores this `user_id` on a browser cookie and appends on the query string sent to the collector, so that it is possible for analysts to perform user-based analytics.
 
-This setup works perfectly for businesses using the [Cloudfront collector](setting-up-the-cloudfront-collector). However, it does not work for businesses using the [Clojure collector](setting-up-the-clojure-collector), because the Clojure collector generates a `user_id` server side and appends it as a key/value parameter to the query string in the logs. (The reason it generates `user_id`s server side is in order to make it possible to identify the same user across multiple domains.)
 
-For businesses who use the Clojure collector, therefore, it is essential to prevent the Javascript (client-side) generated `user_id` being included in the query string. This is achieved by simply executing the following function:
 
-```javascript
-_snaq.push(['attachUserId', false]);
-```
-
-[Back to top](#top)
 
 [openx]: http://www.openx.com/publisher/enterprise-ad-server
 [zoneappend]: /snowplow/snowplow/wiki/setup-guide/images/03a_zone_prepend_openx.png
