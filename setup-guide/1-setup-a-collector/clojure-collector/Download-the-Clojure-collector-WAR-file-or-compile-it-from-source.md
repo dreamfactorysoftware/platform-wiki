@@ -30,9 +30,9 @@ We now need to add a couple of files to the `war`, that were not included as par
 
 Then execute the following three commands:
 
-	$ jar uf ../target/clojure-collector-0.2.0-standalone.war .ebextensions/server.xml 
-	$ jar uf ../target/clojure-collector-0.2.0-standalone.war .ebextensions/server-update.config
-	$ jar uf ../target/clojure-collector-0.2.0-standalone.war .ebextensions/cf-access-log-valve-0.0.2.jar
+	$ jar uf ../target/clojure-collector-0.3.0-standalone.war .ebextensions/server.xml 
+	$ jar uf ../target/clojure-collector-0.3.0-standalone.war .ebextensions/server-update.config
+	$ jar uf ../target/clojure-collector-0.3.0-standalone.war .ebextensions/cf-access-log-valve-0.0.2.jar
 
 The `war` file is now ready to be deployed to Amazon Elastic Beanstalk.
 

@@ -33,17 +33,18 @@ In order to analyse SnowPlow data, it is important to understand how it is struc
   - 2.1.7 [Location fields](#location)
 - 2.2 [**Platform-specific fields**](#platform)  
   - 2.2.1 [Web-specific fields](#web)  
-- 2.3 [**Event-specific fields**](#event)  
-  - 2.3.1 [Page views](#pageview)  
-  - 2.3.2 [Page pings](#pagepings)  
-  - 2.3.3 [Link clicks](#linkclicks)  
-  - 2.3.4 [Ad impressions](#ad-imp)  
-  - 2.3.5 [Ecommerce transations](#ecomm)  
-  - 2.3.6 [Social events](#social)  
-  - 2.3.7 [Item views](#itemview)  
-  - 2.3.8 [Error tracking](#error)  
-  - 2.3.9 [Custom structured events](#customstruct)  
-  - 2.3.10 [Custom unstructured events](#customunstruct)  
+- 2.3 [**Event-specific fields**](#event)
+  - 2.3.1 [Event vendor](#eventvendor)  
+  - 2.3.2 [Page views](#pageview)  
+  - 2.3.3 [Page pings](#pagepings)  
+  - 2.3.4 [Link clicks](#linkclicks)  
+  - 2.3.5 [Ad impressions](#ad-imp)  
+  - 2.3.6 [Ecommerce transations](#ecomm)  
+  - 2.3.7 [Social events](#social)  
+  - 2.3.8 [Item views](#itemview)  
+  - 2.3.9 [Error tracking](#error)  
+  - 2.3.10 [Custom structured events](#customstruct)  
+  - 2.3.11 [Custom unstructured events](#customunstruct)  
 
 <a name="common" />
 ### 2.1 Common fields (platform and event independent)
@@ -186,43 +187,53 @@ Back to [top](#top).
 <a name="event" />
 ### 2.3 Event-specific fields
 
+SnowPlow includes specific fields to capture data associated with specific events.
+
+#### 2.3.1 Event vendor
+
+Going forwards, we plan to enable users to define their own events and data model associated for each event. When that is enabled, it will be possible to distinguish between events defined by different companies using the `event_vendor` field:
+
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| event_vendor    | text     | Company that developed the event model | Yes | Yes | `com.snowplowanalytics` |
+
+Note that to date, all event types have been defined by SnowPlow. Also note that `event_vendor` values follow the [Java package naming convention](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).
+
 SnowPlow currently supports (or will support in the near future) the following event types:
 
 |        | **Event type**                                              | **Value of `event` field in model**    |
 |:-------|:------------------------------------------------------------|:---------------------------------------|
-| 2.3.1  | [Page views](#pageview)                                     | 'page_view'                            |
-| 2.3.2  | [Page pings](#pageping)                                     | 'page_ping'                            |
-| 2.3.3  | [Link clicks](#linkclicks)                                  | 'link_click'                           |
-| 2.3.4  | [Ad impressions](#ad-imps)                                  | 'ad_impression'                        |
-| 2.3.5  | [Ecommerce transactions](#ecomm)                            | 'transaction' and 'transaction_item'   |
-| 2.3.6  | [Social events](#social)                                    | 'social'                               |
-| 2.3.7  | [Item views](#items)                                        | 'item_view'                            |
-| 2.3.8  | [Errors](#error)                                            | 'error'                                |
-| 2.3.9  | [Custom structured events](#customstruct)                   | 'custom_struct'                        |
-| 2.3.10 | [Custom unstructured events](#customunstruct)               | 'custom_unstruct'                      |
+| 2.3.2  | [Page views](#pageview)                                     | 'page_view'                            |
+| 2.3.3  | [Page pings](#pageping)                                     | 'page_ping'                            |
+| 2.3.4  | [Link clicks](#linkclicks)                                  | 'link_click'                           |
+| 2.3.5  | [Ad impressions](#ad-imps)                                  | 'ad_impression'                        |
+| 2.3.6  | [Ecommerce transactions](#ecomm)                            | 'transaction' and 'transaction_item'   |
+| 2.3.7  | [Social events](#social)                                    | 'social'                               |
+| 2.3.8  | [Item views](#items)                                        | 'item_view'                            |
+| 2.3.9  | [Errors](#error)                                            | 'error'                                |
+| 2.3.10 | [Custom structured events](#customstruct)                   | 'custom_struct'                        |
+| 2.3.11 | [Custom unstructured events](#customunstruct)               | 'custom_unstruct'                      |
 
 Details of which fields are available for which events are given below:
 
 <a name="pageview" />
-#### 2.3.1 Page views
+#### 2.3.2 Page views
 
 There are currently fields that are specific to `page_view` events: all the fields that are required are part of the standard fields available for any [web-based event](#web) e.g. `page_url`, `page_title`.
 
 Back to [top](#top).
 
 <a name="pagepings" />
-#### 2.3.2 Page pings
+#### 2.3.3 Page pings
 
-As with `page_view` events, there are no fields that only relevant for `page_ping` events currently.
+There are four additional fields included with page pings that indicate how a user has scrolled over a web page since the last page ping:
 
-Going forwards we intend to add the following fields in order to better understand how a user has engaged with content on a page between `page ping` events:
-
-* Max scroll left during last ping period
-* Max scroll right during last ping period
-* Max scroll up during last ping period
-* Max scroll down during last ping period
-
-For more details see [issue 127](https://github.com/snowplow/snowplow/issues/127).
+| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:----------------|:---------|:----------------|:----------|:----------|:---------------|
+| `pp_xoffset_min`| integer  | Minimum page x offset seen in the last ping period | No | Yes | 0 | 
+| `pp_xoffset_max`| integer  | Maximum page x offset seen in the last ping period | No | Yes | 100 | 
+| `pp_yoffset_min`| integer  | Minimum page y offset seen in the last ping period | No | Yes | 0 | 
+| `pp_yoffset_max`| integer  | Maximum page y offset seen in the last ping period | No | Yes | 200 | 
 
 Back to [top](#top).
 
