@@ -113,7 +113,7 @@ The standard SnowPlow tracking tag looks something like:
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT SUBDOMAIN}}']);
 _snaq.push(['trackPageView']);
 _snaq.push(['enableLinkTracking']);
 
@@ -133,6 +133,12 @@ To use the version hosted yourself update the tag above, swapping your own Cloud
 ```javascript
 sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
 ```
+
+#### A note on `setCollectorCf`
+
+The `setCollectorCf` method is used to determine the Cloudfront subdomain where your tracking pixel is served from. This should **not** be confused with the Cloudfront subdomain used to serve `sp.js`.
+
+This page of documentation relates to self-hosting `sp.js`. You should be using a different Cloudfront distribution for you `setCollectorCf` method in the SnowPlow tag. (Or if you're not using the Cloudfront collector, `setCollectorUrl`.) If you are using the Cloudfront collector, see [Cloudfront collector setup](1-Setup-a-bucket-on-S3-for-the-pixel) for details on setting up a Cloudfront distribution for your tracking pixel, and [setting the collector endpoint of your Javascript tracker](javascript-tracker#wiki-endpoint) for details on configuring your SnowPlow tags.
 
 <a name="advanced-options" />
 ## Advanced options
