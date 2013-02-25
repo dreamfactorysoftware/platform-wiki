@@ -43,7 +43,7 @@ A couple of notes on this:
 
 ### 2. Upload the JavaScript
 
-You want to upload the **minified** version of the SnowPlow JavaScript, which is called `sp.js`. You can obtain the latest version of the Javascript from `https://d1fc8wv8zag5ca.cloudfront.net/0.7.0/sp.js`. For a full list of SnowPlow assets that can be downloaded directly, see the [[hosted assets]] section or review the [SnowPlow Github repo](https://github.com/snowplow/snowplow).
+You want to upload the **minified** version of the SnowPlow JavaScript, which is called `sp.js`. You can obtain the latest version of the Javascript from the [[hosted assets]] section or review the [SnowPlow Github repo](https://github.com/snowplow/snowplow).
 
 Now you're ready to upload the JavaScript file into S3. Within the S3 pane, hit **Upload** and browse to your file:
 
