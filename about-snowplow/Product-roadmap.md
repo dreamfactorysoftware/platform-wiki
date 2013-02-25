@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.7.5** | [See GitHub] [issues-075] | Fix issue with secure cookies in JavaScript tracker                                                           |
 | **0.7.6** | [See GitHub] [issues-076] | Add support for [Amazon Redshift] [redshift]                                                           |
 | **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]), targeting Redshift initially              |
 | **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
@@ -40,7 +39,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-075]: https://github.com/snowplow/snowplow/issues?milestone=11&state=open
 [issues-076]: https://github.com/snowplow/snowplow/issues?milestone=18&state=open
 
 [issues-080]: https://github.com/snowplow/snowplow/issues?milestone=15&state=open
