@@ -99,7 +99,7 @@ Open Navicat, select "Connection" -> "PostgreSQL" to establish a new connection:
 
 [[/setup-guide/images/redshift-setup-guide/9.png]]
 
-Give your connection a suitable name. We now need to enter the host nane, port, database, username and password. With the exception of password, these are all available directly from the AWS UI. Go back to your browser, open the AWS console, go to Redshift and select your cluster:
+Give your connection a suitable name. We now need to enter the host name, port, database, username and password. With the exception of password, these are all available directly from the AWS UI. Go back to your browser, open the AWS console, go to Redshift and select your cluster:
 
 [[/setup-guide/images/redshift-setup-guide/10.png]]
 
