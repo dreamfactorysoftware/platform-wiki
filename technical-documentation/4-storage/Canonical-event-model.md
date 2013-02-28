@@ -72,6 +72,7 @@ Back to [top](#top).
 | `collector_tm`  | time     | Time event was recorded by the collector | Yes    | Yes       | '11:35:30'     |
 | `dvce_dt`       | date     | Date event was recorded on the client device | No | Yes | '2013-02-05' |
 | `dvce_tm`       | time     | Time event was recorded on the client device | No | Yes | '11:27:45'
+| `dvce_epoch`    | int      | Milliseconds since the epoch (1/1/1970) on the client device | No | Yes | 1361495852452 |
 | `os_timezone`   | text     | Client operating system timezone | No | Yes | 'Europe/London' |
 
 We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/snowplow/snowplow/issues/149) for details.
