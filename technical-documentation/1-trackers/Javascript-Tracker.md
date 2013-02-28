@@ -15,7 +15,7 @@
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
   - 3.2 [Pagepings](#pagepings)  
-    - 3.2.1 [`enableActivityTracking`](#enableactivitytracking)  
+    - 3.2.1 [`enableActivityTracking`](#enableActivityTracking)  
   - 3.3 [Ecommerce transaction tracking](#ecommerce)  
     - 3.3.1 [`addTrans`](#addTrans)  
     - 3.3.2 [`addItem`](#addItem)  
@@ -180,7 +180,7 @@ Note: going forwards we plan to extend this method to also capture page category
 
 [Back to top](#top)
 
-<a name="Pagepings" />
+<a name="pagepings" />
 ### 3.2 Track engagement with a web page over time: page pings
 
 As well as tracking page views, we can monitor whether a user continues to engage with a page over time, and record how he / she digests content on the page over time.
