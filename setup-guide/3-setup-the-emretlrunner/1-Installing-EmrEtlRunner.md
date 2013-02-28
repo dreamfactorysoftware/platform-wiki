@@ -18,21 +18,25 @@ _In theory EmrEtlRunner can be deployed onto a Windows-based server, using the W
 <a name="dependencies"/>
 ## 2. Dependencies
 
-### 2.1 Software
+### 2.1 Hardware
+
+You will need to setup EmrEtlRunner on your own server. A number of people choose to do so on an EC2 instance (thereby keeping all of SnowPlow in the Amazon Cloud). If you do so, please note that you **must not use a `t1.micro` instance**.  You should at the very least use an `m1.small` instance.
+
+### 2.2 Software
 
 To install EmrEtlRunner, first make sure that your server has **all** of the following installed:
 
 1. **Git** - see the [Git Installation Guide] [git-install]
 2. **Ruby and RVM** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
 
-### 2.2 EC2 key
+### 2.3 EC2 key
 
 You will also need an **EC2 key pair** setup in your Amazon EMR account.
 
 For details on how to do this, please see the section "Configuring the client" in the [[Setting up EMR command line tools]] wiki page. Make sure that you setup the EC2 key pair inside the region in which you will be running your ETL jobs.
 
 <a name="s3-buckets"/>
-### 2.3 S3 buckets
+### 2.4 S3 buckets
 
 EmrEtlRunner moves the SnowPlow event data through four distinct buckets during the ETL process. These buckets are as follows:
 
