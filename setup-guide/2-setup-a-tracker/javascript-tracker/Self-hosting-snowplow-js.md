@@ -119,14 +119,14 @@ _snaq.push(['enableLinkTracking']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
 <!-- SnowPlow stops plowing -->
 ```
 
-The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js'` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
+The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
 
 To use the version hosted yourself update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
 
