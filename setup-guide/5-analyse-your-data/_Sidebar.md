@@ -9,7 +9,7 @@
 - [Step 5: Analyse your data!] (start-doing-analytics)  
   - [5.1: get started analysing your data in EMR and Hive] (getting-started-with-EMR)
   - [5.2: get started analysing your data in Infobright] (getting-started-analysing-your-data-in-Infobright)
-  - [5.3: setting up ChartIO to visualise your data in Infobright] (Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
+  - [5.3: setting up ChartIO to visualise your data] (Setting-up-ChartIO-to-visualise-your-data)
 
 **Useful resources**  
 
