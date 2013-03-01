@@ -58,7 +58,7 @@ Amazon Redshift will only allow clients on whitelisted IP addresses to connect.
 
 To whitelist the ChartIO IP address, log into your AWS console and navigate into Redshift.
 
-Click on the "Security Groups" option on the left hand menu and select your security group. (This is normally 'default'). Amazon gives you the option to add a new connection type: select "CIDR/IP" from the drop down and then enter the ChartIO IP address `173.203.96.249/32`. Click the "add": you should see a screen like the one below, with the ChartIO IP address listed as one of the options. (In our case, it i sthe one at the top.)
+Click on the "Security Groups" option on the left hand menu and select your security group. (This is normally 'default'). Amazon gives you the option to add a new connection type: select "CIDR/IP" from the drop down and then enter the ChartIO IP address `173.203.96.249/32`. Click the "add": you should see a screen like the one below, with the ChartIO IP address listed as one of the options. (In our case, it is the one at the top.)
 
 [[/setup-guide/images/chartio/redshift-1.png]]
 
