@@ -1,6 +1,6 @@
 ## Overview
 
-The current release of SnowPlow is **0.7.5**. The planned roadmap for SnowPlow is divided in two:
+The current release of SnowPlow is **0.7.6**. The planned roadmap for SnowPlow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
 2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new SnowPlow components and other ambitious new developments
@@ -9,7 +9,7 @@ We discuss each of these in turn below.
 
 ## Short-term: planned releases
 
-In this section we list out the series of 'point' releases (0.7.x, 0.7.y etc) that we have planned. This list is accurate as of late February 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
+In this section we list out the series of 'point' releases (0.8.x, 0.8.y etc) that we have planned. This list is accurate as of late February 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
 
 **Warning:** we may change this schedule as new priorities are identified and the community feeds back on our current plans. If you are particularly interested in a given task being completed per schedule (or even accelerated), please 'vote' for the ticket by leaving a "+1" comment or similar on the relevant ticket.
 
@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.7.6** | [See GitHub] [issues-076] | Add support for [Amazon Redshift] [redshift]                                                           |
 | **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]), targeting Redshift initially              |
 | **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL                                        |
 | **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
@@ -38,8 +37,6 @@ The longer-term schedule of major developments is approximately as follows:
 | **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | MySQL support      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
-
-[issues-076]: https://github.com/snowplow/snowplow/issues?milestone=18&state=open
 
 [issues-080]: https://github.com/snowplow/snowplow/issues?milestone=15&state=open
 [issues-081]: https://github.com/snowplow/snowplow/issues?milestone=16&state=open
