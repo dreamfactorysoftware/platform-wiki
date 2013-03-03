@@ -69,7 +69,11 @@ If RVM asks you if you want to trust the `.rvmrc` file, type `y`:
     y[es], n[o], v[iew], c[ancel]> y 
     Using /home/admin/.rvm/gems/ruby-1.9.3-p374
 
-Next you are ready to install the application on your system:
+StorageLoader depends on some Postgres libraries being installed to talk to Redshift. You will need to install this first:
+
+    $ sudo aptitude install libpq-devq
+
+Now you are ready to install the application on your system:
 
     $ bundle install --deployment
 

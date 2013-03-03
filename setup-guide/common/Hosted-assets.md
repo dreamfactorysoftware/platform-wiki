@@ -32,8 +32,9 @@ The Hive ETL process uses a HiveQL file and a Hive deserializer. These are both 
 
 #### HiveQL scripts
 
-    s3://snowplow-emr-assets/hive/hiveql/hive-rolling-etl-0.5.6.q
-    s3://snowplow-emr-assets/hive/hiveql/non-hive-rolling-etl-0.0.7.q
+    s3://snowplow-emr-assets/hive/hiveql/hive-etl-0.5.7.q
+    s3://snowplow-emr-assets/hive/hiveql/mysql-infobright-etl-0.0.8.q
+    s3://snowplow-emr-assets/hive/hiveql/redshift-etl-0.0.1.q
 
 #### Hive deserializer
 
