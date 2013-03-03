@@ -8,7 +8,8 @@ Setting up Redshift is an X step process:
 2. [Authorize client connections to your cluster](#authorise)
 3. [Connect to your cluster](#connect)
 4. [Setting up the SnowPlow database and events table](#db)
-5. [Automating the loading of SnowPlow data into Redshift](#load)
+5. [Generating Redshift-format data from SnowPlow](#etl)
+6. [Automating the loading of SnowPlow data into Redshift](#load)
 
 <a name="launch" />
 ## 1. Launch a Redshift Cluster
@@ -125,8 +126,13 @@ Now that you have Redshift up and running, you need to create your SnowPlow even
 
 The SnowPlow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the SnowPlow events table.
 
+<a name="" />
+## 5. Generating Redshift-format data from SnowPlow
+
+TO WRITE
+
 <a name="load" />
-## 5. Automating the loading of SnowPlow data into Redshift
+## 6. Automating the loading of SnowPlow data into Redshift
 
 Now that you have your SnowPlow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload SnowPlow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
 
