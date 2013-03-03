@@ -124,6 +124,8 @@ The `region` variable should hold the AWS region in which your two data
 buckets (In Bucket and Archive Bucket) are located, e.g. "us-east-1"
 or "eu-west-1".
 
+Please note that currently Redshift can only load from buckets in the US region, so you will need to put your buckets in "us-east-1" if you are using Redshift.
+
 Within the `s3` section, the `buckets` variables are as follows:
 
 * `in` is where you specify your In Bucket
