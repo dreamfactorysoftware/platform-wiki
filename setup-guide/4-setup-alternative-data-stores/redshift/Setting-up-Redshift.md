@@ -129,7 +129,7 @@ The SnowPlow events table definition for Redshift is available on the repo [here
 <a name="" />
 ## 5. Generating Redshift-format data from SnowPlow
 
-TO WRITE
+Now you need to generate some SnowPlow events in a Redshift-friendly format. To do this, you will need to [setup the EmrEtlRunner to process your raw data and turn them into SnowPlow events] [emr-etl-runner]. Click [here] [emr-etl-runner] for step-by-step instructions on how.
 
 <a name="load" />
 ## 6. Automating the loading of SnowPlow data into Redshift
@@ -139,6 +139,7 @@ Now that you have your SnowPlow database and table setup on Redshift, you are re
 [Back to top](#top).
 
 
+[emr-etl-runner]: 1-Installing-EmrEtlRunner
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
 [redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/table-def.sql
