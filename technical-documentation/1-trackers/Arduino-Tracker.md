@@ -12,9 +12,8 @@
   - 2.2 [Setting the endpoint](#endpoint)  
     - 2.2.1 [`initCf`](#initCf)  
     - 2.2.2 [`initUrl`](#initUrl)
-  - 2.2 [Setting the application ID](#app-id)
-    - 2.2.1 [`setAppId`](#setAppId)  
   - 2.3 [Setting the user ID](#user-id)
+    - 2.3.1 [`setUserId`](#setUserId)
 
 <a name="overview" />
 ## 1. Overview
@@ -63,6 +62,8 @@ const char *snowplowAppName = "my-arduino-project";
 // SnowPlow Tracker
 SnowPlowTracker snowplow(&Ethernet, mac, snowplowAppName);
 ```
+
+Note that this initialization includes setting the application ID for your Arduino project, as well as your device's MAC address.
 
 [Back to top](#top)
 

@@ -12,6 +12,7 @@
   - 2.2 [Setting the application ID](#app-id)
     - 2.2.1 [`setAppId`](#setAppId)  
   - 2.3 [Setting the user ID](#user-id)  
+    - 2.3.1 [`setUserId`](#setUserId)
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
@@ -125,7 +126,7 @@ in your SnowPlow tags.
 <a name="app-id" />
 ### 2.2 Setting the application ID
 
-You can set different appliation IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
+You can set different application IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
 
 <a name="setAppId" />
 #### 2.2.1 Setting the application ID using `setAppId`
