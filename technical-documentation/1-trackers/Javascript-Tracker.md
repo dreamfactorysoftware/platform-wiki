@@ -89,7 +89,7 @@ If you are using a Cloudfront collector you can use [setCollectorCf](#setCollect
 You can set the collector endpoint for the Cloudfront collector using:
 
 ```javascript
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-SUBDOMAIN}}']);
 ```
 
 So if your domain is `d3rkrsqld9gmqf`, you would include:
@@ -112,7 +112,7 @@ If you are running a different collector (not the Cloudfront collector) then you
 _snaq.push(['setCollectorUrl', '{{COLLECTOR-URL}}'])
 ```
 
-E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would include
+E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would include:
 
 ```javascript
 _snaq.push(['setCollectorUrl', 'my-company.c.snplow.com'])
