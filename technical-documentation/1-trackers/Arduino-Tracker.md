@@ -19,9 +19,9 @@
 <a name="overview" />
 ## 1. Overview
 
-The [SnowPlow Arduino tracker](https://github.com/snowplow/snowplow-arduino-tracker) allows you to track SnowPlow events from an IP-connected Arduino board.
+The [SnowPlow Arduino tracker](https://github.com/snowplow/snowplow-arduino-tracker) allows you to track SnowPlow events from an IP-connected [Arduino] [arduino] board.
 
-The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with SnowPlow's [JavaScript tracker][Javascript-Tracker] or Google Analytics (which has a similar API) is helpful but not necessary.
+The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with SnowPlow's [JavaScript tracker](Javascript-Tracker) or Google Analytics (which has a similar API) is helpful but not necessary.
 
 Note that this tracker has access to a much more restricted set of SnowPlow events than other trackers.
 
@@ -58,7 +58,7 @@ After your includes but before your `setup()` function, initialize your `SnowPlo
 const byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0xF8, 0xA0 };
 
 // SnowPlow app name
-const char *snowplowAppName = "{{CLOUDFRONT-SUBDOMAIN}}";
+const char *snowplowAppName = "my-arduino-project";
 
 // SnowPlow Tracker
 SnowPlowTracker snowplow(&Ethernet, mac, snowplowAppName);
@@ -88,7 +88,7 @@ So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would include:
 snowplow.initCf("d3rkrsqld9gmqf");
 ```
 
-This completes initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
+This completes the initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
 
 [Back to top](#top)
 
@@ -107,8 +107,11 @@ So if your collector endpoint is at 'my-company.c.snplow.com' then you would inc
 snowplow.initUrl("my-company.c.snplow.com");
 ```
 
-This completes initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
+This completes the initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
 
 [Back to top](#top)
 
 REST OF GUIDE TO WRITE
+
+
+[arduino]: http://arduino.cc/
