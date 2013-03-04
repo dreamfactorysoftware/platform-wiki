@@ -4,7 +4,7 @@
 [Overview](trackers)  
 [Javascript Tracker](javascript-tracker)  
 [No-JS Tracker](no-js-tracker)  
-[iOS Tracker](ios-tracker)  
+[Arduino Tracker](Arduino-Tracker)  
 
 **[A. SnowPlow Tracker Protocol](snowplow-tracker-protocol)**  
 
