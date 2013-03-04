@@ -76,7 +76,7 @@ If you are using a Cloudfront collector you can use [initCf](#initCf) to set the
 <a name="initCf" />
 #### 2.2.1 Setting a Cloudfront endpoint using `initCf()`
 
-You can set the collector endpoint for the Cloudfront collector using:
+You can set the collector endpoint for the Cloudfront collector by adding to your `setup()` function:
 
 ```c++
 snowplow.initCf("{{CLOUDFRONT-SUBDOMAIN}}");
@@ -88,14 +88,14 @@ So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would include:
 snowplow.initCf("d3rkrsqld9gmqf");
 ```
 
-This completes the initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
+This completes the initialization of your `SnowPlowTracker`.
 
 [Back to top](#top)
 
 <a name="initUrl" />
 #### 2.2.2 Setting a Cloudfront endpoint using `initCf()`
 
-If you are running a different collector (not the Cloudfront collector) then you set the collector endpoint using:
+If you are running a different collector (not the Cloudfront collector) then add to your `setup()` function::
 
 ```c++
 snowplow.initUrl("{{COLLECTOR-URL}}");
@@ -107,7 +107,7 @@ So if your collector endpoint is at 'my-company.c.snplow.com' then you would inc
 snowplow.initUrl("my-company.c.snplow.com");
 ```
 
-This completes the initialization of your `SnowPlowTracker`. It must be added in as part of your `setup()` function.
+This completes the initialization of your `SnowPlowTracker`.
 
 [Back to top](#top)
 
