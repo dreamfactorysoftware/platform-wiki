@@ -10,7 +10,7 @@
 
 Individual trackers:
 
-* [JavaScript Tracker](Javascript-Tracker) - for tracking activity on websites
+* [JavaScript Tracker](Javascript-Tracker) - for tracking user activity on websites
 * [No-JS Tracker](No-JS-Tracker) - a pixel tracker for web environments where JavaScript is not available
 * [Arduino Tracker](Arduino-Tracker) - for tracking events from an IP-connected Arduino board
 
