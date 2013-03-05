@@ -16,4 +16,4 @@
 
 ### Protocol
 
-* [SnowPlow Tracker Protocol](snowplow-tracker-protocol) 
+* [SnowPlow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers
