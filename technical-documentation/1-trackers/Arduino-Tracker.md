@@ -35,7 +35,7 @@ Note that this tracker has access to a much more restricted set of SnowPlow even
 You must add some initialization code to the top of your Arduino sketch, before your `setup()` function:
 
 <a name="headers" />
-### 2.1.1 Required headers
+#### 2.1.1 Required headers
 
 Make sure you have the following includes:
 
@@ -48,7 +48,7 @@ Make sure you have the following includes:
 [Back to top](#top)
 
 <a name="snowplow-tracker-init" />
-### 2.1.2 Initialize SnowPlowTracker
+#### 2.1.2 Initialize SnowPlowTracker
 
 After your includes but before your `setup()` function, initialize your `SnowPlowTracker` something like this:
 
