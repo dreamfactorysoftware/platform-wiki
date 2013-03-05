@@ -8,10 +8,12 @@
 
 ## Tracker documentation
 
-[Javascript tracker (snowplow.js)](snowplow-js)  
-[No-JS tracker (pixel tracker)](no-js-tracker)  
-[Arduino tracker](Arduino-Tracker)  
-[SnowPlow Tracker Protocol](snowplow-tracker-protocol) 
+Individual trackers:
 
+* [JavaScript Tracker](Javascript-Tracker) - for tracking activity on websites
+* [No-JS Tracker](No-JS-Tracker) - a pixel tracker for web environments where JavaScript is not available
+* [Arduino Tracker](Arduino-Tracker) - for tracking events from an IP-connected Arduino board
 
+Protocol documentation:
 
+* [SnowPlow Tracker Protocol](snowplow-tracker-protocol) 
