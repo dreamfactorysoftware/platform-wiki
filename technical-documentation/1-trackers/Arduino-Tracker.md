@@ -112,7 +112,24 @@ This completes the initialization of your `SnowPlowTracker`.
 
 [Back to top](#top)
 
-REST OF GUIDE TO WRITE
+<a name="user-id" />
+### 2.3 Setting the user ID
 
+The Arduino Tracker automatically passes to the collector the `mac_address` supplied on initialization.
+
+However you may want to identify a specific Arduino board by a more business-friendly name. To do this, you use the `setUserId` method.
+
+<a name="setUserId" />
+#### 2.3.1 Setting the user ID using `setUserId`
+
+To set a business-friendly user ID for this Arduino, use the `setUserId()` method i.e.:
+
+```c++
+snowplow.setUserId("boardroom-arduino");
+```
+
+[Back to top](#top)
+
+REST OF GUIDE TO WRITE
 
 [arduino]: http://arduino.cc/

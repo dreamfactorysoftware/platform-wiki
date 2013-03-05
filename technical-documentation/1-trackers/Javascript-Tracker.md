@@ -157,7 +157,9 @@ _snaq.push(['setUserId', 'joe.blogs@email.com']);
 
 Typically, companies employ this method at points in the customer journey when the user identifies him / herself e.g. if he / she logs in.
 
-Note: this will only set the user ID in a single line of data. It is then straightforward to generate a mapping of domain user IDs and network user IDs to standard user IDs, to identify all the actions performed by this particular user.
+Note: this will only set the user ID on further events fired while the user is on this page; if you want events on another page to record this user ID too, you must call `setUserId` on the other page as well.
+
+[Back to top](#top)
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
