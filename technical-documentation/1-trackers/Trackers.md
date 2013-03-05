@@ -14,6 +14,8 @@
 * [No-JS Tracker](No-JS-Tracker) - a pixel tracker for web environments where JavaScript is not available
 * [Arduino Tracker](Arduino-Tracker) - for tracking events from an IP-connected Arduino board
 
+For other trackers (e.g. iOS, Android) and their approximate timelines, please see the [Product roadmap](Product-roadmap).
+
 ### Protocol
 
 * [SnowPlow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers
