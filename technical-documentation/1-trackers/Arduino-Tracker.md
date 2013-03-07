@@ -96,7 +96,7 @@ This completes the initialization of your `SnowPlowTracker`.
 <a name="initUrl" />
 #### 2.2.2 Setting a Cloudfront endpoint using `initCf()`
 
-If you are running a different collector (not the Cloudfront collector) then add to your `setup()` function::
+If you are running a different collector (not the Cloudfront collector) then add to your `setup()` function:
 
 ```c++
 snowplow.initUrl("{{COLLECTOR-URL}}");
