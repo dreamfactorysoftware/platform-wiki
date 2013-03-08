@@ -4,14 +4,18 @@
 
 ## Overview
 
-**Trackers** are client- or server-side libraries which track customer behaviour by sending SnowPlow events to a [Collector] (collectors).
+**Trackers** are client- or server-side libraries which track customer behaviour by sending SnowPlow events to a [Collector](collectors).
 
 ## Tracker documentation
 
-[Javascript tracker (snowplow.js)](snowplow-js)  
-[No-JS tracker (pixel tracker)](no-js-tracker)
-[iOS tracker](ios)  
-[SnowPlow Tracker Protocol](snowplow-tracker-protocol) 
+### Trackers
 
+* [JavaScript Tracker](Javascript-Tracker) - for tracking user activity on websites
+* [No-JS Tracker](No-JS-Tracker) - a pixel tracker for web environments where JavaScript is not available
+* [Arduino Tracker](Arduino-Tracker) - for tracking events from an IP-connected Arduino board
 
+For other trackers (e.g. iOS, Android) and their approximate timelines, please see the [Product roadmap](Product-roadmap).
 
+### Protocol
+
+* [SnowPlow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers

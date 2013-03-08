@@ -28,7 +28,7 @@ The command-line options for StorageLoader look like this:
 
     Specific options:
         -c, --config CONFIG              configuration file
-        -s, --skip download,load,archive skip work step(s)
+        -s, --skip download|delete,load,archive skip work step(s)
 
     Common options:
         -h, --help                       Show this message

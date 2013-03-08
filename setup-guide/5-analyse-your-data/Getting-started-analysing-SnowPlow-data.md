@@ -12,10 +12,10 @@ As part of this setup guide, we provide details on how to get started analysing 
 
 1. [Get started analysing your data in S3 using EMR and Hive] [hive]
 2. [Get started querying the data in Infobright] [infobright]
-3. [Setup ChartIO to visualise the data in Infobright] [chartio]
+3. [Setup ChartIO to visualise the data] [chartio]
 
 
 [analyst-cookbook]: http://snowplowanalytics.com/analytics/index.html
 [hive]: Getting-started-with-EMR
 [infobright]: Getting-started-analysing-your-data-in-Infobright
-[chartio]: Setting-up-ChartIO-to-visualise-your-data-in-Infobright
+[chartio]: Setting-up-ChartIO-to-visualise-your-data

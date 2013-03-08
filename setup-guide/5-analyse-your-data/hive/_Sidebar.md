@@ -11,7 +11,7 @@
     - [5.1.1: setting up the EMR command line tools](Setting-up-EMR-command-line-tools)
     - [5.1.2: running Hive queries using the EMR command line tools](Running-Hive-using-the-command-line-tools)
   - [5.2: get started analysing your data in Infobright] (getting-started-analysing-your-data-in-Infobright)
-  - [5.3: setting up ChartIO to visualise your data in Infobright] (Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
+  - [5.3: setting up ChartIO to visualise your data] (Setting-up-ChartIO-to-visualise-your-data)
 
 **Useful resources**  
 

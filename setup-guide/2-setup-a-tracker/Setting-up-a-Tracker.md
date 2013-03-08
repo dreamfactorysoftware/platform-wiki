@@ -4,7 +4,7 @@
 
 [[/images/1-trackers.png]]
 
-SnowPlow Trackers generate event-data and send that data to [SnowPlow Collectors] (Setting-up-a-Collector) to log to S3.
+SnowPlow Trackers generate event-data and send that data to [SnowPlow Collectors](Setting-up-a-Collector) to log to S3.
 
 1. [Choose one (or more) Trackers](#choose)
 2. [Setup your Tracker(s)](#setup)
@@ -19,7 +19,7 @@ There are currently two trackers available:
 | [Javascript tracker](javascript-tracker-setup) | A client-side Javascript tracker fo web browser use | Production-ready |
 | [No-JS tracker](no-js-tracker-setup)           | A wizard for generating HTML-only SnowPlow tracking tags to enable tracking of pageviews where Javascript cannot be used e.g. HTML emails | Production-ready |
 
-An iOS and Android tracker are on the development roadmap.
+For other trackers (e.g. iOS, Android) and their approximate timelines, please see the [Product roadmap](Product-roadmap).
 
 The [Javascript tracker](javascript-tracker-setup) is used to track the behaviour of users who visit your website / webapp. In addition, the [No-JS tracker](no-js-tracker-setup) is used to provide additional tracking of users in HTML environments that do not support Javascript, e.g. HTML emails, or content that you serve on 3rd party domains. (E.g. 3rd party marketplaces or services like Github.)
 

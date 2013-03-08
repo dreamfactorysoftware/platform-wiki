@@ -69,7 +69,11 @@ If RVM asks you if you want to trust the `.rvmrc` file, type `y`:
     y[es], n[o], v[iew], c[ancel]> y 
     Using /home/admin/.rvm/gems/ruby-1.9.3-p374
 
-Next you are ready to install the application on your system:
+StorageLoader depends on some Postgres libraries being installed to talk to Redshift. You will need to install this first:
+
+    $ sudo aptitude install libpq-devq
+
+Now you are ready to install the application on your system:
 
     $ bundle install --deployment
 
@@ -90,19 +94,21 @@ file template available in the SnowPlow GitHub repository at
   :access_key_id: ADD HERE
   :secret_access_key: ADD HERE
 :s3:
-  :region: ADD HERE
+  :region: ADD HERE # Note: for loading data into Redshift, your region needs to be 'us-east-1'
   :buckets:
     :in: ADD HERE
     :archive: ADD HERE
 :download:
-  :folder: ADD HERE # Where to store the downloaded files
+  :folder: ADD HERE # Infobright-only config option. Where to store the downloaded files. Note: only relevant for Infobright loads (not Redshift)
 # Currently assumes we are loading only one target
 :storage:
-  :type: infobright # No other storage types supported yet
-  :database: ADD HERE # Name of database
-  :table:    events_007 # Latest version of table
-  :username: ADD HERE # Or leave blank to default to the user running the script
-  :password: ADD HERE # Or leave blank if no password
+  :type: redshift # Or 'infobright'
+  :host: ADD HERE # For Redshift, the endpoint as shown in the Redshift console. Not supported for Infobright currently
+  :database: ADD HERE # Name of database 
+  :port: 5439 # Typically '5439' for Redshift. Not supported for Infobright currently
+  :table: events # For Redshift, or 'events_008' (or your table's current version) for Infobright
+  :username: ADD HERE 
+  :password: ADD HERE 
 ```
 
 To take each section in turn:
@@ -117,6 +123,8 @@ key and secret here.
 The `region` variable should hold the AWS region in which your two data
 buckets (In Bucket and Archive Bucket) are located, e.g. "us-east-1"
 or "eu-west-1".
+
+Please note that currently Redshift can only load from buckets in the US region, so you will need to put your buckets in "us-east-1" if you are using Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 
@@ -143,6 +151,9 @@ This is where we configure the StorageLoader download operation, which
 downloads the SnowPlow event files from Amazon S3 to your local server, 
 ready for loading into your database.
 
+This setting is not used when loading Redshift - you can safely leave it
+blank.
+
 You will need to set the `folder` variable to a local directory path -
 please make sure that this path exists, is writable by StorageLoader
 and is empty.
@@ -157,18 +168,22 @@ Community Edition database.
 To take each variable in turn:
 
 1. `type`, what type of database are we loading into? Currently the
-   only supported format is "infobright"
-2. `database`, the name of the database to load
-3. `table`, the name of the database table which will store your
+   only supported formats are "infobright" and "redshift"
+2. `host`, the host (endpoint in Redshift parlance) of the databse to
+   load. Only supported for Redshift currently, leave blank for Infobright
+3. `database`, the name of the database to load
+4. `port`, the port of the database to load. Only supported for Redshift
+   (where '5439' is the default). Leave blank for Infobright
+5. `table`, the name of the database table which will store your
    SnowPlow events. Must have been setup previously  
-4. `username`, the database user to load your SnowPlow events with.
+6. `username`, the database user to load your SnowPlow events with.
    You can leave this blank to default to the user running the script
-5. `password`, the password for the database user. Leave blank if there
+7. `password`, the password for the database user. Leave blank if there
    is no password
 
-Note that there is no way of specifying what server the target database
-is on - StorageLoader assumes that the database is on the server it is
-being run on.
+Note that the `host` and `port` options are not currently supported for
+Infobright - StorageLoader assumes that the Infobright database is on the
+server it is being run on, and accesses it on the standard Infobright port (5029).
 
 <a name="next-steps" />
 ## 5. Next steps

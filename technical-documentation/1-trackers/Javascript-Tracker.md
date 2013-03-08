@@ -12,6 +12,7 @@
   - 2.2 [Setting the application ID](#app-id)
     - 2.2.1 [`setAppId`](#setAppId)  
   - 2.3 [Setting the user ID](#user-id)  
+    - 2.3.1 [`setUserId`](#setUserId)
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
@@ -89,7 +90,7 @@ If you are using a Cloudfront collector you can use [setCollectorCf](#setCollect
 You can set the collector endpoint for the Cloudfront collector using:
 
 ```javascript
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-SUBDOMAIN}}']);
 ```
 
 So if your domain is `d3rkrsqld9gmqf`, you would include:
@@ -112,7 +113,7 @@ If you are running a different collector (not the Cloudfront collector) then you
 _snaq.push(['setCollectorUrl', '{{COLLECTOR-URL}}'])
 ```
 
-E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would include
+E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would include:
 
 ```javascript
 _snaq.push(['setCollectorUrl', 'my-company.c.snplow.com'])
@@ -125,7 +126,7 @@ in your SnowPlow tags.
 <a name="app-id" />
 ### 2.2 Setting the application ID
 
-You can set different appliation IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
+You can set different application IDs on different parts of your site. You can then distinguish events that occur on different applications by grouping results based on `application_id`.
 
 <a name="setAppId" />
 #### 2.2.1 Setting the application ID using `setAppId`
@@ -156,7 +157,9 @@ _snaq.push(['setUserId', 'joe.blogs@email.com']);
 
 Typically, companies employ this method at points in the customer journey when the user identifies him / herself e.g. if he / she logs in.
 
-Note: this will only set the user ID in a single line of data. It is then straightforward to generate a mapping of domain user IDs and network user IDs to standard user IDs, to identify all the actions performed by this particular user.
+Note: this will only set the user ID on further events fired while the user is on this page; if you want events on another page to record this user ID too, you must call `setUserId` on the other page as well.
+
+[Back to top](#top)
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events

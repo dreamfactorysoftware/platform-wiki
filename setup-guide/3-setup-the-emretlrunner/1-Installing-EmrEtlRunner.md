@@ -45,7 +45,7 @@ EmrEtlRunner moves the SnowPlow event data through four distinct buckets during 
 3. **Out Bucket** - where EmrEtlRunner stores the processed SnowPlow-format event files
 4. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
 
-You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet.
+You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. Please note that currently Redshift can only load from buckets in the US region, so you will need to put your three data buckets in "us-east-1" if you are using Redshift.
 
 So, create the other three buckets in the same AWS region as your In Bucket. Take a note of the buckets' names as you will need to use these buckets shortly.
 
@@ -117,12 +117,13 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
 :etl:
   :collector_format: cloudfront 
   :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the serde throwing exceptions
-  :storage_format: non-hive # Or switch to 'hive' if you're only using Hive for analysis
+  :storage_format: redshift # Or 'hive' or 'mysql-infobright'
 # Can bump the below as SnowPlow releases new versions
 :snowplow:
   :serde_version: 0.5.5
-  :hive_hiveql_version: 0.5.6
-  :non_hive_hiveql_version: 0.0.7
+  :hive_hiveql_version: 0.5.7
+  :mysql_infobright_hiveql_version: 0.0.8
+  :redshift_hiveql_version: 0.0.1
 ```
 
 To take each section in turn:
@@ -133,7 +134,7 @@ The `aws` variables should be self-explanatory - enter your AWS access key and s
 
 ### s3
 
-The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1".
+The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to put your data buckets in "us-east-1" if you are using Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 
@@ -191,11 +192,11 @@ This section is where we configure exactly how we want our ETL process to operat
 2. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
 3. `storage_format`, can be "hive" or "non-hive". We discuss this further below
 
-`storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright (or eventually, Postgres, Google BigQuery, SkyDB et al). We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "non-hive".
+`storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
 
 ### snowplow
 
-This section allows you to update the versions of the Hive deserializer (`serde`) and HiveQL scripts (`hive_hiveql` and `non_hive_hiveql`) run by EmrEtlRunner. These variables let you upgrade the ETL process without having to update the EmrEtlRunner application itself.
+This section allows you to update the versions of the Hive deserializer (`serde`) and HiveQL scripts (`hive_hiveql`, `mysql_infobright_hiveql` and `redshift_hiveql_hiveql`) run by EmrEtlRunner. These variables let you upgrade the ETL process without having to update the EmrEtlRunner application itself.
 
 <a name="next-steps" />
 ## 5. Next steps
