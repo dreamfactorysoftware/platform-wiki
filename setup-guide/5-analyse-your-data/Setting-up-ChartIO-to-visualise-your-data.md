@@ -94,15 +94,15 @@ at the command line to install ChartIO. Alternatively if you have `easy_install`
 
 If you have neither you can download chartio manually:
 
-	$ wget https://chartio.com/static/src/chartio-1.1.19.tar.gz
+	$ wget https://chartio.com/static/src/chartio-2.0.4.tar.gz
 
 then decompress the download:
 
-	$ tar xvzf chartio-1.1.19.tar.gz
+	$ tar xvzf chartio-2.0.4.tar.gz
 
 and then install it:
 
-	$ cd chartio-1.1.19
+	$ cd chartio-2.0.4
 	$ sudo python setup.py install
 
 Before we run the `chartio_setup` to establish the connection we need to ensure that we have MySQL installed on the server. (Because `chartio_setup` uses `mysql` rather than `mysql-ib` to establish the connection.) To check if you have MySQL installed (as well as Infobright), run 
