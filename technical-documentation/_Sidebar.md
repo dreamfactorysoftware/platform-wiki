@@ -10,9 +10,9 @@
 
 **2. Collectors**  
 [Overview](collectors)  
-[Cloudfront collector](cloudfront)  
-[SnowCannon (node.js)](snowcannon)  
+[Cloudfront collector](cloudfront-cloudfront)  
 [Clojure collector (Elastic Beanstalk)](Clojure-collector)   
+[SnowCannon (node.js)](snowcannon)  
 
 **[B. Collector logging formats](Collector-logging-formats)**  
 
