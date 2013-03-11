@@ -45,7 +45,9 @@ EmrEtlRunner moves the SnowPlow event data through four distinct buckets during 
 3. **Out Bucket** - where EmrEtlRunner stores the processed SnowPlow-format event files
 4. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
 
-You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. Please note that currently Redshift can only load from buckets in the US region, so you will need to put your three data buckets in "us-east-1" if you are using Redshift.
+You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. 
+
+**Important:** Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your **Out Bucket** in "us-east-1" region if you are using Redshift. (This is because Redshift is only currently available in the 'us-east-1' region, and Redshift only supports bulk loading from S3 in the same region as Redshift is located.)
 
 So, create the other three buckets in the same AWS region as your In Bucket. Take a note of the buckets' names as you will need to use these buckets shortly.
 
@@ -134,7 +136,7 @@ The `aws` variables should be self-explanatory - enter your AWS access key and s
 
 ### s3
 
-The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to put your data buckets in "us-east-1" if you are using Redshift.
+The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your 'out' buckets in "us-east-1" if you are using Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 

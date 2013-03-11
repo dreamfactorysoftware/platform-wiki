@@ -14,7 +14,7 @@ SnowPlow supports storing your data in multiple different data stores:
 | **Storage**               | **Description**                                     | **Status**       |
 |:--------------------------|:----------------------------------------------------|:-----------------|
 | S3                        | Data is stored in the S3 file system where it can be analysed using [EMR] [emr] (e.g. Hive, Pig, Mahout) | Production-ready |
-| [Redshift] [redshift]     | A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Coming-soon |
+| [Redshift] [redshift]     | A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
 | [Infobright] [infobright] | An open source columnar database accessible via the MySQL JDBC driver. (So compatible with a wide range of analytics tools.) Optimized for performing OLAP analysis. Scales to Terabytes | Production-ready |
 | [SkyDB] [skydb]           | Open source database for analysis of behavioural / event data | Coming soon |
 

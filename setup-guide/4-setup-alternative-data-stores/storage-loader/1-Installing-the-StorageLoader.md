@@ -44,7 +44,9 @@ We recommend creating a new bucket for the Archive Bucket - i.e. do **not** re-u
 EmrEtlRunner's own Archive Bucket. Create the required Archive Bucket in the same
 AWS region as your In Bucket.
 
-Done? Right, now we can install StorageLoader.
+**Important:** if you are using the StorageLoader to load your data into Redshift, you need to make sure that the location of your **In Bucket** and **Archive Bucket** are in 'us-east-1'. The reason is that currently, Amazon only offers Redshift in the 'us-east-1' region, and Redshift only supports the bulk loading of data from S3 within a region.
+
+Right, now we can install StorageLoader.
 
 <a name="installation"/>
 ## 3. Installation
