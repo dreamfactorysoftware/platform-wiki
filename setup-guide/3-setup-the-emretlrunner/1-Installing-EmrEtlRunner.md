@@ -143,13 +143,13 @@ Within the `s3` section, the `buckets` variables are as follows:
 * `assets` holds the ETL job's static assets (HiveQL script plus Hive deserializer). You can leave this as-is (pointing to SnowPlow   Analytics' [own public bucket containing these assets](Hosted-assets)) or replace this with your own private bucket containing the assets
 * `log` is the bucket in which Amazon EMR will record processing information for this job run, including logging any errors  
 * `in` is where you specify your In Bucket
-* `processing` is where you specify your Processing Bucket
+* `processing` is where you specify your Processing Bucket - **always include a sub-folder on this variable (see below for why)**. 
 * `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in region us-east-1, as currently Amazon only supports Redshift instances in this region. (So data loaded into Redshift from S3 can only be performed using buckets located in in this region.)
 * `archive` is where you specify your Archive Bucket
 
 Each of the bucket variables must start with an S3 protocol - either `s3://` or `s3n://`. Each variable can include a sub-folder within the bucket as required, and a trailing slash is optional.
 
-**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `out` bucket variable.**
+**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to read or write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `processing` and `out` bucket variable.**
 
 **Important 2:** do not put your Processing Bucket location inside your In Bucket, or your Out Bucket inside your Processing Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
 
