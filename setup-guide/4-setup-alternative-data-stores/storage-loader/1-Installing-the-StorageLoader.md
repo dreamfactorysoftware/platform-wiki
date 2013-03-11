@@ -96,8 +96,8 @@ file template available in the SnowPlow GitHub repository at
 :s3:
   :region: ADD HERE # Note: for loading data into Redshift, your region needs to be 'us-east-1'
   :buckets:
-    :in: ADD HERE
-    :archive: ADD HERE
+    :in: ADD HERE # Note: for loading data into Redshfit, the bucket specified here must be located in 'us-east-1'
+    :archive: ADD HERE # Note: for loading data into Redshfit, the bucket specified here must be located in 'us-east-1'
 :download:
   :folder: ADD HERE # Infobright-only config option. Where to store the downloaded files. Note: only relevant for Infobright loads (not Redshift)
 # Currently assumes we are loading only one target
@@ -124,7 +124,7 @@ The `region` variable should hold the AWS region in which your two data
 buckets (In Bucket and Archive Bucket) are located, e.g. "us-east-1"
 or "eu-west-1".
 
-Please note that currently Redshift can only load from buckets in the US region, so you will need to put your buckets in "us-east-1" if you are using Redshift.
+**Important:** Please note that currently Redshift can only load from buckets in the US region, so you will need to put **both** your buckets in "us-east-1" if you are using Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 
