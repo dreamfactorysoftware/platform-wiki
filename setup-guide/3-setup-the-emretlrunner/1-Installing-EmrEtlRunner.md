@@ -102,7 +102,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
-    :out: ADD HERE WITH SUB-FOLDER
+    :out: ADD HERE WITH SUB-FOLDER # If you intend to load data into Redshift, the bucket specified here needs to be located in us-east-1
     :archive: ADD HERE
 :emr:
   # Can bump the below as EMR upgrades Hadoop
@@ -142,7 +142,7 @@ Within the `s3` section, the `buckets` variables are as follows:
 * `log` is the bucket in which Amazon EMR will record processing information for this job run, including logging any errors  
 * `in` is where you specify your In Bucket
 * `processing` is where you specify your Processing Bucket
-* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**
+* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in region us-east-1, as currently Amazon only supports Redshift instances in this region. (So data loaded into Redshift from S3 can only be performed using buckets located in in this region.)
 * `archive` is where you specify your Archive Bucket
 
 Each of the bucket variables must start with an S3 protocol - either `s3://` or `s3n://`. Each variable can include a sub-folder within the bucket as required, and a trailing slash is optional.
@@ -158,6 +158,8 @@ Each of the bucket variables must start with an S3 protocol - either `s3://` or 
 Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] (Enable-logging-to-S3) stage of the Clojure Collector setup).
 
 Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
+
+**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in the `us-east-1` region. That is because currently Redshift is only available in this Region, and Amazon only supports bulk loading of data from S3 into Redshift within regions. 
 
 **Example bucket settings**
 
