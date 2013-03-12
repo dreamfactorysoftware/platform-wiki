@@ -47,6 +47,6 @@ Tracking is done by inserting Javascript tags onto pages. These tags run functio
 
 The Javascript tracker supports both syncronous and asyncronous tags. We recommend the asyncronous tags in nearly all instances, as these do not slow down page load times. 
 
-[Back to top](#top)
-[2. General parameters](1-General-paramaters-for-the-Javascript-tracker#wiki-general)
-[3. Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events)
+[Back to top](#top)  
+[2. General parameters](1-General-paramaters-for-the-Javascript-tracker#wiki-general)  
+[3. Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events)  
