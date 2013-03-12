@@ -10,7 +10,7 @@
 
 **2. Collectors**  
 [Overview](collectors)  
-[Cloudfront collector](cloudfront-cloudfront)  
+[Cloudfront collector](cloudfront-collector)  
 [Clojure collector (Elastic Beanstalk)](Clojure-collector)   
 [SnowCannon (node.js)](snowcannon)  
 
