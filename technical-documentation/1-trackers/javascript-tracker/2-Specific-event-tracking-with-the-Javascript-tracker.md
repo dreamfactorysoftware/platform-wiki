@@ -66,7 +66,7 @@ This method automatically captures the page title, URL and referrer.
 
 Note: going forwards we plan to extend this method to also capture page category.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="pagepings" />
@@ -95,7 +95,7 @@ The first ping would occur after 30 seconds, and subsequent pings every 10 secon
 
 Note: in general this is executed as part of the main SnowPlow tracking tag. As a result, you can elect to enable this on specific pages.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="ecommerce" />
@@ -137,7 +137,7 @@ _snaq.push(['addTrans',
   ]);
 ```
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="addItem" />
@@ -236,7 +236,7 @@ _snaq.push(['trackTrans']);
 </html>
 ```
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="social" />
@@ -325,7 +325,7 @@ SnowPlow uses the same query parameters used by Google Analytics. Because of thi
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="adimps" />
@@ -382,7 +382,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 
 Once you have appended this code to all of your active ad zones, SnowPlow should be collecting all of your ad impression data.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="custom-structured-events" />
@@ -424,7 +424,7 @@ _snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0
 
 Note that in the above example no value is set for the `event property`.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="custom-unstructured-events" />
@@ -437,7 +437,7 @@ This feature is on the roadmap: it has not been developed yet.
 
 This feature is on the roadmap: it has not been developed yet.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="link-click-tracking" />
@@ -450,9 +450,10 @@ This feature is on the roadmap: it has not been developed yet.
 
 This feature is on the roadmap: it has not been developed yet.
 
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
+[contents]: Javascript-Tracker
 
 
 
