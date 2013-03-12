@@ -18,6 +18,7 @@
 
 **3. ETL**  
 [Overview](etl)  
+[EmrEtlRunner](EmrEtlRunner)  
 [Hive ETL](hive-etl)  
 [Hadoop ETL](scaldingetl)
 
