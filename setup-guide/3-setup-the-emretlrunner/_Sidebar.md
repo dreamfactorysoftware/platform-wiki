@@ -9,7 +9,7 @@
   - [3.2: using EmrEtlRunner] (2-Using-EmrEtlRunner)
   - [3.3: scheduling EmrEtlRunner] (3-scheduling-EmrEtlRunner)
 - [Step 4: Setup alternative data stores] (setting-up-alternative-data-stores)  
-- [Step 5: Analyse your data!] (start-doing-analytics)  
+- [Step 5: Analyse your data!] (Getting started analysing SnowPlow data)  
 
 **Useful resources**  
 

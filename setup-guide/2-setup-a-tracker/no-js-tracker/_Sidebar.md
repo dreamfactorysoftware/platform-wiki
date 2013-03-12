@@ -7,7 +7,7 @@
   - [No-JS tracker setup](no-js-tracker-setup)  
 - [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
-- [Step 5: Analyse your data!] (start-doing-analytics)  
+- [Step 5: Analyse your data!] (Getting started analysing SnowPlow data)  
 
 **Useful resources**  
 
