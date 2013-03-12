@@ -275,7 +275,7 @@ Or if the optional parameters were left off:
 ```javascript
 _snaq.push('trackSocial', 'facebook', 'like', '', '')
 ```
-[Back to top](#top)
+[Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
 
 <a name="campaign" />
