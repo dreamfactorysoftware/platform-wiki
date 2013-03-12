@@ -25,38 +25,7 @@ You may want to bear this in mind if you have a choice of different environments
 
 [Amazon Elastic MapReduce Ruby Client](http://aws.amazon.com/developertools/2264) is built in Ruby, so unless you have already have Ruby installed, you'll need to install it. Full instructions on downloading and setting up Ruby can be found [here](#http://www.ruby-lang.org/en/downloads/). There are many ways to install Ruby - if you don't have a strong preference for one of them, we recommend Mac OS X and Linux users use RVM, whilst Windows users use Ruby Installer. (A more thorough guide to installing Ruby using RVM can be found [here](Ruby-and-RVM-setup).)
 
-### Installing Ruby on Mac
-
-Mac OS X comes with Ruby installed. You can check the version (you
-need Ruby 1.8 or higher) with this command:
-
-    $ ruby -v
-
-### Installing Ruby on Linux
-
-On a Debian-like OS, installing Ruby is easy:
-
-    $ sudo apt-get install ruby-full
-
-### Installing Ruby on Windows
-
-* Go to [RubyInstaller](http://rubyinstaller.org/). Click "Download"
-
-![Downloading Ruby](setup-guide/images/emr-guide/ruby-1.PNG)
-
-* Select the most recent RubyInstaller. The download should begin immediately
-
-![Select the latest Ruby verison](setup-guide/images/emr-guide/ruby-2.PNG)
-
-* Launch the executable file you just downloaded, by double clicking on it. Accept the license terms. When prompted, remember to "Add Ruby executables to your PATH". We also recommend checking the box "Associate .rb and .rbw files with this Ruby installation."
-
-![Select the relevant options](setup-guide/images/emr-guide/ruby-5.PNG)
-
-* The installation should proceed automatically. When completed, click "finish".
-
-* Verify the installation: in either the command-prompt or Windows PowerShell, enter "ruby -v". The Ruby version should display as below:
-
-![Verify installation was successful](setup-guide/images/emr-guide/ruby-6.PNG)
+A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 
 <a name="rubyclient"/>
 ## 4. Installing the Amazon Elastic MapReduce Ruby Client
