@@ -26,7 +26,7 @@
 
 **4. Storage**  
 [Overview](storage documentation)  
-[S3 / Hive](s3-apache-hive-storage) 
+[S3 / Hive](s3-apache-hive-storage)  
 [Amazon Redshift](amazon-redshift-storage)   
 [Infobright](infobright-storage)  
 
