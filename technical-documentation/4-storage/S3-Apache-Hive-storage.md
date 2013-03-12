@@ -3,11 +3,10 @@
 ## Contents
 
 1. [Current table definition](#table-def)
-2. [Future table definition incl. all planned fields](#future-table-def)
-3. [Optimizing the table structure for query performance: roadmap](#roadmap)
+2. [The roadmap for storing SnowPlow data in S3 / Hive](#roadmap)
 
 <a name="table-def" />
-## Current table definition
+## 1. Current table definition
 
 The standard S3 / Hive implementation of SnowPlow storage uses Apache Hive on EMR to store SnowPlow data in a table partitioned by date. The current table definition is given in the [repo] [hive-table-def]. We have pasted a copy below:
 
@@ -75,7 +74,7 @@ The standard S3 / Hive implementation of SnowPlow storage uses Apache Hive on EM
 	LOCATION '${EVENTS_TABLE}' ;
 
 <a name="roadmap" />
-## Roadmap 
+## 2. Roadmap 
 
 There are a number of changes we intend to make the table:
 

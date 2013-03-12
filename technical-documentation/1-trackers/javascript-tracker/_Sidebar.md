@@ -32,7 +32,8 @@
 
 **4. Storage**  
 [Overview](storage documentation)  
-[S3 / Hive](s3-apache-hive-storage)  
+[S3 / Hive](s3-apache-hive-storage)
+[Amazon Redshift](amazon-redshift)    
 [Infobright](infobright-storage)  
 
 **D. SnowPlow storage formats (to write)**

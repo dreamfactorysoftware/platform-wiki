@@ -8,6 +8,7 @@ The storage module stores SnowPlow event data (one line per event, in a single "
 
 ## Contents
 
-1. [[Canonical data structure]]
-2. [S3 / Hive storage details](s3 apache hive storage) including full table definitions, and roadmap for development
-3. [Infobright storage details](infobright storage) including full table definitions
+1. [The SnowPlow canonical event data model] (canonical-event-model)
+2. [Storing SnowPlow data in S3] (s3 apache hive storage) 
+3. [Storing SnowPlow data in Amazon Redshift](amazon-redshift)
+4. [Storing SnowPlow data in Infobright] (infobright storage) 
