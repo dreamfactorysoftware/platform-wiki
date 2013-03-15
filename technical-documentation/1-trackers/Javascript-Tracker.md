@@ -164,7 +164,7 @@ Note: this will only set the user ID on further events fired while the user is o
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-SnowPlow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 <a name="page" />
 ### 3.1 Pageviews
@@ -514,9 +514,6 @@ Once you have appended this code to all of your active ad zones, SnowPlow should
 
 [Back to top](#top)
 
-
-[Back to top](#top)
-
 <a name="custom-structured-events" />
 ### 3.7 Tracking custom structured events
 
@@ -532,7 +529,7 @@ As part of a SnowPlow implementation, therefore, we recommend that you identify 
 
 #### 3.7.1 `trackStructEvent`
 
-There are 5 parameters can be associated with each structured event. Of them, only the first two are required:
+There are five parameters can be associated with each structured event. Of them, only the first two are required:
 
 | **Name**    | **Required?** | **Description**                                                                          |
 |------------:|:--------------|:-----------------------------------------------------------------------------------------|

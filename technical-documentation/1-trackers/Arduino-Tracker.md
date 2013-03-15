@@ -14,6 +14,10 @@
     - 2.2.2 [`initUrl`](#initUrl)
   - 2.3 [Setting the user ID](#user-id)
     - 2.3.1 [`setUserId`](#setUserId)
+- 3. [Tracking specific events](#tracking-specific-events)  
+  - 3.1 [Tracking custom structured events](#custom-structured-events)  
+    - 3.1.1 [`trackStructEvent`](#trackStructEvent)
+  - 3.2 [Tracking custom unstructured events](#custom-unstructured-events)
 
 <a name="overview" />
 ## 1. Overview
@@ -130,6 +134,67 @@ snowplow.setUserId("boardroom-arduino");
 
 [Back to top](#top)
 
+<a name="tracking-specific-events" />
+## 3. Tracking specific events
+
+SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
+
 REST OF GUIDE TO WRITE
 
+[Back to top](#top)
+
+<a name="custom-structured-events" />
+### 3.1 Tracking custom structured events
+
+Custom structured events are the only form of tracking currently supported by the SnowPlow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, please use `trackStructEvent` to send this data to SnowPlow.
+
+Some examples of tracking custom structured events from your Arduino board(s) might include:
+
+* Monitoring the environment (temperature, humidity, light levels etc) in your warehouse/factory/workplace/shop/museum
+* Tracking the movement of products around your shop/warehouse/factory using Arduino, [RFID readers] [arduino-rfid] and SnowPlow
+* Sending vehicle fleet information (locations, speeds, fuel levels etc) back to SnowPlow using Arduino's [3G and GPS] [3g-gps] shields 
+
+#### 3.1.1 `trackStructEvent`
+
+There are five parameters can be associated with each structured event. Of them, only the first two are required:
+
+| **Name**    | **Required?** | **Description**                                                                          |
+|------------:|:--------------|:-----------------------------------------------------------------------------------------|
+|  `Category` | Yes           | The name you supply for the group of objects you want to track e.g. 'sensor', 'ecomm'     |
+|    `Action` | Yes           | A string which defines the type of user interaction for the web object e.g. 'read-temp', 'wifi-strength' |
+|     `Label` | No            | An optional string which identifies the specific object being actioned e.g. ID of the sensor being read |
+|  `Property` | No            | An optional string describing the object or the action performed on it. This might be whether the temperature reading is in Fahrenheit or Celsius |
+|     `Value` | No            | An optional float or double to quantify or further describe the user action. This might be the price of an item added-to-basket, or the starting time of the video where play was just pressed |
+
+The async specification for the `trackStructEvent` method is:
+
+```javascript
+_snaq.push(['trackStructEvent', 'category','action','object','property','value'])
+```
+
+An example of tracking a user listening to a music mix:
+
+```javascript
+_snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0'])
+```
+
+Note that in the above example no value is set for the `event property`.
+
+[Back to top](#top)
+
+<a name="custom-unstructured-events" />
+### 3.8 Tracking custom unstructured events
+
+This feature is on the roadmap: it has not been developed yet.
+
+<a name="trackUnstructEvent" />
+#### 3.8.1 `trackUnstructEvent`
+
+This feature is on the roadmap: it has not been developed yet.
+
+[Back to top](#top)
+
 [arduino]: http://arduino.cc/
+
+[arduino-rfid]: http://arduino.cc/blog/category/wireless/rfid/
+[3g-gps]: http://www.cooking-hacks.com/index.php/documentation/tutorials/arduino-3g-gprs-gsm-gps
