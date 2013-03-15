@@ -45,7 +45,9 @@ EmrEtlRunner moves the SnowPlow event data through four distinct buckets during 
 3. **Out Bucket** - where EmrEtlRunner stores the processed SnowPlow-format event files
 4. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
 
-You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. Please note that currently Redshift can only load from buckets in the US region, so you will need to put your three data buckets in "us-east-1" if you are using Redshift.
+You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. 
+
+**Important:** Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your **Out Bucket** in "us-east-1" region if you are using Redshift. (This is because Redshift is only currently available in the 'us-east-1' region, and Redshift only supports bulk loading from S3 in the same region as Redshift is located.)
 
 So, create the other three buckets in the same AWS region as your In Bucket. Take a note of the buckets' names as you will need to use these buckets shortly.
 
@@ -102,7 +104,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
-    :out: ADD HERE WITH SUB-FOLDER
+    :out: ADD HERE WITH SUB-FOLDER # If you intend to load data into Redshift, the bucket specified here needs to be located in us-east-1
     :archive: ADD HERE
 :emr:
   # Can bump the below as EMR upgrades Hadoop
@@ -134,20 +136,20 @@ The `aws` variables should be self-explanatory - enter your AWS access key and s
 
 ### s3
 
-The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to put your data buckets in "us-east-1" if you are using Redshift.
+The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your 'out' buckets in "us-east-1" if you are using Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 
 * `assets` holds the ETL job's static assets (HiveQL script plus Hive deserializer). You can leave this as-is (pointing to SnowPlow   Analytics' [own public bucket containing these assets](Hosted-assets)) or replace this with your own private bucket containing the assets
 * `log` is the bucket in which Amazon EMR will record processing information for this job run, including logging any errors  
 * `in` is where you specify your In Bucket
-* `processing` is where you specify your Processing Bucket
-* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**
+* `processing` is where you specify your Processing Bucket - **always include a sub-folder on this variable (see below for why)**. 
+* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in region us-east-1, as currently Amazon only supports Redshift instances in this region. (So data loaded into Redshift from S3 can only be performed using buckets located in in this region.)
 * `archive` is where you specify your Archive Bucket
 
 Each of the bucket variables must start with an S3 protocol - either `s3://` or `s3n://`. Each variable can include a sub-folder within the bucket as required, and a trailing slash is optional.
 
-**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `out` bucket variable.**
+**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to read or write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `processing` and `out` bucket variables.**
 
 **Important 2:** do not put your Processing Bucket location inside your In Bucket, or your Out Bucket inside your Processing Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
 
@@ -158,6 +160,8 @@ Each of the bucket variables must start with an S3 protocol - either `s3://` or 
 Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] (Enable-logging-to-S3) stage of the Clojure Collector setup).
 
 Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
+
+**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in the `us-east-1` region. That is because currently Redshift is only available in this Region, and Amazon only supports bulk loading of data from S3 into Redshift within regions. 
 
 **Example bucket settings**
 

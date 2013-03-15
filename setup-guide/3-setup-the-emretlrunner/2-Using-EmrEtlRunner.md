@@ -63,7 +63,7 @@ Invoking EmrEtlRunner with just the `--config` option puts it into rolling
 mode, processing all the raw SnowPlow event logs it can find in your In
 Bucket:
 
-    $ bundle exec bin/snowplow-emr-etl-runner --config my-config.yml
+    $ bundle exec bin/snowplow-emr-etl-runner --config config.yml
 
 ### 3.2 Timespan mode
 
@@ -71,7 +71,7 @@ To run EmrEtlRunner in timespan mode, you need to specify the `--start`
 and/or `--end` dates as well as the `--config` option, like so:
 
     $ bundle exec bin/snowplow-emr-etl-runner \
-      --config my-config.yml \
+      --config config.yml \
       --start 2012-06-20 \
       --end 2012-06-24 
 

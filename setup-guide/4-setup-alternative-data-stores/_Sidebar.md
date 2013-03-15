@@ -11,7 +11,7 @@
   - [4.3: installing the StorageLoader] (1-installing-the-storageloader)
   - [4.4: using the StorageLoader] (2-using-the-storageloader)
   - [4.5: scheduling the StorageLoader] (3-scheduling-the-storageloader)
-- [Step 5: Analyse your data!] (start-doing-analytics)  
+- [Step 5: Analyse your data!] (Getting started analysing SnowPlow data)    
 
 **Useful resources**  
 

@@ -13,14 +13,13 @@ We recommend using the SnowPlow asyncronous tags. Doing so means that the loadin
 
 ## Table of Contents
 
-1. [Asynchronous integration](#async)
-2. [Synchronous integration](#sync)
-3. [Tracking more than Pageviews. (Event tracking, ecommerce tracking, social tracking...)](#events)
-4. [Testing the integration](#testing)
-5. [Next steps](#next-steps)
+1. [Setting up SnowPlow pageview tracking](#pageview)
+2. [Tracking more than Pageviews. (Event tracking, ecommerce tracking, social tracking...)](#events)
+3. [Testing the integration](#testing)
+4. [Next steps](#next-steps)
 
-<a name="async"/>
-## 1. Asynchronous integration
+<a name="pageview"/>
+# Setting up SnowPlow pageview tracking
 
 ### 1.1 Installing the header script
 
@@ -31,13 +30,14 @@ To use `snowplow.js` in an 'async' manner, first add the following script into y
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setAppId', '{{SITE-ID}}']);
+_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}'])
 _snaq.push(['trackPageView']);
-_snaq.push(['enableLinkTracking']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
@@ -71,7 +71,9 @@ For example, if your collector is at `c.snplow.com` then your tag would contain 
 ```javascript
 _snaq.push(['setCollectorUrl', 'c.snplow.com']);
 ```
+### 1.3 Configuring the header script: application ID and cookie domain
 
+Setting the collector endpoint is essential for SnowPlow to work. Setting the application ID and cookie domain are optional. For details on setting these, see the (Javascript technicla documentation guide)[Javascript-Tracker.]
 
 <a name="sync"/>
 ## 2. Synchronous integration

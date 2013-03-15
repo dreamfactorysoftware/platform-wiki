@@ -1,19 +1,12 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
 
-## Contents
+<a name="tracking-specific-events" />
+## 3. Tracking specific events
 
-- 1. [Overview](#overview)  
-- 2. [General parameters](#general)  
-  - 2.1 [Setting the endpoint](#endpoint)  
-    - 2.1.1 [`setCollectorCf`](#setCollectorCf)  
-    - 2.1.2 [`setCollectorUrl`](#setCollectorUrl)
-  - 2.2 [Setting the application ID](#app-id)
-    - 2.2.1 [`setAppId`](#setAppId)  
-  - 2.3 [Setting the user ID](#user-id)  
-    - 2.3.1 [`setUserId`](#setUserId)
-- 3. [Tracking specific events](#tracking-specific-events)  
+SnowPlow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
   - 3.2 [Pagepings](#pagepings)  
@@ -36,7 +29,6 @@
     - 3.8.1 [`trackUnstructEvent`](#trackUnstructEvent)   
   - 3.9 [Link click tracking](#link-click-track)
     - 3.9.1 [`enableLinkTracking`](#enableLinkTracking)
-
 
 <a name="overview" />
 ## 1. Overview
@@ -202,7 +194,8 @@ This method automatically captures the page title, URL and referrer.
 
 Note: going forwards we plan to extend this method to also capture page category.
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="pagepings" />
 ### 3.2 Track engagement with a web page over time: page pings
@@ -230,7 +223,8 @@ The first ping would occur after 30 seconds, and subsequent pings every 10 secon
 
 Note: in general this is executed as part of the main SnowPlow tracking tag. As a result, you can elect to enable this on specific pages.
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="ecommerce" />
 ### 3.3 Ecommerce tracking
@@ -271,7 +265,8 @@ _snaq.push(['addTrans',
   ]);
 ```
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="addItem" />
 #### 3.3.2 `addItem`
@@ -369,7 +364,8 @@ _snaq.push(['trackTrans']);
 </html>
 ```
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="social" />
 ### 3.4 Social tracking
@@ -407,7 +403,8 @@ Or if the optional parameters were left off:
 ```javascript
 _snaq.push('trackSocial', 'facebook', 'like', '', '')
 ```
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="campaign" />
 ### 3.5 Campaign tracking
@@ -456,7 +453,8 @@ SnowPlow uses the same query parameters used by Google Analytics. Because of thi
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="adimps" />
 ### 3.6 Ad impression tracking
@@ -553,7 +551,8 @@ _snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0
 
 Note that in the above example no value is set for the `event property`.
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="custom-unstructured-events" />
 ### 3.8 Tracking custom unstructured events
@@ -565,7 +564,8 @@ This feature is on the roadmap: it has not been developed yet.
 
 This feature is on the roadmap: it has not been developed yet.
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
 <a name="link-click-tracking" />
 ### 3.9 Link click tracking
@@ -577,8 +577,10 @@ This feature is on the roadmap: it has not been developed yet.
 
 This feature is on the roadmap: it has not been developed yet.
 
-[Back to top](#top)
+[Back to top](#top)  
+[Back to Javascript technical documentation contents][contents]
 
+[contents]: Javascript-Tracker
 
 
 

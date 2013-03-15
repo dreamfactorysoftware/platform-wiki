@@ -142,4 +142,5 @@ Now that you have your SnowPlow database and table setup on Redshift, you are re
 [emr-etl-runner]: 1-Installing-EmrEtlRunner
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
-[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/table-def.sql
+[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/table-def.sql
+                      
