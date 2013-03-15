@@ -11,7 +11,7 @@
   - 2.2 [Setting the application ID](#app-id)
     - 2.2.1 [`setAppId`](#setAppId)  
   - 2.3 [Setting the cookie domain](#cookiedomain)
-    - 2.3.1 [`setCookieDomain](#setCookieDomain) 
+    - 2.3.1 [`setCookieDomain`](#setCookieDomain) 
   - 2.4 [Setting the user ID](#user-id)  
     - 2.4.1 [`setUserId`](#setUserId)
 

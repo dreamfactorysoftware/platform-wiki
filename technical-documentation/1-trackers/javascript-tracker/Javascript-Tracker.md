@@ -12,7 +12,7 @@
   - 2.2 [Setting the application ID](1-General-paramaters-for-the-Javascript-tracker#wiki-app-id)
     - 2.2.1 [`setAppId`](1-General-paramaters-for-the-Javascript-tracker#wiki-setAppId)  
   - 2.3 [Setting the cookie domain](1-General-paramaters-for-the-Javascript-tracker#wiki-cookiedomain)
-    - 2.3.1 [`setCookieDomain](1-General-paramaters-for-the-Javascript-tracker#wiki-setCookieDomain) 
+    - 2.3.1 [`setCookieDomain`](1-General-paramaters-for-the-Javascript-tracker#wiki-setCookieDomain) 
   - 2.4 [Setting the user ID](1-General-paramaters-for-the-Javascript-tracker#wiki-user-id)  
     - 2.4.1 [`setUserId`](1-General-paramaters-for-the-Javascript-tracker#wiki-setUserId)
 - 3. [Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events)  
