@@ -8,7 +8,7 @@ The technical documentation reflects the SnowPlow architecture, with five loosel
 [Trackers overview](trackers)  
 [Javascript tracker (SnowPlow.js)](javascript-tracker)  
 [No-JS tracker](no-js-tracker)  
-[iOS tracker](ios-tracker)  
+[Arduino Tracker](Arduino-Tracker)  
 
 ### A. [SnowPlow tracker protocol](snowplow-tracker-protocol)  
 
