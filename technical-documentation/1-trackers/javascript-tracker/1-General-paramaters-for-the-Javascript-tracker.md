@@ -32,12 +32,12 @@ var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{MY-CLOUDFRONT-DOMAIN}}']);
 _snaq.push(['setAppId', '{{MY-SITE-ID}}']);
-_snaq.push(['setDomainId', '{{MY-COOKIE-DOMAIN}}'])
+_snaq.push(['setCookieDomain', '{{MY-COOKIE-DOMAIN}}'])
 _snaq.push(['trackPageView']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.10.0/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>

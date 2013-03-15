@@ -199,19 +199,23 @@ The actual code you need to insert is:
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setAppId', '{{SITE-ID}}']);
+_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}'])
 _snaq.push(['trackPageView']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
 <!-- SnowPlow stops plowing -->
 ```
 
-You will need to update the {{CLOUDFRONT DOMAIN}} with the Cloudfront subdomain details you created as part of the [collector setup](https://github.com/snowplow/snowplow/wiki/setting-up-cloudfront-collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with a Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`.
+You will need to update the {{CLOUDFRONT DOMAIN}} with the Cloudfront subdomain details you created as part of the [collector setup](https://github.com/snowplow/snowplow/wiki/setting-up-cloudfront-collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with a Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. If you are using a different collector the Cloudfront collector (e.g. the Clojure collector), you will need to use the `setCollectorUrl` method instead. For full instructions on all the options available for setting the collector endpoint, see the [Javascript tracker technical documentation](Javascript-Tracker).
+
+The calls to `setAppId` and `setCookieDomain` are optional: the first is used if you are running SnowPlow across different applications and want to distinguish data for each easily. `setCookieDomain` is used if you are tracking users across multiple subdomains e.g. 'blog.mysite.com', 'www.mysite.com', 'mysite.com'. Full instructions on the use of both these methods can be found in the [Javascript tracker technical documentation](Javascript-Tracker).
 
 If you are hosting your own SnowPlow JavaScript file (see the guide to [Self-hosting snowplow.js] (https://github.com/snowplow/snowplow/wiki/Self-hosting-snowplow-js)), then you need to update the tag above, swapping your own {{CLOUDFRONT DOMAIN}} (the one from which you serve sp.js in for ours:
 

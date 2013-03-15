@@ -148,26 +148,35 @@ Now we need to enter the SnowPlow page tracking code:
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT DOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
+_snaq.push(['setAppId', '{{SITE-ID}}']);
+_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}'])
 _snaq.push(['trackPageView']);
-_snaq.push(['enableLinkTracking']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
 <!-- SnowPlow stops plowing -->
 ```
 
-#### Setting the {{CLOUDFRONT DOMAIN}} value
+#### Setting the {{CLOUDFRONT-DOMAIN}} value
 
-You must update `{{CLOUDFRONT DOMAIN}}` with the Cloudfront subdomain details you created as part of the [collector setup] (setting up the cloudfront collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with an Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`.
+You must update `{{CLOUDFRONT-DOMAIN}}` with the Cloudfront subdomain details you created as part of the [collector setup] (setting up the cloudfront collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with an Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. 
 
 If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`, then update the appropriate line in your header script to look like this:
 
 	_snaq.push(['setCollectorCf', 'd1x5tduoxffdr7']);
+
+If you are not using the Cloudfront collector (e.g. you are using the Clojure collector), you will need to use the `setCollectorUrl` method instead. Full instructions on doing so can be found in the [technical documentation for the Javascript tracker](Javascript-Tracker).
+
+#### Setting the {{SITE-ID}} and {{COOKIE-DOMAIN}} values
+
+You can optionally use the `setAppId` method to set an application ID for the page that is being tracked: this is useful if you are using SnowPlow to track user behaviour across two or more applications, and wish to distinguish them easily in your data. For full instructions on doing so, please refer to the [Javascript tracker technical documentation](Javascript-Tracker).
+
+In addition, you can optionally use the `setCookieDomain` method to change your cookie domain from e.g. 'www.mysite.com' to '.mysite.com'. This is important if you are tracking user behaviour across multiple subdomains e.g. 'mysite.com', 'www.mysite.com', 'application.mysite.com', 'blog.mysite.com' etc. Full instructions on how to use this method can be found in the [technical documentation for the Javascript tracker](Javascript-Tracker).
 
 #### Updating the reference to `sp.js`
 
