@@ -139,8 +139,6 @@ snowplow.setUserId("boardroom-arduino");
 
 SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
-REST OF GUIDE TO WRITE
-
 [Back to top](#top)
 
 <a name="custom-structured-events" />
