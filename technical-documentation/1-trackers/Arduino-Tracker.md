@@ -21,6 +21,8 @@
     - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)  
     - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
     - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)  
+    - 3.2.3 [`trackStructEvent` (double `aValue`)](#trackStructEvent-double-aValue)  
+    - 3.2.3 [`trackStructEvent` (float `aValue`)](#trackStructEvent-float-aValue)  
   - 3.3 [Tracking custom unstructured events](#custom-unstructured-events)
 - 4 [Testing and debugging](#debug-test)
     - 4.1 [Setup debugging](#setup-debug)
@@ -236,16 +238,17 @@ Notes:
 Here's an example invocation:
 
 ```c++
-snowplow.trackStructEvent("example", "int ping", "age", NULL, 22);
+snowplow.trackStructEvent("example", "profile-update", "age", NULL, 22);
 ```
 
 See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
 
 [Back to top](#top)
 
-#### 3.2.4 `trackStructEvent` (xxx)
+<a name="trackStructEvent-double-aValue" />
+#### 3.2.4 `trackStructEvent` (double `aValue`)
 
-The relevant signature for `trackStructEvent` if xxx is:
+The relevant signature for `trackStructEvent` to track a double in `aValue` is:
 
 ```c++
 int trackStructEvent(const char *aCategory,
@@ -256,19 +259,22 @@ int trackStructEvent(const char *aCategory,
                      const int aValuePrecision = 2) const;
 ```
 
-Note that xxx. Here's an example invocation:
+`aValuePrecision` lets you specify the number of decimal places to use when logging the double `aValue` (it defaults to two decimal places). Note that the default type for floating point literals in Arduino is double, not float.
+
+Here's an example invocation:
 
 ```c++
-xxx
+snowplow.trackStructEvent("example", "constant", NULL, "pi", 3.14159, 5);
 ```
 
 See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
 
 [Back to top](#top)
 
-#### 3.2.5 `trackStructEvent` (xxx)
+<a name="trackStructEvent-float-aValue" />
+#### 3.2.5 `trackStructEvent` (float `aValue`)
 
-The relevant signature for `trackStructEvent` if xxx is:
+The relevant signature for `trackStructEvent` to track a float in `aValue` is:
 
 ```c++
 int trackStructEvent(const char *aCategory,
@@ -279,10 +285,12 @@ int trackStructEvent(const char *aCategory,
                      const int aValuePrecision = 2) const;
 ```
 
-Note that xxx. Here's an example invocation:
+`aValuePrecision` lets you specify the number of decimal places to use when logging the float `aValue` (it defaults to two decimal places). Note that the default type for floating point literals in Arduino is double, not float.
+
+Here's an example invocation:
 
 ```c++
-xxx
+snowplow.trackStructEvent("example", "temp reading", NULL, "celsius", 15.3f, 1);
 ```
 
 See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
