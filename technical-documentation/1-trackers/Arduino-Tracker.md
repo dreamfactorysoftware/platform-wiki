@@ -330,9 +330,9 @@ Arduino is a difficult platform to test and debug software on, so it's important
 <a name="setup-debug" />
 #### 4.1 Setup debugging
 
-The SnowPlow Arduino Tracker can have debug logging switched on at compile time if you are having problems debugging your SnowPlow event tracking.
+You can switch on debug logging for the SnowPlow Arduino Tracker if you are having problems debugging your SnowPlow event tracking.
 
-The setting to change in your copy of `SnowPlowTracker.cpp` is near the top of the file:
+This is a compile time setting, found near the top of your copy of `SnowPlowTracker.cpp`:
 
 ```c++
 #define LOG_LEVEL   0x00 // Change to 0x03 for debugging
