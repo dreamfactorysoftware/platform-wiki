@@ -80,11 +80,17 @@ Follow these steps to test the SnowPlow Arduino Tracker with your Arduino board:
 
 **2)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing** to load a sample sketch which comes with the SnowPlow Arduino Tracker
 
+Note that it is not necessary to make any edits to this sketch before running it (it is fine for example to leave the MAC address as specified).
+
 **3)** Next click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
 
-**4)** Now XXX
+**4)** Now you should see events being successfully pinged to SnowPlow:
+
+[[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
+
+That's it for testing - although if you are interested, you can try out the other three sample sketches in under **File > Examples > SnowPlowTracker**.
 
 [Back to top](#top)
 
