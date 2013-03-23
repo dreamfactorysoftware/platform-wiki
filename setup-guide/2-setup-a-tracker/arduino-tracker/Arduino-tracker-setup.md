@@ -11,7 +11,7 @@
 - 3. [Setup](#setup)
   - 3.1 [Installation](#installation)  
   - 3.2 [Testing](#testing)  
-  - 3.3 [Next steps](#next-steps)
+- 4. [Integrating into your sketch](#integration)
 
 <a name="overview" />
 ## 1. Overview
@@ -90,16 +90,24 @@ Note that it is not necessary to make any edits to this sketch before running it
 
 [[/setup-guide/images/arduino-tracker-setup-guide/snowplow-working.png]]
 
-That's it for testing - although if you are interested, you can try out the other three sample sketches in under **File > Examples > SnowPlowTracker**.
+That's it for testing - although if you are interested, you can try out the three other sample sketches in under **File > Examples > SnowPlowTracker**.
 
 [Back to top](#top)
 
-<a name="next-steps" />
-### 3.3 Next steps
+<a name="integration" />
+## 4. Integrating into your sketch
 
-To come
+You are now ready to integrate the SnowPlow Arduino Tracker into your own sketch. This should be relatively straightforward - we recommend the following steps:
+
+**1)** Look at the source code of the example sketches that come with the SnowPlow Arduino Tracker. You can find them on GitHub in [snowplow-arduino-tracker/examples] [snowplow-examples]
+
+**2)** Read through the Technical Documentation for the SnowPlow Arduino Tracker on this wiki. This will tell you exactly what tracking capabilities SnowPlow can provide for your Arduino sketch
+
+For a standalone Arduino project which incorporates SnowPlow tracking, please see [arduino-temp-tracker] [arduino-temp-tracker] on GitHub.
 
 [Back to top](#top)
 
 [arduino]: http://arduino.cc/
 [arduino-software]: http://www.arduino.cc/en/Main/software
+[snowplow-examples]: https://github.com/snowplow/snowplow-arduino-tracker/tree/master/examples
+[arduino-temp-tracker]: https://github.com/alexanderdean/arduino-temp-tracker
