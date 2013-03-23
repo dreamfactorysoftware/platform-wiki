@@ -208,7 +208,10 @@ There are four slightly different signatures for the `tractStructEvent`, dependi
 The relevant signature for `trackStructEvent` if you have no `aValue` to log is:
 
 ```c++
-int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel = NULL, const char *aProperty = NULL) const;
+int trackStructEvent(const char *aCategory,
+                     const char *aAction,
+                     const char *aLabel = NULL,
+                     const char *aProperty = NULL) const;
 ```
 
 Note that this version defaults `aLabel` and `aProperty` to `NULL` if you don't set them. Here's an example invocation:
@@ -227,7 +230,11 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 The relevant signature for `trackStructEvent` if `aValue` is an integer is:
 
 ```c++
-int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const int aValue) const;
+int trackStructEvent(const char *aCategory,
+                     const char *aAction,
+                     const char *aLabel,
+                     const char *aProperty,
+                     const int aValue) const;
 ```
 
 Notes:
@@ -250,7 +257,12 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 The relevant signature for `trackStructEvent` if xxx is:
 
 ```c++
-int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const double aValue, const int aValuePrecision = 2) const;
+int trackStructEvent(const char *aCategory,
+                     const char *aAction,
+                     const char *aLabel,
+                     const char *aProperty,
+                     const double aValue,
+                     const int aValuePrecision = 2) const;
 ```
 
 Note that xxx. Here's an example invocation:
@@ -268,7 +280,12 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 The relevant signature for `trackStructEvent` if xxx is:
 
 ```c++
-int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const float aValue, const int aValuePrecision = 2) const;
+int trackStructEvent(const char *aCategory,
+                     const char *aAction,
+                     const char *aLabel,
+                     const char *aProperty,
+                     const float aValue,
+                     const int aValuePrecision = 2) const;
 ```
 
 Note that xxx. Here's an example invocation:
