@@ -14,10 +14,14 @@
     - 2.2.2 [`initUrl`](#initUrl)
   - 2.3 [Setting the user ID](#user-id)
     - 2.3.1 [`setUserId`](#setUserId)
+  - 2.4 [Testing and debugging](#debug-test)
+    - 2.4.1 [Setup debugging](#setup-debug)
 - 3. [Tracking specific events](#tracking-specific-events)  
-  - 3.1 [Tracking custom structured events](#custom-structured-events)  
-    - 3.1.1 [`trackStructEvent`](#trackStructEvent)
-  - 3.2 [Tracking custom unstructured events](#custom-unstructured-events)
+  - 3.2 [Tracking custom structured events](#custom-structured-events)  
+    - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)
+    - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)
+    - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)
+  - 3.3 [Tracking custom unstructured events](#custom-unstructured-events)
 
 <a name="overview" />
 ## 1. Overview
@@ -134,15 +138,46 @@ snowplow.setUserId("boardroom-arduino");
 
 [Back to top](#top)
 
+<a name="debug-test" />
+### 2.4 Testing and debugging
+
+Arduino is a difficult platform to test and debug software on, so it's important to understand what options the SnowPlow Arduino Tracker has for debugging.
+
+[Back to top](#top)
+
+<a name="debug" />
+#### 2.4.1 Setup debugging
+
+Section to come.
+
+[Back to top](#top)
+
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
 SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
+<a name="common" />
+### 3.1 Common
+
+<a name="tracking-function-structure" />
+#### 3.1.1 Tracking function structure
+
+All events are tracked with specific Arduino C++ functions of the form `trackXXX`, where `XXX` is the name of the event to track.
+
+A given event type may have multiple different signatures (to support slightly different argument options or types).
+
+<a name="tracking-return-codes" />
+### 3.1.2 Tracking return codes
+
+All `trackXXX` functions return an integer to report the status of the attempt to track the given event object.
+
+_Rest of section to come._
+
 [Back to top](#top)
 
 <a name="custom-structured-events" />
-### 3.1 Tracking custom structured events
+### 3.2 Tracking custom structured events
 
 Custom structured events are the only form of tracking currently supported by the SnowPlow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, please use `trackStructEvent` to send this data to SnowPlow.
 
@@ -152,41 +187,107 @@ Some examples of tracking custom structured events from your Arduino board(s) mi
 * Tracking the movement of products around your shop/warehouse/factory using Arduino, [RFID readers] [arduino-rfid] and SnowPlow
 * Sending vehicle fleet information (locations, speeds, fuel levels etc) back to SnowPlow using Arduino's [3G and GPS] [3g-gps] shields 
 
-#### 3.1.1 `trackStructEvent`
+<a name="trackStructEvent" />
+#### 3.2.1 `trackStructEvent` overview
 
-There are five parameters can be associated with each structured event. Of them, only the first two are required:
+There are five arguments associated with each structured event. Of them, only the first two are required:
 
-| **Name**    | **Required?** | **Description**                                                                          |
-|------------:|:--------------|:-----------------------------------------------------------------------------------------|
-|  `Category` | Yes           | The name you supply for the group of objects you want to track e.g. 'sensor', 'ecomm'     |
-|    `Action` | Yes           | A string which defines the type of user interaction for the web object e.g. 'read-temp', 'wifi-strength' |
-|     `Label` | No            | An optional string which identifies the specific object being actioned e.g. ID of the sensor being read |
-|  `Property` | No            | An optional string describing the object or the action performed on it. This might be whether the temperature reading is in Fahrenheit or Celsius |
-|     `Value` | No            | An optional float or double to quantify or further describe the user action. This might be the price of an item added-to-basket, or the starting time of the video where play was just pressed |
+| **Name**     | **Required?** | **Description**                                                                          |
+|-------------:|:--------------|:-----------------------------------------------------------------------------------------|
+|  `aCategory` | Yes           | The name you supply for the group of objects you want to track e.g. 'sensor', 'ecomm'     |
+|    `aAction` | Yes           | A string which defines the type of user interaction for the web object e.g. 'read-temp', 'wifi-strength' |
+|     `aLabel` | No            | An optional string which identifies the specific object being actioned e.g. ID of the sensor being read |
+|  `aProperty` | No            | An optional string describing the object or the action performed on it. This might be whether the temperature reading is in Fahrenheit or Celsius |
+|     `aValue` | No            | An optional float or double to quantify or further describe the user action. This might be the price of an item added-to-basket, or the starting time of the video where play was just pressed |
 
-The async specification for the `trackStructEvent` method is:
+There are four slightly different signatures for the `tractStructEvent`, depending on what type of `aValue` you want to supply:
 
-```javascript
-_snaq.push(['trackStructEvent', 'category','action','object','property','value'])
+<a name="trackStructEvent-no-aValue" />
+#### 3.2.2 `trackStructEvent` (no `aValue`)
+
+The relevant signature for `trackStructEvent` if you have no `aValue` to log is:
+
+```c++
+int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel = NULL, const char *aProperty = NULL) const;
 ```
 
-An example of tracking a user listening to a music mix:
+Note that this version defaults `aLabel` and `aProperty` to `NULL` if you don't set them. Here's an example invocation:
 
-```javascript
-_snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0'])
+```c++
+snowplow.trackStructEvent("example", "basic ping");
 ```
 
-Note that in the above example no value is set for the `event property`.
+See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
+
+[Back to top](#top)
+
+<a name="trackStructEvent-int-aValue" />
+#### 3.2.3 `trackStructEvent` (integer `aValue`)
+
+The relevant signature for `trackStructEvent` if xxx is:
+
+```c++
+int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const int aValue) const;
+```
+
+Notes:
+
+* Because `aValue` must be a float or double, this version of `trackStructEvent` appends ".0" to the end of the int before sending to SnowPlow
+* If you don't want to set `aLabel` or `aProperty`, pass in `NULL` in their place
+
+Here's an example invocation:
+
+```c++
+snowplow.trackStructEvent("example", "int ping", "age", NULL, 22);
+```
+
+See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
+
+[Back to top](#top)
+
+#### 3.2.4 `trackStructEvent` (xxx)
+
+The relevant signature for `trackStructEvent` if xxx is:
+
+```c++
+int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const double aValue, const int aValuePrecision = 2) const;
+```
+
+Note that xxx. Here's an example invocation:
+
+```c++
+xxx
+```
+
+See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
+
+[Back to top](#top)
+
+#### 3.2.5 `trackStructEvent` (xxx)
+
+The relevant signature for `trackStructEvent` if xxx is:
+
+```c++
+int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const float aValue, const int aValuePrecision = 2) const;
+```
+
+Note that xxx. Here's an example invocation:
+
+```c++
+xxx
+```
+
+See [Tracking return codes](#tracking-return-codes) above for the return codes supported by `trackStructEvent`.
 
 [Back to top](#top)
 
 <a name="custom-unstructured-events" />
-### 3.8 Tracking custom unstructured events
+### 3.3 Tracking custom unstructured events
 
 This feature is on the roadmap: it has not been developed yet.
 
 <a name="trackUnstructEvent" />
-#### 3.8.1 `trackUnstructEvent`
+#### 3.3.1 `trackUnstructEvent`
 
 This feature is on the roadmap: it has not been developed yet.
 
