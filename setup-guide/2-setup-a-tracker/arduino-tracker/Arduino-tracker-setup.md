@@ -84,11 +84,11 @@ Note that it is not necessary to make any edits to this sketch before running it
 
 **3)** Next click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
 
-[[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/uploading-okay.png]]
 
-**4)** Now you should see events being successfully pinged to SnowPlow:
+**4)** Now click **Tools > Serial Monitor** and you should see events being successfully pinged to SnowPlow:
 
-[[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/snowplow-working.png]]
 
 That's it for testing - although if you are interested, you can try out the other three sample sketches in under **File > Examples > SnowPlowTracker**.
 
