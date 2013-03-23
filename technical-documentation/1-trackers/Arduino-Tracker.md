@@ -14,8 +14,6 @@
     - 2.2.2 [`initUrl`](#initUrl)
   - 2.3 [Setting the user ID](#user-id)
     - 2.3.1 [`setUserId`](#setUserId)
-  - 2.4 [Testing and debugging](#debug-test)
-    - 2.4.1 [Setup debugging](#setup-debug)
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Common](#common)
     - 3.1.1 [Tracking function structure](#tracking-function-structure)
@@ -25,6 +23,8 @@
     - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
     - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)  
   - 3.3 [Tracking custom unstructured events](#custom-unstructured-events)
+- 4 [Testing and debugging](#debug-test)
+    - 4.1 [Setup debugging](#setup-debug)
 
 <a name="overview" />
 ## 1. Overview
@@ -138,20 +138,6 @@ To set a business-friendly user ID for this Arduino, use the `setUserId()` metho
 ```c++
 snowplow.setUserId("boardroom-arduino");
 ```
-
-[Back to top](#top)
-
-<a name="debug-test" />
-### 2.4 Testing and debugging
-
-Arduino is a difficult platform to test and debug software on, so it's important to understand what options the SnowPlow Arduino Tracker has for debugging.
-
-[Back to top](#top)
-
-<a name="debug" />
-#### 2.4.1 Setup debugging
-
-Section to come.
 
 [Back to top](#top)
 
@@ -310,6 +296,20 @@ This feature is on the roadmap: it has not been developed yet.
 #### 3.3.1 `trackUnstructEvent`
 
 This feature is on the roadmap: it has not been developed yet.
+
+[Back to top](#top)
+
+<a name="debug-test" />
+### 4 Testing and debugging
+
+Arduino is a difficult platform to test and debug software on, so it's important to understand what options the SnowPlow Arduino Tracker has for debugging.
+
+[Back to top](#top)
+
+<a name="debug" />
+#### 4.1 Setup debugging
+
+Section to come.
 
 [Back to top](#top)
 
