@@ -110,5 +110,4 @@ For a standalone Arduino project which incorporates SnowPlow tracking, please se
 [arduino]: http://arduino.cc/
 [arduino-software]: http://www.arduino.cc/en/Main/software
 [snowplow-examples]: https://github.com/snowplow/snowplow-arduino-tracker/tree/master/examples
-[tech-documentation]: 
 [arduino-temp-tracker]: https://github.com/alexanderdean/arduino-temp-tracker
