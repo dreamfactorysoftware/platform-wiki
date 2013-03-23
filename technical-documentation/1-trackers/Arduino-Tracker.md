@@ -179,8 +179,8 @@ The full list of return codes are given below:
 You can access these constants in your code by prepending with `SnowPlowTracker::`, for example:
 
 ```c++
-int ret_val = snowplow.trackXXX
-if (ret_val == SnowPlowTracker::ERROR_HTTP_STATUS)) {
+int ret_val = snowplow.trackXXX;
+if (ret_val == SnowPlowTracker::ERROR_HTTP_STATUS) {
   ...
 }
 ```
