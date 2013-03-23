@@ -160,7 +160,7 @@ All events are tracked with specific Arduino C++ functions of the form `trackXXX
 
 A given event type may have multiple different signatures (to support slightly different argument options or types).
 
-<a name="tracking-return-codes" />
+<a name="return-codes" />
 ### 3.1.1 Return codes
 
 All `trackXXX` functions return an integer to report the status of the attempt to track the given event object.
