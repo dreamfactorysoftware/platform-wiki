@@ -29,6 +29,8 @@ If you haven't done so already, download and install the Arduino toolchain and d
 
 ### 3.1 Installation
 
+Follow these steps to install the SnowPlow Arduino Tracker on your computer:
+
 **1)** Browse to the SnowPlow Arduino Tracker's GitHub site and download the zip file:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/download-tracker-zip.png]]
@@ -37,13 +39,17 @@ If you haven't done so already, download and install the Arduino toolchain and d
 
 [[/setup-guide/images/arduino-tracker-setup-guide/sketchbook-location.png]]
 
-**3)** If it does not already exist, create a sub-folder within your Sketchbook location called "libraries"
+**3)** Create a sub-folder within your Sketchbook location called "libraries" if it doesn't already exist
 
 **4)** Now unzip your SnowPlow zip file into the "libraries" sub-folder, renaming its top-level folder from "snowplow-arduino-tracker-master" to "SnowPlowTracker":
 
 [[/setup-guide/images/arduino-tracker-setup-guide/libraries-folder.png]]
 
+That's it for installation! Now let's test the setup.
+
 ### 3.2 Testing
+
+Follow these steps to test the SnowPlow Arduino Tracker with your Arduino board:
 
 **1)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing**
 
