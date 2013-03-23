@@ -31,27 +31,27 @@ If you haven't done so already, download and install the Arduino toolchain and d
 
 **1)** Browse to the SnowPlow Arduino Tracker's GitHub site and download the zip file:
 
-[[/setup-guide/images/arduino/download-tracker-zip.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/download-tracker-zip.png]]
 
 **2)** Open your Arduino software and click **File > Preferences** to check your Sketchbook location:
 
-[[/setup-guide/images/arduino/sketchbook-location.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/sketchbook-location.png]]
 
 **3)** If it does not already exist, create a sub-folder within your Sketchbook location called "libraries"
 
 **4)** Now unzip your SnowPlow zip file into the "libraries" sub-folder, renaming its top-level folder from "snowplow-arduino-tracker-master" to "SnowPlowTracker":
 
-[[/setup-guide/images/arduino/libraries-folder.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/libraries-folder.png]]
 
 **5)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing**
 
 **6)** If you have not already done so, connect your Arduino board to your computer, and to the Internet via the RJ-45 ethernet jack on your Ethernet shield, or via your Wi-Fi shield:
 
-[[/setup-guide/images/arduino/plug-in-arduino.jpg]]
+[[/setup-guide/images/arduino-tracker-setup-guide/plug-in-arduino.jpg]]
 
 **7)** In the Arduino software, click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
 
-[[/setup-guide/images/arduino/XXX.png]]
+[[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
 
 
 [arduino]: http://arduino.cc/
