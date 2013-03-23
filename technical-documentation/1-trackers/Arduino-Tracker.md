@@ -17,10 +17,13 @@
   - 2.4 [Testing and debugging](#debug-test)
     - 2.4.1 [Setup debugging](#setup-debug)
 - 3. [Tracking specific events](#tracking-specific-events)  
+  - 3.1 [Common](#common)
+    - 3.1.1 [Tracking function structure](#tracking-function-structure)
+    - 3.1.2 [Tracking return codes](#tracking-return-codes)
   - 3.2 [Tracking custom structured events](#custom-structured-events)  
-    - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)
-    - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)
-    - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)
+    - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)  
+    - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
+    - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)  
   - 3.3 [Tracking custom unstructured events](#custom-unstructured-events)
 
 <a name="overview" />
