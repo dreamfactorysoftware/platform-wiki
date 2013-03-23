@@ -167,14 +167,14 @@ All `trackXXX` functions return an integer to report the status of the attempt t
 
 The full list of return codes are given below:
 
-| **Constant**                                | **Integer value** | **Description**                                  |
-|--------------------------------------------:|:------------------|:-------------------------------------------------|
+| **Constant**               | **Integer value** | **Description**                                  |
+|---------------------------:|:------------------|:-------------------------------------------------|
 |  `ERROR_CONNECTION_FAILED` | -1                | Could not connect to SnowPlow collector          |
 |  `ERROR_TIMED_OUT`         | -2                | SnowPlow collector did not respond               |
 |  `ERROR_INVALID_RESPONSE`  | -3                | SnowPlow collector's response couldn't be parsed |
 |  `ERROR_MISSING_ARGUMENT`  | -4                | Required argument(s) to `trackXXX` missing       |
 |  `ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by SnowPlow collector was server or client error |
-|  _N/A_                                      | 1-399             | Non-error HTTP status code returned by SnowPlow collector |
+|  N/A                       | 1-399             | Non-error HTTP status code returned by SnowPlow collector |
 
 You can access these constants in your code by prepending with `SnowPlowTracker::`, for example:
 
