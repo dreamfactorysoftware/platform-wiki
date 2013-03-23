@@ -16,8 +16,7 @@
     - 2.3.1 [`setUserId`](#setUserId)
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Common](#common)
-    - 3.1.1 [Tracking function structure](#tracking-function-structure)
-    - 3.1.2 [Tracking return codes](#tracking-return-codes)
+    - 3.1.1 [Tracking return codes](#tracking-return-codes)
   - 3.2 [Tracking custom structured events](#custom-structured-events)  
     - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)  
     - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
@@ -146,18 +145,21 @@ snowplow.setUserId("boardroom-arduino");
 
 SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
+All tracking functions at a glance:
+
+| **Function**                             | **Description**                          |
+|-----------------------------------------:|:-----------------------------------------|
+|  [`trackStructEvent`](#trackStructEvent) | Track a SnowPlow custom structured event |
+
 <a name="common" />
 ### 3.1 Common
-
-<a name="tracking-function-structure" />
-#### 3.1.1 Tracking function structure
 
 All events are tracked with specific Arduino C++ functions of the form `trackXXX`, where `XXX` is the name of the event to track.
 
 A given event type may have multiple different signatures (to support slightly different argument options or types).
 
 <a name="tracking-return-codes" />
-### 3.1.2 Tracking return codes
+### 3.1.1 Tracking return codes
 
 All `trackXXX` functions return an integer to report the status of the attempt to track the given event object.
 
