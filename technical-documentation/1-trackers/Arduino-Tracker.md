@@ -19,10 +19,10 @@
     - 3.1.1 [Return codes](#return-codes)
   - 3.2 [Tracking custom structured events](#custom-structured-events)  
     - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)  
-    - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
-    - 3.2.3 [`trackStructEvent` (integer `aValue`)](#trackStructEvent-int-aValue)  
-    - 3.2.3 [`trackStructEvent` (double `aValue`)](#trackStructEvent-double-aValue)  
-    - 3.2.3 [`trackStructEvent` (float `aValue`)](#trackStructEvent-float-aValue)  
+    - 3.2.2 [`trackStructEvent`: no `aValue`](#trackStructEvent-no-aValue)  
+    - 3.2.3 [`trackStructEvent`: integer `aValue`](#trackStructEvent-int-aValue)  
+    - 3.2.3 [`trackStructEvent`: double `aValue`](#trackStructEvent-double-aValue)  
+    - 3.2.3 [`trackStructEvent`: float `aValue`](#trackStructEvent-float-aValue)  
   - 3.3 [Tracking custom unstructured events](#custom-unstructured-events)
 - 4 [Testing and debugging](#debug-test)
     - 4.1 [Setup debugging](#setup-debug)
@@ -214,7 +214,7 @@ There are five arguments associated with each structured event. Of them, only th
 There are four slightly different signatures for the `tractStructEvent`, depending on what type of `aValue` you want to supply:
 
 <a name="trackStructEvent-no-aValue" />
-#### 3.2.2 `trackStructEvent` (no `aValue`)
+#### 3.2.2 `trackStructEvent`: no `aValue`
 
 The relevant signature for `trackStructEvent` if you have no `aValue` to log is:
 
@@ -236,7 +236,7 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 [Back to top](#top)
 
 <a name="trackStructEvent-int-aValue" />
-#### 3.2.3 `trackStructEvent` (integer `aValue`)
+#### 3.2.3 `trackStructEvent`: integer `aValue`
 
 The relevant signature for `trackStructEvent` if `aValue` is an integer is:
 
@@ -264,7 +264,7 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 [Back to top](#top)
 
 <a name="trackStructEvent-double-aValue" />
-#### 3.2.4 `trackStructEvent` (double `aValue`)
+#### 3.2.4 `trackStructEvent`: double `aValue`
 
 The relevant signature for `trackStructEvent` to track a double in `aValue` is:
 
@@ -290,7 +290,7 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 [Back to top](#top)
 
 <a name="trackStructEvent-float-aValue" />
-#### 3.2.5 `trackStructEvent` (float `aValue`)
+#### 3.2.5 `trackStructEvent`: float `aValue`
 
 The relevant signature for `trackStructEvent` to track a float in `aValue` is:
 
