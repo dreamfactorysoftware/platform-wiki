@@ -51,15 +51,17 @@ That's it for installation! Now let's test the setup.
 
 Follow these steps to test the SnowPlow Arduino Tracker with your Arduino board:
 
-**1)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing**
-
-**2)** If you have not already done so, connect your Arduino board to your computer, and to the Internet via the RJ-45 ethernet jack on your Ethernet shield, or via your Wi-Fi shield:
+**1)** If you have not already done so, connect your Arduino board to your computer, and to the Internet via the RJ-45 ethernet jack on your Ethernet shield, or via your Wi-Fi shield:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/plug-in-arduino.jpg]]
 
-**3)** In the Arduino software, click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
+**2)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing** to load a sample sketch which comes with the SnowPlow Arduino Tracker
+
+**3)** Next click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
+
+**4)** Now XXX
 
 ### 3.3 Next steps
 
