@@ -16,7 +16,7 @@
     - 2.3.1 [`setUserId`](#setUserId)
 - 3. [Tracking specific events](#tracking-specific-events)  
   - 3.1 [Common](#common)
-    - 3.1.1 [Tracking return codes](#tracking-return-codes)
+    - 3.1.1 [Return codes](#return-codes)
   - 3.2 [Tracking custom structured events](#custom-structured-events)  
     - 3.2.1 [`trackStructEvent` overview](#trackStructEvent)  
     - 3.2.2 [`trackStructEvent` (no `aValue`)](#trackStructEvent-no-aValue)  
@@ -32,7 +32,7 @@
 
 The [SnowPlow Arduino tracker](https://github.com/snowplow/snowplow-arduino-tracker) allows you to track SnowPlow events from an IP-connected [Arduino] [arduino] board.
 
-The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with SnowPlow's [JavaScript tracker](Javascript-Tracker) or Google Analytics (which has a similar API) is helpful but not necessary.
+The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with SnowPlow's [JavaScript tracker](Javascript-Tracker) or Google Analytics (which has a similar API to SnowPlow) is helpful but not necessary.
 
 Note that this tracker has access to a much more restricted set of SnowPlow events than other trackers.
 
@@ -161,11 +161,20 @@ All events are tracked with specific Arduino C++ functions of the form `trackXXX
 A given event type may have multiple different signatures (to support slightly different argument options or types).
 
 <a name="tracking-return-codes" />
-### 3.1.1 Tracking return codes
+### 3.1.1 Return codes
 
 All `trackXXX` functions return an integer to report the status of the attempt to track the given event object.
 
-_Rest of section to come._
+The full list of return codes are given below:
+
+| **Constant**                                | **Integer value** | **Description**                                  |
+|--------------------------------------------:|:------------------|:-------------------------------------------------|
+|  `SnowPlowTracker::ERROR_CONNECTION_FAILED` | -1                | Could not connect to SnowPlow collector          |
+|  `SnowPlowTracker::ERROR_TIMED_OUT`         | -2                | SnowPlow collector did not respond               |
+|  `SnowPlowTracker::ERROR_INVALID_RESPONSE`  | -3                | SnowPlow collector's response couldn't be parsed |
+|  `SnowPlowTracker::ERROR_MISSING_ARGUMENT`  | -4                | Required argument(s) to `trackXXX` missing       |
+|  `SnowPlowTracker::ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by SnowPlow collector was server or client error |
+|  _N/A_                                      | 1-399             | Non-error HTTP status code returned by SnowPlow collector |
 
 [Back to top](#top)
 
