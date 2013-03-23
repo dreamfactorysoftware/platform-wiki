@@ -43,16 +43,21 @@ If you haven't done so already, download and install the Arduino toolchain and d
 
 [[/setup-guide/images/arduino-tracker-setup-guide/libraries-folder.png]]
 
-**5)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing**
+### 3.2 Testing
 
-**6)** If you have not already done so, connect your Arduino board to your computer, and to the Internet via the RJ-45 ethernet jack on your Ethernet shield, or via your Wi-Fi shield:
+**1)** Within your Arduino software, click **File > Examples > SnowPlowTracker > basicPing**
+
+**2)** If you have not already done so, connect your Arduino board to your computer, and to the Internet via the RJ-45 ethernet jack on your Ethernet shield, or via your Wi-Fi shield:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/plug-in-arduino.jpg]]
 
-**7)** In the Arduino software, click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
+**3)** In the Arduino software, click **File > Upload**. This should compile the sketch without any errors and upload it to your Arduino board:
 
 [[/setup-guide/images/arduino-tracker-setup-guide/XXX.png]]
 
+### 3.3 Next steps
+
+To come
 
 [arduino]: http://arduino.cc/
 [arduino-software]: http://www.arduino.cc/en/Main/software
