@@ -182,7 +182,7 @@ _Rest of section to come._
 <a name="custom-structured-events" />
 ### 3.2 Tracking custom structured events
 
-Custom structured events are the only form of tracking currently supported by the SnowPlow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, please use `trackStructEvent` to send this data to SnowPlow.
+Custom structured events are the only form of tracking currently supported by the SnowPlow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, use `trackStructEvent` to send this data to SnowPlow.
 
 Some examples of tracking custom structured events from your Arduino board(s) might include:
 
