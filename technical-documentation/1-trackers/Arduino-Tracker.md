@@ -294,13 +294,6 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 
 This feature is on the roadmap: it has not been developed yet.
 
-<a name="trackUnstructEvent" />
-#### 3.3.1 `trackUnstructEvent`
-
-This feature is on the roadmap: it has not been developed yet.
-
-[Back to top](#top)
-
 <a name="debug-test" />
 ### 4 Testing and debugging
 
