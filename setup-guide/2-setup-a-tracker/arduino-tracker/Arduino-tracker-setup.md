@@ -1,8 +1,17 @@
+<a name="top" />
+
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Arduino tracker**](Arduino-tracker-setup)
 
 ## Contents
 
 - 1. [Overview](#overview)  
+- 2. [Before you start](#before-start)
+  - 2.1 [Tracker compatibility](#compatibility)  
+  - 2.2 [Dependencies](#dependencies)  
+- 3. [Setup](#setup)
+  - 3.1 [Installation](#installation)  
+  - 3.2 [Testing](#testing)  
+  - 3.3 [Next steps](#next-steps)
 
 <a name="overview" />
 ## 1. Overview
@@ -13,20 +22,31 @@ The tracker should be relatively straightforward to setup if you are familiar wi
 
 Ready? Let's get started.
 
+[Back to top](#top)
+
+<a name="before-start" />
 ## 2. Before you start
 
+<a name="compatibility" />
 ### 2.1 Tracker compatibility
 
 Please note that the SnowPlow Arduino Tracker requires the new Ethernet library API (with DHCP and DNS), which is in Arduino 1.0.
 
 Almost all recent Arduinos (Arduino Uno, Arduino Due et al) should work fine with the SnowPlow Tracker.
 
+[Back to top](#top)
+
+<a name="dependencies" />
 ### 2.2 Dependencies
 
 If you haven't done so already, download and install the Arduino toolchain and development environment from the [Arduino Software] [arduino-software] page.
 
-## 3. Initial setup
+[Back to top](#top)
 
+<a name="setup" />
+## 3. Setup
+
+<a name="installation" />
 ### 3.1 Installation
 
 Follow these steps to install the SnowPlow Arduino Tracker on your computer:
@@ -47,6 +67,9 @@ Follow these steps to install the SnowPlow Arduino Tracker on your computer:
 
 That's it for installation! Now let's test the setup.
 
+[Back to top](#top)
+
+<a name="testing" />
 ### 3.2 Testing
 
 Follow these steps to test the SnowPlow Arduino Tracker with your Arduino board:
@@ -63,9 +86,14 @@ Follow these steps to test the SnowPlow Arduino Tracker with your Arduino board:
 
 **4)** Now XXX
 
+[Back to top](#top)
+
+<a name="next-steps" />
 ### 3.3 Next steps
 
 To come
+
+[Back to top](#top)
 
 [arduino]: http://arduino.cc/
 [arduino-software]: http://www.arduino.cc/en/Main/software
