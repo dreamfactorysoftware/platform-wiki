@@ -224,7 +224,7 @@ See [Tracking return codes](#tracking-return-codes) above for the return codes s
 <a name="trackStructEvent-int-aValue" />
 #### 3.2.3 `trackStructEvent` (integer `aValue`)
 
-The relevant signature for `trackStructEvent` if xxx is:
+The relevant signature for `trackStructEvent` if `aValue` is an integer is:
 
 ```c++
 int trackStructEvent(const char *aCategory, const char *aAction, const char *aLabel, const char *aProperty, const int aValue) const;
