@@ -330,7 +330,26 @@ Arduino is a difficult platform to test and debug software on, so it's important
 <a name="debug" />
 #### 4.1 Setup debugging
 
-Section to come.
+The SnowPlow Arduino Tracker can have debug logging switched on at compile time if you are having problems debugging your SnowPlow event tracking.
+
+The setting to change in your copy of `SnowPlowTracker.cpp` is near the top of the file:
+
+```c++
+#define LOG_LEVEL   0x00 // Change to 0x03 for debugging
+```
+
+With the change made, you should now get a rich stream of debug messages printed to your Arduino Serial Monitor console.
+
+The full set of logging levels are as follows:
+
+| **Constant**    | **Integer value** | **Description**                                        |
+|----------------:|:------------------|:-------------------------------------------------------|
+|  `NO_LOG`       | 0x00              | Don't print any messages to the Serial Monitor console |
+|  `ERROR_LEVEL ` | 0x01              | Only print errors to the console                       |
+|  `INFO_LEVEL`   | 0x02              | Print errors and important messages to the console     |
+|  `DEBUG_LEVEL`  | 0x03              | Print all errors and messages to the console           |
+
+Don't forget to switch the log level setting back to 0x00 when your debugging is finished.
 
 [Back to top](#top)
 
