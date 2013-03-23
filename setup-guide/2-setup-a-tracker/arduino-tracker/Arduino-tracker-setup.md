@@ -19,7 +19,7 @@ Ready? Let's get started.
 
 Please note that the SnowPlow Arduino Tracker requires the new Ethernet library API (with DHCP and DNS), which is in Arduino 1.0.
 
-Almost all recent Arduinos (Arduino Uno, Arduino Due et al) should work fine with SnowPlow.
+Almost all recent Arduinos (Arduino Uno, Arduino Due et al) should work fine with the SnowPlow Tracker.
 
 ### 2.2 Dependencies
 
