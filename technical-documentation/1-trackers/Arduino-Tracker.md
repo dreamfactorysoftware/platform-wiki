@@ -327,7 +327,7 @@ Arduino is a difficult platform to test and debug software on, so it's important
 
 [Back to top](#top)
 
-<a name="debug" />
+<a name="setup-debug" />
 #### 4.1 Setup debugging
 
 The SnowPlow Arduino Tracker can have debug logging switched on at compile time if you are having problems debugging your SnowPlow event tracking.
