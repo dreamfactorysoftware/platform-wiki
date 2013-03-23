@@ -169,12 +169,21 @@ The full list of return codes are given below:
 
 | **Constant**                                | **Integer value** | **Description**                                  |
 |--------------------------------------------:|:------------------|:-------------------------------------------------|
-|  `SnowPlowTracker::ERROR_CONNECTION_FAILED` | -1                | Could not connect to SnowPlow collector          |
-|  `SnowPlowTracker::ERROR_TIMED_OUT`         | -2                | SnowPlow collector did not respond               |
-|  `SnowPlowTracker::ERROR_INVALID_RESPONSE`  | -3                | SnowPlow collector's response couldn't be parsed |
-|  `SnowPlowTracker::ERROR_MISSING_ARGUMENT`  | -4                | Required argument(s) to `trackXXX` missing       |
-|  `SnowPlowTracker::ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by SnowPlow collector was server or client error |
+|  `ERROR_CONNECTION_FAILED` | -1                | Could not connect to SnowPlow collector          |
+|  `ERROR_TIMED_OUT`         | -2                | SnowPlow collector did not respond               |
+|  `ERROR_INVALID_RESPONSE`  | -3                | SnowPlow collector's response couldn't be parsed |
+|  `ERROR_MISSING_ARGUMENT`  | -4                | Required argument(s) to `trackXXX` missing       |
+|  `ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by SnowPlow collector was server or client error |
 |  _N/A_                                      | 1-399             | Non-error HTTP status code returned by SnowPlow collector |
+
+You can access these constants in your code by prepending with `SnowPlowTracker::`, for example:
+
+```c++
+int ret_val = snowplow.trackXXX
+if (ret_val == SnowPlowTracker::ERROR_HTTP_STATUS)) {
+  ...
+}
+```
 
 [Back to top](#top)
 
