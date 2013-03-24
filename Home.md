@@ -1,4 +1,4 @@
-Welcome to **SnowPlow** - the open-source, web-scale analytics platform powered by [Hadoop](hadoop) and [Hive](hive).
+Welcome to **SnowPlow** - the open-source, web-scale analytics platform powered by [Hadoop][hadoop], [Hive][hive] and [Redshift][redshift].
 
 This wiki is the main source of documentation for **developers** working with (or contributing to) the SnowPlow project. If this is your first time hearing about SnowPlow, we recommend starting with the [SnowPlow website][website].
 
@@ -17,3 +17,4 @@ Check out our [[Talk to us]] page for different ways of getting in touch.
 [website]: http://snowplowanalytics.com
 [hadoop]: http://hadoop.apache.org/
 [hive]: http://hive.apache.org/
+[redshift]: http://aws.amazon.com/redshift/
