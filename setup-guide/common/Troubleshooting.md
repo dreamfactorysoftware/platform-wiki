@@ -72,7 +72,7 @@ If this happens, you will need to rerun your EmrEtlRunner or StorageLoader proce
 
 **EmrEtlRunner**
 
-* If the job died during the move-to-processing step, either:*
+* If the job died during the move-to-processing step, **either:**
   1. Rerun EmrEtlRunner with the command-line option of `--skip staging`, or:
   2. Move any files from the Processing Bucket back to the In Bucket and rerun EmrEtlRunner without any `--skip` option 
 * If the job died during the archiving step, rerun EmrEtlRunner with the command-line option of `--skip staging,emr`
