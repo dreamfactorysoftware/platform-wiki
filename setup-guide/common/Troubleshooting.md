@@ -4,7 +4,7 @@ This is a page of hints, tips and explanations to help you work with SnowPlow. I
 2. [Hive problem: I upgraded and now queries are not working](#non-hive-format-upgrade)
 3. [I need to recreate my table of SnowPlow events, how?](#rebuild-database)
 4. [I want to recompute my SnowPlow events, how?](#recompute-events)
-5. [My ETL/load process has died during S3 file copy, help!](#s3-filecopy)
+5. [My ETL/load process died during an S3 file copy, help!](#s3-filecopy)
 
 <a name="ie-features"/>
 ### Why are browser features all recorded as null for Internet Explorer?
@@ -64,23 +64,27 @@ Here is a simple workflow to use with EmrEtlRunner to regenerate your SnowPlow e
 This should load **recompute** all of your events into your new `events2` bucket, archiving all events after loading into `events-archive2`. From there you can reload your recomputed events into Infobright or Redshift using StorageLoader.
 
 <a name="s3-filecopy"/>
-###  My ETL/load process has died during S3 file copy, help!
+###  My ETL/load process died during an S3 file copy, help!
 
-Occasionally Amazon S3 fails repeatedly to perform a file operation, eventually causing EmrEtlRunner or StorageLoader to die. When this happens, you may see "500 InternalServerError"s, reported by [Sluice] [sluice], which is the library we use to handle S3 file operations.
+Occasionally Amazon S3 fails repeatedly to perform a file operation, eventually causing EmrEtlRunner or StorageLoader to die. When this happens, you may see "500 InternalServerErrors", reported by [Sluice] [sluice], which is the library we use to handle S3 file operations.
 
-If this happens, you will need to rerun the process, using the following guidance:
+If this happens, you will need to rerun your EmrEtlRunner or StorageLoader process, using the following guidance:
 
 **EmrEtlRunner**
 
-* If the job died during the move-to-processing step, either:
-  1. Rerun at the CLI with the command-line option of `--skip staging`, or:
-  2. Move any files from the Processing Bucket back to the In Bucket and rerun at the CLI without any `--skip` option 
-* If the job died during the archiving step, rerun at the CLI with the command-line option of `--skip staging,emr`
+* If the job died during the move-to-processing step, either:*
+  1. Rerun EmrEtlRunner with the command-line option of `--skip staging`, or:
+  2. Move any files from the Processing Bucket back to the In Bucket and rerun EmrEtlRunner without any `--skip` option 
+* If the job died during the archiving step, rerun EmrEtlRunner with the command-line option of `--skip staging,emr`
+
+\* We recommend option 2 if only a handful of files were transferred to your Processing Bucket before the S3 error.
 
 **StorageLoader**
 
-* If the job died during the download-to-local step, rerun at the CLI with the command-line option of `--skip download`
-* If the job died during the archiving step, rerun at the CLI with the command-line option of `--skip download,load`
+* If the job died during the download-to-local step, then:
+  1. Delete any files in your download folder
+  2. Rerun StorageLoader
+* If the job died during the archiving step, rerun StorageLoader with the command-line option of `--skip download,load`
 
 [rvm]: https://rvm.io/
 [rvmrc]: https://rvm.io/workflow/rvmrc/
