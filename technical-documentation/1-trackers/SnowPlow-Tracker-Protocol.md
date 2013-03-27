@@ -28,6 +28,7 @@ In the [first part of this guide](#common), we cover the parameters in the SnowP
   - 1.6 [Device parameters](#device)
 - 2. [Platform-specific parameters](#platform)
   - 2.1 [Web-specific parameters](#web)
+  - 2.2 [Internet of Things-specific parameters](#iot)
 - 3. [SnowPlow events](#events)
   - 3.1 [Pageview events](#pageview)
   - 3.2 [Page pings](#pagepings)
@@ -142,7 +143,6 @@ Back to [common field types](#common).
 
 In addition, there is a set of browser-specific parameters that only makes sense to record for events that happen on web platforms (`p=web`). These parameters are relevant across **all** web events, regardless of the event type. (E.g. if it is a pageview, pageping, transaction, media play etc...)
 
-
 | **Parameter** | **Maps to**      | **Type** |**Description**                                      | **Implemented?** | **Example values**| 
 |:--------------|:-----------------|:---------|:----------------------------------------------------|:-----------------|:------------------|
 | `url`         | `page_url`       | text     | Page URL                                            | Yes              | `http%3A%2F%2Ftest.psybazaar.com%2F2-tarot-cards` |
@@ -166,10 +166,18 @@ In addition, there is a set of browser-specific parameters that only makes sense
 | `cs`          | `doc_charset`    | text      | Web page's character encoding                     | Yes               | `UTF-8`
 | `vp`          | `br_viewwidth` and `br_viewheight` | text | Browser viewport width and height    | Yes               | `1105x390`        |
 
+Back to [common field types](#common).
 
+<a name="iot" />
+#### 2.2 Internet of Things-specific parameters
+
+In addition, there is a set of device-specific parameters that only makes sense to record for events that happen on the Internet of Things (`p=iot`). These parameters are relevant across **all** Internet of Things events, regardless of the event type:
+
+| **Parameter** | **Maps to**      | **Type** |**Description**                                 | **Implemented?** | **Example values**  | 
+|:--------------|:-----------------|:---------|:-----------------------------------------------|:-----------------|:--------------------|
+| `mac`         | `mac_address`    | text     | MAC address for the device running the tracker | Yes              | `12:34:56:78:9A:BC` |
 
 Back to [common field types](#common).
-Back to [top](#top).
 
 <a name="events" />
 ### 3. SnowPlow events
@@ -185,9 +193,9 @@ At it's heart, SnowPlow is a platform for granular tracking of events. Currently
 | 3.5| [Ecommerce transaction tracking](#ecomm) | `tr` and `ti`  |  
 | 3.6| [Social tracking](#social)    | TBD                       |  
 | 3.7| [Item view](#item)            | TBD                       |  
-| 3.8| [Error tracking](#error)      | TBD                       | 
-| 3.9| [Custom structured event](#event)| `se`                    | 
-| 3.10| [Custom unstructured event](#event)| `usc`               | 
+| 3.8| [Error tracking](#error)      | TBD                       |
+| 3.9| [Custom structured event](#event)| `se`                   |
+| 3.10| [Custom unstructured event](#event)| `usc`               |
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
 
@@ -243,8 +251,6 @@ e=pv           // page view
 &tv=js-0.11.0                         // Tracker version
 &lang=en-GB                           // Browser language
 &tz=Europe/London                     // Client time zone
-
-
 ```
 
 Back to [event tracking](#events).
