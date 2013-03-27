@@ -50,7 +50,7 @@ In the [first part of this guide](#common), we cover the parameters in the SnowP
 | **Parameter** | **Maps to**      | **Type** |**Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
 | `aid`         | `app_id`         | text     | Unique identifier for website / application    | Yes | `angry-birds-android` |
-| `p`           | `platform`       | text     | The platform the app runs on  | No               | `ios`, `web`, `win-8`     |
+| `p`           | `platform`       | text     | The platform the app runs on  | No               | `web`, `mob`, `app`      |
 
 The application ID parameter is used to distinguish data from different website and applications.
 
@@ -58,14 +58,15 @@ As a SnowPlow user, you can define application IDs for each of your different di
 
 **Potential platform values**: (to finalise and complete...)
 
-| **Platform**                 | **`pl` value** |
-|:-----------------------------|:---------------|
-| Web                          | `w`            | 
-| iOS                          | `iOS`          |
-| Android                      | `a`            |
-| Windows                      | `win`          |
-| Blackberry                   | `b`            |
-| ...                          |                |
+| **Platform**               | **`p` value**  |
+|:---------------------------|:---------------|
+| Web (including Mobile Web) | `web`          | 
+| Mobile/Tablet              | `mob`          | 
+| Desktop/Laptop/Netbook     | `pc`           |
+| Server-Side App            | `srv`          |
+| Connected TV               | `tv`           |
+| Games Console              | `con`          |
+| Internet of Things         | `iot`          |
 
 Back to [common field types](#common).
 
