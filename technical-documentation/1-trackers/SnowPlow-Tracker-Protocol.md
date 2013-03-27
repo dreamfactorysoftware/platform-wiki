@@ -182,7 +182,7 @@ Back to [common field types](#common).
 <a name="events" />
 ### 3. SnowPlow events
 
-At it's heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
+At its heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
 
 |    | **Type of tracking**          | **Event type (value of `e`)** |
 |:---|:------------------------------|:--------------------------|

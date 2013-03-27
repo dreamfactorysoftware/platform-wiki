@@ -84,7 +84,7 @@ If this happens, you will need to rerun your EmrEtlRunner or StorageLoader proce
 * If the job died during the download-to-local step, then:
   1. Delete any files in your download folder
   2. Rerun StorageLoader
-* If the job died during the archiving step, rerun StorageLoader with the command-line option of `--skip download,load`
+* If the job died during the archiving step, rerun StorageLoader with the command-line option of `--skip download,delete,load`
 
 [rvm]: https://rvm.io/
 [rvmrc]: https://rvm.io/workflow/rvmrc/

@@ -361,10 +361,10 @@ Back to [top](#top).
 
 If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. SnowPlow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Infobright, for example.
 
-| **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
-|:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `usev_name`     | text     | Unstructured event name | Yes | No      | 'Add-to-basket'|
-| `usev_json`     | json     | A JSON of data associated with that specific event | Yes | No | { 'product_sku': 'pbz00123', 'unit_price': 9.99 } |
+| **Field**     | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
+|:--------------|:---------|:----------------|:----------|:----------|:---------------|
+| `ue_name`     | text     | Unstructured event name | Yes | No      | 'Add-to-basket'|
+| `ue_json`     | json     | A JSON of data associated with that specific event | Yes | No | { 'product_sku': 'pbz00123', 'unit_price': 9.99 } |
 
 Back to [top](#top).
 
