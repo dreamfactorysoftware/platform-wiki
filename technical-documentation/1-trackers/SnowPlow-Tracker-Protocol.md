@@ -195,7 +195,7 @@ At its heart, SnowPlow is a platform for granular tracking of events. Currently,
 | 3.7| [Item view](#item)            | TBD                       |  
 | 3.8| [Error tracking](#error)      | TBD                       |
 | 3.9| [Custom structured event](#event)| `se`                   |
-| 3.10| [Custom unstructured event](#event)| `usc`               |
+| 3.10| [Custom unstructured event](#event)| `ue`               |
 
 We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
 
