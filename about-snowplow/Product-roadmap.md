@@ -18,8 +18,7 @@ The planned releases are as follows:
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.8.0** | [See GitHub] [issues-080] | Release Hadoop-based ETL (written in [Scalding] [scalding]), targeting Redshift initially              |
-| **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL  
-Handle Hadoop small files problem |
+| **0.8.1** | [See GitHub] [issues-081] | Add marketing attribution (referer parsing) to Hadoop-based ETL  Handle Hadoop small files problem |
 | **0.8.2** | [See GitHub] [issues-082] | Add geo-IP lookup to Hadoop-based ETL                                                                  |
 | **0.8.3** | [See GitHub] [issues-083] | Add Postgres as a storage target |
 
