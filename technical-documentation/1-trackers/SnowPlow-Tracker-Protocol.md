@@ -458,7 +458,7 @@ Back to the [top](#top).
 
 Custom event tracking is used to track events that are not natively supported by SnowPlow. (Like ad impressions, page views, ecomm transactions.)
 
-As well as setting `e=se`, there are five custom event specific parameters that can be set:
+As well as setting `e=ue`, there are five custom event specific parameters that can be set:
 
 | **Parameter** | **Maps to**      | **Type** |**Description**                                     | **Implemented?** | **Example values**| 
 |:--------------|:-----------------|:---------|:---------------------------------------------------|:-----------------|:------------------|
