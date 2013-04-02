@@ -32,7 +32,7 @@ The longer-term schedule of major developments is approximately as follows:
 
 | Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q2** | Android Tracker<br>Lua Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | Postgres support        | -         | 
+| **Q2** | Android Tracker<br>Lua Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to our other storage targets | -        | -         | 
 | **Q3** | iOS Tracker     | -          | Support for unstructured events             | MongoDB support<br>SkyDB support        | Machine-learning using Mahout         |
 | **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | MySQL support      | - | 
 
