@@ -495,7 +495,7 @@ uid=aeb1691c5a0ee5a6    // User ID
 &aid=1                  // App ID
 &tv=js-0.5.2            // Tracker version
 
-&e=c                    // event = custom  
+&e=se                    // event = custom  
 &ev_ca=video            // event_category = video  
 &ev_ac=play             // event_action = play  
 &ev_la=291              // event_label = 291 (video_id of video played)  
@@ -510,6 +510,49 @@ Back to [event tracking](#events).
 <a name="" />
 #### 3.10 Custom unstructured event tracking
 
-TO WRITE
+Custom unstructured event tracking is used to track events that are not natively supported by SnowPlow and allow arbitrary name: value pairs associated with the event.
 
-Back to [event tracking](#events).
+As well as setting `e=se`, there are three custom event specific parameters that can be set:
+
+| **Parameter** | **Maps to**      | **Type** |**Description**                                     | **Implemented?** | **Example values**| 
+|:--------------|:-----------------|:---------|:---------------------------------------------------|:-----------------|:------------------|
+| `ue_na`       | `ue_name`        | text     | The name of the event                              | No               | 'viewed_product', 'added_to_cart'  |
+| `ue_pr`       | `ue_json`        | JSON     | The properties of the event                        | No               | `{ "product_id": "ASO01043", "price": 49.95 }` |
+| `ue_px`       | `ue_json`        | JSON (Base64 encoded)   | The properties of the event         | No               | `eyAicHJvZHVjdF9pZCI6ICJBU08wMTA0MyIsICJwcmljZSI6IDQ5Ljk1IH0=` |
+
+The tracker can decide to pass the `ue_pr` or the `ue_px` parameter depending on configuration. Encoding properties into Base64 allows for more data while sacrificing readability.
+
+*viewed_product* example (using `ue_pr`):
+
+```javascript
+uid=aeb1691c5a0ee5a6   // User ID  
+&vid=2                 // Visit ID (i.e. session number for this user_id)  
+&tid=508780            // Transaction ID  
+&aid=1                 // App ID
+&tv=js-0.12.0          // Tracker version
+
+&e=ue                  // event = unstructured  
+&ue_na=viewed_product  // event_name = viewed_product  
+&ue_pr=%7B+%22product_id%22%3A+%22ASO01043%22%2C+%22price%22%3A+49.95+%7D
+                       // event_properties = { "product_id": "ASO01043", "price": 49.95 }
+
+```
+
+*viewed_product* example (using `ue_px`):
+
+```javascript
+uid=aeb1691c5a0ee5a6   // User ID  
+&vid=2                 // Visit ID (i.e. session number for this user_id)  
+&tid=508780            // Transaction ID  
+&aid=1                 // App ID
+&tv=js-0.12.0          // Tracker version
+
+&e=ue                  // event = unstructured  
+&ue_na=viewed_product  // event_name = viewed_product  
+&ue_px=eyAicHJvZHVjdF9pZCI6ICJBU08wMTA0MyIsICJwcmljZSI6IDQ5Ljk1IH0=
+                       // event_properties = { "product_id": "ASO01043", "price": 49.95 }
+
+```
+
+Back to [event tracking](#events).  
+Back to [top](#top).
