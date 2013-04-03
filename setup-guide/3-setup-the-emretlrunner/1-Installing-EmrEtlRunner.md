@@ -65,21 +65,6 @@ First, checkout the SnowPlow repository and navigate to the EmrEtlRunner root:
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/3-etl/emr-etl-runner
     
-If RVM asks you if you want to trust the `.rvmrc` file, type `y`:
-
-    ==============================================================================
-    = NOTICE                                                                     =
-    ==============================================================================
-    = RVM has encountered a new or modified .rvmrc file in the current directory =
-    = This is a shell script and therefore may contain any shell commands.       =
-    =                                                                            =
-    = Examine the contents of this file carefully to be sure the contents are    =
-    = safe before trusting it! ( Choose v[iew] below to view the contents )      =
-    ==============================================================================
-    Do you wish to trust this .rvmrc file? (/home/admin/apps/snowplow/3-etl/emr-etl-runner/.rvmrc)
-    y[es], n[o], v[iew], c[ancel]> y 
-    Using /home/admin/.rvm/gems/ruby-1.9.3-p374
-
 Next you are ready to install the application on your system:
 
     $ bundle install --deployment
