@@ -35,7 +35,7 @@ The longer-term schedule of major developments is approximately as follows:
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
 | **Q2** | Lua Tracker<br>Android Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to Infobright and Redshift | -        | -         | 
 | **Q3** | iOS Tracker     | -          | Support for unstructured events             | MongoDB<br>MySQL        | Machine-learning using Mahout         |
-| **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | SkyDB      | - | 
+| **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | PredictionIO<br>SkyDB      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
