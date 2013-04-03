@@ -157,7 +157,7 @@ Replace all of these `{{x}}` variables with the appropriate ones for your enviro
 
 Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
 
-**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in the `us-east-1` region. That is because currently Redshift is only available in this Region, and Amazon only supports bulk loading of data from S3 into Redshift within regions. 
+**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in the `us-east-1` region. That is because currently Redshift is only available in this Region, and Amazon only supports bulk loading of data from S3 into Redshift from within the same region. 
 
 **Example bucket settings**
 
