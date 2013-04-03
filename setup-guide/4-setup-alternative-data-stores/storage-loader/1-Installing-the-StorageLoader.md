@@ -25,7 +25,9 @@ Also, note that, in theory, StorageLoader should work with [Infobright Enterpris
 To install StorageLoader, first make sure that your server has **all** of the following installed:
 
 1. **Git** - see the [Git Installation Guide] [git-install]
-2. **Ruby and RVM** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
+2. **Ruby and RVM*** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
+
+\* If you prefer, an alternative Ruby manager such as chruby or rbenv should work fine too.
 
 <a name="s3-buckets"/>
 ### 2.2 S3 buckets
@@ -192,6 +194,7 @@ server it is being run on, and accesses it on the standard Infobright port (5029
 
 All done? You have the StorageLoader installed! Now find out [how to use it](2-using-the-storageloader).
 
+[git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [ice]: http://www.infobright.org/
 [iee]: http://www.infobright.com/Products/
 [config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/config.yml
