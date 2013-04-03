@@ -12,9 +12,9 @@ SnowPlow [EmrEtlRunner] [emr-etl-runner] is an application that parses the log f
 
 This guide covers how to setup EmrEtlRunner including scheduling it so that your event data is automatically fetched from the collector logs, processed and updated in your cleaned data store on S3. It is divided into three sections:
 
-1. [Installation] [installation]. You need to install EmrEtlRunner on your own server. It will interact with Amazon S3 via the Amazon API.
-2. [Usage] [usage]. How to use EmrEtlRunner at the command line, to instuct it to process data from your collector. 
-3. [Scheduling] [schedule]. How to schedule the tool so that you always have an up to date set of cleaned, enriched data available for analysis.
+1. [Installation] [installation]. You need to install EmrEtlRunner on your own server. It will interact with Amazon Elastic MapReduce and S3 via the Amazon API
+2. [Usage] [usage]. How to use EmrEtlRunner at the command line, to instuct it to process data from your collector
+3. [Scheduling] [schedule]. How to schedule the tool so that you always have an up to date set of cleaned, enriched data available for analysis
 
 To start with [install] [installation] EmrEtlRunner.
 
