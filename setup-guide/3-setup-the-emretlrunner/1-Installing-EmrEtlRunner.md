@@ -45,7 +45,9 @@ EmrEtlRunner moves the SnowPlow event data through four distinct buckets during 
 1. **In Bucket** - contains the raw SnowPlow event logs to process
 2. **Processing Bucket** - where EmrEtlRunner moves the raw event logs for processing
 3. **Out Bucket** - where EmrEtlRunner stores the processed SnowPlow-format event files
-4. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
+4. **Bad Rows Bucket** - Hadoop ETL only. Where EmrEtlRunner stores any raw event lines which fail validation
+5. **Errors Bucket** - Hadoop ETL only. Where EmrEtlRunner stores any raw event lines which caused an unexpected error
+5. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
 
 You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. 
 
@@ -102,11 +104,13 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :region: ADD HERE
   :buckets:
     # Update assets if you want to host the serde and HiveQL yourself
-    :assets: s3://snowplow-emr-assets
+    :assets: s3://snowplow-hosted-assets
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
-    :out: ADD HERE WITH SUB-FOLDER # If you intend to load data into Redshift, the bucket specified here needs to be located in us-east-1
+    :out: ADD HERE WITH SUB-FOLDER # Make sure this bucket is in the US standard region if you wish to use Redshift
+    :out_bad_rows: ADD HERE # Leave blank for Hive ETL.
+    :out_errors: ADD HERE # Leave blank for Hive ETL.
     :archive: ADD HERE
 :emr:
   # Can bump the below as EMR upgrades Hadoop
@@ -119,12 +123,15 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :master_instance_type: m1.small
     :slave_instance_type: m1.small
 :etl:
-  :collector_format: cloudfront 
-  :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the serde throwing exceptions
-  :storage_format: redshift # Or 'hive' or 'mysql-infobright'
+  :job_name: SnowPlow ETL # Give your job a name
+  :implementation: hadoop # Or 'hive' for legacy ETL
+  :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
+  :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the ETL throwing exceptions. Doesn't work for Hadoop ETL yet
+  :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
 # Can bump the below as SnowPlow releases new versions
 :snowplow:
-  :serde_version: 0.5.5
+  :hadoop_etl_version: 0.1.0 # Version of the Hadoop ETL
+  :serde_version: 0.5.5 # Version of the Hive deserializer
   :hive_hiveql_version: 0.5.7
   :mysql_infobright_hiveql_version: 0.0.8
   :redshift_hiveql_version: 0.0.1
@@ -147,11 +154,13 @@ Within the `s3` section, the `buckets` variables are as follows:
 * `in` is where you specify your In Bucket
 * `processing` is where you specify your Processing Bucket - **always include a sub-folder on this variable (see below for why)**. 
 * `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in region us-east-1, as currently Amazon only supports Redshift instances in this region. (So data loaded into Redshift from S3 can only be performed using buckets located in in this region.)
+* `out_bad_rows` is where you specify your Bad Rows Bucket. This will store any raw SnowPlow log lines which did not pass the ETL’s validation, along with their validation errors
+* `out_errors` is where you specify your Errors Bucket. If you set continue_on_unexpected_error to true (see below), then this bucket will contain any raw SnowPlow log lines which caused an unexpected error
 * `archive` is where you specify your Archive Bucket
 
 Each of the bucket variables must start with an S3 protocol - either `s3://` or `s3n://`. Each variable can include a sub-folder within the bucket as required, and a trailing slash is optional.
 
-**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to read or write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `processing` and `out` bucket variables.**
+**Important 1:** there is a bug in Hive on Amazon EMR where Hive dies if you attempt to read or write data to the root of an S3 bucket. **Therefore always specify a sub-folder (e.g. `/events/`) for the `processing` and all three `out` bucket variables.**
 
 **Important 2:** do not put your Processing Bucket location inside your In Bucket, or your Out Bucket inside your Processing Bucket, or you will create circular references which EmrEtlRunner cannot resolve when moving files.
 
@@ -174,6 +183,8 @@ The following are all valid bucket settings. (For a business running the Cloudfr
       :in: s3n://my-cloudfront-logs/
       :processing: s3n://my-cloudfront-logs/processing
       :out: s3n://my-snowplow-data/events
+      :out_bad_rows: s3n://my-snowplow-data/bad-rows/
+      :out_errors: s3n://my-snowplow-data/error-rows/
 
 Please note that all buckets must exist prior to running EmrEtlRunner.
 
