@@ -1,10 +1,10 @@
-To simplify setting up and running SnowPlow, the SnowPlow Analytics team provide public hosting for some of the SnowPlow sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for SnowPlow community members.
+To simplify setting up and running SnowPlow, the Snowplow Analytics team provide public hosting for some of the Snowplow sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for Snowplow community members.
 
 As we release new versions of these assets, we will leave old versions unchanged on their existing URLs - so you won't have to upgrade your own SnowPlow installation unless you want to.
 
-**While SnowPlow Analytics Ltd will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [snowplow-repo] and you are encouraged to host them yourselves.** 
+**While Snowplow Analytics Ltd will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [snowplow-repo] and you are encouraged to host them yourselves.** 
 
-The **current versions** of the assets hosted by the SnowPlow Analytics team are as follows:
+The **current versions** of the assets hosted by the Snowplow Analytics team are as follows:
 
 ## 1. Trackers
 
@@ -26,19 +26,25 @@ Right-click on this [Download link] [war-download] to save it down locally.
 
 ## 3. ETL
 
-### 3.1 Hive ETL resources
+### 3.2 Hadoop ETL resources
 
-The Hive ETL process uses a HiveQL file and a Hive deserializer. These are both made available in a public Amazon S3 bucket, for SnowPlowers who are running their Hive ETL process on Amazon EMR:
+The Hadoop ETL process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
+
+    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.1.0.jar
+
+### 3.2 Hive ETL resources
+
+The Hive ETL process uses a HiveQL file and a Hive deserializer. These are both made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
 
 #### HiveQL scripts
 
-    s3://snowplow-emr-assets/hive/hiveql/hive-etl-0.5.7.q
-    s3://snowplow-emr-assets/hive/hiveql/mysql-infobright-etl-0.0.8.q
-    s3://snowplow-emr-assets/hive/hiveql/redshift-etl-0.0.1.q
+    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/hive-etl-0.5.7.q
+    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/mysql-infobright-etl-0.0.8.q
+    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/redshift-etl-0.0.1.q
 
 #### Hive deserializer
 
-    s3://snowplow-emr-assets/hive/serdes/snowplow-log-deserializers-0.5.5.jar
+    s3://snowplow-hosted-assets/3-enrich/hive-etl/serdes/snowplow-log-deserializers-0.5.5.jar
 
 ## 4. Storage
 
@@ -50,7 +56,7 @@ No hosted assets currently.
 
 ## See also
 
-As well as these hosted assets for running SnowPlow, the SnowPlow Analytics team also make code components and libraries available through Ruby and Java artifact repositories.
+As well as these hosted assets for running Snowplow, the Snowplow Analytics team also make code components and libraries available through Ruby and Java artifact repositories.
 
 Please see the [[Artifact repositories]] wiki page for more information.
 
