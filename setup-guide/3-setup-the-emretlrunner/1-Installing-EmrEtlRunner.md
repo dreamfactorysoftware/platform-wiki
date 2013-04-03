@@ -213,7 +213,7 @@ This section is where we configure exactly how we want our ETL process to operat
 
 ### snowplow
 
-This section allows you to update the versions of the Hive deserializer (`serde`) and HiveQL scripts (`hive_hiveql`, `mysql_infobright_hiveql` and `redshift_hiveql_hiveql`) run by EmrEtlRunner. These variables let you upgrade the ETL process without having to update the EmrEtlRunner application itself.
+This section allows you to update the versions of the Hadoop ETL (`hadoop_etl`), Hive deserializer (`serde`) and HiveQL scripts (`hive_hiveql`, `mysql_infobright_hiveql` and `redshift_hiveql_hiveql`) run by EmrEtlRunner. These variables let you upgrade the ETL process without having to update the EmrEtlRunner application itself.
 
 <a name="next-steps" />
 ## 5. Next steps
