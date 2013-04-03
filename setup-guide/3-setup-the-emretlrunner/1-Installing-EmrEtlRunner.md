@@ -196,7 +196,7 @@ This section is where we configure exactly how we want our ETL process to operat
 2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process
 3. `collector_format`, what format is our collector saving data in? Currently two formats are supported: "cloudfront" (if you are running the Cloudfront collector), or "clj-tomcat" if you are running the Clojure collector
 4. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
-5. `storage_format`, can be "hive" or "non-hive". We discuss this further below
+5. `storage_format`, can be "redshift", "mysql-infobright" or "non-hive". We discuss this further below
 
 `storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
 
