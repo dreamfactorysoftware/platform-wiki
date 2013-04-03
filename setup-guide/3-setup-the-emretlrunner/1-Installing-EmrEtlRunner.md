@@ -201,6 +201,8 @@ This section of the configu file is where we configure the operation of EMR. The
 
 Make sure that placement and the EC2 key you specify both belong to the same region, or else EMR won't be able to find the key.
 
+It's strongly recommended that you choose the same Amazon EC2 placement as your S3 buckets are located in.
+
 #### etl
 
 This section is where we configure exactly how we want our ETL process to operate:
