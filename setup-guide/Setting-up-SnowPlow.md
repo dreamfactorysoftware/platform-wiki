@@ -77,4 +77,4 @@ Once your data is stored in S3 and Infobright, setup is complete and you are in 
 
 You now have all five SnowPlow subsystems working!
 
-[conceptual-architecture]: about-snowplow/images/conceptual-architecture.png
+[conceptual-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/conceptual-architecture.png

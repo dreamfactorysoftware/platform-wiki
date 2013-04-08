@@ -38,4 +38,4 @@ The technical documentation reflects the SnowPlow architecture, with five loosel
 [Analytics overview](analytics documentation)
 
 
-[technical-architecture]: technical-documentation/images/technical-architecture.png
+[technical-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/technical-architecture.png

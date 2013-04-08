@@ -71,4 +71,4 @@ SnowPlow makes extensive use of Amazon's cloud infrastructure. Many of the modul
 
 Setting up an account with AWS is a pre-requisite for running SnowPlow. This setup guide assumes you have an account and are familiar with the core Amazon Web Services especially S3.
 
-[conceptual-architecture]: about-snowplow/images/conceptual-architecture.png
+[conceptual-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/conceptual-architecture.png
