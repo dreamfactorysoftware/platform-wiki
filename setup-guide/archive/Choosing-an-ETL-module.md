@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**ETL**](choosing-an-etl-module) 
 
-[[/images/3-etl.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]] 
 
 ## Available ETL modules
 

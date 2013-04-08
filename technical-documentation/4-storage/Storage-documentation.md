@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Storage**](storage documentation)
 
-[[/images/4-storage.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
 ## Overview
 

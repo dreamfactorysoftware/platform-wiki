@@ -2,7 +2,7 @@
 
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data)
 
-[[/images/5-analytics.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 
 Now you have your SnowPlow data being generated and loaded into one or more data stores (S3, Infobright, Redshift etc.) you can start to analyse that data.
 

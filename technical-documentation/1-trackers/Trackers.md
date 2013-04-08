@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
 
-[[/images/1-trackers.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]] 
 
 ## Overview
 

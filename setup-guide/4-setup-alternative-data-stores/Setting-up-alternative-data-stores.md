@@ -2,7 +2,7 @@
 
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
 
-[[/images/4-storage.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
 1. [Overview](#overview)
 2. [Setting up SnowPlow to work with additional data stores](#datastores)

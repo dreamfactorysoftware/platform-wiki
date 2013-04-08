@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**ETL**](etl)
 
-[[/images/3-etl.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]] 
 
 ## Contents
 

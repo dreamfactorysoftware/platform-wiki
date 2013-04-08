@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Trackers**](choosing-a-tracker)
 
-[[/images/1-trackers.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]] 
 
 ## Available trackers
 

@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) 
 
-[[/images/2-collectors.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]] 
 
 ## Available trackers
 

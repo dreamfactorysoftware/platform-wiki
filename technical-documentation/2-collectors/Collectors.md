@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Collectors**](collectors)
 
-[[/images/2-collectors.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]] 
 
 ## Overview 
 
