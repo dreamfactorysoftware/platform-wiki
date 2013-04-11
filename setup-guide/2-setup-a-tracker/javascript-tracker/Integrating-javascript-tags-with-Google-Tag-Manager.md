@@ -201,7 +201,7 @@ var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
 _snaq.push(['setAppId', '{{SITE-ID}}']);
-_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}'])
+_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}']);
 _snaq.push(['trackPageView']);
 
 (function() {
