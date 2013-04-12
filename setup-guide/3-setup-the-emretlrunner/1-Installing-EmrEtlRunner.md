@@ -115,7 +115,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
 # Can bump the below as SnowPlow releases new versions
 :snowplow:
-  :hadoop_etl_version: 0.1.0 # Version of the Hadoop ETL
+  :hadoop_etl_version: 0.2.0 # Version of the Hadoop ETL
   :serde_version: 0.5.5 # Version of the Hive deserializer
   :hive_hiveql_version: 0.5.7
   :mysql_infobright_hiveql_version: 0.0.8
