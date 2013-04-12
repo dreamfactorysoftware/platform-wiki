@@ -30,7 +30,7 @@ Right-click on this [Download link] [war-download] to save it down locally.
 
 The Hadoop ETL process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
 
-    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.1.0.jar
+    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.2.0.jar
 
 ### 3.2 Hive ETL resources
 
