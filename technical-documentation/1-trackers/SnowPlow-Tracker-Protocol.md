@@ -20,7 +20,7 @@ In the [first part of this guide](#common), we cover the parameters in the SnowP
 ## The SnowPlow Tracker protocol: individual parameters
 
 - 1. [Common parameters (platform and event independent)](#common)
-  - 1.1 [Application [parameters]](#appid)
+  - 1.1 [Application parameters](#appid)
   - 1.2 [Date / time parameters](#timestamp)
   - 1.3 [Event / transaction parameters](#event2)
   - 1.4 [SnowPlow tracker version](#version)
