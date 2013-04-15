@@ -23,7 +23,7 @@ The loosely-coupled architecture of SnowPlow makes it easy to swap out individua
 
 The SnowPlow team curate some third-party sub-system implementations by git-submoduling those GitHub repositories into the SnowPlow repository - see the [2-collectors] [2-collectors] folder for an example of this.
 
-Please note that third-party, git-submoduled contributions to SnowPlow remain the copyright their respective authors.
+Please note that third-party, git-submoduled contributions to SnowPlow remain the copyright of their respective authors.
 
 Third-party, git-submoduled contributions may be released under a different license to [Apache License, Version 2.0] [license]; please consult the licensing information in their original GitHub repositories for confirmation.
 
