@@ -9,7 +9,9 @@ This is a page of hints, tips and explanations to help you work with SnowPlow. I
 <a name="ie-features"/>
 ### Why are browser features all recorded as null for Internet Explorer?
 
-With the exceptions of cookies and Java, our JavaScript tracker cannot detect what browser features (PDF, Flash etc) a given instance of Internet Explorer has. This is because IE, unlike the other major browsers, does not populate the `window.navigator.mimeTypes[]` and `navigator.plugins[]` properties. There are other ways of detecting some browser features (via ActiveX), but these are not advised as they can trigger UAC warnings on Windows.
+With the exception of cookies and Java, our JavaScript tracker cannot detect what browser features (PDF, Flash etc) a given instance of Internet Explorer has. This is because IE, unlike the other major browsers, does not populate the `window.navigator.mimeTypes[]` and `navigator.plugins[]` properties.
+
+There are other ways of detecting some browser features (via ActiveX), but these are not advised as they can trigger UAC warnings on Windows.
 
 <a name="non-hive-format-upgrade"/>
 ### Hive problem: I upgraded and now queries are not working or returning nonsense results
