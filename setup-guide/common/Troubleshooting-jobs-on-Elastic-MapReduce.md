@@ -8,7 +8,7 @@ This page helps you to diagnose what is going wrong, and gives suggestions for f
 
 ### Initial triage
 
-A problem running the ETL job on Elastic MapReduce looks like this:
+An error running the ETL job on Elastic MapReduce looks like this:
 
     ------------------ 
     Waiting a minute to allow S3 to settle (eventual consistency)
