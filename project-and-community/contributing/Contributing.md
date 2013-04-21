@@ -6,14 +6,14 @@ Snowplow is open source software - we welcome contributors! Some things you migh
 
 If you would like to contribute, we ask you to:
 
-## 1. Sign the Snowplow Analytics Ltd Contributor License Agreement (CLA)
+## 1. Sign our Contributor License Agreement
 
-We have two different CLAs, depending on whether you are contributing in a personal or professional capacity. Both are based on the Apache Software Foundation's own CLAs:
+We have two different Contributor License Agreements (CLAs), depending on whether you are contributing in a personal or professional capacity. Both are based on the Apache Software Foundation's own CLAs:
 
 1. Individual Contributor License Agreement _(coming soon)_
 2. Software Grant and Corporate Contributor License Agreement _(coming soon)_
 
-Please complete and sign the most appropriate CLA. For more information, see our dedicated [[CLA]] page.
+Please complete and sign the most appropriate CLA for you. For more information, see our dedicated [[CLA]] page.
 
 ## 2. Join the conversation
 
@@ -21,7 +21,7 @@ Have an idea for Snowplow? Found a bug? We encourage you to start a conversation
 
 Let's build Snowplow and grow our community, together. You can find other ways of joining the conversation on our [[Talk to us]] page.
 
-## 3. Check out our Contributor Guides
+## 3. Browse our Contributor Guides
 
 We are working on a set of Contributor Guides to make contributing to every aspect of Snowplow as painfree as possible:
 
