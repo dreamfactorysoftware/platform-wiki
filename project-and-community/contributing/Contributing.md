@@ -21,7 +21,7 @@ Please complete and sign the most appropriate CLA for you. For more information,
 
 ## 2. Join the conversation
 
-Have an idea for Snowplow? Found a bug? We encourage you to start a conversation on the [Snowplow Google Group] [snowplow] or to file a [New issue on GitHub] [new-issue] before writing code. Announcing what you're working on (or even just your need or pain points) starts a collaborative process to identify general solutions and helps us all avoid duplicating effort.
+Have an idea for Snowplow? Found a bug? We encourage you to start a conversation on the [Snowplow Google Group] [snowplow-user] or to file a [new issue on GitHub] [new-issue] before writing code. Announcing what you're working on (or even just your need or pain points) starts a collaborative process to identify general solutions and helps us all avoid duplicating effort.
 
 Let's build Snowplow and grow our community, together. You can find other ways of joining the conversation on our [[Talk to us]] page.
 

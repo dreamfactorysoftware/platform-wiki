@@ -11,8 +11,6 @@ We have two main stores of documentation currently:
 
 1. [Contributing to the wiki](#wiki)
 2. [Contributing to the website](#website)
-3. [Recognising contributors so far](#recognise)
-
 
 <a name="wiki" />
 ## 1. Contributing to the Wiki
@@ -35,16 +33,6 @@ Please note that the setup on the website is a bit complicated, because it uses 
 * Compiled `.html` files are then copied to the master branch where they are served directly via Github without Jekyll. (Because they've already been compiled locally.)
 
 Full instructions on how to work with this setup, including all the software you need to have available locally, can be found on the [repo README][website-repo-readme].
-
-<a name="recognise" />
-## 3. Recognizing contributors so far
-
-Many thanks to all the following for contributions to documentation!
-
-* [Richo Healey](https://github.com/richo) @ [99designs](http://99designs.com/)
-* [Triona Carey](https://twitter.com/Triona)
-* Gaël Blaise
-* [Simon Rumble] (https://github.com/shermozle)
 
 [analytics-cookbook]: http://snowplowanalytics.com/analytics/index.html
 [gollum-readme]: https://github.com/github/gollum/blob/master/README.md
