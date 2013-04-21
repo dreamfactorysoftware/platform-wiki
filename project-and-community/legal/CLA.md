@@ -18,12 +18,7 @@ Both of our CLAs are based on Contributor License Agreements drafted by the [Apa
 1. The Apache Software Foundation: [Individual Contributor License Agreement ("Agreement") V2.0] [indiv-cla]
 2. The Apache Software Foundation: [Software Grant and Corporate Contributor License Agreement ("Agreement") v r190612] [corp-cla]
 
-If you have questions about these CLAs, please contact us at [legal@snowplowanalytics.com] [mailto-legal].
-
-Individual Contributor License Agreement _(coming soon)_
-2. Software Grant and Corporate Contributor License Agreement _(coming soon)_
-
-To contribute to any Please fill out and sign the most appropriate CLA.
+If you have questions about our CLAs, please contact us at [legal@snowplowanalytics.com] [mailto-legal].
 
 [apache]: http://www.apache.org/
 
