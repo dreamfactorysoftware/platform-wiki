@@ -1,6 +1,6 @@
 As the project sponsor, Snowplow Analytics Ltd would like to ensure the long-term viability of Snowplow and its community. The Contributor License Agreement helps ensure everyone can enjoy Snowplow with confidence that Snowplow is here to stay.
 
-Specifically, the Contributor License Agreement (CLA) grants the contributor and Snowplow Analytics Ltd joint copyright interest in contributed code. Further, it provides assurance from the contributor that contributions are original work that does not violate any third-party license agreement. The agreement between contributors and project is explicit, so Snowplow users can be confident in the legal status of the source code and their right to use it.
+Specifically, our Contributor License Agreements (CLAs) grant the contributor and Snowplow Analytics Ltd joint copyright interest in contributed code. Further, it provides assurance from the contributor that contributions are original work that does not violate any third-party license agreement. The agreement between contributors and project is explicit, so Snowplow users can be confident in the legal status of the source code and their right to use it.
 
 ## CLAs
 
