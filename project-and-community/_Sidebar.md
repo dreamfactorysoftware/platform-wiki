@@ -2,8 +2,8 @@
 
 **Our community**
 - [[Talk to us]]  
-- [[Contributors]]  
 - [[Our users]]  
+- [[Our contributors]] 
 
 **[[Contributing]]** 
 - [Development](Contributing-to-development)
