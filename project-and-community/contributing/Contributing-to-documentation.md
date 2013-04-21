@@ -1,7 +1,8 @@
 <a name="top" />
-## Introduction
 
-We welcome contributors to the SnowPlow documentation with open arms - just as we welcome contributors to the SnowPlow codebase!
+[**HOME**](Home) > [**PROJECT & COMMUNITY**](Snowplow-project-and-community) > [**CONTRIBUTING**](Contributing) > [Documentation](Contributing-to-documentation)
+
+We welcome contributors to the Snowplow documentation with open arms - just as we welcome contributors to the Snowplow codebase!
 
 We have two main stores of documentation currently:
 
@@ -25,7 +26,7 @@ Going forwards we intend to start hosting the wiki ourselves: this will give us 
 <a name="website" />
 ## 2. Contributing to the website
 
-The SnowPlow website is hosted also hosted on Github (via [Github Pages][github-pages]). The repo is on [https://github.com/snowplow/snowplow.github.com](https://github.com/snowplow/snowplow.github.com). As with the wiki, you can contribute by forking the repo, making edits and then submitting a pull request.
+The Snowplow website is hosted also hosted on Github (via [Github Pages][github-pages]). The repo is on [https://github.com/snowplow/snowplow.github.com](https://github.com/snowplow/snowplow.github.com). As with the wiki, you can contribute by forking the repo, making edits and then submitting a pull request.
 
 Please note that the setup on the website is a bit complicated, because it uses a number of Jekyll features that are not supported by Github pages. As a result:
 

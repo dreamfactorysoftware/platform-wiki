@@ -1,3 +1,7 @@
+<a name="top" />
+
+[**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community) > [**CONTRIBUTING**](Contributing)
+
 Snowplow is open source software - we welcome contributors! Some things you might like to help out with:
 
 * Documentation

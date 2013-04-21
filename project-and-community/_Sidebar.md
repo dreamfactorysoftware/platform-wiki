@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community) > 
+[**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community)
 
 **Our community**  
 [[Contributors]]  

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community) > 
+[**HOME**](Home) > [**PROJECT & COMMUNITY**](SnowPlow-project-and-community) > [**CONTRIBUTING**](Contributing)
 
 **Our community**  
 [[Contributors]]  
@@ -6,8 +6,8 @@
 
 **Get involved**  
 [[Talk to us]]  
-[[Contributing]]  
-[[Contributing to documentation]]  
+**[[Contributing]]**  
+- **[[Contributing to documentation]]**  
 
 **About the project**  
 [Copyright & legal](Copyright-and-legal)  
