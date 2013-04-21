@@ -31,7 +31,7 @@ We are working on a set of Contributor Guides to make contributing to every aspe
 
 1. [[Contributing to development]]
 2. [[Contributing to documentation]]
-3. Contributing to translation _(coming soon)_
+3. Contributing to translations _(coming soon)_
 
 [snowplow-user]: https://groups.google.com/forum/#!forum/snowplow-user
 [new-issue]: https://github.com/snowplow/snowplow/issues/new

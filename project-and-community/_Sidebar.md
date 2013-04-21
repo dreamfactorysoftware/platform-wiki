@@ -8,7 +8,7 @@
 **[[Contributing]]** 
 - [Development](Contributing-to-development)
 - [Documentation](Contributing-to-documentation)
-- Translation _(coming soon)_
+- Translations _(coming soon)_
 
 **Legal**  
 - [Copyright & license](Copyright-and-license)  
