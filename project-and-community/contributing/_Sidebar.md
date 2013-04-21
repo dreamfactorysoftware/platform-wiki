@@ -6,8 +6,8 @@
 - [[Our users]]  
 
 **[[Contributing]]** 
-- **[[Contributing to documentation]]**
+- **[Documentation](Contributing-to-documentation)**
 
 **About the project**  
-- [Copyright & legal](Copyright-and-legal)  
-- [Contributor license agreement](CLA)
+- [Copyright & license](Copyright-and-license)  
+- [[CLA]]
