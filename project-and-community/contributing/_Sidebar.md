@@ -7,6 +7,7 @@
 **Get involved**  
 [[Talk to us]]  
 [[Contributing]]  
+[[Contributing-to-documentation]]  
 
 **About the project**  
 [Copyright & legal](Copyright-and-legal)  

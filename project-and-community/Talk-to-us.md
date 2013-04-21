@@ -18,27 +18,6 @@ We're big fans of HipChat here at SnowPlow. We have a public SnowPlow chatroom -
 
 Follow and chat to us on Twitter.
 
-## Google Hangout
-
-Our regular voice- and video-enabled Google Hangouts give us a chance to all meet face-to-face (albeit virtually!). We alternate holding a "SnowPlow West" and a "SnowPlow East" Hangout - the next ones are as follows:
-
-### SnowPlow East Hangout 
-
-**31 October 2012**
-
-London 8am  
-Moscow midday  
-Singapore 4pm  
-Sydney (EDT) 7pm
-
-We will share a link in our [public HipChat room] [hipchat-room] when the Hangout starts.
-
-### SnowPlow West Hangout
-
-**Date TBC**
-
-We will share a link in our [public HipChat room] [hipchat-room] when the Hangout starts.
-
 ## GitHub
 
 [SnowPlow issues] [issues]
