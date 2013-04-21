@@ -25,7 +25,7 @@ Let's build Snowplow and grow our community, together. You can find other ways o
 
 We are working on a set of Contributor Guides to make contributing to every aspect of Snowplow as painfree as possible:
 
-1. [[Contributing-to-documentation]]
+1. [[Contributing to documentation]]
 2. Contributing to development _(coming soon)_
 3. Contributing to translation _(coming soon)_
 
