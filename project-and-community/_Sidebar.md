@@ -10,6 +10,6 @@
 - [Documentation](Contributing-to-documentation)
 - Translation _(coming soon)_
 
-**About the project**  
+**Legal**  
 - [Copyright & license](Copyright-and-license)  
 - [[CLA]]

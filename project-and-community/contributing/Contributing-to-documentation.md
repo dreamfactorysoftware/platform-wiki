@@ -13,7 +13,7 @@ We have two main stores of documentation currently:
 2. [Contributing to the website](#website)
 
 <a name="wiki" />
-## 1. Contributing to the Wiki
+## 1. Contributing to the wiki
 
 To make edits to the wiki, fork the repo (git://github.com/snowplow/snowplow.wiki.git), make edits and then submit a pull request. The wiki is powered by [Gollum] [gollum]: to date the best documentation we've found on using Gollum (particularly embedding code, generating sidebars etc.) is from the [Gollum Readme][gollum-readme].
 
