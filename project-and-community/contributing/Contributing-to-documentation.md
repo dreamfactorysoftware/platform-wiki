@@ -6,11 +6,8 @@ We welcome contributors to the Snowplow documentation with open arms - just as w
 
 We have two main stores of documentation currently:
 
-* Our wiki - https://github.com/snowplow/snowplow/wiki
-* Our website - http://snowplowanalytics.com/ including the [Analytics Cookbook] [analytics-cookbook] on http://snowplowanalytics.com/analytics/index.html
-
-1. [Contributing to the wiki](#wiki)
-2. [Contributing to the website](#website)
+* Our wiki: https://github.com/snowplow/snowplow/wiki
+* Our website: http://snowplowanalytics.com/ including the [Analytics Cookbook] [analytics-cookbook] at: http://snowplowanalytics.com/analytics/index.html
 
 <a name="wiki" />
 ## 1. Contributing to the wiki
