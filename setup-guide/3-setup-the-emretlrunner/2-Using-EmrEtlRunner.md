@@ -94,7 +94,7 @@ please note that CloudFront timestamps in **UTC**.
 
 Once you have run the EmrEtlRunner you should be able to manually inspect in S3 the folder specified in the `:out:` parameter in your `config.yml` file and see new files generated, which will contain the cleaned data either for uploading into a storage target (e.g. Redshift or Infobright) or for analysing directly using Hive (or Pig or Mahout or some other Hadoop querying tool) on EMR.
 
-Note: Most Snowplow users run the 'hadoop' version of the ETL process, in which case the data generated is saved into subfolders with names of hte form `part-000...`. If, however,  you are running the legacy 'hive' ETL (because e.g. you want to use Hive or Infobright as your storage target, rather than Redshift, which is the only storage target the 'hadoop' etl currently supports), the subfolders names will be of the format `dt=...`.
+Note: nost Snowplow users run the 'hadoop' version of the ETL process, in which case the data generated is saved into subfolders with names of the form `part-000...`. If, however,  you are running the legacy 'hive' ETL (because e.g. you want to use Hive or Infobright as your storage target, rather than Redshift, which is the only storage target the 'hadoop' etl currently supports), the subfolders names will be of the format `dt=...`.
 
 ## 5. Next steps
 
