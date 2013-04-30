@@ -93,9 +93,9 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
-    :out: ADD HERE WITH SUB-FOLDER # Make sure this bucket is in the US standard region if you wish to use Redshift
-    :out_bad_rows: ADD HERE # Leave blank for Hive ETL.
-    :out_errors: ADD HERE # Leave blank for Hive ETL.
+    :out: ADD HERE WITH SUB-FOLDER # Make sure this bucket is in a region where Amazon has launched Redshift if you intend to use Redshift as your storage target
+    :out_bad_rows: ADD HERE # Leave blank for legacy Hive ETL implementation.
+    :out_errors: ADD HERE # Leave blank for legacy Hive ETL implementation.
     :archive: ADD HERE
 :emr:
   # Can bump the below as EMR upgrades Hadoop
@@ -130,7 +130,7 @@ The `aws` variables should be self-explanatory - enter your AWS access key and s
 
 ### s3
 
-The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your 'out' buckets in "us-east-1" if you are using Redshift.
+The `region` variable should hold the AWS region in which your four data buckets (In Bucket, Processing Bucket etc) are located, e.g. "us-east-1" or "eu-west-1". Please note that Redshift can only load data from S3 buckets located in the same region as the Redshift instance, and Amazon has not to date launched Redshift in *every* region. So make sure that if you're using Redshift, the bucket specified here is in a region that supports Redshift.
 
 Within the `s3` section, the `buckets` variables are as follows:
 
@@ -138,8 +138,8 @@ Within the `s3` section, the `buckets` variables are as follows:
 * `log` is the bucket in which Amazon EMR will record processing information for this job run, including logging any errors  
 * `in` is where you specify your In Bucket
 * `processing` is where you specify your Processing Bucket - **always include a sub-folder on this variable (see below for why)**. 
-* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in region us-east-1, as currently Amazon only supports Redshift instances in this region. (So data loaded into Redshift from S3 can only be performed using buckets located in in this region.)
-* `out_bad_rows` is where you specify your Bad Rows Bucket. This will store any raw SnowPlow log lines which did not pass the ETL’s validation, along with their validation errors
+* `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in a region where Amazon has launched Redshift, because Redshift can only bulk load data from S3 that is located in the same region as the Redshift instance, and Redshift has not, to-date, been launched across all Amazon regions.
+* `out_bad_rows` is where you specify your Bad Rows Bucket. This will store any raw SnowPlow log lines which did not pass the ETL’s validation, along with their validation errors. This is only required for the 'hadoop' ETL implementation (our latest version). It should be left blank if you are running the legacy 'hive' implementation
 * `out_errors` is where you specify your Errors Bucket. If you set continue_on_unexpected_error to true (see below), then this bucket will contain any raw SnowPlow log lines which caused an unexpected error
 * `archive` is where you specify your Archive Bucket
 
@@ -157,7 +157,7 @@ Replace all of these `{{x}}` variables with the appropriate ones for your enviro
 
 Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
 
-**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in the `us-east-1` region. That is because currently Redshift is only available in this Region, and Amazon only supports bulk loading of data from S3 into Redshift from within the same region. 
+**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in a region where Amazon has launched Redshift. That is because currently Redshift is only available in some Regions, and Amazon only supports bulk loading of data from S3 into Redshift from within the same region. 
 
 **Example bucket settings**
 
