@@ -15,7 +15,7 @@ We have two different CLAs, depending on whether you are contributing to Snowplo
 
 ## For lawyers
 
-Our individual and corporate CLAs are based on the Contributor License Agreements published by the [Apache Software Foundation] [apache]:
+Our individual and corporate CLAs are based on the Contributor License Agreements published by the [Apache Software Foundation] [apache], with modifications:
 
 1. [Individual Contributor License Agreement ("Agreement") V2.0] [indiv-cla]
 2. [Software Grant and Corporate Contributor License Agreement ("Agreement") v r190612] [corp-cla]

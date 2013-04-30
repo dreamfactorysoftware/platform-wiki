@@ -12,12 +12,12 @@ If you would like to contribute, we ask you to:
 
 ## 1. Sign our Contributor License Agreement
 
-We have two different Contributor License Agreements (CLAs), depending on whether you are contributing in a personal or professional capacity. Both are based on the Apache Software Foundation's own CLAs:
+We have two different Contributor License Agreements (CLAs), depending on whether you are contributing in a personal or professional capacity. Both are based on the Apache Software Foundation's own CLAs, with modifications:
 
 1. Individual Contributor License Agreement _(coming soon)_
 2. Software Grant and Corporate Contributor License Agreement _(coming soon)_
 
-Please complete and sign the most appropriate CLA for you. For more information, see our dedicated page on our [Contributor License Agreement](CLA).
+Please complete and sign the most appropriate CLA for you. For more information, see our dedicated page on our [Contributor License Agreements](CLA).
 
 ## 2. Join the conversation
 
