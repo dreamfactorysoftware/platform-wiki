@@ -177,7 +177,7 @@ Please note that all buckets must exist prior to running EmrEtlRunner.
 
 The EmrEtlRunner makes use of Amazon Elastic Mapreduce (EMR) to process the raw log files and output the cleaned, enriched SnowPlow events table.
 
-This section of the configu file is where we configure the operation of EMR. The variables with defaults can typically be left as-is, but you will need to set:
+This section of the config file is where we configure the operation of EMR. The variables with defaults can typically be left as-is, but you will need to set:
 
 1. `placement`, which is the Amazon EC2 region and availability zone
    in which the job should run, e.g. "us-east-1a" or "eu-west-1b"
@@ -193,10 +193,10 @@ It's strongly recommended that you choose the same Amazon EC2 placement as your 
 This section is where we configure exactly how we want our ETL process to operate:
 
 1. `job_name`, the name to give our ETL job. This makes it easier to identify your ETL job in the Elastic MapReduce console
-2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process
+2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process. The "hadoop" process is the latest version of our ETL process, written in Scalding. Because it is the most up-to-date version, and supports the broadest range of enrichments, we recommend that you use this option as standard. However, it does **not** support either Hive or Infobright as storage targets, so if you would like to use either of them, you will need to set this to the legacy "hive" ETL process. (For more details on storage formats, see the note on storage formats directly below.)
 3. `collector_format`, what format is our collector saving data in? Currently two formats are supported: "cloudfront" (if you are running the Cloudfront collector), or "clj-tomcat" if you are running the Clojure collector
 4. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
-5. `storage_format`, can be "redshift", "mysql-infobright" or "non-hive". We discuss this further below
+5. `storage_format`, can be "redshift", "mysql-infobright" or "hive". We discuss this further below
 
 `storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
 

@@ -161,7 +161,7 @@ LOCATION '${EVENTS_TABLE}' ;
 #### Notes:
 
 1. The table definition given above may be out-of-date as we build it out to accommodate additional events and fields. To check the most up-to-date copy see [[https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hive-format-table-def.q]]
-2. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3://snowplow-hive-tables/events/'`. 
+2. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3n://my-snowplow-data/events/'`. 
 3. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
 4. You need to list every field in the statement, which is why it's so long. To save time, copy and paste the query to the command line :-)
 
