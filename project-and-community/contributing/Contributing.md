@@ -17,7 +17,7 @@ We have two different Contributor License Agreements (CLAs), depending on whethe
 1. Individual Contributor License Agreement _(coming soon)_
 2. Software Grant and Corporate Contributor License Agreement _(coming soon)_
 
-Please complete and sign the most appropriate CLA for you. For more information, see our dedicated page on our [Contributor License Agreement](CLA).
+Please complete and sign the most appropriate CLA for you. For more information, see our dedicated page on our [Contributor License Agreements](CLA).
 
 ## 2. Join the conversation
 
