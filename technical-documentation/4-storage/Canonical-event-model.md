@@ -141,10 +141,10 @@ Note: none of these fields have been implemented yet.
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `geo_country`   | text     | Country the visitor is located in | No  | No | 'United Kingdom' |
+| `geo_country`   | text     | ISO 3166-1 code for the country the visitor is located in | No  | No | 'GB' |
 | `geo_region`    | text     | Region the visitor is in within the country | No | No | 'Devon' |
 | `geo_city`      | text     | City the visitor is in | No | No        | 'London'       |
-| `geo_postcode`  | text     | Postcode the visitor is in | No | No    | 'N3'           |
+| `geo_zipcode`  | text     | Postcode the visitor is in | No | No    | 'N3'           |
 | `geo_latitude`  | text     | Visitor location latitude | No | No     | 59.666702      |
 | `geo_longitude` | text     | Visitor location longitude | No | No    | 10.800003      |
 
