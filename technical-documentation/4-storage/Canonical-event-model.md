@@ -142,7 +142,7 @@ Note: none of these fields have been implemented yet.
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | `geo_country`   | text     | ISO 3166-1 code for the country the visitor is located in | No  | No | 'GB' |
-| `geo_region`    | text     | Region the visitor is in within the country | No | No | 'Devon' |
+| `geo_region`    | text     | ISO-3166-2 code for region the visitor is in within the country (US and Canada only) | No | No | 'Devon' |
 | `geo_city`      | text     | City the visitor is in | No | No        | 'London'       |
 | `geo_zipcode`  | text     | Postcode the visitor is in | No | No    | 'N3'           |
 | `geo_latitude`  | text     | Visitor location latitude | No | No     | 59.666702      |
