@@ -171,7 +171,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `refr_urlport`  | int      | Referer port    | No        | Yes       | 80 |
 | `refr_urlpath`  | text     | Referer page path | No      | Yes       | '/images/search' |
 | `refr_urlquery` | text     | Referer URL querystring | No | Yes      | 'q=psychic+oracle+cards' |
-| `refr_urlfragment | text   | Referer URL fragment | No   | Yes       |                |
+| `refr_urlfragment` | text   | Referer URL fragment | No   | Yes       |                |
 | `refr_source`   | text     | Name of referer if recognised | No | Yes | 'Bing images' |
 | `refr_term`     | text     | Keywords if source is a search engine | No | Yes | 'psychic oracle cards' 
 | **Document fields** |      |                 |           |           |                |
