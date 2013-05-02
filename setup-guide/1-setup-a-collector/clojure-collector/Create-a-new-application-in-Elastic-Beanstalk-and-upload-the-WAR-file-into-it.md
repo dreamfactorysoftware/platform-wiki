@@ -26,7 +26,7 @@ Give your environment a suitable name, URL and description:
 
 Next we need to specify another set of configuration details. Set a suitable instance type (we recommend at least `m1.small`). If you have an EC2 key pair configured, you can enter the key pair name at this stage: this will enable you to use the key pair to SSH in should you wish. (This is not required, and can be added later without any difficulty.)
 
-For the **Application Health Check URL** enter a single slash i.e. `/`:
+For the **Application Health Check URL**, leave this blank. By default, Elastic Beanstalk sends a `HEAD` request to `/` to check that the collector is available. (Don't put a `/` in this box or Beanstalk will send a `GET`, which will fail.)
 
 [[/setup-guide/images/clojure-collector-setup-guide/4.png]]
 
