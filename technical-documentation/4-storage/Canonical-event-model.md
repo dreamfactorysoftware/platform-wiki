@@ -145,8 +145,8 @@ Note: none of these fields have been implemented yet.
 | `geo_region`    | text     | Region the visitor is in within the country | No | No | 'Devon' |
 | `geo_city`      | text     | City the visitor is in | No | No        | 'London'       |
 | `geo_postcode`  | text     | Postcode the visitor is in | No | No    | 'N3'           |
-| `geo_latitude`  | text     | Visitor location latitude | No | No     | -              |
-| `geo_longitude` | text     | Visitor location longitude | No | No    | -              |
+| `geo_latitude`  | text     | Visitor location latitude | No | No     | 59.666702      |
+| `geo_longitude` | text     | Visitor location longitude | No | No    | 10.800003      |
 
 <a name="platform" />
 ### 2.2 Platform-specific fields
