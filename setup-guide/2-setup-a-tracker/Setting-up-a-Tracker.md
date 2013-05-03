@@ -29,6 +29,7 @@ The [Javascript tracker](javascript-tracker-setup) is used to track the behaviou
 
 1. [Setup the JavaScript tracker](javascript-tracker-setup)
 2. [Setup the No-JS tracker](no-js-tracker-setup)
+3. [Setup the Arduino tracker](arduino-tracker-setup)
 
 Setting up the JavaScript tracker involves integrating SnowPlow tags on your website(s). It is an analogous process to integrating Google Analytics or SiteCatalyst tags on your website.
 
