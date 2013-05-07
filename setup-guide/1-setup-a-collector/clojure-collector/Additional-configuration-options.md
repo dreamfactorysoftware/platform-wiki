@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Additional configuration options]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Additional configuration options]]
 
 There are a environment configuration parameters that you may want to consider tailoring to your specific needs. All of them can be accessed via the **Edit Configuration** dialogue box in the AWS Management Console.
 
@@ -54,5 +54,5 @@ You have setup the Clojure collector! You are now ready to [setup a tracker][tra
 
 Return to the [setup guide][setup-guide].
 
-[setup-guide]: Setting-up-SnowPlow
-[tracker-setup]: Setting-up-SnowPlow#wiki-step2
+[setup-guide]: Setting-up-Snowplow
+[tracker-setup]: Setting-up-Snowplow#wiki-step2

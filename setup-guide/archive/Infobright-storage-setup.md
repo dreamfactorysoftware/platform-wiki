@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Storage**](choosing-a-storage-module) > [**Infobright**](infobright-storage-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**Storage**](choosing-a-storage-module) > [**Infobright**](infobright-storage-setup)
 
 ## Table of contents
 
@@ -8,18 +8,18 @@
 2. [Installing ICE](#install)
 3. [Configuring ICE](#configure)
 4. [Testing ICE](#test)
-5. [Setting up the SnowPlow database and events table](#snowplow)
-6. [Automating the loading of SnowPlow data into Infobright](#storageloader)
+5. [Setting up the Snowplow database and events table](#snowplow)
+6. [Automating the loading of Snowplow data into Infobright](#storageloader)
 
 
 <a name="introduction" />
 ## 1. Introduction
 
-[Infobright Community Edition (ICE)](http://www.infobright.org/) is an open-source columnar database. For all but the largest SnowPlow users, columnar databases such as Infobright should be an attractive alternative to doing all of your analysis in Hive:
+[Infobright Community Edition (ICE)](http://www.infobright.org/) is an open-source columnar database. For all but the largest Snowplow users, columnar databases such as Infobright should be an attractive alternative to doing all of your analysis in Hive:
 
 * Queries are typically faster, especially when they do not involve processing the complete data set (e.g. only a handful of fields).
 * Unlike EMR, you do not have to 'pay' for every query. (The computing costs associated with running Infobright are fixed, although you will need to invest in more hardware as your data volumes and user numbers rise.)
-* SnowPlow data is well suited to analysis in Infobright and other columnar databases: our single fat events table processes especially efficiently in Infobright, because it is a columnar database, and because many of the fields contain fewer distinct values than total values.
+* Snowplow data is well suited to analysis in Infobright and other columnar databases: our single fat events table processes especially efficiently in Infobright, because it is a columnar database, and because many of the fields contain fewer distinct values than total values.
 
 [Back to top](#top)
 
@@ -189,13 +189,13 @@ Alternatively you can also test by running Navicat Lite or similar and logging i
 [Back to top](#top)
 
 <a name="snowplow" />
-## 5. Setting up the SnowPlow database and events table
+## 5. Setting up the Snowplow database and events table
 
-Now that you've got ICE up and running, its time to setup a database for SnowPlow on it, and create the SnowPlow events table in it.
+Now that you've got ICE up and running, its time to setup a database for Snowplow on it, and create the Snowplow events table in it.
 
-We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/snowplow/snowplow/tree/master/4-storage/infobright-storage) section of the [SnowPlow Github repo](https://github.com/snowplow/snowplow).
+We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/snowplow/snowplow/tree/master/4-storage/infobright-storage) section of the [Snowplow Github repo](https://github.com/snowplow/snowplow).
 
-First, checkout the SnowPlow repository and navigate to the Infobright storage folder:
+First, checkout the Snowplow repository and navigate to the Infobright storage folder:
 
     $ git clone git@github.com:snowplow/snowplow.git
     $ cd snowplow/4-storage/infobright-storage
@@ -206,14 +206,14 @@ Now run the `setup.sh` script, passing in your Infobright username and password 
 
 The `setup.sh` script will run the two 'sql' files in the [sql](https://github.com/snowplow/snowplow) folder:
 
-1. [setup_infobright.sql](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the SnowPlow database and creates a table in it called `events`, where the SnowPlow event-level data will be stored
-2. [verify_infobright](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the SnowPlow database and events table in your Infobright installion.
+1. [setup_infobright.sql](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the Snowplow database and creates a table in it called `events`, where the Snowplow event-level data will be stored
+2. [verify_infobright](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the Snowplow database and events table in your Infobright installion.
 
 [Back to top](#top)
 
 <a name="storageloader" />
-## 6. Automating the loading of SnowPlow data into Infobright
+## 6. Automating the loading of Snowplow data into Infobright
 
-To make the regular uploading of SnowPlow data into Infobright from S3 easy, we've developed a [Storage Loader](StorageLoader setup). Instructions on setting this up can be found [here](StorageLoader setup).
+To make the regular uploading of Snowplow data into Infobright from S3 easy, we've developed a [Storage Loader](StorageLoader setup). Instructions on setting this up can be found [here](StorageLoader setup).
 
 [Back to top](#top)

@@ -1,30 +1,30 @@
-We want to make it super-easy for SnowPlow users and contributors to talk to us and connect with each other, to share ideas, solve problems and help make SnowPlow awesome. Here are the main channels we're running currently, we'd love to hear from you on one of them:
+We want to make it super-easy for Snowplow users and contributors to talk to us and connect with each other, to share ideas, solve problems and help make Snowplow awesome. Here are the main channels we're running currently, we'd love to hear from you on one of them:
 
 ## Google Group
 
-[SnowPlow Google Group] [google-group]
+[Snowplow Google Group] [google-group]
 
-The SnowPlow Google Group (aka `snowplow-user`) is a good first stop for a general inquiry about SnowPlow or a specific support issue (e.g. trouble setting SnowPlow up). It's also a good forum for discussions about the roadmap or potential new functionality.
+The Snowplow Google Group (aka `snowplow-user`) is a good first stop for a general inquiry about Snowplow or a specific support issue (e.g. trouble setting Snowplow up). It's also a good forum for discussions about the roadmap or potential new functionality.
 
 ## HipChat
 
 [Public HipChat room] [hipchat-room]
 
-We're big fans of HipChat here at SnowPlow. We have a public SnowPlow chatroom - stop by and say hi, you don't need to install anything to access it. This chatroom is linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
+We're big fans of HipChat here at Snowplow. We have a public Snowplow chatroom - stop by and say hi, you don't need to install anything to access it. This chatroom is linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
 
 ## Twitter
 
-[@SnowPlowData] [snowplow-twitter]
+[@SnowplowData] [snowplow-twitter]
 
 Follow and chat to us on Twitter.
 
 ## GitHub
 
-[SnowPlow issues] [issues]
+[Snowplow issues] [issues]
 
-If you spot a bug, then please raise an issue in our main GitHub project (`snowplow/snowplow`); likewise if you have developed a cool new feature or improvement in your SnowPlow fork, then send us a pull request!
+If you spot a bug, then please raise an issue in our main GitHub project (`snowplow/snowplow`); likewise if you have developed a cool new feature or improvement in your Snowplow fork, then send us a pull request!
 
-If you want to brainstorm a potential new feature, then the SnowPlow Google Group (see above) is probably a better place to start.
+If you want to brainstorm a potential new feature, then the Snowplow Google Group (see above) is probably a better place to start.
 
 ## Email
 
@@ -33,7 +33,7 @@ If you want to brainstorm a potential new feature, then the SnowPlow Google Grou
 If you want to talk directly to us (e.g. about a commercially sensitive issue), email is the easiest way.
 
 [google-group]: https://groups.google.com/forum/#!forum/snowplow-user
-[snowplow-twitter]: https://twitter.com/SnowPlowData
+[snowplow-twitter]: https://twitter.com/SnowplowData
 [new-issue]: https://github.com/snowplow/snowplow/issues/new
 [issues]: https://github.com/snowplow/snowplow/issues?direction=desc&sort=created&state=open
 [community-email]: mailto:community@snowplowanalytics.com

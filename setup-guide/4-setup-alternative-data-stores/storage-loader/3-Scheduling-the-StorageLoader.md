@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](3-Scheduling-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](3-Scheduling-the-StorageLoader)
 
 1. [Overview](#scheduling-overview)
 2. [Scheduling StorageLoader only](#storage-loader-cron)
@@ -48,7 +48,7 @@ configure your cronjob like so:
     0 6   * * *   root    cronic /path/to/snowplow/4-storage/bin/snowplow-runner-and-loader.sh
 
 This will run the ETL job daily at 6am, emailing any failures to you via cronic. Please make
-sure that your SnowPlow events have been safely generated and stored in your In Bucket prior
+sure that your Snowplow events have been safely generated and stored in your In Bucket prior
 to 6am. 
 
 <a name="runner-and-loader-cron"/>
@@ -56,7 +56,7 @@ to 6am.
 
 The shell script [`/4-storage/storage-loader/bin/snowplow-storage-loader.sh`] [combo-bash]
 runs EmrEtlRunner, immediately followed by StorageLoader - i.e. it chains them together. At
-SnowPlow, this is the scheduling option we use.
+Snowplow, this is the scheduling option we use.
 
 If you use this script, you can delete any separate cronjob for the EmrEtlRunner alone.
 
@@ -91,7 +91,7 @@ These options are explored in a little more detail in the [Scheduling EmrEtlRunn
 
 ## 5. Next steps
 
-Setup the StorageLoader! Now you are ready to [do some analysis!](Setting-up-SnowPlow#step5).
+Setup the StorageLoader! Now you are ready to [do some analysis!](Setting-up-Snowplow#step5).
 
 
 [storage-loader]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader

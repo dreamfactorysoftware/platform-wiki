@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 2. Upload the tracking pixel
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 2. Upload the tracking pixel
 
-You can download a copy of the tracking pixel from the [SnowPlow Github repo](https://github.com/snowplow/snowplow/tree/master/2-collectors/cloudfront-collector/static). One convenient way to quickly grab `i` is to execute the following at the command line:
+You can download a copy of the tracking pixel from the [Snowplow Github repo](https://github.com/snowplow/snowplow/tree/master/2-collectors/cloudfront-collector/static). One convenient way to quickly grab `i` is to execute the following at the command line:
 
 	$ wget https://github.com/snowplow/snowplow/raw/master/2-collectors/cloudfront-collector/static/i 
 
@@ -28,4 +28,4 @@ Proceed to [step 3: create a bucket for Cloudfront logs](3-create-a-bucket-for-c
 
 Return to an [overview of the Cloudfront Collector setup](Setting-up-the-Cloudfront-collector).
 
-Return to the [setup guide](setting-up-SnowPlow).
+Return to the [setup guide](setting-up-Snowplow).

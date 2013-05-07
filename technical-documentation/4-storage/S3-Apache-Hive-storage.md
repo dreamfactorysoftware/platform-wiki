@@ -1,14 +1,14 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Storage**](storage documentation)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Storage**](storage documentation)
 
 ## Contents
 
 1. [Current table definition](#table-def)
-2. [The roadmap for storing SnowPlow data in S3 / Hive](#roadmap)
+2. [The roadmap for storing Snowplow data in S3 / Hive](#roadmap)
 
 <a name="table-def" />
 ## 1. Current table definition
 
-The standard S3 / Hive implementation of SnowPlow storage uses Apache Hive on EMR to store SnowPlow data in a table partitioned by date. The current table definition is given in the [repo] [hive-table-def]. We have pasted a copy below:
+The standard S3 / Hive implementation of Snowplow storage uses Apache Hive on EMR to store Snowplow data in a table partitioned by date. The current table definition is given in the [repo] [hive-table-def]. We have pasted a copy below:
 
 	CREATE EXTERNAL TABLE IF NOT EXISTS `events` (
 		tm string,
@@ -78,7 +78,7 @@ The standard S3 / Hive implementation of SnowPlow storage uses Apache Hive on EM
 
 There are a number of changes we intend to make the table:
 
-1. Increase the number of fields, as we build out support for more events as "first class citizens". In the table definition above, a number of events are recognised as "first class citizens" with specific fields that only apply to those events: a good example is transaction events. (The accounts for all 13 fields beginning `tr_` and `ti_`.) For details about the events we intend to support, see the [SnowPlow Canonical Event Model](canonical-event-model).
+1. Increase the number of fields, as we build out support for more events as "first class citizens". In the table definition above, a number of events are recognised as "first class citizens" with specific fields that only apply to those events: a good example is transaction events. (The accounts for all 13 fields beginning `tr_` and `ti_`.) For details about the events we intend to support, see the [Snowplow Canonical Event Model](canonical-event-model).
 2. We plan to move the format of data from the text based, ctrl-a delimited, flatfiles currently used to [Avro] [avro]. This will enable us to add more event-specific fields without incurring performance penalties (see above), make it easier to evolve the table definition without needing to reprocess older data and group fields together. (E.g. all the fields that relate to transactions in a single grouping.)
 
 

@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide)
 
-Setting up SnowPlow involves setting up one of each of the five modules that make up SnowPlow's architecture:
+Setting up Snowplow involves setting up one of each of the five modules that make up Snowplow's architecture:
 
 ![architecture] [conceptual-architecture]
 
@@ -38,18 +38,18 @@ Setting up SnowPlow involves setting up one of each of the five modules that mak
 
 ## Approach to selecting modules
 
-SnowPlow's loosely coupled architecture means there are a lot of different options when implementing SnowPlow.
+Snowplow's loosely coupled architecture means there are a lot of different options when implementing Snowplow.
 
 When making your choice about which module to use, we recommend:
 
 1. Starting with your choice of [collector](choosing-a-collector). This is the module that will receive data from your tracker(s) (it's possible to run many trackers for each collector e.g. to track behaviour across multiple platforms) and log it to files. With this and your trackers setup, you have complete flexibility to switch in and out ETL, storage and analytics modules, to direct the data collected into different databases and analytics engines to support different types of uses later.
 2. Your choice of [tracker](choosing-a-tracker) will generally be determined by the platform(s) you want to track behaviour on. If you want to track behaviour on your website(s) for example, the Javascript tracker will most likely be the right choice for you.
-3. The next most important decision will be whether you want to store your SnowPlow events data in S3 for processing in Hive / Hadoop, or in Infobright where it can be queried using straight SQL. There are pros and cons to both approaches - for more details on the relevant considerations, refer to the [[choosing a storage option]] page.
+3. The next most important decision will be whether you want to store your Snowplow events data in S3 for processing in Hive / Hadoop, or in Infobright where it can be queried using straight SQL. There are pros and cons to both approaches - for more details on the relevant considerations, refer to the [[choosing a storage option]] page.
 4. Your choice of [ETL module](choosing-an-etl-module) should be straightforward based on your choice of [collector](choosing-a-collector) and [storage](choosing-a-storage-module) module.
 5. Your can add as many [analytics](analytics-setup) modules in as you like as you go / we develop them / other people develop them.
 
 
-In general, the most common SnowPlow setup involves:
+In general, the most common Snowplow setup involves:
 
 1. The [Javascript tracker](javascript-tracker-setup)
 2. The [Cloudfront collector](setting-up-the-cloudfront-collector)
@@ -62,13 +62,13 @@ In general, the most common SnowPlow setup involves:
 
 ### Amazon Web Services
 
-SnowPlow makes extensive use of Amazon's cloud infrastructure. Many of the modules described are built around Amazon Web Services including:
+Snowplow makes extensive use of Amazon's cloud infrastructure. Many of the modules described are built around Amazon Web Services including:
 
 1. The [Cloudfront collector](setting-up-the-cloudfront-collector)
 2. The [Hive ETL](hive-etl-setup), which runs on Amazon Elastic Mapreduce
 3. The [S3 / Hive storage](s3-hive-storage-setup), which runs on Amazon S3 and Elastic Mapreduce
 4. The [Hive based analytics](hive-analytics-setup), which runs on Amazon Elastic Mapreduce
 
-Setting up an account with AWS is a pre-requisite for running SnowPlow. This setup guide assumes you have an account and are familiar with the core Amazon Web Services especially S3.
+Setting up an account with AWS is a pre-requisite for running Snowplow. This setup guide assumes you have an account and are familiar with the core Amazon Web Services especially S3.
 
 [conceptual-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/conceptual-architecture.png

@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
 
-Many of the analyses we perform in SnowPlow use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
+Many of the analyses we perform in Snowplow use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
 
 This part of the guide walks through the process of launching and running a Hive Interactive session. The steps involved are:
 
@@ -89,7 +89,7 @@ TO WRITE
 <a name="runninghivequeries"/>
 ## 3. Running Hive queries
 
-SnowPlow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
+Snowplow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
 
 ```mysql
@@ -165,7 +165,7 @@ LOCATION '${EVENTS_TABLE}' ;
 3. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
 4. You need to list every field in the statement, which is why it's so long. To save time, copy and paste the query to the command line :-)
 
-In general, SnowPlow users partition their data by date. We need to let Hive know that this table is partitioned, and to look to spot the partitions that already exist:
+In general, Snowplow users partition their data by date. We need to let Hive know that this table is partitioned, and to look to spot the partitions that already exist:
 
 	ALTER TABLE events RECOVER PARTITIONS;
 
@@ -248,10 +248,10 @@ To terminate the sessions via the command line, simply exit the session (by typi
 
 ## 5. Want to learn more?
 
-Consult the SnowPlow [Analytics Cookbook] [analysts-cookbook] for more Hive recipes.
+Consult the Snowplow [Analytics Cookbook] [analysts-cookbook] for more Hive recipes.
 
-Return to [get started analysing data](Getting-started-analysing-SnowPlow-data).
+Return to [get started analysing data](Getting-started-analysing-Snowplow-data).
 
-Return to the [setup guide home](Setting-up-SnowPlow).
+Return to the [setup guide home](Setting-up-Snowplow).
 
 [analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html

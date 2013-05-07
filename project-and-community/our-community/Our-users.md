@@ -1,15 +1,15 @@
-Although still a young platform, SnowPlow has already been deployed by various startups, enterprises and organisations, who are using it in various ways. Here are just a few examples of SnowPlow being used by the community:
+Although still a young platform, Snowplow has already been deployed by various startups, enterprises and organisations, who are using it in various ways. Here are just a few examples of Snowplow being used by the community:
 
-_If you are using SnowPlow and want to be listed here, please email [alex@snowplowanalytics.com] [alex-email]._
+_If you are using Snowplow and want to be listed here, please email [alex@snowplowanalytics.com] [alex-email]._
 
 ## Use Cases
 
-| **Company_Name**           | **SnowPlow Use Case**                                                                               |
+| **Company_Name**           | **Snowplow Use Case**                                                                               |
 |:---------------------------|:-------------------------------------------------------------------------------------------|
-| ![99d-logo] [99d-logo]     | [99designs] [99designs-site] is a graphic design marketplace. They use SnowPlow alongside Google Analytics to perform detailed clickstream analysis and better measure campaign outcomes. |
-| ![qwaya-logo] [qwaya-logo] | [Qwaya] [qwaya-site] is a next-generation Facebook ads tool, combining ease of use with powerful features such as bulk ad creation and rule-based campaign management. SnowPlow is a core part of Qwaya conversion tracking, critical for tuning campaign performance. |
-| ![sb-logo] [sb-logo]       | [Simply Business] [simplybusiness-site] is the UK's largest business insurance broker, with over 200,000 customers; over 90% of their customers find them through online channels, while a large percentage complete their transaction offline. They are implementing the SnowPlow collector to allow them to build a rich set of web analytics data that they can connect with their internal transaction reporting. They will be using this to improve the user experience and improve the efficiency of their marketing campaigns. |
-| ![pbz-logo] [pbz-logo]     | [Psychic Bazaar] [pbz-site] is an online retailer in the mind, body & spirit market. They have installed SnowPlow alongside Google Analytics, using SnowPlow to warehouse their clickstream data, perform customer- and product-level analyses and build custom user cohorts. |
+| ![99d-logo] [99d-logo]     | [99designs] [99designs-site] is a graphic design marketplace. They use Snowplow alongside Google Analytics to perform detailed clickstream analysis and better measure campaign outcomes. |
+| ![qwaya-logo] [qwaya-logo] | [Qwaya] [qwaya-site] is a next-generation Facebook ads tool, combining ease of use with powerful features such as bulk ad creation and rule-based campaign management. Snowplow is a core part of Qwaya conversion tracking, critical for tuning campaign performance. |
+| ![sb-logo] [sb-logo]       | [Simply Business] [simplybusiness-site] is the UK's largest business insurance broker, with over 200,000 customers; over 90% of their customers find them through online channels, while a large percentage complete their transaction offline. They are implementing the Snowplow collector to allow them to build a rich set of web analytics data that they can connect with their internal transaction reporting. They will be using this to improve the user experience and improve the efficiency of their marketing campaigns. |
+| ![pbz-logo] [pbz-logo]     | [Psychic Bazaar] [pbz-site] is an online retailer in the mind, body & spirit market. They have installed Snowplow alongside Google Analytics, using Snowplow to warehouse their clickstream data, perform customer- and product-level analyses and build custom user cohorts. |
 | **Your company here!**     | Please email [alex@snowplowanalytics.com] [alex-email] if you want to be listed here.       |
 
 [alex-email]: mailto:alex@snowplowanalytics.com

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide)
 
 **1. Trackers**  
 [Tracker setup: choosing a tracker](choosing-a-tracker)  

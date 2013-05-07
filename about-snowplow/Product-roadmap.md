@@ -1,9 +1,9 @@
 ## Overview
 
-The current release of SnowPlow is **0.8.1**. The planned roadmap for SnowPlow is divided in two:
+The current release of Snowplow is **0.8.1**. The planned roadmap for Snowplow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
-2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new SnowPlow components and other ambitious new developments
+2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new Snowplow components and other ambitious new developments
 
 We discuss each of these in turn below.
 
@@ -24,7 +24,7 @@ The planned releases are as follows:
 
 ## Longer-term: approximate schedule
 
-In this section we set out an approximate map of the new components and capabilities we want to add to SnowPlow, segmented by sub-system and by time (aka priority).
+In this section we set out an approximate map of the new components and capabilities we want to add to Snowplow, segmented by sub-system and by time (aka priority).
 
 **Warning:** this schedule is approximate, and the items on it are subject to change. If you are interested in a specific functionality listed here, feel free to [Contact us](Talk-to-us) to find out more about its likely path-to-release.
 
@@ -32,7 +32,7 @@ The longer-term schedule of major developments is approximately as follows:
 
 | Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q2** | Lua Tracker<br>Android Tracker | -          | Move to Avro for SnowPlow event files<br>ETL to transform Avro to Infobright and Redshift | -        | -         | 
+| **Q2** | Lua Tracker<br>Android Tracker | -          | Move to Avro for Snowplow event files<br>ETL to transform Avro to Infobright and Redshift | -        | -         | 
 | **Q3** | iOS Tracker     | -          | Support for unstructured events             | MongoDB<br>MySQL        | Machine-learning using Mahout         |
 | **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | PredictionIO<br>SkyDB      | - | 
 

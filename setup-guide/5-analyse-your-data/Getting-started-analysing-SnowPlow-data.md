@@ -1,12 +1,12 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 
-Now you have your SnowPlow data being generated and loaded into one or more data stores (S3, Infobright, Redshift etc.) you can start to analyse that data.
+Now you have your Snowplow data being generated and loaded into one or more data stores (S3, Infobright, Redshift etc.) you can start to analyse that data.
 
-Because SnowPlow gives you access to incredibly granular, event-level and customer-level data, the possible analyses you can perform on that data is endless.
+Because Snowplow gives you access to incredibly granular, event-level and customer-level data, the possible analyses you can perform on that data is endless.
 
 As part of this setup guide, we provide details on how to get started analysing that data. There are many other resources we are building out (notably the [analysts cookbook] [analyst-cookbook]) that go into much more detail.
 

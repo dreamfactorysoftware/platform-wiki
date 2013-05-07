@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Storage**](Choosing-a-storage-module) > **StorageLoader Setup**
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**Storage**](Choosing-a-storage-module) > **StorageLoader Setup**
 
 ## Table of Contents
 
@@ -21,11 +21,11 @@
 <a name="intro"/>
 ## Introduction
 
-Once you have your ETL process storing your SnowPlow events data as flat files in Amazon S3, you may also want to populate those same events into another storage option, such as [Infobright Community Edition] [ice].
+Once you have your ETL process storing your Snowplow events data as flat files in Amazon S3, you may also want to populate those same events into another storage option, such as [Infobright Community Edition] [ice].
 
-To make it easier to feed your SnowPlow event data into databases such as Infobright, we have written the [SnowPlow::StorageLoader] [storage-loader] Ruby application.
+To make it easier to feed your Snowplow event data into databases such as Infobright, we have written the [Snowplow::StorageLoader] [storage-loader] Ruby application.
 
-StorageLoader is a command-line tool which downloads your SnowPlow event files and loads them into a local Infobright database.
+StorageLoader is a command-line tool which downloads your Snowplow event files and loads them into a local Infobright database.
 
 This guide will take you through installing and configuring StorageLoader on your own server.
 
@@ -37,12 +37,12 @@ This guide will take you through installing and configuring StorageLoader on you
 
 This guide assumes that you have already:
 
-1. [Set up EmrEtlRunner](EmrEtlRunner-setup) to process SnowPlow events and warehouse them on Amazon S3
-2. [Set up Infobright Community Edition (ICE)](Infobright-storage-setup) ready to store those same SnowPlow events
+1. [Set up EmrEtlRunner](EmrEtlRunner-setup) to process Snowplow events and warehouse them on Amazon S3
+2. [Set up Infobright Community Edition (ICE)](Infobright-storage-setup) ready to store those same Snowplow events
 
 If you have not completed these two steps yet, then please follow the linked setup guides.
 
-Note that this guide assumes that you have configured EmrEtlRunner to output the **non-Hive** SnowPlow event format. The Hive SnowPlow event format will not work with Infobright.
+Note that this guide assumes that you have configured EmrEtlRunner to output the **non-Hive** Snowplow event format. The Hive Snowplow event format will not work with Infobright.
 
 This guide assumes that you have administrator access to the Unix-based server (e.g. Ubuntu, OS X, Fedora) on which you installed ICE, and will install StorageLoader on the same server.
 
@@ -63,11 +63,11 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 <a name="s3-buckets"/>
 #### S3 buckets
 
-StorageLoader moves the SnowPlow event files through three distinct S3 buckets during
+StorageLoader moves the Snowplow event files through three distinct S3 buckets during
 the load process. These buckets are as follows:
 
-1. **In Bucket** - contains the SnowPlow event files to process
-2. **Archive Bucket** - where StorageLower moves the SnowPlow
+1. **In Bucket** - contains the Snowplow event files to process
+2. **Archive Bucket** - where StorageLower moves the Snowplow
    event files after successful loading
 
 The In Bucket for StorageLoader is the same as the Out Bucket for the EmrEtlRunner -
@@ -82,7 +82,7 @@ Done? Right, now we can install StorageLoader.
 <a name="installation"/>
 ### Installation
 
-First, checkout the SnowPlow repository and navigate to the StorageLoader root:
+First, checkout the Snowplow repository and navigate to the StorageLoader root:
 
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/4-storage/storage-loader
@@ -115,7 +115,7 @@ Check it worked okay:
 ### Configuration
 
 StorageLoader requires a YAML format configuration file to run. There is a configuration
-file template available in the SnowPlow GitHub repository at 
+file template available in the Snowplow GitHub repository at 
 [`/4-storage/storage-loader/config/config.yml`] [config-yml]. The template looks like this:
 
 ```yaml
@@ -173,7 +173,7 @@ Please note that all buckets must exist prior to running StorageLoader.
 #### download
 
 This is where we configure the StorageLoader download operation, which
-downloads the SnowPlow event files from Amazon S3 to your local server, 
+downloads the Snowplow event files from Amazon S3 to your local server, 
 ready for loading into your database.
 
 You will need to set the `folder` variable to a local directory path -
@@ -183,7 +183,7 @@ and is empty.
 #### storage
 
 In this section we configure exactly what database StorageLoader should
-load our SnowPlow events into. At the moment, StorageLoader supports
+load our Snowplow events into. At the moment, StorageLoader supports
 only one load target, and this load target must be an Infobright
 Community Edition database.
 
@@ -193,8 +193,8 @@ To take each variable in turn:
    only supported format is "infobright"
 2. `database`, the name of the database to load
 3. `table`, the name of the database table which will store your
-   SnowPlow events. Must have been setup previously  
-4. `username`, the database user to load your SnowPlow events with.
+   Snowplow events. Must have been setup previously  
+4. `username`, the database user to load your Snowplow events with.
    You can leave this blank to default to the user running the script
 5. `password`, the password for the database user. Leave blank if there
    is no password
@@ -252,7 +252,7 @@ example, and then invoking StorageLoader like so:
 
 #### locate command missing
 
-StorageLoader depends on SnowPlow's [Infobright Ruby Loader] [irl],
+StorageLoader depends on Snowplow's [Infobright Ruby Loader] [irl],
 which in turn uses the `locate` shell command. If your shell complains
 that this is missing, in which case you can install it separately.
 
@@ -306,7 +306,7 @@ configure your cronjob like so:
     0 6   * * *   root    cronic /path/to/snowplow/4-storage/bin/snowplow-runner-and-loader.sh
 
 This will run the ETL job daily at 6am, emailing any failures to you via cronic. Please make
-sure that your SnowPlow events have been safely generated and stored in your In Bucket prior
+sure that your Snowplow events have been safely generated and stored in your In Bucket prior
 to 6am. 
 
 <a name="runner-and-loader-cron"/>
@@ -314,7 +314,7 @@ to 6am.
 
 The shell script [`/4-storage/storage-loader/bin/snowplow-storage-loader.sh`] [combo-bash]
 runs EmrEtlRunner, immediately followed by StorageLoader - i.e. it chains them together. At
-SnowPlow, this is the scheduling option we use.
+Snowplow, this is the scheduling option we use.
 
 If you use this script, you can delete any separate cronjob for the EmrEtlRunner alone.
 

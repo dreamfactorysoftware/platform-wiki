@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**TECHNICAL DOCUMENTATION**](SnowPlow technical documentation)
+[**HOME**](Home) > [**TECHNICAL DOCUMENTATION**](Snowplow technical documentation)
 
 **1. Trackers**  
 [Overview](trackers)  
@@ -6,7 +6,7 @@
 [No-JS Tracker](no-js-tracker)  
 [Arduino Tracker](Arduino-Tracker)  
 
-**[A. SnowPlow Tracker Protocol](snowplow-tracker-protocol)**  
+**[A. Snowplow Tracker Protocol](snowplow-tracker-protocol)**  
 
 **2. Collectors**  
 [Overview](collectors)  
@@ -22,7 +22,7 @@
 [Hive ETL](hive-etl)  
 [Hadoop ETL](scaldingetl)
 
-**[C. Canonical SnowPlow event model](canonical-event-model)**  
+**[C. Canonical Snowplow event model](canonical-event-model)**  
 
 **4. Storage**  
 [Overview](storage documentation)  
@@ -30,7 +30,7 @@
 [Amazon Redshift](amazon-redshift-storage)   
 [Infobright](infobright-storage)  
 
-**D. SnowPlow storage formats (to write)**
+**D. Snowplow storage formats (to write)**
 
 **5. Analytics**  
 [[Analytics documentation]]  

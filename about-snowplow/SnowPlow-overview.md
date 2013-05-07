@@ -1,6 +1,6 @@
 Open source web analytics powered by [Hadoop](http://hadoop.apache.org/), [Hive](http://hive.apache.org/) and [Infobright](http://www.infobright.org/).
 
-SnowPlow is a complete, loosely coupled web analytics platform that lets you capture, store and analyse granular customer-level and event-level data:
+Snowplow is a complete, loosely coupled web analytics platform that lets you capture, store and analyse granular customer-level and event-level data:
 
 * Drill down to individual customers and events
 * Zoom out to compare behaviours between cohorts and over time
@@ -8,25 +8,25 @@ SnowPlow is a complete, loosely coupled web analytics platform that lets you cap
 * Segment your audience by behaviour
 * Develop recommendations and personalisations engines
 
-SnowPlow has been technically designed to:
+Snowplow has been technically designed to:
 
 * Give you access, ownership and control of your own web analytics data (no lock in)
 * Be loosely coupled and extensible, so that it is easy to add e.g. new trackers to capture data from new platforms (e.g. mobile, TV) and put the data to new uses
 
 ### More information
 
-For documentation geared towards business, product and analytics folk, please see the [SnowPlow website](http://snowplowanalytics.com).
+For documentation geared towards business, product and analytics folk, please see the [Snowplow website](http://snowplowanalytics.com).
 
-This wiki is the main source of documentation for **developers** working with (or contributing to) the SnowPlow project. Sections include:
-* [[About SnowPlow|SnowPlow-overview]] (this section) - introducing SnowPlow, why we built it and what it does
-* [[Project and Community|SnowPlow-project-and-community]] - the open-source project, our community and how to contribute
-* [[Setup Guide|SnowPlow-setup-guide]] - a step-by-step guide to setting up and running SnowPlow
-* [[Technical Documentation|SnowPlow-technical-documentation]] - technical documentation on SnowPlow and its five sub-systems
+This wiki is the main source of documentation for **developers** working with (or contributing to) the Snowplow project. Sections include:
+* [[About Snowplow|Snowplow-overview]] (this section) - introducing Snowplow, why we built it and what it does
+* [[Project and Community|Snowplow-project-and-community]] - the open-source project, our community and how to contribute
+* [[Setup Guide|Snowplow-setup-guide]] - a step-by-step guide to setting up and running Snowplow
+* [[Technical Documentation|Snowplow-technical-documentation]] - technical documentation on Snowplow and its five sub-systems
 
 ### Additional support / resources
 
 * [[Talk to us]] (and other community members) through various channels
-* The team at digital consultancy Keplar have [blogged extensively about SnowPlow](http://www.keplarllp.com/blog/category/snowplow)  
-* SnowPlow Analytics Ltd ([contact] [contact]) provides consultancy services around SnowPlow, including setup and business consultancy to use SnowPlow data to drive customer understanding and growth in customer value and volume. 
+* The team at digital consultancy Keplar have [blogged extensively about Snowplow](http://www.keplarllp.com/blog/category/snowplow)  
+* Snowplow Analytics Ltd ([contact] [contact]) provides consultancy services around Snowplow, including setup and business consultancy to use Snowplow data to drive customer understanding and growth in customer value and volume. 
 
 [contact]: mailto:services@snowplowanalytics.com

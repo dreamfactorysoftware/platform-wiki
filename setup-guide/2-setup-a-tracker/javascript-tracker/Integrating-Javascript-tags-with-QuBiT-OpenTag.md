@@ -1,11 +1,11 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with QuBit OpenTag](Integrating-Javascript-tags-with-QuBit-OpenTag)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with QuBit OpenTag](Integrating-Javascript-tags-with-QuBit-OpenTag)
 
 This setup guide is divided into two sections:
 
 1. [Setting up QuBit OpenTag](#setup-opentag)
-2. [Integrating SnowPlow Javascript tracking tags with OpenTag](#snowplow-setup)
+2. [Integrating Snowplow Javascript tracking tags with OpenTag](#snowplow-setup)
 3. [Next steps](#next-steps)
 
 <a name="setup-opentag" />
@@ -14,10 +14,10 @@ This setup guide is divided into two sections:
 The following steps are required to setup OpenTag on your website:
 
 1. [Create an OpenTag account](#create-account)
-2. [Expose the data required by OpenTag and SnowPlow Universal Variable](#expose-data)
+2. [Expose the data required by OpenTag and Snowplow Universal Variable](#expose-data)
 3. [Create a container tag in OpenTag, and integrate it into your website](#container)
 
-The steps are reasonably straight forward, especially for anyone familiar with tag management or OpenTag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive SnowPlow custom event tracking. This is covered in [step 2] (#expose-data).
+The steps are reasonably straight forward, especially for anyone familiar with tag management or OpenTag in particular. The only step with some elements that deviate from common setup instructions (e.g. provided by OpenTag) is exposing event data to OpenTag to drive Snowplow custom event tracking. This is covered in [step 2] (#expose-data).
 
 <a name="create-account" />
 ### 1.1 Create an OpenTag account
@@ -28,9 +28,9 @@ You can create an OpenTag account for free by signing up on the [QuBit website] 
 
 [Back to top] (#top)
 
-### 1.2 Expose the data required by OpenTag and SnowPlow to OpenTag via the OpenTag Universal Variable
+### 1.2 Expose the data required by OpenTag and Snowplow to OpenTag via the OpenTag Universal Variable
 
-OpenTag manages the firing of all the different tags on your site: that includes web analytics tags like SnowPlow and Google Analytics, as well as other sorts of tags e.g. tags from affiliate networks, audience management platforms etc.) In order to pass the relevant data to these services in their tags, you need to pass that data from your website into OpenTag in the first place.
+OpenTag manages the firing of all the different tags on your site: that includes web analytics tags like Snowplow and Google Analytics, as well as other sorts of tags e.g. tags from affiliate networks, audience management platforms etc.) In order to pass the relevant data to these services in their tags, you need to pass that data from your website into OpenTag in the first place.
 
 The primary way of passing data into OpenTag is using the [`window.universal_variable`] (https://github.com/QubitProducts/UniversalVariable) object. The `Universal Variable` is a JSON that is declared on page load. (As high up the page source code as possible.) You populate the it with data about the relevant entities that make up your web pages for this user on this particular web journey. Those entities can include:
 
@@ -45,18 +45,18 @@ The primary way of passing data into OpenTag is using the [`window.universal_var
 
 There is detailed readme on the OpenTag [`Universal Variable` Github page](https://github.com/QubitProducts/UniversalVariable) detailing all the relevant fields for each object and giving practical advice on implementing the `Universal Variable` on your website.
 
-For SnowPlow, the detailed object model provided by OpenTag is great, because it means there's a rich set of page-level data that can be passed into SnowPlow so that users can analyse e.g. conversion rates by product, or the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
+For Snowplow, the detailed object model provided by OpenTag is great, because it means there's a rich set of page-level data that can be passed into Snowplow so that users can analyse e.g. conversion rates by product, or the effectiveness of different recommendation algorithms with different customer segments, to take just two examples.
 
-However, implementing the `Universal Variable` as documented often is not enough for SnowPlow users. That is because we are not just intested in the contents of web pages when they are loaded, and the specific object and actions identified by OpenTag (e.g. baskets and transactions): we are typically also interested in capturing all interesting events that occur on a web page between page loads (i.e. AJAX events), generally using [event tracking tags](#event-tracking). Examples of types of events we might track in this way are:
+However, implementing the `Universal Variable` as documented often is not enough for Snowplow users. That is because we are not just intested in the contents of web pages when they are loaded, and the specific object and actions identified by OpenTag (e.g. baskets and transactions): we are typically also interested in capturing all interesting events that occur on a web page between page loads (i.e. AJAX events), generally using [event tracking tags](#event-tracking). Examples of types of events we might track in this way are:
 
 * Playing rich media (e.g. videos) 
 * Zoom in on product images
 * User logins
 * Add-to-baskets
 
-When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to SnowPlow, is attached to the event. 
+When these events occur, we need to update the `Universal Variable` so that these events are recorded as they happen, and the relevant data associated with each event, that we want to pass to Snowplow, is attached to the event. 
 
-OpenTag's Universal Variable has an [`EventList`] (https://github.com/QubitProducts/UniversalVariable#eventlist) object, which stores an array of [`Event`] (https://github.com/QubitProducts/UniversalVariable#event) objects. To meet SnowPlow's needs, we've added a number of fields to the Event object, and implemented an interface to make it straightforward for companies implementing OpenTag to push event data into the `Universal Variable` as / when they occur.
+OpenTag's Universal Variable has an [`EventList`] (https://github.com/QubitProducts/UniversalVariable#eventlist) object, which stores an array of [`Event`] (https://github.com/QubitProducts/UniversalVariable#event) objects. To meet Snowplow's needs, we've added a number of fields to the Event object, and implemented an interface to make it straightforward for companies implementing OpenTag to push event data into the `Universal Variable` as / when they occur.
 
 The additional fields are:
 
@@ -74,9 +74,9 @@ When an AJAX event occurs on your webpage, you can push the required event data 
 uvHelpers.trackStructEvent(category, action, label, property, value);
 ```
 
-When calling it, you need to set the `category`, `action`, `label`, `property` and `value` fields to the ones you want passed to the SnowPlow event tracker, as documented in the table above.
+When calling it, you need to set the `category`, `action`, `label`, `property` and `value` fields to the ones you want passed to the Snowplow event tracker, as documented in the table above.
 
-As well as enabling easy updating of the `Universal Variable`, the above method also triggers an `OpenTagEvent` in the DOM. We can use this, when configuring SnowPlow event tracking tags in the OpenTag UI to create a [custom starter] (http://opentagsupport.qubitproducts.com/help/kb/technical/implementing-intelligent-tag-based-filtering) to trigger the firing of the SnowPlow event tracking tags.
+As well as enabling easy updating of the `Universal Variable`, the above method also triggers an `OpenTagEvent` in the DOM. We can use this, when configuring Snowplow event tracking tags in the OpenTag UI to create a [custom starter] (http://opentagsupport.qubitproducts.com/help/kb/technical/implementing-intelligent-tag-based-filtering) to trigger the firing of the Snowplow event tracking tags.
 
 Note: in order to use the above method, you need to include the `opentag-event-extension.js.` This is covered below.
 
@@ -115,19 +115,19 @@ As a result, the code you insert onto every page (the container tag and include 
 [Back to top] (#top)
 
 <a name="snowplow-setup" />
-## 2. Integrating SnowPlow Javascript tracking tags with OpenTag
+## 2. Integrating Snowplow Javascript tracking tags with OpenTag
 
-Once you've got OpenTag implemented on your website, you're in position to setup the SnowPlow tracking tags in OpenTag.
+Once you've got OpenTag implemented on your website, you're in position to setup the Snowplow tracking tags in OpenTag.
 
-1. [Integrating SnowPlow page tracking tags] (#page-tracking)
-2. [Integrating SnowPlow event tracking tags] (#event-tracking)
-3. [Integrating SnowPlow ecommerce tracking tags] (#ecomm-tracking)
+1. [Integrating Snowplow page tracking tags] (#page-tracking)
+2. [Integrating Snowplow event tracking tags] (#event-tracking)
+3. [Integrating Snowplow ecommerce tracking tags] (#ecomm-tracking)
 4. [Committing changes in OpenTag] (#publish)
 
 <a name="page-tracking" />
-### 2.1 Integrating SnowPlow page tracking tags in OpenTag
+### 2.1 Integrating Snowplow page tracking tags in OpenTag
 
-The most straight forward SnowPlow tags to implement in OpenTag are the page tracking tags.
+The most straight forward Snowplow tags to implement in OpenTag are the page tracking tags.
 
 Go into OpenTag, select your container and click the **`+ ADD NEW SCRIPT`** button. (OpenTag refer to tags in the UI, confusingly, as 'scripts'.):
 
@@ -137,14 +137,14 @@ A new window opens which gives you the opportunity to name the script, and selec
 
 [[/setup-guide/images/opentag/6.png]]
 
-Give the script a suitable name e.g. 'SnowPlow PageTracker' and select the checkbox by 'Custom Script':
+Give the script a suitable name e.g. 'Snowplow PageTracker' and select the checkbox by 'Custom Script':
 
 [[/setup-guide/images/opentag/7.png]]
 
-Now we need to enter the SnowPlow page tracking code:
+Now we need to enter the Snowplow page tracking code:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -159,12 +159,12 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 #### Setting the {{CLOUDFRONT-DOMAIN}} value
 
-You must update `{{CLOUDFRONT-DOMAIN}}` with the Cloudfront subdomain details you created as part of the [collector setup] (setting up the cloudfront collector). (If you are using a version of SnowPlow hosted by the SnowPlow team, we will provide you with an Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. 
+You must update `{{CLOUDFRONT-DOMAIN}}` with the Cloudfront subdomain details you created as part of the [collector setup] (setting up the cloudfront collector). (If you are using a version of Snowplow hosted by the Snowplow team, we will provide you with an Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. 
 
 If your CloudFront distribution's URL is `http://d1x5tduoxffdr7.cloudfront.net`, then update the appropriate line in your header script to look like this:
 
@@ -174,15 +174,15 @@ If you are not using the Cloudfront collector (e.g. you are using the Clojure co
 
 #### Setting the {{SITE-ID}} and {{COOKIE-DOMAIN}} values
 
-You can optionally use the `setAppId` method to set an application ID for the page that is being tracked: this is useful if you are using SnowPlow to track user behaviour across two or more applications, and wish to distinguish them easily in your data. For full instructions on doing so, please refer to the [Javascript tracker technical documentation](Javascript-Tracker).
+You can optionally use the `setAppId` method to set an application ID for the page that is being tracked: this is useful if you are using Snowplow to track user behaviour across two or more applications, and wish to distinguish them easily in your data. For full instructions on doing so, please refer to the [Javascript tracker technical documentation](Javascript-Tracker).
 
 In addition, you can optionally use the `setCookieDomain` method to change your cookie domain from e.g. 'www.mysite.com' to '.mysite.com'. This is important if you are tracking user behaviour across multiple subdomains e.g. 'mysite.com', 'www.mysite.com', 'application.mysite.com', 'blog.mysite.com' etc. Full instructions on how to use this method can be found in the [technical documentation for the Javascript tracker](Javascript-Tracker).
 
 #### Updating the reference to `sp.js`
 
-The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
+The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js` loads `sp.js`, the Snowplow Javascript tracker. The version loaded is the version [hosted by the Snowplow team from our own Cloudfront subdomain](https://github.com/snowplow/snowplow/wiki/hosted-assets).
 
-If you are hosting your own SnowPlow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js`) in for ours:
+If you are hosting your own Snowplow Javascript file (see the guide to [self-hosting snowplow.js](self hosting snowplow js)), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js`) in for ours:
 
 	sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
 
@@ -190,24 +190,24 @@ When you've entered the page tracking code, your page will look as follows:
 
 [[/setup-guide/images/opentag/8.png]]
 
-We don't need to change any of the default options: it makes sense, for example, to load the SnowPlow page tracking tag at the beginning of the `<head>` section of the web page. (Because it's an async tag, it wont slow down page loads.)
+We don't need to change any of the default options: it makes sense, for example, to load the Snowplow page tracking tag at the beginning of the `<head>` section of the web page. (Because it's an async tag, it wont slow down page loads.)
 
 Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish).
 
 [Back to top] (#top)
 
 <a name="event-tracking" />
-### 2.2 Integrating SnowPlow event tracking tags in OpenTag
+### 2.2 Integrating Snowplow event tracking tags in OpenTag
 
 #### 2.2.1 Setting up the event tracking tag to fire at the right time
 
-We recommend tracking every single event that might occur on a user's journey, including all AJAX events between page loads. The SnowPlow event tracking tags were built to do this.
+We recommend tracking every single event that might occur on a user's journey, including all AJAX events between page loads. The Snowplow event tracking tags were built to do this.
 
-Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'SnowPlow EventTracker' and select the checkbox next to **Custom Script**.
+Log into OpenTag, open up your container and click **+ADD NEW SCRIPT**. Give your script a sensible name like 'Snowplow EventTracker' and select the checkbox next to **Custom Script**.
 
 [[/setup-guide/images/opentag/9.png]]
 
-We want the `EventTracker` to fire every time the `uvHelpers.trackStructEvent` method is called. The method triggers an `OpenTagEvent` to occur on the DOM: we need to tell OpenTag to trigger the SnowPlow EventTracker tag when that event occurs.
+We want the `EventTracker` to fire every time the `uvHelpers.trackStructEvent` method is called. The method triggers an `OpenTagEvent` to occur on the DOM: we need to tell OpenTag to trigger the Snowplow EventTracker tag when that event occurs.
 
 To do this, we need to cinfigure what OpenTag calls a `custom starter`. Click on the **+ Advanced Features** link at the bottom of the screen, and then click the **Filter** tab:
 
@@ -227,7 +227,7 @@ Click on the **CUSTOMISE** button. We now have the opportunity to enter our `Cus
 function (session, cb) {window.addEventListener('OpenTagEvent', cb)}
 ```
 
-This tells OpenTag to add a listener to the `OpenTagEvent`, and to fire the call back (`cb`) function when an event occurs. That call back function will be the SnowPlow event tracking tag, which we will set now.
+This tells OpenTag to add a listener to the `OpenTagEvent`, and to fire the call back (`cb`) function when an event occurs. That call back function will be the Snowplow event tracking tag, which we will set now.
 
 Your screen should look like this:
 
@@ -254,15 +254,15 @@ while (i--) {
 </script>
 ```
 
-The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the SnowPlow event tracker (using `_snaq.push('trackStructEvent'...)`), passing in the relevant values stored in the `Universal Variable` into SnowPlow. Afterwards it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page in quick succession.)
+The above code is  straightforward: it examines the `Events` object in the `Universal Variable` and takes its length. It then cycles through each `Event` in the `Events` object: if the type of event is `struct`, it calls the Snowplow event tracker (using `_snaq.push('trackStructEvent'...)`), passing in the relevant values stored in the `Universal Variable` into Snowplow. Afterwards it removes the reported event from the list: this prevents an event that occured once being reported twice. (If e.g. a number of AJAX events occur on a page in quick succession.)
 
 [[/setup-guide/images/opentag/15.png]]
 
 #### 2.2.3 Ensuring that the event tracking tag only fires _after_ the page tracking tag has fired
 
-The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the SnowPlow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackStructEvent` function that is called in the tag.
+The last step in the event tracking setup is optional but recommended: we should tell OpenTag to only fire event tracking tags _after_ the Snowplow PageTracker tag has fired on a page: the reason is that it is this file that loads `sp.js`, which contains the `trackStructEvent` function that is called in the tag.
 
-Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
+Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the Snowplow PageTracker as shown below, and then save the save the changes.
 
 [[/setup-guide/images/opentag/16.png]]
 
@@ -271,7 +271,7 @@ Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish)
 [Back to top] (#top)
 
 <a name="ecomm-tracking" />
-### 2.3 Integrating SnowPlow ecommerce tracking tags
+### 2.3 Integrating Snowplow ecommerce tracking tags
 
 #### 2.3.1 Creating the ecommerce tracking tag in OpenTag
 
@@ -283,7 +283,7 @@ A new window opens which gives you the opportunity to name the script, and selec
 
 [[/setup-guide/images/opentag/6.png]]
 
-Give the script a suitable name e.g. 'SnowPlow EcommTracker' and select the checkbox by 'Custom Script'. Now we need to enter the SnowPlow ecommerce tracking code into the `Inline HTML` text box:
+Give the script a suitable name e.g. 'Snowplow EcommTracker' and select the checkbox by 'Custom Script'. Now we need to enter the Snowplow ecommerce tracking code into the `Inline HTML` text box:
 
 ```html
 <script type="text/javascript">
@@ -322,7 +322,7 @@ _snaq.push(['trackTrans']);
 
 Copy the above code into the **Inline HTML** box.
 
-The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...])` function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...])` function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to SnowPlow, passing the data stored into SnowPlow proper.
+The code works as follows: it takes the contents of the `Transaction` object declared on the `Universal Variable`. First it uses the `_snaq.push(['addTrans',...])` function, to log transaction level details. (E.g. `order_id`, billing address, delivery address, total, postage etc.) It then looks at the `line_items` that make up the transaction, and calls the `_snaq.push(['addItem'...])` function for every product in the transaction, storing relevant product related data (e.g. `sku`, `product_name`, `unit_price`, `quantity`). Finally it calls the `snaq.push([trackTrans]);` method, which triggers the actual tags to fire to Snowplow, passing the data stored into Snowplow proper.
 
 #### 2.3.2 Triggering the code to fire on the order confirmation page
 
@@ -346,7 +346,7 @@ Save the filter.
 
 We need to ensure that the `EcommTracker` tag fires _after_ the `PageTracker` tag. That is because it is the `PageTracker` tag that loads the `sp.js` file, with the functions that are called by the `EcommTracker` tag. To do this, we create a dependency.
 
-Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the SnowPlow PageTracker as shown below, and then save the save the changes.
+Declaring the depedency in OpenTag is easy: in the toolbar under **Advanced Features** click on the **Dependencies** Tab. A list of available scripts will be shown on the left: select the Snowplow PageTracker as shown below, and then save the save the changes.
 
 [[/setup-guide/images/opentag/16.png]]
 
@@ -378,11 +378,11 @@ Once the message disappears your tags should be live!
 
 There are a number of optional additional steps associated with Tracker Setup:
 
-* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). SnowPlow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
+* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). Snowplow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
 * [Setup campaign tracking] (tracking-your-marketing-campaigns)
-* [Host SnowPlow.js yourself] (self-hosting-snowplow-js)
-* [Modify / hack on SnowPlow.js] (modifying-snowplow-js)
+* [Host Snowplow.js yourself] (self-hosting-snowplow-js)
+* [Modify / hack on Snowplow.js] (modifying-snowplow-js)
 
-Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
 
-[Return to setup guide](Setting-up-SnowPlow).
+[Return to setup guide](Setting-up-Snowplow).

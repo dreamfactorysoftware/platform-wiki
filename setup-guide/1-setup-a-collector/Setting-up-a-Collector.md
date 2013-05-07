@@ -1,10 +1,10 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [Step 1: setup a Collector](Setting-up-a-collector)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 1: setup a Collector](Setting-up-a-collector)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]]
 
-The SnowPlow collector receives data from SnowPlow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the SnowPlow setup process.
+The Snowplow collector receives data from Snowplow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the Snowplow setup process.
 
 1. [Choose a Collector](#choose)
 2. [Setup a Collector](#setup)
@@ -20,7 +20,7 @@ There are currently three collectors available:
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Beta      |
 | [SnowCannon (node.js)] [snowcannon]            | A real-time, node.js based collector that enables user tracking across domains | Beta |
 
-### Are you setting up SnowPlow to track users across a single domain, or multiple domains?
+### Are you setting up Snowplow to track users across a single domain, or multiple domains?
 
 If you are tracking users across a single domain, we recommend setting up the [Cloudfront collector] [cloudfront-collector]. 
 
@@ -44,6 +44,6 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
 [snowcannon]: SnowCannon-setup-guide
-[setup-guide]: Setting-up-SnowPlow
-[tracker-setup]: Setting-up-SnowPlow#wiki-step2
-[emretlrunner]: Setting-up-SnowPlow#wiki-step3
+[setup-guide]: Setting-up-Snowplow
+[tracker-setup]: Setting-up-Snowplow#wiki-step2
+[emretlrunner]: Setting-up-Snowplow#wiki-step3

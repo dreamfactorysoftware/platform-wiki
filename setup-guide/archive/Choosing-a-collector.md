@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Collectors**](choosing-a-collector) 
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**Collectors**](choosing-a-collector) 
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]] 
 

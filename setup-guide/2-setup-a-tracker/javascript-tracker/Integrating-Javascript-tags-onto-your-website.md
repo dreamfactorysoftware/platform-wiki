@@ -1,32 +1,32 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
 
-This guide takes you through the process for integrating SnowPlow's JavaScript tracker into your website or web app.
+This guide takes you through the process for integrating Snowplow's JavaScript tracker into your website or web app.
 
 ## Before you get started...
 
-The following guide covers the process for integrating SnowPlow tracking tags directly onto your website. We recommend integrating SnowPlow via a Tag Management solution. If you wish to integrate SnowPlow tags using a tag management platform, we have provided separate guides for:
+The following guide covers the process for integrating Snowplow tracking tags directly onto your website. We recommend integrating Snowplow via a Tag Management solution. If you wish to integrate Snowplow tags using a tag management platform, we have provided separate guides for:
 
 * [Google Tag Manager](integrating-javascript-tags-with-google-tag-manager)
 * [Qubit's OpenTag](integrating-javascript-tags-with-qubit-opentag)
 
-We recommend using the SnowPlow asyncronous tags. Doing so means that the loading of the SnowPlow tags will not cause site content to load more slowly, thereby providing a better experience for your users.
+We recommend using the Snowplow asyncronous tags. Doing so means that the loading of the Snowplow tags will not cause site content to load more slowly, thereby providing a better experience for your users.
 
 ## Table of Contents
 
-1. [Setting up SnowPlow pageview tracking](#pageview)
+1. [Setting up Snowplow pageview tracking](#pageview)
 2. [Tracking more than Pageviews. (Event tracking, ecommerce tracking, social tracking...)](#events)
 3. [Testing the integration](#testing)
 4. [Next steps](#next-steps)
 
 <a name="pageview"/>
-# Setting up SnowPlow pageview tracking
+# Setting up Snowplow pageview tracking
 
 ### 1.1 Installing the header script
 
 To use `snowplow.js` in an 'async' manner, first add the following script into your website template's `<head>` section:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -41,7 +41,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 #### 1.2 Configuring the header script: setting the Collector endpoint
@@ -73,7 +73,7 @@ _snaq.push(['setCollectorUrl', 'c.snplow.com']);
 ```
 ### 1.3 Configuring the header script: application ID and cookie domain
 
-Setting the collector endpoint is essential for SnowPlow to work. Setting the application ID and cookie domain are optional. For details on setting these, see the (Javascript technicla documentation guide)[Javascript-Tracker.]
+Setting the collector endpoint is essential for Snowplow to work. Setting the application ID and cookie domain are optional. For details on setting these, see the (Javascript technicla documentation guide)[Javascript-Tracker.]
 
 <a name="sync"/>
 ## 2. Synchronous integration
@@ -83,19 +83,19 @@ Setting the collector endpoint is essential for SnowPlow to work. Setting the ap
 To use `snowplow.js` in a 'sync' manner, first add the following script into your website template's `<head>` section:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
 document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
-var snowplowTracker = SnowPlow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
+var snowplowTracker = Snowplow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
 snowplowTracker.trackPageView();
 snowplowTracker.enableLinkTracking();
 } catch ( err ) {}
 </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 ### 2.2 Configuring the header script: setting your collector endpoint
@@ -105,32 +105,32 @@ You need to set the collector endpoint in the header script: this ensures that a
 If you are using the [Cloudfront Collector](setting-up-the-cloudfront-collector)) you will need to do so using the following line:
 
 ```javascript
-var snowplowTracker = SnowPlow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
+var snowplowTracker = Snowplow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
 ```
 
 Simply substitude your Cloudfront domain in for the {{CLOUDFROUNT DOMAIN}} e.g.
 
 ```javascript
-var snowplowTracker = SnowPlow.getTrackerCf('d1x5tduoxffdr7');
+var snowplowTracker = Snowplow.getTrackerCf('d1x5tduoxffdr7');
 ```
 
 If you are using another Collector type (e.g. the [Clojure Collector](setting-up-the-clojure-collector)) you will need to use an alternative `setCollectorUrl` function rather than the `setCollectorCf` to set the Collector endpoint:
 
 ```javascript
-var snowplowTracker = SnowPlow.getTrackerUrl('{{COLLECTOR URL}}');
+var snowplowTracker = Snowplow.getTrackerUrl('{{COLLECTOR URL}}');
 ```
 
 For example, if your collector is at `c.snplow.com` then your tag would contain the line:
 
 ```javascript
-var snowplowTracker = SnowPlow.getTrackerUrl('c.snplow.com');
+var snowplowTracker = Snowplow.getTrackerUrl('c.snplow.com');
 ```
 
 
 <a name="events" />
 ## 3. Tracking more than just page views: event tracking, ecommerce tracking etc.
 
-SnowPlow has been built to track more than simply page views. We believe, as far as possible, that *every* every that can happen on a user journey should be captured in SnowPlow, and that includes every in-page events that might not result in a new page load. (Which are the only events that are captured as by the page view tracking already implemented.) The Javascript tracker incorporates a number of functions to capture a wealth of events including:
+Snowplow has been built to track more than simply page views. We believe, as far as possible, that *every* every that can happen on a user journey should be captured in Snowplow, and that includes every in-page events that might not result in a new page load. (Which are the only events that are captured as by the page view tracking already implemented.) The Javascript tracker incorporates a number of functions to capture a wealth of events including:
 
 1. [Online transactions](javascript-tracker#wiki-ecommerce)
 2. [Ad impressions] (javascript-tracker#wiki-adimps)
@@ -138,7 +138,7 @@ SnowPlow has been built to track more than simply page views. We believe, as far
 4. Item views (e.g. views of specific products, articles)
 5. [Custom events] (javascript-tracker#wiki-events) (i.e. AJAX events that are not included in the above list) e.g. adding an item to basket or pausing a video
 
-Detailed documentation on how to capture the complete range of events possible with SnowPlow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-docuemntation).
+Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-docuemntation).
 
 <a name="testing"/>
 ## Testing the integration
@@ -151,18 +151,18 @@ You can 'kick the tyres' of `snowplow.js` with the example HTML pages available 
 
     snowplow/tracker/examples
 
-Before running these HTML pages, you will make sure to update the `{{CLOUDFRONT DOMAIN}}` to your SnowPlow-supplied Cloudfront domain; if you are using a self-hosted `snowplow.js`, then update that in the HTML files too.
+Before running these HTML pages, you will make sure to update the `{{CLOUDFRONT DOMAIN}}` to your Snowplow-supplied Cloudfront domain; if you are using a self-hosted `snowplow.js`, then update that in the HTML files too.
 
-We recommend using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [firebug] for Firefox to check that SnowPlow's JavaScript tracking is working correctly. Here is what Chrome's Network panel looks like after loading the page and clicking each button once:
+We recommend using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [firebug] for Firefox to check that Snowplow's JavaScript tracking is working correctly. Here is what Chrome's Network panel looks like after loading the page and clicking each button once:
 
 ![network-pane] [network-pane]
 
 Note the three successful (status code 200) `GET`s to `i`. The first of these was triggered by the page load, and then there is one `GET` each for the two user actions (button clicks) that we're tracking. 
-If you have any problems getting this to run, please [contact] [contact] the **SnowPlow Analytics** team.
+If you have any problems getting this to run, please [contact] [contact] the **Snowplow Analytics** team.
 
 ### Testing your own integration
 
-Once you've tested snowplow.js is working, you can test the integration on your own site in exactly the same way: by using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [firebug] for Firefox to check that SnowPlow's JavaScript tracking is working correctly.
+Once you've tested snowplow.js is working, you can test the integration on your own site in exactly the same way: by using Chrome's [Developer Tools] [chrome-dev-tools] or [Firebug] [firebug] for Firefox to check that Snowplow's JavaScript tracking is working correctly.
 
 <a name="next-steps" />
 ## 5. Next steps
@@ -170,12 +170,12 @@ Once you've tested snowplow.js is working, you can test the integration on your 
 There are a number of optional additional steps associated with Tracker Setup:
 
 * [Setup campaign tracking] (tracking-your-marketing-campaigns)
-* [Host SnowPlow.js yourself] (self-hosting-snowplow-js)
-* [Modify / hack on SnowPlow.js] (modifying-snowplow-js)
+* [Host Snowplow.js yourself] (self-hosting-snowplow-js)
+* [Modify / hack on Snowplow.js] (modifying-snowplow-js)
 
-Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
 
-[Return to setup guide](Setting-up-SnowPlow).
+[Return to setup guide](Setting-up-Snowplow).
 
 
 [ga-event-guide]: http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html

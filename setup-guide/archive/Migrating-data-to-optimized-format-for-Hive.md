@@ -1,16 +1,16 @@
-# Converting SnowPlow Cloudfront logs into Hive tables optimised for analysis
+# Converting Snowplow Cloudfront logs into Hive tables optimised for analysis
 
 ## Contents
 
-1. [Why convert SnowPlow Cloudfront logs into data tables with a different format?](#why-convert-cloudfront-logs-into-snowplow-formatted-data-tables) (When we could do analysis on the SnowPlow Cloudfront logs themselves?)
+1. [Why convert Snowplow Cloudfront logs into data tables with a different format?](#why-convert-cloudfront-logs-into-snowplow-formatted-data-tables) (When we could do analysis on the Snowplow Cloudfront logs themselves?)
 2. [Performing the ETL](#performing-the-etl-process)
 3. [Implementing regular (daily) jobs to move data](#implementing-the-daily-etl)
 4. [Using the optimized events table](#using-the-optimized-events-table)
 
 <a name="why-convert-cloudfront-logs-into-snowplow-formatted-data-tables"/>
-## 1. Why convert Cloudfront logs into SnowPlow formatted data tables?
+## 1. Why convert Cloudfront logs into Snowplow formatted data tables?
 
-SnowPlow tracking tags store data about how users have engaged on your website to Amazon S3, via Cloudfront logging. The [snowplow-log-deserializer](https://github.com/snowplow) makes it possible to define a table in Hive populated with the data stored in the SnowPlow cloudfronts logs, and query that data directly.
+Snowplow tracking tags store data about how users have engaged on your website to Amazon S3, via Cloudfront logging. The [snowplow-log-deserializer](https://github.com/snowplow) makes it possible to define a table in Hive populated with the data stored in the Snowplow cloudfronts logs, and query that data directly.
 
 We recommend, however, that rather than doing the analysis directly on that data, transferring it in S3 into a new bucket partitioned by date and user_id. There are two advantages:
 
@@ -40,7 +40,7 @@ There are two parts to performing the ETL:
 1. Copying the data from the log files into the optimised format in S3, using the above script
 2. Deleting (or archiving) the old log files
 
-Running the above query will only copy data from the SnowPlow Cloudfront logs into the partitioned table. It is important that once data has been copied, the log files are archived (e.g. moved into a different bucket) or deleted. If this doesn't happen, the script will become more expensive to run, as it processes all the log files present, so without archiving the cost of performing the query will increase with the data volume.
+Running the above query will only copy data from the Snowplow Cloudfront logs into the partitioned table. It is important that once data has been copied, the log files are archived (e.g. moved into a different bucket) or deleted. If this doesn't happen, the script will become more expensive to run, as it processes all the log files present, so without archiving the cost of performing the query will increase with the data volume.
 
 [ALEX TO WRITE?]
 
@@ -98,5 +98,5 @@ You can then list the partitions that exist:
 
 ![Show partitions](setup-guide/images/04_show-partitions.png)
 
-Note: because the fields in the table are *exactly* the same as those in the SnowPlow Cloudfront logs, any query that works for one works for the other. (For that reason, you can use any of the [recipes](https://github.com/snowplow/snowplow/tree/master/hive/receipes) we document on either table.) However, query performance should be faster (and hence Amazon EMR costs should be lower) if you perform the queries against the partitioned table above, especially if your queries are limited to particular data partitions. (E.g. if you specify a date or user_id rangein you WHERE clause, in which case *only* relevant partitions will be processed to answer your query.)
+Note: because the fields in the table are *exactly* the same as those in the Snowplow Cloudfront logs, any query that works for one works for the other. (For that reason, you can use any of the [recipes](https://github.com/snowplow/snowplow/tree/master/hive/receipes) we document on either table.) However, query performance should be faster (and hence Amazon EMR costs should be lower) if you perform the queries against the partitioned table above, especially if your queries are limited to particular data partitions. (E.g. if you specify a date or user_id rangein you WHERE clause, in which case *only* relevant partitions will be processed to answer your query.)
 

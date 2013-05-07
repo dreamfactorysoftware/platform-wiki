@@ -1,10 +1,10 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]] 
 
 ## Overview
 
-**Trackers** are client- or server-side libraries which track customer behaviour by sending SnowPlow events to a [Collector](collectors).
+**Trackers** are client- or server-side libraries which track customer behaviour by sending Snowplow events to a [Collector](collectors).
 
 ## Tracker documentation
 
@@ -18,4 +18,4 @@ For other trackers (e.g. iOS, Android) and their approximate timelines, please s
 
 ### Protocol
 
-* [SnowPlow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers
+* [Snowplow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers

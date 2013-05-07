@@ -1,35 +1,35 @@
 <a name="top" />
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers)
 
 <a name="overview" />
 ## Overview
 
-SnowPlow trackers fire _events_, which are `GET` requests of a [SnowPlow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET`  requests, trackers can pass data into the collectors, for processing by SnowPlow. 
+Snowplow trackers fire _events_, which are `GET` requests of a [Snowplow collector](collectors), whenever an event on a website or application takes place. By appending parameters and values to the end of those `GET`  requests, trackers can pass data into the collectors, for processing by Snowplow. 
 
-The SnowPlow Tracker Protocol is the list of all the parameters that SnowPlow trackers use when firing events to push data into the [SnowPlow collectors] (collectors). Each parameter maps onto one or more fields in the [SnowPlow events table] (canonical-event-model) employed in storage. Here we document which field in the [SnowPlow events table] (canonical-event-model) each parameter added to the query string maps onto. 
+The Snowplow Tracker Protocol is the list of all the parameters that Snowplow trackers use when firing events to push data into the [Snowplow collectors] (collectors). Each parameter maps onto one or more fields in the [Snowplow events table] (canonical-event-model) employed in storage. Here we document which field in the [Snowplow events table] (canonical-event-model) each parameter added to the query string maps onto. 
 
-SnowPlow has been architected to be as easy as possible for developers to create their own alternative subsystems. This documentation should be used by anyone who would like to build their own tracker: by utilising the parameters documented here, the author of a new tracker can be confident that his / her tracker will work with the rest of the SnowPlow stack, and be confident where the values associated with each parameter on every call will be available to query in SnowPlow, whether that's in Hive or Infobright or another database.
+Snowplow has been architected to be as easy as possible for developers to create their own alternative subsystems. This documentation should be used by anyone who would like to build their own tracker: by utilising the parameters documented here, the author of a new tracker can be confident that his / her tracker will work with the rest of the Snowplow stack, and be confident where the values associated with each parameter on every call will be available to query in Snowplow, whether that's in Hive or Infobright or another database.
 
 Please note that the end point where the `GET` request should be made depends on which [collector](collectors) is used. Refer to the [collectors](collectors) documentation for more information.
 
-In the [first part of this guide](#common), we cover the parameters in the SnowPlow tracker protocol that are common across different event types. [In the second part](#events), we document the parameters that are relevant for specific events that are recognised in the SnowPlow event model. Please note: this model is evolving over time as we incorporate more events and grow the set of fields associated with each of the standard events. In all cases, we do our best to ensure that any changes are backwards compatible. (So we are happy adding new parameters, but do not remove parameters once they have been incorporated.)
+In the [first part of this guide](#common), we cover the parameters in the Snowplow tracker protocol that are common across different event types. [In the second part](#events), we document the parameters that are relevant for specific events that are recognised in the Snowplow event model. Please note: this model is evolving over time as we incorporate more events and grow the set of fields associated with each of the standard events. In all cases, we do our best to ensure that any changes are backwards compatible. (So we are happy adding new parameters, but do not remove parameters once they have been incorporated.)
 
 [Back to top](#top)
 
 
-## The SnowPlow Tracker protocol: individual parameters
+## The Snowplow Tracker protocol: individual parameters
 
 - 1. [Common parameters (platform and event independent)](#common)
   - 1.1 [Application parameters](#appid)
   - 1.2 [Date / time parameters](#timestamp)
   - 1.3 [Event / transaction parameters](#event2)
-  - 1.4 [SnowPlow tracker version](#version)
+  - 1.4 [Snowplow tracker version](#version)
   - 1.5 [User parameters](#user)
   - 1.6 [Device parameters](#device)
 - 2. [Platform-specific parameters](#platform)
   - 2.1 [Web-specific parameters](#web)
   - 2.2 [Internet of Things-specific parameters](#iot)
-- 3. [SnowPlow events](#events)
+- 3. [Snowplow events](#events)
   - 3.1 [Pageview events](#pageview)
   - 3.2 [Page pings](#pagepings)
   - 3.3 [Link clicks](#linkclick)
@@ -54,7 +54,7 @@ In the [first part of this guide](#common), we cover the parameters in the SnowP
 
 The application ID parameter is used to distinguish data from different website and applications.
 
-As a SnowPlow user, you can define application IDs for each of your different ditial products and track behaviour of your users across all of them using the same SnowPlow instance by setting the `app_id` in your tracker of choice.
+As a Snowplow user, you can define application IDs for each of your different ditial products and track behaviour of your users across all of them using the same Snowplow instance by setting the `app_id` in your tracker of choice.
 
 **Potential platform values**: (to finalise and complete...)
 
@@ -78,7 +78,7 @@ Back to [common field types](#common).
 | `dtm`         | `dvce_dt`, `dvce_tm` and `dvce_epoch` | int |Timestamp when event occurred, as recorded by client device | Yes  | 1361553733313 |                         |
 | `tz`          | `os_timezone`    | text     | Operating system time zone    | Yes              | `Europe%2FLondon`
 
-It is possible to record the time that an event occurs on the clients-side (i.e. in the tracker), or server side (i.e. by the collector). When using the Javascript tracker to track web events, it makes sense to rely on the collector logs to identify the time that events occured, as SnowPlow tracking tags are fired as events happen, and so the time they are received server-side should be an accurate representation of the time the event being tracked occured. In other situations (e.g. when using mobile trackers), the time the collector receives the data may be sometime after an event occurred, and so it makes sense to record the timestamp on the client-side, in which case this is handled by the tracker.
+It is possible to record the time that an event occurs on the clients-side (i.e. in the tracker), or server side (i.e. by the collector). When using the Javascript tracker to track web events, it makes sense to rely on the collector logs to identify the time that events occured, as Snowplow tracking tags are fired as events happen, and so the time they are received server-side should be an accurate representation of the time the event being tracked occured. In other situations (e.g. when using mobile trackers), the time the collector receives the data may be sometime after an event occurred, and so it makes sense to record the timestamp on the client-side, in which case this is handled by the tracker.
 
 The tracker can pass a client-side timestamp to the collector using the above parameters.
 
@@ -92,18 +92,18 @@ Back to [common field types](#common).
 | `e`           | `event`          | text     | Event type                    | Yes              | (See table [below](#events))|
 | `tid`         | `txn_id`         | text     | Transaction ID                | Yes              | 352583                    |
 
-Every line of data passed from the tracker should contain an event field (`e`) to denote the type of event being tracked. For details about the potential values that `e` can take, and the corresponding event types that they refer to, see the section detailing [SnowPlow events](#events).
+Every line of data passed from the tracker should contain an event field (`e`) to denote the type of event being tracked. For details about the potential values that `e` can take, and the corresponding event types that they refer to, see the section detailing [Snowplow events](#events).
 
 The transaction ID (`tid`) can be used in situations where there is a risk of duplicate records for the same event. In this case, the transaction ID can be used to aid deduping of records.
 
 Back to [common field types](#common).
 
 <a name="version" />
-#### 1.4 SnowPlow Tracker Version
+#### 1.4 Snowplow Tracker Version
 
 | **Parameter** | **Maps to**      | **Type** | **Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
-| `tv`          | `v_tracker`      | text     | Identifier for SnowPlow tracker | No             | `js-0.5.1`                |
+| `tv`          | `v_tracker`      | text     | Identifier for Snowplow tracker | No             | `js-0.5.1`                |
 
 For deployments where multiple trackers are used (e.g. for businesses that use the [Javascript tracker] (javascript-tracker) to track events on their domains alongside the [No-JS tracker] (no-js-tracker) to track events on 3rd party domains), it is useful to be able to distinguish data generated from each tracker. It can also be useful when tracker versions are updated, so that it is easier to see if an update in tracker accounts for a feature of the data at analysis time.
 
@@ -181,9 +181,9 @@ In addition, there is a set of device-specific parameters that only makes sense 
 Back to [common field types](#common).
 
 <a name="events" />
-### 3. SnowPlow events
+### 3. Snowplow events
 
-At its heart, SnowPlow is a platform for granular tracking of events. Currently, SnowPlow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
+At its heart, Snowplow is a platform for granular tracking of events. Currently, Snowplow understands the following events. In the tracker protocol, each event is denoted by an `e=...` parameter.
 
 |    | **Type of tracking**          | **Event type (value of `e`)** |
 |:---|:------------------------------|:--------------------------|
@@ -198,9 +198,9 @@ At its heart, SnowPlow is a platform for granular tracking of events. Currently,
 | 3.9| [Custom structured event](#event)| `se`                   |
 | 3.10| [Custom unstructured event](#event)| `ue`               |
 
-We are working to make the data model for each of the above events richer, and expand the 'SnowPlow event library' to support a wider selection of events that businesses running SnowPlow wish to track.
+We are working to make the data model for each of the above events richer, and expand the 'Snowplow event library' to support a wider selection of events that businesses running Snowplow wish to track.
 
-In each case, we use the `&e` parameter to indicate the type of event that is being tracked by SnowPlow to the value indicated in the above table
+In each case, we use the `&e` parameter to indicate the type of event that is being tracked by Snowplow to the value indicated in the above table
 
 <a name="pageview" />
 #### 3.1 Pageview tracking
@@ -321,7 +321,7 @@ As well as setting `e=ad`, there are four specific parameters that can be set wh
 | `ad_ad`       | `adi_advertiserid`| text    | Advertiser ID        | No               | `diageo`         |
 | `ad_uid`      | `adi_userid`      | text    | User (viewer) ID     | No               | `0cbffbf8-a9c5-426f-9369-6e53f1677efc` |
 
-Note: if possible, it often makes sense to pass in the `user_id` generated by your ad server into the `ad_uid` field, so that this can be matched with the `user_id` generated by SnowPlow at analysis time.
+Note: if possible, it often makes sense to pass in the `user_id` generated by your ad server into the `ad_uid` field, so that this can be matched with the `user_id` generated by Snowplow at analysis time.
 
 Example:
 
@@ -456,7 +456,7 @@ Back to the [top](#top).
 <a name="event" />
 #### 3.9. Custom structured event tracking
 
-Custom event tracking is used to track events that are not natively supported by SnowPlow. (Like ad impressions, page views, ecomm transactions.)
+Custom event tracking is used to track events that are not natively supported by Snowplow. (Like ad impressions, page views, ecomm transactions.)
 
 As well as setting `e=ue`, there are five custom event specific parameters that can be set:
 
@@ -510,7 +510,7 @@ Back to [event tracking](#events).
 <a name="" />
 #### 3.10 Custom unstructured event tracking
 
-Custom unstructured event tracking is used to track events that are not natively supported by SnowPlow and allow arbitrary name: value pairs associated with the event.
+Custom unstructured event tracking is used to track events that are not natively supported by Snowplow and allow arbitrary name: value pairs associated with the event.
 
 As well as setting `e=se`, there are three custom event specific parameters that can be set:
 

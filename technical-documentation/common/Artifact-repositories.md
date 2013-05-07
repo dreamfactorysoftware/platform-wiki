@@ -1,4 +1,4 @@
-As part of our commitment to a loosely-coupled architecture for SnowPlow, where possible we extract SnowPlow functionality into standalone code components and libraries, which you can use in your own software development - even if you're not using SnowPlow.
+As part of our commitment to a loosely-coupled architecture for Snowplow, where possible we extract Snowplow functionality into standalone code components and libraries, which you can use in your own software development - even if you're not using Snowplow.
 
 We publish these code components and libraries to the following artifact repositories:
 
@@ -38,7 +38,7 @@ And then execute:
 
 There are three currently:
 
-1. [Scala Util] [scala-util-maven] - reusable Scala code from SnowPlow Analytics ([GitHub repo] [scala-util-github])
+1. [Scala Util] [scala-util-maven] - reusable Scala code from Snowplow Analytics ([GitHub repo] [scala-util-github])
 2. [RefererParser] [referer-parser-maven] - referer URL parsing in Java/Scala ([GitHub repo] [referer-parser-github])
 3. [Scala MaxMind Geo-IP] [scala-maxmind-geoip-maven] - Scala wrapper for the MaxMind Java Geo-IP library ([GitHub repo] [scala-maxmind-repo-github])
 
@@ -49,7 +49,7 @@ There are three currently:
 Add this repository to your SBT config:
 
 ```scala
-val snowplow = "SnowPlow Analytics Maven repo" at "http://maven.snplow.com/releases/"
+val snowplow = "Snowplow Analytics Maven repo" at "http://maven.snplow.com/releases/"
 ```
 
 #### Clojure
@@ -57,7 +57,7 @@ val snowplow = "SnowPlow Analytics Maven repo" at "http://maven.snplow.com/relea
 Add this into your `project.clj` for Leiningen:
 
 ```clojure
-:repositories [["SnowPlow Analytics Maven repo" "http://maven.snplow.com/releases/"]
+:repositories [["Snowplow Analytics Maven repo" "http://maven.snplow.com/releases/"]
                ...]
 ```
 
@@ -73,7 +73,7 @@ Following code can be merged into your `HOME/.m2/settings.xml` to be able to use
       <repositories>
         <repository>
           <id>com.snowplowanalytics</id>
-          <name>SnowPlow Analytics</name>
+          <name>Snowplow Analytics</name>
           <url>http://maven.snplow.com/releases</url>
           <releases>
             <enabled>true</enabled>
@@ -90,7 +90,7 @@ Following code can be merged into your `HOME/.m2/settings.xml` to be able to use
 
 ## See also
 
-As well as these repositories for SnowPlow code components and libraries, the SnowPlow Analytics team also provide public hosting for some of the SnowPlow sub-components.
+As well as these repositories for Snowplow code components and libraries, the Snowplow Analytics team also provide public hosting for some of the Snowplow sub-components.
 
 Please see the [[Hosted assets]] wiki page for more information.
 

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**ETL**](choosing-an-etl-module) > [**Hive ETL Setup**](hive-etl-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**ETL**](choosing-an-etl-module) > [**Hive ETL Setup**](hive-etl-setup)
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 <a name="intro"/>
 ## Introduction
 
-To make it easier to run SnowPlow's Hive-based ETL (extract, transform, load) process on Amazon Elastic MapReduce, we have written the [SnowPlow::EmrEtlRunner] [emr-etl-runner] Ruby application.
+To make it easier to run Snowplow's Hive-based ETL (extract, transform, load) process on Amazon Elastic MapReduce, we have written the [Snowplow::EmrEtlRunner] [emr-etl-runner] Ruby application.
 
 EmrEtlRunner is a command-line tool which runs and monitors our [Hive-based ETL process] [hive-etl] on EMR, as well as performing the required housekeeping tasks (such as archiving the raw event logs).
 
@@ -34,10 +34,10 @@ This guide will take you through installing and configuring EmrEtlRunner on your
 ### Assumptions
 
 This guide assumes that you have already integrated one or more
-[SnowPlow trackers][trackers] into your website or app, and have deployed a
-[SnowPlow collector] [collectors] which is logging raw SnowPlow events to Amazon S3.
+[Snowplow trackers][trackers] into your website or app, and have deployed a
+[Snowplow collector] [collectors] which is logging raw Snowplow events to Amazon S3.
 
-If you have not completed these steps yet, then please consult the [Getting started] [getting-started] page on the SnowPlow Analytics website.
+If you have not completed these steps yet, then please consult the [Getting started] [getting-started] page on the Snowplow Analytics website.
 
 This guide also assumes that you have administrator access to a Unix-based server (e.g. Ubuntu, OS X, Fedora) on which you can install EmrEtlRunner and schedule a regular cronjob.
 
@@ -64,18 +64,18 @@ in which you will be running your ETL jobs.
 <a name="s3-buckets"/>
 #### S3 buckets
 
-EmrEtlRunner moves the SnowPlow event data through four distinct buckets during
+EmrEtlRunner moves the Snowplow event data through four distinct buckets during
 the ETL process. These buckets are as follows:
 
-1. **In Bucket** - contains the raw SnowPlow event logs to process
+1. **In Bucket** - contains the raw Snowplow event logs to process
 2. **Processing Bucket** - where EmrEtlRunner moves the raw event
    logs for processing
 3. **Out Bucket** - where EmrEtlRunner stores the processed
-   SnowPlow-format event files
-4. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow
+   Snowplow-format event files
+4. **Archive Bucket** - where EmrEtlRunner moves the raw Snowplow
    event logs after successful processing
 
-You will have already setup the In Bucket when you were configuring your SnowPlow
+You will have already setup the In Bucket when you were configuring your Snowplow
 collector - but the other three buckets do not exist yet.
 
 So, create the other three buckets in the same AWS region as your In Bucket. Take
@@ -86,7 +86,7 @@ Done? Right, now we can install EmrEtlRunner.
 <a name="installation"/>
 ### Installation
 
-First, checkout the SnowPlow repository and navigate to the EmrEtlRunner root:
+First, checkout the Snowplow repository and navigate to the EmrEtlRunner root:
 
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/3-etl/emr-etl-runner
@@ -122,7 +122,7 @@ completed our [Ruby and RVM setup guide](Ruby-and-RVM-setup).
 ### Configuration
 
 EmrEtlRunner requires a YAML format configuration file to run. There is a configuration
-file template available in the SnowPlow GitHub repository at 
+file template available in the Snowplow GitHub repository at 
 [`/3-etl/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
 
 ```yaml
@@ -153,7 +153,7 @@ file template available in the SnowPlow GitHub repository at
   :collector_format: cloudfront # No other formats supported yet
   :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the serde throwing exceptions
   :storage_format: non-hive # Or switch to 'hive' if you're only using Hive for analysis
-# Can bump the below as SnowPlow releases new versions
+# Can bump the below as Snowplow releases new versions
 :snowplow:
   :serde_version: 0.5.3
   :hive_hiveql_version: 0.5.4
@@ -176,7 +176,7 @@ or "eu-west-1".
 Within the `s3` section, the `buckets` variables are as follows:
 
 * `assets` holds the ETL job's static assets (HiveQL script plus Hive
-  deserializer). You can leave this as-is (pointing to SnowPlow
+  deserializer). You can leave this as-is (pointing to Snowplow
   Analytics' [own public bucket containing these assets](Hosted-assets))
   or replace this with your own private bucket containing the assets
 * `log` is the bucket in which Amazon EMR will record processing
@@ -229,7 +229,7 @@ This section is where we configure exactly how we want our ETL process to operat
 2. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
 3. `storage_format`, can be "hive" or "non-hive". We discuss this further below
 
-`storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright (or eventually, Postgres, Google BigQuery, SkyDB et al). We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "non-hive".
+`storage_format` is an important setting. If you choose "hive", then the Snowplow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright (or eventually, Postgres, Google BigQuery, SkyDB et al). We believe that most people will want to load their Snowplow events into other systems, so the default setting here is "non-hive".
 
 #### snowplow
 
@@ -246,13 +246,13 @@ having to update the EmrEtlRunner application itself.
 
 There are two usage modes for EmrEtlRunner:
 
-1. **Rolling mode** where EmrEtlRunner processes whatever raw SnowPlow
+1. **Rolling mode** where EmrEtlRunner processes whatever raw Snowplow
    event logs it finds in the In Bucket
 2. **Timespan mode** where EmrEtlRunner only processes those raw
-   SnowPlow event logs whose timestamp is within a timespan specified
+   Snowplow event logs whose timestamp is within a timespan specified
    on the command-line
 
-Timespan mode can be useful if you have a large backlog of raw SnowPlow
+Timespan mode can be useful if you have a large backlog of raw Snowplow
 event logs and you want to start by processing just a small subset of
 those logs.
 
@@ -294,7 +294,7 @@ So for example you could run **only** the Hive job with the command-line option:
 #### Rolling mode
 
 Invoking EmrEtlRunner with just the `--config` option puts it into rolling
-mode, processing all the raw SnowPlow event logs it can find in your In
+mode, processing all the raw Snowplow event logs it can find in your In
 Bucket:
 
     $ bundle exec bin/snowplow-emr-etl-runner --config my-config.yml
@@ -319,7 +319,7 @@ Note that you do not have to specify both the start and end dates:
 2. Specify `--end` only and the timespan will run from the beginning of
    time up to your end date, inclusive
 
-If your raw SnowPlow logs are generated by the Amazon CloudFront collector,
+If your raw Snowplow logs are generated by the Amazon CloudFront collector,
 please note that CloudFront timestamps in **UTC**.
 
 <a name="scheduling"/>
@@ -341,7 +341,7 @@ To consider your different scheduling options in turn:
 ### cron
 
 The recommended way of scheduling the ETL process is as a daily cronjob using the 
-shell script available in the SnowPlow GitHub repository at 
+shell script available in the Snowplow GitHub repository at 
 [`/3-etl/emr-etl-runner/bin/snowplow-emr-etl-runner.sh`] [bash-script].
 
 You need to edit this script and update the three variables:

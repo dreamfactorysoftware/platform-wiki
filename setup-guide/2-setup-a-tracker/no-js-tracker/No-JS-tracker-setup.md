@@ -1,8 +1,8 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**No-JS tracker**](No-JS-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**No-JS tracker**](No-JS-tracker-setup)
 
-The No-JS tracker (pixel tracker) enables you to track page views of HTML pages where it is not possible to insert standard SnowPlow Javascript tracking tags: for example HTML emails or pages hosted with 3rd party service providers.
+The No-JS tracker (pixel tracker) enables you to track page views of HTML pages where it is not possible to insert standard Snowplow Javascript tracking tags: for example HTML emails or pages hosted with 3rd party service providers.
 
-The tracker is effectively a wizard that generates an HTML tracking tag based on parameters that you pass into it via a webform. The sourcecode for the wizard is [available on the Github repo] [no-js-tracker-repo]. A hosted version of the wizard is available on the [SnowPlow Analytics website] [no-js-wizard].
+The tracker is effectively a wizard that generates an HTML tracking tag based on parameters that you pass into it via a webform. The sourcecode for the wizard is [available on the Github repo] [no-js-tracker-repo]. A hosted version of the wizard is available on the [Snowplow Analytics website] [no-js-wizard].
 
 Using the No-JS tracker is a simple, three step process:
 
@@ -27,7 +27,7 @@ Identify the event you wish to track. This may be opening a particular email tha
 
 Navigate to the [wizard] [no-js-wizard].
 
-**2.1. Enter an application ID**. If you are running SnowPlow to track user behaviour across multiple applications, you may want to have a different application ID for each. Most SnowPlow users track behaviour across a single website or webapp. For those users, it probably makes sense to set the application ID to the same value they use on their core website.
+**2.1. Enter an application ID**. If you are running Snowplow to track user behaviour across multiple applications, you may want to have a different application ID for each. Most Snowplow users track behaviour across a single website or webapp. For those users, it probably makes sense to set the application ID to the same value they use on their core website.
 
 **2.2. Select `http` or `https` depending on the scheme used on the pageview you wish to track**. If you are tracking a user opening an email, you should use `https`. If you're tracking a pageview on a 3rd party website where you're showing some content, you will need to check the scheme for the particular page you wish to track.
 
@@ -63,9 +63,9 @@ For further information on the No-JS tracker, see this [introductory blog post] 
 <a name="next-steps" />
 ## Next steps
 
-Finished setting up your trackers? Now you can proceed to [setting up the EmrEtlRunner](Setting-up-SnowPlow#wiki-step3).
+Finished setting up your trackers? Now you can proceed to [setting up the EmrEtlRunner](Setting-up-Snowplow#wiki-step3).
 
-Return to the [setup guide](Setting-up-SnowPlow).
+Return to the [setup guide](Setting-up-Snowplow).
 
 
 

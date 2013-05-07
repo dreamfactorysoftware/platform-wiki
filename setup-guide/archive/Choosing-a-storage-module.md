@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](SnowPlow setup guide) > [**Storage**](choosing-a-storage-module) 
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**Storage**](choosing-a-storage-module) 
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
@@ -6,11 +6,11 @@
 
 | **Storage database**                           | **Description**                                     | **Status**       |
 |:-----------------------------------------------|:----------------------------------------------------|:-----------------|
-| [S3 / Apache Hive](s3-hive-storage-setup)      | Store your SnowPlow events data as flat files in Amazon S3. Use Apache Hive (developed at Facebook) to query that data directly. Scales horizontally. (To petabytes and beyond!) | Production-ready |
+| [S3 / Apache Hive](s3-hive-storage-setup)      | Store your Snowplow events data as flat files in Amazon S3. Use Apache Hive (developed at Facebook) to query that data directly. Scales horizontally. (To petabytes and beyond!) | Production-ready |
 | [Infobright](infobright-storage-setup)         | Open source columnar database. Crunch through terabytes of data fast. | Production-ready |
 
 
-## Databases on the SnowPlow roadmap
+## Databases on the Snowplow roadmap
 
 We plan to grow the number of storage modules available, to include:
 
@@ -31,7 +31,7 @@ In general, we recommend using Infobright for smaller volumes of data (up to Ter
 
 Note: if you start off with one storage solution e.g. Infobright, it is reasonably straightforward to migrate to another if need be.
 
-## The SnowPlow Storage Loader
+## The Snowplow Storage Loader
 
-To make it easier to automate the loading of data from Amazon S3 into the different databases that SnowPlow supports, we've built a [Storage Loader] (storageloader setup). Setup instructions can be found [here](storageloader setup). 
+To make it easier to automate the loading of data from Amazon S3 into the different databases that Snowplow supports, we've built a [Storage Loader] (storageloader setup). Setup instructions can be found [here](storageloader setup). 
 

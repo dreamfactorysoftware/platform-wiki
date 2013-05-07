@@ -1,33 +1,33 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Storage**](storage documentation)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Storage**](storage documentation)
 
 <a name="top" />
 # Canonical data structure  
 
 1. [Overview](#overview)  
-2. [The SnowPlow canonical data structure: understanding the individual fields](#model)  
+2. [The Snowplow canonical data structure: understanding the individual fields](#model)  
 3. [A note about data storage formats](#note)  
 
 <a name="overview" />
 ## 1. Overview
 
-In order to analyse SnowPlow data, it is important to understand how it is structured. We have tried to make the structure of SnowPlow data as simple, logical, and easy-to-query as possible.
+In order to analyse Snowplow data, it is important to understand how it is structured. We have tried to make the structure of Snowplow data as simple, logical, and easy-to-query as possible.
 
-* **Single table** SnowPlow data is stored in a single, "fat" (many columns) table. We call this the *SnowPlow events table*
+* **Single table** Snowplow data is stored in a single, "fat" (many columns) table. We call this the *Snowplow events table*
 * **Each line represents one event**. Each line in the table represents a single *event*, be that a *page view*, *add to basket*, *play video*, *like* etc.
-* **Immutable log**. The SnowPlow data table is designed to be immutable: the data in each line should not change over time. Data points that we would expect to change over time (e.g. what cohort a particular user belongs to, how we classify a particular visitor) can be derived from SnowPlow data. However, our recommendation is that these derived fields should be defined and calculated at analysis time, stored in a separate table and joined to the *SnowPlow events table* when performing any analysis
-* **Structured events**. SnowPlow explicitly recognises particular events that are common in web analytics (e.g. page views, transactions, ad impressions) as 'first class citizerns'. We have a model for the types of fields that may be captured when those events occur, and specific columns in the database that correspond to those fields
-* **Unstructured events**. We intend to build out support for unstructured events. (So that SnowPlow users will be able to construct their own arbritary JSONs of fields for their own event types.) When supported, these JSONs will be stored as-is e.g. in a single 'unstructured event' column in Hive
+* **Immutable log**. The Snowplow data table is designed to be immutable: the data in each line should not change over time. Data points that we would expect to change over time (e.g. what cohort a particular user belongs to, how we classify a particular visitor) can be derived from Snowplow data. However, our recommendation is that these derived fields should be defined and calculated at analysis time, stored in a separate table and joined to the *Snowplow events table* when performing any analysis
+* **Structured events**. Snowplow explicitly recognises particular events that are common in web analytics (e.g. page views, transactions, ad impressions) as 'first class citizerns'. We have a model for the types of fields that may be captured when those events occur, and specific columns in the database that correspond to those fields
+* **Unstructured events**. We intend to build out support for unstructured events. (So that Snowplow users will be able to construct their own arbritary JSONs of fields for their own event types.) When supported, these JSONs will be stored as-is e.g. in a single 'unstructured event' column in Hive
 * Whilst some fields are event specific (e.g. `tr_city` representing the city in a delivery address for an online transaction), others are platform specific (e.g. `page_url` for events that occur on the web) and some are relevant across platforms, devices and events (e.g. `dt` and `tm`, the date and time an event occurs, or `app_id`, the application ID).
-* **Evolving over time**. We are building out the canonical data structure to make its understanding of individual event-types richer (more events, more fields per events) and to support more platforms. This needs to be done in a collaborative way with the SnowPlow community, so that the events and fields that you need to track can easily be accommodated in this data structure. Please [get in touch] (Talk-to-us) to discuss your ideas and requirements
+* **Evolving over time**. We are building out the canonical data structure to make its understanding of individual event-types richer (more events, more fields per events) and to support more platforms. This needs to be done in a collaborative way with the Snowplow community, so that the events and fields that you need to track can easily be accommodated in this data structure. Please [get in touch] (Talk-to-us) to discuss your ideas and requirements
 
 <a name="model" />
-## 2. The SnowPlow canonical data structure: understanding the individual fields
+## 2. The Snowplow canonical data structure: understanding the individual fields
 
 - 2.1 [**Common fields (platform and event independent)**](#common)  
   - 2.1.1 [Application fields](#application)  
   - 2.1.2 [Date / time fields](#date-time)  
   - 2.1.3 [Event / transaction fields](#eventtransaction)  
-  - 2.1.4 [SnowPlow version fields](#version)  
+  - 2.1.4 [Snowplow version fields](#version)  
   - 2.1.5 [User-related fields](#user)  
   - 2.1.6 [Device and operating system fields](#device)  
   - 2.1.7 [Location fields](#location)
@@ -57,7 +57,7 @@ In order to analyse SnowPlow data, it is important to understand how it is struc
 | `app_id`        | text     | Application ID  | Yes       | Yes       | 'angry-birds'  |
 | `platform`      | text     | Platform        | Yes       | Yes       | 'web'          |    
 
-The application ID is used to distinguish different applications that are being tracked by the same SnowPlow stack.
+The application ID is used to distinguish different applications that are being tracked by the same Snowplow stack.
 
 The platform ID is used to distinguish the same app running on different platforms e.g. `iOS` vs `web`.
 
@@ -93,7 +93,7 @@ A complete list of event types is given [here] (#event).
 Back to [top](#top).
 
 <a name="version" />
-#### 2.1.4 SnowPlow version fields
+#### 2.1.4 Snowplow version fields
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
@@ -109,8 +109,8 @@ Back to [top](#top).
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | `user_id`       | text     | Unique ID set by business | No | Yes | 'jon.doe@email.com' |
-| `domain_userid` | text     | User ID set by SnowPlow using 1st party cookie | No | Yes | 'bc2e92ec6c204a14' |
-| `network_userid`| text     | User ID set by SnowPlow using 3rd party cookie | No | Yes | 'ecdff4d0-9175-40ac-a8bb-325c49733607' |
+| `domain_userid` | text     | User ID set by Snowplow using 1st party cookie | No | Yes | 'bc2e92ec6c204a14' |
+| `network_userid`| text     | User ID set by Snowplow using 3rd party cookie | No | Yes | 'ecdff4d0-9175-40ac-a8bb-325c49733607' |
 | `user_ipaddress` | text    | Ueser IP address | No       | Yes       | '92.231.54.234' |
 | `domain_sessionidx`      | int      | A visit / session identifier | No | Yes | 3              |
 | `user_dimension1` -> `user_dimension10` | text | Custom dimensions that are set at a user-level | No | No | 'member' |
@@ -165,7 +165,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `page_urlpath`  | text     | Path to page    | No        | Yes       | '/product/index.html' |
 | `page_urlquery` | text     | Querystring     | No        | Yes       | 'id=GTM-DLRG'  |
 | `page_urlfragment` | text  | Fragment aka anchor | No    | Yes       | '4-conclusion' |
-| `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualise and interrogate SnowPlow data - SnowPlow Analytics' |
+| `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualise and interrogate Snowplow data - Snowplow Analytics' |
 | `refr_urlscheme`| text     | Referer scheme  | No        | Yes       | 'http'         |
 | `refr_urlhost`  | text     | Referer host    | No        | Yes       | 'www.bing.com' |
 | `refr_urlport`  | int      | Referer port    | No        | Yes       | 80 |
@@ -206,7 +206,7 @@ Back to [top](#top).
 <a name="event" />
 ### 2.3 Event-specific fields
 
-SnowPlow includes specific fields to capture data associated with specific events.
+Snowplow includes specific fields to capture data associated with specific events.
 
 #### 2.3.1 Event vendor
 
@@ -216,9 +216,9 @@ Going forwards, we plan to enable users to define their own events and data mode
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | `event_vendor`  | text     | Company that developed the event model | Yes | Yes | 'com.snowplowanalytics' |
 
-Note that to date, all event types have been defined by SnowPlow. Also note that `event_vendor` values follow the [Java package naming convention](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).
+Note that to date, all event types have been defined by Snowplow. Also note that `event_vendor` values follow the [Java package naming convention](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html).
 
-SnowPlow currently supports (or will support in the near future) the following event types:
+Snowplow currently supports (or will support in the near future) the following event types:
 
 |        | **Event type**                                              | **Value of `event` field in model**    |
 |:-------|:------------------------------------------------------------|:---------------------------------------|
@@ -347,7 +347,7 @@ Back to [top](#top).
 <a name="customstruct" />
 #### 2.3.9 Custom structured events
 
-If you wish to track an event that SnowPlow does not recognise as a first class citizen (i.e. one of the events listed above), then you can track them using the generic 'custom structured events'. Currently there are five fields that are available to store data related to custom events: we plant to increase this to 25 in the near future:
+If you wish to track an event that Snowplow does not recognise as a first class citizen (i.e. one of the events listed above), then you can track them using the generic 'custom structured events'. Currently there are five fields that are available to store data related to custom events: we plant to increase this to 25 in the near future:
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
@@ -366,7 +366,7 @@ Back to [top](#top).
 <a name="customunstruct" />
 #### 2.3.10 Custom unstructured events
 
-If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. SnowPlow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Infobright, for example.
+If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. Snowplow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Infobright, for example.
 
 | **Field**     | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:--------------|:---------|:----------------|:----------|:----------|:---------------|
@@ -377,9 +377,9 @@ Back to [top](#top).
 
 ## 3. A note about storage data formats
 
-* Currently, SnowPlow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout) and Infobright (for processing by any SQL-compatible analytics package).
+* Currently, Snowplow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout) and Infobright (for processing by any SQL-compatible analytics package).
 * There are minor differences between the structure of data in both formats. These relate to data structures that Hive supports (e.g. maps, JSONs) that Infobright does not
 * Nevertheless, the structure of both is similar: representing a fat table
-* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical SnowPlow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data
+* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical Snowplow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data
 
 Back to [top](#top).

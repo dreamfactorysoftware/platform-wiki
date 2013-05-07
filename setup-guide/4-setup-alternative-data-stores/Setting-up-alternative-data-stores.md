@@ -1,15 +1,15 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
 1. [Overview](#overview)
-2. [Setting up SnowPlow to work with additional data stores](#datastores)
+2. [Setting up Snowplow to work with additional data stores](#datastores)
 
 ## Overview
 
-SnowPlow supports storing your data in multiple different data stores:
+Snowplow supports storing your data in multiple different data stores:
 
 | **Storage**               | **Description**                                     | **Status**       |
 |:--------------------------|:----------------------------------------------------|:-----------------|
@@ -21,23 +21,23 @@ By [setting up the EmrEtlRunner](setting-up-the-emretlrunner) (in the previous s
 
 If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio]), you will want to load your data into a columnar database like Infobright to support enable use of these tools.
 
-The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in multiple data sources including Infobright. Setting up SnowPlow so that you can maintain a copy of your data in a database like Infobright is a two step process:
+The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in multiple data sources including Infobright. Setting up Snowplow so that you can maintain a copy of your data in a database like Infobright is a two step process:
 
 1. [Create a database and table in Infobright for the data] [setup-infobright]
 2. Setup the [StorageLoader] [storage-loader-setup] so that it regularly updates that table with the latest data from S3
 
 <a name="datastores" />
-## Setting up SnowPlow to work with additional data stores
+## Setting up Snowplow to work with additional data stores
 
-Select the appropriate option below to walk through the steps necessary to setup SnowPlow with the following data stores:
+Select the appropriate option below to walk through the steps necessary to setup Snowplow with the following data stores:
 
-1. [Set up Redshift to work with SnowPlow] [setup-redshift]
-2. [Set up Infobright to work with SnowPlow] [setup-infobright]
-3. Setup SkyDB to work with SnowPlow (coming soon)
+1. [Set up Redshift to work with Snowplow] [setup-redshift]
+2. [Set up Infobright to work with Snowplow] [setup-infobright]
+3. Setup SkyDB to work with Snowplow (coming soon)
 
 **After** you have setup one or more of the above databases, you need to:
 
-* [Set up the StorageLoader to regularly transfer SnowPlow data into your new store] [storage-loader-setup]
+* [Set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
 
 [emr]: http://aws.amazon.com/elasticmapreduce/
 [infobright]: http://www.infobright.org/

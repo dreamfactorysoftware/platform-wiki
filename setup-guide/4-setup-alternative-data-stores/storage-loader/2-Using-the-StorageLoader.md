@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](2-Using-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](2-Using-the-StorageLoader)
 
 1. [Overview](#usage-overview)
 2. [Command-line options](#cli-options)
@@ -53,7 +53,7 @@ example, and then invoking StorageLoader like so:
 
 ### locate command missing
 
-StorageLoader depends on SnowPlow's [Infobright Ruby Loader] [irl],
+StorageLoader depends on Snowplow's [Infobright Ruby Loader] [irl],
 which in turn uses the `locate` shell command. If your shell complains
 that this is missing, in which case you can install it separately.
 

@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [1: Installing EmrEtlRunner](1-Installing-EmrEtlRunner)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 3: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [1: Installing EmrEtlRunner](1-Installing-EmrEtlRunner)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
@@ -20,7 +20,7 @@ _In theory EmrEtlRunner can be deployed onto a Windows-based server, using the W
 
 ### 2.1 Hardware
 
-You will need to setup EmrEtlRunner on your own server. A number of people choose to do so on an EC2 instance (thereby keeping all of SnowPlow in the Amazon Cloud). If you do so, please note that you **must not use a `t1.micro` instance**.  You should at the very least use an `m1.small` instance.
+You will need to setup EmrEtlRunner on your own server. A number of people choose to do so on an EC2 instance (thereby keeping all of Snowplow in the Amazon Cloud). If you do so, please note that you **must not use a `t1.micro` instance**.  You should at the very least use an `m1.small` instance.
 
 ### 2.2 Software
 
@@ -40,16 +40,16 @@ For details on how to do this, please see the section "Configuring the client" i
 <a name="s3-buckets"/>
 ### 2.4 S3 buckets
 
-EmrEtlRunner moves the SnowPlow event data through four distinct buckets during the ETL process. These buckets are as follows:
+EmrEtlRunner moves the Snowplow event data through four distinct buckets during the ETL process. These buckets are as follows:
 
-1. **In Bucket** - contains the raw SnowPlow event logs to process
+1. **In Bucket** - contains the raw Snowplow event logs to process
 2. **Processing Bucket** - where EmrEtlRunner moves the raw event logs for processing
-3. **Out Bucket** - where EmrEtlRunner stores the processed SnowPlow-format event files
+3. **Out Bucket** - where EmrEtlRunner stores the processed Snowplow-format event files
 4. **Bad Rows Bucket** - Hadoop ETL only. Where EmrEtlRunner stores any raw event lines which fail validation
 5. **Errors Bucket** - Hadoop ETL only. Where EmrEtlRunner stores any raw event lines which caused an unexpected error
-5. **Archive Bucket** - where EmrEtlRunner moves the raw SnowPlow event logs after successful processing
+5. **Archive Bucket** - where EmrEtlRunner moves the raw Snowplow event logs after successful processing
 
-You will have already setup the In Bucket when you were configuring your SnowPlow collector - but the other three buckets do not exist yet. 
+You will have already setup the In Bucket when you were configuring your Snowplow collector - but the other three buckets do not exist yet. 
 
 **Important:** Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your **Out Bucket** in "us-east-1" region if you are using Redshift. (This is because Redshift is only currently available in the 'us-east-1' region, and Redshift only supports bulk loading from S3 in the same region as Redshift is located.)
 
@@ -60,7 +60,7 @@ Done? Right, now we can install EmrEtlRunner.
 <a name="installation"/>
 ## 3. Installation
 
-First, checkout the SnowPlow repository and navigate to the EmrEtlRunner root:
+First, checkout the Snowplow repository and navigate to the EmrEtlRunner root:
 
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/3-etl/emr-etl-runner
@@ -79,7 +79,7 @@ If you have any problems installing, please double-check that you have successfu
 <a name="configuration"/>
 ## 4. Configuration
 
-EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the SnowPlow GitHub repository at [`/3-etl/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
+EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the Snowplow GitHub repository at [`/3-etl/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
 
 ```yaml
 :aws:
@@ -108,12 +108,12 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :master_instance_type: m1.small
     :slave_instance_type: m1.small
 :etl:
-  :job_name: SnowPlow ETL # Give your job a name
+  :job_name: Snowplow ETL # Give your job a name
   :implementation: hadoop # Or 'hive' for legacy ETL
   :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
   :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the ETL throwing exceptions. Doesn't work for Hadoop ETL yet
   :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
-# Can bump the below as SnowPlow releases new versions
+# Can bump the below as Snowplow releases new versions
 :snowplow:
   :hadoop_etl_version: 0.2.0 # Version of the Hadoop ETL
   :serde_version: 0.5.5 # Version of the Hive deserializer
@@ -134,13 +134,13 @@ The `region` variable should hold the AWS region in which your four data buckets
 
 Within the `s3` section, the `buckets` variables are as follows:
 
-* `assets` holds the ETL job's static assets (HiveQL script plus Hive deserializer). You can leave this as-is (pointing to SnowPlow   Analytics' [own public bucket containing these assets](Hosted-assets)) or replace this with your own private bucket containing the assets
+* `assets` holds the ETL job's static assets (HiveQL script plus Hive deserializer). You can leave this as-is (pointing to Snowplow   Analytics' [own public bucket containing these assets](Hosted-assets)) or replace this with your own private bucket containing the assets
 * `log` is the bucket in which Amazon EMR will record processing information for this job run, including logging any errors  
 * `in` is where you specify your In Bucket
 * `processing` is where you specify your Processing Bucket - **always include a sub-folder on this variable (see below for why)**. 
 * `out` is where you specify your Out Bucket - **always include a sub-folder on this variable (see below for why)**. If you are loading data into Redshift, the bucket specified here **must** be located in a region where Amazon has launched Redshift, because Redshift can only bulk load data from S3 that is located in the same region as the Redshift instance, and Redshift has not, to-date, been launched across all Amazon regions.
-* `out_bad_rows` is where you specify your Bad Rows Bucket. This will store any raw SnowPlow log lines which did not pass the ETL’s validation, along with their validation errors. This is only required for the 'hadoop' ETL implementation (our latest version). It should be left blank if you are running the legacy 'hive' implementation
-* `out_errors` is where you specify your Errors Bucket. If you set continue_on_unexpected_error to true (see below), then this bucket will contain any raw SnowPlow log lines which caused an unexpected error
+* `out_bad_rows` is where you specify your Bad Rows Bucket. This will store any raw Snowplow log lines which did not pass the ETL’s validation, along with their validation errors. This is only required for the 'hadoop' ETL implementation (our latest version). It should be left blank if you are running the legacy 'hive' implementation
+* `out_errors` is where you specify your Errors Bucket. If you set continue_on_unexpected_error to true (see below), then this bucket will contain any raw Snowplow log lines which caused an unexpected error
 * `archive` is where you specify your Archive Bucket
 
 Each of the bucket variables must start with an S3 protocol - either `s3://` or `s3n://`. Each variable can include a sub-folder within the bucket as required, and a trailing slash is optional.
@@ -155,9 +155,9 @@ Each of the bucket variables must start with an S3 protocol - either `s3://` or 
 
 Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] (Enable-logging-to-S3) stage of the Clojure Collector setup).
 
-Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that SnowPlow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
+Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that Snowplow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
 
-**Important 4:** if you are loading SnowPlow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in a region where Amazon has launched Redshift. That is because currently Redshift is only available in some Regions, and Amazon only supports bulk loading of data from S3 into Redshift from within the same region. 
+**Important 4:** if you are loading Snowplow data into Redshift, you need to make sure that the bucket specified in `:out:` is located in a region where Amazon has launched Redshift. That is because currently Redshift is only available in some Regions, and Amazon only supports bulk loading of data from S3 into Redshift from within the same region. 
 
 **Example bucket settings**
 
@@ -175,7 +175,7 @@ Please note that all buckets must exist prior to running EmrEtlRunner.
 
 ### emr
 
-The EmrEtlRunner makes use of Amazon Elastic Mapreduce (EMR) to process the raw log files and output the cleaned, enriched SnowPlow events table.
+The EmrEtlRunner makes use of Amazon Elastic Mapreduce (EMR) to process the raw log files and output the cleaned, enriched Snowplow events table.
 
 This section of the config file is where we configure the operation of EMR. The variables with defaults can typically be left as-is, but you will need to set:
 
@@ -198,7 +198,7 @@ This section is where we configure exactly how we want our ETL process to operat
 4. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
 5. `storage_format`, can be "redshift", "mysql-infobright" or "hive". We discuss this further below
 
-`storage_format` is an important setting. If you choose "hive", then the SnowPlow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their SnowPlow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
+`storage_format` is an important setting. If you choose "hive", then the Snowplow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their Snowplow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
 
 Note that `storage_format` is ignored if you set `implementation` to "hadoop": currently the Hadoop ETL can only write out in Redshift format.
 

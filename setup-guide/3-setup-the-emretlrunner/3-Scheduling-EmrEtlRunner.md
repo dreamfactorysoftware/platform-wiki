@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 3: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 3: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
 
 1. [Overview](#scheduling-overview)
 2. [cron](#cron)
@@ -27,7 +27,7 @@ To consider your different scheduling options in turn:
 ## 2. cron
 
 The recommended way of scheduling the ETL process is as a daily cronjob using the 
-shell script available in the SnowPlow GitHub repository at 
+shell script available in the Snowplow GitHub repository at 
 [`/3-etl/emr-etl-runner/bin/snowplow-emr-etl-runner.sh`] [bash-script].
 
 You need to edit this script and update the three variables:
@@ -93,5 +93,5 @@ Now you have installed and scheduled [EmrEtlRunner] [emr-etl-runner], you have a
 [jenkins-tutorial]: http://blog.lusis.org/blog/2012/01/23/lowtech-monitoring-with-jenkins/
 [windows-task-scheduler]: http://en.wikipedia.org/wiki/Windows_Task_Scheduler#Task_Scheduler_2.0
 
-[storage-loader]: https://github.com/snowplow/snowplow/wiki/Setting-up-SnowPlow#wiki-step4
-[emr-analysis]: https://github.com/snowplow/snowplow/wiki/Setting-up-SnowPlow#wiki-step5
+[storage-loader]: https://github.com/snowplow/snowplow/wiki/Setting-up-Snowplow#wiki-step4
+[emr-analysis]: https://github.com/snowplow/snowplow/wiki/Setting-up-Snowplow#wiki-step5

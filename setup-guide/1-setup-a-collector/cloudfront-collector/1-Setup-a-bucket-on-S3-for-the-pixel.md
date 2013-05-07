@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 1. Setup a bucket on S3 for the pixel
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 1. Setup a bucket on S3 for the pixel
 
 Log into your AWS account on [console.aws.amazon.com](https://console.aws.amazon.com) and select **S3** from the list of services offered. (Under **Storage & Content Delivery**.) You should be presented with a screen like the one below:
 
@@ -35,4 +35,4 @@ Proceed to [step 2: upload the tracking pixel](2-upload-the-tracking-pixel).
 
 Return to an [overview of the Cloudfront Collector setup](Setting-up-the-Cloudfront-collector).
 
-Return to the [setup guide](setting-up-SnowPlow).
+Return to the [setup guide](setting-up-Snowplow).

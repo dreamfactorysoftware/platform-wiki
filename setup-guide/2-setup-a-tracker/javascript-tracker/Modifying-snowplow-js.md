@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Modifying SnowPlow.js](Modifying-SnowPlow-js)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Modifying Snowplow.js](Modifying-Snowplow-js)
 
 ## Overview
 
@@ -66,19 +66,19 @@ A note: in theory it should be possible to use any JavaScript minifier or pipeli
 
 ## 5. Upload the minified JavaScript
 
-Use your standard asset pipelining strategy to upload the minified `sp.js` JavaScript to your servers. Note that to avoid "mixed content" warnings, SnowPlow expects the `sp.js` JavaScript to be available both via HTTP and via HTTPS.
+Use your standard asset pipelining strategy to upload the minified `sp.js` JavaScript to your servers. Note that to avoid "mixed content" warnings, Snowplow expects the `sp.js` JavaScript to be available both via HTTP and via HTTPS.
 
 ## 6. Test your updated JavaScript
 
 As a final step, you will want to just check that your customised `sp.js` JavaScript is working okay.
 
-To do this, please follow the testing instructions at the end of the guide to [Integrating SnowPlow tags directly onto your website] (Integrating Javascript tags onto your website#testing).
+To do this, please follow the testing instructions at the end of the guide to [Integrating Snowplow tags directly onto your website] (Integrating Javascript tags onto your website#testing).
 
 ## Next steps
 
-Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3).
 
-Return to the [setup guide] (Setting-up-SnowPlow).
+Return to the [setup guide] (Setting-up-Snowplow).
 
 [aws]: http://aws.amazon.com/
 [yuic]: http://developer.yahoo.com/yui/compressor/

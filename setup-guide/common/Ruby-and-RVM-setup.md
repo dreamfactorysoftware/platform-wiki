@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a short guide showing you how to setup [Ruby] [ruby] with [RVM] [rvm] (Ruby Version Manager), the recommended environment for running the SnowPlow Ruby applications in.
+This is a short guide showing you how to setup [Ruby] [ruby] with [RVM] [rvm] (Ruby Version Manager), the recommended environment for running the Snowplow Ruby applications in.
 
 This guide was written for [Ubuntu Server 12.10] [ubuntu], but should work with minor changes in Debian or other Linux distributions.
 
@@ -32,7 +32,7 @@ Save the above file and **close this terminal** before proceeding. That way any 
 
 ## 3. Install a specific version of Ruby
 
-Now we can install all the required version of Ruby simply. The SnowPlow Ruby applications use Ruby 1.9.3, so let's install this:
+Now we can install all the required version of Ruby simply. The Snowplow Ruby applications use Ruby 1.9.3, so let's install this:
 
 	$ rvm install 1.9.3
 
@@ -43,9 +43,9 @@ Now we can install all the required version of Ruby simply. The SnowPlow Ruby ap
 
 ## 4. Project-specific settings
 
-Any SnowPlow Ruby projects should have a `.rvmrc` file in their root, which specifies the Gem file name and the Ruby version to use.
+Any Snowplow Ruby projects should have a `.rvmrc` file in their root, which specifies the Gem file name and the Ruby version to use.
 
-That's it! You are now ready to install any SnowPlow Ruby application, such as:
+That's it! You are now ready to install any Snowplow Ruby application, such as:
 
 1. [EmrEtlRunner](EmrEtlRunner-setup)
 2. [StorageLoader](StorageLoader-setup)

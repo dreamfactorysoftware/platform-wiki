@@ -1,16 +1,16 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with SnowPlow] (Setting-up-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with Snowplow] (Setting-up-Infobright)
 
-Setting up SnowPlow to work with Infobright is a five step process:
+Setting up Snowplow to work with Infobright is a five step process:
 
 1. [Installing ICE](#install)
 2. [Configuring ICE](#config)
 3. [Testing ICE](#test)
-4. [Setting up the SnowPlow database and events table](#snowplow)
-5. [Automating the loading of SnowPlow data into Infobright](#storageloader)
+4. [Setting up the Snowplow database and events table](#snowplow)
+5. [Automating the loading of Snowplow data into Infobright](#storageloader)
 
-Note: if you already have Infobright up and running, you can skip straight to [step 5: Setting up the SnowPlow database and events table](#snowplow)
+Note: if you already have Infobright up and running, you can skip straight to [step 5: Setting up the Snowplow database and events table](#snowplow)
 
 ## 1. Installing ICE
 
@@ -178,13 +178,13 @@ Alternatively you can also test by running Navicat Lite or similar and logging i
 [Back to top](#top)
 
 <a name="snowplow" />
-## 4. Setting up the SnowPlow database and events table
+## 4. Setting up the Snowplow database and events table
 
-Now that you've got ICE up and running, its time to setup a database for SnowPlow on it, and create the SnowPlow events table in it.
+Now that you've got ICE up and running, its time to setup a database for Snowplow on it, and create the Snowplow events table in it.
 
-We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/snowplow/snowplow/tree/master/4-storage/infobright-storage) section of the [SnowPlow Github repo](https://github.com/snowplow/snowplow).
+We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/snowplow/snowplow/tree/master/4-storage/infobright-storage) section of the [Snowplow Github repo](https://github.com/snowplow/snowplow).
 
-First, checkout the SnowPlow repository and navigate to the Infobright storage folder:
+First, checkout the Snowplow repository and navigate to the Infobright storage folder:
 
     $ git clone git@github.com:snowplow/snowplow.git
     $ cd snowplow/4-storage/infobright-storage
@@ -195,15 +195,15 @@ Now run the `setup.sh` script, passing in your Infobright username and password 
 
 The `setup.sh` script will run the two 'sql' files in the [sql](https://github.com/snowplow/snowplow) folder:
 
-1. [setup_infobright.sql](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the SnowPlow database and creates a table in it called `events`, where the SnowPlow event-level data will be stored
-2. [verify_infobright](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the SnowPlow database and events table in your Infobright installion.
+1. [setup_infobright.sql](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the Snowplow database and creates a table in it called `events`, where the Snowplow event-level data will be stored
+2. [verify_infobright](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the Snowplow database and events table in your Infobright installion.
 
 [Back to top](#top)
 
 <a name="storageloader" />
-## 5. Automating the loading of SnowPlow data into Infobright
+## 5. Automating the loading of Snowplow data into Infobright
 
-Now you have setup Infobright and a database / table in it for SnowPlow data, you are ready to [setup the StorageLoader to regularly upload SnowPlow data into the table] [storage-loader-for-infobright]. Click [here] [storage-loader-for-infobright] for step-by-step instruction on how.
+Now you have setup Infobright and a database / table in it for Snowplow data, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader-for-infobright]. Click [here] [storage-loader-for-infobright] for step-by-step instruction on how.
 
 [Back to top](#top)
 

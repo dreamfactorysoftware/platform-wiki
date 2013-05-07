@@ -1,11 +1,11 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-SnowPlow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+Snowplow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
 
   - 3.1 [Pageviews](#page)  
     - 3.1.1 [`trackPageView`](#trackPageView)  
@@ -33,9 +33,9 @@ SnowPlow has been built to enable users to track a wide range of events that occ
 <a name="overview" />
 ## 1. Overview
 
-The [SnowPlow Javascript tracker](https://github.com/snowplow/snowplow/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the SnowPlow Javascript tags.
+The [Snowplow Javascript tracker](https://github.com/snowplow/snowplow/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the Snowplow Javascript tags.
 
-Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [snowplow.js](https://github.com/snowplow/snowplow/blob/master/1-trackers/javascript-tracker/js/snowplow.js), that trigger GET requests of the SnowPlow pixel. The Javascript functions append data points to be passed into SnowPlow onto the query string for the GET requests. These then get logged by the SnowPlow [collector](collectors). For a full list of data points that can be passed into SnowPlow in this way, please refer to the [SnowPlow tracker protocol](snowplow-tracker-protocol) documentation.
+Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [snowplow.js](https://github.com/snowplow/snowplow/blob/master/1-trackers/javascript-tracker/js/snowplow.js), that trigger GET requests of the Snowplow pixel. The Javascript functions append data points to be passed into Snowplow onto the query string for the GET requests. These then get logged by the Snowplow [collector](collectors). For a full list of data points that can be passed into Snowplow in this way, please refer to the [Snowplow tracker protocol](snowplow-tracker-protocol) documentation.
 
 The Javascript tracker supports both syncronous and asyncronous tags. We recommend the asyncronous tags in nearly all instances, as these do not slow down page load times. 
 
@@ -52,7 +52,7 @@ There are two "global parameters" that should be set for the Javascript tracker:
 These are generally set as part of the pageview tracking tags, before the actual `trackPageView` method is called e.g. 
 
 ```javascript
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -66,7 +66,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 <a name="endpoint" />
@@ -91,7 +91,7 @@ So if your domain is `d3rkrsqld9gmqf`, you would include:
 _snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
 ```
 
-in your SnowPlow tag.
+in your Snowplow tag.
 
 
 [Back to top](#top)
@@ -111,7 +111,7 @@ E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would i
 _snaq.push(['setCollectorUrl', 'my-company.c.snplow.com'])
 ```
 
-in your SnowPlow tags.
+in your Snowplow tags.
 
 [Back to top](#top)
 
@@ -156,15 +156,15 @@ Note: this will only set the user ID on further events fired while the user is o
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 <a name="page" />
 ### 3.1 Pageviews
 
-Page views are tracked using the `trackPageView` method. This is generally part of the first SnowPlow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setAppId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
+Page views are tracked using the `trackPageView` method. This is generally part of the first Snowplow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setAppId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
 
 ```javascript
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -178,7 +178,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 <a name="trackPageView" />
@@ -221,7 +221,7 @@ _snaq.push(['enableActivityTracking', 30, 10]);
 
 The first ping would occur after 30 seconds, and subsequent pings every 10 seconds as long as the user continued to browse the page actively.
 
-Note: in general this is executed as part of the main SnowPlow tracking tag. As a result, you can elect to enable this on specific pages.
+Note: in general this is executed as part of the main Snowplow tracking tag. As a result, you can elect to enable this on specific pages.
 
 [Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
@@ -229,11 +229,11 @@ Note: in general this is executed as part of the main SnowPlow tracking tag. As 
 <a name="ecommerce" />
 ### 3.3 Ecommerce tracking
 
-Modelled on Google Analytics ecommerce tracking capability, SnowPlow uses three methods that have to be used together track online transactions:
+Modelled on Google Analytics ecommerce tracking capability, Snowplow uses three methods that have to be used together track online transactions:
 
 1. **Create a transaction object**. Use `addTrans()` method to initialize a transaction object. This will be the object that is loaded with all the data relevant to the specific transaction that is being tracked including all the items in the order, the prices of the items, the price of shipping and the `order_id`.
 2. **Add items to the transaction.** Use the `addItem()` method to add data about each individual item to the transaction object.
-3. **Submit the transaction to SnowPlow** using the trackTrans() method, once all the relevant data has been loaded into the object.
+3. **Submit the transaction to Snowplow** using the trackTrans() method, once all the relevant data has been loaded into the object.
 
 <a name="addTrans" >
 #### 3.3.1 `addTrans`
@@ -350,7 +350,7 @@ _snaq.push(['trackTrans']);
     '1'               // quantity - required
   ]);
 
-  // trackTrans sends the transaction to SnowPlow tracking servers.
+  // trackTrans sends the transaction to Snowplow tracking servers.
   // Must be called last to commit the transaction.
   _snaq.push(['trackTrans']); //submits transaction to the collector
 
@@ -413,12 +413,12 @@ Campaign tracking is used to identify the source of traffic coming to a website.
 
 At the highest level, we can distinguish **paid** traffic (that derives from ad spend) with **non paid** traffic: visitors who come to the website by entering the URL directly, clicking on a link from a referrer site or clicking on an organic link returned in a search results, for example.
 
-In order to identify **paid** traffic, SnowPlow users need to set five query parameters on the links used in ads. SnowPlow checks for the presence of these query parameters on the web pages that users load: if it finds them, it knows that that user came from a paid source, and stores the values of those parameters so that it is possible to identify the paid source of traffic exactly.
+In order to identify **paid** traffic, Snowplow users need to set five query parameters on the links used in ads. Snowplow checks for the presence of these query parameters on the web pages that users load: if it finds them, it knows that that user came from a paid source, and stores the values of those parameters so that it is possible to identify the paid source of traffic exactly.
 
-If the query parameters are not present, SnowPlow reasons that the user is from a **non paid** source of traffic. It then checks the page referrer (the url of the web page the user was on before visiting our website), and uses that to deduce the source of traffic:
+If the query parameters are not present, Snowplow reasons that the user is from a **non paid** source of traffic. It then checks the page referrer (the url of the web page the user was on before visiting our website), and uses that to deduce the source of traffic:
 
-1. If the URL is identified as a search engine, the traffic medium is set to "organic" and SnowPlow tries to derive the search engine name from the referrer URL domain and the keywords from the  query string.
-2. If the URL is a non-search 3rd party website, the medium is set to "referrer". SnowPlow derives the source from the referrer URL domain.
+1. If the URL is identified as a search engine, the traffic medium is set to "organic" and Snowplow tries to derive the search engine name from the referrer URL domain and the keywords from the  query string.
+2. If the URL is a non-search 3rd party website, the medium is set to "referrer". Snowplow derives the source from the referrer URL domain.
 
 <a name="identifying-paid-sources" />
 #### 3.5.1 Identifying paid sources
@@ -435,12 +435,12 @@ We want to be able to identify people who've clicked on ads e.g. in a marketing 
 <a href="http://mysite.com/myproduct.html?utm_source=newsletter-october&utm_medium=email&utm_campaign=cn0201">Visit website</a>
 ```
 
-For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at http://mysite.com/myproduct.html.) But SnowPlow then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = cn0201.
+For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at http://mysite.com/myproduct.html.) But Snowplow then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = cn0201.
 
 <a name="anatomy-of-the-query-parameters" />
 #### 3.5.2 Anatomy of the query parameters
 
-SnowPlow uses the same query parameters used by Google Analytics. Because of this, SnowPlow users who are also using GA do not need to do any additional work to make their campaigns trackable in SnowPlow as well as GA. Those parameters are:
+Snowplow uses the same query parameters used by Google Analytics. Because of this, Snowplow users who are also using GA do not need to do any additional work to make their campaigns trackable in Snowplow as well as GA. Those parameters are:
 
 | **Parameter**        | **Name**              | **Description**                                     |
 |:--------------------:|:---------------------:|:---------------------------------------------------:|
@@ -459,7 +459,7 @@ The parameters are descibed in the [Google Analytics help page] [gahelppage]. Go
 <a name="adimps" />
 ### 3.6 Ad impression tracking
 
-SnowPlow tracking code can be included in ad tags in order to track impressions. This is used by e.g. ad networks to identify which sites and web pages users visit across a network, so that they can be segmented, for example.
+Snowplow tracking code can be included in ad tags in order to track impressions. This is used by e.g. ad networks to identify which sites and web pages users visit across a network, so that they can be segmented, for example.
 
 Impression tracking is accomplished using the `trackImpression` method.
 
@@ -473,26 +473,26 @@ The method takes four parameters:
 |     `BannerID` | Yes           | Adserver identifier for the ad banner (creative) being displayed                             |
 |   `CampaignID` | No            | Adserver identifier for the ad campaign which the banner belongs to                          |
 | `AdvertiserID` | No            | Adserver identifier for the advertiser which the campaign belongs to                         |
-|       `UserID` | No            | Adserver identifier for the web user. Not to be confused with SnowPlow's own user identifier |
+|       `UserID` | No            | Adserver identifier for the web user. Not to be confused with Snowplow's own user identifier |
 
 You will want to set these arguments programmatically, across all of your ad zones/slots - for guidelines on how to achieve this with the [OpenX adserver] [openx], please see the following sub-sections.
 
-#### 3.6.2 Example: implementing impression tracking with SnowPlow and OpenX
+#### 3.6.2 Example: implementing impression tracking with Snowplow and OpenX
 
 Most ad servers enable you to append custom code to your ad tags. Here's what the zone append functionality looks like in the OpenX adserver (OnRamp edition): 
 
 ![zoneappend] [zoneappend]
 
-You will need to populate the ad zone append field with SnowPlow tags for **every ad zone/unit** which you use to serve ads across your site or network. Read on for the SnowPlow HTML code to use for OpenX. 
+You will need to populate the ad zone append field with Snowplow tags for **every ad zone/unit** which you use to serve ads across your site or network. Read on for the Snowplow HTML code to use for OpenX. 
 
-#### OpenX: SnowPlow impression tracking using magic macros
+#### OpenX: Snowplow impression tracking using magic macros
 
 Because OpenX has a feature called [magic macros] [magicmacros], it is relatively straightforward to pass the banner, campaign and user ID arguments into the call to `trackImpression()` (advertiser ID is not available through magic macros).
 
-The full HTML code to append, using asynchronous SnowPlow invocation, looks like this:
+The full HTML code to append, using asynchronous Snowplow invocation, looks like this:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -505,25 +505,25 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d107t
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
-Once you have appended this code to all of your active ad zones, SnowPlow should be collecting all of your ad impression data.
+Once you have appended this code to all of your active ad zones, Snowplow should be collecting all of your ad impression data.
 
 [Back to top](#top)
 
 <a name="custom-structured-events" />
 ### 3.7 Tracking custom structured events
 
-There are likely to be a large number of AJAX events that can occur on your site, for which a specific tracking method is part of SnowPlow. Examples include:
+There are likely to be a large number of AJAX events that can occur on your site, for which a specific tracking method is part of Snowplow. Examples include:
 
 * Playing a video
 * Adding an item to basket
 * Submitting a lead form
 
-Our philosophy in creating SnowPlow is that users should capture "every" consumer interaction and work out later how to use this data. This is different from traditional web analytics and business intelligence, that argues that you should first work out what you need, and only then start capturing the data. 
+Our philosophy in creating Snowplow is that users should capture "every" consumer interaction and work out later how to use this data. This is different from traditional web analytics and business intelligence, that argues that you should first work out what you need, and only then start capturing the data. 
 
-As part of a SnowPlow implementation, therefore, we recommend that you identify every type of AJAX interaction that a user might have with your site: each one of these is an event that will not be captured as part of the standard page view tracking. All of them are candidates to track using `trackStructEvent`, if none of the other event-specific methods outlined above are appropriate.
+As part of a Snowplow implementation, therefore, we recommend that you identify every type of AJAX interaction that a user might have with your site: each one of these is an event that will not be captured as part of the standard page view tracking. All of them are candidates to track using `trackStructEvent`, if none of the other event-specific methods outlined above are appropriate.
 
 #### 3.7.1 `trackStructEvent`
 

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**ETL**](etl)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**ETL**](etl)
 
 ## Overview
 
@@ -14,13 +14,13 @@ There should be three main advantages to our new Hadoop-based ETL process over o
 2. **Allows more complex enrichments** - we have pushed our Hive deserializer a long way, but for more complex enrichments such as referer parsing and geo-IP lookups, we need a more robust Hadoop-based approach
 3. **Supports aggregate processing** - our current Hive-based ETL process is row-based - meaning that all processing happens at the level of an individual event. A Hadoop-based approach will support aggregate processing such as de-duping, grouping events and so on
 
-To find out more, please see our blog post, [The SnowPlow development roadmap for the ETL step - from ETL to enrichment] [etl-blog-post].
+To find out more, please see our blog post, [The Snowplow development roadmap for the ETL step - from ETL to enrichment] [etl-blog-post].
 
 ## Status
 
-We plan to release our first prototype of the new Hadoop-based ETL process in SnowPlow version **0.8.0**, the next major release of SnowPlow. For more information, please see our [Product roadmap] [roadmap].
+We plan to release our first prototype of the new Hadoop-based ETL process in Snowplow version **0.8.0**, the next major release of Snowplow. For more information, please see our [Product roadmap] [roadmap].
 
-To see how the Hadoop ETL component is developing, check out the [feature/scalding-etl] [hadoop-branch] branch in our main SnowPlow repository.
+To see how the Hadoop ETL component is developing, check out the [feature/scalding-etl] [hadoop-branch] branch in our main Snowplow repository.
 
 [scalding]: https://github.com/twitter/scalding
 [cascading]: https://github.com/twitter/scalding

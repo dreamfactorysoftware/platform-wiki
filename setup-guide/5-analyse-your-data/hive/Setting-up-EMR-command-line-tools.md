@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 5: Get started analysing SnowPlow data**](Getting-started-analysing-SnowPlow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up the EMR command line tools]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up the EMR command line tools]]
 
 1. [Before you get started...](#intro)
 2. [A note on OSes](#oses)
@@ -106,7 +106,7 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 
 * Name the bucket. (You'll need top pick a name that is unique across Amazon S3, to `snowplow-analysis` will not be an option, unfortunately 
 
-* Select which Region you want the bucket located in. Because we're based in the UK, we've picked Ireland: pick the data center that makes the most sense for you. (Most likely the same location as the S3 buckets with the raw SnowPlow data you intend to analyse.) Click the *create* button.
+* Select which Region you want the bucket located in. Because we're based in the UK, we've picked Ireland: pick the data center that makes the most sense for you. (Most likely the same location as the S3 buckets with the raw Snowplow data you intend to analyse.) Click the *create* button.
 
 * Now update `credentials.json` with the `log-uri`. This will be `s3n://` + the bucket name + `/`. For us, then 
 
@@ -201,4 +201,4 @@ is now working. Next up, you can proceed to the guide to [[running Hive using th
 <a name="next-steps" />
 ## 5. Next steps
 
-All done setting up the command-line tools? Then [get started querying your SnowPlow data with Hive](Running-Hive-using-the-command-line-tools).
+All done setting up the command-line tools? Then [get started querying your Snowplow data with Hive](Running-Hive-using-the-command-line-tools).

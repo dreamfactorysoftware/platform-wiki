@@ -1,15 +1,15 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with SnowPlow] (Setting-up-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with Snowplow] (Setting-up-Infobright)
 
 Setting up Redshift is an X step process:
 
 1. [Launch a cluster](#launch)
 2. [Authorize client connections to your cluster](#authorise)
 3. [Connect to your cluster](#connect)
-4. [Setting up the SnowPlow database and events table](#db)
-5. [Generating Redshift-format data from SnowPlow](#etl)
-6. [Automating the loading of SnowPlow data into Redshift](#load)
+4. [Setting up the Snowplow database and events table](#db)
+5. [Generating Redshift-format data from Snowplow](#etl)
+6. [Automating the loading of Snowplow data into Redshift](#load)
 
 <a name="launch" />
 ## 1. Launch a Redshift Cluster
@@ -120,21 +120,21 @@ The Redshift cluster is now visible on Navicat, alongside every other database i
 TO WRITE
 
 <a name="db" />
-## 4. Setting up the SnowPlow events table
+## 4. Setting up the Snowplow events table
 
-Now that you have Redshift up and running, you need to create your SnowPlow events table.
+Now that you have Redshift up and running, you need to create your Snowplow events table.
 
-The SnowPlow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the SnowPlow events table.
+The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the Snowplow events table.
 
 <a name="" />
-## 5. Generating Redshift-format data from SnowPlow
+## 5. Generating Redshift-format data from Snowplow
 
-Now you need to generate some SnowPlow events in a Redshift-friendly format. To do this, you will need to [setup the EmrEtlRunner to process your raw data and turn them into SnowPlow events] [emr-etl-runner]. Click [here] [emr-etl-runner] for step-by-step instructions on how.
+Now you need to generate some Snowplow events in a Redshift-friendly format. To do this, you will need to [setup the EmrEtlRunner to process your raw data and turn them into Snowplow events] [emr-etl-runner]. Click [here] [emr-etl-runner] for step-by-step instructions on how.
 
 <a name="load" />
-## 6. Automating the loading of SnowPlow data into Redshift
+## 6. Automating the loading of Snowplow data into Redshift
 
-Now that you have your SnowPlow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload SnowPlow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
+Now that you have your Snowplow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
 
 [Back to top](#top).
 

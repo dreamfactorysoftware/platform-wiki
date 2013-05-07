@@ -1,11 +1,11 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Set your tracker to point at the Clojure collector endpoint]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Set your tracker to point at the Clojure collector endpoint]]
 
 Now that you've set up your Clojure collector, you need to configure your tracker to send event data to it.
 
 Assuming you're using the [Javascript tracker][javascript-tracker], you'll need to modify your Javascript tracking tags to set the correct end point. The standard tracking tags look as follows:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -19,7 +19,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 The line...
@@ -47,7 +47,7 @@ _snaq.push(['attachUserId', false]);
 So, the complete tag will look like this:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -62,7 +62,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
 Next: [[update the EmrEtlRunner configuration YAML file]]

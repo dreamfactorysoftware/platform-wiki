@@ -1,13 +1,13 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Self-hosting SnowPlow.js](Self-hosting-snowplow-js)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Self-hosting Snowplow.js](Self-hosting-snowplow-js)
 
 ## Overview
 
-We recommend self-hosting the SnowPlow tracking JavaScript, `snowplow.js` as it does have some definite advantages over using a third-party-hosted JavaScript:
+We recommend self-hosting the Snowplow tracking JavaScript, `snowplow.js` as it does have some definite advantages over using a third-party-hosted JavaScript:
 
 1. Hosting your own JavaScript allows you to use your own JavaScript minification and asset pipelining approach (e.g. bundling all JavaScripts into one minified JavaScript)
 2. As [Douglas Crockford] [crockford] put it about third-party JavaScripts: _"it is extremely unwise to load code from servers you do not control."_
 
-The alternative to self-hosting `snowplow.js` is to use the version hosted by **SnowPlow Analytics**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets)). But if you want to self-host `snowplow.js`, please read on...
+The alternative to self-hosting `snowplow.js` is to use the version hosted by **Snowplow Analytics**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets)). But if you want to self-host `snowplow.js`, please read on...
 
 ## Contents
 
@@ -43,7 +43,7 @@ A couple of notes on this:
 
 ### 2. Upload the JavaScript
 
-You want to upload the **minified** version of the SnowPlow JavaScript, which is called `sp.js`. You can obtain the latest version of the Javascript from the [[hosted assets]] section or review the [SnowPlow Github repo](https://github.com/snowplow/snowplow).
+You want to upload the **minified** version of the Snowplow JavaScript, which is called `sp.js`. You can obtain the latest version of the Javascript from the [[hosted assets]] section or review the [Snowplow Github repo](https://github.com/snowplow/snowplow).
 
 Now you're ready to upload the JavaScript file into S3. Within the S3 pane, hit **Upload** and browse to your file:
 
@@ -89,7 +89,7 @@ Hit **Create Distribution** and then you should see something like this:
 
 ![dist-enabled] [dist-enabled]
 
-Write down your CloudFront distribution's **Domain Name** - e.g. `http://d1fc8wv8zag5ca.cloudfront.net`. You will need this later when you integrate SnowPlow into your website.
+Write down your CloudFront distribution's **Domain Name** - e.g. `http://d1fc8wv8zag5ca.cloudfront.net`. You will need this later when you integrate Snowplow into your website.
 
 ### 5. Testing your JavaScript file on CloudFront
 
@@ -102,14 +102,14 @@ Done? Now just check that you can access your JavaScript file over both HTTP and
 
 If you have any problems, then double-check your CloudFront distribution's URL, and check the permissions on your `sp.js` file: it must be Openable by Everyone.
 
-That's it - you now have a CloudFront distribution which will serve your SnowPlow JavaScript to anybody anywhere in the world, fast. Now all that remains is to update your SnowPlow header tag to fetch your own version of `sp.js`, rather than the version hosted by the SnowPlow team.
+That's it - you now have a CloudFront distribution which will serve your Snowplow JavaScript to anybody anywhere in the world, fast. Now all that remains is to update your Snowplow header tag to fetch your own version of `sp.js`, rather than the version hosted by the Snowplow team.
 
-### 5. Update your tracking tags to use the self-hosted version of `SnowPlow.js`
+### 5. Update your tracking tags to use the self-hosted version of `Snowplow.js`
 
-The standard SnowPlow tracking tag looks something like:
+The standard Snowplow tracking tag looks something like:
 
 ```html
-<!-- SnowPlow starts plowing -->
+<!-- Snowplow starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -123,10 +123,10 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- SnowPlow stops plowing -->
+<!-- Snowplow stops plowing -->
 ```
 
-The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`, the SnowPlow Javascript tracker. The version loaded is the version [hosted by the SnowPlow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
+The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`, the Snowplow Javascript tracker. The version loaded is the version [hosted by the Snowplow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
 
 To use the version hosted yourself update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
 
@@ -138,7 +138,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUB
 
 The `setCollectorCf` method is used to determine the Cloudfront subdomain where your tracking pixel is served from. This should **not** be confused with the Cloudfront subdomain used to serve `sp.js`.
 
-This page of documentation relates to self-hosting `sp.js`. You should be using a different Cloudfront distribution for you `setCollectorCf` method in the SnowPlow tag. (Or if you're not using the Cloudfront collector, `setCollectorUrl`.) If you are using the Cloudfront collector, see [Cloudfront collector setup](1-Setup-a-bucket-on-S3-for-the-pixel) for details on setting up a Cloudfront distribution for your tracking pixel, and [setting the collector endpoint of your Javascript tracker](javascript-tracker#wiki-endpoint) for details on configuring your SnowPlow tags.
+This page of documentation relates to self-hosting `sp.js`. You should be using a different Cloudfront distribution for you `setCollectorCf` method in the Snowplow tag. (Or if you're not using the Cloudfront collector, `setCollectorUrl`.) If you are using the Cloudfront collector, see [Cloudfront collector setup](1-Setup-a-bucket-on-S3-for-the-pixel) for details on setting up a Cloudfront distribution for your tracking pixel, and [setting the collector endpoint of your Javascript tracker](javascript-tracker#wiki-endpoint) for details on configuring your Snowplow tags.
 
 <a name="advanced-options" />
 ## Advanced options
@@ -150,16 +150,16 @@ The guide above assumed that you were happy to take the already-minified `sp.js`
 
 The first option above is explored in more detail in the guide to [[Modifying snowplow.js|Modifying-snowplow-js]].
 
-The second option is out of the scope of the SnowPlow documentation but you should get some ideas as to how the minification should be handled from that same guide, [[Modifying snowplow.js|Modifying-snowplow-js]].
+The second option is out of the scope of the Snowplow documentation but you should get some ideas as to how the minification should be handled from that same guide, [[Modifying snowplow.js|Modifying-snowplow-js]].
 
 <a name="next-steps" />
 ## Next steps
 
-As well as self-hosting SnowPlow.js, you may also want to [modify SnowPlow.js](modifying-snowplow-js) to customise it for your individual needs. A guide can be found [here](modifying-snowplow-js).
+As well as self-hosting Snowplow.js, you may also want to [modify Snowplow.js](modifying-snowplow-js) to customise it for your individual needs. A guide can be found [here](modifying-snowplow-js).
 
-Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-SnowPlow#wiki-step3).
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3).
 
-Return to the [setup guide] (Setting-up-SnowPlow).
+Return to the [setup guide] (Setting-up-Snowplow).
 
 
 [aws]: http://aws.amazon.com/

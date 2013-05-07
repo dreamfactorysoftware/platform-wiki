@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](SnowPlow technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers)
 
 ## Contents
 
@@ -8,7 +8,7 @@
 - 2. [General configuration and parameters](#general)
   - 2.1 [Initialization](#init)  
     - 2.1.1 [Required headers](#headers)
-    - 2.1.2 [Initialize SnowPlowTracker](#snowplow-tracker-init)
+    - 2.1.2 [Initialize SnowplowTracker](#snowplow-tracker-init)
   - 2.2 [Setting the endpoint](#endpoint)  
     - 2.2.1 [`initCf`](#initCf)  
     - 2.2.2 [`initUrl`](#initUrl)
@@ -30,11 +30,11 @@
 <a name="overview" />
 ## 1. Overview
 
-The [SnowPlow Arduino tracker](https://github.com/snowplow/snowplow-arduino-tracker) allows you to track SnowPlow events from an IP-connected [Arduino] [arduino] board.
+The [Snowplow Arduino tracker](https://github.com/snowplow/snowplow-arduino-tracker) allows you to track Snowplow events from an IP-connected [Arduino] [arduino] board.
 
-The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with SnowPlow's [JavaScript tracker](Javascript-Tracker) or Google Analytics (which has a similar API to SnowPlow) is helpful but not necessary.
+The tracker should be straightforward to use if you are familiar with Arduino development; any prior experience with Snowplow's [JavaScript tracker](Javascript-Tracker) or Google Analytics (which has a similar API to Snowplow) is helpful but not necessary.
 
-Note that this tracker has access to a much more restricted set of SnowPlow events than other trackers.
+Note that this tracker has access to a much more restricted set of Snowplow events than other trackers.
 
 [Back to top](#top)
 
@@ -54,25 +54,25 @@ Make sure you have the following includes:
 ```c++
 #include <SPI.h>
 #include <Ethernet.h>
-#include <SnowPlowTracker.h>
+#include <SnowplowTracker.h>
 ```
 
 [Back to top](#top)
 
 <a name="snowplow-tracker-init" />
-#### 2.1.2 Initialize SnowPlowTracker
+#### 2.1.2 Initialize SnowplowTracker
 
-After your includes but before your `setup()` function, initialize your `SnowPlowTracker` something like this:
+After your includes but before your `setup()` function, initialize your `SnowplowTracker` something like this:
 
 ```c++
 // MAC address of this Arduino. Update with your shield's MAC address.
 const byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0xF8, 0xA0 };
 
-// SnowPlow app name
+// Snowplow app name
 const char *snowplowAppName = "my-arduino-project";
 
-// SnowPlow Tracker
-SnowPlowTracker snowplow(&Ethernet, mac, snowplowAppName);
+// Snowplow Tracker
+SnowplowTracker snowplow(&Ethernet, mac, snowplowAppName);
 ```
 
 Note that this initialization includes setting the application ID for your Arduino project, as well as your device's MAC address.
@@ -101,7 +101,7 @@ So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would include:
 snowplow.initCf("d3rkrsqld9gmqf");
 ```
 
-This completes the initialization of your `SnowPlowTracker`.
+This completes the initialization of your `SnowplowTracker`.
 
 [Back to top](#top)
 
@@ -120,7 +120,7 @@ So if your collector endpoint is at 'my-company.c.snplow.com' then you would inc
 snowplow.initUrl("my-company.c.snplow.com");
 ```
 
-This completes the initialization of your `SnowPlowTracker`.
+This completes the initialization of your `SnowplowTracker`.
 
 [Back to top](#top)
 
@@ -145,13 +145,13 @@ snowplow.setUserId("boardroom-arduino");
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-SnowPlow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
+Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 All tracking functions at a glance:
 
 | **Function**                             | **Description**                          |
 |-----------------------------------------:|:-----------------------------------------|
-|  [`trackStructEvent`](#trackStructEvent) | Track a SnowPlow custom structured event |
+|  [`trackStructEvent`](#trackStructEvent) | Track a Snowplow custom structured event |
 
 <a name="common" />
 ### 3.1 Common
@@ -169,18 +169,18 @@ The full list of return codes are given below:
 
 | **Constant**               | **Integer value** | **Description**                                  |
 |---------------------------:|:------------------|:-------------------------------------------------|
-|  `ERROR_CONNECTION_FAILED` | -1                | Could not connect to SnowPlow collector          |
-|  `ERROR_TIMED_OUT`         | -2                | SnowPlow collector did not respond               |
-|  `ERROR_INVALID_RESPONSE`  | -3                | SnowPlow collector's response couldn't be parsed |
+|  `ERROR_CONNECTION_FAILED` | -1                | Could not connect to Snowplow collector          |
+|  `ERROR_TIMED_OUT`         | -2                | Snowplow collector did not respond               |
+|  `ERROR_INVALID_RESPONSE`  | -3                | Snowplow collector's response couldn't be parsed |
 |  `ERROR_MISSING_ARGUMENT`  | -4                | Required argument(s) to `trackXXX` missing       |
-|  `ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by SnowPlow collector was server or client error |
-|  N/A                       | 1-399             | Non-error HTTP status code returned by SnowPlow collector |
+|  `ERROR_HTTP_STATUS`       | -5                | HTTP status code returned by Snowplow collector was server or client error |
+|  N/A                       | 1-399             | Non-error HTTP status code returned by Snowplow collector |
 
-You can access these constants in your code by prepending with `SnowPlowTracker::`, for example:
+You can access these constants in your code by prepending with `SnowplowTracker::`, for example:
 
 ```c++
 int ret_val = snowplow.trackXXX;
-if (ret_val == SnowPlowTracker::ERROR_HTTP_STATUS) {
+if (ret_val == SnowplowTracker::ERROR_HTTP_STATUS) {
   ...
 }
 ```
@@ -190,13 +190,13 @@ if (ret_val == SnowPlowTracker::ERROR_HTTP_STATUS) {
 <a name="custom-structured-events" />
 ### 3.2 Tracking custom structured events
 
-Custom structured events are the only form of tracking currently supported by the SnowPlow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, use `trackStructEvent` to send this data to SnowPlow.
+Custom structured events are the only form of tracking currently supported by the Snowplow Arduino tracker. Whenever you want to record an event or sensor reading from your IP-connected Arduino, use `trackStructEvent` to send this data to Snowplow.
 
 Some examples of tracking custom structured events from your Arduino board(s) might include:
 
 * Monitoring the environment (temperature, humidity, light levels etc) in your warehouse/factory/workplace/shop/museum
-* Tracking the movement of products around your shop/warehouse/factory using Arduino, [RFID readers] [arduino-rfid] and SnowPlow
-* Sending vehicle fleet information (locations, speeds, fuel levels etc) back to SnowPlow using Arduino's [3G and GPS] [3g-gps] shields 
+* Tracking the movement of products around your shop/warehouse/factory using Arduino, [RFID readers] [arduino-rfid] and Snowplow
+* Sending vehicle fleet information (locations, speeds, fuel levels etc) back to Snowplow using Arduino's [3G and GPS] [3g-gps] shields 
 
 <a name="trackStructEvent" />
 #### 3.2.1 `trackStructEvent` overview
@@ -250,7 +250,7 @@ int trackStructEvent(const char *aCategory,
 
 Notes:
 
-* Because `aValue` must be a float or double, this version of `trackStructEvent` appends ".0" to the end of the int before sending to SnowPlow
+* Because `aValue` must be a float or double, this version of `trackStructEvent` appends ".0" to the end of the int before sending to Snowplow
 * If you don't want to set `aLabel` or `aProperty`, pass in `NULL` in their place
 
 Here's an example invocation:
@@ -323,16 +323,16 @@ This feature is on the roadmap: it has not been developed yet.
 <a name="debug-test" />
 ### 4 Testing and debugging
 
-Arduino is a difficult platform to test and debug software on, so it's important to understand what options the SnowPlow Arduino Tracker has for debugging.
+Arduino is a difficult platform to test and debug software on, so it's important to understand what options the Snowplow Arduino Tracker has for debugging.
 
 [Back to top](#top)
 
 <a name="setup-debug" />
 #### 4.1 Setup debugging
 
-By default, debug logging to your Arduino Serial Monitor console is switched **on** for the SnowPlow Arduino Tracker, which should help you to identify any problems debugging your SnowPlow event tracking.
+By default, debug logging to your Arduino Serial Monitor console is switched **on** for the Snowplow Arduino Tracker, which should help you to identify any problems debugging your Snowplow event tracking.
 
-To switch off this logging when you are finished testing, edit this line found near the top of your copy of `SnowPlowTracker.cpp`:
+To switch off this logging when you are finished testing, edit this line found near the top of your copy of `SnowplowTracker.cpp`:
 
 ```c++
 #define LOG_LEVEL   0x03 // Change to 0x00 when you've finished testing

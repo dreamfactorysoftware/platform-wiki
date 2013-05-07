@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector)
 
-[**Setup SnowPlow**](Setting-up-SnowPlow)  
+[**Setup Snowplow**](Setting-up-Snowplow)  
 
 1. [Setup a Collector] (setting-up-a-collector)  
   - [Setup the Clojure Collector] (Setting-up-the-Cloudfront-collector)     
@@ -12,7 +12,7 @@
 2. [Step 2: Setup a Tracker] (setting-up-a-tracker)  
 3. [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 4. [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
-5. [Step 5: Analyse your data!] (Getting started analysing SnowPlow data)  
+5. [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
 
 **Useful resources**  
 

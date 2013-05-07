@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-SnowPlow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
@@ -9,7 +9,7 @@
 <a name="assumptions" />
 ## 1. Assumptions
 
-This guide assumes that you have configured EmrEtlRunner to output the **non-Hive** SnowPlow event format. The Hive SnowPlow event format will not work with Infobright.
+This guide assumes that you have configured EmrEtlRunner to output the **non-Hive** Snowplow event format. The Hive Snowplow event format will not work with Infobright.
 
 This guide assumes that you have administrator access to the Unix-based server (e.g. Ubuntu, OS X, Fedora) on which you installed ICE, and will install StorageLoader on the same server.
 
@@ -32,11 +32,11 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 <a name="s3-buckets"/>
 ### 2.2 S3 buckets
 
-StorageLoader moves the SnowPlow event files through three distinct S3 buckets during
+StorageLoader moves the Snowplow event files through three distinct S3 buckets during
 the load process. These buckets are as follows:
 
-1. **In Bucket** - contains the SnowPlow event files to process
-2. **Archive Bucket** - where StorageLower moves the SnowPlow
+1. **In Bucket** - contains the Snowplow event files to process
+2. **Archive Bucket** - where StorageLower moves the Snowplow
    event files after successful loading
 
 The In Bucket for StorageLoader is the same as the Out Bucket for the EmrEtlRunner -
@@ -53,7 +53,7 @@ Right, now we can install StorageLoader.
 <a name="installation"/>
 ## 3. Installation
 
-First, checkout the SnowPlow repository and navigate to the StorageLoader root:
+First, checkout the Snowplow repository and navigate to the StorageLoader root:
 
     $ git clone git://github.com/snowplow/snowplow.git
     $ cd snowplow/4-storage/storage-loader
@@ -75,7 +75,7 @@ Check it worked okay:
 ## 4. Configuration
 
 StorageLoader requires a YAML format configuration file to run. There is a configuration
-file template available in the SnowPlow GitHub repository at 
+file template available in the Snowplow GitHub repository at 
 [`/4-storage/storage-loader/config/config.yml`] [config-yml]. The template looks like this:
 
 ```yaml
@@ -137,7 +137,7 @@ Please note that all buckets must exist prior to running StorageLoader.
 #### download
 
 This is where we configure the StorageLoader download operation, which
-downloads the SnowPlow event files from Amazon S3 to your local server, 
+downloads the Snowplow event files from Amazon S3 to your local server, 
 ready for loading into your database.
 
 This setting is not used when loading Redshift - you can safely leave it
@@ -150,7 +150,7 @@ and is empty.
 #### storage
 
 In this section we configure exactly what database StorageLoader should
-load our SnowPlow events into. At the moment, StorageLoader supports
+load our Snowplow events into. At the moment, StorageLoader supports
 only one load target, and this load target must be an Infobright
 Community Edition database.
 
@@ -164,8 +164,8 @@ To take each variable in turn:
 4. `port`, the port of the database to load. Only supported for Redshift
    (where '5439' is the default). Leave blank for Infobright
 5. `table`, the name of the database table which will store your
-   SnowPlow events. Must have been setup previously  
-6. `username`, the database user to load your SnowPlow events with.
+   Snowplow events. Must have been setup previously  
+6. `username`, the database user to load your Snowplow events with.
    You can leave this blank to default to the user running the script
 7. `password`, the password for the database user. Leave blank if there
    is no password

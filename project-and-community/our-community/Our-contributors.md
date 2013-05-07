@@ -16,7 +16,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
 * [Angus Mark](https://github.com/ngsmrk) @ [Simply Business] [simply-business] (JavaScript tracker fixes)
 
-Original concept for SnowPlow inspired by [Radek Maciaszek](https://github.com/rathko).
+Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
 
 ## Documentation
 
