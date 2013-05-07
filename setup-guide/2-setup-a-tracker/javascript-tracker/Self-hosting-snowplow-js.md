@@ -113,7 +113,7 @@ The standard Snowplow tracking tag looks something like:
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{CLOUDFRONT SUBDOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{YOUR /I CLOUDFRONT SUBDOMAIN}}']);
 _snaq.push(['trackPageView']);
 _snaq.push(['enableLinkTracking']);
 
@@ -126,12 +126,12 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 <!-- Snowplow stops plowing -->
 ```
 
-The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`, the Snowplow Javascript tracker. The version loaded is the version [hosted by the Snowplow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
+The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`, the Snowplow JavaScript tracker. The version loaded is the version [hosted by the Snowplow team from our own Cloudfront subdomain](hosted-assets) (and provided free to the community). 
 
-To use the version hosted yourself update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js` in for ours:
+To use the version hosted yourself, update the `sp.src` line to point to your own self-hosted `sp.js`:
 
 ```javascript
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{SUBDOMAIN}}.cloudfront.net/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{YOUR SP.JS CLOUDFRONT SUBDOMAIN}}.cloudfront.net/sp.js';
 ```
 
 #### A note on `setCollectorCf`
