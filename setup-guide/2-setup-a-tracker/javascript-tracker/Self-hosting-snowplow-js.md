@@ -113,7 +113,7 @@ The standard Snowplow tracking tag looks something like:
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '{{YOUR /I CLOUDFRONT SUBDOMAIN}}']);
+_snaq.push(['setCollectorCf', '{{YOUR COLLECTOR'S CF SUBDOMAIN}}']);
 _snaq.push(['trackPageView']);
 _snaq.push(['enableLinkTracking']);
 
@@ -131,7 +131,7 @@ The reference to `'://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js'` loads `sp.js`
 To use the version hosted yourself, update the `sp.src` line to point to your own self-hosted `sp.js`:
 
 ```javascript
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{YOUR SP.JS CLOUDFRONT SUBDOMAIN}}.cloudfront.net/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{YOUR SP.JS CF SUBDOMAIN}}.cloudfront.net/sp.js';
 ```
 
 #### A note on `setCollectorCf`
