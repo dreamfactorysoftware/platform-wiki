@@ -21,9 +21,9 @@
 <a name="intro"/>
 ## Introduction
 
-To make it easier to run Snowplow's Hive-based ETL (extract, transform, load) process on Amazon Elastic MapReduce, we have written the [Snowplow::EmrEtlRunner] [emr-etl-runner] Ruby application.
+To make it easier to run Snowplow's Hadoop-based ETL (extract, transform, load) process on Amazon Elastic MapReduce, we have written the [Snowplow::EmrEtlRunner] [emr-etl-runner] Ruby application.
 
-EmrEtlRunner is a command-line tool which runs and monitors our [Hive-based ETL process] [hive-etl] on EMR, as well as performing the required housekeeping tasks (such as archiving the raw event logs).
+EmrEtlRunner is a command-line tool which runs and monitors our [Hadoop-based ETL process] [hadoop-etl] on EMR, as well as performing the required housekeeping tasks (such as archiving the raw event logs).
 
 This guide will take you through installing and configuring EmrEtlRunner on your own server.
 
@@ -382,7 +382,7 @@ script plus [Windows Task Scheduler] [windows-task-scheduler] instead of bash an
 If you get this working, please let us know!
 
 [emr-etl-runner]: https://github.com/snowplow/snowplow/tree/master/3-etl/emr-etl-runner
-[hive-etl]: https://github.com/snowplow/snowplow/tree/master/3-etl/hive-etl
+[hadoop-etl]: https://github.com/snowplow/snowplow/tree/master/3-enrich/hadoop-etl
 [trackers]: https://github.com/snowplow/snowplow/tree/master/1-trackers
 [collectors]: https://github.com/snowplow/snowplow/tree/master/2-collectors
 [getting-started]: http://snowplowanalytics.com/product/get-started.html
