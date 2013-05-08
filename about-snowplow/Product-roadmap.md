@@ -9,7 +9,7 @@ We discuss each of these in turn below.
 
 ## Short-term: planned releases
 
-In this section we list out the series of 'point' releases (0.8.x, 0.8.y etc) that we have planned. This list is accurate as of late February 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
+In this section we list out the series of 'point' releases (0.8.x, 0.8.y etc) that we have planned. This list is accurate as of early May 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
 
 **Warning:** we may change this schedule as new priorities are identified and the community feeds back on our current plans. If you are particularly interested in a given task being completed per schedule (or even accelerated), please 'vote' for the ticket by leaving a "+1" comment or similar on the relevant ticket.
 
