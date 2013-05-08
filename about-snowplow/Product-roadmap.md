@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.2** | [See GitHub] [issues-082] | Clojure Collector improvements   |
 | **0.8.3** | [See GitHub] [issues-083] | Add support for unstructured events to the JavaScript Tracker |
 | **0.8.4** | [See GitHub] [issues-084] | Add geo-IP lookup to Hadoop-based ETL                         |
 | **0.8.5** | [See GitHub] [issues-085] | Add Postgres as a storage target |
@@ -39,7 +38,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-082]: https://github.com/snowplow/snowplow/issues?milestone=21&state=open
 [issues-083]: https://github.com/snowplow/snowplow/issues?milestone=20&state=open
 [issues-084]: https://github.com/snowplow/snowplow/issues?milestone=17&state=open
 [issues-085]: https://github.com/snowplow/snowplow/issues?milestone=19&state=open
