@@ -24,7 +24,7 @@ Confirm that you want to make the file public and Amazon should complete the ope
 
 As a final step, we will set the mimetype on the tracking pixel to `image/gif` - otherwise the pixel is transmitted as an `application/octet-stream`, which causes browser warnings.
 
-So, click on the tracking pixel, click on Properties, scroll down to Metadata and then add a new metadata entry for **Content-Type** like so:
+So, click on the tracking pixel, click on the Properties tab, scroll down to the Metadata section and then click Add more metadata and add an entry for **Content-Type** like so:
 
 [[/setup-guide/images/cloudfront-collector-setup-guide/i-set-image-mimetype.png]]
 
