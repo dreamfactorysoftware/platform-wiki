@@ -120,8 +120,7 @@ Within the `s3` section, the `buckets` variables are as follows:
 * `in` is where you specify your In Bucket
 * `archive` is where you specify your Archive Bucket
 
-Each of the bucket variables must start with an S3 protocol - either
-`s3://` or `s3n://`. Each variable can include a sub-folder within the
+Each of the bucket variables must start with an S3 protocol - we recommend using `s3://`, as the `s3n://` protocol does not currently work with Redshift. Each variable can include a sub-folder within the
 bucket as required, and a trailing slash is optional.
 
 **Important:** do not put your Archive Bucket location inside your In Bucket, or you will create circular references which StorageLoader cannot resolve when moving files.
@@ -129,8 +128,8 @@ bucket as required, and a trailing slash is optional.
 The following are examples of valid bucket settings:
 
     :buckets:
-      :in: s3n://my-snowplow-data/events/
-      :archive: s3n://my-archived-snowplow-data
+      :in: s3://my-snowplow-data/events/
+      :archive: s3://my-archived-snowplow-data
 
 Please note that all buckets must exist prior to running StorageLoader.
 
