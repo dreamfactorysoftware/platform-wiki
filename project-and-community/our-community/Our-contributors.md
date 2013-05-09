@@ -15,6 +15,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL improvements)
 * [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
 * [Angus Mark](https://github.com/ngsmrk) @ [Simply Business] [simply-business] (JavaScript tracker fixes)
+* [Mark H Butler](https://github.com/butlermh) (Clojure Collector improvements)
 
 Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
 
