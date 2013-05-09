@@ -19,8 +19,8 @@ The planned releases are as follows:
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.8.3** | [See GitHub] [issues-083] | Add support for unstructured events to the JavaScript Tracker |
 | **0.8.4** | [See GitHub] [issues-084] | Add geo-IP lookup to Hadoop-based ETL                         |
-| **0.8.5** | [See GitHub] [issues-085] | Add Postgres as a storage target |
-| **0.8.6** | [See GitHub] [issues-086] | ETL performance improvements |
+| **0.8.5** | [See GitHub] [issues-086] | ETL performance improvements                                  |
+| **0.8.6** | [See GitHub] [issues-085] | Add Postgres as a storage target                              |
 
 ## Longer-term: approximate schedule
 
@@ -40,8 +40,8 @@ The longer-term schedule of major developments is approximately as follows:
 
 [issues-083]: https://github.com/snowplow/snowplow/issues?milestone=20&state=open
 [issues-084]: https://github.com/snowplow/snowplow/issues?milestone=17&state=open
-[issues-085]: https://github.com/snowplow/snowplow/issues?milestone=19&state=open
-[issues-086]: https://github.com/snowplow/snowplow/issues?milestone=22&state=open
+[issues-085]: https://github.com/snowplow/snowplow/issues?milestone=22&state=open
+[issues-086]: https://github.com/snowplow/snowplow/issues?milestone=19&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
