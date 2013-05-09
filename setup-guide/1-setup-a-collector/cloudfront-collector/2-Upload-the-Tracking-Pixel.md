@@ -28,6 +28,8 @@ So, click on the tracking pixel, click on the Properties tab, scroll down to the
 
 [[/setup-guide/images/cloudfront-collector-setup-guide/i-set-image-mimetype.png]]
 
+Hit Save and then you should be done.
+
 ## All done?
 
 Proceed to [step 3: create a bucket for Cloudfront logs](3-create-a-bucket-for-cloudfront-logs).
