@@ -161,17 +161,19 @@ Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFI
 
 **Example bucket settings**
 
-The following are all valid bucket settings: 
+Here is an example configuration: 
 
     :buckets:
-      :assets: s3://snowplow-assets
-      :in: s3n://snowplow-collector-logs/
-      :processing: s3n://snowplow-etl-and-enrichment/processing
-      :out: s3n://snowplow-data/events
-      :out_bad_rows: s3n://snowplow-data/bad-rows/
-      :out_errors: s3n://snowplow-data/error-rows/
+      :assets: s3://snowplow-hosted-assets
+      :in: s3n://my-snowplow-logs/
+      :log: s3n://my-snowplow-etl/logs/
+      :processing: s3n://my-snowplow-etl/processing/
+      :out: s3n://my-snowplow-data/events/
+      :out_bad_rows: s3n://my-snowplow-data/bad-rows/
+      :out_errors: s3n://my-snowplow-data/error-rows/
+      :archive: s3n://my-snowplow-archive/
 
-Please note that all buckets must exist prior to running EmrEtlRunner.
+Please note that all buckets must exist prior to running EmrEtlRunner; trailing slashes are optional.
 
 ### emr
 
