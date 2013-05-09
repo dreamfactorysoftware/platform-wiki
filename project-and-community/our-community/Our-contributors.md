@@ -26,6 +26,7 @@ Many thanks to all the following for contributions to documentation!
 * [Triona Carey](https://twitter.com/Triona)
 * Gaël Blaise
 * [Simon Rumble](https://github.com/shermozle)
+* [Joao Salcedo](https://github.com/joaosal) @ [Bigcommerce] [bigcommerce]
 
 [snowcannon]: https://github.com/shermozle/SnowCannon
 [qwaya]: http://www.qwaya.com
@@ -34,3 +35,4 @@ Many thanks to all the following for contributions to documentation!
 [meltmedia]: http://meltmedia.com/
 [verycd]: http://www.verycd.com/
 [simply-business]: http://www.simplybusiness.co.uk/
+[bigcommerce]: http://www.bigcommerce.com/
