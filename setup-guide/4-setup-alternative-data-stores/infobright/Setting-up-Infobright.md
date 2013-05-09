@@ -173,7 +173,7 @@ To test using the client that comes with ICE:
 
 	mysql>
 
-Alternatively you can also test by running Navicat Lite or similar and logging into the database that way.
+Alternatively you can also test by running Navicat or another database querying tool and logging into the database that way. (We heartily recommend Navicat.)
 
 [Back to top](#top)
 
