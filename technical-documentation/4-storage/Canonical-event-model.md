@@ -230,8 +230,8 @@ Snowplow currently supports (or will support in the near future) the following e
 | 2.3.7  | [Social events](#social)                                    | 'social'                               |
 | 2.3.8  | [Item views](#items)                                        | 'item_view'                            |
 | 2.3.9  | [Errors](#error)                                            | 'error'                                |
-| 2.3.10 | [Custom structured events](#customstruct)                   | 'custom_struct'                        |
-| 2.3.11 | [Custom unstructured events](#customunstruct)               | 'custom_unstruct'                      |
+| 2.3.10 | [Custom structured events](#customstruct)                   | 'struct'                               |
+| 2.3.11 | [Custom unstructured events](#customunstruct)               | 'unstruct'                             |
 
 Details of which fields are available for which events are given below:
 
