@@ -19,6 +19,7 @@ The Snowplow platform is built standing on the shoulders of a whole host of diff
 * [Clojure](http://clojure.org/)
 * [Compojure](https://github.com/weavejester/compojure)
 * [Elasticity](https://github.com/rslifka/elasticity)
+* [Fog](http://fog.io/)
 * [Git](http://git-scm.com/)
 * [Linux](http://linux.org/)
 * [Ruby](http://www.ruby-lang.org/)
