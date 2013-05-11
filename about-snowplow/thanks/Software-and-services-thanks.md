@@ -23,4 +23,6 @@ The Snowplow platform is built standing on the shoulders of a whole host of diff
 * [Linux](http://linux.org/)
 * [Ruby](http://www.ruby-lang.org/)
 * [Scala](http://www.scala-lang.org/)
+* [Scalaz](http://typelevel.org/projects/scalaz/)
 * [Scalding](https://github.com/twitter/scalding/wiki)
+* [Specs2](http://etorreborre.github.io/specs2/)

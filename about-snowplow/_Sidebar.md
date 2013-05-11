@@ -8,8 +8,8 @@
 
 **Thanks**
 - Sponsors  
-- [[Thanks]]
-- [Contributors](Our contributors)  
+- [Software and services](Software-and-services-thanks)
+- [Contributors](Our-contributors)  
 
 **External resources**  
 - [Snowplow Analytics website](http://snowplowanalytics.com)  
