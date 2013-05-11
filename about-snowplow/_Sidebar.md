@@ -5,6 +5,7 @@
 [[Technical architecture|Technical-architecture]]  
 [[Developer FAQ]]  
 [Roadmap](Product-roadmap)  
+[[Thanks]]  
 
 **External resources**  
 [Snowplow Analytics website](http://snowplowanalytics.com)  
