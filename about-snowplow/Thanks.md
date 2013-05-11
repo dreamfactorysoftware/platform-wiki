@@ -1,6 +1,4 @@
-## Thanks
-
-The Snowplow project is very grateful from the help and assistance provided by the following companies and open source projects:
+The Snowplow project is very grateful for the help and assistance provided by the following companies and open source projects:
 
 ### Corporate Thanks
 
