@@ -89,7 +89,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :region: ADD HERE
   :buckets:
     # Update assets if you want to host the serde and HiveQL yourself
-    :assets: s3://snowplow-hosted-assets
+    :assets: s3://snowplow-hosted-assets # DO NOT CHANGE unless you are hosting the jarfiles etc yourself in your own bucket
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
