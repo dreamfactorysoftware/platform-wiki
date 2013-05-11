@@ -11,7 +11,7 @@ At Snowplow, our daily lives wouldn't be nearly as productive without the genero
 
 ### Open Source Thanks
 
-The Snowplow platform is built standing on the shoulders of a whole host of different open source frameworks, libraries and tools. Without the amazing ongoing work by these individuals, companies and not-for-profits, the Snowplow project literally could not exist. We want to say thank you to the following projects in particular:
+The Snowplow platform is built standing on the shoulders of a whole host of different open source frameworks, libraries and tools. Without the amazing ongoing work by these individuals, companies and not-for-profits, the Snowplow project literally could not exist:
 
 * [Apache Hadoop](http://hadoop.apache.org/)
 * [Apache Avro](http://avro.apache.org/)
