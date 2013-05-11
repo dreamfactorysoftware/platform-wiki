@@ -4,10 +4,10 @@ The Snowplow project is very grateful for the help and assistance provided by th
 
 At Snowplow, our daily lives wouldn't be nearly as productive without the generous support of the following companies and organisations, providing us variously with free software, services and support:
 
-| Company       | Description        |
-|---------------|-----------------|
-| BizSpark      | ... |
-| Navicat       | ... |
+| **Supported by**                 | **Description**                                                                               |
+|----------------------------------|-----------------------------------------------------------------------------------------------|
+| ![bizspark-logo] [bizspark-logo] | Snowplow Analytics Ltd is proud to be a member of the [Microsoft BizSpark Program] [bizspark] |
+| ![navicat-logo] [navicat-logo]   | Navicat is our favourite database management tool, so we were delighted to join [Premiumsoft's] [premiumsoft] Navicat Open Source Project License Program |
 
 ### Open Source Thanks
 
@@ -27,3 +27,9 @@ The Snowplow platform is built standing on the shoulders of a whole host of diff
 * [Scalaz](http://typelevel.org/projects/scalaz/)
 * [Scalding](https://github.com/twitter/scalding/wiki)
 * [Specs2](http://etorreborre.github.io/specs2/)
+
+[bizspark-logo]: /snowplow/snowplow/wiki/about-snowplow/images/bizspark_logo.jpg
+[navicat-logo]: /snowplow/snowplow/wiki/about-snowplow/images/bizspark_logo.jpg
+
+[bizspark]: https://www.microsoft.com/bizspark/‎
+[premiumsoft]: http://www.navicat.com/
