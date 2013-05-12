@@ -60,7 +60,7 @@ First, checkout the Snowplow repository and navigate to the StorageLoader root:
 
 StorageLoader depends on some Postgres libraries being installed to talk to Redshift. You will need to install this first:
 
-    $ sudo aptitude install libpq-devq
+    $ sudo aptitude install libpq-dev
 
 Now you are ready to install the application on your system:
 
