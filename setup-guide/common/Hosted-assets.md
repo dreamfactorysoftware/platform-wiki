@@ -12,7 +12,7 @@ The **current versions** of the assets hosted by the Snowplow Analytics team are
 
 The minified JavaScript tracker is hosted on CloudFront:
 
-    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js
+    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.2/sp.js
 
 ## 2. Collectors
 
@@ -20,7 +20,7 @@ The minified JavaScript tracker is hosted on CloudFront:
 
 The Clojure collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
 
-    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.4.0-standalone.war
+    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
 
 Right-click on this [Download link] [war-download] to save it down locally.
 
@@ -61,4 +61,4 @@ As well as these hosted assets for running Snowplow, the Snowplow Analytics team
 Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
-[war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.4.0-standalone.war
+[war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
