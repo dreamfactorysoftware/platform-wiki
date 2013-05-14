@@ -37,7 +37,7 @@ _snaq.push(['trackPageView']);
 
 (function() {
 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.1/sp.js';
+sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.2/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
@@ -85,7 +85,7 @@ To use `snowplow.js` in a 'sync' manner, first add the following script into you
 ```html
 <!-- Snowplow starts plowing -->
 <script type="text/javascript">
-var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js';
+var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.11.2/sp.js';
 document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
