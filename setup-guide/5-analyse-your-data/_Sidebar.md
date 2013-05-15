@@ -10,6 +10,7 @@
   - [5.1: get started analysing your data in EMR and Hive] (getting-started-with-EMR)
   - [5.2: setting up ChartIO to visualize your data] (Setting-up-ChartIO-to-visualize-your-data)
   - [5.3: setting up Tableau to perform OLAP analysis on your data] (Setting-up-Tableau-to-perform-OLAP-analysis-on-your-data)
+  - [5.4: setting up R to perform more sophisticated data analysis] (Setting-up-R)
 
 **Useful resources**  
 
