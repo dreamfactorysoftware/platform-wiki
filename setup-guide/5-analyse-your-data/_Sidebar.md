@@ -8,8 +8,8 @@
 - [Step 4: Setup alternative data stores] (setting-up-alternative-data-stores) 
 - [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
   - [5.1: get started analysing your data in EMR and Hive] (getting-started-with-EMR)
-  - [5.2: get started analysing your data in Infobright] (getting-started-analysing-your-data-in-Infobright)
-  - [5.3: setting up ChartIO to visualize your data] (Setting-up-ChartIO-to-visualize-your-data)
+  - [5.2: setting up ChartIO to visualize your data] (Setting-up-ChartIO-to-visualize-your-data)
+  - [5.3: setting up Tableau to perform OLAP analysis on your data] (Setting-up-Tableau-to-perform-OLAP-analysis-on-your-data)
 
 **Useful resources**  
 
