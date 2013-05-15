@@ -20,5 +20,5 @@ As part of this setup guide, we provide details on how to get started analysing 
 [hive]: Getting-started-with-EMR
 [infobright]: Getting-started-analysing-your-data-in-Infobright
 [chartio]: Setting-up-ChartIO-to-visualize-your-data
-[tableau]: Setting-up-Tableau-to-perform-OLAP-analysis-on-your-data
+[tableau]: Setting-up-Tableau-to-analyse-data-in-Redshift
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-data
