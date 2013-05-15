@@ -17,7 +17,7 @@ Snowplow supports storing your data in multiple different data stores:
 | [Redshift] [setup-redshift]| A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
 | [Infobright] [setup-infobright] | An open source columnar database accessible via the MySQL JDBC driver. (So compatible with a wide range of analytics tools.) Optimized for performing OLAP analysis. Scales to Terabytes | Production-ready |
 
-By [setting up the EmrEtlRunner](setting-up-the-emretlrunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
+By [setting up the EmrEtlRunner](setting-up-EmrEtlRunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
 
 If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [redshift] or [Infobright] [infobright] to support enable use of these tools.
 
