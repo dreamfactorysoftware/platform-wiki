@@ -56,6 +56,6 @@ We will be adding guides to analysing your data using R and Weka to the [Analyts
 [tableau]: http://www.tableausoftware.com/
 [r]: http://www.r-project.org/
 [weka]: http://weka.pentaho.com/
-[chartio]: Setting-up-ChartIO-to-visualise-your-data-in-Infobright
+[chartio]: Setting-up-ChartIO-to-visualize-your-data-in-Infobright
 [olap]: http://snowplowanalytics.com/analytics/tools-and-techniques/converting-snowplow-data-into-a-format-suitable-for-olap.html
 [analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html

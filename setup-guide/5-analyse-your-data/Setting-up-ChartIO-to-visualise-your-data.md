@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [Setting up ChartIO](Setting-up-ChartIO-to-visualise-your-data-in-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [Setting up ChartIO](Setting-up-ChartIO-to-visualize-your-data-in-Infobright)
 
 <a name="top" />
 ## Contents

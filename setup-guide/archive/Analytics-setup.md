@@ -8,7 +8,7 @@
 |:-------------------------------------------------------|:-------------------------------------------------------------------------|
 | [Hive / Hadoop analytics on EMR](hive-analytics-setup) | Setup command line tools to start writing Hive / Hadoop jobs and running them on Snowplow data stored in S3 using EMR |
 | [Analytics in Infobright](infobright-analytics-setup)  | Perform analytics on data stored in Infobright, either by directly executing SQL statements in Infobright, or by plugging in one of the many tools that work with data stored in MySQL. (On which Infobright is based) |
-| [ChartIO](chartio-setup)                               | Use ChartIO to interrogate and visualise Snowplow data stored in Infobright, including creating dashboards. This is the fastest way to build dashboards from Snowplow data |
+| [ChartIO](chartio-setup)                               | Use ChartIO to interrogate and visualize Snowplow data stored in Infobright, including creating dashboards. This is the fastest way to build dashboards from Snowplow data |
 
 ## Snowplow approach to analytics
 
