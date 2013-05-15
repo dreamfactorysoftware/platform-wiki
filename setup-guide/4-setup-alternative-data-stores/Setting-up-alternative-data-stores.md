@@ -14,16 +14,16 @@ Snowplow supports storing your data in multiple different data stores:
 | **Storage**               | **Description**                                     | **Status**       |
 |:--------------------------|:----------------------------------------------------|:-----------------|
 | S3                        | Data is stored in the S3 file system where it can be analysed using [EMR] [emr] (e.g. Hive, Pig, Mahout) | Production-ready |
-| [Redshift] [redshift]     | A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
-| [Infobright] [infobright] | An open source columnar database accessible via the MySQL JDBC driver. (So compatible with a wide range of analytics tools.) Optimized for performing OLAP analysis. Scales to Terabytes | Production-ready |
+| [Redshift] [setup-redshift]| A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
+| [Infobright] [setup-infobright] | An open source columnar database accessible via the MySQL JDBC driver. (So compatible with a wide range of analytics tools.) Optimized for performing OLAP analysis. Scales to Terabytes | Production-ready |
 
-By [setting up the EmrEtlRunner](setting-up-the-emretlrunner) (in the previous step), you are already successfully loading your data into S3 where it is accessible to EMR for analysis.
+By [setting up the EmrEtlRunner](setting-up-the-emretlrunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
 
-If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio]), you will want to load your data into a columnar database like Infobright to support enable use of these tools.
+If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [redshift] or [Infobright] [infobright] to support enable use of these tools.
 
-The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in multiple data sources including Infobright. Setting up Snowplow so that you can maintain a copy of your data in a database like Infobright is a two step process:
+The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in Redshift. Setting up Snowplow so that you can maintain a copy of your data in a database like Redshift is a two step process:
 
-1. [Create a database and table in Infobright for the data] [setup-infobright]
+1. [Create a database and table in Amazon Redshift for the data] [setup-redshift]
 2. Setup the [StorageLoader] [storage-loader-setup] so that it regularly updates that table with the latest data from S3
 
 <a name="datastores" />
@@ -48,3 +48,5 @@ Select the appropriate option below to walk through the steps necessary to setup
 [setup-redshift]: setting-up-redshift
 [setup-infobright]: Setting-up-Infobright
 [storage-loader-setup]: 1-Installing-the-StorageLoader
+[tableau]: http://www.tableausoftware.com/
+[r]: http://www.r-project.org/
