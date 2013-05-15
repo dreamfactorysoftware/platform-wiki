@@ -2,7 +2,7 @@
 
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with Snowplow] (Setting-up-Infobright)
 
-Setting up Redshift is an X step process:
+Setting up Redshift is an 6 step process:
 
 1. [Launch a cluster](#launch)
 2. [Authorize client connections to your cluster](#authorise)
