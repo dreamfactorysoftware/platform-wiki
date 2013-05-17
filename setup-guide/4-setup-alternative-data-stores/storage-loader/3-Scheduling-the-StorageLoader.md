@@ -63,7 +63,7 @@ If you use this script, you can delete any separate cronjob for the EmrEtlRunner
 You need to update this script and update the **five** variables at the top:
 
     rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
-    RUNNER_PATH=/path/to/snowplow/3-etl/snowplow-emr-etl-runner
+    RUNNER_PATH=/path/to/snowplow/3-enrich/snowplow-emr-etl-runner
     LOADER_PATH=/path/to/snowplow/4-storage/snowplow-storage-loader
     RUNNER_CONFIG=/path/to/your-runner-config.yml
     LOADER_CONFIG=/path/to/your-loader-config.yml
@@ -100,7 +100,7 @@ Setup the StorageLoader! Now you are ready to [do some analysis!](Setting-up-Sno
 [iee]: http://www.infobright.com/Products/
 [irl]: https://github.com/snowplow/infobright-ruby-loader
 
-[hive-etl]: https://github.com/snowplow/snowplow/tree/master/3-etl/hive-etl
+[hive-etl]: https://github.com/snowplow/snowplow/tree/master/3-enrich/hive-etl
 [trackers]: https://github.com/snowplow/snowplow/tree/master/1-trackers
 [collectors]: https://github.com/snowplow/snowplow/tree/master/2-collectors
 [getting-started]: http://snowplowanalytics.com/product/get-started.html

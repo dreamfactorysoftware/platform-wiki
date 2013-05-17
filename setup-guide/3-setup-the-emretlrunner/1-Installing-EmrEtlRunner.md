@@ -63,7 +63,7 @@ Done? Right, now we can install EmrEtlRunner.
 First, checkout the Snowplow repository and navigate to the EmrEtlRunner root:
 
     $ git clone git://github.com/snowplow/snowplow.git
-    $ cd snowplow/3-etl/emr-etl-runner
+    $ cd snowplow/3-enrich/emr-etl-runner
     
 Next you are ready to install the application on your system:
 
@@ -79,7 +79,7 @@ If you have any problems installing, please double-check that you have successfu
 <a name="configuration"/>
 ## 4. Configuration
 
-EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the Snowplow GitHub repository at [`/3-etl/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
+EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the Snowplow GitHub repository at [`/3-enrich/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
 
 ```yaml
 :aws:
@@ -215,5 +215,5 @@ All done installing EmrEtlRunner? Then [learn how to use it] [using-emretlrunner
 
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[config-yml]: https://github.com/snowplow/snowplow/blob/master/3-etl/emr-etl-runner/config/config.yml
+[config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml
 [using-emretlrunner]: 2-Using-EmrEtlRunner
