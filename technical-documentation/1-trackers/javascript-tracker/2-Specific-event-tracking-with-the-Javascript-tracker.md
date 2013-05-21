@@ -557,12 +557,187 @@ Note that in the above example no value is set for the `event property`.
 <a name="custom-unstructured-events" />
 ### 3.8 Tracking custom unstructured events
 
-This feature is on the roadmap: it has not been developed yet.
+**Note**: this feature is implemented in the Javascript tracker, but it is **not** currently supported in the ETL, storage or analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.) Until the ETL and storage steps are upgraded to support unstructured events, anyone using them will have to write their own custom jobs to extract the events from the collector logs and analyse them.
+
+There are certain events that you may want to track on your website or application, which are not directly supported by Snowplow, and are not suitable for being captured using the [structured event tracking] (#custom-structured-events). There are two use cases:
+
+1. Where you want to track event types which are proprietary/specific to your business, and the type of data associated with each visit does not fit into the [structured event tracking] (#custom-structured-events), either because you want to capture data of a specific type (e.g. geographical coordinates or arrays), or you want to capture more data than the five structured event fields offer allow.
+2. Where you want to track events which have unpredictable or frequently changing properties, so that it is not possible to specify the fields in advance.
+
+When you track a custom unstructured event, you track the event name and a set of associated "properties" enclosed in a JSON envelope. A custom unstructured event therefore conforms to the primary format of events captured by aalytics tools like [Mixpanel] [mixpanel], [Kissmetrics] [kissmetrics] and [Keen.io] [keen.io].
 
 <a name="trackUnstructEvent" />
 #### 3.8.1 `trackUnstructEvent`
 
-This feature is on the roadmap: it has not been developed yet.
+To track an unstructured event, you make use the `trackUnstructEvent` method:
+
+```javascript
+_snaq.push('[trackUnstructEvent', <<EVENT NAME>>, <<EVENT PROPERTIES JSON>>]);
+```
+
+For example:
+
+```javascript
+_snaq.push(['trackUnstructEvent', 'Viewed Product',
+                {
+                    product_id: 'ASO01043',
+                    category: 'Dresses',
+                    brand: 'ACME',
+                    returning: true,
+                    price: 49.95,
+                    sizes: ['xs', 's', 'l', 'xl', 'xxl'],
+                    available_since$dt: new Date(2013,3,7)
+                }
+            ]);
+```
+
+Notes regarding the `properties` JSON:
+
+* The `properties` JSON consists of a set of individual name: value pairs
+* The structure **must** be flat: properties **cannot** be nested
+
+##### 3.8.1.1 Supported datatypes
+
+Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto JavaScript datatypes, we have introduced some "type suffixes" for the JavaScript property names, so that Snowplow knows what Snowplow data types the JavaScript data types map onto:
+
+
+| Snowplow datatype | Description                  | JavaScript datatype  | Type suffix(es)      | Supports array? |
+|:------------------|:-----------------------------|:---------------------|:---------------------|:----------------|
+| Null              | Absence of a value           | Null                 | -                    | No              |
+| String            | String of characters         | String               | -                    | Yes             |
+| Boolean           | True or false                | Boolean              | -                    | Yes             |
+| Integer           | Number without decimal       | Number               | `$int`               | Yes             |
+| Floating point    | Number with decimal          | Number               | `$flt`               | Yes             |
+| Geo-coordinates   | Longitude and latitude       | \[Number, Number\]   | `$geo`               | Yes             |
+| Date              | Date and time (ms precision) | Number               | `$dt`, `$tm`, `$tms` | Yes             |
+| Array             | Array of values              | \[x, y, z\]          | -                    | -               |
+
+Let's go through each of these in turn, providing some examples as we go:
+
+###### 3.8.1.1.1 Null
+
+Tracking a Null value for a given field is straightforward:
+
+```javascript
+{
+    returns_id: null
+}
+```
+
+###### 3.8.1.1.2 String
+
+Tracking a String is easy:
+
+```javascript
+{
+    product_id: 'ASO01043' // Or "ASO01043"
+}
+```
+
+###### 3.8.1.1.3 Boolean
+
+Tracking a Boolean is also straightforward:
+
+```javascript
+{
+    trial: true
+}
+```
+
+###### 3.8.1.1.4 Integer
+
+To track an Integer, use a JavaScript Number but add a type suffix like so:
+
+```javascript
+{
+    in_stock$int: 23
+}
+```
+
+**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
+
+###### 3.8.1.1.5 Floating point
+
+To track a Floating point number, use a JavaScript Number; adding a type suffix is optional:
+
+```javascript
+{
+    price$flt: 4.99, 
+    sales_tax: 49.99 // Same as $sales_tax:$flt
+}
+```
+
+###### 3.8.1.1.5 Geo-coordinates
+
+Tracking a pair of Geographic coordinates is done like so:
+
+```javascript
+{
+    check_in$geo: [40.11041, -88.21337] // Lat, long
+}
+```
+
+Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
+
+**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+
+###### 3.8.1.1.6 Date
+
+Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
+
+* `$dt` - the Number of days since the epoch
+* `$tm` - the Number of seconds since the epoch
+* `$tms` - the Number of milliseconds since the epoch. This is the default for JavaScript Dates if no type suffix supplied
+
+You can track a date by adding either a JavaScript Number _or_ JavaScript Date to your `properties` object. The following are all valid dates:
+
+```javascript
+{
+    birthday$dt: new Date(1980,11,10), // Sent to Snowplow as birthday$dt: 3996
+    birthday2$dt: 3996, // ^ Same as above
+    
+    registered$tm: new Date(2013,05,13,14,20,10), // Sent to Snowplow as registered$tm: 1371129610
+    registered2$tm: 1371129610, // Same as above
+    
+    last_action$tms: 1368454114215, // Accurate to milliseconds
+    last_action2: new Date() // Sent to Snowplow as last_action2$tms: 1368454114215
+}
+```
+
+Note that the type prefix only indicates how the JavaScript Number sent to Snowplow is interpreted - all Snowplow Dates are stored to milliseconds precision (whether or not they include that level of precision).
+
+**Two warnings:**
+
+1. If you specify a JavaScript Number but do not add a valid Date suffix (`$dt`, `$tm` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
+2. If you specify a JavaScript Number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
+
+```javascript
+{
+    last_ping$dt: 1371129610 // Should have been $tm. Snowplow will interpret this as the year 3756521449
+}
+```
+
+###### 3.8.1.1.7 Arrays
+
+You can track an Array of values of any data type other than Null.
+
+Arrays must be homogeneous - in other words, all values within the Array must be of the same datatype. This means that the following is **not** allowed:
+
+```javascript
+{
+    sizes: ['xs', 28, 'l', 38, 'xxl'] // NOT allowed
+}
+```
+
+By contrast, the following are all allowed:
+
+```javascript
+{
+    sizes: ['xs', 's', 'l', 'xl', 'xxl'],
+    session_starts$tm: [1371129610, 1064329730, 1341127611],
+    check_ins$geo: [[-88.21337, 40.11041], [-78.81557, 30.22047]]
+}
+```
 
 [Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
@@ -592,3 +767,6 @@ This feature is on the roadmap: it has not been developed yet.
 [magicmacros]: http://www.openx.com/docs/whitepapers/magic-macros
 [dmp]: http://www.adopsinsider.com/online-ad-measurement-tracking/data-management-platforms/what-are-data-management-platforms/ 
 [contactus]: mailto:snowplow-ads@keplarllp.com
+[mixpanel]: https://mixpanel.com/
+[kissmetrics]: https://www.kissmetrics.com/
+[keen.io]: https://keen.io/
