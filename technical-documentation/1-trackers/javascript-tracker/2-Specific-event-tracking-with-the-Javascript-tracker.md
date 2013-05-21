@@ -564,7 +564,7 @@ There are certain events that you may want to track on your website or applicati
 1. Where you want to track event types which are proprietary/specific to your business, and the type of data associated with each visit does not fit into the [structured event tracking] (#custom-structured-events), either because you want to capture data of a specific type (e.g. geographical coordinates or arrays), or you want to capture more data than the five structured event fields offer allow.
 2. Where you want to track events which have unpredictable or frequently changing properties, so that it is not possible to specify the fields in advance.
 
-When you track a custom unstructured event, you track the event name and a set of associated "properties" enclosed in a JSON envelope. A custom unstructured event therefore conforms to the primary format of events captured by aalytics tools like [Mixpanel] [mixpanel], [Kissmetrics] [kissmetrics] and [Keen.io] [keen.io].
+When you track a custom unstructured event, you track the event name and a set of associated "properties" enclosed in a JSON envelope. Because you can add as many name/value properties to the JSON as you'd like, and a wide range of data types are supported (see below), this is a very flexible way of tracking events.  A custom unstructured event conforms to the primary format of events captured by analytics tools like [Mixpanel] [mixpanel], [Kissmetrics] [kissmetrics] and [Keen.io] [keen.io].
 
 <a name="trackUnstructEvent" />
 #### 3.8.1 `trackUnstructEvent`
