@@ -466,6 +466,10 @@ Impression tracking is accomplished using the `trackImpression` method.
 <a name="trackImpression" />
 #### 3.6.1 `trackImpression`
 
+**Note**: Although this feature is implemented in the Javascript tracker, it is **not** currently supported by the ETL, storage and analytics stages of the Snowplow data pipeline. As a result, if you implement this feature, you will successfully track impression data to your collector logs, but this data will not be extracted and loaded into e.g. Redshift for analysis. 
+
+Adding support for this event type to the ETL, storage and analytics stages of the data pipeline is on the Snowplow roadmap. Until it is delivered, we recommend using the [custom structured event tracking] [custom-structured-events] to track impressions.
+
 The method takes four parameters:
 
 | **Name**       | **Required?** | **Description**                                                                              |
