@@ -65,7 +65,7 @@ As a Snowplow user, you can define application IDs for each of your different di
 | Desktop/Laptop/Netbook     | `pc`           |
 | Server-Side App            | `srv`          |
 | Connected TV               | `tv`           |
-| Games Console              | `csl`          |
+| Games Console              | `cnsl`         |
 | Internet of Things         | `iot`          |
 
 Back to [common field types](#common).
