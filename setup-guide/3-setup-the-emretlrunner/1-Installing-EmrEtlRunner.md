@@ -109,7 +109,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :slave_instance_type: m1.small
 :etl:
   :job_name: Snowplow ETL # Give your job a name
-  :implementation: hadoop # Or 'hive' for legacy ETL
+  :implementation: hadoop # DO NOT CHANGE to 'hive' unless you are loading into Infobright
   :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
   :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the ETL throwing exceptions. Doesn't work for Hadoop ETL yet
   :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
@@ -195,7 +195,7 @@ It's strongly recommended that you choose the same Amazon EC2 placement as your 
 This section is where we configure exactly how we want our ETL process to operate:
 
 1. `job_name`, the name to give our ETL job. This makes it easier to identify your ETL job in the Elastic MapReduce console
-2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process. The "hadoop" process is the latest version of our ETL process, and generates Snowplow events in the format specified by our Redshift events table. The "hive" process is legacy at this point - it does not support Redshift, but is useful if you are still running Snowplow against the Infobright events table. (For more details on storage formats, see the note on storage formats directly below.)
+2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process. The "hadoop" process is the latest version of our ETL process, and generates Snowplow events in the format specified by our Redshift events table. The "hive" process is legacy at this point - it does not support Redshift, although it is still useful if you are still running Snowplow against the Infobright events table. (For more details on storage formats, see the note on storage formats directly below.)
 3. `collector_format`, what format is our collector saving data in? Currently two formats are supported: "cloudfront" (if you are running the Cloudfront collector), or "clj-tomcat" if you are running the Clojure collector
 4. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
 5. `storage_format`, can be "redshift", "mysql-infobright" or "hive". We discuss this further below
