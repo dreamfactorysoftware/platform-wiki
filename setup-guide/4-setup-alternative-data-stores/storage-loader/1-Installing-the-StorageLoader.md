@@ -95,7 +95,7 @@ file template available in the Snowplow GitHub repository at
   :host: ADD HERE # For Redshift, the endpoint as shown in the Redshift console. Not supported for Infobright currently
   :database: ADD HERE # Name of database 
   :port: 5439 # Typically '5439' for Redshift. Not supported for Infobright currently
-  :table: events # For Redshift, or 'events_008' (or your table's current version) for Infobright
+  :table: events # For Redshift, or 'events_009' (or your table's current version) for Infobright
   :username: ADD HERE 
   :password: ADD HERE 
 ```
