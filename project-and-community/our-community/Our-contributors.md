@@ -16,6 +16,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
 * [Angus Mark](https://github.com/ngsmrk) @ [Simply Business] [simply-business] (JavaScript tracker fixes)
 * [Mark H Butler](https://github.com/butlermh) (Clojure Collector improvements)
+* [Peter van Wesep](https://github.com/petervanwesep) (ETL process improvements)
 
 Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
 
