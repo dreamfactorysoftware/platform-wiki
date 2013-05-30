@@ -15,6 +15,9 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Mike Moulton](https://github.com/mmoulton) @ [meltmedia] [meltmedia] (HiveQL improvements)
 * [Alan Z](https://github.com/talkspoon) @ [VeryCD] [verycd] (Ad impression tracking bug fix)
 * [Angus Mark](https://github.com/ngsmrk) @ [Simply Business] [simply-business] (JavaScript tracker fixes)
+* [Gabor Ratky](https://github.com/rgabo) @ [Secret Sauce Partners] [sspinc] (Unstructured events, ETL and Redshift load enhancements)
+* [Andras Tarsoly](https://github.com/tarsolya) @ [Secret Sauce Partners] [sspinc] (Unstructured events)
+* [Laszlo Bacsi](https://github.com/lackac) @ [Secret Sauce Partners] [sspinc] (Unstructured events)
 * [Mark H Butler](https://github.com/butlermh) (Clojure Collector improvements)
 * [Peter van Wesep](https://github.com/petervanwesep) (ETL process improvements)
 
@@ -38,3 +41,4 @@ Many thanks to all the following for contributions to documentation!
 [verycd]: http://www.verycd.com/
 [simply-business]: http://www.simplybusiness.co.uk/
 [bigcommerce]: http://www.bigcommerce.com/
+[sspinc]: http://secretsaucepartners.com/
