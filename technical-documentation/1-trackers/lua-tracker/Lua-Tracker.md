@@ -8,13 +8,16 @@
 - 2. [Initialization and configuration](#init-and-config)  
   - 2.1 [Requiring the module](#requiring)
   - 2.2 [Creating a tracker](#create-tracker)  
-    - 2.2.1 [`newTrackerForCf`](#create-cf)  
-    - 2.2.2 [`newTrackerForUri`](#create-uri)
+    - 2.2.1 [`newTrackerForCf()`](#create-cf)  
+    - 2.2.2 [`newTrackerForUri()`](#create-uri)
   - 2.3 [Creating multiple trackers](#multi-tracker)
   - 2.4 [Configuring your tracker](#configure-tracker)
-    - 2.4.1 [`platform`](#platform)
-    - 2.4.2 [`encodeBase64`](#encode-base64)
-- 3. [Adding extra data](#add-data)
+    - 2.4.1 [`platform()`](#platform)
+    - 2.4.2 [`encodeBase64()`](#encode-base64)
+  - 2.5 [Adding extra data](#add-data)
+    - 2.5.1 [`setAppId()`](#set-app-id)
+    - 2.5.2 [`setUserId()`](#set-user-id)
+    - 2.5.3 [`setScreenResolution()`](#set-screen-resolution)
 
 <a name="overview" />
 ## 1. Overview
@@ -155,8 +158,25 @@ t:encodeBase64( false )
 [Back to top](#top)
 
 <a name="add-data" />
-## 3. Adding extra data
+## 2.5. Adding extra data
 
-You may have additional information about your application's environment, user and so on, which you want to send to Snowplow with each event.
+You may have additional information about your application's environment, current user and so on, which you want to send to Snowplow with each event.
 
-Each tracker instance has a set of `set...()` methods to allow you to attach this extra data to all subsequently tracked events.
+The tracker instance has a set of `set...()` methods to attach extra data to all tracked events:
+
+* `setAppId()`
+* `setUserId()`
+* `setScreenResolution()`
+* `setViewport()`
+* `setColorDepth()`
+
+We will discuss each of these in turn below:
+
+<a name="set-app-id" />
+### 2.5.1 Set the application's ID with `setAppId()`
+
+<a name="set-user-id" />
+### 2.5.1 Set the user's ID with `setUserId()`
+
+<a name="set-screen-res" />
+### 2.5.1 Set the screen's resolution with `setScreenResolution()`
