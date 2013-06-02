@@ -39,10 +39,12 @@ Note that this tracker has access to a much more restricted set of Snowplow even
 [Back to top](#top)
 
 <a name="general" />
-## 2. General parameters
+## 2. General configuration and parameters
 
 <a name="init" />
 ### 2.1 Initialization
+
+Assuming you have completed the [[Arduino Tracker Setup]] for your Lua project, you are now ready to initialize the Lua Tracker.
 
 You must add some initialization code to the top of your Arduino sketch, before your `setup()` function:
 
@@ -106,7 +108,7 @@ This completes the initialization of your `SnowplowTracker`.
 [Back to top](#top)
 
 <a name="initUrl" />
-#### 2.2.2 Setting a Cloudfront endpoint using `initCf()`
+#### 2.2.2 Setting a non-Cloudfront endpoint using `initUrl()`
 
 If you are running a different collector (not the Cloudfront collector) then add to your `setup()` function:
 
