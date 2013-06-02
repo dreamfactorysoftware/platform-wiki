@@ -22,7 +22,7 @@
 
 The [Snowplow Lua Tracker](https://github.com/snowplow/snowplow-lua-tracker) allows you to track Snowplow events from your Lua-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
 
-The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with Snowplow's [[JavaScript Tracker]], Google Analytics or MixPanel (which have similar APIs to Snowplow) is helpful but not necessary.
+The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with Snowplow's [[JavaScript Tracker]], Google Analytics or Mixpanel (which have similar APIs to Snowplow) is helpful but not necessary.
 
 Note that this tracker has access to a more restricted set of Snowplow events than the [[JavaScript Tracker]].
 
@@ -147,7 +147,7 @@ You can set whether or not to Base64-encode property data for unstructured event
 t:encodeBase64( {{true OR false}} )
 ```
 
-So to disable it (and send the data URI-encoded instead):
+So to disable it and send the data URI-encoded instead:
 
 ```lua
 t:encodeBase64( false )
