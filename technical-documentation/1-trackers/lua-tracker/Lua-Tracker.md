@@ -10,8 +10,8 @@
   - 2.1 [Initialization and configuration](#init-and-config)  
     - 2.1.1 [Requiring the module](#requiring)
     - 2.1.2 [Creating a tracker](#create-tracker)  
-      - 2.2.1 [`newTrackerForCf`](#create-cf)  
-      - 2.2.2 [`newTrackerForUri`](#create-uri)
+      - 2.1.2.1 [`newTrackerForCf`](#create-cf)  
+      - 2.1.2.2 [`newTrackerForUri`](#create-uri)
 
 <a name="overview" />
 ## 1. Overview
@@ -56,7 +56,7 @@ You can initialize a tracker instance for a Cloudfront collector with:
 local t = snowplow.newTrackerForCf( "{{CLOUDFRONT-SUBDOMAIN}}" )
 ```
 
-So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would include:
+So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would write:
 
 ```lua
 local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
@@ -75,7 +75,7 @@ You can initialize a tracker instance for a non-Cloudfront collector with:
 local t = snowplow.newTrackerForUri( "{{COLLECTOR-URL}}" )
 ```
 
-So if your collector is available at 'my-company.c.snplow.com' then you would include:
+So if your collector is available at 'my-company.c.snplow.com', you would write:
 
 ```lua
 local t = snowplow.newTrackerForUri( "my-company.c.snplow.com" )
