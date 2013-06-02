@@ -48,7 +48,7 @@ There are two different versions of the tracker constructor, depending on which 
 If you are using a Cloudfront collector, use [newTrackerForCf()](#create-cf) to initialize your tracker instance. If you are using any other collector (e.g. the Clojure collector, or SnowCannon), then you should use [newTrackerForUri()](#create-uri).
 
 <a name="initCf" />
-#### 2.2.1 Creating a tracker logging to Cloudfront with `newTrackerForCf()`
+#### 2.1.2.1 Creating a tracker logging to Cloudfront with `newTrackerForCf()`
 
 You can initialize a tracker instance for a Cloudfront collector with:
 
@@ -67,7 +67,7 @@ This completes the initialization of your tracker instance.
 [Back to top](#top)
 
 <a name="initUrl" />
-#### 2.2.2 Creating a tracker logging to a non-CloudFront collector using `newTrackerForUri()`
+#### 2.1.2.2 Creating a tracker logging to a non-CloudFront collector using `newTrackerForUri()`
 
 You can initialize a tracker instance for a non-Cloudfront collector with:
 
