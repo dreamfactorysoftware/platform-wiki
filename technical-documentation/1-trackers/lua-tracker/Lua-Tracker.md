@@ -164,9 +164,9 @@ You may have additional information about your application's environment, curren
 
 The tracker instance has a set of `set...()` methods to attach extra data to all tracked events:
 
-* `setAppId()`
-* `setUserId()`
-* `setScreenResolution()`
+* [`setAppId()`](#set-app-id)
+* [`setUserId()`](#set-user-id)
+* [`setScreenResolution()`](#set-screen-resolution)
 * `setViewport()`
 * `setColorDepth()`
 
