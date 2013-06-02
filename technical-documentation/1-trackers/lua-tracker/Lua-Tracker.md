@@ -177,10 +177,10 @@ The tracker instance has a set of `set...()` methods to attach extra data to all
 We will discuss each of these in turn below:
 
 <a name="set-app-id" />
-### 3.2.1 Set the application's ID with `setAppId()`
+### 3.2.1 Set application ID with `setAppId()`
 
 <a name="set-user-id" />
-### 3.2.1 Set the user's ID with `setUserId()`
+### 3.2.1 Set user ID with `setUserId()`
 
 <a name="set-screen-res" />
-### 3.2.1 Set the screen's resolution with `setScreenResolution()`
+### 3.2.1 Set screen resolution with `setScreenResolution()`
