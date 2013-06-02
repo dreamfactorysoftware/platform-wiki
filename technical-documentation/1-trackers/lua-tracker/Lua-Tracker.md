@@ -36,12 +36,14 @@ Require the Lua Tracker's module into your Lua code like so:
 local snowplow = require("snowplow")
 ```
 
+That's it - you are now ready to initialize a tracker instance. 
+
 [Back to top](#top)
 
 <a name="create-tracker" />
 ### 2.1.2 Creating a tracker
 
-You are now ready to initialize a tracker instance. There are two different versions of the constructor, depending on which type of collector you want to log events to.
+There are two different versions of the tracker constructor, depending on which type of collector you want to log events to.
 
 If you are using a Cloudfront collector, use [newTrackerForCf()](#create-cf) to initialize your tracker instance. If you are using any other collector (e.g. the Clojure collector, or SnowCannon), then you should use [newTrackerForUri()](#create-uri).
 
