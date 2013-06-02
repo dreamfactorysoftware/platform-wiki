@@ -97,11 +97,11 @@ Here is an example of instantiating two separate trackers:
 
 ```lua
 local t1 = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
-t1:platform ( "cnsl" )
+t1:platform( "cnsl" )
 t1:trackUnstructEvent( "save-game", { save_id = 23 }, 1369330092 )
 
 local t2 = snowplow.newTrackerForUri( "cc-endpoint.mysite.com" )
-t2:platform ( "cnsl" )
+t2:platform( "cnsl" )
 t2:trackScreenView( "Game HUD", "23" )
 
 t1:trackScreenView( "Test", "23" ) -- Back to first tracker 
