@@ -12,6 +12,10 @@
     - 2.1.2 [Creating a tracker](#create-tracker)  
       - 2.1.2.1 [`newTrackerForCf`](#create-cf)  
       - 2.1.2.2 [`newTrackerForUri`](#create-uri)
+    - 2.1.3 [Creating multiple trackers](#multi-tracker)
+    - 2.1.4 [Configuring your tracker](#configure-tracker)
+      - 2.1.4.1 [`platform`](#platform)
+      - 2.1.4.2 [`encodeBase64`](#encode-base64)
 
 <a name="overview" />
 ## 1. Overview
@@ -47,7 +51,7 @@ There are two different versions of the tracker constructor, depending on which 
 
 If you are using a Cloudfront collector, use [newTrackerForCf()](#create-cf) to initialize your tracker instance. If you are using any other collector (e.g. the Clojure collector, or SnowCannon), then you should use [newTrackerForUri()](#create-uri).
 
-<a name="initCf" />
+<a name="create-cf" />
 #### 2.1.2.1 Creating a tracker logging to Cloudfront with `newTrackerForCf()`
 
 You can initialize a tracker instance for a Cloudfront collector with:
@@ -66,7 +70,7 @@ This completes the initialization of your tracker instance.
 
 [Back to top](#top)
 
-<a name="initUrl" />
+<a name="create-uri" />
 #### 2.1.2.2 Creating a tracker logging to a non-CloudFront collector using `newTrackerForUri()`
 
 You can initialize a tracker instance for a non-Cloudfront collector with:
@@ -85,12 +89,52 @@ This completes the initialization of your tracker instance.
 
 [Back to top](#top)
 
+### 2.1.3 Creating multiple trackers
+
+Each tracker instance is completely sandboxed, so you can create multiple trackers as you see fit.
+
+Here is an example of instantiating two separate trackers:
+
+```lua
+local t1 = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
+t1:platform ( "cnsl" )
+t1:trackUnstructEvent( "save-game", { save_id = 23 }, 1369330092 )
+
+local t2 = snowplow.newTrackerForUri( "cc-endpoint.mysite.com" )
+t2:platform ( "cnsl" )
+t2:trackScreenView( "Game HUD", "23" )
+
+t1:trackScreenView( "Test", "23" ) -- Back to first tracker 
+```
+
+[Back to top](#top)
+
 <a name="configure-tracker" />
-### 2.1.2 Configuring your tracker
+### 2.1.4 Configuring your tracker
 
 Each tracker instance is initialized with sensible defaults:
 
-* Platform
-* Encode Base 64
+* The platform the tracker is running on is set to "pc"
+* Property data for unstructured events is sent Base64-encoded
 
-However you can change
+However you can change either of these defaults:
+
+<a name="platform" />
+#### 2.1.4.1 Change the tracker's platform with `platform()`
+
+You can change the platform the tracker is running on by calling:
+
+```lua
+t:platform( "{{PLATFORM CODE}}" )
+```
+
+For example:
+
+```lua
+t:platform( "tv" ) -- Running on a Connected TV
+```
+
+For a full list of supported platforms, please see the [[Snowplow Tracker Protocol]].
+
+[Back to top](#top)
+
