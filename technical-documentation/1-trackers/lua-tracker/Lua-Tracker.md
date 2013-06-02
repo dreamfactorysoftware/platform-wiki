@@ -72,7 +72,7 @@ This completes the initialization of your tracker instance.
 You can initialize a tracker instance for a non-Cloudfront collector with:
 
 ```lua
-local t = snowplow.newTrackerForUri( "{{COLLECTOR-URL}}" )
+local t = snowplow.newTrackerForUri( "{{COLLECTOR-URI}}" )
 ```
 
 So if your collector is available at 'my-company.c.snplow.com', you would write:
@@ -84,3 +84,13 @@ local t = snowplow.newTrackerForUri( "my-company.c.snplow.com" )
 This completes the initialization of your tracker instance.
 
 [Back to top](#top)
+
+<a name="configure-tracker" />
+### 2.1.2 Configuring your tracker
+
+Each tracker instance is initialized with sensible defaults:
+
+* Platform
+* Encode Base 64
+
+However you can change
