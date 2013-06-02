@@ -5,7 +5,6 @@
 ## Contents
 
 - 1. [Overview](#overview)  
-
 - 2. [Initialization and configuration](#init-and-config)  
   - 2.1 [Requiring the module](#requiring)
   - 2.2 [Creating a tracker](#create-tracker)  
@@ -15,7 +14,6 @@
   - 2.4 [Configuring your tracker](#configure-tracker)
     - 2.4.1 [`platform`](#platform)
     - 2.4.2 [`encodeBase64`](#encode-base64)
-
 - 3. [Adding extra data](#add-data)
 
 <a name="overview" />
