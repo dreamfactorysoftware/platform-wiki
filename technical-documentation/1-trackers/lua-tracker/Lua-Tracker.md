@@ -5,19 +5,20 @@
 ## Contents
 
 - 1. [Overview](#overview)  
-- 2. [Initialization and configuration](#init-and-config)  
+- 2. [Initialization](#init)  
   - 2.1 [Requiring the module](#requiring)
   - 2.2 [Creating a tracker](#create-tracker)  
     - 2.2.1 [`newTrackerForCf()`](#create-cf)  
     - 2.2.2 [`newTrackerForUri()`](#create-uri)
   - 2.3 [Creating multiple trackers](#multi-tracker)
-  - 2.4 [Configuring your tracker](#configure-tracker)
-    - 2.4.1 [`platform()`](#platform)
-    - 2.4.2 [`encodeBase64()`](#encode-base64)
-  - 2.5 [Adding extra data](#add-data)
-    - 2.5.1 [`setAppId()`](#set-app-id)
-    - 2.5.2 [`setUserId()`](#set-user-id)
-    - 2.5.3 [`setScreenResolution()`](#set-screen-resolution)
+- 3. [Configuration](#config)  
+  - 3.1 [Configuring your tracker](#configure-tracker)
+    - 3.1.1 [`platform()`](#platform)
+    - 3.1.2 [`encodeBase64()`](#encode-base64)
+  - 3.2 [Adding extra data](#add-data)
+    - 3.2.1 [`setAppId()`](#set-app-id)
+    - 3.2.2 [`setUserId()`](#set-user-id)
+    - 3.2.3 [`setScreenResolution()`](#set-screen-resolution)
 
 <a name="overview" />
 ## 1. Overview
@@ -28,10 +29,10 @@ The tracker should be straightforward to use if you are comfortable with Lua dev
 
 Note that this tracker has access to a more restricted set of Snowplow events than the [[JavaScript Tracker]].
 
-<a name="init-and-config" />
-## 2 Initialization and configuration
+<a name="init" />
+## 2 Initialization
 
-Assuming you have completed the [[Lua Tracker Setup]] for your Lua project, you are now ready to initialize and configure the Lua Tracker.
+Assuming you have completed the [[Lua Tracker Setup]] for your Lua project, you are now ready to initialize the Lua Tracker.
 
 <a name="requiring" />
 ### 2.1 Requiring the module
@@ -111,8 +112,11 @@ t1:trackScreenView( "Test", "23" ) -- Back to first tracker
 
 [Back to top](#top)
 
+<a name="config" />
+## 3. Configuration
+
 <a name="configure-tracker" />
-### 2.4 Configuring your tracker
+### 3.1 Configuring your tracker
 
 Each tracker instance is initialized with sensible defaults:
 
@@ -122,7 +126,7 @@ Each tracker instance is initialized with sensible defaults:
 However you can change either of these defaults:
 
 <a name="platform" />
-#### 2.4.1 Change the tracker's platform with `platform()`
+#### 3.1.1 Change the tracker's platform with `platform()`
 
 You can change the platform the tracker is running on by calling:
 
@@ -141,7 +145,7 @@ For a full list of supported platforms, please see the [[Snowplow Tracker Protoc
 [Back to top](#top)
 
 <a name="encode-base64" />
-#### 2.4.1 Disable Base64-encoding with `encodeBase64()`
+#### 3.1.2 Disable Base64-encoding with `encodeBase64()`
 
 You can set whether or not to Base64-encode property data for unstructured events by calling:
 
@@ -158,7 +162,7 @@ t:encodeBase64( false )
 [Back to top](#top)
 
 <a name="add-data" />
-## 2.5. Adding extra data
+## 3.2 Adding extra data
 
 You may have additional information about your application's environment, current user and so on, which you want to send to Snowplow with each event.
 
@@ -173,10 +177,10 @@ The tracker instance has a set of `set...()` methods to attach extra data to all
 We will discuss each of these in turn below:
 
 <a name="set-app-id" />
-### 2.5.1 Set the application's ID with `setAppId()`
+### 3.2.1 Set the application's ID with `setAppId()`
 
 <a name="set-user-id" />
-### 2.5.1 Set the user's ID with `setUserId()`
+### 3.2.1 Set the user's ID with `setUserId()`
 
 <a name="set-screen-res" />
-### 2.5.1 Set the screen's resolution with `setScreenResolution()`
+### 3.2.1 Set the screen's resolution with `setScreenResolution()`
