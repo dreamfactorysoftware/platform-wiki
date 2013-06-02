@@ -138,3 +138,19 @@ For a full list of supported platforms, please see the [[Snowplow Tracker Protoc
 
 [Back to top](#top)
 
+<a name="encode-base64" />
+#### 2.1.4.1 Disable Base64-encoding with `encodeBase64()`
+
+You can set whether or not to Base64-encode property data for unstructured events by calling:
+
+```lua
+t:encodeBase64( {{true OR false}} )
+```
+
+So to disable it (and send the data URI-encoded instead):
+
+```lua
+t:encodeBase64( false )
+```
+
+[Back to top](#top)
