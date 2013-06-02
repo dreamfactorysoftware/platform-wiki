@@ -9,7 +9,7 @@ The following guide covers the process for integrating Snowplow tracking tags di
 * [Google Tag Manager](integrating-javascript-tags-with-google-tag-manager)
 * [Qubit's OpenTag](integrating-javascript-tags-with-qubit-opentag)
 
-We recommend using the Snowplow asyncronous tags. Doing so means that the loading of the Snowplow tags will not cause site content to load more slowly, thereby providing a better experience for your users.
+We recommend using the Snowplow asynchronous tags. Doing so means that the loading of the Snowplow tags will not cause site content to load more slowly, thereby providing a better experience for your users.
 
 ## Table of Contents
 

@@ -47,7 +47,7 @@ The [Snowplow Javascript tracker](https://github.com/snowplow/snowplow/tree/mast
 
 Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [snowplow.js](https://github.com/snowplow/snowplow/blob/master/1-trackers/javascript-tracker/js/snowplow.js), that trigger GET requests of the Snowplow pixel. The Javascript functions append data points to be passed into Snowplow onto the query string for the GET requests. These then get logged by the Snowplow [collector](collectors). For a full list of data points that can be passed into Snowplow in this way, please refer to the [Snowplow tracker protocol](snowplow-tracker-protocol) documentation.
 
-The Javascript tracker supports both syncronous and asyncronous tags. We recommend the asyncronous tags in nearly all instances, as these do not slow down page load times. 
+The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times. 
 
 [Back to top](#top)  
 [2. General parameters](1-General-paramaters-for-the-Javascript-tracker#wiki-general)  
