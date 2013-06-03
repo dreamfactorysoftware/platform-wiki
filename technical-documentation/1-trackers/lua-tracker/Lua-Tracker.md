@@ -278,18 +278,18 @@ Lua is a dynamically typed language, but each of our `trackXXX()` methods expect
 
 ```lua
 local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
-local f = function() t:setColorDepth("unknown") end
-assert.has_error(f, "depth is required and must be a positive integer, not [unknown]") # Busted assertion passes
+local f = function() t:setColorDepth( "unknown" ) end
+assert.has_error( f, "depth is required and must be a positive integer, not [unknown]" ) # Busted assertion passes
 ```
 
-If your value has the wrong type, convert it before passing it into the `trackXXX()` method:
+If your value is of the wrong type, convert it before passing it into the `trackXXX()` method, for example:
 
 ```lua
 local level_idx = 42
 t:trackScreenView( "Game Level", tostring( level_idx ) )
 ```
 
-We specify the types and value ranges required for each argument to `trackXXX()` below.
+We specify the types and value ranges required for each argument below.
 
 [Back to top](#top)
 
