@@ -324,7 +324,7 @@ local status, msg = t:trackUnstructEvent( "save-game", { save_id = "4321", level
 These values are as follows:
 
 1. The first value (`status` above) is a boolean, set to `true` if the event was successfully logged to the collector, or `false` if the event was not successfully logged
-2. The second value (`msg` above) is a string, which contains the error message should `status` be `false`, and is `nil` if `status` is `true`
+2. The second value (`msg` above) is a string, which is `nil` if `status` is true, but contains the error message if `status` be `false`
 
 [Back to top](#top)
 
