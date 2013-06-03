@@ -104,9 +104,12 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :ec2_key_name: ADD HERE
   # Adjust your Hive cluster below
   :jobflow:
-    :instance_count: 2
     :master_instance_type: m1.small
-    :slave_instance_type: m1.small
+    :core_instance_count: 2
+    :core_instance_type: m1.small
+    :task_instance_count: 0 # Increase to use spot instances
+    :task_instance_type: m1.small
+    :task_instance_bid: 0.015 # In USD. Adjust bid, or leave blank for non-spot-priced (i.e. on-demand) task instances
 :etl:
   :job_name: Snowplow ETL # Give your job a name
   :implementation: hadoop # DO NOT CHANGE to 'hive' unless you are loading into Infobright
@@ -115,7 +118,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
 # Can bump the below as Snowplow releases new versions
 :snowplow:
-  :hadoop_etl_version: 0.3.1 # Version of the Hadoop ETL
+  :hadoop_etl_version: 0.3.2 # Version of the Hadoop ETL
   :serde_version: 0.5.5 # Version of the Hive deserializer
   :hive_hiveql_version: 0.5.7
   :mysql_infobright_hiveql_version: 0.0.8
