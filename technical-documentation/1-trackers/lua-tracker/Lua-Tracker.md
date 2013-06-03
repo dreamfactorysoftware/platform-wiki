@@ -413,10 +413,10 @@ Snowplow unstructured events support a relatively rich set of datatypes. Because
 | Null              | Absence of a value           | N/A                | -                    | No              |
 | String            | String of characters         | string             | -                    | Yes             |
 | Boolean           | True or false                | boolean            | -                    | Yes             |
-| Integer           | Number without decimal       | number             | `$int`               | Yes             |
-| Floating point    | Number with decimal          | number             | `$flt`               | Yes             |
-| Geo-coordinates   | Longitude and latitude       | { number, number } | `$geo`               | Yes             |
-| Date              | Date and time (ms precision) | number             | `$dt`, `$tm`, `$tms` | Yes             |
+| Integer           | Number without decimal       | number             | `_INT`               | Yes             |
+| Floating point    | Number with decimal          | number             | `_FLT`               | Yes             |
+| Geo-coordinates   | Longitude and latitude       | { number, number } | `_GEO`               | Yes             |
+| Date              | Date and time (ms precision) | number             | `_DT`, `_DT`, `_TMS` | Yes             |
 | Array             | Array of values              | {x, y, z}          | -                    | -               |
 
 Let"s go through each of these in turn, providing some examples as we go:
@@ -451,7 +451,7 @@ To track an Integer, use a Lua number but add a type suffix like so:
 
 ```lua
 {
-    in_stock$int = 23
+    in_stock_INT = 23
 }
 ```
 
@@ -463,7 +463,7 @@ To track a Floating point number, use a Lua number; adding a type suffix is opti
 
 ```lua
 {
-    price$flt = 4.99, 
+    price_INT = 4.99, 
     sales_tax = 49.99 # Same as $sales_tax:$flt
 }
 ```
@@ -474,7 +474,7 @@ Tracking a pair of Geographic coordinates is done like so:
 
 ```lua
 {
-    check_in$geo = { 40.11041, -88.21337 } -- Lat, long
+    check_in_GEO = { 40.11041, -88.21337 } -- Lat, long
 }
 ```
 
@@ -486,17 +486,17 @@ Please note that the datatype takes the format **latitude** followed by **longit
 
 Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
-* `$dt` - the Number of days since the epoch
-* `$tm` - the Number of seconds since the epoch
-* `$tms` - the Number of milliseconds since the epoch. This is the default for JavaScript Dates if no type suffix supplied
+* `_DT` - the Number of days since the epoch
+* `_TM` - the Number of seconds since the epoch
+* `_TMS` - the Number of milliseconds since the epoch. This precision is hard to access from within Lua
 
 You can track a date by adding a Lua number to your `properties` object. The following are all valid dates:
 
 ```lua
 {
-    birthday2$dt = 3996,
-    registered2$tm = 1371129610,
-    last_action$tms = 1368454114215, -- Accurate to milliseconds
+    birthday2_DT = 3996,
+    registered2_TM = 1371129610,
+    last_action_TMS = 1368454114215, -- Accurate to milliseconds
 }
 ```
 
@@ -509,7 +509,7 @@ Note that the type prefix only indicates how the Lua number sent to Snowplow is 
 
 ```lua
 {
-    last_ping$dt = 1371129610 # Should have been $tm. Snowplow will interpret this as the year 3756521449
+    last_ping_DT = 1371129610 # Should have been $tm. Snowplow will interpret this as the year 3756521449
 }
 ```
 
@@ -530,8 +530,8 @@ By contrast, the following are all allowed:
 ```lua
 {
     sizes = { "xs", "s", "l", "xl", "xxl" },
-    session_starts$tm = { 1371129610, 1064329730, 1341127611 },
-    check_ins$geo = { { -88.21337, 40.11041 }, { -78.81557, 30.22047 } }
+    session_starts_TM = { 1371129610, 1064329730, 1341127611 },
+    check_ins_GEO = { { -88.21337, 40.11041 }, { -78.81557, 30.22047 } }
 }
 ```
 
