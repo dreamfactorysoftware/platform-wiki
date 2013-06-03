@@ -55,19 +55,6 @@ To run it locally:
 * [GitHub repository] [github-repo]
 * [Setup guide] [setup-guide]
 
-## Copyright and license
-
-The Clojure Collector is copyright 2012 Snowplow Analytics Ltd.
-
-Licensed under the [Apache License, Version 2.0] [license] (the "License");
-you may not use this software except in compliance with the License.
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
 [snowplow]: http://snowplowanalytics.com
 [cloudfront-collector]: https://github.com/snowplow/snowplow/tree/master/2-collectors/cloudfront-collector
 [snowcannon]: https://github.com/shermozle/SnowCannon
@@ -81,5 +68,3 @@ limitations under the License.
 
 [ring]: https://github.com/ring-clojure/ring
 [compojure]: https://github.com/weavejester/compojure
-
-[license]: http://www.apache.org/licenses/LICENSE-2.0
