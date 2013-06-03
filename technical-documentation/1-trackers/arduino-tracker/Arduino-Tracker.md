@@ -149,11 +149,11 @@ snowplow.setUserId("boardroom-arduino");
 
 Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
-All tracking functions at a glance:
+Tracking functions supported by the Arduino Tracker at a glance:
 
-| **Function**                             | **Description**                          |
-|-----------------------------------------:|:-----------------------------------------|
-|  [`trackStructEvent`](#trackStructEvent) | Track a Snowplow custom structured event |
+| **Function**                            | **Description**                          |
+|----------------------------------------:|:-----------------------------------------|
+| [`trackStructEvent`](#trackStructEvent) | Track a Snowplow custom structured event |
 
 <a name="common" />
 ### 3.1 Common

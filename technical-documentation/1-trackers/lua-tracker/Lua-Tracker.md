@@ -21,6 +21,13 @@
     - 3.2.3 [`setScreenResolution()`](#set-screen-resolution)
     - 3.2.4 [`setColorDepth()`](#set-color-depth)
 - 4. [Tracking specific events](#events)
+  - 4.1 [Common](#common)
+    - 4.1.1 [Argument validation](#validation)
+    - 4.1.2 [Optional timestamp argument](#tstamp-arg)
+    - 4.1.3 [Return values](#ret-vals)
+  - 4.2 [Tracking screen views](#screen-view)
+  - 4.3 [Tracking structured events](#struct-event)
+  - 4.4 [Tracking unstructured events](#unstruct-event)
 
 <a name="overview" />
 ## 1. Overview
@@ -201,11 +208,10 @@ You can set the user ID to any string:
 t:setUserId( "{{USER ID}}" )
 ```
 
-Convert any numeric value to a string first. Example:
+Example:
 
 ```lua
-local uid = 123
-t:setUserId( tostring( uid ) )
+t:setUserId( "alexd" )
 ```
 
 <a name="set-screen-res" />
@@ -240,3 +246,63 @@ t:setColorDepth( 32 )
 
 <a name="events" />
 ## 4. Tracking specific events
+
+Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
+
+Tracking methods supported by the Lua Tracker at a glance:
+
+| **Function**                                | **Description**                                |
+|--------------------------------------------:|:-----------------------------------------------|
+| [`trackScreenView`](#trackScreenView)       | Track the user viewing a screen within the app |
+| [`trackStructEvent`](#trackStructEvent)     | Track a Snowplow custom structured event       |
+| [`trackUnstructEvent`](#trackUnstructEvent) | Track a Snowplow custom unstructured event     |
+
+<a name="common" />
+### 4.1 Common
+
+All events are tracked with specific methods on the tracker instance, of the form `trackXXX()`, where `XXX` is the name of the event to track.
+
+<a name="validation" />
+### 4.1.1 Argument validation
+
+Lua is a dynamically typed language, but each of our `trackXXX()` methods expects its arguments to be of specific types and value ranges, and validates that to be the case. If the validation check fails, then a runtime error is thrown:
+
+```lua
+local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
+local f = function() t:setColorDepth("unknown") end
+assert.has_error(f, "depth is required and must be a positive integer, not [unknown]") # Busted assertion passes
+```
+
+If your value has the wrong type, convert it before passing it into the `trackXXX()` method:
+
+```lua
+local level_idx = 42
+t:trackScreenView( "Game Level", tostring( level_idx ) )
+```
+
+We specify the required types and value ranges below.
+
+<a name="tstamp-arg" />
+### 4.1.2 Optional timestamp argument
+
+Section to come
+
+<a name="ret-vals" />
+### 4.1.3 Return values
+
+Section to come.
+
+<a name="screen-view" />
+### 4.2 Tracking screen views
+
+Section to come.
+
+<a name="struct-event" />
+### 4.3 Tracking structured events
+
+Section to come.
+
+<a name="unstruct-event" />
+### 4.4 Tracking unstructured events
+
+Section to come.
