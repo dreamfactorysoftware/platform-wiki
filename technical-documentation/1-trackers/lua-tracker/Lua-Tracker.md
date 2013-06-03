@@ -20,6 +20,7 @@
     - 3.2.2 [`setUserId()`](#set-user-id)
     - 3.2.3 [`setScreenResolution()`](#set-screen-resolution)
     - 3.2.4 [`setColorDepth()`](#set-color-depth)
+- 4. [Tracking specific events](#events)
 
 <a name="overview" />
 ## 1. Overview
@@ -236,3 +237,6 @@ The number should be a positive integer, in bits per pixel. Example:
 ```lua
 t:setColorDepth( 32 )
 ```
+
+<a name="events" />
+## 4. Tracking specific events
