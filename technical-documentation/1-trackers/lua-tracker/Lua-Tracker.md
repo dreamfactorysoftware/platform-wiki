@@ -19,6 +19,7 @@
     - 3.2.1 [`setAppId()`](#set-app-id)
     - 3.2.2 [`setUserId()`](#set-user-id)
     - 3.2.3 [`setScreenResolution()`](#set-screen-resolution)
+    - 3.2.4 [`setColorDepth()`](#set-color-depth)
 
 <a name="overview" />
 ## 1. Overview
@@ -171,16 +172,67 @@ The tracker instance has a set of `set...()` methods to attach extra data to all
 * [`setAppId()`](#set-app-id)
 * [`setUserId()`](#set-user-id)
 * [`setScreenResolution()`](#set-screen-resolution)
-* `setViewport()`
-* `setColorDepth()`
+* [`setColorDepth()`](#set-color-depth)
 
 We will discuss each of these in turn below:
 
 <a name="set-app-id" />
 ### 3.2.1 Set application ID with `setAppId()`
 
+You can set the application ID to any string:
+
+```lua
+t:setAppId( "{{APPLICATION ID}}" )
+```
+
+Example:
+
+```lua
+t:setAppId( "wow-addon-1" )
+```
+
 <a name="set-user-id" />
 ### 3.2.1 Set user ID with `setUserId()`
 
+You can set the user ID to any string:
+
+```lua
+t:setUserId( "{{USER ID}}" )
+```
+
+Convert any numeric value to a string first. Example:
+
+```lua
+local uid = 123
+t:setUserId( tostring( uid ) )
+```
+
 <a name="set-screen-res" />
 ### 3.2.1 Set screen resolution with `setScreenResolution()`
+
+If your Lua code has access to the device's screen resolution, then you can pass this in to Snowplow too:
+
+ ```lua
+t:setScreenResolution( {{WIDTH}}, {{HEIGHT}} )
+```
+
+Both numbers should be positive integers; note the order is height followed by width. Example:
+
+ ```lua
+t:setScreenResolution( 1366, 768 )
+```
+
+<a name="set-color-depth" />
+### 3.2.1 Set color depth with `setColorDepth()`
+
+If your Lua code has access to the bit depth of the device's color palette for displaying images, then you can pass this in to Snowplow too:
+
+ ```lua
+t:setColorDepth( {{BITS PER PIXEL}} )
+```
+
+The number should be a positive integer, in bits per pixel. Example:
+
+ ```lua
+t:setColorDepth( 32 )
+```
