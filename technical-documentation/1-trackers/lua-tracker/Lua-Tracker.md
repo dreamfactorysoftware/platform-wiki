@@ -25,9 +25,9 @@
     - 4.1.1 [Argument validation](#validation)
     - 4.1.2 [Optional timestamp argument](#tstamp-arg)
     - 4.1.3 [Return values](#ret-vals)
-  - 4.2 [Tracking screen views](#screen-view)
-  - 4.3 [Tracking structured events](#struct-event)
-  - 4.4 [Tracking unstructured events](#unstruct-event)
+  - 4.2 [Tracking screen views with `trackScreenView`](#screen-view)
+  - 4.3 [Tracking structured events with `trackStructEvent`](#struct-event)
+  - 4.4 [Tracking unstructured events with `trackUnstructEvent`](#unstruct-event)
 
 <a name="overview" />
 ## 1. Overview
