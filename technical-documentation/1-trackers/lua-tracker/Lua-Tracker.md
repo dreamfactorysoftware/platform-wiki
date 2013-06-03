@@ -251,11 +251,11 @@ Snowplow has been built to enable you to track a wide range of events that occur
 
 Tracking methods supported by the Lua Tracker at a glance:
 
-| **Function**                                | **Description**                                |
-|--------------------------------------------:|:-----------------------------------------------|
-| [`trackScreenView`](#trackScreenView)       | Track the user viewing a screen within the app |
-| [`trackStructEvent`](#trackStructEvent)     | Track a Snowplow custom structured event       |
-| [`trackUnstructEvent`](#trackUnstructEvent) | Track a Snowplow custom unstructured event     |
+| **Function**                                | **Description**                                        |
+|--------------------------------------------:|:-------------------------------------------------------|
+| [`trackScreenView`](#trackScreenView)       | Track the user viewing a screen within the application |
+| [`trackStructEvent`](#trackStructEvent)     | Track a Snowplow custom structured event               |
+| [`trackUnstructEvent`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
 
 <a name="common" />
 ### 4.1 Common
@@ -280,7 +280,7 @@ local level_idx = 42
 t:trackScreenView( "Game Level", tostring( level_idx ) )
 ```
 
-We specify the required types and value ranges below.
+We specify the types and value ranges required for each argument to `trackXXX()` below.
 
 <a name="tstamp-arg" />
 ### 4.1.2 Optional timestamp argument
