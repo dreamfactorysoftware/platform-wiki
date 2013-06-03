@@ -360,7 +360,7 @@ Use `trackStructEvent` to track a custom event happening in your app which fits 
 Example:
 
 ```lua
-local s, msg = t:trackStructEvent( "shop", "add-to-basket", nil, "units", 2, 1369330909 )
+local s, msg = t:trackStructEvent( "shop", "add-to-basket", nil, "pcs", 2, 1369330909 )
 ```
 
 [Back to top](#top)
