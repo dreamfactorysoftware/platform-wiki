@@ -293,16 +293,16 @@ Section to come
 Section to come.
 
 <a name="screen-view" />
-### 4.2 Tracking screen views
+### 4.2 Tracking screen views with `trackScreenView`
 
 Section to come.
 
 <a name="struct-event" />
-### 4.3 Tracking structured events
+### 4.3 Tracking structured events with `trackStructEvent`
 
 Section to come.
 
 <a name="unstruct-event" />
-### 4.4 Tracking unstructured events
+### 4.4 Tracking unstructured events with `trackUnstructEvent`
 
 Section to come.
