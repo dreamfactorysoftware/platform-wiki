@@ -17,9 +17,10 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.7** | [See GitHub] [issues-087] | Add Postgres as a storage target                              |
-| **0.8.8** | [See GitHub] [issues-088] | Make EmrEtlRunner runnable from Ruby                          |
-| **0.8.9** | [See GitHub] [issues-089] | Make StorageLoader runnable from Ruby                         |
+| **0.8.7** | [See GitHub] [issues-087] | JavaScript tracker improvements                              |
+| **0.8.8** | [See GitHub] [issues-088] | Add Postgres as a storage target                          |
+| **0.8.9** | [See GitHub] [issues-089] | Make EmrEtlRunner runnable from Ruby                           |
+| **0.8.10** | [See GitHub] [issues-0810] | Make StorageLoader runnable from Ruby                         |
 
 ## Longer-term: approximate schedule
 
@@ -40,6 +41,7 @@ The longer-term schedule of major developments is approximately as follows:
 [issues-087]: https://github.com/snowplow/snowplow/issues?milestone=19&state=open
 [issues-088]: https://github.com/snowplow/snowplow/issues?milestone=23&state=open
 [issues-089]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
+[issues-0810]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
