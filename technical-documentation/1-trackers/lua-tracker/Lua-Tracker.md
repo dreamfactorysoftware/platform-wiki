@@ -455,7 +455,7 @@ To track an Integer, use a Lua number but add a type suffix like so:
 }
 ```
 
-**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
+**Warning:** if you do not add the `_INT` type suffix, Snowplow will assume you are tracking a Floating point number.
 
 ###### 4.4.1.5 Floating point
 
@@ -480,7 +480,7 @@ Tracking a pair of Geographic coordinates is done like so:
 
 Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
 
-**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+**Warning:** if you do not add the `_GEO` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
 
 ###### 4.4.1.6 Date
 
@@ -504,12 +504,12 @@ Note that the type prefix only indicates how the Lua number sent to Snowplow is 
 
 **Two warnings:**
 
-1. If you specify a Lua number but do not add a valid Date suffix (`$dt`, `$tm` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
+1. If you specify a Lua number but do not add a valid Date suffix (`_DT`, `_TM` or `_TMS`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
 2. If you specify a Lua number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
 
 ```lua
 {
-    last_ping_DT = 1371129610 # Should have been $tm. Snowplow will interpret this as the year 3756521449
+    last_ping_DT = 1371129610 -- Should have been _TM. Snowplow will interpret this as the year 3756521449
 }
 ```
 
