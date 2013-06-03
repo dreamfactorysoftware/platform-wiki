@@ -474,7 +474,7 @@ Tracking a pair of Geographic coordinates is done like so:
 
 ```lua
 {
-    check_in$geo = { 40.11041, -88.21337 } # Lat, long
+    check_in$geo = { 40.11041, -88.21337 } -- Lat, long
 }
 ```
 
@@ -496,7 +496,7 @@ You can track a date by adding a Lua number to your `properties` object. The fol
 {
     birthday2$dt = 3996,
     registered2$tm = 1371129610,
-    last_action$tms = 1368454114215, # Accurate to milliseconds
+    last_action$tms = 1368454114215, -- Accurate to milliseconds
 }
 ```
 
@@ -521,7 +521,7 @@ Arrays must be homogeneous - in other words, all values within the Array must be
 
 ```lua
 {
-    sizes = { "xs", 28, "l", 38, "xxl"] # NOT allowed
+    sizes = { "xs", 28, "l", 38, "xxl"] -- NOT allowed
 }
 ```
 
