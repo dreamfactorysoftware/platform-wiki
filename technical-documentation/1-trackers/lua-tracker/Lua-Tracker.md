@@ -269,12 +269,14 @@ Tracking methods supported by the Lua Tracker at a glance:
 <a name="common" />
 ### 4.1 Common
 
-All events are tracked with specific methods on the tracker instance, of the form `trackXXX()`, where `XXX` is the name of the event to track.
+All events are tracked with specific methods on the tracker instance, of the form `track...()`, where `XXX` is the name of the event to track.
 
 <a name="validation" />
 ### 4.1.1 Argument validation
 
-Lua is a dynamically typed language, but each of our `trackXXX()` methods expects its arguments to be of specific types and value ranges, and validates that to be the case. If the validation check fails, then a runtime error is thrown:
+Lua is a dynamically typed language, but each of our `track...()` methods expects its arguments to be of specific types and value ranges, and validates that to be the case.
+
+If the validation check fails, then a runtime error is thrown:
 
 ```lua
 local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
@@ -282,7 +284,7 @@ local f = function() t:setColorDepth( "unknown" ) end
 assert.has_error( f, "depth is required and must be a positive integer, not [unknown]" ) # Busted assertion passes
 ```
 
-If your value is of the wrong type, convert it before passing it into the `trackXXX()` method, for example:
+If your value is of the wrong type, convert it before passing it into the `track...()` method, for example:
 
 ```lua
 local level_idx = 42
@@ -296,9 +298,11 @@ We specify the types and value ranges required for each argument below.
 <a name="tstamp-arg" />
 ### 4.1.2 Optional timestamp argument
 
-Each `trackXXX()` method supports an optional timestamp as its final argument; this allows you to manually override the timestamp attached to this event. If you do not pass this timestamp in as an argument, then the Lua Tracker will use the current time to be the timestamp for the event.
+Each `track...()` method supports an optional timestamp as its final argument; this allows you to manually override the timestamp attached to this event.
 
-Here is an example tracking a structured event and supplying the optional timestamp argument. Note that we have to explicitly supply `nil`s for the intervening arguments we don't want.
+If you do not pass this timestamp in as an argument, then the Lua Tracker will use the current time to be the timestamp for the event.
+
+Here is an example tracking a structured event and supplying the optional timestamp argument. Note that we have to explicitly supply `nil`s for the intervening arguments which are empty:
 
 ```lua
 t:trackStructEvent( "hud", "save", nil, nil, nil, 1368725287 )
@@ -311,18 +315,16 @@ Timestamp is counted in seconds since the Unix epoch - the same format as genera
 <a name="ret-vals" />
 ### 4.1.3 Return values
 
-Each `trackXXX()` method has the same return signature, returning two values:
+Each `track...()` method has the same return signature, returning two values:
 
 ```lua
-t:trackStructEvent( "hud", "save", nil, nil, nil, 1368725287 )
-
 local status, msg = t:trackUnstructEvent( "save-game", { save_id = "4321", level = 23 } )
 ```
 
 These values are as follows:
 
-1. The first (`status` above), is a boolean, set to true if the event was successfully logged to the collector, or false if the event was not successfully logged
-2. The second (`msg` above), is a string, which contains the error message should `status` be false, and is `nil` if `status` is true 
+1. The first value (`status` above) is a boolean, set to `true` if the event was successfully logged to the collector, or `false` if the event was not successfully logged
+2. The second value (`msg` above) is a string, which contains the error message should `status` be `false`, and is `nil` if `status` is `true`
 
 [Back to top](#top)
 
