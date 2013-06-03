@@ -30,7 +30,9 @@ Right-click on this [Download link] [war-download] to save it down locally.
 
 The Hadoop ETL process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
 
-    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.3.1.jar
+    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.3.2.jar
+
+Right-click on this [Download link] [jar-download] to save it down locally.
 
 The Hadoop ETL process itself makes use of the free [GeoLite City database] [geolite] from [MaxMind, Inc] [maxmind], also stored in this public Amazon S3 bucket:
 
@@ -68,5 +70,6 @@ Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
 [war-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
+[jar-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/3-enrich/hadoop-etl/hadoop-0.3.2.jar
 [geolite]: http://dev.maxmind.com/geoip/legacy/geolite
 [maxmind]: http://www.maxmind.com/
