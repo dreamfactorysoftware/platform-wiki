@@ -101,6 +101,7 @@ This completes the initialization of your tracker instance.
 
 [Back to top](#top)
 
+<a name="multi-tracker" />
 ### 2.3 Creating multiple trackers
 
 Each tracker instance is completely sandboxed, so you can create multiple trackers as you see fit.
@@ -199,6 +200,8 @@ Example:
 t:setAppId( "wow-addon-1" )
 ```
 
+[Back to top](#top)
+
 <a name="set-user-id" />
 ### 3.2.1 Set user ID with `setUserId()`
 
@@ -213,6 +216,8 @@ Example:
 ```lua
 t:setUserId( "alexd" )
 ```
+
+[Back to top](#top)
 
 <a name="set-screen-res" />
 ### 3.2.1 Set screen resolution with `setScreenResolution()`
@@ -229,6 +234,8 @@ Both numbers should be positive integers; note the order is height followed by w
 t:setScreenResolution( 1366, 768 )
 ```
 
+[Back to top](#top)
+
 <a name="set-color-depth" />
 ### 3.2.1 Set color depth with `setColorDepth()`
 
@@ -243,6 +250,8 @@ The number should be a positive integer, in bits per pixel. Example:
 ```lua
 t:setColorDepth( 32 )
 ```
+
+[Back to top](#top)
 
 <a name="events" />
 ## 4. Tracking specific events
@@ -282,27 +291,39 @@ t:trackScreenView( "Game Level", tostring( level_idx ) )
 
 We specify the types and value ranges required for each argument to `trackXXX()` below.
 
+[Back to top](#top)
+
 <a name="tstamp-arg" />
 ### 4.1.2 Optional timestamp argument
 
 Section to come
+
+[Back to top](#top)
 
 <a name="ret-vals" />
 ### 4.1.3 Return values
 
 Section to come.
 
+[Back to top](#top)
+
 <a name="screen-view" />
 ### 4.2 Track screen views with `trackScreenView()`
 
 Section to come.
+
+[Back to top](#top)
 
 <a name="struct-event" />
 ### 4.3 Track structured events with `trackStructEvent()`
 
 Section to come.
 
+[Back to top](#top)
+
 <a name="unstruct-event" />
 ### 4.4 Track unstructured events with `trackUnstructEvent()`
 
 Section to come.
+
+[Back to top](#top)
