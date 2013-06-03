@@ -212,13 +212,13 @@ t:setUserId( tostring( uid ) )
 
 If your Lua code has access to the device's screen resolution, then you can pass this in to Snowplow too:
 
- ```lua
+```lua
 t:setScreenResolution( {{WIDTH}}, {{HEIGHT}} )
 ```
 
 Both numbers should be positive integers; note the order is height followed by width. Example:
 
- ```lua
+```lua
 t:setScreenResolution( 1366, 768 )
 ```
 
@@ -227,12 +227,12 @@ t:setScreenResolution( 1366, 768 )
 
 If your Lua code has access to the bit depth of the device's color palette for displaying images, then you can pass this in to Snowplow too:
 
- ```lua
+```lua
 t:setColorDepth( {{BITS PER PIXEL}} )
 ```
 
 The number should be a positive integer, in bits per pixel. Example:
 
- ```lua
+```lua
 t:setColorDepth( 32 )
 ```
