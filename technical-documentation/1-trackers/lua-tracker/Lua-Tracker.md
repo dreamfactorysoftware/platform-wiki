@@ -464,7 +464,7 @@ To track a Floating point number, use a Lua number; adding a type suffix is opti
 ```lua
 {
     price_INT = 4.99, 
-    sales_tax = 49.99 # Same as $sales_tax:$flt
+    sales_tax = 49.99 -- Same as sales_tax_FLT = ...
 }
 ```
 
