@@ -49,7 +49,7 @@ Assuming you have completed the [[Lua Tracker Setup]] for your Lua project, you 
 Require the Lua Tracker's module into your Lua code like so:
 
 ```lua
-local snowplow = require("snowplow")
+local snowplow = require( "snowplow" )
 ```
 
 That's it - you are now ready to initialize a tracker instance. 
@@ -350,7 +350,18 @@ local s, msg = t:trackScreenView( "HUD > Save Game", "screen23", 1368725287 )
 <a name="struct-event" />
 ### 4.3 Track structured events with `trackStructEvent()`
 
-Section to come.
+Use `trackStructEvent` to track a custom event happening in your app which fits the Google Analytics-style structure of having up to five fields (with only the first two required):
+
+| **Argument** | **Description**                                                  | **Required?** | **Validation**          |
+|-------------:|:---------------------------------------------------------------  |:--------------|:------------------------|
+| `category`   | The grouping of structured events which this `action` belongs to | Yes           | Non-empty string        |
+| `action`     | Defines the type of user interaction which this event involves   | Yes           | Non-empty string        |
+
+Example:
+
+```lua
+local s, msg = t:trackStructEvent( "shop", "add-to-basket", nil, "units", 2, 1369330909 )
+```
 
 [Back to top](#top)
 
