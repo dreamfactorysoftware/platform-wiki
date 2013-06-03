@@ -25,9 +25,9 @@
     - 4.1.1 [Argument validation](#validation)
     - 4.1.2 [Optional timestamp argument](#tstamp-arg)
     - 4.1.3 [Return values](#ret-vals)
-  - 4.2 [`trackScreenView`](#screen-view)
-  - 4.3 [`trackStructEvent`](#struct-event)
-  - 4.4 [`trackUnstructEvent`](#unstruct-event)
+  - 4.2 [`trackScreenView()`](#screen-view)
+  - 4.3 [`trackStructEvent()`](#struct-event)
+  - 4.4 [`trackUnstructEvent()`](#unstruct-event)
 
 <a name="overview" />
 ## 1. Overview
@@ -253,9 +253,9 @@ Tracking methods supported by the Lua Tracker at a glance:
 
 | **Function**                                | **Description**                                        |
 |--------------------------------------------:|:-------------------------------------------------------|
-| [`trackScreenView`](#trackScreenView)       | Track the user viewing a screen within the application |
-| [`trackStructEvent`](#trackStructEvent)     | Track a Snowplow custom structured event               |
-| [`trackUnstructEvent`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
+| [`trackScreenView()`](#trackScreenView)       | Track the user viewing a screen within the application |
+| [`trackStructEvent()`](#trackStructEvent)     | Track a Snowplow custom structured event               |
+| [`trackUnstructEvent()`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
 
 <a name="common" />
 ### 4.1 Common
@@ -293,16 +293,16 @@ Section to come
 Section to come.
 
 <a name="screen-view" />
-### 4.2 Track screen views with `trackScreenView`
+### 4.2 Track screen views with `trackScreenView()`
 
 Section to come.
 
 <a name="struct-event" />
-### 4.3 Track structured events with `trackStructEvent`
+### 4.3 Track structured events with `trackStructEvent()`
 
 Section to come.
 
 <a name="unstruct-event" />
-### 4.4 Track unstructured events with `trackUnstructEvent`
+### 4.4 Track unstructured events with `trackUnstructEvent()`
 
 Section to come.
