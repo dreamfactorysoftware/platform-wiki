@@ -604,7 +604,6 @@ Notes regarding the `properties` JSON:
 
 Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto JavaScript datatypes, we have introduced some "type suffixes" for the JavaScript property names, so that Snowplow knows what Snowplow data types the JavaScript data types map onto:
 
-
 | Snowplow datatype | Description                  | JavaScript datatype  | Type suffix(es)      | Supports array? |
 |:------------------|:-----------------------------|:---------------------|:---------------------|:----------------|
 | Null              | Absence of a value           | Null                 | -                    | No              |

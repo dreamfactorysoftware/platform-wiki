@@ -28,13 +28,14 @@
   - 4.2 [`trackScreenView()`](#screen-view)
   - 4.3 [`trackStructEvent()`](#struct-event)
   - 4.4 [`trackUnstructEvent()`](#unstruct-event)
+    - 4.4.1 [Supported datatypes](#unstruct-datatypes)
 
 <a name="overview" />
 ## 1. Overview
 
 The [Snowplow Lua Tracker](https://github.com/snowplow/snowplow-lua-tracker) allows you to track Snowplow events from your Lua-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
 
-The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with Snowplow's [[JavaScript Tracker]], Google Analytics or Mixpanel (which have similar APIs to Snowplow) is helpful but not necessary.
+The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with Snowplow"s [[JavaScript Tracker]], Google Analytics or Mixpanel (which have similar APIs to Snowplow) is helpful but not necessary.
 
 Note that this tracker has access to a more restricted set of Snowplow events than the [[JavaScript Tracker]].
 
@@ -46,13 +47,13 @@ Assuming you have completed the [[Lua Tracker Setup]] for your Lua project, you 
 <a name="requiring" />
 ### 2.1 Requiring the module
 
-Require the Lua Tracker's module into your Lua code like so:
+Require the Lua Tracker"s module into your Lua code like so:
 
 ```lua
 local snowplow = require( "snowplow" )
 ```
 
-That's it - you are now ready to initialize a tracker instance. 
+That"s it - you are now ready to initialize a tracker instance. 
 
 [Back to top](#top)
 
@@ -91,7 +92,7 @@ You can initialize a tracker instance for a non-Cloudfront collector with:
 local t = snowplow.newTrackerForUri( "{{COLLECTOR-URI}}" )
 ```
 
-So if your collector is available at 'my-company.c.snplow.com', you would write:
+So if your collector is available at "my-company.c.snplow.com", you would write:
 
 ```lua
 local t = snowplow.newTrackerForUri( "my-company.c.snplow.com" )
@@ -136,7 +137,7 @@ Each tracker instance is initialized with sensible defaults:
 However you can change either of these defaults:
 
 <a name="platform" />
-#### 3.1.1 Change the tracker's platform with `platform()`
+#### 3.1.1 Change the tracker"s platform with `platform()`
 
 You can change the platform the tracker is running on by calling:
 
@@ -174,7 +175,7 @@ t:encodeBase64( false )
 <a name="add-data" />
 ## 3.2 Adding extra data
 
-You may have additional information about your application's environment, current user and so on, which you want to send to Snowplow with each event.
+You may have additional information about your application"s environment, current user and so on, which you want to send to Snowplow with each event.
 
 The tracker instance has a set of `set...()` methods to attach extra data to all tracked events:
 
@@ -222,7 +223,7 @@ t:setUserId( "alexd" )
 <a name="set-screen-res" />
 ### 3.2.1 Set screen resolution with `setScreenResolution()`
 
-If your Lua code has access to the device's screen resolution, then you can pass this in to Snowplow too:
+If your Lua code has access to the device"s screen resolution, then you can pass this in to Snowplow too:
 
 ```lua
 t:setScreenResolution( {{WIDTH}}, {{HEIGHT}} )
@@ -239,7 +240,7 @@ t:setScreenResolution( 1366, 768 )
 <a name="set-color-depth" />
 ### 3.2.1 Set color depth with `setColorDepth()`
 
-If your Lua code has access to the bit depth of the device's color palette for displaying images, then you can pass this in to Snowplow too:
+If your Lua code has access to the bit depth of the device"s color palette for displaying images, then you can pass this in to Snowplow too:
 
 ```lua
 t:setColorDepth( {{BITS PER PIXEL}} )
@@ -331,7 +332,7 @@ These values are as follows:
 <a name="screen-view" />
 ### 4.2 Track screen views with `trackScreenView()`
 
-Use `trackScreenView` to track a user viewing a screen (or equivalent) within your app. Arguments are:
+Use `trackScreenView()` to track a user viewing a screen (or equivalent) within your app. Arguments are:
 
 | **Argument** | **Description**                     | **Required?** | **Validation**          |
 |-------------:|:------------------------------------|:--------------|:------------------------|
@@ -350,12 +351,16 @@ local s, msg = t:trackScreenView( "HUD > Save Game", "screen23", 1368725287 )
 <a name="struct-event" />
 ### 4.3 Track structured events with `trackStructEvent()`
 
-Use `trackStructEvent` to track a custom event happening in your app which fits the Google Analytics-style structure of having up to five fields (with only the first two required):
+Use `trackStructEvent()` to track a custom event happening in your app which fits the Google Analytics-style structure of having up to five fields (with only the first two required):
 
 | **Argument** | **Description**                                                  | **Required?** | **Validation**          |
 |-------------:|:---------------------------------------------------------------  |:--------------|:------------------------|
 | `category`   | The grouping of structured events which this `action` belongs to | Yes           | Non-empty string        |
 | `action`     | Defines the type of user interaction which this event involves   | Yes           | Non-empty string        |
+| `label`      | A string to provide additional dimensions to the event data      | No            | String or nil           |
+| `property`   | A string describing the object or the action performed on it     | No            | String or nil           |
+| `value`      | A value to provide numerical data about the event                | No            | Number of nil           |
+| `tstamp`     | When the structured event occurred                               | No            | Positive integer or nil |
 
 Example:
 
@@ -368,6 +373,166 @@ local s, msg = t:trackStructEvent( "shop", "add-to-basket", nil, "pcs", 2, 13693
 <a name="unstruct-event" />
 ### 4.4 Track unstructured events with `trackUnstructEvent()`
 
-Section to come.
+**Warning:** this feature is implemented in the Lua tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
+
+Use `trackUnstructEvent()` to track a custom event which consists of a name and an unstructured set of properties. This is useful when:
+
+* You want to track event types which are proprietary/specific to your business (i.e. not already part of Snowplow), or
+* You want to track events which have unpredictable or frequently changing properties
+
+The arguments are as follows:
+
+| **Argument** | **Description**                     | **Required?** | **Validation**          |
+|-------------:|:------------------------------------|:--------------|:------------------------|
+| `name`       | The name of the event               | Yes           | Non-empty string        |
+| `properties` | The properties of the event         | Yes           | Non-empty table         |
+| `tstamp`     | When the screen was viewed          | No            | Positive integer or nil |
+
+Example:
+
+```lua
+local s, msg = t:trackUnstructEvent( "save-game", {
+                   save_id = "4321",
+                   level = 23,
+                   difficultyLevel = "HARD",
+                   dl_content = true 
+                 }, 1369330929 )
+```
+
+The properties table consists of a set of individual `name = value` pairs. The structure must be flat: properties cannot be nested. Be careful here as this is **not** currently enforced through validation.
+
+[Back to top](#top)
+
+<a name="unstruct-datatypes" />
+#### 4.4.1 Supported datatypes
+
+Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Lua datatypes, we have introduced some "type suffixes" for the Lua property names, so that Snowplow knows what Snowplow data types the Lua data types map onto:
+
+| Snowplow datatype | Description                  | Lua datatype       | Type suffix(es)      | Supports array? |
+|:------------------|:-----------------------------|:-------------------|:---------------------|:----------------|
+| Null              | Absence of a value           | N/A                | -                    | No              |
+| String            | String of characters         | string             | -                    | Yes             |
+| Boolean           | True or false                | boolean            | -                    | Yes             |
+| Integer           | Number without decimal       | number             | `$int`               | Yes             |
+| Floating point    | Number with decimal          | number             | `$flt`               | Yes             |
+| Geo-coordinates   | Longitude and latitude       | { number, number } | `$geo`               | Yes             |
+| Date              | Date and time (ms precision) | number             | `$dt`, `$tm`, `$tms` | Yes             |
+| Array             | Array of values              | {x, y, z}          | -                    | -               |
+
+Let"s go through each of these in turn, providing some examples as we go:
+
+###### 4.4.1.1 Null
+
+Tracking a Null value for a given field is currently unsupported in the Lua Tracker. There is a [ticket](https://github.com/snowplow/snowplow-lua-tracker/issues/7) to fix this.
+
+###### 4.4.1.2 String
+
+Tracking a String is easy:
+
+```lua
+{
+    product_id = "ASO01043"
+}
+```
+
+###### 4.4.1.3 Boolean
+
+Tracking a Boolean is also straightforward:
+
+```lua
+{
+    trial = true
+}
+```
+
+###### 4.4.1.4 Integer
+
+To track an Integer, use a Lua number but add a type suffix like so:
+
+```lua
+{
+    in_stock$int = 23
+}
+```
+
+**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
+
+###### 4.4.1.5 Floating point
+
+To track a Floating point number, use a Lua number; adding a type suffix is optional:
+
+```lua
+{
+    price$flt = 4.99, 
+    sales_tax = 49.99 # Same as $sales_tax:$flt
+}
+```
+
+###### 4.4.1.5 Geo-coordinates
+
+Tracking a pair of Geographic coordinates is done like so:
+
+```lua
+{
+    check_in$geo = { 40.11041, -88.21337 } # Lat, long
+}
+```
+
+Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
+
+**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+
+###### 4.4.1.6 Date
+
+Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
+
+* `$dt` - the Number of days since the epoch
+* `$tm` - the Number of seconds since the epoch
+* `$tms` - the Number of milliseconds since the epoch. This is the default for JavaScript Dates if no type suffix supplied
+
+You can track a date by adding a Lua number to your `properties` object. The following are all valid dates:
+
+```lua
+{
+    birthday2$dt = 3996,
+    registered2$tm = 1371129610,
+    last_action$tms = 1368454114215, # Accurate to milliseconds
+}
+```
+
+Note that the type prefix only indicates how the Lua number sent to Snowplow is interpreted - all Snowplow Dates are stored to milliseconds precision (whether or not they include that level of precision).
+
+**Two warnings:**
+
+1. If you specify a Lua number but do not add a valid Date suffix (`$dt`, `$tm` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
+2. If you specify a Lua number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
+
+```lua
+{
+    last_ping$dt = 1371129610 # Should have been $tm. Snowplow will interpret this as the year 3756521449
+}
+```
+
+###### 4.4.1.7 Arrays
+
+You can track an Array of values of any data type other than Null.
+
+Arrays must be homogeneous - in other words, all values within the Array must be of the same datatype. This means that the following is **not** allowed:
+
+```lua
+{
+    sizes = { "xs", 28, "l", 38, "xxl"] # NOT allowed
+}
+```
+
+By contrast, the following are all allowed:
+
+```lua
+{
+    sizes = { "xs", "s", "l", "xl", "xxl" },
+    session_starts$tm = { 1371129610, 1064329730, 1341127611 },
+    check_ins$geo = { { -88.21337, 40.11041 }, { -78.81557, 30.22047 } }
+}
+```
 
 [Back to top](#top)
