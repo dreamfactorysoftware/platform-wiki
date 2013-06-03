@@ -260,8 +260,8 @@ Snowplow has been built to enable you to track a wide range of events that occur
 
 Tracking methods supported by the Lua Tracker at a glance:
 
-| **Function**                                | **Description**                                        |
-|--------------------------------------------:|:-------------------------------------------------------|
+| **Function**                                  | **Description**                                        |
+|----------------------------------------------:|:-------------------------------------------------------|
 | [`trackScreenView()`](#trackScreenView)       | Track the user viewing a screen within the application |
 | [`trackStructEvent()`](#trackStructEvent)     | Track a Snowplow custom structured event               |
 | [`trackUnstructEvent()`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
@@ -331,7 +331,19 @@ These values are as follows:
 <a name="screen-view" />
 ### 4.2 Track screen views with `trackScreenView()`
 
-Section to come.
+Use `trackScreenView` to track a user viewing a screen (or equivalent) within your app. Arguments are:
+
+| **Argument** | **Description**                     | **Required?** | **Validation**          |
+|-------------:|:------------------------------------|:--------------|:------------------------|
+| `name`       | Human-readable name for this screen | Yes           | Non-empty string        |
+| `id`         | Unique identifier for this screen   | No            | String or nil           |
+| `tstamp`     | When the screen was viewed          | No            | Positive integer or nil |
+
+Example:
+
+```lua
+local s, msg = t:trackScreenView( "HUD > Save Game", "screen23", 1368725287 )
+```
 
 [Back to top](#top)
 
