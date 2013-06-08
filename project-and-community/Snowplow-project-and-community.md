@@ -13,9 +13,8 @@ Using Snowplow in your company? Add your site [to our list](Our-users)!
 ## Improve Snowplow
 
 * [Ticket system] [issues] - report bugs and make feature requests
-* [Chat to us] [hipchat-room] - in our public HipChat room
+* Chat to us - in our #snowplow channel on Freenode
 * [Snowplow wiki] [wiki] - fork it to contribute tips and documentation
 
 [issues]: https://github.com/snowplow/snowplow/issues
-[hipchat-room]: http://www.hipchat.com/gxNgWtAa5
 [wiki]: https://github.com/snowplow/snowplow/wiki
