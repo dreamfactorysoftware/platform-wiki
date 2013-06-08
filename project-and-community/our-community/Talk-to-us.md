@@ -6,11 +6,11 @@ We want to make it super-easy for Snowplow users and contributors to talk to us 
 
 The Snowplow Google Group (aka `snowplow-user`) is a good first stop for a general inquiry about Snowplow or a specific support issue (e.g. trouble setting Snowplow up). It's also a good forum for discussions about the roadmap or potential new functionality.
 
-## HipChat
+## IRC
 
 [Public HipChat room] [hipchat-room]
 
-We're big fans of HipChat here at Snowplow. We have a public Snowplow chatroom - stop by and say hi, you don't need to install anything to access it. This chatroom is linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
+We're big fans of IRC here at Snowplow. We have a #snowplow channel on Freenode - stop by and say hi, you can you [Freenode's webchat service] [freenode-webchat] so don't need to install anything to access it. Soon, this channel will be linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
 
 ## Twitter
 
@@ -37,4 +37,4 @@ If you want to talk directly to us (e.g. about a commercially sensitive issue), 
 [new-issue]: https://github.com/snowplow/snowplow/issues/new
 [issues]: https://github.com/snowplow/snowplow/issues?direction=desc&sort=created&state=open
 [community-email]: mailto:community@snowplowanalytics.com
-[hipchat-room]: http://www.hipchat.com/gxNgWtAa5
+[freenode-webchat]: http://webchat.freenode.net/
