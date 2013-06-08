@@ -10,7 +10,7 @@ The Snowplow Google Group (aka `snowplow-user`) is a good first stop for a gener
 
 `#snowplow`
 
-We're big fans of IRC here at Snowplow. We have a #snowplow channel on Freenode - stop by and say hi, you can you [Freenode's webchat service] [freenode-webchat] so don't need to install anything to access it. Soon, this channel will be linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
+We're big fans of IRC here at Snowplow. We have a `#snowplow` channel on Freenode - stop by and say hi, you can even use [Freenode's webchat service] [freenode-webchat] so don't need to install anything to access it. Soon, this channel will be linked to our GitHub - so you can see new issues, merged pull requests and so on as they happen.
 
 ## Twitter
 
