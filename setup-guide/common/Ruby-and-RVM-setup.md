@@ -32,9 +32,9 @@ Save the above file and **close this terminal** before proceeding. That way any 
 
 ## 3. Install a specific version of Ruby
 
-Now we can install all the required version of Ruby simply. The Snowplow Ruby applications use Ruby 1.9.3, so let's install this:
+Now we can install all the required version of Ruby simply. The Snowplow Ruby applications use Ruby 1.9.3, so let's install this and make sure it's the default:
 
-	$ rvm install 1.9.3
+	$ rvm install 1.9.3 --default
 
 (Optional) To use a particular version enter:
 
