@@ -14,7 +14,7 @@ First we want to install all the pre-requisites for RVM. Namely:
 	$ sudo apt-get install curl
 	$ sudo apt-get install build-essential bison openssl libreadline5 \
 		libreadline-dev curl git-core zlib1g zlib1g-dev libssl-dev \
-		libxslt-dev libxml2-dev git-core subversion autoconf	
+		libxslt-dev libxml2-dev libpq-dev subversion autoconf	
 
 (A list of these can be printed by entering `rvm notes` at the command prompt once you have RVM installed.)
 
