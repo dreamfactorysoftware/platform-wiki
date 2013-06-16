@@ -71,6 +71,8 @@ We expect that the Snowplow Lua Tracker should work in other Lua environments to
 
 _Instructions to come._
 
+Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
+
 <a name="deb-ubuntu" />
 ### 3.2 Debian/Ubuntu
 
