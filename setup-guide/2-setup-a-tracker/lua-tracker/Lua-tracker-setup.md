@@ -57,7 +57,7 @@ Below we provide setup instructions for the following popular Lua environments:
 
 1. **LuaRocks** is a popular deployment and management system for Lua modules
 2. **Debian/Ubuntu** for developers working directly with Lua in a Linux environment
-3. **Game environments** TODO
+3. **Game environments** for game and app developers working with embedded Lua
 
 We expect that the Snowplow Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
 
@@ -105,8 +105,9 @@ For any other Lua environment, you will first need to address the external depen
 
 * [Corona SDK] [corona-sdk] - LuaSocket is bundled. See the [API documentation] [corona-sdk-socket] for details
 * [cocos2d-x] [cocos2d-x] - the cocos2d-x forum has [instructions] [cocos2d-x-socket] for integrating LuaSocket
-* [World of Warcraft] [wow] - LuaSocket is bundled according to the [Lua Users Wiki] [wow-socket] 
 * [LÖVE] [love] - LuaSocket is bundled according to this [LÖVE tutorial] [love-socket]
+* [World of Warcraft] [wow] - LuaSocket is bundled according to the [Lua Users Wiki] [wow-socket] 
+
 
 LuaSocket taken care of? Next, copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
 
