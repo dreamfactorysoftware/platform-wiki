@@ -57,7 +57,7 @@ Below we provide setup instructions for the following popular Lua environments:
 
 1. **LuaRocks** is a popular deployment and management system for Lua modules
 2. **Debian/Ubuntu** for developers working directly with Lua in a Linux environment
-3. **Game environments** for game and app developers working with embedded Lua
+3. **Embedded environments** for game, app and SDK developers working with embedded Lua
 
 We expect that the Snowplow Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
 
@@ -71,9 +71,9 @@ We expect that the Snowplow Lua Tracker should work in other Lua environments to
 
 The Snowplow Lua Tracker is published to [LuaRocks] [luarocks], the popular deployment and management system for Lua modules.
 
-This makes it easy to either install the tracker locally, or add it as a dependency into your own LuaRocks-based app.
+This makes it easy to either install the tracker locally, or to add it as a dependency into your own LuaRocks-based app.
 
-To install the Snowplow Lua Tracker (assuming you already have LuaRocks installed):
+To install the Snowplow Lua Tracker locally (assuming you already have LuaRocks installed):
 
     $ luarocks install SnowplowTracker
 
