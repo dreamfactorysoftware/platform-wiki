@@ -157,6 +157,6 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 [cheat-engine-socket]: http://forum.cheatengine.org/viewtopic.php?p=5311723&sid=af40d179e4af12591d03ef49e6792e5c
 
 [moai]: http://getmoai.com/
-[moai]: https://github.com/moai/moai-dev/tree/master/3rdparty/luasocket-2.0.2/samples
+[moai-socket]: https://github.com/moai/moai-dev/tree/master/3rdparty/luasocket-2.0.2/samples
 
 [tracker-lib]: https://github.com/snowplow/snowplow-lua-tracker/tree/master/src/snowplow/lib
