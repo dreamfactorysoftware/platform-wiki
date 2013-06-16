@@ -69,7 +69,21 @@ We expect that the Snowplow Lua Tracker should work in other Lua environments to
 <a name="luarocks" />
 ### 3.1 LuaRocks
 
-_Instructions to come._
+The Snowplow Lua Tracker is published to [LuaRocks] [luarocks], the popular deployment and management system for Lua modules.
+
+This makes it easy to either install the tracker locally, or add it as a dependency into your own LuaRocks-based app.
+
+To install the Snowplow Lua Tracker (assuming you already have LuaRocks installed):
+
+    $ luarocks install SnowplowTracker
+
+To add the Snowplow Tracker as a dependency to your own LuaRocks-based app, edit your `rockspec` and add:
+
+```lua
+dependencies = {
+  "SnowplowTracker ~> 0.1.0"
+}
+```
 
 Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
@@ -139,6 +153,8 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 [lightroom]: http://www.adobe.com/devnet/photoshoplightroom.html
 
 [luasocket]: http://w3.impa.br/~diego/software/luasocket/
+
+[luarocks]: http://luarocks.org/repositories/rocks/
 
 [girder]: http://www.promixis.com/girder.php
 [girder-socket]: http://www.promixis.com/forums/archive/index.php/t-8996.html
