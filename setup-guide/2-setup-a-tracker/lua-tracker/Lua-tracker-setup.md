@@ -111,7 +111,7 @@ For embedded Lua environments, you will first need to ensure that LuaSocket is a
 | [Corona SDK] [corona-sdk]     | Yes                                    | [API documentation] [corona-sdk-socket]             |
 | [cocos2d-x] [cocos2d-x]       | No                                     | [Installation instructions] [cocos2d-x-socket]      |
 | [LÖVE] [love]                 | Yes ([source] [love-socket])           | -                                                   |
-| [Moai] [moai]                 | Yes ([source] [moai-socket])           | -                                                   |
+| [Moai] [moai]                 | Yes                                    | [LuaSocket examples] [moai-socket]                  |
 | [World of Warcraft] [wow]     | Yes ([source] [wow-socket])            | -                                                   |
 | [Garry's Mod] [gmod]          | No                                     | [Port of LuaSocket for GMod] [gmod-socket]          |
 | [Cheat Engine] [cheat-engine] | No                                     | [Installation instructions] [cheat-engine-socket]   |
