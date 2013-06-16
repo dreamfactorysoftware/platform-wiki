@@ -46,7 +46,7 @@ To make the Snowplow Lua Tracker work with as many different Lua programs as pos
 
 * [LuaSocket] [luasocket] - network support for the Lua language. Required to send events to the Snowplow collector
 
-All other dependencies are bundled with the Lua Tracker itself - see the [lib] [tracker-lib] for details.
+All other dependencies are bundled with the Lua Tracker itself - see the [`src/lib`] [tracker-lib] folder for details.
 
 [Back to top](#top)
 
