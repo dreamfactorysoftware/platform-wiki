@@ -57,7 +57,7 @@ Below we provide setup instructions for the following popular Lua environments:
 
 1. **LuaRocks** is a popular deployment and management system for Lua modules
 2. **Debian/Ubuntu** for developers working directly with Lua in a Linux environment
-3. **Other environments** TODO
+3. **Game environments** TODO
 
 We expect that the Snowplow Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
 
@@ -99,11 +99,14 @@ package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
 Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 <a name="ios" />
-### 3.3 Other environments
+### 3.3 Game environments
 
-In any other environment, you first need to add in the LuaSocket external dependency. Here are instructions for some popular Lua environments:
+For any other Lua environment, you will first need to address the external dependency on LuaSocket. Here are instructions for some popular games and game SDKs which use Lua:
 
-* [Corona SDK] [corona-sdk] - no action required: LuaSocket is bundled. See the [API documentation] [corona-sdk-socket] for details.
+* [Corona SDK] [corona-sdk] - LuaSocket is bundled. See the [API documentation] [corona-sdk-socket] for details
+* [cocos2d-x] [cocos2d-x] - the cocos2d-x forum has [instructions] [cocos2d-x-socket] for integrating LuaSocket
+* [World of Warcraft] [wow] - LuaSocket is bundled according to the [Lua Users Wiki] [wow-socket] 
+* [LÖVE] [love] - LuaSocket is bundled according to this [LÖVE tutorial] [love-socket]
 
 LuaSocket taken care of? Next, copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
 
@@ -127,5 +130,13 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 [corona-sdk]: http://www.coronalabs.com/products/corona-sdk/
 [corona-sdk-socket]: http://docs.coronalabs.com/api/library/socket/index.html
+
+[cocos2d-x]: http://www.cocos2d-x.org/
+[cocos2d-x-socket]: http://www.cocos2d-x.org/boards/11/topics/6348
+
+[wow-socket]: http://lua-users.org/wiki/WorldOfWarcraft
+
+[love]: https://love2d.org/
+[love-socket]: https://love2d.org/wiki/Tutorial:Networking_with_UDP
 
 [tracker-lib]: https://github.com/snowplow/snowplow-lua-tracker/tree/master/src/snowplow/lib
