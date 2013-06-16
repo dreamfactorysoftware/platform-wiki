@@ -12,7 +12,7 @@
 - 3. [Setup](#setup)
   - 3.1 [LuaRocks](#luarocks)
   - 3.2 [Debian/Ubuntu](#deb-ubuntu)
-  - 3.3 [iOS](#ios)
+  - 3.3 [Other environments](#other-envs)
 
 <a name="overview" />
 ## 1. Overview
@@ -30,7 +30,7 @@ Ready? Let's get started.
 
 ### 2.1 Tracker compatibility
 
-As a lightweight, easily-embeddable scripting language, Lua is available in a huge number of different computing environments and platforms, from [World of Warcraft] [wow] through [OpenResty] [openresty] to [Adobe Photoshop Lightroom] [lightroom].
+As a lightweight, easily-embeddable scripting language, Lua is available in a huge number of different computing environments and platforms, from [World of Warcraft] [wow] through [OpenResty] [openresty] to [Adobe Lightroom] [lightroom].
 
 To make the Snowplow Lua Tracker work out-of-the-box with as many different Lua programs as possible, we have tried to:
 
@@ -57,7 +57,7 @@ Below we provide setup instructions for the following popular Lua environments:
 
 1. **LuaRocks** is a popular deployment and management system for Lua modules
 2. **Debian/Ubuntu** for developers working directly with Lua in a Linux environment
-3. **iOS** TODO
+3. **Other environments** TODO
 
 We expect that the Snowplow Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
 
@@ -99,9 +99,23 @@ package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
 Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 <a name="ios" />
-### 3.3 iOS
+### 3.3 Other environments
 
-Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
+In any other environment, you first need to add in the LuaSocket external dependency. Here are instructions for some popular Lua environments:
+
+* [Corona SDK] [corona-sdk] - no action required: LuaSocket is bundled. See the [API documentation] [corona-sdk-socket] for details.
+
+LuaSocket taken care of? Next, copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
+
+    $ cp -r snowplow-lua-tracker/src/snowplow my-app/lib/
+
+Now add the Snowplow Lua Tracker into your Lua app's `package.path`, like so:
+
+```lua
+package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
+```
+
+That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 [lua]: http://www.lua.org/
 
@@ -110,5 +124,8 @@ Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 [lightroom]: http://www.adobe.com/devnet/photoshoplightroom.html
 
 [luasocket]: http://w3.impa.br/~diego/software/luasocket/
+
+[corona-sdk]: http://www.coronalabs.com/products/corona-sdk/
+[corona-sdk-socket]: http://docs.coronalabs.com/api/library/socket/index.html
 
 [tracker-lib]: https://github.com/snowplow/snowplow-lua-tracker/tree/master/src/snowplow/lib
