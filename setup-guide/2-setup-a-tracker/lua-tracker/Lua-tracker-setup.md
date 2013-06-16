@@ -116,9 +116,13 @@ For embedded Lua environments, you will first need to ensure that LuaSocket is a
 | [Garry's Mod] [gmod]          | No                                     | [Port of LuaSocket for GMod] [gmod-socket]          |
 | [Cheat Engine] [cheat-engine] | No                                     | [Installation instructions] [cheat-engine-socket]   |
 
-LuaSocket taken care of? Next, copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
+LuaSocket taken care of? Next, download the Snowplow Lua Tracker like so:
 
-    $ cp -r snowplow-lua-tracker/src/snowplow my-app/lib/
+    $ git clone git@github.com:snowplow/snowplow-lua-tracker.git
+
+Now copy the `/src/snowplow` folder into the folder for your Lua scripts, perhaps something like:
+
+    $ cp -r snowplow-lua-tracker/src/snowplow my-app/lua-scripts/lib/
 
 Now add the Snowplow Lua Tracker into your Lua app's `package.path`, like so:
 
