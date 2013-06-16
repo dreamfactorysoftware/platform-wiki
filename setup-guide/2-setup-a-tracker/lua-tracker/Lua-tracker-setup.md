@@ -12,7 +12,7 @@
 - 3. [Setup](#setup)
   - 3.1 [LuaRocks](#luarocks)
   - 3.2 [Debian/Ubuntu](#deb-ubuntu)
-  - 3.3 [Other environments](#other-envs)
+  - 3.3 [Embedded environments](#embed-envs)
 
 <a name="overview" />
 ## 1. Overview
@@ -100,16 +100,21 @@ package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
 
 Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
-<a name="ios" />
-### 3.3 Game environments
+<a name="embed-envs" />
+### 3.3 Embedded environments
 
-For any other Lua environment, you will first need to address the external dependency on LuaSocket. Here are instructions for some popular games and game SDKs which use Lua:
+For embedded Lua environments, you will first need to ensure that LuaSocket is available (or installable). Here are instructions for adding LuaSocket into some popular games, SDKs and other apps which use Lua:
 
-* [Corona SDK] [corona-sdk] - LuaSocket is bundled. See the [API documentation] [corona-sdk-socket] for details
-* [cocos2d-x] [cocos2d-x] - the cocos2d-x forum has [instructions] [cocos2d-x-socket] for integrating LuaSocket
-* [LÖVE] [love] - LuaSocket is bundled according to this [LÖVE tutorial] [love-socket]
-* [World of Warcraft] [wow] - LuaSocket is bundled according to the [Lua Users Wiki] [wow-socket] 
-
+| **Game/app/SDK**              | **LuaSocket bundled?**                 | **Installation instructions**                       | 
+|:------------------------------|:---------------------------------------|:----------------------------------------------------|
+| [Girder] [girder]             | Yes ([source] [girder-socket])         | Enable the plugin from Girder Settings              |
+| [Corona SDK] [corona-sdk]     | Yes                                    | [API documentation] [corona-sdk-socket]             |
+| [cocos2d-x] [cocos2d-x]       | No                                     | [Installation instructions] [cocos2d-x-socket]      |
+| [LÖVE] [love]                 | Yes ([source] [love-socket])           | -                                                   |
+| [Moai] [moai]                 | Yes ([source] [moai-socket])           | -                                                   |
+| [World of Warcraft] [wow]     | Yes ([source] [wow-socket])            | -                                                   |
+| [Garry's Mod] [gmod]          | No                                     | [Port of LuaSocket for GMod] [gmod-socket]          |
+| [Cheat Engine] [cheat-engine] | No                                     | [Installation instructions] [cheat-engine-socket]   |
 
 LuaSocket taken care of? Next, copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
 
@@ -131,6 +136,9 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 [luasocket]: http://w3.impa.br/~diego/software/luasocket/
 
+[girder]: http://www.promixis.com/girder.php
+[girder-socket]: http://www.promixis.com/forums/archive/index.php/t-8996.html
+
 [corona-sdk]: http://www.coronalabs.com/products/corona-sdk/
 [corona-sdk-socket]: http://docs.coronalabs.com/api/library/socket/index.html
 
@@ -141,5 +149,14 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 [love]: https://love2d.org/
 [love-socket]: https://love2d.org/wiki/Tutorial:Networking_with_UDP
+
+[gmod]: http://www.garrysmod.com/
+[gmod-socket]: http://www.facepunch.com/showthread.php?t=495940
+
+[cheat-engine]: http://www.cheatengine.org/
+[cheat-engine-socket]: http://forum.cheatengine.org/viewtopic.php?p=5311723&sid=af40d179e4af12591d03ef49e6792e5c
+
+[moai]: http://getmoai.com/
+[moai]: https://github.com/moai/moai-dev/tree/master/3rdparty/luasocket-2.0.2/samples
 
 [tracker-lib]: https://github.com/snowplow/snowplow-lua-tracker/tree/master/src/snowplow/lib
