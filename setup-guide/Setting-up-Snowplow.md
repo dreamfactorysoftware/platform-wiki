@@ -67,7 +67,7 @@ Setup the alternative data stores? Then proceed to [step 5: analyse your data](#
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 
-Once your data is stored in S3 and Infobright, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
+Once your data is stored in S3 and Redshift, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
 
 [Get started analysing Snowplow data](Getting-started-analysing-Snowplow-data)
 
