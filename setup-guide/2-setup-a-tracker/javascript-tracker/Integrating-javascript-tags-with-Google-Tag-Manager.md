@@ -477,7 +477,7 @@ As well as the page view, structured events and ecommerce event tracking tags, S
 1. [Campaign tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-campaign). Use this to identify whether visitors to your website have come from paid ad sources including Adwords, other PPC, display campaigns etc.
 2. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
 
-Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-docuemntation).
+Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-documentation).
 
 <a name="publish" />
 ### 2.5 Publishing changes to GTM

@@ -146,7 +146,7 @@ Snowplow has been built to track more than simply page views. We believe, as far
 5. [Custom events] (javascript-tracker#wiki-events) (i.e. AJAX events that are not included in the above list) e.g. adding an item to basket or pausing a video
 6. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
 
-Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-docuemntation).
+Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-documentation).
 
 <a name="next-steps" />
 ## 3. Next steps
