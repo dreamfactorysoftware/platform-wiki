@@ -8,6 +8,7 @@
   - [Integrating Snowplow tags directly on your website](integrating-javascript-tags-onto-your-website)
   - [Integrating Snowplow tags via Google Tag manager](Integrating-Javascript-tags-with-Google-Tag-Manager)  
   - [Integrating Snowplow tags via QuBit OpenTag](Integrating Javascript tags with QuBit OpenTag)
+  - [Testing the Javascript tracker is firing](Testing the Javascript tracker is firing)
   - [Hosting Snowplow.js yourself](self-hosting-snowplow-js)
   - [Modifying Snowplow.js](modifying-snowplow-js)
   - [Setting up campaign tracking](tracking-your-marketing-campaigns)
