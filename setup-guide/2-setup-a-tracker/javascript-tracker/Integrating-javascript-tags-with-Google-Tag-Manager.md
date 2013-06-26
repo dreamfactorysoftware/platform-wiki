@@ -171,9 +171,10 @@ GTM comes pre-configured with three macros already: `event`, `referrer` and `url
 ## 2. Integrating Snowplow Javascript tracking tags with Google Tag Manager
 
 1. [Integrating Snowplow page tracking tags](#page)
-2. [Integrating Snowplow event tracking tags](#events)
+2. [Integrating Snowplow structured event tracking tags](#events)
 3. [Integrating Snowplow ecommerce tracking tags](#ecommerce)
-4. [Publishing changes to GTM](#publish)
+4. [Tracking other events (campaigns, page pings)](#other-events)
+5. [Publishing changes to GTM](#publish)
 
 <a name="page" />
 ### 2.1 Integrating Snowplow page tracking tags
@@ -238,7 +239,7 @@ Now you're done - click **Save**. The new tag should be listed in the container 
 Note: although set up, the tag wont fire until this update is **published**. We cover how to publish the configurations made above in [section 2.4 below](#2.4).
 
 <a name="events" />
-### 2.2 Integrating Snowplow event tracking tags
+### 2.2 Integrating Snowplow structured event tracking tags
 
 This is best explained through an example. Let's assume, again, that we are implementing Snowplow on a Youtube-like video site. There will be a large number of possible events that occur on a user journey including searching for a video, playing a video, pausing a video, liking a video, uploading a video, sharing a video etc... As per steps [1.3](#1.3), [1.4](#1.4) and [1.5](#1.5), each time one of these events occurs, the event is logged in the `dataLayer` along with the associated data. For example, for a 'video play', the following Javascript would execute:
 
@@ -281,7 +282,7 @@ We need to insert the above code, but substitude in the data points captured whe
 2. `videoId`
 3. `videoFormat`
 
-To the five event tracking fields. (Note - if 5 fields are not enough, we are in the process extending Snowplow to accommodate 10 additional event custom variables and an 11th arbitrary JSON, that can be stuffed with additional data.)
+To the five structured event tracking fields. (Note - if 5 fields are not enough, we are in the process extending Snowplow to accommodate 10 additional event custom variables and an 11th arbitrary JSON, that can be stuffed with additional data.)
 
 How we do the mapping is really a matter of preference: the following would work:
 
@@ -298,7 +299,7 @@ It would make sense to hardcode the `category` to `video` or `media` (so we can 
 To implement the above mapping, we update the HTML in the box to the following:
 
 ```html
-<!-- Snowplow event tracking -->
+<!-- Snowplow structured event tracking -->
 <script type="text/javascript">
 _snaq.push(['trackStructEvent', 'video', 'playVideo', {{videoId}}, {{videoFormat}}, '0.0']);
 </script>
@@ -344,7 +345,7 @@ dataLayer.push({
 Then we can create a single Snowplow event tag in GTM that is fired with every `customEvent` and maps the fields in the `dataLayer` directly into the Snowplow event tracking tag.
 
 ```html
-<!-- Snowplow event tracking -->
+<!-- Snowplow structured event tracking -->
 <script type="text/javascript">
 _snaq.push(['trackStructEvent', '{{eventCategory}}', '{{eventAction}}', '{{eventLabel}}', '{{eventProperty}}', '{{eventValue}}']);
 </script>
@@ -468,8 +469,18 @@ The tag setup is now complete:
 
 Save the tag. We are now ready to publish the changes. This is covered in the [next section](#publish).
 
+<a name="other-events" />
+### 2.4 Tracking other events (campaigns, page pings etc.)
+
+As well as the page view, structured events and ecommerce event tracking tags, Snowplow has specific functionality to enable the capture of other event data including:
+
+1. [Campaign tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-campaign). Use this to identify whether visitors to your website have come from paid ad sources including Adwords, other PPC, display campaigns etc.
+2. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
+
+Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-docuemntation).
+
 <a name="publish" />
-### 2.4 Publishing changes to GTM
+### 2.5 Publishing changes to GTM
 
 Once you have setup all your tags, rules and macros in GTM, you need to publish the changes before they will take effect on your website(s).
 
@@ -502,14 +513,7 @@ In the event that it is not working as expected, you can go back and make the ch
 <a name="next-steps" />
 ## 3. Next steps
 
-There are a number of optional additional steps associated with Tracker Setup:
-
-* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). Snowplow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
-* [Setup campaign tracking] (tracking-your-marketing-campaigns)
-* [Host Snowplow.js yourself] (self-hosting-snowplow-js)
-* [Modify / hack on Snowplow.js] (modifying-snowplow-js)
-
-Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+Now you have setup the Javascript tracking tags, you are in a position to [test that they fire](testing the javascript tracker is firing).
 
 [Return to setup guide](Setting-up-Snowplow).
 

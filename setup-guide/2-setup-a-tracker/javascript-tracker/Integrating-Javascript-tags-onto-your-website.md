@@ -151,7 +151,7 @@ Detailed documentation on how to capture the complete range of events possible w
 <a name="next-steps" />
 ## 3. Next steps
 
-Once you have integrated Snowplow tracking tags on your site, you can [test that the tags fire] (testing teh javascript tracker is firing).
+Once you have integrated Snowplow tracking tags on your site, you can [test that the tags fire] (testing the javascript tracker is firing).
 
 [Return to setup guide](Setting-up-Snowplow).
 
