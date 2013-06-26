@@ -122,7 +122,8 @@ Once you've got OpenTag implemented on your website, you're in position to setup
 1. [Integrating Snowplow page tracking tags] (#page-tracking)
 2. [Integrating Snowplow event tracking tags] (#event-tracking)
 3. [Integrating Snowplow ecommerce tracking tags] (#ecomm-tracking)
-4. [Committing changes in OpenTag] (#publish)
+4. [Integrating other Snowplow tracking tags](#other-tracking-tags)
+5. [Committing changes in OpenTag] (#publish)
 
 <a name="page-tracking" />
 ### 2.1 Integrating Snowplow page tracking tags in OpenTag
@@ -354,8 +355,20 @@ Now click **SAVE SCRIPT**. The changes are ready to be [committed](#publish).
 
 [Back to top] (#top)
 
+<a name="other-tracking-tags" />
+### 2.4 Integrating other Snowplow tracking tags
+
+As well as the page view, structured events and ecommerce event tracking tags, Snowplow has specific functionality to enable the capture of other event data including:
+
+1. [Campaign tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-campaign). Use this to identify whether visitors to your website have come from paid ad sources including Adwords, other PPC, display campaigns etc.
+2. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
+
+Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-documentation).
+
+[Back to top] (#top)
+
 <a name="publish" />
-### 2.4 Publishing your changes in OpenTag
+### 2.5 Publishing your changes in OpenTag
 
 Once you have saved your changes to OpenTag, OpenTag warns that you have pending changes, and gives you the opportunity to **COMMIT** them:
 
@@ -376,13 +389,8 @@ Once the message disappears your tags should be live!
 <a name="next-steps" />
 ## 3. Next steps
 
-There are a number of optional additional steps associated with Tracker Setup:
+Now you have setup the Javascript tracking tags, you are in a position to [test that they fire](testing the javascript tracker is firing).
 
-* [Tracking additional events (not just pageviews, transactions and custom events)](javascript-tracker). Snowplow.js supports capture of a growing number of event types: details on how to integrate them can be found on the [[Javascript Tracker]] section of the [Technical Documentation](snowplow-technical-documentation).
-* [Setup campaign tracking] (tracking-your-marketing-campaigns)
-* [Host Snowplow.js yourself] (self-hosting-snowplow-js)
-* [Modify / hack on Snowplow.js] (modifying-snowplow-js)
-
-Once you have completed the Tracker setup, you will be successfully logging customer-level and event-level data to S3. Now you are ready to [Setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3), which will regularly take that data, clean it up and enrich it, so that you can analyse it.
+[Back to top] (#top)
 
 [Return to setup guide](Setting-up-Snowplow).
