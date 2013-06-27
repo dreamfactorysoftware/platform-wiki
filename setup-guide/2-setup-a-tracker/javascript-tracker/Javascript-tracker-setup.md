@@ -10,11 +10,15 @@ Select a setup option below based on your choice of Tag Management solution:
 2. [Setting up Google Tag Manager (GTM) and integrating Snowplow Javascript tracking tags via GTM](Integrating-javascript-tags-with-Google-Tag-Manager) 
 3. [Setting up QuBit's OpenTag and integrating Snowplow Javascript tracking tags via OpenTag](Integrating Javascript tags with QuBit OpenTag)
 
-There are Additional setup options you may want to take:
+Once you have integrated tags on our site (either directly or via a tag manager) you should [test that the tags are firing correctly](testing the Javascript tracker is firing).
+
+Once your tags are integrated and tested, there are three additional steps you may want to take:
 
 1. [Hosting Snowplow.js yourself](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of Snowplow.js that any of our users are welcome to use. However, if you would like to host Snowplow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
 2. [Modifying Snowplow.js](modifying-snowplow-js) (optional). You may want to hack on Snowplow.js yourself, to develop additional custom functionality. Find out [how](modifying-snowplow-js).
 3. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). Snowplow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
+
+Finished setting up your tracker? Then proceed to setting up [EmrEtlRunner](Setting-up-EmrEtlRunner).
 
 Back to [Tracker Setup](Setting-up-a-tracker).
 
