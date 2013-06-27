@@ -33,7 +33,9 @@ We recommend checking the following:
 
 #### 4. My tracker is firing correctly. Can I check that my collector is receiving the data sent from the tracker?
 
-If you are running your own Snowplow collector, you can and you should check that this is receiving and logging data sent from the tracker.
+If you are running your own Snowplow collector on your own AWS account, you can - details below.
+
+If you are using a Snowplow account hosted by the Snowplow team (e.g. a trial account), you cannot. You need to inform the Snowplow team that you have setup your tracker, and ask them to check that they are receiving data successfully from it.
 
 If you are running the Cloudfront collector, log into AWS and view the bucket in S3 that you setup to house the collector logs. You should see a set of logs like these below:
 
