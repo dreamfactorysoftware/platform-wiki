@@ -76,6 +76,7 @@ Enter your Redshift credentials as appropriate: use the endpoint for 'Host'. Don
 
 Click 'Test Connection and Save'. Your connection should be setup! Proceed to [step 5: creating your first Snowplow dashboard in ChartIO](#1st-dashboard).
 
+Now proceed to [step 5: creating your first dashboard](#1st-dashboard).
 
 <a name="infobright" />
 ## 4. Connecting ChartIO to Snowplow data in Infobright
@@ -147,10 +148,6 @@ When prompted whether you would 'like a crontab entry added to reconnect to Char
 	Visit your dashboard at
 	  https://chart.io/project/6431/dash/
 
-Now go back to your ChartIO in your browser. Select 'Dashboards' on the top menu screen and then select '+Chart' on the left hand menu. The name of the database you created a connection to should be displayed under 'Chart creator'. (In the example below, the name of the database is 'pbz' and it contains tables named 'Cube', 'Cube With Att Data', 'Demo cube', 'Events', 'Events 003', 'Events 004', 'Events with Att Data' and 'Prestashop Catalogue Data'. It is likely you will only have one 'Events XXX' table, where 'XXX' refers to the version of the Snowplow events table you are using.)
-
-[[/setup-guide/images/chartio/1.png]]
-
 [Back to top](#top)
 
 <a name="1st-dashboard" />
@@ -158,59 +155,40 @@ Now go back to your ChartIO in your browser. Select 'Dashboards' on the top menu
 
 Now that we have a data connection setup between Snowplow and ChartIO, we can start graphing Snowplow data. ChartIO makes this very easy. To demonstrate, we'll create a graph that shows the number of unique visitors and visits to our website in the last 4 weeks:
 
-(a) Select the table with the Snowplow events data in it. (In our case, 'Events 004'.) A list of all the columns in our table is displayed as below, divided between 'Measures' and 'Dimensions':
+Create a new dashboard in ChartIO. Go into it, and click on the **Add a Chart** button on the top right of the screen. ChartIO presents you with a set of options for creating your graph:
+
+[[/setup-guide/images/chartio/1.png]]
+
+ChartIO offers two ways to create new graphs: an "Interactive Mode", where you drag and drop columns in your table onto the Measures and Dimensions panes, and a "Query Mode", where you can enter SQL queries directly. We're going to use "Query Mode" - so click on this option (under "Layer 1 Title").
+
+Click on the "Custom Query" box and enter the following query, which counts the number of unique visitors by day to our website, for the last 30 days:
+
+```sql
+SELECT
+TO_CHAR(collector_tstamp, 'YYYY-MM-DD') as "Date",
+COUNT(DISTINCT(domain_userid)) as "Uniques"
+FROM events
+WHERE collector_tstamp > CURRENT_DATE - INTEGER '31'
+GROUP BY "Date"
+ORDER BY "Date"
+```
+
+Click on the **Chart Query** button below. The results of the query should display in a table above it:
 
 [[/setup-guide/images/chartio/2.png]]
 
-(b) Select the 'query mode'. (The 'query mode' hyperlink is in the 'Layer 1' shaded box.) ChartIO gives you the opportunity to enter a SQL query:
+
+We want to plot a line graph showing the trend over time. This is easy: simply click on the line graph icon, to the right of the table.
+
+We can give out chart a title, by clicking on "Chart Title" on the top left of the screen and entering one e.g. "Uniques by day, last 30 days"
 
 [[/setup-guide/images/chartio/3.png]]
 
-(c) Enter the following query (adjust the table name from 'event_004' to reflect the name / version of your Snowplow table):
-
-	SELECT
-	collector_dt,
-	COUNT( DISTINCT (user_id)) AS uniques
-	FROM events_004
-	GROUP BY dt
-	ORDER BY dt DESC LIMIT 28 ;
+Now click save (top right). Our new chart appears on our new dashboard. We can its size and position, simply by dragging it round the screen. We can create a 2nd graph, by clicking the 
+**Add a Chart** button again. Simple!
 
 [[/setup-guide/images/chartio/4.png]]
 
-(d) Click the chart query button at the bottom of the screen. A table of results is returned:
-
-[[/setup-guide/images/chartio/5.png]]
-
-(e) Select the line graph icon to create a line graph:
-
-[[/setup-guide/images/chartio/6.png]]
-
-(f) Now we have a line graph of the number of uniques for the last 28 days - let's add a second line with the number of visits, to overlay on the same graph. Scroll down the page and select '+ New Layer':
-
-[[/setup-guide/images/chartio/7.png]]
-
-(g) Once again, select 'Query mode' for the new layer and enter the following query:
-
-	SELECT
-	collector_dt,
-	COUNT( DISTINCT (CONCAT(user_id,'-',visit_id)) ) AS visits
-	FROM events_004
-	GROUP BY dt
-	ORDER BY dt DESC LIMIT 28 ;
-
-(h) Select 'Chart Query'. Bingo! Our graph is created, with both lines:
-
-[[/setup-guide/images/chartio/8.png]]
-
-(i) Now we need to tidy things up a little bit. Let's rename the 'Chart Title' by hovering next to it and selecting the 'edit' hyperlink that appears. Call it something more useful like 'Uniques and visits, last 28 days'.
-
-(j) In the same way rename 'Layer 1' to 'uniques' and 'Layer 2' to 'visits':
-
-[[/setup-guide/images/chartio/9.png]]
-
-(h) Our chart is ready! Now we can embed it in a dashboard by clicking 'Save to My First Dashboard'
-
-(i) ChartIO let's us drag the ChartIO around the new dashboard. We can now create new charts in exactly the same way, save them to the same dashboard, and arrange them by simply dragging and dropping them!
 
 [Back to top](#top)
 
