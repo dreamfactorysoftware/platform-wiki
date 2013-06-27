@@ -70,7 +70,15 @@ You will be presented with a selection of databases - select PostgreSQL.
 
 ChartIO will ask if you want to setup a Tunnel Connection or Direct Connection. Select 'Use Direct Connection Method'.
 
-Enter your Redshift credentials as appropriate: use the endpoint for 'Host'. Don't forget to update the port number (Redshift does not use PostgreSQL's default 5432). Use the read only username and password you created in step 3.1. Please make sure you **uncheck the 'Connect using SSL' checkbox**:
+Enter your Redshift credentials as appropriate. We can fetch these details directly from the AWS console. Log into [console.aws.amazon.com] [aws-console], select **Redshift** from the list of services and then select the Redshift cluster you want to connect to. The details of the cluster you need to connect Tableau are listed under **Cluster Database Properties**:
+
+[[/setup-guide/images/tableau/4.JPG]]
+
+* Copy the database end point from the AWS console and paste it into the **Host** field in CharIO
+* Copy the port number from the console into ChartIO
+* Copy the database name (this can be fetched from the console)
+* Enter the login details (name and password) for the readonly user you created for Redshfit. (These details are not listed in the console.)
+* Please make sure you **uncheck the 'Connect using SSL' checkbox**:
 
 [[/setup-guide/images/chartio/redshift-2.PNG]]
 
