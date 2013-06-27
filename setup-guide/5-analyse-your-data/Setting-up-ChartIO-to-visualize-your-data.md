@@ -58,21 +58,23 @@ Amazon Redshift will only allow clients on whitelisted IP addresses to connect.
 
 To whitelist the ChartIO IP address, log into your AWS console and navigate into Redshift.
 
-Click on the "Security Groups" option on the left hand menu and select your security group. (This is normally 'default'). Amazon gives you the option to add a new connection type: select "CIDR/IP" from the drop down and then enter the ChartIO IP address `173.203.96.249/32`. Click the "add": you should see a screen like the one below, with the ChartIO IP address listed as one of the options. (In our case, it is the one at the top.)
+Click on the "Security Groups" option on the left hand menu and select your security group. (This is normally 'default'). Amazon gives you the option to add a new connection type: select "CIDR/IP" from the drop down and then enter the ChartIO IP address `173.203.96.249/32`. Click the "add": you should see a screen like the one below, with the ChartIO IP address listed as one of the options. 
 
 [[/setup-guide/images/chartio/redshift-1.png]]
 
 ### 3.3 Setup the connection in ChartIO
 
-Log in to ChartIO. Click on the 'Settings' menu on the top right of the screen, and select '+ New Data Source'. 
+Log in to ChartIO. Click on the 'Settings' menu (click on the top right button and then on **Settings**) in the menu that appears on the right. Select **Add a New Data Source**.
 
 You will be presented with a selection of databases - select PostgreSQL.
 
 ChartIO will ask if you want to setup a Tunnel Connection or Direct Connection. Select 'Use Direct Connection Method'.
 
-Enter your Redshift credentials as appropriate: use the endpoint for 'Host'. Don't forget to update the port number (Redshift is 5439 by default, not PostgreSQL's 5432). Use the read only username and password you created in step 3.1. Please make sure you **uncheck the 'Connect using SSL' checkbox**:
+Enter your Redshift credentials as appropriate: use the endpoint for 'Host'. Don't forget to update the port number (Redshift does not use PostgreSQL's default 5432). Use the read only username and password you created in step 3.1. Please make sure you **uncheck the 'Connect using SSL' checkbox**:
 
 [[/setup-guide/images/chartio/redshift-2.PNG]]
+
+You may want to reduce the query cache duration. We set ours to one hour.
 
 Click 'Test Connection and Save'. Your connection should be setup! Proceed to [step 5: creating your first Snowplow dashboard in ChartIO](#1st-dashboard).
 
@@ -195,7 +197,7 @@ Now click save (top right). Our new chart appears on our new dashboard. We can i
 <a name="next-steps" />
 ## 4. Next steps
 
-Up and running with ChartIO on top of Snowplow? Visit the [Analyst Cookbook][analyst-cookbook] to find out about more ways to drive value from Snowplow data.
+Up and running with ChartIO on top of Snowplow? Visit the [Analytics Cookbook][analyst-cookbook] to find out about more ways to drive value from Snowplow data.
 
 Return to [getting started analysing your Snowplow data](Getting-started-analysing-Snowplow-data).
 
