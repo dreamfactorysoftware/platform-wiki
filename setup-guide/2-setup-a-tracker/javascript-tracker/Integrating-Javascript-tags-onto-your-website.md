@@ -137,16 +137,11 @@ Snowplow has been built to track more than simply page views. We believe, as far
 
 1. [Custom structured events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-custom-structured-events). A general purpose event tracking tag that can be used to track events like *add-to-baskets*, *video-plays* amongst others. It is modelled closely on Google's Event tracking
 2. [Ecommerce transactions](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-ecommerce). Use this to track orders placed on your site
-3. [Campaign tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-campaign). Use this to identify whether visitors to your website have come from paid ad sources including Adwords, other PPC, display campaigns etc.
-
-1. [Online transactions](javascript-tracker#wiki-ecommerce)
-2. [Ad impressions] (javascript-tracker#wiki-adimps)
-3. [Social events] (javascript-tracker#social-events) (e.g. *liking* a post)
-4. Item views (e.g. views of specific products, articles)
-5. [Custom events] (javascript-tracker#wiki-events) (i.e. AJAX events that are not included in the above list) e.g. adding an item to basket or pausing a video
-6. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
+3. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
 
 Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-documentation).
+
+Note: once you have finished setting up the additional Snowplow events (as documented in the [Technical Documentation](snowplow-technical-documentation) section), we recommend returning to the setup guide to complete your Snowplow installation.
 
 <a name="next-steps" />
 ## 3. Next steps

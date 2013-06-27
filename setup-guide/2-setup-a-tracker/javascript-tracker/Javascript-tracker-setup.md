@@ -15,8 +15,7 @@ Once you have integrated tags on our site (either directly or via a tag manager)
 Once your tags are integrated and tested, there are three additional steps you may want to take:
 
 1. [Hosting Snowplow.js yourself](self-hosting-snowplow-js) (optional but recommended). We provide a hosted version of Snowplow.js that any of our users are welcome to use. However, if you would like to host Snowplow.js yourself, instructions to do so can be found [here](self-hosting-snowplow-js).
-2. [Modifying Snowplow.js](modifying-snowplow-js) (optional). You may want to hack on Snowplow.js yourself, to develop additional custom functionality. Find out [how](modifying-snowplow-js).
-3. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). Snowplow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
+2. [Setting up campaign tracking](tracking-your-marketing-campaigns) (optional but recommended). Snowplow identifiers the campaigns that drove users to your website using parameters appended to the landing page the ads push users into. (Exactly the same way that Google Analytics identifies traffic from campaigns). Instructions on how to track campaigns can be found [here](tracking-your-marketing-campaigns).
 
 Finished setting up your tracker? Then proceed to setting up [EmrEtlRunner](Setting-up-EmrEtlRunner).
 

@@ -38,6 +38,8 @@
     - 3.8.1 [`trackUnstructEvent`](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-trackUnstructEvent)   
   - 3.9 [Link click tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-link-click-track)
     - 3.9.1 [`enableLinkTracking`](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-enableLinkTracking)
+- 4. [The relationship between Snowplow.js and Piwik.js](3-The-relationship-between-SnowPlow.js-and-Piwik.js)
+- 4. [Modifying Snowplow JS](Modifying-snowplow-js)
 
 
 <a name="overview" />
@@ -49,6 +51,10 @@ Tracking is done by inserting Javascript tags onto pages. These tags run functio
 
 The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times. 
 
-[Back to top](#top)  
 [2. General parameters](1-General-paramaters-for-the-Javascript-tracker#wiki-general)  
-[3. Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events)  
+[3. Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events) 
+[4. The relationship between Snowplow.js and Piwik.js](3-The-relationship-between-SnowPlow.js-and-Piwik.js) 
+[5. Modifying Snowplow JS](Modifying-snowplow-js)
+
+
+[Back to top](#top)  

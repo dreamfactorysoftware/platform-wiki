@@ -8,6 +8,7 @@
 * [General parameters](1-General-paramaters-for-the-Javascript-tracker)  
 * [Specific event tracking parameters](2-Specific-event-tracking-with-the-Javascript-tracker)  
 * [The relationship between Snowplow.js and Piwik.js](3-The-relationship-between-Snowplow.js-and-Piwik.js)
+* [Modifying Snowplow.js](Modifying-snowplow-js)
 
 [No-JS Tracker](no-js-tracker)  
 [Arduino Tracker](Arduino-Tracker)  

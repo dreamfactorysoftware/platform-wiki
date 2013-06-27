@@ -10,7 +10,6 @@
   - [Integrating Snowplow tags via QuBit OpenTag](Integrating Javascript tags with QuBit OpenTag)
   - [Testing the Javascript tracker is firing](Testing the Javascript tracker is firing)
   - [Hosting Snowplow.js yourself](self-hosting-snowplow-js)
-  - [Modifying Snowplow.js](modifying-snowplow-js)
   - [Setting up campaign tracking](tracking-your-marketing-campaigns)
 - [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  

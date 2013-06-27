@@ -155,7 +155,7 @@ The second option is out of the scope of the Snowplow documentation but you shou
 <a name="next-steps" />
 ## Next steps
 
-As well as self-hosting Snowplow.js, you may also want to [modify Snowplow.js](modifying-snowplow-js) to customise it for your individual needs. A guide can be found [here](modifying-snowplow-js).
+You may want to setup [campaign tracking](tracking your marketing campaigns), so that you can tie user behaviour on your website to any paid campaigns that drove those users to your website.
 
 Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3).
 
