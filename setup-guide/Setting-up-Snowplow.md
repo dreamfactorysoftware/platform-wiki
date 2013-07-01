@@ -5,7 +5,7 @@ Setting up Snowplow is a five step process:
 1. [Setup a Snowplow Collector](#step1)
 2. [Setup a Snowplow Tracker](#step2)
 3. [Setup EmrEtlRunner](#step3)
-4. [Setting up alternative data stores (e.g. Infobright, Redshift)](#step4)
+4. [Setting up alternative data stores (e.g. Redshift, PostgreSQL)](#step4)
 5. [Analyse your data!](#step5)
 
 <a name="step1" />
@@ -50,13 +50,13 @@ Once you have setup EmrEtlRunner, the process for taking the raw data generated 
 Setup EmrEtlRunner? Proceed to [step 4: setup the StorageLoader](#step4).
 
 <a name="step4" />
-## Step 4: Setup the alternative data stores (e.g. Infobright, Redshift)
+## Step 4: Setup the alternative data stores (e.g. Redshift, PostgreSQL)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
-Most Snowplow users store their web event data in at least two places: S3 for processing in Hadoop (e.g. to enable machine learning via Mahout) and a columnar database (e.g. Infobright or Redshift) for more traditional OLAP analysis.
+Most Snowplow users store their web event data in at least two places: S3 for processing in Hadoop (e.g. to enable machine learning via Mahout) and a database (e.g. Redshift or PostgreSQL) for more traditional OLAP analysis.
 
-The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Infobright or Redshift. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you would find it convenient to have your data in another data store (e.g. Infobright or Redshift) then you can set this up at this stage.
+The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Redshift. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you would find it convenient to have your data in another data store (e.g. Redshift) then you can set this up at this stage.
 
 [Setup alternative data stores](Setting-up-alternative-data-stores).
 
