@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with Snowplow] (Setting-up-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup Redshift
 
 Setting up Redshift is an 6 step process:
 
@@ -129,7 +129,9 @@ The Snowplow events table definition for Redshift is available on the repo [here
 <a name="" />
 ## 5. Generating Redshift-format data from Snowplow
 
-Now you need to generate some Snowplow events in a Redshift-friendly format. To do this, you will need to [setup the EmrEtlRunner to process your raw data and turn them into Snowplow events] [emr-etl-runner]. Click [here] [emr-etl-runner] for step-by-step instructions on how.
+Assuming you are working through the setup guide sequentially, you will have already  ([setup EmrEtlRunner] [emr-etl-runner]). You should therefore have Snowplow events in S3, ready for uploading into Redshift.
+
+If you have not already [setup EmrEtlRunner] [emr-etl-runner], then please do so now, before proceeding onto the [next stage](#load).
 
 <a name="load" />
 ## 6. Automating the loading of Snowplow data into Redshift
