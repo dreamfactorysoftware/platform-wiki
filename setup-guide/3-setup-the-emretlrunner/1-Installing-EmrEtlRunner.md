@@ -104,7 +104,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
   :ec2_key_name: ADD HERE
   # Adjust your Hive cluster below
   :jobflow:
-    :master_instance_type: m1.small
+    :master_instance_type: m1.small #update this and following instance options to optimize for the amount of data you want to process with each run, and the speed you want the run to complete in
     :core_instance_count: 2
     :core_instance_type: m1.small
     :task_instance_count: 0 # Increase to use spot instances
@@ -112,10 +112,10 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :task_instance_bid: 0.015 # In USD. Adjust bid, or leave blank for non-spot-priced (i.e. on-demand) task instances
 :etl:
   :job_name: Snowplow ETL # Give your job a name
-  :implementation: hadoop # DO NOT CHANGE to 'hive' unless you are loading into Infobright
+  :implementation: hadoop # DO NOT CHANGE 
   :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
-  :continue_on_unexpected_error: false # You can switch to 'true' if you really don't want the ETL throwing exceptions. Doesn't work for Hadoop ETL yet
-  :storage_format: redshift # Or 'hive' or 'mysql-infobright'. Doesn't work for Hadoop ETL yet (always outputs redshift format)
+  :continue_on_unexpected_error: false # Do not change
+  :storage_format: redshift # Do not change. (Currently we only support Redshfit as a storage target. PostgreSQL support is coming shortly.)
 # Can bump the below as Snowplow releases new versions
 :snowplow:
   :hadoop_etl_version: 0.3.2 # Version of the Hadoop ETL
@@ -218,5 +218,5 @@ All done installing EmrEtlRunner? Then [learn how to use it] [using-emretlrunner
 
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml
+[config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
 [using-emretlrunner]: 2-Using-EmrEtlRunner
