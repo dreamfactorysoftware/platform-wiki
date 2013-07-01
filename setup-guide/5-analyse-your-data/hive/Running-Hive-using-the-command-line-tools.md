@@ -26,15 +26,20 @@ There are 2 ways to start a job / fire up instances to run Hive:
 
 #### 1.1.1 Starting a job using the Ruby Client on Mac / Linux
 
+Note: the command line tools require Ruby 1.8.7 to run, so you may need to execute if you use Ruby 1.9 or later as standard:
+
+	$ rvm use 1.8.7
+
 To initiative a new session on Mac / Linux, navigate to the `elastic-mapreduce-cli` folder (where you saved the command-line tools) and enter
 
 	$ ./elastic-mapreduce --create --alive --name "Hive Job Flow" --hive-interactive
 
-You should see something like:
-
-![Launch a Hive session from the command-line](setup-guide/images/emr-guide/run-hive-interactive-session-1.jpg)
-
 Note: The Ruby command line interface tools uses the security information you provided in the `credentials.json` file and takes a set of default values for e.g. the number of instances that are fired up. For more details, consult the [EMR command line tools documentation](http://aws.amazon.com/developertools/2264).
+
+The command line tools should return the job ID of the job you've just created:
+
+	$ ./elastic-mapreduce --create --alive --name "Hive Job Flow" --hive-interactive
+	Created job flow j-2HP3I6BHDI3EB
 
 If rather than run an interactive version, you wanted to execute a script (i.e. file containing multiple Hive commands), you would upload the script to s3 and then run the following command:
 
@@ -74,13 +79,33 @@ Return to the command-line, establish an SSH connection by entering the followin
 
 You can get your jobflowID either from the Amazon web UI or by listing all the jobs using the `./elastic-mapreduce --list` command line tool.
 
-Substituting the JobFlowID generated when you created the session. You should see:
+Substituting the JobFlowID generated when you created the session. You should see somethign like this:
 
-![Launch a Hive session from the command-line](setup-guide/images/emr-guide/run-hive-interactive-session-3.jpg)
+	$ ./elastic-mapreduce --ssh --jobflow j-2HP3I6BHDI3EB                                                                                
+	ssh -o ServerAliveInterval=10 -o StrictHostKeyChecking=no -i /home/alex/.emr/snplow-nasqueron-3.pem hadoop@ec2-54-216-57-136.eu-west-1.compute.amazonaws.com 
+	Warning: Permanently added 'ec2-54-216-57-136.eu-west-1.compute.amazonaws.com,54.216.57.136' (RSA) to the list of known hosts.
+	Linux (none) 3.2.30-49.59.amzn1.i686 #1 SMP Wed Oct 3 19:55:00 UTC 2012 i686
+	--------------------------------------------------------------------------------
+
+	Welcome to Amazon Elastic MapReduce running Hadoop and Debian/Squeeze.
+	 
+	Hadoop is installed in /home/hadoop. Log files are in /mnt/var/log/hadoop. Check
+	/mnt/var/log/hadoop/steps for diagnosing step failures.
+
+	The Hadoop UI can be accessed via the following commands: 
+
+	  JobTracker    lynx http://localhost:9100/
+	  NameNode      lynx http://localhost:9101/
+	 
+	--------------------------------------------------------------------------------
+
 
 Now you can launch Hive by typing `Hive` at the command line:
 
-![Launch a Hive session from the command-line](setup-guide/images/emr-guide/run-hive-interactive-session-4.jpg)
+	hadoop@ip-10-48-14-37:~$ hive
+	Logging initialized using configuration in file:/home/hadoop/.versions/hive-0.8.1/conf/hive-log4j.properties
+	Hive history file=/mnt/var/lib/hive_081/tmp/history/hive_job_log_hadoop_201307011147_320147478.txt
+	hive>
 
 ### 2.2 Establishing the SSH connection: PC users
 
@@ -92,143 +117,208 @@ TO WRITE
 Snowplow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
 
-```mysql
+```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS `events` (
-	tm string,
-	txn_id string,
-	user_id string,
-	user_ipaddress string,
-	visit_id int,
-	page_url string,
-	page_title string,
-	page_referrer string,
-	mkt_source string,
-	mkt_medium string,
-	mkt_term string,
-	mkt_content string,
-	mkt_campaign string,
-	ev_category string,
-	ev_action string,
-	ev_label string,
-	ev_property string,
-	ev_value string,
-	tr_orderid string,
-	tr_affiliation string,
-	tr_total string,
-	tr_tax string,
-	tr_shipping string,
-	tr_city string,
-	tr_state string,
-	tr_country string,
-	ti_orderid string,
-	ti_sku string,
-	ti_name string,
-	ti_category string,
-	ti_price string,
-	ti_quantity string,
-	br_name string,
-	br_family string,
-	br_version string,
-	br_type string,
-	br_renderengine string,
-	br_lang string,
-	br_features array<string>,
-	br_cookies boolean,
-	os_name string,
-	os_family string,
-	os_manufacturer string,
-	dvce_type string,
-	dvce_ismobile boolean,
-	dvce_screenwidth int,
-	dvce_screenheight int,
-	app_id string,
-	platform string,
-	event string,
-	v_tracker string,
-	v_collector string,
-	v_etl string,
-	event_id string,
-	user_fingerprint string,
-	useragent string,
-	br_colordepth string,
-	os_timezone string
+app_id string,
+platform string,
+collector_tstamp timestamp,
+dvce_tstamp timestamp,
+event string,
+event_vendor string,
+event_id string,
+txn_id int,
+v_tracker string,
+v_collector string,
+v_etl string,
+user_id string,
+user_ipaddress string,
+user_fingerprint string,
+domain_userid string,
+domain_sessionidx smallint,
+network_userid string,
+geo_country string,
+geo_region string,
+geo_city string,
+geo_zipcode string,
+geo_latitude double,
+geo_longitude double,
+page_title string,
+page_urlscheme string,
+page_urlhost string,
+page_urlport int, 
+page_urlpath string,
+page_urlquery string,
+page_urlfragment string,
+refr_urlscheme string,
+refr_urlhost string,
+refr_urlport int,
+refr_urlpath string,
+refr_urlquery string,
+refr_urlfragment string,
+refr_medium string,
+refr_source string,
+refr_term string,
+mkt_medium string,
+mkt_source string,
+mkt_term string,
+mkt_content string,
+mkt_campaign string,
+se_category string,
+se_action string,
+se_label string,
+se_property string,
+se_value double,
+tr_orderid string,
+tr_affiliation string,
+tr_total double,
+tr_tax double,
+tr_shipping double,
+tr_city string,
+tr_state string,
+tr_country string,
+ti_orderid string,
+ti_sku string,
+ti_name string,
+ti_category string,
+ti_price double,
+ti_quantity int,
+pp_xoffset_min int,
+pp_xoffset_max int,
+pp_yoffset_min int,
+pp_yoffset_max int,
+useragent string,
+br_name string,
+br_family string,
+br_version string,
+br_type string,
+br_renderengine string,
+br_lang string,
+br_features_pdf boolean,
+br_features_flash boolean,
+br_features_java boolean,
+br_features_director boolean,
+br_features_quicktime boolean,
+br_features_realplayer boolean,
+br_features_windowsmedia boolean,
+br_features_gears boolean ,
+br_features_silverlight boolean,
+br_cookies boolean,
+br_colordepth string,
+br_viewwidth int,
+br_viewheight int,
+os_name string,
+os_family string,
+os_manufacturer string,
+os_timezone string,
+dvce_type string,
+dvce_ismobile boolean,
+dvce_screenwidth int,
+dvce_screenheight int,
+doc_charset string,
+doc_width int,
+doc_height int
 )
-PARTITIONED BY (dt STRING)
+PARTITIONED BY (r string)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
 LOCATION '${EVENTS_TABLE}' ;
 ```  
 
 
 #### Notes:
 
-1. The table definition given above may be out-of-date as we build it out to accommodate additional events and fields. To check the most up-to-date copy see [[https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hive-format-table-def.q]]
-2. Don't forget to include the trailing slash in the location address e.g. `LOCATION 's3n://my-snowplow-data/events/'`. 
-3. The table is `EXTERNAL` because the data in it is not managed by Hive: it is stored in S3 (and only accessed by Hive). As a result, if you drop the table in Hive (`DROP TABLE snowplow_events_log`), the data will remain safely in S3, even if the table disappears from Hive. 
-4. You need to list every field in the statement, which is why it's so long. To save time, copy and paste the query to the command line :-)
+1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
+2. If you are **not** running the StorageLoader, because you are **only** analysing your Snowplow data using EMR, then you will find your data to analyse in the `out` bucket specified in the EmrEtlRunner config file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
+3. In **both cases**, your data will be distributed across a set of subfolders within the folder specified in either config file. Each folder will have a name with the following format:  'YYYY-MM-DD-HH-MM-SS', which reflects the time that the EmrEtlRunner processed that data.
+4. The table definition is very similar to the [table definition in Redshift] [redshift-table-def]. The data types have been changed to reflect Hive's data types, and the data is partitioned by 'r' i.e. run_id. (The date / time that EmrEtlRunner processed the raw collector logs and wrote the enriched logs back to S3 for processing in EMR / uploading into Redshift / PostgreSQL.)
+5. In addition, the table definition in Hive specifies that the data is partitioned: that is because the data is partitioned by EmrEtlRunner run ID, where the run ID is the date / time that the data was processed.
 
-In general, Snowplow users partition their data by date. We need to let Hive know that this table is partitioned, and to look to spot the partitions that already exist:
 
-	ALTER TABLE events RECOVER PARTITIONS;
+Now that you have created the table in Hive, you need to add the different partitions that you want to query against. If you pull up a list of the different subfolder names (e.g. using the AWS S3 console, or a desktop took like [Bucket Explorer][bucketexplorer] or [Cloudberry] [cloudberry]). 
 
-Now that the table has been created in Hive it is possible to query it:
+Say you have a subfolder called `2013-06-18-09-32-02`. You would add the data in that folder to the Hive table by entering:
 
-	SHOW TABLES ;
+	hive> alter table events add partition (r='2013-06-18-09-32-02') location = '2013-06-18-09-32-02';
 
-Should return a list of tables: in this case our single `events` table.
+You can check that the partition has been successfully added:
+
+	hive> show partitions events ;
+	OK
+	r=2013-06-18-09-32-02
+	Time taken: 0.228 seconds
+	hive> 
+
+Once you have added a partition for each of the subfolders you would like to query, you can run your first query:
 
 We can now try running some simple queries. Remember: these will take some time from large data sets. (Especially if we're using the default cluster size - which is only two small EC2 instances.) To speed up query performance, limit the volume of data by specifying a data range e.g. `WHERE dt >='2012-09-01 AND dt<='2012-09-25'`.
 
 The following query will return the number of unique visitors by day:
 
 	SELECT 
-	dt,
-	COUNT(DISTINCT user_id) AS unique_visitors
+	to_date(collector_tstamp) AS `Date`,
+	COUNT(DISTINCT domain_userid) AS `unique_visitors`
 	FROM events
-	GROUP BY dt ;
+	GROUP BY to_date(collector_tstamp) ;
 
-To get the number of visits per day:
+You will see something like this:
 
-	SELECT 
-	dt,
-	COUNT(DISTINCT (CONCAT(user_id, visit_id))) AS visits
-	FROM events
-	GROUP BY dt ;
+	hive> SELECT
+	    > to_date(collector_tstamp) as `dt`,
+	    > count(distinct(domain_userid)) as `uniques`
+	    > from events 
+	    > group by to_date(collector_tstamp);
+	Total MapReduce jobs = 1
+	Launching Job 1 out of 1
+	Number of reduce tasks not specified. Estimated from input data size: 1
+	In order to change the average load for a reducer (in bytes):
+	  set hive.exec.reducers.bytes.per.reducer=<number>
+	In order to limit the maximum number of reducers:
+	  set hive.exec.reducers.max=<number>
+	In order to set a constant number of reducers:
+	  set mapred.reduce.tasks=<number>
+	Starting Job = job_201307011142_0001, Tracking URL = http://ip-10-48-14-37.eu-west-1.compute.internal:9100/jobdetails.jsp?jobid=job_201307011142_0001
+	Kill Command = /home/hadoop/bin/hadoop job  -Dmapred.job.tracker=10.48.14.37:9001 -kill job_201307011142_0001
+	Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+	2013-07-01 12:44:48,268 Stage-1 map = 0%,  reduce = 0%
+	2013-07-01 12:44:58,477 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:44:59,551 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:00,611 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:01,657 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:02,686 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:03,704 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:04,710 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:05,814 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:06,822 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:07,835 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:08,841 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:09,982 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:10,989 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:12,449 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.69 sec
+	2013-07-01 12:45:13,477 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.27 sec
+	2013-07-01 12:45:14,496 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.27 sec
+	2013-07-01 12:45:15,503 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.27 sec
+	2013-07-01 12:45:16,684 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:17,691 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:18,733 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:19,757 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:20,834 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:21,841 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	2013-07-01 12:45:22,848 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.91 sec
+	MapReduce Total cumulative CPU time: 5 seconds 910 msec
+	Ended Job = job_201307011142_0001
+	Counters:
+	MapReduce Jobs Launched: 
+	Job 0: Map: 1  Reduce: 1   Accumulative CPU: 5.91 sec   HDFS Read: 319 HDFS Write: 27 SUCCESS
+	Total MapReduce CPU Time Spent: 5 seconds 910 msec
+	OK
+	2013-06-16	5
+	2013-06-17	14
+	Time taken: 61.877 seconds
 
-Of course, in either of the above cases, we could aggregate our results by month (or any other time period) rather than by year:
 
-	SELECT 
-	YEAR(dt) AS yr,
-	MONTH(dt) AS mnth,
-	COUNT(DISTINCT user_id) AS unique_visitors,
-	COUNT(DISTINCT (CONCAT(user_id, visit_id))) AS visits
-	FROM events 
-	GROUP BY YEAR(dt), MONTH(dt) ;
-
-
-We can look at the number of 'transactions' (incl. page views, add-to-baskets, and other user actions) by each user to get a sense of whom are most engaged users are, just over May 2012:
-
-	SELECT 
-	user_id,
-	COUNT(txn_id)
-	FROM events
-	WHERE YEAR(dt) = 2012 AND MONTH(dt) = 5
-	GROUP BY user_id ;
-
-The results of the queries can be copied and pasted directly into Excel or a text-editor (from the command line terminal) for quick-and-dirty ad hoc analysis. More properly, it is trivial to write the results to S3, where they can be migrated into an analytics database for further analysis, used to feed a KPI dashboard or accessed on subsequent Hive analytics sessions. To do so, simply create a new table (making sure it is `EXTERNAL`), and output the contents of the `SELECT` statement into it as follows:
-
-	CREATE EXTERNAL TABLE `{{YOUR-RESULTS-TABLE}}`
-	LOCATION 's3://{{BUCKET-AND-FOLDER-WHERE-YOU-WISH-TO-SAVE-THE-DATA}}/'
-
-	INSERT OVERWRITE `{{YOUR-RESULTS-TABLE}}`
-	SELECT 
-	user_id,
-	COUNT(txn_id)
-	FROM events
-	WHERE YEAR(dt) = 2012 AND MONTH(dt) = 5
-	GROUP BY user_id ;
-
-There are many ways of fetching the data from S3, either directly via the S3 web UI, or programmatically via the API. 
-
-For more Hive and other queries, see the [Analysts Cookbook] [analysts-cookbook].
+There are many other querires you can run - we recommend consulting the [Analysts Cookbook] [analysts-cookbook]. Please note: most of the queries written are for Redshift / PostgreSQL. However, in many cases, these can be  modified to work with Hive quite simply. by substituting more MySQL-like SQL for some of the PostgreSQL commands. (E.g. `CONCAT()` for `||`).
 
 
 <a name="terminatingthesession"/>
@@ -255,3 +345,6 @@ Return to [get started analysing data](Getting-started-analysing-Snowplow-data).
 Return to the [setup guide home](Setting-up-Snowplow).
 
 [analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html
+[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/table-def.sql
+[bucketexplorer]: http://www.bucketexplorer.com/
+[cloudberry]: http://www.cloudberrylab.com/

@@ -4,7 +4,7 @@
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 
-Now you have your Snowplow data being generated and loaded into one or more data stores (S3, Infobright, Redshift etc.) you can start to analyse that data.
+Now you have your Snowplow data being generated and loaded into S3 and potentially also Amazon Redshift, you can start to analyse that data.
 
 Because Snowplow gives you access to incredibly granular, event-level and customer-level data, the possible analyses you can perform on that data is endless.
 
