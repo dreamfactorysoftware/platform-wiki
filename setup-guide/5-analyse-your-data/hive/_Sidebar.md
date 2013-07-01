@@ -9,7 +9,7 @@
 - [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
   - [5.1: setting up ChartIO to visualize your data] (Setting-up-ChartIO-to-visualize-your-data)
   - [5.2: setting up Tableau to perform OLAP analysis on your data] (Setting-up-Tableau-to-analyse-data-in-Redshift)
-  - [5.3: setting up R to perform more sophisticated data analysis] (Setting-up-R) 
+  - [5.3: setting up R to perform more sophisticated data analysis] (Setting-up-R-to-perform-more-sophisticated-analysis-on-your-data) 
   - [5.4: get started analysing your data in EMR and Hive] (getting-started-with-EMR)
     - [5.4.1: setting up the EMR command line tools](Setting-up-EMR-command-line-tools)
     - [5.4.2: running Hive queries using the EMR command line tools](Running-Hive-using-the-command-line-tools)
