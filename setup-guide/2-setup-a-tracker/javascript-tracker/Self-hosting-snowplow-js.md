@@ -61,7 +61,34 @@ Now hit **Start Upload** to upload the JavaScript file into your bucket. When do
 
 ![js-ready] [js-ready]
 
-The Properties pane at the bottom is viewable by pressing the **Properties** button and selecting `sp.js`.
+Now that `sp.js` has been uploaded, we recommend that you set the `Cache control max-age` property on the file. This property determines *both* how long Cloudfront caches `sp.js` in its edge locations, and crucially, how long individual browsers cache `sp.js` before repinging Cloudfront for a fresh copy. By setting a long expiration date, you can significantly reduce the number of browser requests for `sp.js`, which can significantly decrease your Cloudfront costs. (Especially if you are a large website or network of sites.)
+
+The disadvantage of a long expiration is that you need to find a way to *force* end users to fetch a fresh copy of `sp.js` when you upgrade to a newer version. This is easily managed by saving your new version to a new folder in your S3 bucket, and updating your Snowplow tags to point to the new version. For example, the version of `sp.js` that the Snowplow team host is available on e.g.
+
+	http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.2/sp.js
+
+By saving each new version in a new subfolder, we ensure by updating the Snowplow tags that the latest version is always loaded, in spite of the long-expiration date.
+
+To set a long expiration date on `sp.js`, right click on it in the S3 console, and select **Properties**:
+
+![open-permissions] [open-permissions]
+
+Click on the **Metadata** dropdown and then click on the **Add more metadata** button. New drop downs appear to enable you to enter a new key/value pair:
+
+![enter-key-value-pair] [enter-key-value-pair]
+
+In the Key dropdown, select **Cache conctrol**. In the value field, enter
+
+	max-age=$value_in_seconds
+
+For example, if you want to set your items to expire in 10 years, enter, that is 10x365x24x60x60 = 315,360,000
+
+	max-age=315360000
+
+![entered-values] [key-value-pair-entered]
+
+Now click save button (bottom right of the screen). You area ready to create your CloudFront distribution!
+
 
 ### 4. Create your CloudFront distribution
 
@@ -177,3 +204,6 @@ Return to the [setup guide] (Setting-up-Snowplow).
 [dist-details]: setup-guide/images/js_dist_details.png
 [dist-review]: setup-guide/images/js_dist_review.png
 [dist-enabled]: setup-guide/images/js_dist_enabled.png
+[open-permissions]: setup-guide/images/js_properties.png
+[enter-key-value-pair]: setup-guide/images/js_enter_metadata.png
+[key-value-pair-entered]: setup-guide/images/properties-filled-in.png
