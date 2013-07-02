@@ -61,13 +61,9 @@ Now hit **Start Upload** to upload the JavaScript file into your bucket. When do
 
 ![js-ready] [js-ready]
 
-Now that `sp.js` has been uploaded, we recommend that you set the `Cache control max-age` property on the file. This property determines *both* how long Cloudfront caches `sp.js` in its edge locations, and crucially, how long individual browsers cache `sp.js` before repinging Cloudfront for a fresh copy. By setting a long expiration date, you can significantly reduce the number of browser requests for `sp.js`, which can significantly decrease your Cloudfront costs. (Especially if you are a large website or network of sites.)
+Now that `sp.js` has been uploaded, we recommend that you set the `Cache control max-age` property on the file. This property determines *both* how long Cloudfront caches `sp.js` in its edge locations, and crucially, how long individual browsers cache `sp.js` before repinging Cloudfront for a fresh copy. By setting a long expiration date, you can  reduce the number of browser requests for `sp.js`, which can significantly decrease your Cloudfront costs. (Especially if you are a large website or network of sites.)
 
-The disadvantage of a long expiration is that you need to find a way to *force* end users to fetch a fresh copy of `sp.js` when you upgrade to a newer version. This is easily managed by saving your new version to a new folder in your S3 bucket, and updating your Snowplow tags to point to the new version. For example, the version of `sp.js` that the Snowplow team host is available on e.g.
-
-	http(s)://d1fc8wv8zag5ca.cloudfront.net/0.11.2/sp.js
-
-By saving each new version in a new subfolder, we ensure by updating the Snowplow tags that the latest version is always loaded, in spite of the long-expiration date.
+The only disadvantage of a long expiration is that you need to find a way to *force* end users to fetch a fresh copy of `sp.js` when you upgrade to a newer version. This is easily managed by saving your new version to a new folder in your S3 bucket, and updating your Snowplow tags to point to the new version.
 
 To set a long expiration date on `sp.js`, right click on it in the S3 console, and select **Properties**:
 
