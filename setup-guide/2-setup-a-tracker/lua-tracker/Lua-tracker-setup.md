@@ -122,7 +122,7 @@ For embedded Lua environments, you will first need to ensure that LuaSocket is a
 | **Game/app/SDK**              | **LuaSocket bundled?**      | **Installation instructions**                     | 
 |:------------------------------|:----------------------------|:--------------------------------------------------|
 | [Girder] [girder]             | Yes ([ref] [girder-socket]) | Enable the plugin from Girder Settings            |
-| [Corona SDK] [corona-sdk]     | Yes                         | [API documentation] [corona-sdk-socket]           |
+| [Corona SDK] [corona-sdk]     | Yes ([ref] [corona-sdk-socket]) | -            |
 | [cocos2d-x] [cocos2d-x]       | No                          | [Installation instructions] [cocos2d-x-socket]    |
 | [LÖVE] [love]                 | Yes ([ref] [love-socket])   | -                                                 |
 | [Moai] [moai]                 | Yes ([ref] [moai-socket])   | -                |
