@@ -249,7 +249,7 @@ e=pv           // page view
 &fp=3324966434                        // User fingerprint
 &vid=3                                // Domain session ID
 
-&tv=js-0.11.0                         // Tracker version
+&tv=js-0.12.0                         // Tracker version
 &lang=en-GB                           // Browser language
 &tz=Europe/London                     // Client time zone
 ```
