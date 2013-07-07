@@ -462,11 +462,11 @@ As well as setting `e=ue`, there are five custom event specific parameters that 
 
 | **Parameter** | **Maps to**      | **Type** |**Description**                                     | **Implemented?** | **Example values**| 
 |:--------------|:-----------------|:---------|:---------------------------------------------------|:-----------------|:------------------|
-| `ev_ca`       | `ev_category`    | text     | The category of event                              | Yes              | 'Ecomm', 'Media'  |
-| `ev_ac`       | `ev_action`      | text     | The action / event itself                          | Yes              | `add-to-basket`, `play-video` |
-| `ev_la`       | `ev_label`       | text     | A label often used to refer to the 'object' the action is performed on | Yes | 'dog-skateboarding-video' |
-| `ev_pr`       | `ev_property`    | text     | A property associated with either the action or the object | Yes      | 'hd' |
-| `ev_va`       | `ev_value`       | decimal  | A value associated with the user action            | Yes              | 13.99 |
+| `se_ca`       | `se_category`    | text     | The category of event                              | Yes              | 'Ecomm', 'Media'  |
+| `se_ac`       | `se_action`      | text     | The action / event itself                          | Yes              | `add-to-basket`, `play-video` |
+| `se_la`       | `se_label`       | text     | A label often used to refer to the 'object' the action is performed on | Yes | 'dog-skateboarding-video' |
+| `se_pr`       | `se_property`    | text     | A property associated with either the action or the object | Yes      | 'hd' |
+| `se_va`       | `se_value`       | decimal  | A value associated with the user action            | Yes              | 13.99 |
 
 _Add-to-basket_ example:
 
@@ -478,11 +478,11 @@ uid=aeb1691c5a0ee5a6    // User ID
 &tv=js-0.5.2            // Tracker version
 
 &e=se                    // event = custom  
-&ev_ca=ecomm            // event_category = ecomm  
-&ev_ac=add-to-basket    // event_action = add-to-basket  
-&ev_la=178              // event_label = 178 (product_id of item added to basket)  
-&ev_pr=1                // event_property = 1 (quantity of item added to basket)  
-&ev_va=14.99            // event_value = 14.99 (price of item added to basket)  
+&se_ca=ecomm            // event_category = ecomm  
+&se_ac=add-to-basket    // event_action = add-to-basket  
+&se_la=178              // event_label = 178 (product_id of item added to basket)  
+&se_pr=1                // event_property = 1 (quantity of item added to basket)  
+&se_va=14.99            // event_value = 14.99 (price of item added to basket)  
 
 ```
 
@@ -496,11 +496,11 @@ uid=aeb1691c5a0ee5a6    // User ID
 &tv=js-0.5.2            // Tracker version
 
 &e=se                    // event = custom  
-&ev_ca=video            // event_category = video  
-&ev_ac=play             // event_action = play  
-&ev_la=291              // event_label = 291 (video_id of video played)  
-&ev_pr=13.2             // event_property = 13.2 (number of seconds into video that clip starts playing)  
-&ev_va=0.0025           // event_value = 0.0025 (ad revenue associated with view)  
+&se_ca=video            // event_category = video  
+&se_ac=play             // event_action = play  
+&se_la=291              // event_label = 291 (video_id of video played)  
+&se_pr=13.2             // event_property = 13.2 (number of seconds into video that clip starts playing)  
+&se_va=0.0025           // event_value = 0.0025 (ad revenue associated with view)  
 
 ```
 
