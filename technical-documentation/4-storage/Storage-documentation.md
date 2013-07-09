@@ -22,7 +22,7 @@ There are therefore a number of different potential storage modules that Snowplo
 In addition, this guide also covers the 
 
 1. [Snowplow Canonical Event Model] [canonical-event-model]. This covers the structure of Snowplow data, as stored in S3, Amazon Redshift and PostgreSQL.
-2. [The Storage Loader][storage-loader]. This Ruby application is responsible for instrumenting the regular movement of data from S3 into Redshift. (And soon, PostgreSQL and Neo4J etc.)
+2. [The Storage Loader][storage-loader]. This Ruby application is responsible for instrumenting the regular movement of data from S3 into Redshift. (And eventually, PostgreSQL, SkyDB, Neo4J, Infobright etc.)
 
 [hive]: http://hive.apache.org/
 [pig]: http://pig.apache.org/
