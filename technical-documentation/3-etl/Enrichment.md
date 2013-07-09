@@ -14,11 +14,11 @@ Snowplow uses Amazon's EMR to run the Enrichment process. The regular running of
 In this guide, we cover:
 
 1. [How the EmrEtlRunner instruments the regular running of the Enrichment Process][emr-etl-runner]
-2. [The Enrichment Process itself][enrichment-process]
+2. [The Enrichment Process itself][The-enrichment-process]
 
 
 [scalding]: https://github.com/twitter/scalding
-[cascading]: https://github.com/twitter/scalding
+[cascading]: http://www.cascading.org/
 
 [etl-blog-post]: http://snowplowanalytics.com/blog/2013/01/09/from-etl-to-enrichment/
 [roadmap]: https://github.com/snowplow/snowplow/wiki/Product-roadmap

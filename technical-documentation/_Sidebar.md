@@ -25,12 +25,13 @@
 **[C. Canonical Snowplow event model](canonical-event-model)**  
 
 **4. Storage**  
-[Overview](storage documentation)  
-[S3 / Hive](s3-apache-hive-storage)  
-[Amazon Redshift](amazon-redshift-storage)   
-[Infobright](infobright-storage)  
+[Overview](Storage-documentation)  
+[Storage in S3](S3 storage)  
+[Storage in Redshift](amazon-redshift-storage)  
+[Storage in Infobright](infobright-storage) (deprecated)  
+[The StorageLoader](The-Storage-Loader)   
 
-**D. Snowplow storage formats (to write)**
+### D. Snowplow storage formats (to write)
 
 **5. Analytics**  
 [[Analytics documentation]]  
