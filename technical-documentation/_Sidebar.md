@@ -17,11 +17,11 @@
 
 **[B. Collector logging formats](Collector-logging-formats)**  
 
-**3. ETL**  
-[Overview](etl)  
+**3. Enrich**  
+[Overview](Enrichment)  
 [EmrEtlRunner](EmrEtlRunner)  
-[Hive ETL](hive-etl)  
 [Hadoop ETL](scaldingetl)
+[Hive ETL](hive-etl) (deprecated)    
 
 **[C. Canonical Snowplow event model](canonical-event-model)**  
 

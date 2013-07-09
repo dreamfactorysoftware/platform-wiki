@@ -22,10 +22,11 @@ The technical documentation reflects the Snowplow architecture, with five loosel
 
 ### B. [[Collector logging formats]]
 
-## 3. ETL
-[ETL overview](etl)  
-[Hive ETL](hive)  
+## 3. Enrichment
+[Enrichment overview](etl)  
 [Scalding / Cascading ETL](scalding)  
+[Hive ETL](hive) (deprecated)  
+
 
 ### C. [Canonical Snowplow event model](canonical-event-model)
 
