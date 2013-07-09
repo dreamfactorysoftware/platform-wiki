@@ -20,8 +20,7 @@
 **3. Enrich**  
 [Overview](Enrichment)  
 [EmrEtlRunner](EmrEtlRunner)  
-[Hadoop ETL](scaldingetl)
-[Hive ETL](hive-etl) (deprecated)    
+[Scalding-based Enrichment Process](The-Enrichment-Process)     
 
 **[C. Canonical Snowplow event model](canonical-event-model)**  
 
