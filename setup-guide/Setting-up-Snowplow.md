@@ -6,7 +6,7 @@ Setting up Snowplow is a five step process:
 2. [Setup a Snowplow Tracker](#step2)
 3. [Setup EmrEtlRunner](#step3)
 4. [Setting up alternative data stores (e.g. Redshift, PostgreSQL)](#step4)
-5. [Analyse your data!](#step5)
+5. [Analyze your data!](#step5)
 
 <a name="step1" />
 ## Step 1: Setup a Snowplow Collector
@@ -69,7 +69,7 @@ Setup the alternative data stores? Then proceed to [step 5: analyse your data](#
 
 Once your data is stored in S3 and Redshift, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
 
-[Get started analysing Snowplow data](Getting-started-analysing-Snowplow-data)
+[Get started analysing Snowplow data](Getting-started-analyzing-Snowplow-data)
 
 ## Setup is complete!
 
