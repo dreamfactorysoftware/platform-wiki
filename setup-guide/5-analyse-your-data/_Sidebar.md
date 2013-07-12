@@ -11,7 +11,7 @@
   - [5.2: setting up Excel to analyze and visualize your data] [excel]
   - [5.3: setting up Tableau to perform OLAP analysis on your data] [tableau]
   - [5.4: setting up R to perform more sophisticated data analysis] [r]
-  - [5.5: get started analysing your data in EMR and Hive] (getting-started-with-EMR)
+  - [5.5: get started analyzing your data in EMR and Hive] (getting-started-with-EMR)
 
 **Useful resources**  
 
