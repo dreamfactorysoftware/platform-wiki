@@ -31,7 +31,7 @@
 [Storage in Infobright](infobright-storage) (deprecated)  
 [The StorageLoader](The-Storage-Loader)   
 
-### D. Snowplow storage formats (to write)
+**D. Snowplow storage formats (to write)**
 
 **5. Analytics**  
 [[Analytics documentation]]  

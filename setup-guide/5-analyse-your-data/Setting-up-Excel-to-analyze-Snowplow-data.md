@@ -1,0 +1,1 @@
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > Setting up Excel to analyze Snowplow data
