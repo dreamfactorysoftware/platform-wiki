@@ -6,7 +6,7 @@
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  
 - [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
-- [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
+- [Step 5: Analyze your data!] (Getting started analyzing Snowplow data)  
   - [5.1: setting up ChartIO to visualize your data] [chartio]  
   - [5.2: setting up Excel to analyze and visualize your data] [excel]
   - [5.3: setting up Tableau to perform OLAP analysis on your data] [tableau]
