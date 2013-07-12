@@ -3,7 +3,7 @@
 <a name="top" />
 ## Contents
 
-1. [What is ChartIO, and why use it to analyse / visualize Snowplow data](#what-and-why)
+1. [What is ChartIO, and why use it to analyze / visualize Snowplow data](#what-and-why)
 2. [Setting up a ChartIO account](#setup)
 3. [Connecting ChartIO to Snowplow data in Redshift](#redshift)
 4. [Connecting ChartIO to Snowplow data in Infobright](#infobright)
@@ -11,7 +11,7 @@
 6. [Next steps](#next-steps)
 
 <a name="what-and-why" />
-## 1. What is ChartIO, and why use it to analyse / visualize Snowplow data?
+## 1. What is ChartIO, and why use it to analyze / visualize Snowplow data?
 
 [ChartIO] [ChartIO] is a fantastic BI tool that has a number of attractive features, especially for people who want to graph Snowplow data sources quickly:
 

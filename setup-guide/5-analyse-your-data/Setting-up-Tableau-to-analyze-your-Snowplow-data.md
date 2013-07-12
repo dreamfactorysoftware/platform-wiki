@@ -4,14 +4,14 @@
 
 ## Contents
 
-1. [What is Tableau, and why use it to analyse / visualize Snowplow data?](#what-and-why)
+1. [What is Tableau, and why use it to analyze / visualize Snowplow data?](#what-and-why)
 2. [Download and get started with Tableau](#setup)
 3. [Connecting Tableau to Snowplow data in Redshift](#redshift)
 4. [Getting started analyzing Snowplow data in Tableau](#1st-analysis)
 5. [Next steps](#next-steps)
 
 <a name="what-and-why" />
-## 1. What is Tableau, and why use it to analyse / visualize Snowplow data?
+## 1. What is Tableau, and why use it to analyze / visualize Snowplow data?
 
 Tableau is a Business Intelligence program, in the mould of Microstrategy or Pentaho. These types of software make it possible for users to perform [OLAP analysis][olap], which typically involves aggregating data by different dimensions and metrics, visualizing that data graphically, and then exploring relationships in the data by slicing and dicing different metrics by different dimensions.
 

@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting-started-analyzing-Snowplow-data)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 

@@ -2,14 +2,14 @@
 
 ## Contents
 
-1. [What is R, and why use it to analyse / visualize Snowplow data?](#what-and-why)
+1. [What is R, and why use it to analyze / visualize Snowplow data?](#what-and-why)
 2. [Download and get started with R](#setup)
 3. [Connecting R to Snowplow data in Redshift](#redshift)
 4. [Getting started analysing Snowplow data in R](#1st-analysis)
 5. [Next steps](#next-steps)
 
 <a name="what-and-why" />
-## 1. What is R, and why use it to analyse / visualize Snowplow data?
+## 1. What is R, and why use it to analyze / visualize Snowplow data?
 
 R is free, open source software for performing statistical and graphical analysis. 
 
@@ -17,13 +17,13 @@ R is in many respects a very strange analytics environment for the newbie. (It i
 
 However, R is not a straightforward tool for developers to use either: many features of the language are unique to R, even amongst other interpreted languages (like Python) and functional languages (like Scala or Haskell).
 
-In spite of its 'unusualness', there is one very good reasons to use R to analyse Snowplow (and other data sets): there is a huge amount you can do with R that is very difficult with traditional analytics programmes. To give just some examples:
+In spite of its 'unusualness', there is one very good reasons to use R to analyze Snowplow (and other data sets): there is a huge amount you can do with R that is very difficult with traditional analytics programmes. To give just some examples:
 
 1. **Advanced visualizations**. R supports graphing data in many more ways, much more flexibly, than standard analytics packages like Excel or BI tools like Tableau
-2. **Statistical analysis**. R supports a staggering array of statistical analyses: making it easy to run standard statistical tests on data to see if e.g. two groups of visitors behave in a way that is significantly different
-3. **Algorithmic analysis**. R libraries include a wide range of algorithmic analytical techniques including market basket analyses, principle component analysis, to give just two that are relevant with web analytics data.
+2. **Statistical analysis**. R supports a staggering array of statistical analyzes: making it easy to run standard statistical tests on data to see if e.g. two groups of visitors behave in a way that is significantly different
+3. **Algorithmic analysis**. R libraries include a wide range of algorithmic analytical techniques including market basket analyzes, principle component analysis, to give just two that are relevant with web analytics data.
 
-Over time, we plan to build out the [Analytics Cookbook] [cookbook] to include tutorials explaining how to perform the above analyses in R using Snowplow data.
+Over time, we plan to build out the [Analytics Cookbook] [cookbook] to include tutorials explaining how to perform the above analyzes in R using Snowplow data.
 
 Back to [top](#top)
 
@@ -157,7 +157,7 @@ Back to [top](#top)
 <a name="1st-analysis" />
 ## 4. Getting started analysing Snowplow data in R
 
-TO WRITE
+A guide to getting started using R to perform analysis can be found [here][get-started-with-r] on the [Analytics Cookbook][get-started-with-r].
  
 Back to [top](#top)
 
@@ -172,3 +172,4 @@ Back ot [top](#top)
 [r]: http://www.r-project.org/
 [download-r]: http://www.r-project.org/
 [aws-console]: https://console.aws.amazon.com/console/home
+[get-started-with-r]: http://snowplowanalytics.com/analytics/tools-and-techniques/get-started-analysing-snowplow-data-with-r.html
