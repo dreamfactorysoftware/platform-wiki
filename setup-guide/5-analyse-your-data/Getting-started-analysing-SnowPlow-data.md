@@ -24,5 +24,5 @@ The first three guides cover using different tools (ChartIO, Tableau and R) to a
 [infobright]: Getting-started-analysing-your-data-in-Infobright
 [chartio]: Setting-up-ChartIO-to-visualize-Snowplow-data
 [excel]: Setting-up-Excel-to-analyze-Snowplow-data
-[tableau]: Setting-up-Tableau-to-analyse-data-your-Snowplow-data
+[tableau]: Setting-up-Tableau-to-analyze-data-your-Snowplow-data
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-data
