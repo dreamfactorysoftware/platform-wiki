@@ -86,25 +86,25 @@ Now that you have a Redshift compatible ODBC driver installed on your local mach
 
 Go back to **Data Sources (ODBC)** (in Control Panel / Administrative Tools). 
 
-[[setup-guide/images/excel/connection-1.JPG]]
+[[/setup-guide/images/excel/connection-1.JPG]]
 
 Click on the **Add** button:
 
-[[setup-guide/images/excel/connection-2.JPG]]
+[[/setup-guide/images/excel/connection-2.JPG]]
 
 Select **PostgreSQL Unicode*x64) and click the **Finish** button:
 
-[[setup-guide/images/excel/connection-3.JPG]]
+[[/setup-guide/images/excel/connection-3.JPG]]
 
 You will be given the chance to name the data connection (we've called ours "Snplow on Redshift") and enter your Redshift cluster details. Note: most of these details (the server and port particularly) can be copied directly from the AWS web console:
 
-[[setup-guide/images/excel/aws-cluster-details.JPG]]
+[[/setup-guide/images/excel/aws-cluster-details.JPG]]
 
 You can enter the admin credentials you used when you setup your cluster, or better, create a read only user in Redshift, and use that user's details to login. (Details on setting up users in Redshift can be found [here][redshift-create-user].)
 
 Once the details have been entered, you can test them (hit the **Test** button), and if a connection is successful, save it. It should now appear on the list:
 
-[[setup-guide/images/excel/connection-4.JPG]]
+[[/setup-guide/images/excel/connection-4.JPG]]
 
 Back to [top](#top).
 
