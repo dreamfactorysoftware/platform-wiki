@@ -24,7 +24,7 @@ Back to [top](#top).
 
 *This guide walks through the process of setting up a fetching data directly into Excel from Amazon Redshift on a Windows PC. We have not tried to do this on an Mac.*
 
-Setting up Excel so that you can grab live Snowplow data directly from Amazon Redshift is a 3 step process:
+Setting up Excel so that you can grab live Snowplow data directly from Amazon Redshift is a 4 step process:
 
 1. [Install the Redshift ODBC driver](#driver)
 2. [White label your local IP address with Amazon Redshift security](#security)
@@ -48,11 +48,13 @@ To check whether you are running a 32 bit or 64 bit version of Excel 2010, simpl
 
 Once you have downloaded the ODBC driver ZIP file, extract it onto your hard drive and double click the on the MSI file (e.g. `psqlodbc_x64.msi`). This launches an installation wizard. Work through the installation wizard until the installation is completed.
 
-Once completed, you can check that the driver is available in Windows. Click on the start menu and type in "Data sources". An option to launch **Data Sources (ODBC)** should appear. Click on it and then click on the **Drivers** tab in the top middle. You should see something like this:
+Once completed, you can check that the driver is available in Windows. Open up your **Control Panel**, double click on the **Administrative Tools** and then double click on **Data sources (ODBC)**. (Alternatively, click on the start menu and type in "Data sources". An option to launch **Data Sources (ODBC)** should appear.) Click on the **Drivers** tab in the top middle. You should see something like this:
 
 [[/setup-guide/images/excel/odbc-data-sources-drivers-listed.JPG]]
 
 Notice the listings for `PostgreSQL ANSI(x64)` and `PostgreSQL Unicode(x64)`. These are the drivers that have been, that we will use to connect to Redshift with. 
+
+**Note:** if you are running a 64 bit version of Windows, but are running a 32 bit version of Excel, so have installed the 32 bit driver, this will **not** be visible in the list of data sources you've just pulled up. Instead, you will need to open `c:\Windows\SysWOW64\odbcad32.exe`, to see a version of the same software with all the 32 bit drivers listed. All the rest of the instructions that follow should be the same.
 
 Back to [top](#top).
 
@@ -80,14 +82,36 @@ Back to [top](#top).
 <a name="windows" />
 ### 2.3 Create a data connection in Windows to your Snowplow data in Redshift, via ODBC
 
+Now that you have a Redshift compatible ODBC driver installed on your local machine, and have white labelled the IP address on that same machine, you're in a position to create a connection between it and your Amazon Redshift instance.
 
+Go back to **Data Sources (ODBC)** (in Control Panel / Administrative Tools). 
+
+[[setup-guide/images/excel/connection-1.JPG]]
+
+Click on the **Add** button:
+
+[[setup-guide/images/excel/connection-2.JPG]]
+
+Select **PostgreSQL Unicode*x64) and click the **Finish** button:
+
+[[setup-guide/images/excel/connection-3.JPG]]
+
+You will be given the chance to name the data connection (we've called ours "Snplow on Redshift") and enter your Redshift cluster details. Note: most of these details (the server and port particularly) can be copied directly from the AWS web console:
+
+[[setup-guide/images/excel/aws-cluster-details.JPG]]
+
+You can enter the admin credentials you used when you setup your cluster, or better, create a read only user in Redshift, and use that user's details to login. (Details on setting up users in Redshift can be found [here][redshift-create-user].)
+
+Once the details have been entered, you can test them (hit the **Test** button), and if a connection is successful, save it. It should now appear on the list:
+
+[[setup-guide/images/excel/connection-4.JPG]]
 
 Back to [top](#top).
 
 <a href="excel" />
 ### 2.4 Use that connection to fetch Snowplow data from Excel, directly into your Excel workbook
 
-
+TO WRITE
 
 Back to [top](#top).
 
@@ -138,3 +162,4 @@ Back to [top](#top).
 [odbc-driver]: http://docs.aws.amazon.com/redshift/latest/gsg/before-you-begin.html
 [64-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_09_00_0101-x64.zip
 [32-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_08_04_0200.zip
+[redshift-create-user]: http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html
