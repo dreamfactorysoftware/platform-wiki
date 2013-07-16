@@ -18,8 +18,9 @@ The planned releases are as follows:
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.8.8** | [See GitHub] [issues-088] | Add Postgres as a storage target                          |
-| **0.8.9** | [See GitHub] [issues-089] | Make EmrEtlRunner runnable from Ruby                           |
-| **0.8.10** | [See GitHub] [issues-0810] | Make StorageLoader runnable from Ruby                         |
+| **0.8.9** | [See GitHub] [issues-089] | Add recipes as Redshift/Postgres views                    |
+| **0.8.10** | [See GitHub] [issues-0810] | Make EmrEtlRunner runnable from Ruby                           |
+| **0.8.11** | [See GitHub] [issues-0811] | Make StorageLoader runnable from Ruby                         |
 
 ## Longer-term: approximate schedule
 
@@ -31,15 +32,15 @@ The longer-term schedule of major developments is approximately as follows:
 
 | Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
 |--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q2** | Lua Tracker<br>Android Tracker | -          | Move to Avro for Snowplow event files<br>ETL to transform Avro to Infobright and Redshift | -        | -         | 
-| **Q3** | iOS Tracker     | -          | Support for unstructured events             | MongoDB<br>MySQL        | Machine-learning using Mahout         |
-| **Q4** | Python Tracker  | Scala Collector | Host business lookup                                 | PredictionIO<br>SkyDB      | - | 
+| **Q3** | Android Tracker<br>iOS Tracker     | -          | Move to Avro for Snowplow event files<br>ETL to transform Avro to Redshift             | MongoDB<br>MySQL        | Machine-learning using Mahout         |
+| **Q4** | Ruby Tracker  | Scala Collector | Host business lookup                                 | PredictionIO<br>SkyDB      | - | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
 [issues-088]: https://github.com/snowplow/snowplow/issues?milestone=23&state=open
-[issues-089]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
-[issues-0810]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
+[issues-089]: https://github.com/snowplow/snowplow/issues?milestone=27&state=open
+[issues-0810]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
+[issues-0811]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
