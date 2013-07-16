@@ -6,7 +6,7 @@
 1. [Why use Excel to analyze / visualize Snowplow data](#why)
 2. [Setting up Excel to directly fetch Snowplow data from Amazon Redshift](#redshift)
 3. [Setting up Excel to directly fetch Snwoplow data from PostgreSQL](#postgres)
-4. [Performing a simple analysis](#simple-analysis)
+4. [Fetching data into Excel as a PivotTable or PivotChart Report](#simple-analysis)
 5. [Notes](#notes)
 6. [Next steps](#next-steps)
 
@@ -30,6 +30,7 @@ Setting up Excel so that you can grab live Snowplow data directly from Amazon Re
 2. [White label your local IP address with Amazon Redshift security](#security)
 3. [Create a data connection in Windows to your Snowplow data in Redshift, via ODBC](#windows)
 4. [Use that connection to fetch Snowplow data from Excel, directly into your Excel workbook](#excel)
+5. [Fetching data into Excel as a PivotTable or PivotChart Report](#pivot)
 
 <a name="driver" />
 ### 2.1 Install the Redshift ODBC driver
@@ -145,19 +146,37 @@ Now click the **Definition** table:
 
 [[/setup-guide/images/excel/connection-13.JPG]]
 
+Excel gives you the chance to paste in a query (in the **Command text** section at the bottom of the dialogue box). To keep things simple, we're going to paste in the following simple query, that returns the number unique visitors, and visits, by date, for the last 3 months:
 
+```sql
+select
+	to_char(collector_tstamp, 'YYYY-MM-DD') AS "Date",
+	count(distinct(domain_userid)) AS "Uniques",
+	count(distinct(domain_userid || '-' || domain_sessionidx)) AS "Visits"
+from events
+where collector_tstamp < current_date
+and collector_tstamp > current_date -91
+group by "Date"
+order by "Date";
+```
 
-Back to [top](#top).
+Paste the above query into the Command text:
 
+[[/setup-guide/images/excel/connection-14.JPG]]
 
-* Install ODBC driver for Redshift in Windows
-  * Be careful to install 32 or 64 bit version depending on version of Excel being run
-* Setup ODBC connection in Data sources to Snowplow database table on Redshift
-* Use ODBC connection in Excel to fetch data directly
-	* Where to insert custom query
-	* Refresh settings
+We recommend saving the connection file for reuse later. To do that, click on the **Export Connection File** button, give the connection a query-specific name e.g. `snplow uniques and visitors by day.odc`. Finally, click **OK*:
 
-TO WRITE
+[[/setup-guide/images/excel/connection-9.JPG]]
+
+We're going to simply pull the results of our query into Excel as a table, so click **OK**:
+
+[[/setup-guide/images/excel/connection-15.JPG]]
+
+Voila! Our slice of data appears directly in Excel. We can graph it as normal:
+
+[[/setup-guide/images/excel/connection-16.JPG]]
+
+Note: we can use pull *any* cut of Snowplow data direclty into Excel in the method described above. For ideas of other slices of data / queries to run, see the [Analytics Cookbook] [cookbook].
 
 Back to [top](#top).
 
@@ -169,20 +188,144 @@ TO WRITE
 Back to [top](#top).
 
 <a name="simple-analysis" />
-## 4. Performing a simple analysis
+## 4. Fetching data into Excel as a PivotTable or PivotChart Report
 
-TO WRITE
+In the above examples, we a cut of Snowplow data into Excel as a simple table.
+
+Often, however, it is nice to pull a larger data set into Excel directly as a PivotTable or PivotChart. This lets us slice and dice the data by different dimensions and metric combinations within Excel, enabling us to create multiple visualizations and explore the relationship between different variables in our data set.
+
+Importing data from Snowplow into Excel as a PivotTable or PivotChart is reasonably straightforward. The key thing to understand is that the data must be suitably formatted for Excel to correctly read it into the PivotTable or PivotChart. We've written a set of instructions on [formatting Snowplow data for OLAP analysis][olap-analysis]: those instructions apply here, as PivotTables / PivotCharts are a form of OLAP analysis.
+
+To demonstrate, we're going to use the following query to generate our PivotChart report. (Refer to the [guide to formatting data for OLAP analysis] [olap-analysis] for instructions in how this was derived):
+
+```sql
+SELECT
+	page_views.domain_userid,
+	users.cohort,
+	users.first_visit_mkt_source,
+	users.first_visit_mkt_medium,
+	users.first_visit_mkt_medium,
+	users.first_visit_mkt_term,
+	users.first_visit_mkt_content,
+	users.first_visit_mkt_campaign,
+	users.first_visit_refr_medium,
+	users.first_visit_refr_source,
+	users.first_visit_refr_urlhost,
+	users.first_visit_refr_urlpath,
+	page_views.domain_sessionidx,
+	visits."Date",
+	visits.visit_mkt_source,
+	visits.visit_mkt_medium,
+	visits.visit_mkt_term,
+	visits.visit_mkt_content,
+	visits.visit_mkt_campaign,
+	visits.visit_refr_medium,
+	visits.visit_refr_source,
+	visits.visit_refr_urlhost,
+	visits.visit_refr_urlpath,
+	page_views.page_urlpath,
+	page_views.page_views,
+	1 AS number_of_visits	
+FROM (
+	SELECT
+		domain_userid,
+		domain_sessionidx,
+		page_urlpath,
+		count(*) AS page_views
+	FROM events e
+	WHERE event = 'page_view'
+	GROUP BY 1,2,3
+) page_views
+LEFT JOIN (
+	SELECT
+		v.domain_userid,
+		v.domain_sessionidx,
+		e2.mkt_source AS visit_mkt_source,
+		e2.mkt_medium AS visit_mkt_medium,
+		e2.mkt_term AS visit_mkt_term,
+		e2.mkt_content AS visit_mkt_content,
+		e2.mkt_campaign AS visit_mkt_campaign,
+		e2.refr_medium AS visit_refr_medium,
+		e2.refr_source AS visit_refr_source,
+		e2.refr_urlhost AS visit_refr_urlhost,
+		e2.refr_urlpath AS visit_refr_urlpath,
+		MIN(e2.collector_tstamp) AS "Date"
+		FROM events e2
+		INNER JOIN
+		(	SELECT
+			domain_userid,
+			domain_sessionidx,
+			MIN(collector_tstamp) AS first_touch_timestamp
+			FROM events
+			GROUP BY 1,2) v
+		ON v.domain_userid = e2.domain_userid
+		AND v.domain_sessionidx = e2.domain_sessionidx
+		AND e2.collector_tstamp = v.first_touch_timestamp
+		GROUP BY 1,2,3,4,5,6,7,8,9,10,11
+) visits
+ON page_views.domain_userid = visits.domain_userid
+AND page_views.domain_sessionidx = visits.domain_sessionidx
+LEFT JOIN (
+		SELECT
+			u.domain_userid,
+			to_char(collector_tstamp, 'YYYY-MM') AS cohort,
+			e3.mkt_source AS first_visit_mkt_source,
+			e3.mkt_medium AS first_visit_mkt_medium,
+			e3.mkt_term AS first_visit_mkt_term,
+			e3.mkt_content AS first_visit_mkt_content,
+			e3.mkt_campaign AS first_visit_mkt_campaign,
+			e3.refr_medium AS first_visit_refr_medium,
+			e3.refr_source AS first_visit_refr_source,
+			e3.refr_urlhost AS first_visit_refr_urlhost,
+			e3.refr_urlpath AS first_visit_refr_urlpath
+		FROM events e3
+		INNER JOIN
+		(	SELECT
+			domain_userid,
+			MIN(collector_tstamp) AS first_touch_timestamp
+			FROM events
+			WHERE domain_sessionidx = 1
+			GROUP BY 1) u
+		ON u.domain_userid = e3.domain_userid
+		AND e3.collector_tstamp = u.first_touch_timestamp
+) users
+ON page_views.domain_userid = users.domain_userid
+```
+
+Create a new workbook in Excel. Go to DATA > Get External Data > From other data sources > Data connection wizard > ODBC DSN > Snowplow connection as you would to pull in data as a table. When presented with the following screen:
+
+[[/setup-guide/images/excel/connection-9.JPG]]
+
+Click on **Properties** > **Definitions** and paste the above query in:
+
+[[/setup-guide/images/excel/connection-17.JPG]]
+
+Click **OK**. Now click the radio button for **PivotChart**:
+
+[[/setup-guide/images/excel/connection-18.JPG]]
+
+And click **OK**. We are now presented with our PivotTable and PivotChart:
+
+[[/setup-guide/images/excel/connection-19.JPG]]
+
+We can then slice and dice on our different dimensions as normal for a pivot table. In the below example, we're plotting the number of visits by first referer over time:
+
+[[/setup-guide/images/excel/connection-20.JPG]]
 
 Back to [top](#top).
 
 <a name="notes" />
 ## 5. Notes
 
-* Managing the volume of data inserted into Excel
-* Excel 2013 vs Excel 2010
-* Inserting directly vs inserting into a PivotTable / PivotChart
+### Managing the volume of data inserted into Excel
 
-TO WRITE
+Snowplow data is often very large volume. Most analyses on Snowplow data start by identifying the slice, or cut of Snowplow data that is required, generating that cut in Redshift, and then importing that into a standard analysis tool like Excel, Tableau, or R, that is not built to handle the types of volumes that Amazon Redshift / EMR are built to handle.
+
+These considerations are especially important in the case of Excel, which is much worse at handling data at large volumes than e.g. Tableau or R. As a result, we recommend analysts check how many results their query returns (e.g. using Navicat) before running it in Excel.
+
+### Excel 2013 vs Excel 2010
+
+The above instructions *should* work with both Excel 2013 and Excel 2010. However, we have not had a chance to test them against Excel 2010 - it is likely that some of the dialogue boxes look different. We've also heard anecdotally that Excel 2013 is much better at handling bigger data sets than Excel 2010. However, we have not had a chance to test these claims.
 
 Back to [top](#top).
 <a name="next-steps" />
@@ -197,3 +340,5 @@ Back to [top](#top).
 [64-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_09_00_0101-x64.zip
 [32-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_08_04_0200.zip
 [redshift-create-user]: http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html
+[cookbook]: http://snowplowanalytics.com/analytics/index.html
+[olap-analysis]: http://snowplowanalytics.com/analytics/tools-and-techniques/converting-snowplow-data-into-a-format-suitable-for-olap.html
