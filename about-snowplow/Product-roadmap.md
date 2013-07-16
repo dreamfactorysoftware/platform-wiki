@@ -18,6 +18,7 @@ The planned releases are as follows:
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.8.8** | [See GitHub] [issues-088] | Add Postgres as a storage target                          |
+| **0.8.9** | [See GitHub] [issues-089] | Add recipes as Redshift/Postgres views                    |
 | **0.8.10** | [See GitHub] [issues-0810] | Make EmrEtlRunner runnable from Ruby                           |
 | **0.8.11** | [See GitHub] [issues-0811] | Make StorageLoader runnable from Ruby                         |
 
@@ -37,6 +38,7 @@ The longer-term schedule of major developments is approximately as follows:
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
 [issues-088]: https://github.com/snowplow/snowplow/issues?milestone=23&state=open
+[issues-089]: https://github.com/snowplow/snowplow/issues?milestone=27&state=open
 [issues-0810]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
 [issues-0811]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 
