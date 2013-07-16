@@ -143,7 +143,7 @@ Excel now gives us options to set how frequently data is refreshed. We recommend
 
 Now click the **Definition** table:
 
-[[/setup-guide/images/excel/connection-12.JPG]]
+[[/setup-guide/images/excel/connection-13.JPG]]
 
 
 
