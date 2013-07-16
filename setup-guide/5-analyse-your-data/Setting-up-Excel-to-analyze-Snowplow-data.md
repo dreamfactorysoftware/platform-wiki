@@ -111,7 +111,41 @@ Back to [top](#top).
 <a href="excel" />
 ### 2.4 Use that connection to fetch Snowplow data from Excel, directly into your Excel workbook
 
-TO WRITE
+Create a new Excel workbook.
+
+Open the **DATA** ribbon (by clicking on **DATA** in the top-level menu). click on **Get External Data**, select **From Other Sources** and then select **From Data Connection Wizard**:
+
+[[/setup-guide/images/excel/connection-5.JPG]]
+
+Select **ODBC DSN** and click **Next**:
+
+[[/setup-guide/images/excel/connection-6.JPG]]
+
+You should see a list of your ODBC connections, including the connection you created to your Snowplow data on Redshift in [section 2.3](#windows) above. Select it and click **Next**:
+
+[[/setup-guide/images/excel/connection-7.JPG]]
+
+Excel shows you all the tables in the Snowplow database: which is *just* the events table. Click **Next**:
+
+[[/setup-guide/images/excel/connection-8.JPG]]
+
+You can now associate a filename with the connection details, and add a description to the connection. Do so and click **Finish**.
+
+[[/setup-guide/images/excel/connection-9.JPG]]
+
+Excel now gives you a set of options related to the format you data will be imported in. (Do you want it in the form of a table, PivotTable or PivotChart?) Before we pick one, however, we need to tell Excel that rather than import the `events` table in in its entirity (which may be billions of lines of data - more than enough to crash Excel), we want to specify a query for defining a subset, or rolled up, view of the data. To do this, click on the **Properties** button:
+
+[[/setup-guide/images/excel/connection-10.JPG]]
+
+Excel now gives us options to set how frequently data is refreshed. We recommend refrehing the data when the file is opened, but then now refreshing it again. (Minimizing the refresh rate keeps the spreadsheet quick to use- and Snowplow data does not generally change so quickly.) Given that, we recommend checking the box **Refreesh when opening the file** and unchecking **Enable background refresh**.
+
+[[/setup-guide/images/excel/connection-11.JPG]]
+
+Now click the **Definition** table:
+
+[[/setup-guide/images/excel/connection-12.JPG]]
+
+
 
 Back to [top](#top).
 
