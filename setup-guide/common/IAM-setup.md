@@ -6,7 +6,7 @@ This is a short guide explaining how to setup an [Identity and Access Management
 
 We recommend setting up an IAM user for two main reasons:
 
-1. If the server running EmrEtlRunner and StorageLoader is somehow compromised, the AWS credentials in their configuration files will give the attacker only limited powers over your AWS account
+1. If the server running EmrEtlRunner and StorageLoader is compromised, the AWS credentials in your configuration files will give the attacker only limited powers over your AWS account
 2. If you are hiring an external resource to install Snowplow for you, again this approach limits their access to and control over your AWS account
 
 ## 1. Setup the IAM group
