@@ -39,7 +39,7 @@ Let's give it a _Policy Name_ of `snowplow-policy`:
 
 Now we need to give permissions on:
 
-* Amazon S3: _CreateBucket_
+* Amazon S3: _All Actions (*)_
 * Amazon EMR: _All Actions (*)_
 * Amazon CloudFront: _CreateDistribution_
 * Amazon Elastic Beanstalk: _All Actions (*)_
@@ -55,10 +55,10 @@ Now paste the following JSON into the _Policy Document_ text area:
   "Statement": [
     {
       "Action": [
-        "s3:CreateBucket"
+        "s3:*"
       ],
       "Resource": [
-        "arn:aws:s3:::*"
+        "*"
       ],
       "Effect": "Allow"
     },
