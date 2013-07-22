@@ -9,7 +9,7 @@ We recommend setting up an IAM user for two main reasons:
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
-_Second note: these permissions are still more permissive than they need to be. We will be putting in time to narrow them down further over the coming weeks._
+_Warning: these permissions are still more permissive than they need to be. We will be putting in time to narrow them down further over the coming weeks._
 
 ## 1. Setup the IAM group
 
@@ -45,7 +45,7 @@ Now we need to give permissions on:
 * Amazon EMR: _All Actions (*)_
 * Amazon CloudFront: _CreateDistribution_
 * Amazon Elastic Beanstalk: _All Actions (*)_
-* Amazon Redshift: _CreateCluster_
+* Amazon Redshift: _All Actions (*)_
 
 These permissions are set out in the following policy document. **If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section.**
 
@@ -93,7 +93,7 @@ Now paste the following JSON into the _Policy Document_ text area:
     },
 	{
       "Action": [
-        "redshift:CreateCluster"
+        "redshift:*"
       ],
       "Resource": [
         "*"
