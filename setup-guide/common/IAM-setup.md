@@ -21,6 +21,8 @@ Now click on the _Create a New Group of Users_ button:
 
 [[/setup-guide/images/iam/new-iam-group.png]]
 
+### Group Name
+
 Enter a _Group Name_ of `Snowplow`:
 
 [[/setup-guide/images/iam/new-iam-group-snowplow.png]]
@@ -103,5 +105,17 @@ Now paste the following JSON into the _Policy Document_ text area:
 Now click _Continue_:
 
 [[/setup-guide/images/iam/new-iam-group-policy-continue.png]]
+
+### Users
+
+From the _Add Existing Users_ tab, switch to the _Create New Users_ tab:
+
+[[/setup-guide/images/iam/new-iam-group-policy-create-new-user.png]]
+
+Now enter a first _User Name_ - we use `snowplow`:
+
+[[/setup-guide/images/iam/new-iam-group-create-new-user-snowplow.png]]
+
+Keep the option _Generate an access key for each User_ checked, and then hit Continue.
 
 [iam]: http://aws.amazon.com/iam/
