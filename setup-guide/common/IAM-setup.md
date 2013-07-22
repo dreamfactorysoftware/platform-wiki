@@ -132,7 +132,7 @@ Click _Continue_ and you should see the following:
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-Provide these credentials in a secure way (**not** via email) to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
+Provide these credentials in a secure way - **not** via email - to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
 
 ## 2. Allow the IAM user to login
 
@@ -156,7 +156,7 @@ Click _Apply_ and you should see the following:
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-Now, provide the following details in a secure way (**not** via email) to whoever is setting up Snowplow for you:
+Now, provide the following details in a secure way - **not** via email - to whoever is setting up Snowplow for you:
 
 * Login URL: [https://snplow.signin.aws.amazon.com/console](https://snplow.signin.aws.amazon.com/console)
 * Username: `snowplow`
