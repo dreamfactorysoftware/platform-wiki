@@ -110,12 +110,26 @@ Now click _Continue_:
 
 From the _Add Existing Users_ tab, switch to the _Create New Users_ tab:
 
-[[/setup-guide/images/iam/new-iam-group-policy-create-new-user.png]]
+[[/setup-guide/images/iam/new-iam-group-create-new-user.png]]
 
 Now enter a first _User Name_ - we use `snowplow`:
 
 [[/setup-guide/images/iam/new-iam-group-create-new-user-snowplow.png]]
 
 Keep the option _Generate an access key for each User_ checked, and then hit Continue.
+
+### Review
+
+Check that the configuration for your new IAM group looks something like this:
+
+[[/setup-guide/images/iam/new-iam-group-review.png]]
+
+Click _Continue_ and you should see the following:
+
+[[/setup-guide/images/iam/new-iam-group-download-credentials.png]]
+
+Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
+
+## 
 
 [iam]: http://aws.amazon.com/iam/
