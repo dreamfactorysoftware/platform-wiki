@@ -9,6 +9,8 @@ We recommend setting up an IAM user for two main reasons:
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
+_Second note: these permissions are still more permissive than they need to be. We will be putting in time to narrow them down further over the coming weeks._
+
 ## 1. Setup the IAM group
 
 ### Initial group configuration
@@ -130,7 +132,7 @@ Click _Continue_ and you should see the following:
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-Provide these credentials to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
+Provide these credentials in a secure way (**not** via email) to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
 
 ## 2. Allow the IAM user to login
 
@@ -143,5 +145,21 @@ From within the _Users_ tab inside the IAM dashboard, click on your `snowplow` u
 Now switch to the _Security Credentials_ tab in the bottom pane, and click _Manage Password_ on the right:
 
 [[/setup-guide/images/iam/user-snowplow-manage-password.png]]
+
+Now choose _Assign an auto-generated password_:
+
+[[/setup-guide/images/iam/user-snowplow-auto-password.png]]
+
+Click _Apply_ and you should see the following:
+
+[[/setup-guide/images/iam/user-snowplow-download-credentials.png]]
+
+Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
+
+Now, provide the following details in a secure way (**not** via email) to whoever is setting up Snowplow for you:
+
+* Login URL: 
+* Username: `snowplow`
+* Password: as downloaded
 
 [iam]: http://aws.amazon.com/iam/
