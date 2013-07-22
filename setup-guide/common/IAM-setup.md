@@ -162,4 +162,10 @@ Now, provide the following details in a secure way - **not** via email - to whoe
 * Username: `snowplow`
 * Password: as downloaded
 
+## 3. Lock down post-install
+
+Once Snowplow has been successfully deployed, you can restrict the privileges of the Snowplow group still further.
+
+Rest of section to come.
+
 [iam]: http://aws.amazon.com/iam/
