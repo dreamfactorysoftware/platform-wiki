@@ -158,7 +158,7 @@ Click _Download Credentials_ to save these credentials locally. Then click _Clos
 
 Now, provide the following details in a secure way (**not** via email) to whoever is setting up Snowplow for you:
 
-* Login URL: 
+* Login URL: [https://snplow.signin.aws.amazon.com/console](https://snplow.signin.aws.amazon.com/console)
 * Username: `snowplow`
 * Password: as downloaded
 
