@@ -43,7 +43,7 @@ Now we need to give permissions on:
 * Amazon EMR: _All Actions (*)_
 * Amazon CloudFront: _CreateDistribution_
 * Amazon Elastic Beanstalk: _All Actions (*)_
-* Amazon Redshift: _All Actions (*)_
+* Amazon Redshift: _CreateCluster_
 
 These permissions are set out in the following policy document. **If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section.**
 
@@ -89,9 +89,9 @@ Now paste the following JSON into the _Policy Document_ text area:
       ],
       "Effect": "Allow"
     },
-    {
+	{
       "Action": [
-        "redshift:*"
+        "redshift:CreateCluster"
       ],
       "Resource": [
         "*"
