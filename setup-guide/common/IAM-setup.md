@@ -1,5 +1,3 @@
-# IAM setup
-
 ## Overview
 
 This is a short guide explaining how to setup an [Identity and Access Management (IAM)] [iam] user to operate Snowplow on your AWS account. These instructions reduce the IAM user's permissions towards the minimum required to effectively deploy, configure and operate Snowplow within your AWS account.
@@ -171,5 +169,7 @@ For completeness, we reproduce the complete _Policy Document_ here:
   ]
 }
 ```
+
+You can update the _Policy Name_ to make it easier to 
 
 [iam]: http://aws.amazon.com/iam/
