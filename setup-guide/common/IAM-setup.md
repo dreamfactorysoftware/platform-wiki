@@ -7,7 +7,7 @@ We recommend setting up an IAM user for two main reasons:
 1. If the server running EmrEtlRunner and StorageLoader is compromised, the AWS credentials in your configuration files will give the attacker only limited powers over your AWS account
 2. If you hire an external resource to install Snowplow for you, again this approach limits their access to and control over your AWS account
 
-**Disclaimer: While Snowplow Analytics Ltd are happy to provide these instructions, we will not be liable for any issues caused by their full or partial implementation on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
+**Disclaimer: Snowplow Analytics Ltd will not be liable for any issues caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
 ## 1. Setup the IAM group
 
@@ -21,7 +21,7 @@ Now click on the _Create a New Group of Users_ button:
 
 [[/setup-guide/images/iam/new-iam-group.png]]
 
-Name the group Snowplow:
+Enter a _Group Name_ of `Snowplow`:
 
 [[/setup-guide/images/iam/new-iam-group-snowplow.png]]
 
@@ -31,7 +31,7 @@ Now choose the _Custom_ option and click _Select_:
 
 [[/setup-guide/images/iam/new-iam-group-custom-policy.png]]
 
-Let's give it a _Policy Name_:
+Let's give it a _Policy Name_ of `snowplow-policy`:
 
 [[/setup-guide/images/iam/new-iam-group-policy-name.png]]
 
@@ -43,7 +43,9 @@ Now we need to give permissions on:
 * Amazon Elastic Beanstalk: _All Actions (*)_
 * Amazon Redshift: _All Actions (*)_
 
-Paste the following into the _Policy Document_ text area:
+These permissions are set out in the following policy document. **If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section.**
+
+Now paste the following JSON into the _Policy Document_ text area:
 
  ```javascript
 {
@@ -53,7 +55,6 @@ Paste the following into the _Policy Document_ text area:
       "Action": [
         "s3:CreateBucket"
       ],
-      "Sid": "Stmt1374503110000",
       "Resource": [
         "arn:aws:s3:::*"
       ],
@@ -63,7 +64,6 @@ Paste the following into the _Policy Document_ text area:
       "Action": [
         "elasticmapreduce:*"
       ],
-      "Sid": "Stmt1374503416000",
       "Resource": [
         "*"
       ],
@@ -73,7 +73,6 @@ Paste the following into the _Policy Document_ text area:
       "Action": [
         "cloudfront:CreateDistribution"
       ],
-      "Sid": "Stmt1374504844000",
       "Resource": [
         "*"
       ],
@@ -83,7 +82,6 @@ Paste the following into the _Policy Document_ text area:
       "Action": [
         "elasticbeanstalk:*"
       ],
-      "Sid": "Stmt1374507681000",
       "Resource": [
         "*"
       ],
@@ -93,7 +91,6 @@ Paste the following into the _Policy Document_ text area:
       "Action": [
         "redshift:*"
       ],
-      "Sid": "Stmt1374508219000",
       "Resource": [
         "*"
       ],
@@ -102,8 +99,6 @@ Paste the following into the _Policy Document_ text area:
   ]
 }
 ```
-
-**If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section in the above policy document.**
 
 Now click _Continue_:
 
