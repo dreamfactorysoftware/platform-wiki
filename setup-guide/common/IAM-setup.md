@@ -7,7 +7,7 @@ We recommend setting up an IAM user for two main reasons:
 1. If the server running EmrEtlRunner and StorageLoader is compromised, the AWS credentials in your configuration files will give the attacker only limited powers over your AWS account
 2. If you hire an external resource to install Snowplow for you, again this approach limits their access to and control over your AWS account
 
-**Disclaimer: While Snowplow Analytics Ltd are happy to provide these security instructions, we will not be liable for any issues caused by their full or partial implementation on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
+**Disclaimer: While Snowplow Analytics Ltd are happy to provide these instructions, we will not be liable for any issues caused by their full or partial implementation on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
 ## 1. Setup the IAM group
 
@@ -27,92 +27,25 @@ Name the group Snowplow:
 
 ### Permissions
 
-Now choose the _Policy Generator_ option and click _Select_:
+Now choose the _Custom_ option and click _Select_:
 
-[[/setup-guide/images/iam/new-iam-group-permissions.png]]
+[[/setup-guide/images/iam/new-iam-group-custom-policy.png]]
 
-Now we can start adding the bare minimum permissions needed to deploy Snowplow.
+Let's give it a _Policy Name_:
 
-### Permissions: S3
+[[/setup-guide/images/iam/new-iam-group-policy-name.png]]
 
-First we need to set permissions for Amazon S3:
+Now we need to give permissions on:
 
-* Select _Amazon S3_ from the first dropdown
-* Select _CreateBucket_ option from the second dropdown:
+* Amazon S3: _CreateBucket_
+* Amazon EMR: _All Actions (*)_
+* Amazon CloudFront: _CreateDistribution_
+* Amazon Elastic Beanstalk: _All Actions (*)_
+* Amazon Redshift: _All Actions (*)_
 
-[[/setup-guide/images/iam/new-iam-group-create-bucket.png]]
+Paste the following into the _Policy Document_ text area:
 
-* Add `arn:aws:s3:::*` for the _Amazon Resource Name (ARN)_
-
-Then click _Add Statement_:
-
-[[/setup-guide/images/iam/new-iam-group-add-s3.png]]
-
-### Permissions: EMR
-
-Now it's permissions for Amazon EMR:
-
-* Select _Amazon Elastic MapReduce_ from the first dropdown
-* Select _All Actions (*)_ from the second dropdown:
-
-[[/setup-guide/images/iam/new-iam-group-all-emr.png]]
-
-Then click _Add Statement_:
-
-[[/setup-guide/images/iam/new-iam-group-add-emr.png]]
-
-### Permissions: CloudFront
-
-If you are going to use the CloudFront Collector, you need to set permissions for Amazon CloudFront next:
-
-* Select _Amazon CloudFront_ from the first dropdown
-* Select _CreateBucket_ option from the second dropdown:
-
-[[/setup-guide/images/iam/new-iam-group-create-dist.png]]
-
-Then click _Add Statement_:
-
-[[/setup-guide/images/iam/new-iam-group-add-cloudfront.png]]
-
-### Permissions: Elastic Beanstalk
-
-If you are going to use the Clojure Collector, you need to set permissions for Elastic Beanstalk next:
-
-* Select _AWS Elastic Beanstalk_ 
-* For now (we may update this in the future), select _All Actions (*)_ from the second dropdown:
-
-[[/setup-guide/images/iam/new-iam-group-all-beanstalk.png]]
-
-* Add `*` for the _Amazon Resource Name (ARN)_
-
-Then click _Add Statement_:
-
-[[/setup-guide/images/iam/new-iam-group-add-beanstalk.png]]
-
-### Permissions: Amazon Redshift
-
-If you are going to use Redshift to store your events, you need to set permissions for Amazon Redshift next:
-
-* Select _Amazon Redshift_ from the first dropdown
-* Select _All Actions (*)_ from the second dropdown:
-
-[[/setup-guide/images/iam/new-iam-group-all-redshift.png]]
-
-Then click _Add Statement_:
-
-[[/setup-guide/images/iam/new-iam-group-add-redshift.png]]
-
-The _Edit Permissions_ screen should like this now - you are ready to hit _Continue_:
-
-[[/setup-guide/images/iam/new-iam-group-permissions-continue.png]]
-
-On the next screen you will see the permissions summarized in a _Policy Document_:
-
-[[/setup-guide/images/iam/new-iam-group-set-permissions.png]]
-
-For completeness, we reproduce the complete _Policy Document_ here:
-
-```javascript
+ ```javascript
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -170,6 +103,10 @@ For completeness, we reproduce the complete _Policy Document_ here:
 }
 ```
 
-You can update the _Policy Name_ to make it easier to 
+**If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section in the above policy document.**
+
+Now click _Continue_:
+
+[[/setup-guide/images/iam/new-iam-group-policy-continue.png]]
 
 [iam]: http://aws.amazon.com/iam/
