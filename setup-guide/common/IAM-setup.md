@@ -7,7 +7,7 @@ We recommend setting up an IAM user for two main reasons:
 1. If the server running EmrEtlRunner and StorageLoader is compromised, the AWS credentials in your configuration files will give the attacker only limited powers over your AWS account
 2. If you hire an external resource to install Snowplow for you, again this approach limits their access to and control over your AWS account
 
-**Disclaimer: Snowplow Analytics Ltd will not be liable for any issues caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
+**Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
 ## 1. Setup the IAM group
 
@@ -29,7 +29,7 @@ Enter a _Group Name_ of `Snowplow`:
 
 ### Permissions
 
-Now choose the _Custom_ option and click _Select_:
+Now choose the _Custom Policy_ option and click _Select_:
 
 [[/setup-guide/images/iam/new-iam-group-custom-policy.png]]
 
@@ -116,7 +116,7 @@ Now enter a first _User Name_ - we use `snowplow`:
 
 [[/setup-guide/images/iam/new-iam-group-create-new-user-snowplow.png]]
 
-Keep the option _Generate an access key for each User_ checked, and then hit Continue.
+Keep the option _Generate an access key for each User_ checked, and then click _Continue_.
 
 ### Review
 
