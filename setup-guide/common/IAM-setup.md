@@ -49,7 +49,7 @@ These permissions are set out in the following policy document. **If you are not
 
 Now paste the following JSON into the _Policy Document_ text area:
 
- ```javascript
+```javascript
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -130,6 +130,18 @@ Click _Continue_ and you should see the following:
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-## 
+Provide these credentials to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
+
+## 2. Allow the IAM user to login
+
+For much of the Snowplow setup process, the IAM user you have setup above will need access to the Amazon Web Services control panel.
+
+From within the _Users_ tab inside the IAM dashboard, click on your `snowplow` user:
+
+[[/setup-guide/images/iam/user-snowplow.png]]
+
+Now switch to the _Security Credentials_ tab in the bottom pane, and click _Manage Password_ on the right:
+
+[[/setup-guide/images/iam/user-snowplow-manage-password.png]]
 
 [iam]: http://aws.amazon.com/iam/
