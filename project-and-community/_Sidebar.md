@@ -4,6 +4,7 @@
 - [[Talk to us]]  
 - [[Our users]]  
 - [[Our contributors]] 
+- [[Testimonials]]  
 
 **[[Contributing]]** 
 - [Development](Contributing-to-development)
