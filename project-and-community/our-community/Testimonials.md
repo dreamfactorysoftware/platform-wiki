@@ -10,6 +10,10 @@
 
 [Michael Tibben, 99 designs] [99designs]
 
+*Having your granular web data end up in Redshift, ready to be enriched with other biz data sources is a beautiful, beautiful thing, and completely worth it*
+
+Ryan Sorensen
+
 
 [thoughtworks]: http://thoughtworks.fileburst.com/assets/technology-radar-may-2013.pdf
 [simply-business]: http://www.simplybusiness.co.uk/
