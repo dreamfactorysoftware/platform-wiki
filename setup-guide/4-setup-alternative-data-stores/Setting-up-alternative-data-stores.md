@@ -15,7 +15,7 @@ Snowplow supports storing your data in two different data stores:
 |:--------------------------|:----------------------------------------------------|:-----------------|
 | S3                        | Data is stored in the S3 file system where it can be analysed using [EMR] [emr] (e.g. Hive, Pig, Mahout) | Production-ready |
 | [Redshift] [setup-redshift]| A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
-| PostgreSQL                | A popular, open source, RDBMS database              | Coming soon      | 
+| [PostgreSQL] [setup-postgres]| A popular, open source, RDBMS database              | Production-ready | 
 
 By [setting up the EmrEtlRunner](setting-up-EmrEtlRunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
 
@@ -29,10 +29,12 @@ The [StorageLoader] [storage-loader-setup] is an application to make it simple t
 <a name="datastores" />
 ## Setting up Snowplow to work with additional data stores
 
-Currently, the only supported datastore for Snowplow data is Redshift. PostgreSQL support is coming soon. To ensure that your Snowplow data regularly, automatically, populates a database in Redshift, you need to:
+Currently, the only supported datastores for Snowplow data are Redshift and PostgreSQL. If you wish to use either Redshift **or** PostgreSQL as a storage target alongside S3, first setup either
 
-1. [Set up Redshift to work with Snowplow] [setup-redshift]
-2. [Set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
+* [Redshift] [setup-redshift], **or**
+* [PostgreSQL] [setup-postegres]
+
+Afterwards, you will be need to [set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
 
 All done? Then [start analysing your data][analyse].
 
@@ -48,3 +50,4 @@ All done? Then [start analysing your data][analyse].
 [tableau]: http://www.tableausoftware.com/
 [analyse]: Setting-up-Snowplow#step5
 [r]: http://www.r-project.org/
+[setup-postgres]: Setting-up-PostgreSQL

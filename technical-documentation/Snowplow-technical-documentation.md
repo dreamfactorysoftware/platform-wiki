@@ -34,6 +34,7 @@ The technical documentation reflects the Snowplow architecture, with five loosel
 [Overview](Storage-documentation)  
 [Storage in S3](S3 storage)  
 [Storage in Redshift](amazon-redshift-storage)  
+[Storage in PostgreSQL](postgresql-storage)   
 [Storage in Infobright](infobright-storage) (deprecated)  
 [The StorageLoader](The-Storage-Loader)  
 
