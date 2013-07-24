@@ -20,7 +20,7 @@ Log into the AWS console, navigate to the EC2 section:
 
 [[/setup-guide/images/postgresql/aws-ec2-console.png]]
 
-Press the **Launch Instance button**. Select the **Quick Launch Wizard**:
+Press the **Launch Instance** button. Select the **Quick Launch Wizard**:
 
 [[/setup-guide/images/postgresql/ec2-quick-launch-wizard.png]]
 
@@ -101,18 +101,6 @@ Amazon helpfully keeps a range of packages including PostgreSQL in repos so that
 
 	$ sudo yum install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
 
-We will create a new user 'postgres':
-
-	$ sudo adduser postgres
-	$ sudo su
-	$ passwd postgres
-
-Now switch to the postgres user:
-	
-	# Do we also need this line:
-	$ sudo su -
-	$ su - postgres
-
 Initialize a database:
 
 	$ sudo service postgresql initdb
@@ -129,6 +117,8 @@ Update the bottom of the file, which will read something like this, by default:
 	local   all             all                                     ident
 	# IPv4 local connections:
 	host    all             all             127.0.0.1/32            ident
+	# IPv6 local connections:
+	host    all             all             ::1/128                 ident
 
 To read this:
 
@@ -139,6 +129,8 @@ To read this:
 	# IPv4 local connections:
 	host    all             power_user      0.0.0.0/0               md5
 	host    all             other_user      0.0.0.0/0               md5
+	# IPv6 local connections:
+	host    all             all             ::1/128                 md5
 
 Now that we've updated the authorization settings, we need to update PostgreSQL to enable remote connections to the database. At the command line enter:
 
@@ -164,21 +156,41 @@ Now start the server:
 
 	$ sudo service postgresql start
 
-You can log in to the server:
+Log into the server:
 
 	$ psql -U postgres
 
-And add a password for your PostgreSQL super user:
+And add a password for your PostgreSQL admin:
 
 	ALTER USER postgres WITH PASSWORD '$password';
 
 Now we need to create user credentials for *power users*. These users will be able to perform any action on the database:
 
-	$ /usr/pgsql9/bin/createuser power_user
+	CREATE USER power_user SUPERUSER;
+	ALTER USER power_user WITH PASSWORD '$poweruserpassword';
+	CREATE USER other_user NOSUPERUSER;
+	ALTER USER other_user WITH PASSWORD '$otheruserpassword';
+
+We can now exit from Postgres with `\q`. Setup is complete: we are ready to connect to our database remotely.
 
 #### 1.2.3 Connect to your PostgreSQL instance remotely
 
+Now that we have PostgreSQL up and running on our EC2 instance, we are in a position to connect from a remote computer using a PostgreSQL client. We'll be using Navicat in this tutorial, but any PostgreSQL compatible client (there are 100s) should work in a similar way.
 
+Fire up Navicat, and under **Connection** select **PostgreSQL**. A dialogue box appears, enabling us to enter details to connect to PostgreSQL:
 
+[[/setup-guide/images/postgresql/navicat-1.png]]
+
+Give the connection a suitable name. You can identify the EC2 public IP address (to enter in the **Host name/IP Address** field, by clicking on the instance in the AWS console and scrolling down in the properties section to **Public DNS**:
+
+[[/setup-guide/images/postgresql/navicat-2.png]]
+
+Copy and paste the value (in our case) `ec2-54-216-22-100.eu-west-1.compute.amazonaws.com` into the host field in Navicat.
+
+Select either the username `power_user` and associated password you created in the previous step, or `other_user`. (Depending on the permissions you wish to grant.)
+
+[[/setup-guide/images/postgresql/navicat-3.png]]
+
+You should now be able to either test the connection or click **OK** to save the connection. You can then double click it to go into the database.
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
