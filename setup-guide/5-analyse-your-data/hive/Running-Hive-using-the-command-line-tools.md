@@ -218,7 +218,7 @@ doc_charset string,
 doc_width int,
 doc_height int
 )
-PARTITIONED BY (r string)
+PARTITIONED BY (run string)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n'
