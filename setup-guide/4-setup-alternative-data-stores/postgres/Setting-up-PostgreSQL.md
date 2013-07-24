@@ -5,8 +5,9 @@
 ## Contents
 
 1. [Setting up PostgreSQL on a EC2 instance](#ec2)
-2. [Setting up PostgreSQL on Ubuntu](#ubuntu)
-
+2. [Setting up PostgreSQL on Debian / Ubuntu](#debian)
+3. [Creating the Snowplow events table in PostgreSQL](#events-table)
+4. [Next steps](#next-steps)
 
 <a name="ec2" />
 ## 1. Setting up PostgreSQL on EC2
@@ -193,4 +194,25 @@ Select either the username `power_user` and associated password you created in t
 
 You should now be able to either test the connection or click **OK** to save the connection. You can then double click it to go into the database.
 
+Back to [top](#top).
+
+<a name="debian" />
+## 2. Setting up PostgreSQL on Debian / Ubuntu
+
+TO WRITE
+
+Back to [top](#top).
+
+<a name="events-table" />
+## 3. Create the Snowplow events table in PostgreSQL
+
+TO WRITE
+
+Back to [top](#top).
+
+<a name="next-steps" />
+
+Now you have setup PostgreSQL, you area ready to [setup the StorageLoader to regularly load Snowplow data in][setup-storageloader]
+
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+[setup-storageloader]: 1-Installing-the-StorageLoader
