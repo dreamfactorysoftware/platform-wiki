@@ -18,7 +18,7 @@ There are currently three collectors available:
 |:-----------------------------------------------|:----------------------------------------------------|:-----------------|
 | [Cloudfront Collector] [cloudfront-collector]  | A simple, robust and scalable collector powered by AWS Cloudfront | Production-ready |
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Production-ready |
-| [SnowCannon (node.js)] [snowcannon]            | A real-time, node.js based collector that enables user tracking across domains | Experimental |
+| [SnowCannon (node.js)] [snowcannon]            | A real-time, node.js based collector that enables user tracking across domains | Unsupported |
 
 ### Are you setting up Snowplow to track users across a single domain, or multiple domains?
 
