@@ -26,14 +26,14 @@ If you are tracking users across a single domain, we recommend setting up the [C
 
 If you are tracking users across multiple domains, we recommending setting up the [Clojure collector] [clojure-collector]. This sets `user_id`s server side, so you can reliably track user journeys across multiple domains. (In contrast, the [Cloudfront collector] [cloudfront-collector] sets them client side, so users get assigned different `user_id`s on different domains.)
 
-Like the [Clojure Collector] [clojure-collector], [SnowCannon] [snowcannon] supports user tracking across multiple domains. It also generates logs in real-time. **Currently,  however, the log file format is not supported by the [EmrEtlRunner] [emretlrunner], making integrating [SnowCannon] [snowcannon] with downstream data processing modules tricky.** We will be addressing this in the next few months.  
+Like the [Clojure Collector] [clojure-collector], [SnowCannon] [snowcannon] supports user tracking across multiple domains. It also generates logs in real-time. **Currently,  however, the log file format is not supported by the [EmrEtlRunner] [emretlrunner], making integrating [SnowCannon] [snowcannon] with downstream data processing modules impossible.**  
 
 <a name="setup" />
 ## 2. Setup your Collector
 
 1. [Setup the Cloudfront Collector now!] [cloudfront-collector]
 2. [Setup the Clojure Collector now!] [clojure-collector]
-3. [Setup SnowCannon now!] [snowcannon]
+3. [Setup SnowCannon now!] [snowcannon] **(not recommended)**
 
 Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
