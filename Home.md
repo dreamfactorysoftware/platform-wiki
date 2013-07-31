@@ -6,7 +6,7 @@ For example, in curl: curl - 3 url
 Your API Key
 Your “api key” to talk to our API is your App Name as defined in the Administration App, For each request, you can :
 
-1.Append app_name=yourappname to the querystring or
+1.Append app_name=yourappname to the querystring or<br/>
 2.Send a request header called X-DreamFactory-Application-Name with the value of your app name.
 
 Authentication
