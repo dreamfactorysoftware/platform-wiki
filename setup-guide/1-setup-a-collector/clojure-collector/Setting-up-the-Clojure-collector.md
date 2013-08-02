@@ -21,6 +21,8 @@ Setting up the Clojure collector is a 6 step process:
 
 In addition, we document [additional configuration options](additional configuration options)) at the end of this guide.
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 
 
 

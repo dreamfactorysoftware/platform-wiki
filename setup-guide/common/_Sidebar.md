@@ -31,5 +31,6 @@
 
 **COMMON**  
 [**Troubleshooting**](Troubleshooting)  
+[**IAM Setup Guide**](IAM-Setup)  
 [**Ruby and RVM setup**](Ruby-and-RVM-setup)  
 [**Hosted assets**](Hosted assets)

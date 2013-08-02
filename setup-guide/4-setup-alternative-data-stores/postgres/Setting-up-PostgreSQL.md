@@ -12,6 +12,8 @@
 <a name="ec2" />
 ## 1. Setting up PostgreSQL on EC2
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 <a name="1.1" />
 ### 1.1 Setup an EC2 instance to run PostgreSQL server
 

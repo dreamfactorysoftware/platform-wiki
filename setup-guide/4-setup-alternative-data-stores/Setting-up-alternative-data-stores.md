@@ -38,6 +38,8 @@ Afterwards, you will be need to [set up the StorageLoader to regularly transfer 
 
 All done? Then [start analysing your data][analyse].
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 [emr]: http://aws.amazon.com/elasticmapreduce/
 [infobright]: http://www.infobright.org/
 [redshift]: http://aws.amazon.com/redshift/

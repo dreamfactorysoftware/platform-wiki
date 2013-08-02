@@ -16,6 +16,8 @@ The alternative to self-hosting `snowplow.js` is to use the version hosted by **
 3. [Advanced options](#advanced-options)
 4. [Next steps](#next-steps)
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 <a name="prerequisites" />
 ## Pre-requisites
 
