@@ -34,7 +34,7 @@ CREATE TABLE "atomic"."events" (
 	"geo_city" varchar(75),
 	"geo_zipcode" varchar(15),
 	"geo_latitude" double precision,
-	"geo_longitude" double precision,
+	"geo_longitude" double precision,ev
 	-- Page
 	"page_title" varchar(2000),
 	-- Page URL components

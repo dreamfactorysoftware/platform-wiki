@@ -47,7 +47,7 @@ Now create your read only user:
 
 Now grant permissions to that user so he / she can read the relevant tables:
 
-	GRANT USGAE ON SCHEMA public TO mydbuser_ro;
+	GRANT USAGE ON SCHEMA public TO mydbuser_ro;
 	GRANT SELECT ON events_008 TO mydbuser_ro;
 
 Note: if there are other tables the user needs to access, you should grant select permission to those as well.

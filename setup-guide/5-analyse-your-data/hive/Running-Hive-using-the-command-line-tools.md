@@ -225,32 +225,25 @@ LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
 LOCATION '${EVENTS_TABLE}' ;
 ```  
-
-
 #### Notes:
 
 1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
 2. If you are **not** running the StorageLoader, because you are **only** analysing your Snowplow data using EMR, then you will find your data to analyse in the `out` bucket specified in the EmrEtlRunner config file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
-3. In **both cases**, your data will be distributed across a set of subfolders within the folder specified in either config file. Each folder will have a name with the following format:  'YYYY-MM-DD-HH-MM-SS', which reflects the time that the EmrEtlRunner processed that data.
-4. The table definition is very similar to the [table definition in Redshift] [redshift-table-def]. The data types have been changed to reflect Hive's data types, and the data is partitioned by 'r' i.e. run_id. (The date / time that EmrEtlRunner processed the raw collector logs and wrote the enriched logs back to S3 for processing in EMR / uploading into Redshift / PostgreSQL.)
-5. In addition, the table definition in Hive specifies that the data is partitioned: that is because the data is partitioned by EmrEtlRunner run ID, where the run ID is the date / time that the data was processed.
+3. The table definition is very similar to the [table definition in Redshift] [redshift-table-def]. The data types have been changed to reflect Hive's data types, and the data is partitioned by 'r' i.e. run_id. (The date / time that EmrEtlRunner processed the raw collector logs and wrote the enriched logs back to S3 for processing in EMR / uploading into Redshift / PostgreSQL.)
 
+In S3, Snowplow data is divided into different folders, where each folder represents one "run" of data. That is why in the table definition, `run` is given as a partitioning field.
 
-Now that you have created the table in Hive, you need to add the different partitions that you want to query against. If you pull up a list of the different subfolder names (e.g. using the AWS S3 console, or a desktop took like [Bucket Explorer][bucketexplorer] or [Cloudberry] [cloudberry]). 
+We need to tell Hive to look at S3 and identify all the partitions of data that have been saved down:
 
-Say you have a subfolder called `2013-06-18-09-32-02`. You would add the data in that folder to the Hive table by entering:
+```sql
+ALTER TABLE events RECOVER PARTITIONS;
+```
 
-	hive> alter table events add partition (r='2013-06-18-09-32-02') location = '2013-06-18-09-32-02';
+We can then view the partitions:
 
-You can check that the partition has been successfully added:
-
-	hive> show partitions events ;
-	OK
-	r=2013-06-18-09-32-02
-	Time taken: 0.228 seconds
-	hive> 
-
-Once you have added a partition for each of the subfolders you would like to query, you can run your first query:
+```sql
+SHOW PARTITIONS events;
+```
 
 We can now try running some simple queries. Remember: these will take some time from large data sets. (Especially if we're using the default cluster size - which is only two small EC2 instances.) To speed up query performance, limit the volume of data by specifying a data range e.g. `WHERE dt >='2012-09-01 AND dt<='2012-09-25'`.
 
