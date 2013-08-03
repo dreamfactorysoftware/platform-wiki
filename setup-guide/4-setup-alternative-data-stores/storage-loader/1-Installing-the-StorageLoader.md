@@ -129,7 +129,7 @@ The following are examples of valid bucket settings:
 
     :buckets:
       :in: s3://my-snowplow-data/events/
-      :archive: s3://my-archived-snowplow-data
+      :archive: s3://my-snowplow-archive/events/
 
 Please note that all buckets must exist prior to running StorageLoader.
 
