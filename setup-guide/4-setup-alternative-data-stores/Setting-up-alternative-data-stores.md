@@ -32,7 +32,7 @@ The [StorageLoader] [storage-loader-setup] is an application to make it simple t
 Currently, the only supported datastores for Snowplow data are Redshift and PostgreSQL. If you wish to use either Redshift **or** PostgreSQL as a storage target alongside S3, first setup either
 
 * [Redshift] [setup-redshift], **or**
-* [PostgreSQL] [Setting-up-PostgreSQL]
+* [PostgreSQL] [setup-postgres]
 
 Afterwards, you will be need to [set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
 
