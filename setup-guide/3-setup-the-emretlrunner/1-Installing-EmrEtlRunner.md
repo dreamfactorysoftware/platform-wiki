@@ -174,7 +174,7 @@ Here is an example configuration:
       :out: s3n://my-snowplow-data/events/
       :out_bad_rows: s3n://my-snowplow-data/bad-rows/
       :out_errors: s3n://my-snowplow-data/error-rows/
-      :archive: s3n://my-snowplow-archive/
+      :archive: s3n://my-snowplow-archive/raw/
 
 Please note that all buckets must exist prior to running EmrEtlRunner; trailing slashes are optional.
 
