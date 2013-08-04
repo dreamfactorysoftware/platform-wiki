@@ -9,13 +9,7 @@
 <a name="assumptions" />
 ## 1. Assumptions
 
-This guide assumes that you have configured EmrEtlRunner to output the **non-Hive** Snowplow event format. The Hive Snowplow event format will not work with Infobright.
-
-This guide assumes that you have administrator access to the Unix-based server (e.g. Ubuntu, OS X, Fedora) on which you installed ICE, and will install StorageLoader on the same server.
-
-Please note that ICE can be deployed onto a Windows-based server, and in theory StorageLoader could be installed on a Windows-based server too, using the Windows Task Scheduler instead of cron, but this has not been tested or documented.
-
-Also, note that, in theory, StorageLoader should work with [Infobright Enterprise Edition (IEE)] [iee] as well as ICE; however we have not yet tested this.
+This guide assumes that you have administrator access to a Unix-based server (e.g. Ubuntu, OS X, Fedora) which you can install StorageLoader on.
 
 <a name="dependencies"/>
 ## 2. Dependencies
@@ -42,11 +36,11 @@ the load process. These buckets are as follows:
 The In Bucket for StorageLoader is the same as the Out Bucket for the EmrEtlRunner -
 i.e. you will already have setup this bucket.
 
-We recommend creating a new bucket for the Archive Bucket - i.e. do **not** re-use
+We recommend creating a new folder for the Archive Bucket - i.e. do **not** re-use
 EmrEtlRunner's own Archive Bucket. Create the required Archive Bucket in the same
 AWS region as your In Bucket.
 
-**Important:** if you are using the StorageLoader to load your data into Redshift, you need to make sure that the location of your **In Bucket** and **Archive Bucket** are in 'us-east-1'. The reason is that currently, Amazon only offers Redshift in the 'us-east-1' region, and Redshift only supports the bulk loading of data from S3 within a region.
+**Important:** if you are using the StorageLoader to load your data into Redshift, you need to make sure your **In Bucket** is in the same region as your Redshift cluster. The reason is that Redshift currently only supports the bulk loading of data from S3 in the same region.
 
 Right, now we can install StorageLoader.
 
@@ -183,12 +177,11 @@ You will need to set the `folder` variable to a local directory path -
 please make sure that this path exists, is writable by StorageLoader
 and is empty.
 
-#### storage
+#### target
 
-In this section we configure exactly what database StorageLoader should
+In this section we configure exactly what database(s) StorageLoader should
 load our Snowplow events into. At the moment, StorageLoader supports
-only one load target, and this load target must be an Infobright
-Community Edition database.
+only two types of load target, Redshift and Postgres, which require slightly different configurations.
 
 To take each variable in turn:
 
