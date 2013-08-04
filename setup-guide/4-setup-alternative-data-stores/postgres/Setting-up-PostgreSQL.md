@@ -341,7 +341,7 @@ Back to [top](#top).
 
 <a name="next-steps" />
 
-Now you have setup PostgreSQL, you area ready to [setup the StorageLoader][setup-storageloader] to automate the regular loading of Snowplow data into the PostgreSQL events table.
+Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-storageloader] to automate the regular loading of Snowplow data into the PostgreSQL events table.
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
