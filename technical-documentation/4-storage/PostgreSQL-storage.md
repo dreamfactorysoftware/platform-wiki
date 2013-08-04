@@ -130,5 +130,5 @@ WITH (OIDS=FALSE)
 ```
 
 
-[postgres-table-def]: https://github.com/snowplow/snowplow/blob/feature/pg-support/4-storage/postgres-storage/sql/table-def.sql
+[postgres-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/table-def.sql
 [avro]: http://avro.apache.org/
