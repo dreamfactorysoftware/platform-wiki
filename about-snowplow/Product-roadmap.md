@@ -1,6 +1,6 @@
 ## Overview
 
-The current release of Snowplow is **0.8.7**. The planned roadmap for Snowplow is divided in two:
+The current release of Snowplow is **0.8.8**. The planned roadmap for Snowplow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
 2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new Snowplow components and other ambitious new developments
@@ -9,7 +9,7 @@ We discuss each of these in turn below.
 
 ## Short-term: planned releases
 
-In this section we list out the series of 'point' releases (0.8.x, 0.8.y etc) that we have planned. This list is accurate as of early July 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
+In this section we list out the series of 'point' releases (0.8.x, 0.8.y etc) that we have planned. This list is accurate as of early August 2013 - but we always recommend browsing the list of [Open Milestones] [milestones] on our main GitHub repository.
 
 **Warning:** we may change this schedule as new priorities are identified and the community feeds back on our current plans. If you are particularly interested in a given task being completed per schedule (or even accelerated), please 'vote' for the ticket by leaving a "+1" comment or similar on the relevant ticket.
 
@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.8** | [See GitHub] [issues-088] | Add Postgres as a storage target                          |
 | **0.8.9** | [See GitHub] [issues-089] | Add recipes as Redshift/Postgres views                    |
 | **0.8.10** | [See GitHub] [issues-0810] | Make EmrEtlRunner runnable from Ruby                           |
 | **0.8.11** | [See GitHub] [issues-0811] | Make StorageLoader runnable from Ruby                         |
@@ -37,7 +36,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-088]: https://github.com/snowplow/snowplow/issues?milestone=23&state=open
 [issues-089]: https://github.com/snowplow/snowplow/issues?milestone=27&state=open
 [issues-0810]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
 [issues-0811]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
