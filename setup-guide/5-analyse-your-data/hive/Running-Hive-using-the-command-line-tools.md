@@ -116,7 +116,6 @@ TO WRITE
 
 Snowplow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
-
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS `events` (
 app_id string,
@@ -224,7 +223,8 @@ FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
 LOCATION '${EVENTS_TABLE}' ;
-```  
+```
+ 
 #### Notes:
 
 1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
