@@ -227,7 +227,7 @@ LOCATION '${EVENTS_TABLE}' ;
  
 #### Notes:
 
-1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
+1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitute it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
 2. If you are **not** running the StorageLoader, because you are **only** analysing your Snowplow data using EMR, then you will find your data to analyse in the `out` bucket specified in the EmrEtlRunner config file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
 3. The table definition is very similar to the [table definition in Redshift] [redshift-table-def]. The data types have been changed to reflect Hive's data types, and the data is partitioned by 'r' i.e. run_id. (The date / time that EmrEtlRunner processed the raw collector logs and wrote the enriched logs back to S3 for processing in EMR / uploading into Redshift / PostgreSQL.)
 
