@@ -43,7 +43,7 @@ var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async
 sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
- </script>
+</script>
 <!-- Snowplow stops plowing -->
 ```
 
