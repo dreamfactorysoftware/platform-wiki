@@ -93,5 +93,5 @@ LOCATION '${EVENTS_TABLE}' ;
 
 Going forwards, we plan to move from a flat-file structure to storing Snowplow data using [Apache Avro][avro]
 
-[hive-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hive-format-table-def.q
+[hive-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hiveql/table-def.q
 [avro]: http://avro.apache.org/
