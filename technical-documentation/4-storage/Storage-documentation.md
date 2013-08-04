@@ -14,7 +14,7 @@ There are therefore a number of different potential storage modules that Snowplo
 
 1. [S3][s3], for analysis in EMR
 2. [Amazon Redshift][redshift], for analysis using a wide range of analytics tools
-3. [PostgreSQL][posetgresql]: a useful alternative for companies that do not require Redshift's ability to scale to handle Petabytes of data
+3. [PostgreSQL][postgresql]: a useful alternative for companies that do not require Redshift's ability to scale to handle Petabytes of data
 4. Neo4J (coming soon): a graph database that enables more efficient and very detailed path analytics
 5. SkyDB (coming soon): an event database
 6. [Infobright][infobright]: an open source columnar database. This was supported in earlier versions of Snowplow (pre 0.8.0), but is not supported by the most recent version. We plan to add back support for Infobright at a later date.
