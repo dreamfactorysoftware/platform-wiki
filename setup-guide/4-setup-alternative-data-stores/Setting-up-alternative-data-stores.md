@@ -4,12 +4,7 @@
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
-1. [Overview](#overview)
-2. [Setting up Snowplow to work with additional data stores](#datastores)
-
-## Overview
-
-Snowplow supports storing your data in two different data stores:
+Snowplow supports storing your data into three different data stores:
 
 | **Storage**               | **Description**                                     | **Status**       |
 |:--------------------------|:----------------------------------------------------|:-----------------|
@@ -19,22 +14,16 @@ Snowplow supports storing your data in two different data stores:
 
 By [setting up the EmrEtlRunner](setting-up-EmrEtlRunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
 
-If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [redshift] or PostgreSQL to support enable use of these tools.
+If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [setup-redshift] or [PostgreSQL] [setup-postgres] to support enable use of these tools.
 
-The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in Redshift. Setting up Snowplow so that you can maintain a copy of your data in a database like Redshift is a two step process:
+The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in Redshift. To setup Snowplow to automatically populate a PostgreSQL and / or Redshift database with Snowplow data, you need to first:
 
-1. [Create a database and table in Amazon Redshift for the data] [setup-redshift]
-2. Setup the [StorageLoader] [storage-loader-setup] so that it regularly updates that table with the latest data from S3
+1. [Create a database and table for Snowplow data in Redshift] [setup-redshift] and / or
+2. [Create a database adn table for Snowplow data in PostgreSQL] [setup-postgres]
 
-<a name="datastores" />
-## Setting up Snowplow to work with additional data stores
+(Note that instructions on setting up both Redshift and PostreSQL on EC2 are included in this setup guide and referenced from the links above.)
 
-Currently, the only supported datastores for Snowplow data are Redshift and PostgreSQL. If you wish to use either Redshift **or** PostgreSQL as a storage target alongside S3, first setup either
-
-* [Redshift] [setup-redshift], **or**
-* [PostgreSQL] [setup-postgres]
-
-Afterwards, you will be need to [set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
+*Then*, afterwards, you will need to [set up the StorageLoader to regularly transfer Snowplow data into your new store(s)] [storage-loader-setup]
 
 All done? Then [start analysing your data][analyse].
 
