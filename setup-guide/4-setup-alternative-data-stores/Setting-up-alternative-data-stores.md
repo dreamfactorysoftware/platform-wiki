@@ -21,9 +21,9 @@ The [StorageLoader] [storage-loader-setup] is an application to make it simple t
 1. [Create a database and table for Snowplow data in Redshift] [setup-redshift] and / or
 2. [Create a database adn table for Snowplow data in PostgreSQL] [setup-postgres]
 
-(Note that instructions on setting up both Redshift and PostreSQL on EC2 are included in this setup guide and referenced from the links above.)
-
 *Then*, afterwards, you will need to [set up the StorageLoader to regularly transfer Snowplow data into your new store(s)] [storage-loader-setup]
+
+(Note that instructions on setting up both Redshift and PostreSQL on EC2 are included in this setup guide and referenced from the links above.)
 
 All done? Then [start analysing your data][analyse].
 
