@@ -18,7 +18,7 @@ Setting the environment to 'development' means you can view the status of the co
 
 This can be entered directly into the same dialogue box as the environment name (see [3b i](#3bi) above), but in **Param2** rather than **Param1**.
 
-If it is not set, the P£3P policy header defaults to:
+If it is not set, the P3P policy header defaults to:
 
 	policyref="/w3c/p3p.xml", CP="NOI DSP COR NID PSA OUR IND COM NAV STA"
 
