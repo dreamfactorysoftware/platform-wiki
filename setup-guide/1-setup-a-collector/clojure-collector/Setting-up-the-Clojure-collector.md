@@ -7,7 +7,7 @@ The Clojure collector has been designed to enable cross-domain Snowplow deployme
 The Clojure collector has been designed to run on [Amazon's Elastic Beanstalk][eb]. This provides two key advantages:
 
 1. It makes it easy to deploy the Clojure collector in a scalable way
-2. It makes use of Elastic Beanstalk's built in support for saving Tomcat logs into S3. These are the logs that are processed by the at the [ETL](choosing an etl module) stage to generate Snowplow event data.
+2. It makes use of Elastic Beanstalk's built in support for saving Tomcat logs into S3. These are the logs that are processed by the Enrichment stage to generate Snowplow event data.
 
 ## Contents
 
@@ -19,7 +19,7 @@ Setting up the Clojure collector is a 6 step process:
 4. [Enable support for HTTPS](Enable support for HTTPS). (Optional, but recommended.)  
 
 
-In addition, we document [additional configuration options](additional configuration options)) at the end of this guide.
+In addition, we document [additional configuration options](additional configuration options) at the end of this guide.
 
 **Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
