@@ -1,10 +1,6 @@
 ## Overview
 
-This is a short guide explaining how to setup users in [Identity and Access Management (IAM)] [iam] to:
-
-1. Install Snowplow on your AWS account
-2. Operate Snowplow
-3. Perform analytics on Snowplow data using EMR
+This is a short guide explaining how to setup users in [Identity and Access Management (IAM)] [iam] to manage access to your AWS account for setting up Snowplow, managing the Snowplow data pipeline and performing analytics on Snowplow data.
 
 IAMs gives you fine grained control over the level of permissions each user has in accessing your AWS account. It is wise to limit the permissions to each user to the minimum to enable them to do the job required, so that if those credentials are compromised, the hacker who gains access to them has limited access to your AWS account.
 
