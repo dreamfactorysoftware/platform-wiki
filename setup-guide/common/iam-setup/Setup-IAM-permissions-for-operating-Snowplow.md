@@ -1,13 +1,15 @@
+<a name="top" />
 ## Overview
 
-These are instructinos for setting up the IAM permissions for the "user(s)" that "operates" Snowplow: in practice this is the user associated with the credentials that should be used in the EmrEtlRunner and StorageLoader config files. The permissions represent the minimum required to keep the Snwowplow data pipeline running: this is best practice, so that if a hacker manages to compromise the server with EmrEtlRunner and StorageLoader on it (so gain access to these credentials), they will have only limited access to your AWS resources.
+These are instructinos for setting up the IAM permissions for the "user(s)" that "operates" Snowplow: in practice this is the user associated with the credentials that should be used in the EmrEtlRunner and StorageLoader config files. The permissions represent the minimum required to keep the Snowplow data pipeline running: this is best practice, so that if a hacker manages to compromise the server with EmrEtlRunner and StorageLoader on it (so gain access to these credentials), they will have only limited access to your AWS resources.
 
 Setting up the credentials is an 4 step process:
 
 1. [Create a new IAM group] (#create-group)
 2. [Set the permissions for the group] (#permissions)
-3. [Download the security credentiasl] (#download-security-credentials)
-4. [Update EmrEtlRunner and StorageLoader config.yml files with the new credentials](#update-configs)
+3. [Create a new user] (#user)
+4. [Add the new user to your new group] (#add-to-group)
+5. [Delete the user created to setup Snowplow] (#delete)
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
@@ -33,6 +35,8 @@ Enter a _Group Name_ of `Snowplow Data Pipeline`:
 [[/setup-guide/images/iam/operating-snowplow-permissions/group-name-snowplow-data-pipeline.png]]
 
 Then click continue.
+
+Back to [top](#top).
 
 <a name="permissions" />
 ## 2. Set the permissions for the group
@@ -527,6 +531,77 @@ Your completed permissions file should look something like this:
 	}
 
 Copy and paste the completed file into the 
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/permissions-entered.png]]
+
+Click *Continue*:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/add-existing-users.png]]
+
+When given the opportunity, do not add an existing user. We want to create a new user with these permissions, who **only** has these permissions.
+
+Review the final settings before pressing *Continue* to complete the process. Your new group is now setup.
+
+Back to [top](#top).
+
+<a name="user" />
+## 3. Create a new user
+
+Now that our group has been created, we need to add a new user to it.
+
+In the IAM console, click on the *Users* section on the left hand menu:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/users-section.png]]
+
+Click on the *Create New Users* button:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/create-new-user.png]]
+
+Give your new user a suitable name e.g. `snowplow-operator`. Click *Create*:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/download-credentials.png]]
+
+AWS gives you the chance to either show or download the credentials. Whichever you do, make sure you copy and paste those credentials directly into your EmrEtlRunner and StorageLoader config files, in the place of the credentials that were there before. (Those credentials are for the user who setup the Snowplow data pipeline: she required *more* permissions than EmrEtlRunner and StorageLoader require to keep the data pipeline running over time.)
+
+Now close the window: your new user is setup.
+
+Back to [top](top).
+
+<a name="add-to-grup" />
+## 4. Add the new user to your new group
+
+The user we have created has no permissions -> we need to add her to the new group we created to give her those permissions.
+
+To do that, click on the *Groups* section on the AWS console, and select the new group you created:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/select-group.png]]
+
+Click on the *Add Users to Group* button:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/add-user-to-group.png]]
+
+The user now has the required permissions.
+
+Back to [top](top).
+
+<a name="delete" />
+## 5. Delete the user created to setup Snowplow
+
+Now that we have created a new user with just the permissions required to run the Snowplow data pipeline, and used her credentials in in the EmrEtlRunner and StorageLoader config files, we can delete the user that we created to setup Snowplow originally.
+
+In the IAM console, go into the `snowplow-setup` group you created when you created user credentials for the individual who setup Snowplow. Select the user in that group e.g. `snowplow-setup` and click the *Remove User from Group* link:
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/remove-snowplow-setup.png]]
+
+Click *Remove from Group* when AWS asks you to confirm.
+
+[[/setup-guide/images/iam/operating-snowplow-permissions/confirm-remove.png]]
+
+In the event that you need to update your Snowplow setup in the future, you can simply create a new user, fetch their credentials, then add them to the `setup-snowplow` group to give them the relevant permissions.
+
+Back to [top](#top).
+
+
 
 [emretlrunner.config]: https://github.com/snowplow/snowplow/tree/master/3-enrich/emr-etl-runner/config
 [storageloader.config]: https://github.com/snowplow/snowplow/tree/master/4-storage/storage-loader/config
