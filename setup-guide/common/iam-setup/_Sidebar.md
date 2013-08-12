@@ -36,5 +36,6 @@
   - [**Setup a user to install Snowplow**](Setup-IAM-permissions-for-users-installing-Snowplow)  
   - [**Setup a user to operate Snowplow**](Setup-IAM-permissions-for-operating-Snowplow)  
   - [**Setup a user to analyse Snowplow data with EMR**](Setup-IAM-permissions-for-a-data-analyst-using-EMR)  
+
 [**Ruby and RVM setup**](Ruby-and-RVM-setup)  
 [**Hosted assets**](Hosted assets)

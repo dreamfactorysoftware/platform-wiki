@@ -1,6 +1,6 @@
 ## Overview
 
-Setting up permissions in IAM for the user(s) installing Snowplow is an X step process:
+Setting up permissions in IAM for the user(s) installing Snowplow is an 3 step process:
 
 1. [Create an IAM group (incl. creating a user and setting permissions)] (#create-group)
 2. [Enable users to log into AWS] (#enable-login)
@@ -36,7 +36,7 @@ Now choose the _Custom Policy_ option and click _Select_:
 
 [[/setup-guide/images/iam/new-iam-group-custom-policy.png]]
 
-Let's give it a _Policy Name_ of `snowplow-policy`:
+Let's give it a _Policy Name_ of `snowplow-policy-setup-infrastructure`:
 
 [[/setup-guide/images/iam/new-iam-group-policy-name.png]]
 
