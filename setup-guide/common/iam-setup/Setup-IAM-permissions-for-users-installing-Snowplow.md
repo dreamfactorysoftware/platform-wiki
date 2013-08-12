@@ -1,10 +1,10 @@
+<a name="top" />
 ## Overview
 
 Setting up permissions in IAM for the user(s) installing Snowplow is an 3 step process:
 
 1. [Create an IAM group (incl. creating a user and setting permissions)] (#create-group)
 2. [Enable users to log into AWS] (#enable-login)
-3. [Once Snowplow has been setup, delete the user from the IAM group] (#delete-user)
 
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
@@ -26,7 +26,7 @@ Now click on the _Create a New Group of Users_ button:
 
 ### Group Name
 
-Enter a _Group Name_ of `Snowplow Setup`:
+Enter a _Group Name_ of `snowplow-setup`:
 
 [[/setup-guide/images/iam/new-iam-group-snowplow.png]]
 
@@ -135,6 +135,8 @@ Click _Download Credentials_ to save these credentials locally. Then click _Clos
 
 Provide these credentials in a secure way - **not** via email - to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
 
+Back to [top](#top).
+
 <a name="enable-login" />
 ## 2. Allow the IAM user to login
 
@@ -164,14 +166,7 @@ Now, provide the following details in a secure way - **not** via email - to whoe
 * Username: `snowplow`
 * Password: as downloaded
 
-<a name="delete-user" />
-## 3. Once you have installed Snowplow, delete this user from IAM
-
-Once Snowplow has been successfully deployed, we recommend that you delete the user credentials that you created for the purpose of setting up Snowplow. Once Snowplow is up and running, you should create a new security group and new user under that group that has a much more limited set of permissions, and provide use *those* credentials with EmrEtlRunner and StorageLoader. Then, in the event that the server running EmrEtlRunner and StorageLoader is compromised, a hacker would only have access to security credentials with very limited permissions on your AWS account.
-
-For details on [setting up a user to operate Snowplow] [operate-snowplow], see the [this page] [operate-snowplow].
-
-If you need to grant an engineer access tweak your Snowplow setup, you can simply create a new user in IAM in the  `snowplow-setup` group created above.
+Back to [top](#top).
 
 [iam]: http://aws.amazon.com/iam/
 [operate-snowplow]: Setup-IAM-permissions-for-operating-Snowplow

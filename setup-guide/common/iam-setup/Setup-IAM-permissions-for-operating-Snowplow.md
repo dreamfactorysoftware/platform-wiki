@@ -1,9 +1,9 @@
 <a name="top" />
 ## Overview
 
-These are instructinos for setting up the IAM permissions for the "user(s)" that "operates" Snowplow: in practice this is the user associated with the credentials that should be used in the EmrEtlRunner and StorageLoader config files. The permissions represent the minimum required to keep the Snowplow data pipeline running: this is best practice, so that if a hacker manages to compromise the server with EmrEtlRunner and StorageLoader on it (so gain access to these credentials), they will have only limited access to your AWS resources.
+These are instructions for setting up the IAM permissions for the "user(s)" that "operates" Snowplow: in practice this is the user associated with the credentials that should be used in the EmrEtlRunner and StorageLoader config files. The permissions represent the minimum required to keep the Snowplow data pipeline running: this is best practice, so that if a hacker manages to compromise the server with EmrEtlRunner and StorageLoader on it (so gain access to these credentials), they will have only limited access to your AWS resources.
 
-Setting up the credentials is an 4 step process:
+Setting up the credentials is an 5 step process:
 
 1. [Create a new IAM group] (#create-group)
 2. [Set the permissions for the group] (#permissions)
@@ -12,8 +12,6 @@ Setting up the credentials is an 4 step process:
 5. [Delete the user created to setup Snowplow] (#delete)
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
-
-_Warning: these permissions are still more permissive than they need to be. We will be putting in time to narrow them down further over the coming weeks._
 
 <a name="create-group" />
 ## 1. Setup the IAM group
@@ -30,7 +28,7 @@ Now click on the _Create a New Group of Users_ button:
 
 ### Group Name
 
-Enter a _Group Name_ of `Snowplow Data Pipeline`:
+Enter a _Group Name_ of `snowplow-data-pipeline`:
 
 [[/setup-guide/images/iam/operating-snowplow-permissions/group-name-snowplow-data-pipeline.png]]
 
