@@ -1,4 +1,4 @@
-## Overview
+### Overview
 
 This is a short guide explaining how to setup users in [Identity and Access Management (IAM)] [iam] to manage access to your AWS account for setting up Snowplow, managing the Snowplow data pipeline and performing analytics on Snowplow data.
 

@@ -9,7 +9,8 @@ Setting up the credentials is an 5 step process:
 2. [Set the permissions for the group] (#permissions)
 3. [Create a new user] (#user)
 4. [Add the new user to your new group] (#add-to-group)
-5. [Delete the user created to setup Snowplow] (#delete)
+5. [Update the EmrEtlRunner and StorageLoader config files with the new credentials] (#update-configs)
+6. [Delete the user created to setup Snowplow] (#delete)
 
 **Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
@@ -559,7 +560,7 @@ Give your new user a suitable name e.g. `snowplow-operator`. Click *Create*:
 
 [[/setup-guide/images/iam/operating-snowplow-permissions/download-credentials.png]]
 
-AWS gives you the chance to either show or download the credentials. Whichever you do, make sure you copy and paste those credentials directly into your EmrEtlRunner and StorageLoader config files, in the place of the credentials that were there before. (Those credentials are for the user who setup the Snowplow data pipeline: she required *more* permissions than EmrEtlRunner and StorageLoader require to keep the data pipeline running over time.)
+AWS gives you the chance to either show or download the credentials. Whichever you do, make sure you **store these credentials safely**. You will need them in [step 5] (#update-configs) of this guide.
 
 Now close the window: your new user is setup.
 
@@ -582,10 +583,19 @@ The user now has the required permissions.
 
 Back to [top](top).
 
-<a name="delete" />
-## 5. Delete the user created to setup Snowplow
+<a name="update-configs" />
+## 5. Update the EmrEtlRunner and StorageLoader config files with the new credentials
 
-Now that we have created a new user with just the permissions required to run the Snowplow data pipeline, and used her credentials in in the EmrEtlRunner and StorageLoader config files, we can delete the user that we created to setup Snowplow originally.
+Now that you have setup your new user and given her the relevant permissions to run the Snowplow data pipeline, you need to take those credentials and use them instead of the existing credentials in your EmrEtlRunner and StorageLoader config files.
+
+Those files should be accessible on the server setup to run EmrEtlRunner and StorageLoader. (Examples of those files can be found on the Snowplow repo [here] [emretlrunner.config] and [here] [storageloader.config].) Update the `:access_key_id:` and `:secret_access_key:` fields with those from the new user in **both** files. 
+
+Back to [top](#top).
+
+<a name="delete" />
+## 6. Delete the user created to setup Snowplow
+
+Now that we have created a new user with just the permissions required to run the Snowplow data pipeline, and used her credentials in in the EmrEtlRunner and StorageLoader config files, we can delete the user that we created to setup/install Snowplow originally.
 
 In the IAM console, go into the `snowplow-setup` group you created when you created user credentials for the individual who setup Snowplow. Select the user in that group e.g. `snowplow-setup` and click the *Remove User from Group* link:
 
