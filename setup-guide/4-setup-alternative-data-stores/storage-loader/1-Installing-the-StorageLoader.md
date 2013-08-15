@@ -9,13 +9,7 @@
 <a name="assumptions" />
 ## 1. Assumptions
 
-This guide assumes that you have configured EmrEtlRunner to output the **non-Hive** Snowplow event format. The Hive Snowplow event format will not work with Infobright.
-
-This guide assumes that you have administrator access to the Unix-based server (e.g. Ubuntu, OS X, Fedora) on which you installed ICE, and will install StorageLoader on the same server.
-
-Please note that ICE can be deployed onto a Windows-based server, and in theory StorageLoader could be installed on a Windows-based server too, using the Windows Task Scheduler instead of cron, but this has not been tested or documented.
-
-Also, note that, in theory, StorageLoader should work with [Infobright Enterprise Edition (IEE)] [iee] as well as ICE; however we have not yet tested this.
+This guide assumes that you have administrator access to a Unix-based server (e.g. Ubuntu, OS X, Fedora) which you can install StorageLoader on.
 
 <a name="dependencies"/>
 ## 2. Dependencies
@@ -42,11 +36,11 @@ the load process. These buckets are as follows:
 The In Bucket for StorageLoader is the same as the Out Bucket for the EmrEtlRunner -
 i.e. you will already have setup this bucket.
 
-We recommend creating a new bucket for the Archive Bucket - i.e. do **not** re-use
+We recommend creating a new folder for the Archive Bucket - i.e. do **not** re-use
 EmrEtlRunner's own Archive Bucket. Create the required Archive Bucket in the same
 AWS region as your In Bucket.
 
-**Important:** if you are using the StorageLoader to load your data into Redshift, you need to make sure that the location of your **In Bucket** and **Archive Bucket** are in 'us-east-1'. The reason is that currently, Amazon only offers Redshift in the 'us-east-1' region, and Redshift only supports the bulk loading of data from S3 within a region.
+**Important:** if you are using the StorageLoader to load your data into Redshift, you need to make sure your **In Bucket** is in the same region as your Redshift cluster. The reason is that Redshift currently only supports the bulk loading of data from S3 in the same region.
 
 Right, now we can install StorageLoader.
 
@@ -74,33 +68,68 @@ Check it worked okay:
 <a name="configuration"/>
 ## 4. Configuration
 
-StorageLoader requires a YAML format configuration file to run. There is a configuration
-file template available in the Snowplow GitHub repository at 
-[`/4-storage/storage-loader/config/config.yml`] [config-yml]. The template looks like this:
+StorageLoader requires a YAML format configuration file to run. We provide two configuration file templates in the Snowplow GitHub repository:
+
+1. [`/4-storage/storage-loader/config/redshift.yml.sample`] [redshift-config-yml]
+2. [`/4-storage/storage-loader/config/postgres.yml.sample`] [postgres-config-yml]
+
+### Redshift sample configuration
+
+The Redshift configuration template looks like this:
 
 ```yaml
 :aws:
   :access_key_id: ADD HERE
   :secret_access_key: ADD HERE
 :s3:
-  :region: ADD HERE # Note: for loading data into Redshift, your region needs to be 'us-east-1'
+  :region: ADD HERE # S3 bucket region must be the same as Redshift cluster region
   :buckets:
-    :in: ADD HERE # Note: for loading data into Redshfit, the bucket specified here must be located in 'us-east-1'
-    :archive: ADD HERE # Note: for loading data into Redshfit, the bucket specified here must be located in 'us-east-1'
+    :in: ADD HERE # Must be s3:// not s3n:// for Redshift
+    :archive: ADD HERE
 :download:
-  :folder: ADD HERE # Infobright-only config option. Where to store the downloaded files. Note: only relevant for Infobright loads (not Redshift)
-# Currently assumes we are loading only one target
-:storage:
-  :type: redshift # Or 'infobright'
-  :host: ADD HERE # For Redshift, the endpoint as shown in the Redshift console. Not supported for Infobright currently
-  :database: ADD HERE # Name of database 
-  :port: 5439 # Typically '5439' for Redshift. Not supported for Infobright currently
-  :table: events # For Redshift, or 'events_009' (or your table's current version) for Infobright
-  :username: ADD HERE 
-  :password: ADD HERE 
+  :folder: # Not required for Redshift
+:targets:
+  - :name: "My Redshift database"
+    :type: redshift
+    :host: ADD HERE # The endpoint as shown in the Redshift console
+    :database: ADD HERE # Name of database 
+    :port: 5439 # Default Redshift port
+    :table: events
+    :username: ADD HERE 
+    :password: ADD HERE 
+    :maxerror: 1 # Stop loading on first error, or increase to permit more load errors
 ```
 
-To take each section in turn:
+### Postgres sample configuration
+
+The Postgres configuration template looks like this:
+
+```yaml
+:aws:
+  :access_key_id: ADD HERE
+  :secret_access_key: ADD HERE
+:s3:
+  :region: ADD HERE # S3 bucket region
+  :buckets:
+    :in: ADD HERE
+    :archive: ADD HERE
+:download:
+  :folder: ADD HERE # Postgres-only config option. Where to store the downloaded files
+:targets:
+  - :name: "My PostgreSQL database"
+    :type: postgres
+    :host: ADD HERE # Hostname of database server
+    :database: ADD HERE # Name of database 
+    :port: 5432 # Default Postgres port
+    :table: atomic.events
+    :username: ADD HERE 
+    :password: ADD HERE 
+    :maxerror: # Not required for Postgres
+```
+
+### Populating the configuration
+
+To take each section from the configuration templates in turn:
 
 #### aws
 
@@ -127,9 +156,11 @@ bucket as required, and a trailing slash is optional.
 
 The following are examples of valid bucket settings:
 
-    :buckets:
-      :in: s3://my-snowplow-data/events/
-      :archive: s3://my-archived-snowplow-data
+```yaml
+:buckets:
+  :in: s3://my-snowplow-data/events/
+  :archive: s3://my-snowplow-archive/events/
+```
 
 Please note that all buckets must exist prior to running StorageLoader.
 
@@ -139,38 +170,65 @@ This is where we configure the StorageLoader download operation, which
 downloads the Snowplow event files from Amazon S3 to your local server, 
 ready for loading into your database.
 
-This setting is not used when loading Redshift - you can safely leave it
-blank.
+This setting is needed for Postgres, but not if you are only loading into Redshift
+- you can safely leave it blank.
 
 You will need to set the `folder` variable to a local directory path -
 please make sure that this path exists, is writable by StorageLoader
 and is empty.
 
-#### storage
+#### target
 
-In this section we configure exactly what database StorageLoader should
+In this section we configure exactly what database(s) StorageLoader should
 load our Snowplow events into. At the moment, StorageLoader supports
-only one load target, and this load target must be an Infobright
-Community Edition database.
+only two types of load target, Redshift and Postgres, which require slightly different configurations.
 
 To take each variable in turn:
 
-1. `type`, what type of database are we loading into? Currently the
-   only supported formats are "infobright" and "redshift"
-2. `host`, the host (endpoint in Redshift parlance) of the databse to
+1. `name`, enter a descriptive name for this Snowplow storage target
+2. `type`, what type of database are we loading into? Currently the
+   only supported formats are "postgres" and "redshift"
+3. `host`, the host (endpoint in Redshift parlance) of the databse to
    load. Only supported for Redshift currently, leave blank for Infobright
-3. `database`, the name of the database to load
-4. `port`, the port of the database to load. Only supported for Redshift
-   (where '5439' is the default). Leave blank for Infobright
-5. `table`, the name of the database table which will store your
+4. `database`, the name of the database to load
+5. `port`, the port of the database to load. 5439 is the default Redshift
+   port; 5432 is the default Postgres port
+6. `table`, the name of the database table which will store your
    Snowplow events. Must have been setup previously  
-6. `username`, the database user to load your Snowplow events with.
-   Set this to the username you created as part of the database setup
-7. `password`, the password for the database user. Set this to the password you created as part of the database setup
+7. `username`, the database user to load your Snowplow events with.
+   You can leave this blank to default to the user running the script
+8. `password`, the password for the database user. Leave blank if there
+   is no password
+9. `maxerror`, a Redshift-specific setting governing how many load errors
+   should be permitted before failing the overall load. See the
+   [Redshift `COPY` documentation] [redshift-copy] for more details
 
 Note that the `host` and `port` options are not currently supported for
 Infobright - StorageLoader assumes that the Infobright database is on the
 server it is being run on, and accesses it on the standard Infobright port (5029).
+
+### Loading multiple databases
+
+It is possible to load Snowplow events into multiple storage targets using
+StorageLoader.
+
+Simply add additional entries under the `:targets:` section, like so:
+
+```yaml
+:targets:
+  - :name: "My test PostgreSQL database"
+    :type: postgres
+    ...
+  - :name: "My production PostgreSQL database"
+    :type: postgres
+    ...
+  - :name: "My test Redshift database"
+    :type: redshift
+    ...
+  - :name: "My production Redshift database"
+    :type: redshift
+    ...
+```
 
 <a name="next-steps" />
 ## 5. Next steps
@@ -178,6 +236,8 @@ server it is being run on, and accesses it on the standard Infobright port (5029
 All done? You have the StorageLoader installed! Now find out [how to use it](2-using-the-storageloader).
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[ice]: http://www.infobright.org/
-[iee]: http://www.infobright.com/Products/
-[config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/config.yml
+
+[redshift-config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/redshift.yml.sample
+[postgres-config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/postgres.yml.sample
+
+[redshift-copy]: http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html

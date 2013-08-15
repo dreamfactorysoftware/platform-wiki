@@ -6,7 +6,7 @@
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  
 - [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
-- [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
+- [Step 5: Analyze your data!] (Getting started analyzing Snowplow data)  
   - [5.1: setting up ChartIO to visualize your data] (Setting-up-ChartIO-to-visualize-your-data)
   - [5.2: setting up Tableau to perform OLAP analysis on your data] (Setting-up-Tableau-to-analyse-data-in-Redshift)
   - [5.3: setting up R to perform more sophisticated data analysis] (Setting-up-R-to-perform-more-sophisticated-analysis-on-your-data) 
@@ -17,5 +17,6 @@
 **Useful resources**  
 
 - [[Troubleshooting]]  
+- [[IAM Setup]]  
 - [[Ruby and RVM setup]]  
 - [[Hosted assets]]  

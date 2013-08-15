@@ -16,6 +16,8 @@ The alternative to self-hosting `snowplow.js` is to use the version hosted by **
 3. [Advanced options](#advanced-options)
 4. [Next steps](#next-steps)
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 <a name="prerequisites" />
 ## Pre-requisites
 
@@ -61,7 +63,7 @@ Now hit **Start Upload** to upload the JavaScript file into your bucket. When do
 
 ![js-ready] [js-ready]
 
-Now that `sp.js` has been uploaded, we recommend that you set the `Cache control max-age` property on the file. This property determines *both* how long Cloudfront caches `sp.js` in its edge locations, and crucially, how long individual browsers cache `sp.js` before repinging Cloudfront for a fresh copy. By setting a long expiration date, you can  reduce the number of browser requests for `sp.js`, which can significantly decrease your Cloudfront costs. (Especially if you are a large website or network of sites.)
+Now that `sp.js` has been uploaded, we recommend that you set the `Cache-Control max-age` property on the file. This property determines *both* how long Cloudfront caches `sp.js` in its edge locations, and crucially, how long individual browsers cache `sp.js` before repinging Cloudfront for a fresh copy. By setting a long expiration date, you can  reduce the number of browser requests for `sp.js`, which can significantly decrease your Cloudfront costs. (Especially if you are a large website or network of sites.)
 
 The only disadvantage of a long expiration is that you need to find a way to *force* end users to fetch a fresh copy of `sp.js` when you upgrade to a newer version. This is easily managed by saving your new version to a new folder in your S3 bucket, and updating your Snowplow tags to point to the new version.
 
@@ -73,7 +75,7 @@ Click on the **Metadata** dropdown and then click on the **Add more metadata** b
 
 ![enter-key-value-pair] [enter-key-value-pair]
 
-In the Key dropdown, select **Cache conctrol**. In the value field, enter
+In the Key dropdown, select **Cache-Control**. In the value field, enter
 
 	max-age=$value_in_seconds
 

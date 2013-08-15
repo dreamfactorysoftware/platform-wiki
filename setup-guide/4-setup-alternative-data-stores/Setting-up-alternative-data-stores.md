@@ -4,37 +4,30 @@
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
 
-1. [Overview](#overview)
-2. [Setting up Snowplow to work with additional data stores](#datastores)
-
-## Overview
-
-Snowplow supports storing your data in two different data stores:
+Snowplow supports storing your data into three different data stores:
 
 | **Storage**               | **Description**                                     | **Status**       |
 |:--------------------------|:----------------------------------------------------|:-----------------|
 | S3                        | Data is stored in the S3 file system where it can be analysed using [EMR] [emr] (e.g. Hive, Pig, Mahout) | Production-ready |
 | [Redshift] [setup-redshift]| A columnar database offered as a service on EMR. Optimized for performing OLAP analysis. Scales to Petabytes | Production-ready |
-| PostgreSQL                | A popular, open source, RDBMS database              | Coming soon      | 
+| [PostgreSQL] [setup-postgres]| A popular, open source, RDBMS database              | Production-ready | 
 
 By [setting up the EmrEtlRunner](setting-up-EmrEtlRunner) (in the previous step), you are already successfully loading your Snowplow event data into S3 where it is accessible to EMR for analysis.
 
-If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [redshift] or PostgreSQL to support enable use of these tools.
+If you wish to analyse your data using a wider range of tools (e.g. BI tools like [ChartIO] [chartio] or [Tableau] [tableau], or statistical tools like [R] [r]), you will want to load your data into a database like Amazon's [Redshift] [setup-redshift] or [PostgreSQL] [setup-postgres] to support enable use of these tools.
 
-The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in Redshift. Setting up Snowplow so that you can maintain a copy of your data in a database like Redshift is a two step process:
+The [StorageLoader] [storage-loader-setup] is an application to make it simple to keep an updated copy of your data in Redshift. To setup Snowplow to automatically populate a PostgreSQL and / or Redshift database with Snowplow data, you need to first:
 
-1. [Create a database and table in Amazon Redshift for the data] [setup-redshift]
-2. Setup the [StorageLoader] [storage-loader-setup] so that it regularly updates that table with the latest data from S3
+1. [Create a database and table for Snowplow data in Redshift] [setup-redshift] and / or
+2. [Create a database adn table for Snowplow data in PostgreSQL] [setup-postgres]
 
-<a name="datastores" />
-## Setting up Snowplow to work with additional data stores
+*Then*, afterwards, you will need to [set up the StorageLoader to regularly transfer Snowplow data into your new store(s)] [storage-loader-setup]
 
-Currently, the only supported datastore for Snowplow data is Redshift. PostgreSQL support is coming soon. To ensure that your Snowplow data regularly, automatically, populates a database in Redshift, you need to:
-
-1. [Set up Redshift to work with Snowplow] [setup-redshift]
-2. [Set up the StorageLoader to regularly transfer Snowplow data into your new store] [storage-loader-setup]
+(Note that instructions on setting up both Redshift and PostreSQL on EC2 are included in this setup guide and referenced from the links above.)
 
 All done? Then [start analysing your data][analyse].
+
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
 [emr]: http://aws.amazon.com/elasticmapreduce/
 [infobright]: http://www.infobright.org/
@@ -48,3 +41,4 @@ All done? Then [start analysing your data][analyse].
 [tableau]: http://www.tableausoftware.com/
 [analyse]: Setting-up-Snowplow#step5
 [r]: http://www.r-project.org/
+[setup-postgres]: Setting-up-PostgreSQL

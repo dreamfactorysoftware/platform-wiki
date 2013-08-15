@@ -35,7 +35,7 @@ var _snaq = _snaq || [];
 
 _snaq.push(['setCollectorCf', '{{CLOUDFRONT-DOMAIN}}']);
 _snaq.push(['setAppId', '{{SITE-ID}}']);
-_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}'])
+_snaq.push(['setCookieDomain', '{{COOKIE-DOMAIN}}']);
 _snaq.push(['trackPageView']);
 
 (function() {
@@ -43,7 +43,7 @@ var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async
 sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
- </script>
+</script>
 <!-- Snowplow stops plowing -->
 ```
 

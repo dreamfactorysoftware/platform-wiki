@@ -30,6 +30,8 @@ Setting up the Cloudfront Collector is a five stage process:
 4. [Create a Cloudfront distribution] [4-cf] for serving the tracking pixel that is now stored in S3. This will ensure that the pixel is fetched very quickly (using Cloudfront's CDN) **and crucially** we will use Cloudfront logging to record every request made of the tracking pixel. These requests will contain all the data passed to the collector from the tracker, appended to the `GET` request in the form of a query string. 
 5. [Test your tracking pixel on Cloudfront] [5-test]. 
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 [Return to the setup guide][setup-guide].
 
 [setup-guide]: Setting-up-Snowplow

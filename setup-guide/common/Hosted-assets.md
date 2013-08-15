@@ -2,7 +2,7 @@ To simplify setting up and running Snowplow, the Snowplow Analytics team provide
 
 As we release new versions of these assets, we will leave old versions unchanged on their existing URLs - so you won't have to upgrade your own Snowplow installation unless you want to.
 
-**While Snowplow Analytics Ltd will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [snowplow-repo] and you are encouraged to host them yourselves.** 
+**Disclaimer: While Snowplow Analytics Ltd will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [snowplow-repo] and you are encouraged to host them yourselves.** 
 
 The **current versions** of the assets hosted by the Snowplow Analytics team are as follows:
 
@@ -26,11 +26,11 @@ Right-click on this [Download link] [war-download] to save it down locally.
 
 ## 3. ETL
 
-### 3.2 Hadoop ETL resources
+### 3.1 Hadoop ETL resources
 
 The Hadoop ETL process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
 
-    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.2.jar
+    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.3.jar
 
 Right-click on this [Download link] [jar-download] to save it down locally.
 
@@ -39,20 +39,6 @@ The Hadoop ETL process itself makes use of the free [GeoLite City database] [geo
     s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
 
 This file is updated every month by the Snowplow Analytics team.
-
-### 3.2 Hive ETL resources
-
-The Hive ETL process uses a HiveQL file and a Hive deserializer. These are both made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
-
-#### HiveQL scripts
-
-    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/hive-etl-0.5.7.q
-    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/mysql-infobright-etl-0.0.8.q
-    s3://snowplow-hosted-assets/3-enrich/hive-etl/hiveql/redshift-etl-0.0.1.q
-
-#### Hive deserializer
-
-    s3://snowplow-hosted-assets/3-enrich/hive-etl/serdes/snowplow-log-deserializers-0.5.5.jar
 
 ## 4. Storage
 

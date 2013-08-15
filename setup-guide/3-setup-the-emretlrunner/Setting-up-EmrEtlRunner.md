@@ -18,6 +18,8 @@ This guide covers how to setup EmrEtlRunner including scheduling it so that your
 
 To start with [install] [installation] EmrEtlRunner.
 
+**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+
 [installation]: 1-Installing-EmrEtlRunner
 [usage]: 2-Using-EmrEtlRunner
 [schedule]: 3-Scheduling-EmrEtlRunner

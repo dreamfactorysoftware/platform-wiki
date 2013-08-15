@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Storage**](storage documentation)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Storage**](storage documentation) > Canonical Event Model
 
 <a name="top" />
 # Canonical data structure  
@@ -380,6 +380,8 @@ Back to [top](#top).
 * Currently, Snowplow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout) and Infobright (for processing by any SQL-compatible analytics package).
 * There are minor differences between the structure of data in both formats. These relate to data structures that Hive supports (e.g. maps, JSONs) that Infobright does not
 * Nevertheless, the structure of both is similar: representing a fat table
-* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical Snowplow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data
+* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical Snowplow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data. We have outlined some of our plans in [this blog post][avro-blog-post].
 
 Back to [top](#top).
+
+[avro-blog-post]: http://snowplowanalytics.com/blog/2013/02/04/help-us-build-out-the-snowplow-event-model/

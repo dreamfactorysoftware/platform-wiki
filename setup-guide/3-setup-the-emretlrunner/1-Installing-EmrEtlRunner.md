@@ -79,7 +79,7 @@ If you have any problems installing, please double-check that you have successfu
 <a name="configuration"/>
 ## 4. Configuration
 
-EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the Snowplow GitHub repository at [`/3-enrich/emr-etl-runner/config/config.yml`] [config-yml]. The template looks like this:
+EmrEtlRunner requires a YAML format configuration file to run. There is a configuration file template available in the Snowplow GitHub repository at [`/3-enrich/emr-etl-runner/config/config.yml.sample`] [config-yml]. The template looks like this:
 
 ```yaml
 :aws:
@@ -88,41 +88,32 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
 :s3:
   :region: ADD HERE
   :buckets:
-    # Update assets if you want to host the serde and HiveQL yourself
     :assets: s3://snowplow-hosted-assets # DO NOT CHANGE unless you are hosting the jarfiles etc yourself in your own bucket
     :log: ADD HERE
     :in: ADD HERE
     :processing: ADD HERE
-    :out: ADD HERE WITH SUB-FOLDER # Make sure this bucket is in a region where Amazon has launched Redshift if you intend to use Redshift as your storage target
-    :out_bad_rows: ADD HERE # Leave blank for legacy Hive ETL implementation.
-    :out_errors: ADD HERE # Leave blank for legacy Hive ETL implementation.
+    :out: ADD HERE WITH SUB-FOLDER # e.g. s3://my-out-bucket/events
+    :out_bad_rows: ADD HERE        # e.g. s3://my-out-bucket/bad-rows
+    :out_errors: ADD HERE # Leave blank unless :continue_on_unexpected_error: set to true below
     :archive: ADD HERE
 :emr:
   # Can bump the below as EMR upgrades Hadoop
   :hadoop_version: 1.0.3
   :placement: ADD HERE
   :ec2_key_name: ADD HERE
-  # Adjust your Hive cluster below
+  # Adjust your Hadoop cluster below
   :jobflow:
-    :master_instance_type: m1.small #update this and following instance options to optimize for the amount of data you want to process with each run, and the speed you want the run to complete in
+    :master_instance_type: m1.small
     :core_instance_count: 2
     :core_instance_type: m1.small
     :task_instance_count: 0 # Increase to use spot instances
     :task_instance_type: m1.small
     :task_instance_bid: 0.015 # In USD. Adjust bid, or leave blank for non-spot-priced (i.e. on-demand) task instances
 :etl:
-  :job_name: Snowplow ETL # Give your job a name
-  :implementation: hadoop # DO NOT CHANGE 
+  :job_name: SnowPlow ETL # Give your job a name
+  :hadoop_etl_version: 0.3.3 # Version of the Hadoop ETL
   :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
-  :continue_on_unexpected_error: false # Do not change
-  :storage_format: redshift # Do not change. (Currently we only support Redshfit as a storage target. PostgreSQL support is coming shortly.)
-# Can bump the below as Snowplow releases new versions
-:snowplow:
-  :hadoop_etl_version: 0.3.2 # Version of the Hadoop ETL
-  :serde_version: 0.5.5 # Version of the Hive deserializer
-  :hive_hiveql_version: 0.5.7
-  :mysql_infobright_hiveql_version: 0.0.8
-  :redshift_hiveql_version: 0.0.1
+  :continue_on_unexpected_error: false # You can switch to 'true' (and set :out_errors: above) if you really don't want the ETL throwing exceptions
 ```
 
 To take each section in turn:
@@ -156,7 +147,7 @@ Each of the bucket variables must start with an S3 protocol - either `s3://` or 
 
 	s3://elasticbeanstalk-{{REGION NAME}}-{{UUID}}/resources/environments/logs/publish/{{SECURITY GROUP IDENTIFIER}}
 
-Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3] (Enable-logging-to-S3) stage of the Clojure Collector setup).
+Replace all of these `{{x}}` variables with the appropriate ones for your environment (which you should have written down in the [Enable logging to S3](Enable-logging-to-S3) stage of the Clojure Collector setup).
 
 Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFIER}}` at the end of your path. This is because your Clojure Collector may end up logging into multiple `{{INSTANCE IDENTIFIER}}` folders. (If e.g. Elastic Beanstalk spins up more instances to run the Clojure collector, to cope with a spike in traffic.) By specifying your In Bucket only to the level of the Security Group identifier, you make sure that Snowplow can process all logs from all instances. (Because the EmrEtlRunner will process all logs in all subfolders.)
 
@@ -166,15 +157,17 @@ Also - Clojure collector uses should be sure not include an `{{INSTANCE IDENTIFI
 
 Here is an example configuration: 
 
-    :buckets:
-      :assets: s3://snowplow-hosted-assets
-      :in: s3n://my-snowplow-logs/
-      :log: s3n://my-snowplow-etl/logs/
-      :processing: s3n://my-snowplow-etl/processing/
-      :out: s3n://my-snowplow-data/events/
-      :out_bad_rows: s3n://my-snowplow-data/bad-rows/
-      :out_errors: s3n://my-snowplow-data/error-rows/
-      :archive: s3n://my-snowplow-archive/
+```yaml
+:buckets:
+  :assets: s3://snowplow-hosted-assets
+  :in: s3n://my-snowplow-logs/
+  :log: s3n://my-snowplow-etl/logs/
+  :processing: s3n://my-snowplow-etl/processing/
+  :out: s3n://my-snowplow-data/events/
+  :out_bad_rows: s3n://my-snowplow-data/bad-rows/
+  :out_errors: s3n://my-snowplow-data/error-rows/
+  :archive: s3n://my-snowplow-archive/raw/
+```
 
 Please note that all buckets must exist prior to running EmrEtlRunner; trailing slashes are optional.
 
@@ -198,24 +191,14 @@ It's strongly recommended that you choose the same Amazon EC2 placement as your 
 This section is where we configure exactly how we want our ETL process to operate:
 
 1. `job_name`, the name to give our ETL job. This makes it easier to identify your ETL job in the Elastic MapReduce console
-2. `implementation`, whether you want to use the "hadoop" or "hive" ETL process. The "hadoop" process is the latest version of our ETL process, and generates Snowplow events in the format specified by our Redshift events table. The "hive" process is legacy at this point - it does not support Redshift, although it is still useful if you are still running Snowplow against the Infobright events table. (For more details on storage formats, see the note on storage formats directly below.)
+2. `hadoop_etl_version` is the version of the Hadoop ETL process to run. This variable lets you upgrade the ETL process without having to update the EmrEtlRunner application itself
 3. `collector_format`, what format is our collector saving data in? Currently two formats are supported: "cloudfront" (if you are running the Cloudfront collector), or "clj-tomcat" if you are running the Clojure collector
 4. `continue_on_unexpected_error`, continue processing even on unexpected row-level errors, e.g. an input file not matching the expected CloudFront format. Off ("false") by default
-5. `storage_format`, can be "redshift", "mysql-infobright" or "hive". We discuss this further below
-
-`storage_format` is an important setting. If you choose "hive", then the Snowplow event format outputted by EmrEtlRunner will be optimised to only work with Hive - you will **not** be able to load those event files into other database systems, such as Infobright or Redshift. We believe that most people will want to load their Snowplow events into other systems, so the default setting here is "redshift", but you can also change this to "mysql-infobright".
-
-Note that `storage_format` is ignored if you set `implementation` to "hadoop": currently the Hadoop ETL can only write out in Redshift format.
-
-### snowplow
-
-This section allows you to update the versions of the Hadoop ETL (`hadoop_etl`), Hive deserializer (`serde`) and HiveQL scripts (`hive_hiveql`, `mysql_infobright_hiveql` and `redshift_hiveql_hiveql`) run by EmrEtlRunner. These variables let you upgrade the ETL process without having to update the EmrEtlRunner application itself.
 
 <a name="next-steps" />
 ## 5. Next steps
 
 All done installing EmrEtlRunner? Then [learn how to use it] [using-emretlrunner]
-
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
