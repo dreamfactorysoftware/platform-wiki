@@ -160,7 +160,8 @@ Now start the server:
 	$ sudo service postgresql start
 
 Log into the server:
-
+	
+	$ sudo su - postgres
 	$ psql -U postgres
 
 And add a password for your PostgreSQL admin:
@@ -202,140 +203,55 @@ Back to [top](#top).
 <a name="debian" />
 ## 2. Setting up PostgreSQL on Debian / Ubuntu
 
-TO WRITE
+*Thanks to [Simon Rumble] [simon-rumble] for providing the following instructions:
+
+Download PostgreSQL:
+
+	$ sudo apt-get install postgresql
+
+Update `pg_hba.conf` - change 'local' to 'trust':
+
+	$ sudo nano /etc/postgresql/9.1/pg_hba.conf
+
+Update postgresql.conf: uncomment line 59 to enable remote access (line `listen_address = 'localhost')
+
+	$ sudo nano /etc/postgresql/9.1/main/postgresql.conf
+
+Note that on Debian, the default PostgreSQL port is 5433 rather than 5432 (on Red Hat).
+
+Then restart PostgreSQL:
+
+	$ sudo /etc/init.d/postgresql restart
+
+Log into PostgreSQL:
+
+	$ sudo su - postgres
+	$ psql
+
+Update your Postres user credentials:
+
+	ALTER USER postgres WITH PASSWORD '$password';
+	CREATE USER power_user SUPERUSER;
+	ALTER USER power_user WITH PASSWORD '$poweruserpassword';
+	CREATE USER other_user NOSUPERUSER;
+	ALTER USER other_user WITH PASSWORD '$otheruserpassword';
+	CREATE DATABASE snowplow WITH OWNER other_user;	
+	\q
+
+Now log back into Postgres and with your new user credentials:
+
+	psql -U power_user snowplow
+
+You can now Snowplow events table as described in the [next step](#events-table).
 
 Back to [top](#top).
 
 <a name="events-table" />
 ## 3. Create the Snowplow events table in PostgreSQL
 
-Fire up your PostgreSQL client (e.g. Navicat), and double click on the PostgreSQL database you've setup, and the Snowplow database within it.
+Fire up your PostgreSQL client (e.g. Navicat or psql at the command line), and double click on the PostgreSQL database you've setup, and the Snowplow database within it.
 
-Enter the two SQL queries given in the [PostgreSQL table definition] [postgresql-table-def]. Those queries are printed below for convenience:
-
-```sql
-CREATE TABLE "atomic"."events" (
-	-- App
-	"app_id" varchar(255),
-	"platform" varchar(255),
-	-- Date/time
-	"collector_tstamp" timestamp NOT NULL,
-	"dvce_tstamp" timestamp,
-	-- Date/time
-	"event" varchar(128) NOT NULL,
-	"event_vendor" varchar(128),
-	"event_id" varchar(38) NOT NULL,
-	"txn_id" integer,
-	-- Versioning
-	"v_tracker" varchar(100),
-	"v_collector" varchar(100) NOT NULL,
-	"v_etl" varchar(100) NOT NULL,
-	-- User and visit
-	"user_id" varchar(255),
-	"user_ipaddress" varchar(19),
-	"user_fingerprint" varchar(50),
-	"domain_userid" varchar(16),
-	"domain_sessionidx" smallint,
-	"network_userid" varchar(38),
-	-- Location
-	"geo_country" char(2),
-	"geo_region" char(2),
-	"geo_city" varchar(75),
-	"geo_zipcode" varchar(15),
-	"geo_latitude" double precision,
-	"geo_longitude" double precision,
-	-- Page
-	"page_title" varchar(2000),
-	-- Page URL components
-	"page_urlscheme" varchar(16),
-	"page_urlhost" varchar(255),
-	"page_urlport" integer,
-	"page_urlpath" varchar(1000),
-	"page_urlquery" varchar(3000),
-	"page_urlfragment" varchar(255),
-	-- Referrer URL components
-	"refr_urlscheme" varchar(16),
-	"refr_urlhost" varchar(255),
-	"refr_urlport" integer,
-	"refr_urlpath" varchar(1000),
-	"refr_urlquery" varchar(3000),
-	"refr_urlfragment" varchar(255),
-	-- Referrer details
-	"refr_medium" varchar(25),
-	"refr_source" varchar(50),
-	"refr_term" varchar(255),
-	-- Marketing
-	"mkt_medium" varchar(255),
-	"mkt_source" varchar(255),
-	"mkt_term" varchar(255),
-	"mkt_content" varchar(500),
-	"mkt_campaign" varchar(255),
-	-- Custom structured event
-	"se_category" varchar(255),
-	"se_action" varchar(255),
-	"se_property" varchar(255),
-	"se_value" double precision,
-	-- Ecommerce
-	"tr_orderid" varchar(255),
-	"tr_affiliation" varchar(255),
-	"tr_total" decimal(18,2),
-	"tr_tax" decimal(18,2),
-	"tr_shipping" decimal(18,2),
-	"tr_city" varchar(255),
-	"tr_state" varchar(255),
-	"tr_country" varchar(255),
-	"ti_orderid" varchar(255),
-	"ti_sku" varchar(255),
-	"ti_name" varchar(255),
-	"ti_category" varchar(255),
-	"ti_price" decimal(18,2),
-	"ti_quantity" integer,
-	-- Page ping
-	"pp_xoffset_min" integer,
-	"pp_xoffset_max" integer,
-	"pp_yoffset_min" integer,
-	"pp_yoffset_max" integer,
-	-- User Agent
-	"useragent" varchar(1000),
-	-- Browser
-	"br_name" varchar(50),
-	"br_family" varchar(50),
-	"br_version" varchar(50),
-	"br_type" varchar(50),
-	"br_renderengine" varchar(50),
-	"br_lang" varchar(255),
-	"br_features_pdf" boolean,
-	"br_features_flash" boolean,
-	"br_features_java" boolean,
-	"br_features_director" boolean,
-	"br_features_quicktime" boolean,
-	"br_features_realplayer" boolean,
-	"br_features_windowsmedia" boolean,
-	"br_features_gears" boolean,
-	"br_features_silverlight" boolean,
-	"br_cookies" boolean,
-	"br_colordepth" varchar(12),
-	"br_viewwidth" integer,
-	"br_viewheight" integer,
-	-- Operating System
-	"os_name" varchar(50),
-	"os_family" varchar(50),
-	"os_manufacturer" varchar(50),
-	"os_timezone" varchar(50),
-	-- Device/Hardware
-	"dvce_type" varchar(50),
-	"dvce_ismobile" boolean,
-	"dvce_screenwidth" integer,
-	"dvce_screenheight" integer,
-	-- Document
-	"doc_charset" varchar(128),
-	"doc_width" integer,
-	"doc_height" integer,
-	PRIMARY KEY ("event_id")
-)
-WITH (OIDS=FALSE)
-;
-```
+Enter the two SQL queries given in the [PostgreSQL table definition] [postgresql-table-def], to create your schema and table.
 
 Back to [top](#top).
 
@@ -346,3 +262,4 @@ Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
 [postgresql-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/table-def.sql
+[simon-rumble]: https://github.com/shermozle

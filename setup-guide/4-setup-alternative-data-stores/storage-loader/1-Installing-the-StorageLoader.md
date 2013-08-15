@@ -23,6 +23,8 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 
 \* If you prefer, an alternative Ruby manager such as chruby or rbenv should work fine too.
 
+Also make sure that if you are loading Snowplow events into a PostgreSQL database, then the StorageLoader **must be run on the same server running PostgreSQL**. That is because it downloads the files locally, and Postgres needs to be able to ingest the data from the local file system.
+
 <a name="s3-buckets"/>
 ### 2.2 S3 buckets
 
@@ -174,8 +176,12 @@ This setting is needed for Postgres, but not if you are only loading into Redshi
 - you can safely leave it blank.
 
 You will need to set the `folder` variable to a local directory path -
-please make sure that this path exists, is writable by StorageLoader
-and is empty.
+please make sure that:
+
+* this path exists, 
+* is writable by StorageLoader
+* it is empty
+* the postgres user needs to be able to read **every** directory containing the folder specified. This is necessary to ensure that PostgreSQL can read the data in the folder, when it comes to ingest it
 
 #### target
 
