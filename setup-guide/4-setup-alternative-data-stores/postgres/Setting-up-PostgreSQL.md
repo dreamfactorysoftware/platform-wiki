@@ -345,4 +345,4 @@ Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
-[postgresql-table-def]: https://github.com/snowplow/snowplow/blob/feature/pg-support/4-storage/postgres-storage/sql/table-def.sql
+[postgresql-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/table-def.sql
