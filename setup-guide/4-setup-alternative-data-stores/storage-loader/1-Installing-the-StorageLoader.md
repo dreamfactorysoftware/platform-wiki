@@ -165,9 +165,8 @@ To take each variable in turn:
 5. `table`, the name of the database table which will store your
    Snowplow events. Must have been setup previously  
 6. `username`, the database user to load your Snowplow events with.
-   You can leave this blank to default to the user running the script
-7. `password`, the password for the database user. Leave blank if there
-   is no password
+   Set this to the username you created as part of the database setup
+7. `password`, the password for the database user. Set this to the password you created as part of the database setup
 
 Note that the `host` and `port` options are not currently supported for
 Infobright - StorageLoader assumes that the Infobright database is on the

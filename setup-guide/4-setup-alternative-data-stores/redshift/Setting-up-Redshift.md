@@ -8,8 +8,9 @@ Setting up Redshift is an 6 step process:
 2. [Authorize client connections to your cluster](#authorise)
 3. [Connect to your cluster](#connect)
 4. [Setting up the Snowplow database and events table](#db)
-5. [Generating Redshift-format data from Snowplow](#etl)
-6. [Automating the loading of Snowplow data into Redshift](#load)
+5. [Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table](#user)
+6. [Generating Redshift-format data from Snowplow](#etl)
+7. [Automating the loading of Snowplow data into Redshift](#load)
 
 <a name="launch" />
 ## 1. Launch a Redshift Cluster
@@ -126,15 +127,30 @@ Now that you have Redshift up and running, you need to create your Snowplow even
 
 The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the Snowplow events table.
 
-<a name="" />
-## 5. Generating Redshift-format data from Snowplow
+<a name="user" />
+## 5. Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table
+
+We recommend that you create a specific user in Redshift with *only* the permissions required to load data into your Snowplow events table, and use this user's credentials in the StorageLoader config to manage the automatic movement of data into the table. (That way, in the event that the server running StorageLoader is hacked and the hacker gets access to those credentials, they cannot use them to do any harm to your data.)
+
+To create aa new user with restrictive permissions, log into Redshift, open the database containing the Snowplow events table, and execute the following SQL:
+
+```sql
+CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
+GRANT USAGE ON SCHEMA atomic TO storageloader;
+GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
+```
+
+You can set the user name and password (`storageloader` and `mYh4RDp4ssW0rD` in the example above) to your own values. Note them down: you will need them when you come to setup the storageLoader in the next phase of the your Snowplow setup.
+
+<a name="etl" />
+## 6. Generating Redshift-format data from Snowplow
 
 Assuming you are working through the setup guide sequentially, you will have already  ([setup EmrEtlRunner] [emr-etl-runner]). You should therefore have Snowplow events in S3, ready for uploading into Redshift.
 
 If you have not already [setup EmrEtlRunner] [emr-etl-runner], then please do so now, before proceeding onto the [next stage](#load).
 
 <a name="load" />
-## 6. Automating the loading of Snowplow data into Redshift
+## 7. Automating the loading of Snowplow data into Redshift
 
 Now that you have your Snowplow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
 

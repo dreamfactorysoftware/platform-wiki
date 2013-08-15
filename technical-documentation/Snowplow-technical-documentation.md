@@ -5,6 +5,7 @@ The technical documentation reflects the Snowplow architecture, with five loosel
 ![architecture] [technical-architecture]
 
 ## 1. Trackers
+
 [Trackers overview](trackers)  
 [JavaScript Tracker](javascript-tracker)  
 [No-JS Tracker](no-js-tracker)  
@@ -14,28 +15,33 @@ The technical documentation reflects the Snowplow architecture, with five loosel
 ### A. [Snowplow tracker protocol](snowplow-tracker-protocol)  
 
 ## 2. Collectors
+
 [Collectors overview](collectors)  
 [Cloudfront collector](cloudfront)  
 [Clojure collector (Elastic Beanstalk)](Clojure-collector)  
 [SnowCannon (node.js)](snowcannon)  
 
-
 ### B. [[Collector logging formats]]
 
-## 3. ETL
-[ETL overview](etl)  
-[Hive ETL](hive)  
-[Scalding / Cascading ETL](scalding)  
+## 3. Enrichment
+
+[Enrichment overview](etl)  
+[The Scalding / Cascading Enrichment](scalding)  
+[Instrumenting regular enrichment: EmrEtlRunner and StorageLoader](instrumentation)
+[The Hive Enrichment](hive) (legacy)  
 
 ### C. [Canonical Snowplow event model](canonical-event-model)
 
 ## 4. Storage
-[S3 / hive](s3-apache-hive-storage)  
-[Infobright](infobright-storage)  
+
+[Storage in S3](s3-apache-hive-storage)  
+[Storage in Amazon Redshift](amazon-redshift-storage)
+[Infobright](infobright-storage) (legacy)  
 
 ### D. Snowplow storage formats (to write)
 
 ## 5. Analytics
+
 [Analytics overview](analytics documentation)
 
 
