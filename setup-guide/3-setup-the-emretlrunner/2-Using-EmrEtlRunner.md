@@ -53,7 +53,7 @@ The command-line options for EmrEtlRunner look like this:
 A note on the `--skip` option: this takes a list of individual steps to skip.
 So for example you could run **only** the Hive job with the command-line option:
 
-    $ bundle exec snowplow-emr-etl-runner --skip staging,archive --config ./config.yml
+    $ bundle exec bin/snowplow-emr-etl-runner --skip staging,archive --config ./config.yml
 
 <a name="running"/>
 ## 3. Running in each mode
