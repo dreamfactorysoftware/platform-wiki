@@ -7,6 +7,7 @@ _If you are using Snowplow and want to be listed here, please email [alex@snowpl
 | **Company_Name**           | **Snowplow Use Case**                                                                               |
 |:---------------------------|:-------------------------------------------------------------------------------------------|
 | ![99d-logo] [99d-logo]     | [99designs] [99designs-site] is a graphic design marketplace. They use Snowplow alongside Google Analytics to perform detailed clickstream analysis and better measure campaign outcomes. |
+| ![aid-logo] [aid-logo]     | [A.I.D.] [aid-site] is a data-driven CRM and marketing agency, and a French subsidiary of Omnicom Group. The Snowplow solution has allowed A.I.D. to drastically reduce their development time, so they have been able to focus on pure analytics rather than data collection.
 | ![cahootsy-logo] [cahootsy-logo] | [Cahootsy] [cahootsy-site] is the collaborative shopping app that lets consumers and retailers collaborate to cut costs and prices together. They are using Snowplow to gather the data they need for their machine learning algorithms that match people and products. They are also using Snowplow to help analyse their pre-launch page on [www.cahootsy.com] [cahootsy-site]. |
 | ![mediamobz-logo] [mediamobz-logo] | [MEDIAmobz] [mediamobz-site] is a SaaS platform that enables brands to create video-centric content. Their tools bring together creative professionals with large enterprises to create content for major marketing campaigns. They use Snowplow Analytics for media and page tracking to allow for informed content development and refinement. |
 | ![pbz-logo] [pbz-logo]     | [Psychic Bazaar] [pbz-site] is an online retailer in the mind, body & spirit market. They have installed Snowplow alongside Google Analytics, using Snowplow to warehouse their clickstream data, perform customer- and product-level analyses and build custom user cohorts. |
@@ -17,6 +18,8 @@ _If you are using Snowplow and want to be listed here, please email [alex@snowpl
 [alex-email]: mailto:alex@snowplowanalytics.com
 [99d-logo]: /snowplow/snowplow/wiki/project-and-community/images/99designs_logo.png
 [99designs-site]: http://99designs.com/
+[aid-logo]: /snowplow/snowplow/wiki/project-and-community/images/aid_logo.png
+[aid-site]: http://www.aid.fr
 [qwaya-logo]: /snowplow/snowplow/wiki/project-and-community/images/qwaya_logo.png
 [qwaya-site]: http://www.qwaya.com/
 [sb-logo]: /snowplow/snowplow/wiki/project-and-community/images/simplybusiness_logo.gif
