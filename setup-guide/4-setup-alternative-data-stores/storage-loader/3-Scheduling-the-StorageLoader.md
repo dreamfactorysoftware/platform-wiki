@@ -28,7 +28,7 @@ To consider each scheduling option in turn:
 <a name="storage-loader-cron"/>
 ## 2. Scheduling StorageLoader only
 
-The shell script [`/4-storage/storage-loader/bin/snowplow-storage-loader.sh`] [loader-bash]
+The shell script [`/4-storage/storage-loader/bin/snowplow-runner-and-loader.sh`] [loader-bash]
 runs the StorageLoader app only.
 
 You need to edit this script and update the three variables at the top:
