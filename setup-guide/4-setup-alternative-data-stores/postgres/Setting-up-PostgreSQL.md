@@ -213,11 +213,9 @@ Update `pg_hba.conf` - change 'local' to 'trust':
 
 	$ sudo nano /etc/postgresql/9.1/pg_hba.conf
 
-Update postgresql.conf: uncomment line 59 to enable remote access (line `listen_address = 'localhost')
+Update postgresql.conf: uncomment line 59 to enable remote access (line `listen_address = 'localhost') or make it '*' to allow remote access.
 
 	$ sudo nano /etc/postgresql/9.1/main/postgresql.conf
-
-Note that on Debian, the default PostgreSQL port is 5433 rather than 5432 (on Red Hat).
 
 Then restart PostgreSQL:
 
