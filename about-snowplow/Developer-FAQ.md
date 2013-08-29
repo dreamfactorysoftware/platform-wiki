@@ -100,6 +100,28 @@ At the moment, the CloudFront-based collector is not IPv6 compliant - because Am
 
 Plenty! Checkout our [[Product roadmap]] for details.
 
+<a name="unstructtimeline"/>
+## When will support for unstructured events be completed?
+
+Currently custom unstructured events are supported in our JavaScript and Lua Trackers, but not yet in our ETL process or storage options (Redshift or Postgres).
+
+So, when will support for unstructured events be completed?
+
+The short answer is: this is probably our most complex feature yet, and we expect it will be fully supported in Snowplow in January.
+
+The longer answer is: this feature isn't complicated because of the ETL - in fact we have code written that can handle unstructured events already. The complexity is in storing unstructured events in structured schemas such as Redshift and Postgres. If you are tracking many unstructured events containing different name:value fields, it isn't obvious how those events should be mapped to a pre-defined, generic schema in a relational database.
+
+Thus, adding full support will take time - the solution involves:
+
+1. Making the ETL process generate Avro, and
+2. Writing generic code that can shred Avro payloads into multiple Redshift/Postgres tables
+
+However, in the shorter term, there are several potential workarounds:
+
+1. Use custom structured events in place of unstructured events. You may need to send multiple events to transmit all of the data you need
+2. Fork the Scalding ETL, fork the Redshift table definition and extract specific, expected unstructured events into the Redshift table definition. This is great if a Snowplow user has a (very) small number of well-defined unstructured events that they can simply add to their Snowplow events table. This solution is in use
+3. Fork the Scalding ETL, and add a couple of additional fields (name and properties) to the Postgres table definition. Properties could be defined either as Postgres HSTORE or JSON. This is a better solution if the data volumes are small enough for Postgres (rather than Redshift), and the unstructured events aren't predictable (or there are many of them). Both HSTORE and JSON have their limitations in Postgres, although Postgres JSON support in particular is improving all the time
+
 <a name="contribute" />
 ## How can I contribute to Snowplow?
 
