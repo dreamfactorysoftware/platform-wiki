@@ -71,8 +71,8 @@ Because our ideas for custom context are dependent on unstructured event support
 
 In the meantime, two successful workarounds for the lack of custom context support are:
 
-1. Fire additional custom structured events containing the additional custom context you want to track
-2. Load the additional custom context into your event warehouse as a separate table (e.g. a data extract from your CMS). You can then join this context to your Snowplow event data using common IDs (e.g. page URLs)
+1. Fire additional custom structured events containing the custom context you want to track
+2. Load the custom context into your event warehouse as a separate table (e.g. a data extract from your CMS). You can then `JOIN` this context to your Snowplow event data using common IDs (e.g. page URLs)
 
 <a name="cfreliability"/>
 ## How reliable is the CloudFront collector?
