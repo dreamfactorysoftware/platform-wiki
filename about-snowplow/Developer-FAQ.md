@@ -59,13 +59,15 @@ Yes! In fact we designed Snowplow primarily with extreme scalability in mind. In
 
 In Snowplow language, we refer to this as adding "custom context" to events (see [this blog post](http://snowplowanalytics.com/blog/2013/08/12/towards-universal-event-analytics-building-an-event-grammar/) for details).
 
-This has not yet been implemented; our current thinking is that we will re-use our unstructured event support to allow custom context to be added to events in the form of arbitrary name:value properties. We are still exploring how scoping for custom context should work - for example, for the JavaScript Tracker we have identified three scopes of interest:
+This has not yet been implemented; our current thinking is that we will re-use our unstructured event support to allow custom context to be added to all event types in the form of arbitrary name:value properties. We are still exploring how scoping for custom context should work - for example, for the JavaScript Tracker we have identified three scopes of interest:
 
 1. Session-common context - context shared by all events in a session
 2. Page-common context - context shared by all events on a page (e.g. the title and URL of that page)
 3. Event-specific context - context specific to one event (e.g. time of that event)
 
-Because our ideas for custom context are dependent on unstructured event support, this will only be added to Snowplow after unstructured event support is finalized. Please see the related answer [When will support for unstructured events be completed?](#unstructtimeline) for information on timings here.
+For other trackers, there will be other scopes of interest (e.g. for a mobile app tracker, install-common context).
+
+Because our ideas for custom context are dependent on unstructured event support, it only makes sense to add this to Snowplow after unstructured event support is finalized. Please see the related answer [When will support for unstructured events be completed?](#unstructtimeline) for information on timings here.
 
 In the meantime, two successful workarounds for the lack of custom context support are:
 
