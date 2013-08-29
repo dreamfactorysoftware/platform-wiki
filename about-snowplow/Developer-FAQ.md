@@ -5,11 +5,14 @@
 3. [Does Snowplow have a graphical user interface?](#gui)
 4. [Does Snowplow use first- or third-party cookies?](#cookies)
 5. [Does Snowplow scale?](#scalability)
-6. [How reliable is the CloudFront collector?](#cfreliability)
-7. [Is Snowplow IPv6 compliant?](#ipv6)
-8. [What's next on the roadmap?](#roadmap)
-9. [How can I contribute to Snowplow?](#contribute)
-10. [Any other question?](#otherq)
+6. [Does Snowplow support custom variables/properties for events?](#customcontext)
+7. [How reliable is the CloudFront collector?](#cfreliability)
+8. [How long do CloudFront access logs take to arrive in S3?](#cfs3lag)
+9. [Is Snowplow IPv6 compliant?](#ipv6)
+10. [What's next on the roadmap?](#roadmap)
+11. [When will support for unstructured events be completed?](#unstructtimeline)
+12. [How can I contribute to Snowplow?](#contribute)
+13. [Any other question?](#otherq)
 
 <a name="rt"/>
 ## Is Snowplow real-time?
@@ -51,10 +54,41 @@ Yes! In fact we designed Snowplow primarily with extreme scalability in mind. In
 * yyy
 * zzz
 
+<a name="customcontext"/>
+## Does Snowplow support custom variables/properties for events?
+
+In Snowplow language, we refer to this as adding "custom context" to events (see [this blog post](http://snowplowanalytics.com/blog/2013/08/12/towards-universal-event-analytics-building-an-event-grammar/) for details).
+
+This has not yet been implemented; our current thinking is that we will re-use our unstructured event support to allow custom context to be added to all event types in the form of arbitrary name:value properties. We are still exploring how scoping for custom context should work - for example, for the JavaScript Tracker we have identified three scopes of interest:
+
+1. Session-common context - context shared by all events in a session
+2. Page-common context - context shared by all events on a page (e.g. the title and URL of that page)
+3. Event-specific context - context specific to one event (e.g. time of that event)
+
+For other trackers, there will be other scopes of interest (e.g. for a mobile app tracker, install-common context).
+
+Because our ideas for custom context are dependent on unstructured event support, it only makes sense to add this to Snowplow after unstructured event support is finalized. Please see the related answer [When will support for unstructured events be completed?](#unstructtimeline) for information on timings here.
+
+In the meantime, two successful workarounds for the lack of custom context support are:
+
+1. Fire additional custom structured events containing the custom context you want to track
+2. Load the custom context into your event warehouse as a separate table (e.g. a data extract from your CMS). You can then `JOIN` this context to your Snowplow event data using common IDs (e.g. page URLs)
+
 <a name="cfreliability"/>
 ## How reliable is the CloudFront collector?
 
 To write.
+
+<a name="cfs3lag"/>
+## How long do CloudFront access logs take to arrive in S3?
+
+_Thanks to [Gabor Ratky](https://github.com/rgabo) for this answer:_
+
+CloudFront logs arrive with varying times and it is normal for them to arrive with delays.
+
+As a rule of thumb that others have stated as well, 95% of the logs arrive within 3 hours and ~100% of the logs arrive within 24 hours so you should take that into consideration when you schedule your ETL process and query the resulting data. 
+
+Running daily ETL's at 6am UTC, you will have near 100% of the events for the previous day (UTC). It is recommended that you do not query or use data from the same day unless it is for investigation purposes.
 
 <a name="ipv6"/>
 ## Is Snowplow IPv6 compliant?
@@ -67,6 +101,28 @@ At the moment, the CloudFront-based collector is not IPv6 compliant - because Am
 ## What's next on the roadmap?
 
 Plenty! Checkout our [[Product roadmap]] for details.
+
+<a name="unstructtimeline"/>
+## When will support for unstructured events be completed?
+
+Currently custom unstructured events are supported in our JavaScript and Lua Trackers, but not yet in our ETL process or storage options (Redshift or Postgres).
+
+So, when will support for unstructured events be completed?
+
+The short answer is: this is probably our most complex feature yet, and we expect it will be fully supported in Snowplow in January.
+
+The longer answer is: this feature isn't complicated because of the ETL - in fact we have code written that can handle unstructured events already. The complexity is in storing unstructured events in structured schemas such as Redshift and Postgres. If you are tracking many unstructured events containing different name:value fields, it isn't obvious how those events should be mapped to a pre-defined, generic schema in a relational database.
+
+Thus, adding full support will take time - the solution involves:
+
+1. Making the ETL process generate Avro, and
+2. Writing generic code that can shred Avro payloads into multiple Redshift/Postgres tables
+
+However, in the shorter term, there are several potential workarounds:
+
+1. Use custom structured events in place of unstructured events. You may need to send multiple events to transmit all of the data you need
+2. Fork the Scalding ETL, fork the Redshift table definition and extract specific, expected unstructured events into the Redshift table definition. This is great if you have a (very) small number of well-defined unstructured events that you can simply append to their Snowplow events table. This solution is in use
+3. Fork the Scalding ETL, and add a couple of additional fields (`ue_name` and `ue_properties`) to the Postgres table definition. Properties could be defined either as Postgres HSTORE or JSON. This is a better solution if your event volumes are small enough for Postgres (rather than Redshift), and you have many, unpredictable unstructured events. Both HSTORE and JSON have their limitations in Postgres, although Postgres JSON support in particular is improving all the time
 
 <a name="contribute" />
 ## How can I contribute to Snowplow?
