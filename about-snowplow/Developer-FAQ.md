@@ -119,8 +119,8 @@ Thus, adding full support will take time - the solution involves:
 However, in the shorter term, there are several potential workarounds:
 
 1. Use custom structured events in place of unstructured events. You may need to send multiple events to transmit all of the data you need
-2. Fork the Scalding ETL, fork the Redshift table definition and extract specific, expected unstructured events into the Redshift table definition. This is great if a Snowplow user has a (very) small number of well-defined unstructured events that they can simply add to their Snowplow events table. This solution is in use
-3. Fork the Scalding ETL, and add a couple of additional fields (name and properties) to the Postgres table definition. Properties could be defined either as Postgres HSTORE or JSON. This is a better solution if the data volumes are small enough for Postgres (rather than Redshift), and the unstructured events aren't predictable (or there are many of them). Both HSTORE and JSON have their limitations in Postgres, although Postgres JSON support in particular is improving all the time
+2. Fork the Scalding ETL, fork the Redshift table definition and extract specific, expected unstructured events into the Redshift table definition. This is great if you have a (very) small number of well-defined unstructured events that you can simply append to their Snowplow events table. This solution is in use
+3. Fork the Scalding ETL, and add a couple of additional fields (`ue_name` and `ue_properties`) to the Postgres table definition. Properties could be defined either as Postgres HSTORE or JSON. This is a better solution if your event volumes are small enough for Postgres (rather than Redshift), and you have many, unpredictable unstructured events. Both HSTORE and JSON have their limitations in Postgres, although Postgres JSON support in particular is improving all the time
 
 <a name="contribute" />
 ## How can I contribute to Snowplow?
