@@ -80,7 +80,7 @@ To write.
 <a name="cfs3lag"/>
 ## How long do CloudFront access logs take to arrive in S3?
 
-_Thanks to [Gabor Ratky] [rgabo] for this answer:_
+_Thanks to [Gabor Ratky] [https://github.com/rgabo] for this answer:_
 
 CloudFront logs arrive with varying times and it is normal for them to arrive with delays.
 
