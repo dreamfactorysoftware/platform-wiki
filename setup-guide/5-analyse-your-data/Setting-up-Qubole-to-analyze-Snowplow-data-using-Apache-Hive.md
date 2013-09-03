@@ -4,8 +4,8 @@
 
 [Qubole] [qubole] provides a service that enables data scientists to crunch Snowplow data in S3 using Hive, Pig and other Hadoop-backed services. Qubole's service is an attractive alternative to Amazon's own EMR - it offers a couple of big advantages in particular:
 
-1. Ease-of-use. Qubole provides a really nice, web-based user interface for composing and executing Hive queries. It makes it easy to execute and keep track of multiple queries in parallel (very useful with something like Hive, where each query can time a few minutes to run). It caches the results of individual queries, so you can quickly grab the results (even download them) and inspect / visualize them locally, whilst you continue to run new queries against your cluster. And it enables you to easily test queries on subsets of your data, before kicking off jobs to use the same queries to crunch bigger data sets.
-2. Speed / efficiency: the Qubole team have optimized their Hadoop and Hive distribution, perhaps better than the folks at Amazon have for EMR. (They are well placed to do this, as their engineers include some of the original team at Facebook that developed Hive.)
+1. **Ease-of-use**. Qubole provides a really nice, web-based user interface for composing and executing Hive queries. It makes it easy to execute and keep track of multiple queries in parallel (very useful with something like Hive, where each query can time a few minutes to run). It caches the results of individual queries, so you can quickly grab the results (even download them) and inspect / visualize them locally, whilst you continue to run new queries against your cluster. And it enables you to easily test queries on subsets of your data, before kicking off jobs to use the same queries to crunch bigger data sets.
+2. **Speed / efficiency**. the Qubole team have optimized their Hadoop and Hive distribution, perhaps better than the folks at Amazon have for EMR. (They are well placed to do this, as their engineers include some of the original team at Facebook that developed Hive.)
 
 We haven't tested Qubole's Pig capabilities - but we've used it to perform Hive queries, and it is fantastic. If you want to use Apache Hive, we strongly recommend you use Qubole over grappling with Hive on EMR via the EMR command line tools.
 
@@ -85,6 +85,8 @@ Select the **Storage type** drop down and change it from `QUBOLE_MANAGED` to `CU
 
 Now click the **Save** button. Qubole should report that the storage credentials have been validated.
 
+Back to [top](#top).
+
 <a name="define-table" />
 ## 3. Define a table in Hive for Snowplow data in S3
 
@@ -128,6 +130,7 @@ Note how Qubole displays a sample set of the results below the query:
 
 Also note how you can download the results to your local machine, by simply clicking on the Download link. Data is downloaded as a tab-delimited text file, suitable for pasting directly into Excel, or opening directly in R.
 
+Back to [top](#top).
 
 <a name="queries" />
 ## 4. Performing a simple query against the table
@@ -152,7 +155,7 @@ Once the query has finished you can click, you will be able to view some of the 
 
 That's it! For other analytics recipes to perform in Hive / Qubole, please consult the [Analytics Cookbook] [cookbook]
 
-
+Back to [top](#top).
 
 
 
