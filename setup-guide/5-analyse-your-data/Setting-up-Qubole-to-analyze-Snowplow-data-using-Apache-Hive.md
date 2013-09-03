@@ -147,7 +147,7 @@ GROUP BY TO_DATE(`collector_tstamp`)
 
 This query will take a bit of time to start. If you look at the Qubole menu, you'll notice that the icon in the **Cluster** section will start to flash. That is because Qubole is firing up a cluster to execute your query. Note that all the queries performed up until now haven't actually required a cluster to execute, because they've all been possible to execute without using a Map Reduce job. (They've basically all involved simply reading the data from S3, rather than actually processing it.)
 
-[[/setup-guide/images/qubole/8.png]]
+[[/setup-guide/images/qubole/9.png]]
 
 Once the query has finished you can click, you will be able to view some of the results in the Qubole interface, and download the results by clicking the **Download** link. The results can be opened and plotted directly in Excel, for example:
 
