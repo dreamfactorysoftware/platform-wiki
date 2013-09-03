@@ -16,7 +16,8 @@ The first three guides cover using different tools (ChartIO, Tableau and R) to a
 2. [Setup Excel to analyze and visualize Snowplow data] [excel]
 3. [Setup Tableau to perform OLAP analysis on Snowplow data] [tableau]
 4. [Setup R to perform more sophisticated visualization, statistical analysis and data mining on Snowplow data] [r]
-5. [Get started analysing your data in S3 using EMR and Hive] [hive]
+5. [Get started analyzing your data in S3 using EMR and Hive] [hive]
+6. [Get started analyzing your data in S3 using Qubole and Hive / Pig] [qubole]
 
 
 [analyst-cookbook]: http://snowplowanalytics.com/analytics/index.html
@@ -26,3 +27,4 @@ The first three guides cover using different tools (ChartIO, Tableau and R) to a
 [excel]: Setting-up-Excel-to-analyze-Snowplow-data
 [tableau]: Setting-up-Tableau-to-analyze-your-Snowplow-data
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-Snowplow-data
+[qubole]: Setting-up-Qubole-to-analyze-Snowplow-data-using-Apache-Hive

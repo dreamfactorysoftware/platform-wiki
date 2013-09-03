@@ -4,7 +4,7 @@
 
 Snowplow delivers your granular, customer-level and event-level data into your own data warehouse on S3 (for processing using Hadoop / Hive / Pig / Mahout on EMR) or into a database (Amazon Redshift or Postgres) for analysis using more traditional (rather than big-data) toolsets.
 
-An interesting option for analysts and data scientists who want to use big data tools like Hadoop, Hive, Pig etc., is to use [Qubole] [qubole] as an alternative to EMR. Qubole has been built by the team that originally created Hive at Facebook: it offers a couple of big advantages over EMR:
+An interesting option for analysts and data scientists who want to use big data tools like Hadoop, Hive, Pig etc., is to use [Qubole] [qubole] as an alternative to EMR. It offers a couple of big advantages over EMR:
 
 1. Ease-of-use. Qubole provides a really nice interface for composing and executing Hive queries. It makes it easy to execute and keep track of multiple queries in parallel (very useful with something like Hive, where each query can time a few minutes to run). And it even caches the results of individual queries, so you can quickly grab the results (even download them) and inspect / visualize them locally, whilst you continue to run new queries against your cluster.
 2. Speed / efficiency: the Qubole team have optimized their Hadoop and Hive distribution, perhaps better than the folks at Amazon have for EMR. (They are well placed to do this, as their engineers include some of the original team at Facebook that developed Hive.)
@@ -133,13 +133,27 @@ Also note how you can download the results to your local machine, by simply clic
 
 
 <a name="queries" />
-## 4. Performing some sample queries against the table
+## 4. Performing a simple query against the table
 
+Let's execute a straightforward query to calculate the number of unique visitors to our website by date:
 
+``sql
+SELECT
+TO_DATE(`collector_tstamp`),
+COUNT(DISTINCT(`domain_userid`)) 
+FROM `events`
+GROUP BY TO_DATE(`collector_tstamp`)
+```
 
+This query will take a bit of time to start. If you look at the Qubole menu, you'll notice that the icon in the **Cluster** section will start to flash. That is because Qubole is firing up a cluster to execute your query. Note that all the queries performed up until now haven't actually required a cluster to execute, because they've all been possible to execute without using a Map Reduce job. (They've basically all involved simply reading the data from S3, rather than actually processing it.)
 
+[[/setup-guide/images/qubole/8.png]]
 
+Once the query has finished you can click, you will be able to view some of the results in the Qubole interface, and download the results by clicking the **Download** link. The results can be opened and plotted directly in Excel, for example:
 
+[[/setup-guide/images/qubole/9.JPG]]
+
+That's it! For other analytics recipes to perform in Hive / Qubole, please consult the [Analytics Cookbook] [cookbook]
 
 
 
@@ -148,3 +162,4 @@ Also note how you can download the results to your local machine, by simply clic
 [qubole]: http://www.qubole.com/
 [signup-for-qubole]: http://info.qubole.com/free-account
 [hive-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/hive-storage/hiveql/table-def.q
+[cookbook]: http://snowplowanalytics.com/analytics/index.html

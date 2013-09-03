@@ -12,6 +12,7 @@
   - [5.3: setting up Tableau to perform OLAP analysis on your data] [tableau]
   - [5.4: setting up R to perform more sophisticated data analysis] [r]
   - [5.5: get started analyzing your data in EMR and Hive] (getting-started-with-EMR)
+  - [5.6: using Qubole to analyze your data in S3 using Hive and Pig] (Setting-up-Qubole-to-analyze-Snowplow-data-using-Apache-Hive)
 
 **Useful resources**  
 
