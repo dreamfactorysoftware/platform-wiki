@@ -137,7 +137,7 @@ Also note how you can download the results to your local machine, by simply clic
 
 Let's execute a straightforward query to calculate the number of unique visitors to our website by date:
 
-``sql
+```sql
 SELECT
 TO_DATE(`collector_tstamp`),
 COUNT(DISTINCT(`domain_userid`)) 
