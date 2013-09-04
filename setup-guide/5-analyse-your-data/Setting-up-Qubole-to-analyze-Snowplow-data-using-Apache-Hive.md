@@ -153,7 +153,7 @@ Once the query has finished you can click, you will be able to view some of the 
 
 [[/setup-guide/images/qubole/9.JPG]]
 
-That's it! For other analytics recipes to perform in Hive / Qubole, please consult the [Analytics Cookbook] [cookbook]
+That's it! For other analytics recipes to perform in Hive / Qubole, please consult the [Analytics Cookbook] [cookbook]...
 
 Back to [top](#top).
 

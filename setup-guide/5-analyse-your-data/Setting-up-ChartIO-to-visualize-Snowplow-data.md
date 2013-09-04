@@ -43,13 +43,17 @@ To create a read only user, login to Redshift using your preferred SQL client (y
 
 Now create your read only user:
 
-	CREATE USER mydbuser_ro PASSWORD 'my-password-inc-one-capital-at-least-8-chars' NOCREATEDB;
+	CREATE USER chartio PASSWORD 'my-password-inc-one-capital-at-least-8-chars' NOCREATEDB;
 
 Now grant permissions to that user so he / she can read the relevant tables:
 
-	GRANT USAGE ON SCHEMA public TO mydbuser_ro;
-	GRANT SELECT ON events_008 TO mydbuser_ro;
-
+	GRANT USAGE ON SCHEMA atomic TO chartio;
+	GRANT SELECT ON atomic.events TO chartio;
+	GRANT USAGE ON SCHEMA customer_recipes TO chartio;
+	GRANT SELECT ON customer_recipes.referers_basic, customer_recipes.visits_basic, customer_recipes.visits_with_entry_and_exit_pages, customer_recipes.visits_with_referers TO chartio; 
+	GRANT USAGE ON SCHEMA catalog_recipes TO chartio;
+	
+	
 Note: if there are other tables the user needs to access, you should grant select permission to those as well.
 
 ### 3.2 White label ChartIO's inbound IP in your Redshift security group
@@ -64,11 +68,15 @@ Click on the "Security Groups" option on the left hand menu and select your secu
 
 ### 3.3 Setup the connection in ChartIO
 
-Log in to ChartIO. Click on the 'Settings' menu (click on the top right button and then on **Settings**) in the menu that appears on the right. Select **Add a New Data Source**.
+Log in to ChartIO. Open your project.
 
-You will be presented with a selection of databases - select PostgreSQL.
+[[/setup-guide/images/tableau/cr1.png]]
 
-ChartIO will ask if you want to setup a Tunnel Connection or Direct Connection. Select 'Use Direct Connection Method'.
+Click on the 'Settings' menu (click on the top right button and then on **Settings**) in the menu that appears on the right. Select **Add a New Data Source**.
+
+[[/setup-guide/images/tableau/cr2.png]]
+
+Select **Amazon Redshift**.
 
 Enter your Redshift credentials as appropriate. We can fetch these details directly from the AWS console. Log into [console.aws.amazon.com] [aws-console], select **Redshift** from the list of services and then select the Redshift cluster you want to connect to. The details of the cluster you need to connect Tableau are listed under **Cluster Database Properties**:
 
@@ -77,16 +85,18 @@ Enter your Redshift credentials as appropriate. We can fetch these details direc
 * Copy the database end point from the AWS console and paste it into the **Host** field in CharIO
 * Copy the port number from the console into ChartIO
 * Copy the database name (this can be fetched from the console)
+* Enter 'atomic' as the schema name
 * Enter the login details (name and password) for the readonly user you created for Redshfit. (These details are not listed in the console.)
-* Please make sure you **uncheck the 'Connect using SSL' checkbox**:
 
 [[/setup-guide/images/chartio/redshift-2.PNG]]
 
-You may want to reduce the query cache duration. We set ours to one hour.
+You may want to reduce the query cache duration. We set ours to 3 hours - as we only run the ETL proces once every three hours.
 
 Click 'Test Connection and Save'. Your connection should be setup! Proceed to [step 5: creating your first Snowplow dashboard in ChartIO](#1st-dashboard).
 
 Now proceed to [step 5: creating your first dashboard](#1st-dashboard).
+
+**NOTE!** You have only created a connection in ChartIO to the events table in the `atomic` schema. To access the Snowplow views (in e.g. `customers_recipe` schema), you would need to setup an additional connection for each schema, with the same details as those above but changing the `schema` field to e.g. `customer_recipes`, `catalog_recipes` etc.
 
 <a name="infobright" />
 ## 4. Connecting ChartIO to Snowplow data in Infobright
