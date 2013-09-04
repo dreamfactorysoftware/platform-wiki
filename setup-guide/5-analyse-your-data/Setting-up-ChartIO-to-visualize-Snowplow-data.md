@@ -88,7 +88,7 @@ Enter your Redshift credentials as appropriate. We can fetch these details direc
 * Enter 'atomic' as the schema name
 * Enter the login details (name and password) for the readonly user you created for Redshfit. (These details are not listed in the console.)
 
-[[/setup-guide/images/chartio/redshift-2.PNG]]
+[[/setup-guide/images/chartio/cr3.PNG]]
 
 You may want to reduce the query cache duration. We set ours to 3 hours - as we only run the ETL proces once every three hours.
 
