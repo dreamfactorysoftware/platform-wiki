@@ -70,11 +70,11 @@ Click on the "Security Groups" option on the left hand menu and select your secu
 
 Log in to ChartIO. Open your project.
 
-[[/setup-guide/images/tableau/cr1.png]]
+[[/setup-guide/images/chartio/cr1.png]]
 
 Click on the 'Settings' menu (click on the top right button and then on **Settings**) in the menu that appears on the right. Select **Add a New Data Source**.
 
-[[/setup-guide/images/tableau/cr2.png]]
+[[/setup-guide/images/chartio/cr2.png]]
 
 Select **Amazon Redshift**.
 
