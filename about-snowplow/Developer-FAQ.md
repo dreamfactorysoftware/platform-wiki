@@ -102,12 +102,13 @@ At the moment, the CloudFront-based collector is not IPv6 compliant - because Am
 <a name="enrichmentfreq">
 ## How often can I run the Enrichment process?
 
-Regarding the Enrichment process: many Snowplow users simply schedule the Enrichment process to run over night, so that they have yesterday's latest data ready for them when they get to the office.
+Many Snowplow users simply schedule the Enrichment process to run overnight, so that they have yesterday's latest data ready for them when they get to the office.
 
-However, if you require more data recency, there is no reason not to run the Enrichment process more often. Some users run the job every 4 or 6 hours, and we know of at least one company running the process every hour.
+However, if you require better data recency, you can run the Enrichment process more often. Some users run the job every 4 or 6 hours, and we know of at least one company running the process every hour.
 
-As you increase run frequency towards the per-hour mark, there are some important things to bear in mind:
+As you increase run frequency towards the every-hour mark, there are some important things to bear in mind:
 
+* Do make sure that your Enrichment process can happily finish within the 1 hour period. The next Enrichment process starting before the last one has finished will break things currently (see #195 for details)
 
 <a name="recency"/>
 ## What data recency is Snowplow capable of?
@@ -116,6 +117,8 @@ As discussed in the [Is Snowplow real-time?](#rt) answer above, the data recency
 
 1. Both of our supported collectors having a lag before events are written to Amazon S3
 2. Our Enrichment process running on top of Hadoop, a batch-based ETL tool
+
+Given these, the minimum achievable data recency is around 2 hours.
 
 To find our more about the lag before events are logged to S3, please read the answer [How long do CloudFront access logs take to arrive in S3?](#cfs3lag)
 
