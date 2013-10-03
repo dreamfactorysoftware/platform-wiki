@@ -24,7 +24,7 @@ No, currently Snowplow is not a real-time analytics solution. This is for two ma
 1. Both of the supported collectors (the CloudFront collector and the Clojure-based collector) feature a lag (typically 20-60 minutes) before events are written to Amazon S3
 2. Our ETL process (which takes raw Snowplow events and enriches them) is based on Hadoop/Hive, which are batch-based processing tools. They are not designed for real-time (or near-real-time) data processing
 
-We have adding real-time support to Snowplow on our radar, but this is not a priority currently.
+We have real-time support for Snowplow on our radar, but this is not a priority currently.
 
 <a name="performance"/>
 ## Does implementing Snowplow on my site effect site performance e.g. page load times?
