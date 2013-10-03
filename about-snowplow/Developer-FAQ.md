@@ -108,7 +108,8 @@ However, if you require better data recency, you can run the Enrichment process 
 
 As you increase run frequency towards the every-hour mark, there are some important things to bear in mind:
 
-* Do make sure that your Enrichment process can happily finish within the 1 hour period. The next Enrichment process starting before the last one has finished will break things currently (see #195 for details)
+* Do make sure that your Enrichment process can happily finish within the 1 hour period. The next Enrichment process starting before the last one has finished will break things currently (see [#195](https://github.com/snowplow/snowplow/issues/195) for details)
+* Be aware that more frequent runs increases the chance of you running into Elastic MapReduce "failing to launch" every few days, which is not yet resolved (see [#195](https://github.com/snowplow/snowplow/issues/195) for details)
 
 <a name="recency"/>
 ## What data recency is Snowplow capable of?
