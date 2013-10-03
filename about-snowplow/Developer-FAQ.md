@@ -9,10 +9,12 @@
 7. [How reliable is the CloudFront collector?](#cfreliability)
 8. [How long do CloudFront access logs take to arrive in S3?](#cfs3lag)
 9. [Is Snowplow IPv6 compliant?](#ipv6)
-10. [What's next on the roadmap?](#roadmap)
-11. [When will support for unstructured events be completed?](#unstructtimeline)
-12. [How can I contribute to Snowplow?](#contribute)
-13. [Any other question?](#otherq)
+10. [How often can I run the Enrichment process?](#enrichmentfreq)
+11. [What data recency is Snowplow capable of?](#recency)
+12. [What's next on the roadmap?](#roadmap)
+13. [When will support for unstructured events be completed?](#unstructtimeline)
+14. [How can I contribute to Snowplow?](#contribute)
+15. [Any other question?](#otherq)
 
 <a name="rt"/>
 ## Is Snowplow real-time?
@@ -96,6 +98,28 @@ Running daily ETL's at 6am UTC, you will have near 100% of the events for the pr
 IPv6 (Internet Protocol version 6) is a revision of the Internet Protocol (IP) which allows for far more addresses to be assigned than with the current IPv4.
 
 At the moment, the CloudFront-based collector is not IPv6 compliant - because Amazon CloudFront is not yet IPv6 compliant - however the Clojure-based collector running on Elastic Beanstalk is IPv6 compliant.
+
+<a name="enrichmentfreq">
+## How often can I run the Enrichment process?
+
+Regarding the Enrichment process: many Snowplow users simply schedule the Enrichment process to run over night, so that they have yesterday's latest data ready for them when they get to the office.
+
+However, if you require more data recency, there is no reason not to run the Enrichment process more often. Some users run the job every 4 or 6 hours, and we know of at least one company running the process every hour.
+
+As you increase run frequency towards the per-hour mark, there are some important things to bear in mind:
+
+
+<a name="recency"/>
+## What data recency is Snowplow capable of?
+
+As discussed in the [Is Snowplow real-time?](#rt) answer above, the data recency of Snowplow is impacted by:
+
+1. Both of our supported collectors having a lag before events are written to Amazon S3
+2. Our Enrichment process running on top of Hadoop, a batch-based ETL tool
+
+To find our more about the lag before events are logged to S3, please read the answer [How long do CloudFront access logs take to arrive in S3?](#cfs3lag)
+
+To find out more about how often you can safely run the Enrichment process, please check out the previous question, [How often can I run the Enrichment process?](#enrichmentfreq).
 
 <a name="roadmap"/>
 ## What's next on the roadmap?
