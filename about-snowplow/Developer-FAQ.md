@@ -133,7 +133,7 @@ Plenty! Checkout our [[Product roadmap]] for details.
 <a name="unstructtimeline"/>
 ## When will support for unstructured events be completed?
 
-Currently custom unstructured events are supported in our JavaScript and Lua Trackers, but not yet in our ETL process or storage options (Redshift or Postgres).
+Currently custom unstructured events are supported in our JavaScript and Lua Trackers (see [this guide](http://snowplowanalytics.com/blog/2013/05/14/snowplow-unstructured-events-guide/) for details), but not yet in our ETL process or storage options (Redshift or Postgres).
 
 Because Postgres has recently added a [JSON datatype](http://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.2#JSON_datatype), it should be relatively straightforward to add unstructured event support for Snowplow Postgres users. For Snowplow Redshift users, they will need to write Hive queries (we recommend using [Qubole](http://www.qubole.com/) here) to work with their unstructured events. 
 
