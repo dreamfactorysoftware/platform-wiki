@@ -7,6 +7,8 @@ Wait 10-15 minutes after creating the Cloudfront distribution before running the
 
 If you have any problems, then double-check your CloudFront distribution's URL, and check the permissions on your pixel: it must be Openable by Everyone.
 
+Now wait 1-2 hours after creating the Cloudfront distribution before checking the S3 buckets where your logs are stored, to see that they are being generated correctly. (Note that it can take more than an hour for Cloudfront logs to start appearing.)
+
 That's it - you now have a CloudFront distribution which can serve your tracking pixel fast to anybody anywhere in the world and log the request to Amazon S3 in your `snowplow-logs` bucket.
 
 <a name="nonproduction" />
