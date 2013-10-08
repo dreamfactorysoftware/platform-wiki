@@ -113,8 +113,6 @@ Back to [top](#top).
 | `network_userid`| text     | User ID set by Snowplow using 3rd party cookie | No | Yes | 'ecdff4d0-9175-40ac-a8bb-325c49733607' |
 | `user_ipaddress` | text    | Ueser IP address | No       | Yes       | '92.231.54.234' |
 | `domain_sessionidx`      | int      | A visit / session identifier | No | Yes | 3              |
-| `user_dimension1` -> `user_dimension10` | text | Custom dimensions that are set at a user-level | No | No | 'member' |
-| `visit_dimension1` -> `visit_dimension10` | text | Custom dimensions that are set at a session-level | No | No | -   |
 
 Back to [top](#top).
 
@@ -179,8 +177,6 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `doc_width`     | int      | The page's width in pixels  | No | Yes  | 1024       |
 | `doc_height`    | int      | The page's height in pixels | No | Yes  | 3000       | 
 | `page_type`     | text     | Category of page| No        | No        | 'product', 'catalogue' |
-| `page_dimension1` -> `page_dimension10` | text | Custom dimensions associated with this web page | No | No | 
-| `page_metric1` -> `page_metric10` | decimal | Custom metric values with the loading of this web page | No | No | 3.5 |
 | **Marketing / traffic source fields** |          |                 |           |           |                |
 | `mkt_medium`    | text     | Type of traffic source | No | Yes       | 'cpc', 'affiliate', 'organic', 'social' |
 | `mkt_source`    | text     | The company / website where the traffic came from | No | Yes | 'Google', 'Facebook' |
@@ -330,8 +326,6 @@ This has not been implemented yet. The intention is to implement the following f
 | `item_displayformat`| text   | Type of item listing. Used to distinguish views of a product summary (in a catalogue page) vs a detailed view (on the product page). | No  | 'summary-view' |
 | `item_rank`     | integer  | Item rank (position if there is a list of items displayed on the page) | No | No | 3 |
 | `item_location` | text     | Location of the item on the web page | No | No | 'div-cat-4' |
-| `item_dimension1` -> `item_dimension10` | text | Custom dimensions associated with each item / group of items | No | No | - |
-| `item_metric1` -> `item_metric10` | decimal | Custom metric values associated with the view of each item | No | No | - |
 
 For additional details see [this gist](https://gist.github.com/4327909) and [issue 113](https://github.com/snowplow/snowplow/issues/113)
 
@@ -356,8 +350,7 @@ If you wish to track an event that Snowplow does not recognise as a first class 
 | `ev_label`      | text     | The object of the action e.g. the ID of the video played or SKU of the product added-to-basket | No | Yes | 'pbz00123' |
 | `ev_property`   | text     | A property associated with the object of the action | No | Yes | 'HD', 'large' |
 | `ev_value`      | decimal  | A value associated with the event / action e.g. the value of goods added-to-basket | No | Yes | 9.99 |
-| `ev_dimension1` -> `ev_dimension10` | text | Custom dimension fields that can be associated with the event | No | No | - |
-| `ev_metric1` -> `ev_metric10` | decimal | Custom metric fields that can be associated with the event | No | No | - |
+
 
 See [issue 74](https://github.com/snowplow/snowplow/issues/74) for additional information.
 
@@ -366,7 +359,7 @@ Back to [top](#top).
 <a name="customunstruct" />
 #### 2.3.10 Custom unstructured events
 
-If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. Snowplow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Infobright, for example.
+If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. Snowplow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Redshift, for example.
 
 | **Field**     | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:--------------|:---------|:----------------|:----------|:----------|:---------------|
@@ -377,10 +370,10 @@ Back to [top](#top).
 
 ## 3. A note about storage data formats
 
-* Currently, Snowplow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout) and Infobright (for processing by any SQL-compatible analytics package).
-* There are minor differences between the structure of data in both formats. These relate to data structures that Hive supports (e.g. maps, JSONs) that Infobright does not
+* Currently, Snowplow data is stored in S3 (for processing in Apache Hive, Pig, and / or Mahout), Redshift and PostgreSQL (for processing by any SQL-compatible analytics package).
+* There are minor differences between the structure of data in both formats. These relate to data structures that Hive and PostgreSQL support (e.g. JSONs) that Redshift does not
 * Nevertheless, the structure of both is similar: representing a fat table
-* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical Snowplow data structure'. Other formats (e.g. Infobright, Redshift etc.) will simply be 'flattened' versions of the same data. We have outlined some of our plans in [this blog post][avro-blog-post].
+* Going forwards our intention is to move the storage format for data on S3 from the current flatfile structure to Avro. **This** will become the 'canonical Snowplow data structure'. Other formats (e.g. Redshift, PostgreSQL etc.) will simply be 'flattened' versions of the same data. We have outlined some of our plans in [this blog post][avro-blog-post].
 
 Back to [top](#top).
 
