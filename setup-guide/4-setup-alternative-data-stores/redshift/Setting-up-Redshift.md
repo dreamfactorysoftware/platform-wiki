@@ -93,7 +93,7 @@ Now open up your parameter group, by clicking on the magnifying glass icon next 
 
 [[/setup-guide/images/redshift-setup-guide/14.png]]
 
-Update the `search_path` section to read the following:
+Update the **search_path** section to read the following:
 
 	$user, atomic, cube_visits, cube_pages, cube_ecomm, recipes_ basic,  recipes_customer, recipes_catalog, recipes_platform
 
@@ -101,7 +101,7 @@ Save the changes. We now need to update our cluster to use this parameter group.
 
 [[/setup-guide/images/redshift-setup-guide/15.png]]
 
-Click the **Modify** button to save the changes. We now need to reboot the cluster, so that the new settings are applied. Do this by clicking the **Reboot** button on the top menu
+Click the **Modify** button to save the changes. We now need to reboot the cluster, so that the new settings are applied. Do this by clicking the **Reboot** button on the top menu.
 
 
 <a name="connect" />
