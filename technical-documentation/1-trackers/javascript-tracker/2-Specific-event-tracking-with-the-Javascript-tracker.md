@@ -190,7 +190,13 @@ Track pageview is called using the simple:
 _snaq.push(['trackPageView']);
 ```
 
-This method automatically captures the page title, URL and referrer.
+This method automatically captures the URL, referrer and page title (inferred from the `<title>` tag.
+
+If you wish, you can override the title with a custom value:
+
+```javascript
+_snaq.push(['trackPageView', 'my custom page title']);
+```
 
 Note: going forwards we plan to extend this method to also capture page category.
 
