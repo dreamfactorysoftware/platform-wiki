@@ -255,7 +255,7 @@ CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
 CREATE DATABASE snowplow WITH OWNER other_user;
 CREATE SCHEMA snowplow.atomic WITH OWNER other_user;
-CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
+CREATE USER storageloader PASSWORD '$storageloaderpassword';
 GRANT USAGE ON SCHEMA atomic TO storageloader;
 GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
 \q
