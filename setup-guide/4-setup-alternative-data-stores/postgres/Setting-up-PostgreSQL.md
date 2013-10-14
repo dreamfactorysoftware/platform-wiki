@@ -132,6 +132,7 @@ To read this:
 	# IPv4 local connections:
 	host    all             power_user      0.0.0.0/0               md5
 	host    all             other_user      0.0.0.0/0               md5
+	host    all             storageLoader   0.0.0.0/0               md5 
 	# IPv6 local connections:
 	host    all             all             ::1/128                 md5
 
