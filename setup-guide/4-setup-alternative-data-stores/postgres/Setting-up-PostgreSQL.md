@@ -168,17 +168,35 @@ And add a password for your PostgreSQL admin:
 
 	ALTER USER postgres WITH PASSWORD '$password';
 
-Now we need to create user credentials for *power users*. These users will be able to perform any action on the database:
+Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load Snowplow data into Postgres.
 
-	CREATE USER power_user SUPERUSER;
-	ALTER USER power_user WITH PASSWORD '$poweruserpassword';
-	CREATE USER other_user NOSUPERUSER;
-	ALTER USER other_user WITH PASSWORD '$otheruserpassword';
-	CREATE DATABASE snowplow WITH OWNER other_user;
+```sql
+CREATE USER power_user SUPERUSER;
+ALTER USER power_user WITH PASSWORD '$poweruserpassword';
+CREATE USER other_user NOSUPERUSER;
+ALTER USER other_user WITH PASSWORD '$otheruserpassword';
+CREATE DATABASE snowplow WITH OWNER other_user;
+CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
+GRANT USAGE ON SCHEMA atomic TO storageloader;
+GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
+```
 
 We can now exit from Postgres with `\q`. Setup is complete: we are ready to connect to our database remotely.
 
-#### 1.2.3 Connect to your PostgreSQL instance remotely
+<a name="security-group" />
+#### 1.2.3 Ensure that EC2 enables remote connections to the PostgreSQL port
+
+Before you can connect to PostgreSQL remotely, you need to ensure that you have enabled access to the port in your EC2 security groups settings.
+
+Log into the AWS console, and navigate to the EC2 section. Click on the **Security Groups** settings in the **Network & Security** section. Select the security group which applies to your EC2 instance and select the **Inbound** tab:
+
+[[/setup-guide/images/postgresql/security-group-1.png]]
+
+Create a **Custom TCP rule** - set the port range to your Postgres port (most likely `5432`) and provide an IP Address (or range) fro which you will grant users remote access. Then click the **Add rule** button. Make sure that afterwards you click the **Apply Rule Changes** button, to ensure that the rule is active.
+
+
+
+#### 1.2.4 Connect to your PostgreSQL instance remotely
 
 Now that we have PostgreSQL up and running on our EC2 instance, we are in a position to connect from a remote computer using a PostgreSQL client. We'll be using Navicat in this tutorial, but any PostgreSQL compatible client (there are 100s) should work in a similar way.
 
@@ -209,13 +227,13 @@ Download PostgreSQL:
 
 	$ sudo apt-get install postgresql
 
-Update `pg_hba.conf` - change 'local' to 'trust':
+Update `pg_hba.conf` as described in the previous section:
 
-	$ sudo nano /etc/postgresql/9.1/pg_hba.conf
+	$ sudo vim /etc/postgresql/9.1/pg_hba.conf
 
-Update postgresql.conf: uncomment line 59 to enable remote access (line `listen_address = 'localhost') or make it '*' to allow remote access.
+Update postgresql.conf as in the previous section (as if we were installing on Amazon Linux):
 
-	$ sudo nano /etc/postgresql/9.1/main/postgresql.conf
+	$ sudo vim /etc/postgresql/9.1/main/postgresql.conf
 
 Then restart PostgreSQL:
 
@@ -228,13 +246,20 @@ Log into PostgreSQL:
 
 Update your Postres user credentials:
 
-	ALTER USER postgres WITH PASSWORD '$password';
-	CREATE USER power_user SUPERUSER;
-	ALTER USER power_user WITH PASSWORD '$poweruserpassword';
-	CREATE USER other_user NOSUPERUSER;
-	ALTER USER other_user WITH PASSWORD '$otheruserpassword';
-	CREATE DATABASE snowplow WITH OWNER other_user;	
-	\q
+Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load Snowplow data into Postgres.
+
+```sql
+CREATE USER power_user SUPERUSER;
+ALTER USER power_user WITH PASSWORD '$poweruserpassword';
+CREATE USER other_user NOSUPERUSER;
+ALTER USER other_user WITH PASSWORD '$otheruserpassword';
+CREATE DATABASE snowplow WITH OWNER other_user;
+CREATE SCHEMA snowplow.atomic WITH OWNER other_user;
+CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
+GRANT USAGE ON SCHEMA atomic TO storageloader;
+GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
+\q
+```
 
 Now log back into Postgres and with your new user credentials:
 
@@ -249,7 +274,7 @@ Back to [top](#top).
 
 Fire up your PostgreSQL client (e.g. Navicat or psql at the command line), and double click on the PostgreSQL database you've setup, and the Snowplow database within it.
 
-Enter the two SQL queries given in the [PostgreSQL table definition] [postgresql-table-def], to create your schema and table.
+Enter the SQL queries given in the [PostgreSQL table definition] [postgresql-table-def], to create your Snowplow events table.
 
 Back to [top](#top).
 
