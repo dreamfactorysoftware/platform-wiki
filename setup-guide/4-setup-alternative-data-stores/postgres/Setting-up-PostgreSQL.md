@@ -230,7 +230,7 @@ Download PostgreSQL:
 
 Update `pg_hba.conf` as described in the previous section:
 
-	$ sudo vim /etc/postgresql/9.1/pg_hba.conf
+	$ sudo vim /etc/postgresql/9.1/main/pg_hba.conf
 
 Update postgresql.conf as in the previous section (as if we were installing on Amazon Linux):
 
