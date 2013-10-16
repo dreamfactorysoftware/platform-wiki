@@ -227,7 +227,10 @@ _snaq.push(['enableActivityTracking', 30, 10]);
 
 The first ping would occur after 30 seconds, and subsequent pings every 10 seconds as long as the user continued to browse the page actively.
 
-Note: in general this is executed as part of the main Snowplow tracking tag. As a result, you can elect to enable this on specific pages.
+Notes: 
+
+* In general this is executed as part of the main Snowplow tracking tag. As a result, you can elect to enable this on specific pages.
+* The `enableActivityTracking` method **must** be called *before* the `trackPageView` method.
 
 [Back to top](#top)  
 [Back to Javascript technical documentation contents][contents]
