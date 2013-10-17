@@ -95,7 +95,9 @@ Now open up your parameter group, by clicking on the magnifying glass icon next 
 
 Update the **search_path** section to read the following:
 
-	$user, atomic, cube_visits, cube_pages, cube_ecomm, recipes_ basic,  recipes_customer, recipes_catalog, recipes_platform
+	atomic, public, cubes_visits, cubes_pages, recipes_basic, recipes_customer
+
+Note: you can choose to add and remove schemas. Do note, however, that if you include a schema on the search path that does not exist yet on your database, you will cause Redshift to become very unstable. (For that reason, it is often a good idea to leave the `search_path` with the default settings, and only update it once you've setup the relevant schemas in Redshift.)
 
 Save the changes. We now need to update our cluster to use this parameter group. To do so, select **Clusters** from the left hand manu, select your cluster and click the modify button. Now you can select your new parameter group in the **Cluster Parameter Group** dropdown:
 
