@@ -6,7 +6,8 @@
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  
 - [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
-- [Step 5: Analyze your data!] (Getting started analyzing Snowplow data)  
+- [Step 5: Analyze your data!] (Getting started analyzing Snowplow data) 
+  - [5.1: setting up the default recipes and cubes] [views]   
   - [5.1: setting up ChartIO to visualize your data] [chartio]  
   - [5.2: setting up Excel to analyze and visualize your data] [excel]
   - [5.3: setting up Tableau to perform OLAP analysis on your data] [tableau]
@@ -29,3 +30,5 @@
 [excel]: Setting-up-Excel-to-analyze-Snowplow-data
 [tableau]: Setting-up-Tableau-to-analyze-your-Snowplow-data
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-Snowplow-data
+[views]: Setting-up-the-prebuilt-views-in-Redshift-and-PostgreSQL
+
