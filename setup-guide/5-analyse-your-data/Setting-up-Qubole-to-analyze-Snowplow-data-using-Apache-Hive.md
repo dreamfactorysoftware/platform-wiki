@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting-started-analyzing-Snowplow-data) > Setting up Qubole to analyze your Snowplow data 
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting started analyzing Snowplow data) > Setting up Qubole to analyze your Snowplow data 
 
 [Qubole] [qubole] provides a service that enables data scientists to crunch Snowplow data in S3 using Hive, Pig and other Hadoop-backed services. Qubole's service is an attractive alternative to Amazon's own EMR - it offers a couple of big advantages in particular:
 
