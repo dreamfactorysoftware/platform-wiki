@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting-started-analyzing-Snowplow-data)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting started analyzing Snowplow data)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
 
@@ -31,4 +31,4 @@ The next four guides cover using different tools (ChartIO, Tableau, Excel and R)
 [tableau]: Setting-up-Tableau-to-analyze-your-Snowplow-data
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-Snowplow-data
 [qubole]: Setting-up-Qubole-to-analyze-Snowplow-data-using-Apache-Hive
-[views]: 
+[views]: Setting-up-the-prebuilt-views-in-Redshift-and-PostgreSQL
