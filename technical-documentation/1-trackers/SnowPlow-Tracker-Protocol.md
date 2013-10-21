@@ -118,10 +118,13 @@ Back to [common field types](#common).
 | `nuid`        | `network_userid` | text     | Unique identifier for a user, based on a third party cookie (so set at a network level) | Yes | `ecdff4d0-9175-40ac-a8bb-325c49733607` |
 | `uid`         | `user_id`        | text     | Unique identifier for user, set by the business using `setUserId`    | Yes              | `jon.doe@email.com`  |
 | `vid`         | `domain_sessionidx`| int    | Index of number of visits that this user_id has made to this domain e.g. `1` is first visit | Yes       | `1`, `2`...|
+| `ip`          | `user_ipaddress` | text     | IP address                    | Yes              | '37.157.33.178' |
 
 We recommend **always** setting the `uid` / `user_id` parameter: as this is the cornerstone of all customer-centric analytics.
 
 In contrast, setting `vid` / `visit_id` is optional. It is possible to define when sessions begin and end client-side, in the tracker. But it is equally possible to define session start and stop times at the ETL or analytics phase, in which case it need not be set in the tracker at all. Note: Google Analytics defines sessions server side.
+
+Setting `ip` is optional: Snowplow collectors log IP address as standard. However, you can override the value derived from the collector by populating this value in the tracker. This is useful, if traffic is being proxied to a Snowplow collector, for example.
 
 Back to [common field types](#common).
 
