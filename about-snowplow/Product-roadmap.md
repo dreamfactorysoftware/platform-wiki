@@ -20,7 +20,7 @@ The planned releases are as follows:
 | **0.8.11** | [See GitHub] [issues-0811] | A wide range of ETL improvements   |
 | **0.8.12** | [See GitHub] [issues-0812] | Make the ETL process more robust                         |
 | **0.8.13** | [See GitHub] [issues-0813] | Add initial ETL and storage support for unstructured events                         |
-
+| **0.8.14** | [See GitHub] [issues-0814] | New enrichments                         |
 
 ## Longer-term: approximate schedule
 
@@ -40,6 +40,7 @@ The longer-term schedule of major developments is approximately as follows:
 [issues-0811]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
 [issues-0812]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 [issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
+[issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
