@@ -94,12 +94,13 @@ The Redshift configuration template looks like this:
   - :name: "My Redshift database"
     :type: redshift
     :host: ADD HERE # The endpoint as shown in the Redshift console
-    :database: ADD HERE # Name of database 
+    :database: ADD HERE # Name of database
     :port: 5439 # Default Redshift port
     :table: atomic.events
-    :username: ADD HERE 
-    :password: ADD HERE 
+    :username: ADD HERE
+    :password: ADD HERE
     :maxerror: 1 # Stop loading on first error, or increase to permit more load errors
+    :comprows: 200000 # Default for a 1 XL node cluster. Not used unless --include compupdate specified
 ```
 
 ### Postgres sample configuration
@@ -121,12 +122,13 @@ The Postgres configuration template looks like this:
   - :name: "My PostgreSQL database"
     :type: postgres
     :host: ADD HERE # Hostname of database server
-    :database: ADD HERE # Name of database 
+    :database: ADD HERE # Name of database
     :port: 5432 # Default Postgres port
     :table: atomic.events
-    :username: ADD HERE 
-    :password: ADD HERE 
+    :username: ADD HERE
+    :password: ADD HERE
     :maxerror: # Not required for Postgres
+    :comprows: # Not required for Postgres
 ```
 
 ### Populating the configuration
