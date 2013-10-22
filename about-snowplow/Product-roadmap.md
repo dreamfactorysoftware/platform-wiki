@@ -1,6 +1,6 @@
 ## Overview
 
-The current release of Snowplow is **0.8.10**. The planned roadmap for Snowplow is divided in two:
+The current release of Snowplow is **0.8.11**. The planned roadmap for Snowplow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
 2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new Snowplow components and other ambitious new developments
@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.11** | [See GitHub] [issues-0811] | A wide range of ETL improvements   |
 | **0.8.12** | [See GitHub] [issues-0812] | Make the ETL process more robust                         |
 | **0.8.13** | [See GitHub] [issues-0813] | Add initial ETL and storage support for unstructured events                         |
 | **0.8.14** | [See GitHub] [issues-0814] | New enrichments                         |
@@ -37,7 +36,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-0811]: https://github.com/snowplow/snowplow/issues?milestone=25&state=open
 [issues-0812]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 [issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
 [issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
