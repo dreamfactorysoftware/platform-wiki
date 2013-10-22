@@ -28,11 +28,20 @@ The command-line options for StorageLoader look like this:
 
     Specific options:
         -c, --config CONFIG              configuration file
-        -s, --skip download|delete,load,archive skip work step(s)
+        -i, --include compupdate,vacuum                   include optional work step(s)
+        -s, --skip download|delete,load,analyze,archive   skip work step(s)
 
     Common options:
         -h, --help                       Show this message
         -v, --version                    Show version
+
+A note on the `--include` option: this includes optional work steps
+which are otherwise not used. `--include vacuum` runs a `VACUUM`
+operation on the table following the load. `--include compupdate` runs
+the load then determines the best compression encoding format to use for
+each each of the fields in your Redshift event table, using the `:comprows:`
+setting for the sample size. For more information on Amazon’s comprows
+functionality, see the [Redshift documentation] [comprows].
 
 A note on the `--skip` option: this skips the work steps listed. So
 for example `--skip download,load` would only run the final archive
@@ -66,3 +75,5 @@ To install and configure `locate` on Debian/Ubuntu:
 ## Next steps
 
 All done? Then [schedule the StorageLoader](3-Scheduling-the-StorageLoader) to regularly migrate new data into your data store (e.g. Infobright or Redshift).
+
+[comprows]: http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html

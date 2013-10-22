@@ -39,6 +39,7 @@ The command-line options for EmrEtlRunner look like this:
 
     Specific options:
         -c, --config CONFIG              configuration file
+        -d, --debug                      enable EMR Job Flow debugging
         -s, --start YYYY-MM-DD           optional start date *
         -e, --end YYYY-MM-DD             optional end date *
         -s, --skip staging,emr,archive   skip work step(s)
