@@ -38,7 +38,7 @@ Some things to note about the tag:
 <a name="wizard" />
 ## 3. The tag-generating wizard
 
-The [[wizard]] generates the a tracking tag given:
+The [wizard] generates the a tracking tag given:
 
 * A collector endpoint (or Cloudfront subdomain)
 * The page scheme (HTTP or HTTPS)
