@@ -178,9 +178,7 @@ CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
 CREATE DATABASE snowplow WITH OWNER other_user;
 CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
-GRANT USAGE ON SCHEMA atomic TO storageloader;
-GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
-```
+```sql
 
 We can now exit from Postgres with `\q`. Setup is complete: we are ready to connect to our database remotely.
 
@@ -194,7 +192,6 @@ Log into the AWS console, and navigate to the EC2 section. Click on the **Securi
 [[/setup-guide/images/postgresql/security-group-1.png]]
 
 Create a **Custom TCP rule** - set the port range to your Postgres port (most likely `5432`) and provide an IP Address (or range) fro which you will grant users remote access. Then click the **Add rule** button. Make sure that afterwards you click the **Apply Rule Changes** button, to ensure that the rule is active.
-
 
 
 #### 1.2.4 Connect to your PostgreSQL instance remotely
@@ -216,6 +213,8 @@ Select either the username `power_user` and associated password you created in t
 [[/setup-guide/images/postgresql/navicat-3.png]]
 
 You should now be able to either test the connection or click **OK** to save the connection. You can then double click it to go into the database.
+
+You are now ready to [setup the Snowplow events table and views] (#events-table).
 
 Back to [top](#top).
 
@@ -255,10 +254,7 @@ ALTER USER power_user WITH PASSWORD '$poweruserpassword';
 CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
 CREATE DATABASE snowplow WITH OWNER other_user;
-CREATE SCHEMA snowplow.atomic WITH OWNER other_user;
 CREATE USER storageloader PASSWORD '$storageloaderpassword';
-GRANT USAGE ON SCHEMA atomic TO storageloader;
-GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
 \q
 ```
 
@@ -271,11 +267,133 @@ You can now Snowplow events table as described in the [next step](#events-table)
 Back to [top](#top).
 
 <a name="events-table" />
-## 3. Create the Snowplow events table in PostgreSQL
+## 3. Create the Snowplow events table and views in PostgreSQL
 
-Fire up your PostgreSQL client (e.g. Navicat or psql at the command line), and double click on the PostgreSQL database you've setup, and the Snowplow database within it.
+Now that PostgreSQL has been setup, we need to create the table for the Snowplow events, and then all the different views that ship with Snowplow. 
 
-Enter the SQL queries given in the [PostgreSQL table definition] [postgresql-table-def], to create your Snowplow events table.
+First, let's create the `atomic.events` table, where the actual Snowplow data will live. The SQL for creating the atomic schema and table can be found [here] [postgres-table-def]. Either copy and paste that SQL into PSQL / Navicat, or you can run that file into PSQL at the command line. To do this, navigate to your Snowplow repo, then:
+
+	$ cd cd 4-storage/postgres-storage/sql
+	$ psql -h <HOSTNAME> -U <USERNAME> -d snowplow -p <PORT> -f atomoic-def.sql
+
+You'll need to substitute in your credentials for <HOSTNAME>, <PORT> and <USERNAME>. Make sure you use the `power_user` credentials to create new tables etc.
+
+Now that you've created your `atomic.events` table, you're in a position to the different views. This can also be done at the command line:
+
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-basic.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-catalog.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-customers.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-pages.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-visits.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-transactions.sql
+
+Finally, you need to grant access relevant access permissions to your different users to the different tables and views.
+
+We need to make sure that the `StorageLoader` user can write to the `atomic.events` table:
+
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT>
+	GRANT USAGE ON SCHEMA atomic TO storageloader;
+	GRANT INSERT ON TABLE   "atomic"."events" TO storageloader;
+
+Then we need to grant access to all the different schemas to `other_user`:
+
+```sql
+GRANT USAGE ON SCHEMA	atomic	 TO other_user;
+GRANT USAGE ON SCHEMA	cubes_pages	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_basic	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_catalog	 TO other_user;
+GRANT USAGE ON SCHEMA	cubes_visits	 TO other_user;
+GRANT USAGE ON SCHEMA	cubes_ecomm	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_customer	 TO other_user;
+```
+
+Now we need to grant access to all the different tables and views to `other_user`:
+
+```sql
+GRANT SELECT ON 	atomic	.	events	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	uniques_and_visits_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	pageviews_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	events_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	pages_per_visit	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	bounce_rate_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	fraction_new_visits_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	avg_visit_duration_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	visitors_by_language	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	visits_by_country	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	new_vs_returning	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	behavior_frequency	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	behavior_recency	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	engagement_visit_duration	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	engagement_pageviews_per_visit	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_browser	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_os	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_mobile	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	uniques_and_pvs_by_page_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	uniques_and_pvs_by_page_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	add_to_baskets_by_page_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	add_to_baskets_by_page_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	purchases_by_product_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	purchases_by_product_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	all_product_metrics_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	time_and_fraction_read_per_page_per_user	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	pings_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	avg_pings_per_unique_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	traffic_driven_to_site_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_network	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_user	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_user	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_user_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_user_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_ipaddress_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	clv_total_transaction_value_by_user_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	clv_total_transaction_value_by_user_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_days_p_month_on_site	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_days_p_week_on_site	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_visits_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_visits_per_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_first_touch_website	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_first_touch_website	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_paid_channel_acquired_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_paid_channel_acquired_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_refr_channel_acquired_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_refr_channel_acquired_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	retention_by_user_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	retention_by_user_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_first_touch	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_first_touch	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_by_paid_channel_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_by_paid_channel_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_by_refr_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_by_refr_acquired	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	pages_basic	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	views_by_session	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	pings_by_session	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	complete	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	basic	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer_basic	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	entry_and_exit_pages	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer_entries_and_exits	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_basic	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_items_basic	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_with_visits	 TO other_user;
+\q
+```
+
+Now you should be able to connect to the database as `other_user` and use the complete set of views
 
 Back to [top](#top).
 
@@ -285,5 +403,5 @@ Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
-[postgresql-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/table-def.sql
+[postgresql-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/atomic-def.sql
 [simon-rumble]: https://github.com/shermozle
