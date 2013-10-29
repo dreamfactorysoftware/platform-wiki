@@ -159,20 +159,149 @@ Once you've created the `atomic.events` table, you are in a position to create t
 	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-visits.sql
 	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-transactions.sql
 
+
+
 <a name="user" />
-## 6. Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table
+## 6. Setup user access on Redshift
+
+We recommend you setup access credentials for at least three different users:
+
+1. [The StorageLoader](#storageloader-user)
+2. [A read only user](#read-only-user)
+3. [A power user](#power-user)
+
+<a name="storageloader-user" />
+### 6.1 Creating a user for the StorageLoader
 
 We recommend that you create a specific user in Redshift with *only* the permissions required to load data into your Snowplow events table, and use this user's credentials in the StorageLoader config to manage the automatic movement of data into the table. (That way, in the event that the server running StorageLoader is hacked and the hacker gets access to those credentials, they cannot use them to do any harm to your data.)
 
-To create aa new user with restrictive permissions, log into Redshift, open the database containing the Snowplow events table, and execute the following SQL:
+To create a new user with restrictive permissions, log into Redshift, connect to the Snopwlow database and execute the following SQL:
 
 ```sql
-CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
+CREATE USER storageloader PASSWORD '$storageloaderpassword';
 GRANT USAGE ON SCHEMA atomic TO storageloader;
 GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
 ```
 
-You can set the user name and password (`storageloader` and `mYh4RDp4ssW0rD` in the example above) to your own values. Note them down: you will need them when you come to setup the storageLoader in the next phase of the your Snowplow setup.
+You can set the user name and password (`storageloader` and `$storageloaderpassword` in the example above) to your own values. Note them down: you will need them when you come to setup the storageLoader in the next phase of the your Snowplow setup.
+
+<a name="read-only-user" />
+### 6.2 Creating a read-only user
+
+To create a new user who can read Snowplow data, but not modify it, connect to the Snowplow database and execute the following SQL:
+
+```sql
+CREATE USER read_only PASSWORD '$read_only_user';
+GRANT USAGE ON SCHEMA atomic TO read_only;
+GRANT INSERT ON TABLE "atomic"."events" TO read_only;
+```
+
+Now we need to give the user access to the schemas with the different views in:
+
+```sql
+GRANT USAGE ON SCHEMA	cubes_pages	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_basic	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_catalog	 TO other_user;
+GRANT USAGE ON SCHEMA	cubes_visits	 TO other_user;
+GRANT USAGE ON SCHEMA	cubes_ecomm	 TO other_user;
+GRANT USAGE ON SCHEMA	recipes_customer	 TO other_user;
+```
+
+And finally give the user `SELECT` access on the indiviudal views:
+
+```sql
+GRANT SELECT ON 	atomic	.	events	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	uniques_and_visits_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	pageviews_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	events_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	pages_per_visit	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	bounce_rate_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	fraction_new_visits_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	avg_visit_duration_by_day	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	visitors_by_language	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	visits_by_country	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	new_vs_returning	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	behavior_frequency	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	behavior_recency	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	engagement_visit_duration	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	engagement_pageviews_per_visit	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_browser	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_os	 TO other_user;
+GRANT SELECT ON 	recipes_basic	.	technology_mobile	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	uniques_and_pvs_by_page_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	uniques_and_pvs_by_page_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	add_to_baskets_by_page_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	add_to_baskets_by_page_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	purchases_by_product_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	purchases_by_product_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	all_product_metrics_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	time_and_fraction_read_per_page_per_user	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	pings_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	avg_pings_per_unique_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_catalog	.	traffic_driven_to_site_per_page_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_network	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_user	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_domain_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_user	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_network_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_user_to_ipaddress	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_user_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	id_map_ipaddress_to_fingerprint	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	clv_total_transaction_value_by_user_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	clv_total_transaction_value_by_user_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_days_p_month_on_site	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_days_p_week_on_site	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_visits_per_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	engagement_users_by_visits_per_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_first_touch_website	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_first_touch_website	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_month_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_week_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_paid_channel_acquired_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_paid_channel_acquired_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_refr_channel_acquired_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_dfn_by_refr_channel_acquired_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	retention_by_user_by_month	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	retention_by_user_by_week	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_first_touch	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_first_touch	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_signed_up	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_first_transact	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_by_paid_channel_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_by_paid_channel_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_month_by_refr_acquired	 TO other_user;
+GRANT SELECT ON 	recipes_customer	.	cohort_retention_by_week_by_refr_acquired	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	pages_basic	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	views_by_session	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	pings_by_session	 TO other_user;
+GRANT SELECT ON 	cubes_pages	.	complete	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	basic	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer_basic	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	entry_and_exit_pages	 TO other_user;
+GRANT SELECT ON 	cubes_visits	.	referer_entries_and_exits	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_basic	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_items_basic	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions	 TO other_user;
+GRANT SELECT ON 	cubes_ecomm	.	transactions_with_visits	 TO other_user;
+```
+
+<a name="power-user" />
+### 6.3 Creating a power user
+
+To create a power user that has super user privilages, connect to the Snowplow database in Redshift and execute the following:
+
+```sql
+create user power_user createuser password '$poweruserpassword';
+```
+
+Note that now you've created your different users, we recommend that you no longer use the credentials you created when you created the Redshift cluster originally.
 
 <a name="etl" />
 ## 7. Generating Redshift-format data from Snowplow
