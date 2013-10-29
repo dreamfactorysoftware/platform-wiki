@@ -6,12 +6,13 @@ Setting up Redshift is an 6 step process:
 
 1. [Launch a cluster](#launch)
 2. [Authorize client connections to your cluster](#authorise)  
-3. [Update the search path of your cluster](#search_path)
-4. [Connect to your cluster](#connect)
-5. [Setting up the Snowplow database and events table](#db)
-6. [Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table](#user)
-7. [Generating Redshift-format data from Snowplow](#etl)
-8. [Automating the loading of Snowplow data into Redshift](#load)
+3. [Connect to your cluster](#connect)
+4. [Setting up the Snowplow database and events table](#db)
+5. [Setting up the Snowplow views on your data](#views)
+7. [Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table](#user)
+8. [Update the search path of your cluster](#search_path)
+9. [Generating Redshift-format data from Snowplow](#etl)
+10. [Automating the loading of Snowplow data into Redshift](#load)
 
 **Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
@@ -78,36 +79,10 @@ and click "Add".
 
 We should now be able to connect a SQL client on our local machine to Amazon Redshift. 
 
-<a name="search_path" />
-## 3. Update the search path for your Redshift cluster
-
-The `search path` specifies where Redshift should look to locate tables and views that are specified in queries submitted to it. This is important, because the Snowplow events table is located in the "atomic" schema, whilst different recipe views are located in their own schemas (e.g. "customer_recipes" and "catalog_recipes"). By adding these schemas to the Redshift search path, it means that when you connect to Redshift from different tools (e.g. Tableau, SQL workbench), those tools can identify tables and views in each of those schemas, and present them as options for the user to connect to.
-
-Updating the search path is straightforward. In the AWS Redshift console, click on the **Parameters Group** menu item on the left hand. menu, and select the button to **Create Cluster Parameter Group**:
-
-[[/setup-guide/images/redshift-setup-guide/13.png]]
-
-Give your parameter group a suitable name and click **Create**. The parameter group should appear in your list of options.
-
-Now open up your parameter group, by clicking on the magnifying glass icon next to it, and then selecting **Edit** in the menu across the top:
-
-[[/setup-guide/images/redshift-setup-guide/14.png]]
-
-Update the **search_path** section to read the following:
-
-	atomic, public, cubes_visits, cubes_pages, recipes_basic, recipes_customer
-
-Note: you can choose to add and remove schemas. Do note, however, that if you include a schema on the search path that does not exist yet on your database, you will cause Redshift to become very unstable. (For that reason, it is often a good idea to leave the `search_path` with the default settings, and only update it once you've setup the relevant schemas in Redshift.)
-
-Save the changes. We now need to update our cluster to use this parameter group. To do so, select **Clusters** from the left hand manu, select your cluster and click the modify button. Now you can select your new parameter group in the **Cluster Parameter Group** dropdown:
-
-[[/setup-guide/images/redshift-setup-guide/15.png]]
-
-Click the **Modify** button to save the changes. We now need to reboot the cluster, so that the new settings are applied. Do this by clicking the **Reboot** button on the top menu.
 
 
 <a name="connect" />
-## 4. Connect to your cluster
+## 3. Connect to your cluster
 
 There are two ways to connect to your Redshift cluster:
 
@@ -115,7 +90,7 @@ There are two ways to connect to your Redshift cluster:
 4.2 [Via SSL](#ssl)  
 
 <a name="directly" />
-### 4.1 Directly connect 
+### 3.1 Directly connect 
 
 Amazon has helpfully provided detailed instructions for connecting to Redshift using [SQL Workbench] [sql-workbench-tutorial]. In this tutorial we will connect using [Navicat](http://www.navicat.com/), a database querying tool which we recommend (30 day trial versios are available from the [Navicat website](http://www.navicat.com/)).
 
@@ -147,16 +122,21 @@ Click "Test Connection" to check that it is working. Assuming it is, click "OK".
 The Redshift cluster is now visible on Navicat, alongside every other database it is connected to.
 
 <a name="ssl" />
-### 4.2 Connect via SSL
+### 3.2 Connect via SSL
 
 TO WRITE
 
 <a name="db" />
-## 5. Setting up the Snowplow events table
+## 4. Setting up the Snowplow events table
 
 Now that you have Redshift up and running, you need to create your Snowplow events table.
 
 The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the Snowplow events table.
+
+<a name="views" />
+## 5. Setting up the Snowplow views on your data
+
+TO WRITE
 
 <a name="user" />
 ## 6. Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table
@@ -180,8 +160,36 @@ Assuming you are working through the setup guide sequentially, you will have alr
 
 If you have not already [setup EmrEtlRunner] [emr-etl-runner], then please do so now, before proceeding onto the [next stage](#load).
 
+<a name="search_path" />
+## 8. Update the search path for your Redshift cluster
+
+The `search path` specifies where Redshift should look to locate tables and views that are specified in queries submitted to it. This is important, because the Snowplow events table is located in the "atomic" schema, whilst different recipe views are located in their own schemas (e.g. "customer_recipes" and "catalog_recipes"). By adding these schemas to the Redshift search path, it means that when you connect to Redshift from different tools (e.g. Tableau, SQL workbench), those tools can identify tables and views in each of those schemas, and present them as options for the user to connect to.
+
+Updating the search path is straightforward. In the AWS Redshift console, click on the **Parameters Group** menu item on the left hand. menu, and select the button to **Create Cluster Parameter Group**:
+
+[[/setup-guide/images/redshift-setup-guide/13.png]]
+
+Give your parameter group a suitable name and click **Create**. The parameter group should appear in your list of options.
+
+Now open up your parameter group, by clicking on the magnifying glass icon next to it, and then selecting **Edit** in the menu across the top:
+
+[[/setup-guide/images/redshift-setup-guide/14.png]]
+
+Update the **search_path** section to read the following:
+
+	atomic, public, cubes_visits, cubes_pages, recipes_basic, recipes_customer
+
+Note: you can choose to add and remove schemas. Do note, however, that if you include a schema on the search path that does not exist yet on your database, you will cause Redshift to become very unstable. (For that reason, it is often a good idea to leave the `search_path` with the default settings, and only update it once you've setup the relevant schemas in Redshift.)
+
+Save the changes. We now need to update our cluster to use this parameter group. To do so, select **Clusters** from the left hand manu, select your cluster and click the modify button. Now you can select your new parameter group in the **Cluster Parameter Group** dropdown:
+
+[[/setup-guide/images/redshift-setup-guide/15.png]]
+
+Click the **Modify** button to save the changes. We now need to reboot the cluster, so that the new settings are applied. Do this by clicking the **Reboot** button on the top menu.
+
+
 <a name="load" />
-## 8. Automating the loading of Snowplow data into Redshift
+## 9. Automating the loading of Snowplow data into Redshift
 
 Now that you have your Snowplow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
 
