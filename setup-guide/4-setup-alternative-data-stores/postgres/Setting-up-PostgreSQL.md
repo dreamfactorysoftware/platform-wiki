@@ -273,10 +273,10 @@ Now that PostgreSQL has been setup, we need to create the table for the Snowplow
 
 First, let's create the `atomic.events` table, where the actual Snowplow data will live. The SQL for creating the atomic schema and table can be found [here] [postgres-table-def]. Either copy and paste that SQL into PSQL / Navicat, or you can run that file into PSQL at the command line. To do this, navigate to your Snowplow repo, then:
 
-	$ cd cd 4-storage/postgres-storage/sql
-	$ psql -h <HOSTNAME> -U <USERNAME> -d snowplow -p <PORT> -f atomoic-def.sql
+	$ cd 4-storage/postgres-storage/sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomoic-def.sql
 
-You'll need to substitute in your credentials for <HOSTNAME>, <PORT> and <USERNAME>. Make sure you use the `power_user` credentials to create new tables etc.
+You'll need to substitute in your credentials for `<HOSTNAME>` and `<PORT>`. Make sure you use the `power_user` credentials to create new tables etc.
 
 Now that you've created your `atomic.events` table, you're in a position to the different views. This can also be done at the command line:
 
@@ -398,6 +398,7 @@ Now you should be able to connect to the database as `other_user` and use the co
 Back to [top](#top).
 
 <a name="next-steps" />
+## 4. Next steps
 
 Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-storageloader] to automate the regular loading of Snowplow data into the PostgreSQL events table.
 
