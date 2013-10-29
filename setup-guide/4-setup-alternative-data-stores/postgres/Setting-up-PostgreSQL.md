@@ -177,8 +177,8 @@ ALTER USER power_user WITH PASSWORD '$poweruserpassword';
 CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
 CREATE DATABASE snowplow WITH OWNER other_user;
-CREATE USER storageloader PASSWORD 'mYh4RDp4ssW0rD';
-```sql
+CREATE USER storageloader PASSWORD '$storageloaderpassword';
+```
 
 We can now exit from Postgres with `\q`. Setup is complete: we are ready to connect to our database remotely.
 
