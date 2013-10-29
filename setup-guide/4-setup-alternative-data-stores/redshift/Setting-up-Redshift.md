@@ -9,10 +9,10 @@ Setting up Redshift is an 6 step process:
 3. [Connect to your cluster](#connect)
 4. [Setting up the Snowplow database and events table](#db)
 5. [Setting up the Snowplow views on your data](#views)
-7. [Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table](#user)
-8. [Update the search path of your cluster](#search_path)
-9. [Generating Redshift-format data from Snowplow](#etl)
-10. [Automating the loading of Snowplow data into Redshift](#load)
+6. [Setup user access on Redshift](#user)
+7. [Update the search path of your cluster](#search_path)
+8. [Generating Redshift-format data from Snowplow](#etl)
+9. [Automating the loading of Snowplow data into Redshift](#load)
 
 **Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
@@ -131,12 +131,33 @@ TO WRITE
 
 Now that you have Redshift up and running, you need to create your Snowplow events table.
 
-The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute this query in Redshift to create the Snowplow events table.
+The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute the queries in the file - this can be done using psql as follows: 
+
+Navigate to your snowplow github repo:
+
+	$ cd snowplow
+
+Navigate to the sql file:
+
+	$ cd r-storage/redshift-storage/sql
+
+Now execute the `atomic-def.sql` file:
+
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomoic-def.sql
+
+If you prefer using a GUI (e.g. Navicat) rather than `psql`, you can do so. These will let you either run the files directly, or you can simply copy and paste the queries in the files into your GUI of choice, and execute them from there.
 
 <a name="views" />
 ## 5. Setting up the Snowplow views on your data
 
-TO WRITE
+Once you've created the `atomic.events` table, you are in a position to create the different views on the data in that table. This can be done using `psql` at the command line:
+
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-basic.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-catalog.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-customers.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-pages.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-visits.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-transactions.sql
 
 <a name="user" />
 ## 6. Creating a Redshift user with restrict permissions *just* for loading data into your Snowplow table
@@ -199,5 +220,5 @@ Now that you have your Snowplow database and table setup on Redshift, you are re
 [emr-etl-runner]: 1-Installing-EmrEtlRunner
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
-[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/table-def.sql
+[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/atomic-def.sql
                       
