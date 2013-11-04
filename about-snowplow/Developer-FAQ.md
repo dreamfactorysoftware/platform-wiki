@@ -135,9 +135,11 @@ Plenty! Checkout our [[Product roadmap]] for details.
 
 Currently custom unstructured events are supported in our JavaScript and Lua Trackers (see [this guide](http://snowplowanalytics.com/blog/2013/05/14/snowplow-unstructured-events-guide/) for details), but not yet in our ETL process or storage options (Redshift or Postgres).
 
-Because Postgres has recently added a [JSON datatype](http://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.2#JSON_datatype), it should be relatively straightforward to add unstructured event support for Snowplow Postgres users. For Snowplow Redshift users, they will need to write Hive queries (we recommend using [Qubole](http://www.qubole.com/) here) to work with their unstructured events. 
+Because Postgres has recently added a [JSON datatype](http://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.2#JSON_datatype), it should be relatively straightforward to add unstructured event support for Snowplow Postgres users. For Snowplow Redshift users, we can store the unstructured event properties in a varchar field which users can query (somewhat inefficiently) using Redshift's [JSON functions](http://docs.aws.amazon.com/redshift/latest/dg/json-functions.html). Finally, S3/Hive users can write Hive queries using the JSON Serde (we recommend using [Qubole](http://www.qubole.com/) here) to work with their unstructured events. 
 
 This initial support for unstructured events will be rolled out as part of Snowplow [0.8.13](https://github.com/snowplow/snowplow/issues?milestone=29&page=1&state=open), which should be released by mid-December.
+
+Beyond that, we are exploring a configuration language to make it possible for Snowplow users to load their proprietary unstructured events into custom tables.
 
 If you need support for unstructured events today with Redshift, you can:
 
@@ -145,7 +147,7 @@ If you need support for unstructured events today with Redshift, you can:
 2. Fork the Redshift table definition
 3. Extract specific, expected unstructured events into your new Redshift table definition
 
-This is great if you have a (very) small number of well-defined unstructured events that you can simply append to their Snowplow events table. This solution is in use by Snowplow users.
+This is great if you have a (very) small number of well-defined unstructured events that you can simply append to their Snowplow events table. This solution is in use by Snowplow users, and we offer this as part of [Snowplow Professional Services](http://snowplowanalytics.com/services/pipelines.html).
 
 <a name="contribute" />
 ## How can I contribute to Snowplow?
