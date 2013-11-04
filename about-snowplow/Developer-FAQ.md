@@ -139,7 +139,7 @@ Because Postgres has recently added a [JSON datatype](http://wiki.postgresql.org
 
 This initial support for unstructured events will be rolled out as part of Snowplow [0.8.13](https://github.com/snowplow/snowplow/issues?milestone=29&page=1&state=open), which should be released by mid-December.
 
-Beyond that, we are exploring a configuration language to make it possible for Snowplow users to load their proprietary unstructured events into custom tables.
+Beyond that, we are exploring creating a configuration language to make it possible for Snowplow users to load their proprietary unstructured events into custom tables.
 
 If you need support for unstructured events today with Redshift, you can:
 
