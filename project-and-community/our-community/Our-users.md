@@ -1,6 +1,6 @@
 Although still a young platform, Snowplow has already been deployed by various startups, enterprises and organisations, who are using it in various ways. Here are just a few examples of Snowplow being used by the community:
 
-_If you are using Snowplow and want to be listed here, please email [alex@snowplowanalytics.com] [alex-email]._
+_If you are using Snowplow and want to be listed here, please email [alex@snowplowanalytics.com] [alex-email]. Listed users will be added to our first swag order._
 
 ## Use Cases
 
@@ -13,7 +13,7 @@ _If you are using Snowplow and want to be listed here, please email [alex@snowpl
 | ![pbz-logo] [pbz-logo]     | [Psychic Bazaar] [pbz-site] is an online retailer in the mind, body & spirit market. They have installed Snowplow alongside Google Analytics, using Snowplow to warehouse their clickstream data, perform customer- and product-level analyses and build custom user cohorts. |
 | ![qwaya-logo] [qwaya-logo] | [Qwaya] [qwaya-site] is a next-generation Facebook ads tool, combining ease of use with powerful features such as bulk ad creation and rule-based campaign management. Snowplow is a core part of Qwaya conversion tracking, critical for tuning campaign performance. |
 | ![sb-logo] [sb-logo]       | [Simply Business] [simplybusiness-site] is the UK's largest business insurance broker, with over 200,000 customers; over 90% of their customers find them through online channels, while a large percentage complete their transaction offline. They are implementing the Snowplow collector to allow them to build a rich set of web analytics data that they can connect with their internal transaction reporting. They will be using this to improve the user experience and improve the efficiency of their marketing campaigns. |
-| **Your company here!**     | Please email [alex@snowplowanalytics.com] [alex-email] if you want to be listed here.       |
+| **Your company here!**     | Please email [alex@snowplowanalytics.com] [alex-email] if you want to be listed here. Listed users will be added to our first swag order.      |
 
 [alex-email]: mailto:alex@snowplowanalytics.com
 [99d-logo]: /snowplow/snowplow/wiki/project-and-community/images/99designs_logo.png
