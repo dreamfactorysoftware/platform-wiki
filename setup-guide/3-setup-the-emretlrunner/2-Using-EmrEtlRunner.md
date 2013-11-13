@@ -52,7 +52,7 @@ The command-line options for EmrEtlRunner look like this:
         -v, --version                    Show version
 
 A note on the `--skip` option: this takes a list of individual steps to skip.
-So for example you could run **only** the Hive job with the command-line option:
+So for example you could run **only** the EMR job with the command-line option:
 
     $ bundle exec bin/snowplow-emr-etl-runner --skip staging,archive --config config/config.yml
 
