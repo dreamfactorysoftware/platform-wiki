@@ -143,7 +143,7 @@ Navigate to the sql file:
 
 Now execute the `atomic-def.sql` file:
 
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomoic-def.sql
+	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomic-def.sql
 
 If you prefer using a GUI (e.g. Navicat) rather than `psql`, you can do so. These will let you either run the files directly, or you can simply copy and paste the queries in the files into your GUI of choice, and execute them from there.
 
