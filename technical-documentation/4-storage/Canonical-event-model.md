@@ -345,11 +345,11 @@ If you wish to track an event that Snowplow does not recognise as a first class 
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `ev_category`   | text     | Category of event | Yes     | Yes       | 'ecomm', 'video' |
-| `ev_action`     | text     | Action performed / event name | Yes | Yes | 'add-to-basket', 'play-video' |
-| `ev_label`      | text     | The object of the action e.g. the ID of the video played or SKU of the product added-to-basket | No | Yes | 'pbz00123' |
-| `ev_property`   | text     | A property associated with the object of the action | No | Yes | 'HD', 'large' |
-| `ev_value`      | decimal  | A value associated with the event / action e.g. the value of goods added-to-basket | No | Yes | 9.99 |
+| `se_category`   | text     | Category of event | Yes     | Yes       | 'ecomm', 'video' |
+| `se_action`     | text     | Action performed / event name | Yes | Yes | 'add-to-basket', 'play-video' |
+| `se_label`      | text     | The object of the action e.g. the ID of the video played or SKU of the product added-to-basket | No | Yes | 'pbz00123' |
+| `se_property`   | text     | A property associated with the object of the action | No | Yes | 'HD', 'large' |
+| `se_value`      | decimal  | A value associated with the event / action e.g. the value of goods added-to-basket | No | Yes | 9.99 |
 
 
 See [issue 74](https://github.com/snowplow/snowplow/issues/74) for additional information.
