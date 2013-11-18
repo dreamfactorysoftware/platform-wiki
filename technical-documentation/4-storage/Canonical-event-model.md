@@ -359,12 +359,7 @@ Back to [top](#top).
 <a name="customunstruct" />
 #### 2.3.10 Custom unstructured events
 
-If you wish to track an event and do not want to map the data set you wish to capture every time that event occurs to the fields available in the [Custom structured events](#customstruct) listed above, you can alternatively store any JSON and associate it with an event name. Snowplow will store both fields (the event name and the associated JSON) directly in the events table. Note: this will only be available for querying in Hive (and other storage options that support arbritrary JSONs) - it will not be supported by Redshift, for example.
-
-| **Field**     | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
-|:--------------|:---------|:----------------|:----------|:----------|:---------------|
-| `ue_name`     | text     | Unstructured event name | Yes | No      | 'Add-to-basket'|
-| `ue_json`     | json     | A JSON of data associated with that specific event | Yes | No | { 'product_sku': 'pbz00123', 'unit_price': 9.99 } |
+**NOTE:** This is not currently supported. (See the[ Developer FAQ] (Developer-FAQ#wiki-unstructtimeline) for more details.)
 
 Back to [top](#top).
 
