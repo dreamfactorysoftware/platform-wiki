@@ -68,11 +68,9 @@ Back to [top](#top).
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `collector_dt`  | date     | Date event was recorded by the collector | Yes    | Yes       | '2013-01-31'   |
-| `collector_tm`  | time     | Time event was recorded by the collector | Yes    | Yes       | '11:35:30'     |
-| `dvce_dt`       | date     | Date event was recorded on the client device | No | Yes | '2013-02-05' |
-| `dvce_tm`       | time     | Time event was recorded on the client device | No | Yes | '11:27:45'
-| `dvce_epoch`    | int      | Milliseconds since the epoch (1/1/1970) on the client device | No | Yes | 1361495852452 |
+| `collector_tstamp`| date   | Time stamp for the event recorded by the collector | Yes    | Yes       | '2013-11-26 00:02:05'   |
+| `dvce_tstamp`       | date     | Timestamp event was recorded on the client device | No | Yes | '2013-11-26 00:03:57.885' |
+1361495852452 |
 | `os_timezone`   | text     | Client operating system timezone | No | Yes | 'Europe/London' |
 
 We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/snowplow/snowplow/issues/149) for details.
@@ -139,12 +137,12 @@ Note: none of these fields have been implemented yet.
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `geo_country`   | text     | ISO 3166-1 code for the country the visitor is located in | No  | No | 'GB' |
-| `geo_region`    | text     | ISO-3166-2 code for country region the visitor is in | No | No | 'Devon' |
-| `geo_city`      | text     | City the visitor is in | No | No        | 'London'       |
-| `geo_zipcode`  | text     | Postcode the visitor is in | No | No    | 'N3'           |
-| `geo_latitude`  | text     | Visitor location latitude | No | No     | 59.666702      |
-| `geo_longitude` | text     | Visitor location longitude | No | No    | 10.800003      |
+| `geo_country`   | text     | ISO 3166-1 code for the country the visitor is located in | No  | No | 'GB', 'US' |
+| `geo_region`    | text     | ISO-3166-2 code for country region the visitor is in | No | No | 'I9', 'TX' |
+| `geo_city`      | text     | City the visitor is in | No | No        | 'New York', 'London'       |
+| `geo_zipcode`  | text     | Postcode the visitor is in | No | No    | '94109'           |
+| `geo_latitude`  | text     | Visitor location latitude | No | No     | 37.443604      |
+| `geo_longitude` | text     | Visitor location longitude | No | No    | -122.4124      |
 
 <a name="platform" />
 ### 2.2 Platform-specific fields
