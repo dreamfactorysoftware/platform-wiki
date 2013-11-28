@@ -68,9 +68,8 @@ Back to [top](#top).
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
-| `collector_tstamp`| date   | Time stamp for the event recorded by the collector | Yes    | Yes       | '2013-11-26 00:02:05'   |
-| `dvce_tstamp`       | date     | Timestamp event was recorded on the client device | No | Yes | '2013-11-26 00:03:57.885' |
-1361495852452 |
+| `collector_tstamp`| timestamp | Time stamp for the event recorded by the collector | Yes    | Yes       | '2013-11-26 00:02:05'   |
+| `dvce_tstamp`   | timestamp | Timestamp event was recorded on the client device | No | Yes | '2013-11-26 00:03:57.885' |
 | `os_timezone`   | text     | Client operating system timezone | No | Yes | 'Europe/London' |
 
 We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/snowplow/snowplow/issues/149) for details.
