@@ -53,7 +53,7 @@ Require the Lua Tracker"s module into your Lua code like so:
 local snowplow = require( "snowplow" )
 ```
 
-That"s it - you are now ready to initialize a tracker instance. 
+That's it - you are now ready to initialize a tracker instance. 
 
 [Back to top](#top)
 
