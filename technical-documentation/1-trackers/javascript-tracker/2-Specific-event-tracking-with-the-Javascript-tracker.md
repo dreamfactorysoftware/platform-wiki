@@ -553,7 +553,7 @@ There are five parameters can be associated with each structured event. Of them,
 The async specification for the `trackStructEvent` method is:
 
 ```javascript
-_snaq.push(['trackStructEvent', 'category','action','object','property','value'])
+_snaq.push(['trackStructEvent', 'category','action','label','property','value'])
 ```
 
 An example of tracking a user listening to a music mix:
