@@ -418,7 +418,7 @@ Snowplow unstructured events support a relatively rich set of datatypes. Because
 | Integer           | Number without decimal       | number             | `_INT`               | Yes             |
 | Floating point    | Number with decimal          | number             | `_FLT`               | Yes             |
 | Geo-coordinates   | Longitude and latitude       | { number, number } | `_GEO`               | Yes             |
-| Date              | Date and time (ms precision) | number             | `_DT`, `_DT`, `_TMS` | Yes             |
+| Date              | Date and time (ms precision) | number             | `_DT`, `_TM`, `_TMS` | Yes             |
 | Array             | Array of values              | {x, y, z}          | -                    | -               |
 
 Let"s go through each of these in turn, providing some examples as we go:
