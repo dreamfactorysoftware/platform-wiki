@@ -1,4 +1,3 @@
-
 <a name="top" />
 
 [**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers) > Python Tracker
@@ -9,27 +8,29 @@
 - 2. [Initialization](#init)  
   - 2.1 [Importing the module](#importing)
   - 2.2 [Creating a tracker](#create-tracker)  
-    - 2.2.1 [`newTrackerForCf()`](#create-cf)  
-    - 2.2.2 [`newTrackerForUri()`](#create-uri)
+    - 2.2.1 [`cloudfront()`](#create-cf)  
+    - 2.2.2 [`hostname()`](#create-uri)
   - 2.3 [Creating multiple trackers](#multi-tracker)
 - 3. [Configuration](#config)  
   - 3.1 [Configuring your tracker](#configure-tracker)
-    - 3.1.1 [`platform()`](#platform)
-    - 3.1.2 [`encodeBase64()`](#encode-base64)
+    - 3.1.1 [`set_platform()`](#platform)
+    - 3.1.2 [`set_base64_to()`](#encode-base64)
   - 3.2 [Adding extra data](#add-data)
-    - 3.2.1 [`setAppId()`](#set-app-id)
-    - 3.2.2 [`setUserId()`](#set-user-id)
-    - 3.2.3 [`setScreenResolution()`](#set-screen-resolution)
-    - 3.2.4 [`setColorDepth()`](#set-color-depth)
+    - 3.2.1 [`set_app_id()`](#set-app-id)
+    - 3.2.2 [`set_user_id()`](#set-user-id)
+    - 3.2.3 [`set_screen_resolution()`](#set-screen-resolution)
+    - 3.2.4 [`set_color_depth()`](#set-color-depth)
 - 4. [Tracking specific events](#events)
   - 4.1 [Common](#common)
     - 4.1.1 [Argument validation](#validation)
     - 4.1.2 [Optional timestamp argument](#tstamp-arg)
     - 4.1.3 [Return values](#ret-vals)
-  - 4.2 [`trackScreenView()`](#screen-view)
-  - 4.3 [`trackStructEvent()`](#struct-event)
-  - 4.4 [`trackUnstructEvent()`](#unstruct-event)
-    - 4.4.1 [Supported datatypes](#unstruct-datatypes)
+  - 4.2 [`track_screen_view()`](#screen-view)
+  - 4.3 
+  - 4.4 
+  - 4.5 [`track_struct_event()`](#struct-event)
+  - 4.6 [`track_unstruct_event()`](#unstruct-event)
+    - 4.6.1 [Supported datatypes](#unstruct-datatypes)
 
 <a name="overview" />
 ## 1. Overview
@@ -372,7 +373,11 @@ t.trackScreenView("HUD > Save Game", "screen23", 1368725287)
 [Back to top](#top)
 
 <a name="struct-event" />
-### 4.3 Track structured events with `track_struct_event()`
+### 4.3
+
+### 4.4
+
+### 4.5 Track structured events with `track_struct_event()`
 
 Use `track_struct_event()` to track a custom event happening in your app which fits the Google Analytics-style structure of having up to five fields (with only the first two required):
 
@@ -394,7 +399,7 @@ t.track_struct_event("shop", "add-to-basket", None, "pcs", 2, 1369330909)
 [Back to top](#top)
 
 <a name="unstruct-event" />
-### 4.4 Track unstructured events with `track_unstruct_event()`
+### 4.6 Track unstructured events with `track_unstruct_event()`
 
 **Warning:** this feature is implemented in the Python tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
 
@@ -427,7 +432,7 @@ The properties table consists of a set of individual `name = value` pairs. The s
 [Back to top](#top)
 
 <a name="unstruct-datatypes" />
-#### 4.4.1 Supported datatypes
+#### 4.6.1 Supported datatypes
 
 Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Python datatypes, we have introduced some "type suffixes" for the Python property names, so that Snowplow knows what Snowplow data types the Python data types map onto:
 
@@ -444,11 +449,11 @@ Snowplow unstructured events support a relatively rich set of datatypes. Because
 
 Let"s go through each of these in turn, providing some examples as we go:
 
-###### 4.4.1.1 Null
+###### 4.6.1.1 Null
 
 Tracking a Null value for a given field is currently untested in the Python Tracker. TODO.
 
-###### 4.4.1.2 String
+###### 4.6.1.2 String
 
 Tracking a String is easy:
 
@@ -458,7 +463,7 @@ Tracking a String is easy:
 }
 ```
 
-###### 4.4.1.3 Boolean
+###### 4.6.1.3 Boolean
 
 Tracking a Boolean is also straightforward:
 
@@ -468,7 +473,7 @@ Tracking a Boolean is also straightforward:
 }
 ```
 
-###### 4.4.1.4 Integer
+###### 4.6.1.4 Integer
 
 To track an Integer, use a Python number but add a type suffix like so:
 
@@ -480,7 +485,7 @@ To track an Integer, use a Python number but add a type suffix like so:
 
 **Warning:** if you do not add the `_INT` type suffix, Snowplow will assume you are tracking a Floating point number.
 
-###### 4.4.1.5 Floating point
+###### 4.6.1.5 Floating point
 
 To track a Floating point number, use a Python number; adding a type suffix is optional:
 
@@ -491,7 +496,7 @@ To track a Floating point number, use a Python number; adding a type suffix is o
 }
 ```
 
-###### 4.4.1.5 Geo-coordinates
+###### 4.6.1.5 Geo-coordinates
 
 Tracking a pair of Geographic coordinates is done like so:
 
@@ -505,7 +510,7 @@ Please note that the datatype takes the format **latitude** followed by **longit
 
 **Warning:** if you do not add the `_GEO` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
 
-###### 4.4.1.6 Date
+###### 4.6.1.6 Date
 
 Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
@@ -537,7 +542,7 @@ Note that the type prefix only indicates how the Python number sent to Snowplow 
 ```
 
 <!--
-###### 4.4.1.7 Arrays
+###### 4.6.1.7 Arrays
 
 You can track an Array of values of any data type other than Null.
 
