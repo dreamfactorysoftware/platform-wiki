@@ -13,6 +13,7 @@
 [Overview](collectors)  
 [Cloudfront collector](cloudfront-collector)  
 [Clojure collector (Elastic Beanstalk)](Clojure-collector)   
+[Scala Stream collector](Scala-stream-collector)  
 [SnowCannon (node.js)](snowcannon)  
 
 **[B. Collector logging formats](Collector-logging-formats)**  
