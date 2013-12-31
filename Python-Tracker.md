@@ -441,10 +441,10 @@ Snowplow unstructured events support a relatively rich set of datatypes. Because
 | Null              | Absence of a value           | N/A                | -                    | No              |
 | String            | String of characters         | string             | -                    | Yes             |
 | Boolean           | True or false                | boolean            | -                    | Yes             |
-| Integer           | Number without decimal       | number             | `_INT`               | Yes             |
-| Floating point    | Number with decimal          | number             | `_FLT`               | Yes             |
-| Geo-coordinates   | Longitude and latitude       | { number, number } | `_GEO`               | Yes             |
-| Date              | Date and time (ms precision) | number             | `_DT`, `_TM`, `_TMS` | Yes             |
+| Integer           | Number without decimal       | number             | `$int`               | Yes             |
+| Floating point    | Number with decimal          | number             | `$flt`               | Yes             |
+| Geo-coordinates   | Longitude and latitude       | { number, number } | `$geo`               | Yes             |
+| Date              | Date and time (ms precision) | number             | `$dt`, `$tm`, `$tms` | Yes             |
 | Array             | Array of values              | {x, y, z}          | -                    | -               |
 
 Let"s go through each of these in turn, providing some examples as we go:
@@ -479,11 +479,11 @@ To track an Integer, use a Python number but add a type suffix like so:
 
 ```python
 {
-    "in_stock_INT" = 23
+    "in_stock$int" = 23
 }
 ```
 
-**Warning:** if you do not add the `_INT` type suffix, Snowplow will assume you are tracking a Floating point number.
+**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
 
 ###### 4.6.1.5 Floating point
 
@@ -491,8 +491,8 @@ To track a Floating point number, use a Python number; adding a type suffix is o
 
 ```python
 {
-    "price_INT" = 4.99, 
-    "sales_tax" = 49.99 # Same as sales_tax_FLT = ...
+    "price$int" = 4.99, 
+    "sales_tax" = 49.99 # Same as sales_tax$flt = ...
 }
 ```
 
@@ -502,29 +502,29 @@ Tracking a pair of Geographic coordinates is done like so:
 
 ```python
 {
-    "check_in_GEO" = (40.11041, -88.21337) # NOT IMPLEMENTED Lat, long
+    "check_in$geo" = (40.11041, -88.21337) # Lat, long
 }
 ```
 
 Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
 
-**Warning:** if you do not add the `_GEO` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
 
 ###### 4.6.1.6 Date
 
 Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
-* `_DT` - the Number of days since the epoch
-* `_TM` - the Number of seconds since the epoch
-* `_TMS` - the Number of milliseconds since the epoch. This precision is hard to access from within Python
+* `$dt` - the Number of days since the epoch
+* `$tm` - the Number of seconds since the epoch
+* `$tms` - the Number of milliseconds since the epoch. This precision is hard to access from within Python
 
 You can track a date by adding a Python number to your `properties` object. The following are all valid dates:
 
 ```python
 {
-    "birthday2_DT" = 3996,
-    "registered2_TM" = 1371129610,
-    "last_action_TMS" = 1368454114215, # Accurate to milliseconds
+    "birthday2$dt" = 3996,
+    "registered2$tm" = 1371129610,
+    "last_action$tms" = 1368454114215, # Accurate to milliseconds
 }
 ```
 
@@ -532,12 +532,12 @@ Note that the type prefix only indicates how the Python number sent to Snowplow 
 
 **Two warnings:**
 
-1. If you specify a Python number but do not add a valid Date suffix (`_DT`, `_TM` or `_TMS`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
+1. If you specify a Python number but do not add a valid Date suffix (`$dt`, `$tm` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
 2. If you specify a Python number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
 
 ```python
 {
-    "last_ping_DT" = 1371129610 # Should have been _TM. Snowplow will interpret this as the year 3756521449
+    "last_ping$dt" = 1371129610 # Should have been $tm. Snowplow will interpret this as the year 3756521449
 }
 ```
 
