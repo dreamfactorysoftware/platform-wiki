@@ -52,9 +52,9 @@ However, if you use the Clojure-based collector then this first-party user ID is
 
 Yes! In fact we designed Snowplow primarily with extreme scalability in mind. In particular:
 
-* xxx
-* yyy
-* zzz
+* All Snowplow components are designed to be horizontally scalable - e.g. to Enrich more events, just add more instances to your Elastic MapReduce cluster
+* Snowplow is architected as a loosely coupled system, to minimize the chance of performance bottlenecks
+* Snowplow is a protocol-first solution - meaning that an under-performing implementation of any component can be replaced by a more-performant version, as long as it respects Snowplow's input/output protocols
 
 <a name="customcontext"/>
 ## Does Snowplow support custom variables/properties for events?
