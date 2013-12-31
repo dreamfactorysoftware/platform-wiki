@@ -158,7 +158,7 @@ The first line (i.e. `arn:aws:iam::889434468096:server-certificate/snplow_certif
 
 #### 4.2.4 Update your Elastic Beanstalk environment to use HTTPS
 
-Return back to the AWS Management Console ([[console.aws.amazon.com]]). In the Elastic Beanstalk section, select your environment and choose to **Edit / load configuration** from the **Actions** dropdown. Then select **Load Balancer** from the tab:
+Return back to the AWS Management Console ([[http://console.aws.amazon.com]]). In the Elastic Beanstalk section, select your environment and choose to **Edit / load configuration** from the **Actions** dropdown. Then select **Load Balancer** from the tab:
 
 [[/setup-guide/images/clojure-collector-setup-guide/19.png]]
 
