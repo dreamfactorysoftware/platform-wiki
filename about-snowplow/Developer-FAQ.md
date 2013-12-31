@@ -19,12 +19,13 @@
 <a name="rt"/>
 ## Is Snowplow real-time?
 
-No, currently Snowplow is not a real-time analytics solution. This is for two main reasons:
+There is nothing inherently high-latency or batch-based about the Snowplow architecture. However, the production-ready end-to-end implementation currently available for Snowplow **is** a high-latency, batch-based architecture, being dependent on:
 
-1. Both of the supported collectors (the CloudFront collector and the Clojure-based collector) feature a lag (typically 20-60 minutes) before events are written to Amazon S3
-2. Our ETL process (which takes raw Snowplow events and enriches them) is based on Hadoop/Hive, which are batch-based processing tools. They are not designed for real-time (or near-real-time) data processing
+1. Either of the currently supported collectors (the CloudFront collector and the Clojure-based collector), which feature a lag (typically 20-60 minutes) before events are written to Amazon S3
+2. Our ETL process (which takes raw Snowplow events and enriches them) is based on Hadoop, a batch-based processing tool, not designed for real-time (or near-real-time) data processing
+3. Our database load process is also batch-based - we do not yet have a drip-feed solution for Postgres or Redshift
 
-We have real-time support for Snowplow on our radar, but this is not a priority currently.
+However, real-time support is a priority for Snowplow in 2014 - starting with the release of our new Scala Stream Collector (which is Amazon Kinesis-based) in January 2014.
 
 <a name="performance"/>
 ## Does implementing Snowplow on my site effect site performance e.g. page load times?
