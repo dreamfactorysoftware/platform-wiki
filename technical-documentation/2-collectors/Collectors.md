@@ -13,5 +13,6 @@ Collectors receive data in the form of `GET` or `POST` requests from the tracker
 ## Collector-specific documentation
 
 * [[Cloudfront Collector]]
-* [Clojure collector](clojure)
+* [[Clojure Collector]]
+* [[Scala Stream Collector]]
 * [[SnowCannon]] (node.js collector)
