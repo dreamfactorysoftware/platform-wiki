@@ -12,7 +12,7 @@ Setting up the Scala Stream collector is a 3 step process:
 
 1. [Download the Scala Stream collector jar, or compile it from source](Download-the-Scala-Stream-collector-jar-file-or-compile-it-from-source).
 2. [Configure the Scala Stream collector](Configure-the-Scala-Stream-collector)
-3. [Running the Scala Stream collector](Running-the-Scala-Stream-collector)
+3. [Run the Scala Stream collector](Run-the-Scala-Stream-collector)
 
 
 In addition, we document [additional configuration options](additional-configuration-options) at the end of this guide.

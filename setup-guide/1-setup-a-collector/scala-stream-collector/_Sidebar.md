@@ -6,7 +6,7 @@
   - [Setup the Scala Stream Collector] (Setting-up-the-Scala-Stream-collector)     
     - [Download the Scala Stream collector jar, or compile it from source](Download-the-Scala-Stream-collector-jar-file-or-compile-it-from-source).
     - [Configure the Scala Stream collector](Configure-the-Scala-Stream-collector)
-    - [Running the Scala Stream collector](Running-the-Scala-Stream-collector)
+    - [Run the Scala Stream collector](Run-the-Scala-Stream-collector)
     - [Additional configuration options (optional)](additional configuration options) 
 2. [Step 2: Setup a Tracker] (setting-up-a-tracker)  
 3. [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  

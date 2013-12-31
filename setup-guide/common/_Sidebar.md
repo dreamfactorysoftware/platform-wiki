@@ -9,6 +9,7 @@
 [Collectors setup: choosing a collector](choosing-a-collector)  
 [Cloudfront collector setup](setting-up-the-cloudfront-collector)  
 [Clojure collector setup](setting-up-the-clojure-collector)  
+[Scala stream collector setup](setting-up-the-scala-stream-collector)
 [SnowCannon (node.js) setup](snowcannon-setup-guide) 
 
 **3. ETL**  
