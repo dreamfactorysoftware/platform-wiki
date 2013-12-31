@@ -46,7 +46,7 @@ Basic settings (minimum and maximum numbers of servers) can be set in the config
 
 [[/setup-guide/images/clojure-collector-setup-guide/11.png]]
 
-You can tell Amazon in what circumstances to launch new instances by setting 'triggers'. More details on tuning Elastic Beanstalk can be found [here](http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/using-features.
+You can tell Amazon in what circumstances to launch new instances by setting 'triggers'. More details on tuning Elastic Beanstalk can be found [here](http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/using-features).
 
 ## All done?
 
