@@ -18,13 +18,14 @@ There are currently three collectors available:
 |:-----------------------------------------------|:----------------------------------------------------|:-----------------|
 | [Cloudfront Collector] [cloudfront-collector]  | A simple, robust and scalable collector powered by AWS Cloudfront | Production-ready |
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Production-ready |
+| [Scala Stream Collector] [scala-stream-collector]        | A Scala-based collector that enables user tracking across domains. Powered by Amazon Kinesis | Testing |
 | [SnowCannon (node.js)] [snowcannon]            | A real-time, node.js based collector that enables user tracking across domains | Unsupported |
 
 ### Are you setting up Snowplow to track users across a single domain, or multiple domains?
 
 If you are tracking users across a single domain, we recommend setting up the [Cloudfront collector] [cloudfront-collector]. 
 
-If you are tracking users across multiple domains, we recommending setting up the [Clojure collector] [clojure-collector]. This sets `user_id`s server side, so you can reliably track user journeys across multiple domains. (In contrast, the [Cloudfront collector] [cloudfront-collector] sets them client side, so users get assigned different `user_id`s on different domains.)
+If you are tracking users across multiple domains, we recommending setting up the [Clojure collector] [clojure-collector] or [Scala Stream Collector] [scala-stream-collector]. This sets `user_id`s server side, so you can reliably track user journeys across multiple domains. (In contrast, the [Cloudfront collector] [cloudfront-collector] sets them client side, so users get assigned different `user_id`s on different domains.)
 
 Like the [Clojure Collector] [clojure-collector], [SnowCannon] [snowcannon] supports user tracking across multiple domains. It also generates logs in real-time. **Currently,  however, the log file format is not supported by the [EmrEtlRunner] [emretlrunner], making integrating [SnowCannon] [snowcannon] with our Enrichment phase currently impossible.**  
 
@@ -33,7 +34,8 @@ Like the [Clojure Collector] [clojure-collector], [SnowCannon] [snowcannon] supp
 
 1. [Setup the Cloudfront Collector now!] [cloudfront-collector]
 2. [Setup the Clojure Collector now!] [clojure-collector]
-3. [Setup SnowCannon now!] [snowcannon] **(not recommended)**
+3. [Setup the Scala Stream Collector now!] [scala-stream-collector]
+4. [Setup SnowCannon now!] [snowcannon] **(not recommended)**
 
 Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
@@ -43,6 +45,7 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
+[scala-stream-collector]: Setting-up-the-Scala-stream-collector
 [snowcannon]: SnowCannon-setup-guide
 [setup-guide]: Setting-up-Snowplow
 [tracker-setup]: Setting-up-Snowplow#wiki-step2
