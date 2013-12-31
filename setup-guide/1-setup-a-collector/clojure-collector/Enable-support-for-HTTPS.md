@@ -172,7 +172,7 @@ Click the **Apply Changes** button. The environment will update. When it has com
 
 Note the padlock icon by the address bar.
 
-Next: review the [[aditional configuration options]]
+Next: review the [[additional configuration options]]
 
 
 [linode]: http://www.linode.com/
