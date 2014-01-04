@@ -33,4 +33,4 @@ Also verify the settings of the HTTP service:
 + `collector.interface`
 + `collector.port`
 
-Next: [[Running the Scala Stream collector]]
+Next: [[Run the Scala Stream collector]]
