@@ -4,11 +4,11 @@ Snowplow has a very different architecture from conventional open-source web ana
 
 To briefly explain these five sub-systems:
 
-* **Trackers** fire Snowplow events. Currently we have a JavaScript tracker; iOS and Android trackers are on the roadmap
-* **Collectors** receive Snowplow events from trackers. Currently we have a simple CDN-based collector on [Amazon CloudFront] [cloudfront]
-* **ETL (extract, transform and load)** cleans up the raw Snowplow events, enriches them and puts them into storage. Currently we have an ETL process using [Apache Hive] [hive]
-* **Storage** is where the Snowplow events live. Currently we store the Snowplow events in an immutable Hive-format flatfile structure on S3
-* **Analytics** are performed on the Snowplow events. Currently we have a set of ad hoc analyses written in Hive
+* **Trackers** fire Snowplow events. Currently we have a JavaScript tracker; no-JS tracker, Arduino and Lua trackers. (For more information see the [trackers section](https://github.com/snowplow/snowplow/tree/master/1-trackers) of the repository. Python, Ruby, Java, iOS and Android trackers are on the roadmap
+* **Collectors** receive Snowplow events from trackers. Currently we have a simple CDN-based collector on [Amazon CloudFront] [cloudfront], and a collector that sets a third party pixel for cross-domain tracking called the [Clojure Collector](https://github.com/snowplow/snowplow/tree/master/2-collectors/clojure-collector). 
+* **Enrichment** cleans up the raw Snowplow events, enriches them and puts them into storage. Currently we have an ETL process using [Scalding] (https://github.com/twitter/scalding)
+* **Storage** is where the Snowplow events live. Currently we store the Snowplow events in an S3, Amazon Redshift and PostgreSQL
+* **Analytics** are performed on the Snowplow events
 
 In the rest of this page we explain our rationale for this architecture, map out the specific technical components and finally flag up the strengths and limitations of this architecture.
 
@@ -49,24 +49,15 @@ advantages are:
 * **Clean separation of tracking and analysis** - new analyses will not
     require re-tagging of your site or app
 
-For a wider discussion of the strengths of Snowplow from a business or
-product perspective, please see the [[Features and benefits]] page.
-
 ## Technical limitations
 
 The current Snowplow architecture, tightly coupled as it is to Amazon
 CloudFront and S3, has some specific limitations to consider:
 
-* **Not real-time** - CloudFront takes 20-60 minutes to collate logs
-    from its edge nodes, so real-time analytics are not feasible
-* **Cannot track users across multiple domains** - the user tracking
-    cookie is a first-party cookie set by Snowplow.js, so the user
-    will be assigned a different ID on each domain
-* **Data payload limited by querystring length** - Snowplow data is
-    logged via a GET querystring - which of course could potentially
-    hit the de facto [2000 character] [2000char] URL length limit
+* **Not real-time** - CloudFront takes 20-60 minutes to collate logs from its edge nodes, so real-time analytics are not feasible. In addition the enrichment process is batch-based, rather than stream-based
+* **Data payload limited by querystring length** - Snowplow data is logged via a GET querystring - which of course could potentially hit the de facto [2000 character] [2000char] URL length limit
 
-For more information on these limitations, please see the [[Technical FAQ]].
+For more information on these limitations, please see the [[Technical FAQ|Developer-FAQ]].
 
 [conceptual-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/conceptual-architecture.png
 [tech-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/technical-architecture.png
