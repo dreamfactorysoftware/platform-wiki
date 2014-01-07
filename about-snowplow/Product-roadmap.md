@@ -30,10 +30,10 @@ In this section we set out an approximate map of the new components and capabili
 
 The longer-term schedule of major developments is approximately as follows:
 
-| Time   | Trackers        | Collectors | Enrichment | Storage       | Analytics |
-|--------|-----------------|---|---------------------|---------------|-----------|
-| **Q2** | Android Tracker | - | Unstructured events | ElasticSearch | -         |
-| **Q3** | iOS Tracker     | - | Thrift output       | Neo4j         | -         | 
+| Time   | Trackers        | Collectors | Enrichment | Storage       | Analytics        |
+|--------|-----------------|---|---------------------|---------------|------------------|
+| **Q2** | Android Tracker | - | Unstructured events | ElasticSearch | -                |
+| **Q3** | iOS Tracker     | - | Thrift output       | Neo4j         | Machine learning | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
