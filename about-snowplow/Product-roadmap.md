@@ -30,10 +30,10 @@ In this section we set out an approximate map of the new components and capabili
 
 The longer-term schedule of major developments is approximately as follows:
 
-| Time   | Trackers        | Collectors | Enrichment                                           | Storage              | Analytics |
-|--------|-----------------|------------|------------------------------------------------------|----------------------|-----------|
-| **Q3** | Android Tracker<br>iOS Tracker     | -          | Move to Avro for Snowplow event files<br>ETL to transform Avro to Redshift             | MongoDB<br>MySQL        | Machine-learning using Mahout         |
-| **Q4** | Ruby Tracker  | Scala Collector | Host business lookup                                 | PredictionIO<br>SkyDB      | - | 
+| Time   | Trackers        | Collectors | Enrichment | Storage       | Analytics |
+|--------|-----------------|---|---------------------|---------------|-----------|
+| **Q2** | Android Tracker | - | Unstructured events | ElasticSearch | -         |
+| **Q3** | iOS Tracker     | - | Thrift output       | Neo4j         | -         | 
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
