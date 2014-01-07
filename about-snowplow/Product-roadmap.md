@@ -17,8 +17,10 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.13** | [See GitHub] [issues-0813] | Add initial ETL and storage support for unstructured events                         |
-| **0.8.14** | [See GitHub] [issues-0814] | New enrichments                         |
+| **0.8.13** | [See GitHub] [issues-0813] | Adding Looker support              |
+| **0.8.14** | [See GitHub] [issues-0814] | Adding initial support for Kinesis |
+| **0.8.15** | [See GitHub] [issues-0815] | Making ETL more robust             |
+| **0.8.16** | [See GitHub] [issues-0816] | New enrichments                    |
 
 ## Longer-term: approximate schedule
 
@@ -35,8 +37,10 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
-[issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
+[issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=34&state=open
+[issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=33&state=open
+[issues-0815]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
+[issues-0816]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
 
 [scalding]: https://github.com/twitter/scalding
 [redshift]: http://aws.amazon.com/redshift/
