@@ -35,7 +35,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-0812]: https://github.com/snowplow/snowplow/issues?milestone=26&state=open
 [issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
 [issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
 
