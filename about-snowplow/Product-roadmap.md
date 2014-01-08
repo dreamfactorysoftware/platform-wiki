@@ -1,6 +1,6 @@
 ## Overview
 
-The current release of Snowplow is **0.8.12**. The planned roadmap for Snowplow is divided in two:
+The current release of Snowplow is **0.8.13**. The planned roadmap for Snowplow is divided in two:
 
 1. **Short term: a series of planned point releases** - adding specific, mostly incremental features, tweaks and bug fixes to the core platform
 2. **Longer term: an approximate schedule for new components and capabilities** - setting out priorities and approximate timings for all-new Snowplow components and other ambitious new developments
@@ -17,7 +17,6 @@ The planned releases are as follows:
 
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| **0.8.13** | [See GitHub] [issues-0813] | Adding Looker support              |
 | **0.8.14** | [See GitHub] [issues-0814] | Adding initial support for Kinesis |
 | **0.8.15** | [See GitHub] [issues-0815] | Making ETL more robust             |
 | **0.8.16** | [See GitHub] [issues-0816] | New enrichments                    |
@@ -37,7 +36,6 @@ The longer-term schedule of major developments is approximately as follows:
 
 [milestones]: https://github.com/snowplow/snowplow/issues/milestones
 
-[issues-0813]: https://github.com/snowplow/snowplow/issues?milestone=34&state=open
 [issues-0814]: https://github.com/snowplow/snowplow/issues?milestone=33&state=open
 [issues-0815]: https://github.com/snowplow/snowplow/issues?milestone=29&state=open
 [issues-0816]: https://github.com/snowplow/snowplow/issues?milestone=30&state=open
