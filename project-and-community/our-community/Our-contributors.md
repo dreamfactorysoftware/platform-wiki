@@ -20,6 +20,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Laszlo Bacsi](https://github.com/lackac) @ [Secret Sauce Partners] [sspinc] (Unstructured events)
 * [Mark H Butler](https://github.com/butlermh) (Clojure Collector improvements)
 * [Peter van Wesep](https://github.com/petervanwesep) (ETL process improvements)
+* [Matt Walker](https://github.com/mrwalker) @ [Radico] [radico] (cube fixes)
 
 Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
 
@@ -42,3 +43,4 @@ Many thanks to all the following for contributions to documentation!
 [simply-business]: http://www.simplybusiness.co.uk/
 [bigcommerce]: http://www.bigcommerce.com/
 [sspinc]: http://secretsaucepartners.com/
+[radico]: http://getradico.com/
