@@ -2,18 +2,18 @@
 
 ## Introduction
 
-The Scala Stream collector is a Snowplow event collector for [Snowplow] [snowplow], written in Scala.
+The Scala Stream Ccollector is a Snowplow event collector for [Snowplow] [snowplow], written in Scala. The Scala Stream Collector allows near-real time processing (Enrichment, Storage, Analytics) of a Snowplow raw event stream.
 
-It is designed to store [Thrift][thrift] Snowplow events
-to [Amazon Kinesis][kinesis].
+The Scala Stream Collector receives raw Snowplow events over HTTP, serializes them to a [Thrift][thrift] record format, and then writes them to a sink. Currently supported sinks are:
+
+1. [Amazon Kinesis][kinesis]
+2. `stdout` for a custom stream collection process
+
+Support for Apache Kafka may be added in the future - please see ticket #xxx for details.
+
+Like the Clojure Collector, the Scala Stream Collector supports cross-domain Snowplow deployments, setting a `user_id` (used to identify unique visitors) server side to reliably identify the same user across domains.
 
 ## How it works
-
-<!--
-There are two key aspects to the Scala Stream Collector:
-
-1. **User identification** - how users are uniquely identified across domains
--->
 
 ### User identification
 
@@ -34,12 +34,7 @@ In pseudocode terms:
 
 ## Technical architecture
 
-The Scala Stream Collector is built on top of [spray][spray] and
-[akka][akka] Actors. 
-
-To run it locally:
-
-    $ sbt run
+The Scala Stream Collector is built on top of [Spray][spray] and [Akka][akka] actors. 
 
 ## See also
 
@@ -52,7 +47,7 @@ To run it locally:
 [snowplow-js]: https://github.com/snowplow/snowplow/tree/master/1-trackers/javascript
 
 [github-repo]: https://github.com/snowplow/snowplow/tree/master/2-collectors/scala-stream-collector
-[setup-guide]: https://github.com/snowplow/snowplow/wiki/Setting-up-the-Scala-Stream-collector
+[setup-guide]: https://github.com/snowplow/snowplow/wiki/Setting-up-the-Scala-Stream-Collector
 
 [spray]: http://spray.io/
 [akka]: http://akka.io/

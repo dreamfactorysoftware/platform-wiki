@@ -45,7 +45,7 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
-[scala-stream-collector]: Setting-up-the-Scala-stream-collector
+[scala-stream-collector]: Setting-up-the-Scala-stream-Collector
 [snowcannon]: SnowCannon-setup-guide
 [setup-guide]: Setting-up-Snowplow
 [tracker-setup]: Setting-up-Snowplow#wiki-step2
