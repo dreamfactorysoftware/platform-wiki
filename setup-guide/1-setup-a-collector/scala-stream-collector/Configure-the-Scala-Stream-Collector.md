@@ -4,29 +4,27 @@ The Scala Stream Collector has a number of configuration options available.
 
 ## Basic configuration
 
-To start configuring, clone the Snowplow repo if you haven't built from source:
+### Template
 
-	$ git clone https://github.com/snowplow/snowplow.git
+Download a template configuration file from GitHub: [application.conf.example] [app-conf].
 
-Navigate into the Scala Stream collector folder:
+Now open the `application.conf.example` file in your editor of choice.
 
-	$ cd 2-collectors/scala-stream-collector
-
-Copy the sample configuration to `my.conf`
-
-    cp src/main/resources/application.conf.example my.conf
-
-Edit `my.conf` to see annotated the configuration options.
+### AWS settings
 
 Values that must be configured are:
 
 + `collector.aws.access-key`
 + `collector.aws.secret-key`
 
+### Stream configuration
+
 We also recommend changing the default stream options:
 
 + `collector.stream.name`
 + `collector.stream.size`
+
+### HTTP settings
 
 Also verify the settings of the HTTP service:
 
@@ -69,3 +67,5 @@ The cookie expiration duration is set in `collector.cookie.expiration`.
 If no value is provided, cookies set default to expiring after one year (i.e. 365 days).
 
 Next: [[Run the Scala Stream collector]]
+
+[app-conf]: https://github.com/snowplow/snowplow/blob/master/2-collectors/scala-stream-collector/src/main/resources/application.conf.example
