@@ -1,6 +1,6 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](setting-up-the-Scala-Stream-Collector) > [[Run the Scala Stream Collector]]
 
-`java` is used to invoke the Scala Stream collector, which takes the configuration file as a parameter.
+`java` is used to invoke the Scala Stream collector, which takes the configuration file as a parameter:
 
     java -jar snowplow-scala-collector-[version].jar --config my.conf
 
