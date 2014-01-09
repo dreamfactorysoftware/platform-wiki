@@ -27,7 +27,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 The `jar` file will be saved as `snowplow-scala-collector-[version].jar` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
-Next: [[Configure the Scala Stream collector]]
+Next: [[Configure the Scala Stream Collector]]
 
 [s3-download]: https://github.com/snowplow/snowplow/wiki/Hosted-assets
 [scala]: http://scala-lang.org/
