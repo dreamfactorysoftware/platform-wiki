@@ -8,6 +8,6 @@ This will start the collector as a HTTP service and write serialized Thrift reco
 
 ## All done?
 
-You have setup the Scala Stream collector! You are now ready to [setup a tracker][Setting-up-a-Tracker].
+You have setup the Scala Stream collector! You are now ready to [setup a tracker](Setting-up-a-Tracker).
 
-Return to the [setup guide][Setting-up-Snowplow].
+Return to the [setup guide](Setting-up-Snowplow).
