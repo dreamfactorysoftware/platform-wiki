@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](setting-up-the-Scala-Stream-collector) > [[Download the Scala Stream collector jar file or compile it from source]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](Setting-up-the-Scala-Stream-Collector) > [[Install the Scala Stream Collector]]
 
 You can choose to either:
 
@@ -11,7 +11,7 @@ To get a local copy, you can download the jar file directly from our hosted asse
 
 ## Compile from source
 
-Alternatively, you can build it from the source files. To do so, you will need [scala][scala], [sbt][sbt] and Thrift installed. 
+Alternatively, you can build it from the source files. To do so, you will need [scala][scala], [sbt][sbt] and [Thrift] [thrift] installed. 
 
 To do so, clone the Snowplow repo:
 
