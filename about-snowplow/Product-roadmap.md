@@ -18,7 +18,7 @@ The planned releases are as follows:
 | Release   | Tickets                   | Objective(s)                                                                                           |
 |-----------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | **0.9.0** | [See GitHub] [issues-090] | Adding initial support for Kinesis |
-| **0.9.1** | [See GitHub] [issues-091] | Making ETL more robust             |
+| **0.9.1** | [See GitHub] [issues-091] | Improvements (robustness, deployment, logging) to EmrEtlRunner and StorageLoader |
 | **0.9.2** | [See GitHub] [issues-092] | New enrichments                    |
 
 ## Longer-term: approximate schedule
