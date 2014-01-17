@@ -11,7 +11,7 @@
   - [Testing the Javascript tracker is firing](Testing the Javascript tracker is firing)
   - [Hosting Snowplow.js yourself](self-hosting-snowplow-js)
   - [Setting up campaign tracking](tracking-your-marketing-campaigns)
-- [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
+- [Step 3: Setup Enrich] (setting-up-enrich)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
 - [Step 5: Analyse your data!] (Getting started analysing Snowplow data)  
 

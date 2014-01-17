@@ -4,7 +4,7 @@
 
 - [Step 1: Setup a Collector] (setting-up-a-collector)  
 - [Step 2: Setup a Tracker] (setting-up-a-tracker)  
-- [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
+- [Step 3: Setup Enrich] (setting-up-enrich)  
 - [Step 4: Setup the StorageLoader] (setting-up-storageloader)  
 - [Step 5: Analyze your data!] (Getting started analyzing Snowplow data) 
   - [5.1: setting up the default recipes and cubes] [views]   

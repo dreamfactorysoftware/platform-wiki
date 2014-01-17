@@ -8,7 +8,7 @@
   - [2.2: Setup the No-JS (pixel) Tracker](No-JS-tracker-setup)
   - [2.3: Setup the Lua Tracker](Lua-tracker-setup)
   - [2.4: Setup the Arduino Tracker] (Arduino-tracker-setup)
-- [Step 3: Setup EmrEtlRunner] (setting-up-EmrEtlRunner)  
+- [Step 3: Setup Enrich] (setting-up-enrich)  
 - [Step 4: Setup alternative data stores] (setting-up-alternative-data-stores) 
 - [Step 5: Analyze your data!] (Getting started analyzing Snowplow data)  
 
