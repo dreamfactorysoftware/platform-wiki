@@ -1,4 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](Setting-up-the-Scala-Stream-Collector) > [[Install the Scala Stream Collector]]
+<a name="top" />
+
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [1: Installing ](Installing-Scala-Kinesis-Enrich)
 
 You can choose to either:
 
@@ -17,9 +19,9 @@ To do so, clone the Snowplow repo:
 
 	$ git clone https://github.com/snowplow/snowplow.git
 
-Navigate into the Scala Stream collector folder:
+Navigate into the Scala Kinesis Enrich folder:
 
-	$ cd 2-collectors/scala-stream-collector
+	$ cd 3-enrich/scala-kinesis-enrich
 
 Use `sbt` to resolve dependencies, compile the source, and build an [assembled][assembly] fat JAR file with all dependencies.
 
@@ -27,10 +29,8 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 The `jar` file will be saved as `snowplow-scala-collector-[version].jar` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
-Next: [[Configure the Scala Stream Collector]]
+Next: [[Configuring Scala Kinesis Enrich]]
 
-[s3-download]: https://github.com/snowplow/snowplow/wiki/Hosted-assets
 [scala]: http://scala-lang.org/
 [sbt]: http://www.scala-sbt.org/
-[thrift]: thrift.apache.org/
 [assembly]: https://github.com/softprops/assembly-sbt
