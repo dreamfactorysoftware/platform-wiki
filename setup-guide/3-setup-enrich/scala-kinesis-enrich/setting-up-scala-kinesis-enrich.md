@@ -12,8 +12,8 @@
 
 This guide covers how to setup Scala Kinesis Enrich.
 
-1. [Installation] [installation]. You need to install EmrEtlRunner on your own server. It will interact with Amazon Kinesis via the Amazon API
-2. [Configuration] [config]. How to use EmrEtlRunner at the command line, to instuct it to process data from your collector
+1. [Installation] [installation]. You need to install Scala Kinesis Enrich on your own server. It will interact with Amazon Kinesis via the Amazon API.
+2. [Configuration] [config]. How to use Scala Kinesis Enrich at the command line, to instruct it to process data from your collector
 3. [Running] [running].
 
 [installation]: Installing-Scala-Kinesis-Enrich
