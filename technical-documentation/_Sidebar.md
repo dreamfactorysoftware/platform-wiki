@@ -21,7 +21,7 @@
 **3. Enrich**  
 [Overview](Enrichment)  
 [EmrEtlRunner](EmrEtlRunner)  
-[Scalding-based Enrichment Process](The-Enrichment-Process)     
+[Scala Kinesis Enrich] (Scala-Kinesis-Enrich)
 
 **[C. Canonical Snowplow event model](canonical-event-model)**  
 

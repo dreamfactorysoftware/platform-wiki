@@ -4,7 +4,7 @@ Setting up Snowplow is a five step process:
 
 1. [Setup a Snowplow Collector](#step1)
 2. [Setup a Snowplow Tracker](#step2)
-3. [Setup EmrEtlRunner](#step3)
+3. [Setup Enrich](#step3)
 4. [Setting up alternative data stores (e.g. Redshift, PostgreSQL)](#step4)
 5. [Analyze your data!](#step5)
 
