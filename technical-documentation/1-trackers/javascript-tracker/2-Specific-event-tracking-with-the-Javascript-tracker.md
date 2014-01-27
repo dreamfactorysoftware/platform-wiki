@@ -621,7 +621,7 @@ Snowplow unstructured events support a relatively rich set of datatypes. Because
 | Integer           | Number without decimal       | Number               | `$int`               | Yes             |
 | Floating point    | Number with decimal          | Number               | `$flt`               | Yes             |
 | Geo-coordinates   | Longitude and latitude       | \[Number, Number\]   | `$geo`               | Yes             |
-| Date              | Date and time (ms precision) | Number               | `$dt`, `$tm`, `$tms` | Yes             |
+| Date              | Date and time (ms precision) | Number               | `$dt`, `$ts`, `$tms` | Yes             |
 | Array             | Array of values              | \[x, y, z\]          | -                    | -               |
 
 Let's go through each of these in turn, providing some examples as we go:
@@ -698,7 +698,7 @@ Please note that the datatype takes the format **latitude** followed by **longit
 Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
 * `$dt` - the Number of days since the epoch
-* `$tm` - the Number of seconds since the epoch
+* `$ts` - the Number of seconds since the epoch
 * `$tms` - the Number of milliseconds since the epoch. This is the default for JavaScript Dates if no type suffix supplied
 
 You can track a date by adding either a JavaScript Number _or_ JavaScript Date to your `properties` object. The following are all valid dates:
@@ -708,8 +708,8 @@ You can track a date by adding either a JavaScript Number _or_ JavaScript Date t
     birthday$dt: new Date(1980,11,10), // Sent to Snowplow as birthday$dt: 3996
     birthday2$dt: 3996, // ^ Same as above
     
-    registered$tm: new Date(2013,05,13,14,20,10), // Sent to Snowplow as registered$tm: 1371129610
-    registered2$tm: 1371129610, // Same as above
+    registered$ts: new Date(2013,05,13,14,20,10), // Sent to Snowplow as registered$ts: 1371129610
+    registered2$ts: 1371129610, // Same as above
     
     last_action$tms: 1368454114215, // Accurate to milliseconds
     last_action2: new Date() // Sent to Snowplow as last_action2$tms: 1368454114215
@@ -720,12 +720,12 @@ Note that the type prefix only indicates how the JavaScript Number sent to Snowp
 
 **Two warnings:**
 
-1. If you specify a JavaScript Number but do not add a valid Date suffix (`$dt`, `$tm` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
+1. If you specify a JavaScript Number but do not add a valid Date suffix (`$dt`, `$ts` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
 2. If you specify a JavaScript Number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
 
 ```javascript
 {
-    last_ping$dt: 1371129610 // Should have been $tm. Snowplow will interpret this as the year 3756521449
+    last_ping$dt: 1371129610 // Should have been $ts. Snowplow will interpret this as the year 3756521449
 }
 ```
 
@@ -746,7 +746,7 @@ By contrast, the following are all allowed:
 ```javascript
 {
     sizes: ['xs', 's', 'l', 'xl', 'xxl'],
-    session_starts$tm: [1371129610, 1064329730, 1341127611],
+    session_starts$ts: [1371129610, 1064329730, 1341127611],
     check_ins$geo: [[-88.21337, 40.11041], [-78.81557, 30.22047]]
 }
 ```
