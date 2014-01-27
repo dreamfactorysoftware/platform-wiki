@@ -21,6 +21,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Mark H Butler](https://github.com/butlermh) (Clojure Collector improvements)
 * [Peter van Wesep](https://github.com/petervanwesep) (ETL process improvements)
 * [Matt Walker](https://github.com/mrwalker) @ [Radico] [radico] (cube fixes)
+* [Ryan Sorensen](https://github.com/rcs) (JavaScript Tracker improvements)
 
 Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
 
