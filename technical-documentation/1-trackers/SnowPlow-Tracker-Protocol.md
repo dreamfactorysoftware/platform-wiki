@@ -252,7 +252,7 @@ e=pv           // page view
 &fp=3324966434                        // User fingerprint
 &vid=3                                // Domain session ID
 
-&tv=js-0.12.0                         // Tracker version
+&tv=js-0.13.0                         // Tracker version
 &lang=en-GB                           // Browser language
 &tz=Europe/London                     // Client time zone
 ```
@@ -532,7 +532,7 @@ uid=aeb1691c5a0ee5a6   // User ID
 &vid=2                 // Visit ID (i.e. session number for this user_id)  
 &tid=508780            // Transaction ID  
 &aid=1                 // App ID
-&tv=js-0.12.0          // Tracker version
+&tv=js-0.13.0          // Tracker version
 
 &e=ue                  // event = unstructured  
 &ue_na=viewed_product  // event_name = viewed_product  
@@ -548,7 +548,7 @@ uid=aeb1691c5a0ee5a6   // User ID
 &vid=2                 // Visit ID (i.e. session number for this user_id)  
 &tid=508780            // Transaction ID  
 &aid=1                 // App ID
-&tv=js-0.12.0          // Tracker version
+&tv=js-0.13.0          // Tracker version
 
 &e=ue                  // event = unstructured  
 &ue_na=viewed_product  // event_name = viewed_product  

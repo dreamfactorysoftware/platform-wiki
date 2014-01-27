@@ -12,7 +12,7 @@ The **current versions** of the assets hosted by the Snowplow Analytics team are
 
 The minified JavaScript tracker is hosted on CloudFront:
 
-    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js
+    http(s)://d1fc8wv8zag5ca.cloudfront.net/0.13.0/sp.js
 
 ## 2. Collectors
 
