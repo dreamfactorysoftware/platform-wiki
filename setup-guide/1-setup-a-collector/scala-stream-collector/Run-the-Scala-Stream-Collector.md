@@ -2,7 +2,7 @@
 
 `java` is used to invoke the Scala Stream collector, which takes the configuration file as a parameter:
 
-    java -jar snowplow-scala-collector-[version].jar --config my.conf
+    java -jar snowplow-stream-collector-[version].jar --config my.conf
 
 This will start the collector as a HTTP service and write serialized Thrift records to Kinesis.
 
