@@ -49,7 +49,7 @@ The default setting is `"kinesis`".
 
 If you switch to `"stdout`", we recommend changing the `akka: {}` section to prevent Akka/Spray debug information from polluting your event stream on stdout:
 
-```
+```json
 akka {
   loglevel = OFF
   loggers = []
