@@ -42,13 +42,19 @@ initializing the collector.
 ### 2. Sinks
 
 The `collector.backend.enabled` setting determines which of the supported sinks to write raw events to:
-+ 'kinesis' for writing Thrift-serialized records to a Kinesis stream
-+ 'stdout' for writing Base64-encoded Thrift-serialized records to stdout
++ `"kinesis`" for writing Thrift-serialized records to a Kinesis stream
++ `"stdout`" for writing Base64-encoded Thrift-serialized records to stdout
 
-The default setting is 'kinesis'. If you switch to 'stdout', we recommend making some further configuration changes to prevent Akka/Spray debug information from polluting your event stream on stdout:
+The default setting is `"kinesis`".
 
-1. Setting 'akka.loglevel = OFF' and 'akka.loggers = []' to disable all logging
-2. Using 'sbt assembly' and 'java -jar ...' to disable sbt logging
+If you switch to `"stdout`", we recommend changing the `akka: {}` section to prevent Akka/Spray debug information from polluting your event stream on stdout:
+
+```
+akka {
+  loglevel = OFF
+  loggers = []
+}
+```
 
 ### 3. Setting the P3P policy header
 
