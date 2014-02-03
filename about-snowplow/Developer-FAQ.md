@@ -25,7 +25,7 @@ There is nothing inherently high-latency or batch-based about the Snowplow archi
 2. Our ETL process (which takes raw Snowplow events and enriches them) is based on Hadoop, a batch-based processing tool, not designed for real-time (or near-real-time) data processing
 3. Our database load process is also batch-based - we do not yet have a drip-feed solution for Postgres or Redshift
 
-However, real-time support is a priority for Snowplow in 2014 - starting with the release of our new Scala Stream Collector (which is Amazon Kinesis-based) in January 2014.
+However, real-time support is a priority for Snowplow in 2014 - starting with the release of our new [[Scala Stream Collector]] and [[Scala Kinesis Enrich]], both of which are Amazon Kinesis-based, in February.
 
 <a name="performance"/>
 ## Does implementing Snowplow on my site effect site performance e.g. page load times?
