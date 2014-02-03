@@ -22,3 +22,4 @@ reading Thrift-serialized objects collected with the Scala Stream Collector.
 [setup]: https://github.com/snowplow/snowplow/wiki/setting-up-scala-kinesis-enrich
 [common-enrich]: https://github.com/snowplow/snowplow/tree/master/3-enrich/scala-common-enrich
 [schema]: https://github.com/snowplow/snowplow/blob/feature/scala-rt-coll/2-collectors/thrift-raw-event/src/main/thrift/snowplow-raw-event.thrift
+[kinesis-enrich]: https://github.com/snowplow/snowplow/tree/master/3-enrich/scala-kinesis-enrich
