@@ -28,7 +28,7 @@ If you are tracking users across multiple domains, we recommending setting up th
 
 ### Do you want to experiment with real-time event analytics?
 
-Then check out the [Scala Stream Collector] [scala-stream-collector].
+Then check out the [Scala Stream Collector] [scala-stream-collector] - but please note that this collector is **still in beta**.
 
 <a name="setup" />
 ## 2. Setup your Collector
