@@ -36,7 +36,6 @@ Then check out the [Scala Stream Collector] [scala-stream-collector].
 1. [Setup the Cloudfront Collector now!] [cloudfront-collector]
 2. [Setup the Clojure Collector now!] [clojure-collector]
 3. [Setup the Scala Stream Collector now!] [scala-stream-collector]
-4. [Setup SnowCannon now!] [snowcannon] **(not recommended)**
 
 Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
