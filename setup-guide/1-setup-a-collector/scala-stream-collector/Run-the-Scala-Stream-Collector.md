@@ -1,10 +1,16 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](setting-up-the-Scala-Stream-Collector) > [[Run the Scala Stream Collector]]
 
-`java` is used to invoke the Scala Stream collector, which takes the configuration file as a parameter:
+## Dependencies
 
-    java -jar snowplow-stream-collector-[version].jar --config my.conf
+You will need version 7 (aka 1.7) of the Java Runtime Environment installed.
 
-This will start the collector as a HTTP service and write serialized Thrift records to Kinesis.
+## Running
+
+The Scala Stream Collector is an executable jarfile which should be runnable from any Unix-like shell environment. Simply provide the configuration file as a parameter:
+
+    $ ./snowplow-stream-collector-[version] --config my.conf
+
+This will start the collector as a HTTP service and write serialized Thrift records to either stdout or Kinesis, depending on your configuration.
 
 ## All done?
 

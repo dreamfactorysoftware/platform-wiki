@@ -2,10 +2,10 @@
 
 You can choose to either:
 
-1. Download the Scala Stream collector jar file, _or:_
+1. Download the Scala Stream collector executable jar file, _or:_
 2. Compile it from source
 
-## Download the jar file
+## Download the executable jar file
 
 To get a local copy, you can download the jar file directly from our hosted assets bucket on Amazon S3 - please see our [Hosted assets][s3-download] page for details.
 
@@ -25,7 +25,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 	$ sbt assembly
 
-The `jar` file will be saved as `snowplow-scala-collector-[version].jar` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
+The `jar` file will be saved as `snowplow-scala-collector-[version]` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
 Next: [[Configure the Scala Stream Collector]]
 
