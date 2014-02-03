@@ -40,8 +40,6 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 
 [Return to the setup guide] [setup-guide].
 
-
-
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
 [scala-stream-collector]: Setting-up-the-Scala-stream-Collector
