@@ -6,7 +6,7 @@ The Scala Stream Collector is an executable jarfile which should be runnable fro
 
     $ ./snowplow-stream-collector-0.1.0 --config my.conf
 
-This will start the collector as a HTTP service and write serialized Thrift records to either stdout or Kinesis, depending on your configuration.
+This will start the collector as a HTTP service and write serialized Thrift records to either `stdout` or Kinesis, depending on your configuration.
 
 ## All done?
 
