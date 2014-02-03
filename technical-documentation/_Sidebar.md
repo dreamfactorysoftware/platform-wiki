@@ -13,15 +13,14 @@
 [Overview](collectors)  
 [Cloudfront collector](cloudfront-collector)  
 [Clojure collector (Elastic Beanstalk)](Clojure-collector)   
-[Scala Stream collector](Scala-stream-collector)  
-[SnowCannon (node.js)](snowcannon)  
+[Scala Stream Collector](Scala-stream-collector)  
 
 **[B. Collector logging formats](Collector-logging-formats)**  
 
 **3. Enrich**  
 [Overview](Enrichment)  
 [EmrEtlRunner](EmrEtlRunner)  
-[Scala Kinesis Enrich] (Scala-Kinesis-Enrich)
+[Scala Kinesis Enrich](Scala-Kinesis-Enrich)
 
 **[C. Canonical Snowplow event model](canonical-event-model)**  
 
