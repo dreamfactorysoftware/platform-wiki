@@ -19,16 +19,16 @@ Values that must be configured are:
 + `enrich.aws.access-key`
 + `enrich.aws.secret-key`
 
-### Configuring source
+### Source
 
 The `enrich.source` setting determines which of the supported sources to read raw Snowplow events from:
 
 + `"kinesis`" for reading Thrift-serialized records from a named Amazon Kinesis stream
 + `"stdin`" for reading Base64-encoded Thrift-serialized records from the app's own `stdin` I/O stream
 
-If you select `"kinesis"`, you need to set `enrich.streams.in` to the name of your raw Snowplow event stream as specified when you [configured the Scala Stream Collector](Configure-the-Scala-Stream-Collector).
+If you select `"kinesis"`, you need to set `enrich.streams.in` to the name of your raw Snowplow event stream [configured in your Scala Stream Collector](Configure-the-Scala-Stream-Collector).
 
-### Configuring sinks
+### Sinks
 
 The `enrich.sink` setting determines which of the supported sinks to write enriched Snowplow events to:
 
