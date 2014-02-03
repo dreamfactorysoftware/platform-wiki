@@ -42,19 +42,23 @@ The Scala Hadoop Enrich process uses a single jarfile containing the MapReduce j
 
 Right-click on this [Download link] [jar-download] to save it down locally.
 
-The Hadoop ETL process itself makes use of the free [GeoLite City database] [geolite] from [MaxMind, Inc] [maxmind], also stored in this public Amazon S3 bucket:
-
-    s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
-
-Right-click on this [Download link] [glc-download] to save it down locally.
-
-This file is updated every month by the Snowplow Analytics team.
-
 ### 3.2 Scala Kinesis Enrich resources
 
 The Scala Kinesis Enrich process is packaged as an executable jarfile:
 
     s3://snowplow-hosted-assets/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
+
+### 3.3 Shared resources
+
+#### 3.31. MaxMind GeoLiteCity
+
+Both Enrichment processes make use of the free [GeoLite City database] [geolite] from [MaxMind, Inc] [maxmind], also stored in this public Amazon S3 bucket:
+
+    s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
+
+This file is updated every month by the Snowplow Analytics team.
+
+If you are running Scala Kinesis Enrich **only**, you will need a local copy of this file. Right-click on this [Download link] [glc-download] to save it down locally.
 
 ## 4. Storage
 
