@@ -15,12 +15,8 @@
 
 This guide covers how to setup Scala Kinesis Enrich.
 
-1. [Installation] [installation]. You need to install Scala Kinesis Enrich on your own server. It will interact with Amazon Kinesis via the Amazon API
-2. [Configuration] [config]. How to use Scala Kinesis Enrich at the command line, to instruct it to process data from your collector
-3. [Running] [running].
+1. [Installation](Install-Scala-Kinesis-Enrich) - you need to install Scala Kinesis Enrich on your own server. It will interact with Amazon Kinesis via the Amazon API
+2. [Configuration](Configure-Scala-Kinesis-Enrich) - how to use Scala Kinesis Enrich at the command line, to instruct it to process data from your collector
+3. [Running](Run-Scala-Kinesis-Enrich) - how to run Scala Kinesis Enrich
 
-[scala-kinesis-enrich]: https://github.com/snowplow/snowplow/tree/master/3-enrich/emr-etl-runner
-
-[installation]: Installing-Scala-Kinesis-Enrich
-[config]: Configuring-Scala-Kinesis-Enrich
-[running]: Running-Scala-Kinesis-Enrich
+[scala-kinesis-enrich]: https://github.com/snowplow/snowplow/tree/master/3-enrich/scala-kinesis-enrich
