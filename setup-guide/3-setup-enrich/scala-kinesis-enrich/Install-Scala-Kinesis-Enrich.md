@@ -21,6 +21,10 @@ You can choose to either:
 
 To get a local copy, you can download the executable jarfile directly from our Hosted Assets bucket on Amazon S3 - please see our [[Hosted assets]] page for details.
 
+You will need to add the executable flag onto the file:
+
+    $ chmod +x snowplow-kinesis-enrich-0.1.0
+
 ## 3.2 Compile from source
 
 Alternatively, you can build it from the source files. To do so, you will need [scala][scala] and [sbt][sbt] installed. 
@@ -37,7 +41,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 	$ sbt assembly
 
-The `jar` file will be saved as `snowplow-scala-collector-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
+The `jar` file will be saved as `snowplow-kinesis-enrich-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
 Next: [[Configuring Scala Kinesis Enrich]]
 
