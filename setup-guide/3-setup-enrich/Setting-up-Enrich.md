@@ -7,23 +7,21 @@
 A Snowplow Enrich application processes data from a [Snowplow Collector](Setting-up-a-Collector),
 and [stores enriched data](Setting-up-alternative-data-storage) in a persistent database.
 
-1. [Choose a Collector](#choose)
-2. [Setup your Collector](#setup)
+1. [Choose a Enrichment process](#choose)
+2. [Setup your Enrichment process](#setup)
 
 <a name="choose" />
-## 1. Choose a Collector
+## 1. Choose an Enrichment process
 
-There are currently two collectors available for setup:
+There are currently two Enrichment processes available for setup:
 
 | **Collector**                                  | **Description**                                     | **Status**       |
 |:-----------------------------------------------|:----------------------------------------------------|:-----------------|
 | [EmrEtlRunner](setting-up-EmrEtlRunner)        | An application that parses logs from a Collector and stores enriched events to S3 | Production-ready |
 | [Scala Kinesis Enrich](setting-up-scala-kinesis-enrich) | A Scala application that reads Thrift events from a Kinesis stream and outputs back to a Kinesis stream | Beta |
 
-For other collectors and their approximate timelines, please see the [Product roadmap](Product-roadmap).
-
 <a name="setup" />
-## 2. Setup your Collectors
+## 2. Setup your Enrichment
 
 1. [Setup EmrEtlRunner](setting-up-EmrEtlRunner)
 2. [Setup Scala Kinesis Enrich](setting-up-scala-kinesis-enrich)
