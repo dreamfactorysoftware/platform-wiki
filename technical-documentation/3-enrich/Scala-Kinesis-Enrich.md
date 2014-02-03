@@ -7,7 +7,7 @@ Scala Kinesis Enrich is a Kinesis app, written in Scala and using the Kinesis Cl
 2. **Enriches** each event (e.g. infers the location of the user from his/her IP address)
 3. **Writes** the enriched Snowplow event to another Kinesis stream
 
-It is designed to be used in concert with the [[Scala Stream Collector]].
+It is designed to be used downstream of the [[Scala Stream Collector]].
 
 It also supports reading raw events from `stdio` and writing enriched events to `stdout`, which is useful for debugging.
 
