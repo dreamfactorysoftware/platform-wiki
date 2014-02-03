@@ -44,6 +44,7 @@ out: {
   bad: "SnowplowBad" # Not used until #463
   bad_shards: 1 # Number of shards to use if created.
 }
+```
 
 Note that the Scala Kinesis Enrich does not yet support writing out bad rows to a dedicated Kinesis stream - so for now you can ignore those settings and simply configure the `enriched` and `enriched_shards` fields.
 
@@ -59,6 +60,6 @@ Next, make sure that the `enrich.enrichments.geo_ip.maxmind_file` configuration 
     }
 ```
 
-Next: [Run Scala Kinesis Enrich](Running-scala-kinesis-enrich)
+Next: [[Run Scala Kinesis Enrich]]
 
 [app-conf]: https://github.com/snowplow/snowplow/blob/master/3-enrich/scala-kinesis-enrich/src/main/resources/default.conf

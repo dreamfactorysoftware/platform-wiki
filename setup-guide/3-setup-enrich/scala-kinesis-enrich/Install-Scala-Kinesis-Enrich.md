@@ -43,7 +43,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 The `jar` file will be saved as `snowplow-kinesis-enrich-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
-Next: [[Configuring Scala Kinesis Enrich]]
+Next: [[Configure Scala Kinesis Enrich]]
 
 [scala]: http://scala-lang.org/
 [sbt]: http://www.scala-sbt.org/
