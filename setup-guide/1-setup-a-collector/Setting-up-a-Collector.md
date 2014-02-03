@@ -19,7 +19,6 @@ There are currently three collectors available:
 | [Cloudfront Collector] [cloudfront-collector]  | A simple, robust and scalable collector powered by AWS Cloudfront | Production-ready |
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Production-ready |
 | [Scala Stream Collector] [scala-stream-collector]        | A Scala-based collector that enables user tracking across domains. Powered by Amazon Kinesis | Beta |
-| [SnowCannon (node.js)] [snowcannon]            | A real-time, node.js based collector that enables user tracking across domains | Unsupported |
 
 ### Are you setting up Snowplow to track users across a single domain, or multiple domains?
 
@@ -46,7 +45,6 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
 [scala-stream-collector]: Setting-up-the-Scala-stream-Collector
-[snowcannon]: SnowCannon-setup-guide
 [setup-guide]: Setting-up-Snowplow
 [tracker-setup]: Setting-up-Snowplow#wiki-step2
 [emretlrunner]: Setting-up-Snowplow#wiki-step3
