@@ -1,15 +1,21 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](Setting-up-the-Scala-Stream-Collector) > [[Install the Scala Stream Collector]]
 
+## 1. Dependencies
+
+You will need version 7 (aka 1.7) of the Java Runtime Environment installed.
+
+## 2. Installing the executable jarfile
+
 You can choose to either:
 
-1. Download the Scala Stream collector executable jar file, _or:_
+1. Download the Scala Stream collector executable jarfile, _or:_
 2. Compile it from source
 
-## Download the executable jar file
+## 2.1 Download the executable jarfile
 
-To get a local copy, you can download the jar file directly from our hosted assets bucket on Amazon S3 - please see our [Hosted assets][s3-download] page for details.
+To get a local copy, you can download the jarfile directly from our hosted assets bucket on Amazon S3 - please see our [[Hosted assets]] page for details.
 
-## Compile from source
+## 2.2 Compile from source
 
 Alternatively, you can build it from the source files. To do so, you will need [scala][scala] and [sbt][sbt] installed. 
 
@@ -25,7 +31,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 	$ sbt assembly
 
-The `jar` file will be saved as `snowplow-scala-collector-[version]` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
+The `jar` file will be saved as `snowplow-scala-collector-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
 Next: [[Configure the Scala Stream Collector]]
 

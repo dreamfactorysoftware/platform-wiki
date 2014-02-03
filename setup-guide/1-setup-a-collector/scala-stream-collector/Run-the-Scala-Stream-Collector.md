@@ -1,9 +1,5 @@
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](setting-up-the-Scala-Stream-Collector) > [[Run the Scala Stream Collector]]
 
-## Dependencies
-
-You will need version 7 (aka 1.7) of the Java Runtime Environment installed.
-
 ## Running
 
 The Scala Stream Collector is an executable jarfile which should be runnable from any Unix-like shell environment. Simply provide the configuration file as a parameter:

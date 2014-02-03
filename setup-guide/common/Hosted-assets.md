@@ -16,19 +16,27 @@ The minified JavaScript tracker is hosted on CloudFront:
 
 ## 2. Collectors
 
-### 2.1 Clojure collector resources
+### 2.1 Clojure Collector resources
 
-The Clojure collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
+The Clojure Collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
 
     s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
 
 Right-click on this [Download link] [war-download] to save it down locally.
 
+### 2.2 Scala Stream Collector resources
+
+The Scala Stream Collector is packaged as an executable jarfile:
+
+    s3://snowplow-hosted-assets/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
+
+Right-click on this [Download link] [ssc-download] to save it down locally.
+
 ## 3. Enrich
 
-### 3.1 Hadoop Enrichment resources
+### 3.1 Scala Hadoop Enrich resources
 
-The Hadoop ETL process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
+The Scala Hadoop Enrich process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hive ETL process on Amazon EMR:
 
     s3://snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
 
@@ -38,7 +46,15 @@ The Hadoop ETL process itself makes use of the free [GeoLite City database] [geo
 
     s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
 
+Right-click on this [Download link] [glc-download] to save it down locally.
+
 This file is updated every month by the Snowplow Analytics team.
+
+### 3.2 Scala Kinesis Enrich resources
+
+The Scala Kinesis Enrich process is packaged as an executable jarfile:
+
+    s3://snowplow-hosted-assets/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
 
 ## 4. Storage
 

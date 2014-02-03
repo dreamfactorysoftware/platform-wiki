@@ -2,13 +2,13 @@
 
 [**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [3: Running](Running-Scala-Kinesis-Enrich)
 
-`java` is used to invoke Scala Kinesis Enrich,
-which takes the configuration file as a parameter:
+## Running
 
-    java -jar scala-kinesis-enrich-[version].jar --config my.conf
+Scala Kinesis Enrich is an executable jarfile which should be runnable from any Unix-like shell environment. Simply provide the configuration file as a parameter:
 
-This will start the Kinesis enricher to read and write Thrift records
-to and from Kinesis.
+    $ ./scala-kinesis-enrich-0.1.0 --config my.conf
+
+This will start the Scala Kinesis Enrich app to read raw events from Kinesis and write enriched events back to Kinesis.
 
 ## All done?
 
