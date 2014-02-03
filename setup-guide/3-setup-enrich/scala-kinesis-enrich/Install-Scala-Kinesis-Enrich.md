@@ -17,7 +17,7 @@ You can choose to either:
 1. Download the Scala Kinesis Enrich executable jarfile, _or:_
 2. Compile it from source
 
-## 3.1 Download the executable jarfile
+### 3.1 Download the executable jarfile
 
 To get a local copy, you can download the executable jarfile directly from our Hosted Assets bucket on Amazon S3 - please see our [[Hosted assets]] page for details.
 
@@ -25,7 +25,7 @@ You will need to add the executable flag onto the file:
 
     $ chmod +x snowplow-kinesis-enrich-0.1.0
 
-## 3.2 Compile from source
+### 3.2 Compile from source
 
 Alternatively, you can build it from the source files. To do so, you will need [scala][scala] and [sbt][sbt] installed. 
 

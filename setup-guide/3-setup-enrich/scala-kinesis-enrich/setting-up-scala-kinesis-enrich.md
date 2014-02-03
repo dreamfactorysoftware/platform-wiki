@@ -13,7 +13,7 @@
 2. **Enriches** each event (e.g. infers the location of the user from his/her IP address)
 3. **Writes** the enriched Snowplow event to another Kinesis stream
 
-This guide covers how to setup Scala Kinesis Enrich.
+This guide covers how to setup Scala Kinesis Enrich, specifically:
 
 1. [Installation](Install-Scala-Kinesis-Enrich) - you need to install Scala Kinesis Enrich on your own server. It will interact with Amazon Kinesis via the Amazon API
 2. [Configuration](Configure-Scala-Kinesis-Enrich) - how to use Scala Kinesis Enrich at the command line, to instruct it to process data from your collector
