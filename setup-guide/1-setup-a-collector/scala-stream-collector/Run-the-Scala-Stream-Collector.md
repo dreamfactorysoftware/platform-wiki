@@ -8,7 +8,7 @@ You will need version 7 (aka 1.7) of the Java Runtime Environment installed.
 
 The Scala Stream Collector is an executable jarfile which should be runnable from any Unix-like shell environment. Simply provide the configuration file as a parameter:
 
-    $ ./snowplow-stream-collector-[version] --config my.conf
+    $ ./snowplow-stream-collector-0.1.0 --config my.conf
 
 This will start the collector as a HTTP service and write serialized Thrift records to either stdout or Kinesis, depending on your configuration.
 
