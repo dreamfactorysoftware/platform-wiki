@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Scala Stream Ccollector is a Snowplow event collector for [Snowplow] [snowplow], written in Scala. The Scala Stream Collector allows near-real time processing (Enrichment, Storage, Analytics) of a Snowplow raw event stream.
+The Scala Stream Collector is a Snowplow event collector for [Snowplow] [snowplow], written in Scala. The Scala Stream Collector allows near-real time processing (Enrichment, Storage, Analytics) of a Snowplow raw event stream.
 
 The Scala Stream Collector receives raw Snowplow events over HTTP, serializes them to a [Thrift][thrift] record format, and then writes them to a sink. Currently supported sinks are:
 
