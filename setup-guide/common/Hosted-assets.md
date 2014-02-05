@@ -22,7 +22,7 @@ The Clojure Collector packaged as a complete WAR file, ready for Amazon Elastic 
 
     s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
 
-Right-click on this [Download link] [cc-download] to save it down locally.
+Right-click on this [Download link] [cc-download] to save it down locally via CloudFront CDN.
 
 ### 2.2 Scala Stream Collector resources
 
@@ -30,7 +30,7 @@ The Scala Stream Collector is packaged as an executable jarfile:
 
     s3://snowplow-hosted-assets/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
 
-Right-click on this [Download link] [ssc-download] to save it down locally.
+Right-click on this [Download link] [ssc-download] to save it down locally via CloudFront CDN.
 
 ## 3. Enrich
 
@@ -40,7 +40,7 @@ The Scala Hadoop Enrich process uses a single jarfile containing the MapReduce j
 
     s3://snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
 
-Right-click on this [Download link] [hadoop-enrich-download] to save it down locally.
+Right-click on this [Download link] [hadoop-enrich-download] to save it down locally via CloudFront CDN.
 
 ### 3.2 Scala Kinesis Enrich resources
 
@@ -48,7 +48,7 @@ The Scala Kinesis Enrich process is packaged as an executable jarfile:
 
     s3://snowplow-hosted-assets/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
 
-Right-click on this [Download link] [kinesis-enrich-download] to save it down locally.
+Right-click on this [Download link] [kinesis-enrich-download] to save it down locally via CloudFront CDN.
 
 ### 3.3 Shared resources
 
@@ -60,7 +60,7 @@ Both Enrichment processes make use of the free [GeoLite City database] [geolite]
 
 This file is updated every month by the Snowplow Analytics team.
 
-If you are running Scala Kinesis Enrich, you will need a local copy of this file. Right-click on this [Download link] [glc-download] to save it down locally.
+If you are running Scala Kinesis Enrich, you will need a local copy of this file. Right-click on this [Download link] [glc-download] to save it down locally via CloudFront CDN.
 
 ## 4. Storage
 
@@ -77,10 +77,10 @@ As well as these hosted assets for running Snowplow, the Snowplow Analytics team
 Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
-[cc-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
-[ssc-download]: http://snowplow-hosted-assets.s3.amazonaws.com/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
-[hadoop-enrich-download]: http://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
-[kinesis-enrich-download]: http://snowplow-hosted-assets.s3.amazonaws.com/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
-[glc-download]: http://snowplow-hosted-assets.s3.amazonaws.com/third-party/maxmind/GeoLiteCity.dat
+[cc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
+[ssc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
+[hadoop-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
+[kinesis-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
+[glc-download]: http://d2io1hx8u877l0.cloudfront.net/third-party/maxmind/GeoLiteCity.dat
 [geolite]: http://dev.maxmind.com/geoip/legacy/geolite
 [maxmind]: http://www.maxmind.com/
