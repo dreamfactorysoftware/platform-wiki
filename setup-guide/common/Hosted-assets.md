@@ -10,11 +10,15 @@ The **current versions** of the assets hosted by the Snowplow Analytics team are
 
 ### 1.1 JavaScript Tracker resources
 
-The minified JavaScript tracker is hosted on CloudFront:
+The minified JavaScript tracker is hosted on CloudFront against its full semantic version:
 
     http(s)://d1fc8wv8zag5ca.cloudfront.net/0.13.1/sp.js
 
-## 2. Collectors
+It is also available as:
+
+    http(s)://d1fc8wv8zag5ca.cloudfront.net/0/sp.js
+
+where 0 is the semantic MAJOR version. If you prefer, you can use this URI path and then get new features and bug fixes automatically as we roll-out MINOR and PATCH updates to the tracker.
 
 ### 2.1 Clojure Collector resources
 
