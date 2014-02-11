@@ -43,9 +43,9 @@ If you are using the free GeoCityLite version of the MaxMind database, then down
 
     s3://[mycompanyname]-snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
 
-If you are using a commercial version of the MaxMind GeoCity database, then download it from your MaxMind account and upload it to:
+If you are using a commercial version of the MaxMind GeoCity database, then download it from your MaxMind account and upload it into this directory:
 
-    s3://[mycompanyname]-snowplow-hosted-assets/third-party/maxmind
+    s3://[mycompanyname]-snowplow-hosted-assets/third-party/maxmind/
 
 **Please note:** MaxMind releases an updated version of the GeoCity database each month, so be sure to keep your version up-to-date.
 
