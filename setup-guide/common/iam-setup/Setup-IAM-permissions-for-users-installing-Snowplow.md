@@ -76,6 +76,15 @@ Now paste the following JSON into the _Policy Document_ text area:
     },
     {
       "Action": [
+        "ec2:*"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
         "cloudfront:CreateDistribution"
       ],
       "Resource": [
