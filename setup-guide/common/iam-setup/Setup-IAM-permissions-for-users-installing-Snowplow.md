@@ -45,7 +45,7 @@ Now we need to give permissions on:
 * Amazon S3: _All Actions (*)_
 * Amazon EMR: _All Actions (*)_
 * Amazon EC2: _All Actions (*)_
-* Amazon CloudFront: _CreateDistribution_
+* Amazon CloudFront: _All Actions (*)_ 
 * Amazon Elastic Beanstalk: _All Actions (*)_
 * Amazon Redshift: _All Actions (*)_
 
@@ -86,7 +86,7 @@ Now paste the following JSON into the _Policy Document_ text area:
     },
     {
       "Action": [
-        "cloudfront:CreateDistribution"
+        "cloudfront:*"
       ],
       "Resource": [
         "*"
