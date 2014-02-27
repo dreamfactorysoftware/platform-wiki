@@ -51,7 +51,7 @@ EmrEtlRunner moves the Snowplow event data through four distinct buckets during 
 
 You will have already setup the In Bucket when you were configuring your Snowplow collector - but the other three buckets do not exist yet. 
 
-**Important:** Please note that currently Redshift can only load from buckets in the US region, so you will need to locate your **Out Bucket** in "us-east-1" region if you are using Redshift. (This is because Redshift is only currently available in the 'us-east-1' region, and Redshift only supports bulk loading from S3 in the same region as Redshift is located.)
+**Important:** Please note that currently Redshift can only load from buckets in the same region as the Redshift instance, so you will need to locate your **Out Bucket** and Redshift clusters in the same region. 
 
 So, create the other three buckets in the same AWS region as your In Bucket. Take a note of the buckets' names as you will need to use these buckets shortly.
 
