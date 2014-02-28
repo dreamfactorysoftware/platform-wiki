@@ -86,13 +86,16 @@ Now paste the following JSON into the _Policy Document_ text area:
     },
     {
       "Action": [
-        "cloudfront:*"
+        "cloudfront:CreateDistribution",
+        "cloudfront:Get*",
+        "cloudfront:List*"
       ],
       "Resource": [
         "*"
       ],
       "Effect": "Allow"
     },
+ 
     {
       "Action": [
         "elasticbeanstalk:*"
