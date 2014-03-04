@@ -42,12 +42,13 @@ Let's give it a _Policy Name_ of `snowplow-policy-setup-infrastructure`:
 
 Now we need to give permissions on:
 
-* Amazon S3: _All Actions (*)_
-* Amazon EMR: _All Actions (*)_
-* Amazon EC2: _All Actions (*)_
-* Amazon CloudFront: _All Actions (*)_ 
-* Amazon Elastic Beanstalk: _All Actions (*)_
-* Amazon Redshift: _All Actions (*)_
+* Amazon S3
+* Amazon EMR
+* Amazon EC2
+* Amazon CloudFront
+* Amazon Elastic Beanstalk
+* Amazon Redshift
+* Amazon Cloudformation (experimental)
 
 These permissions are set out in the following policy document. **If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section.**
 
@@ -95,7 +96,15 @@ Now paste the following JSON into the _Policy Document_ text area:
       ],
       "Effect": "Allow"
     },
- 
+    {
+      "Action": [
+        "cloudformation:*"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow"
+    },
     {
       "Action": [
         "elasticbeanstalk:*"
@@ -111,6 +120,15 @@ Now paste the following JSON into the _Policy Document_ text area:
       ],
       "Resource": [
         "*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "cloudformation:*"
+      ],
+      "Resource": [
+       "*"
       ],
       "Effect": "Allow"
     }
