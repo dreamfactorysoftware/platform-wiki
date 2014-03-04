@@ -44,11 +44,13 @@ Now we need to give permissions on:
 
 * Amazon S3
 * Amazon EMR
-* Amazon EC2
-* Amazon CloudFront
-* Amazon Elastic Beanstalk
-* Amazon Redshift
+* Amazon EC2 (required for EmrEtlRunner / StorageLoader)
+* Amazon Marketplaces (required for EmrEtlRunner / StorageLoader)
+* Amazon CloudFront (requried for Cloudfront collector)
+* Amazon Elastic Beanstalk (required for Clojure collector)
+* Amazon Redshift (required for Redshift)
 * Amazon Cloudformation (experimental)
+
 
 These permissions are set out in the following policy document. **If you are not using the Clojure Collector, you can remove the Elastic Beanstalk section.**
 
@@ -99,6 +101,17 @@ Now paste the following JSON into the _Policy Document_ text area:
     {
       "Action": [
         "cloudformation:*"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "aws-marketplace:ViewSubscriptions",
+        "aws-marketplace:Subscribe",
+        "aws-marketplace:Unsubscribe"
       ],
       "Resource": [
         "*"
