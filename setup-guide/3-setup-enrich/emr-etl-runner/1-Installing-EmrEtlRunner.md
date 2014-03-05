@@ -27,7 +27,7 @@ You will need to setup EmrEtlRunner on your own server. A number of people choos
 To install EmrEtlRunner, first make sure that your server has **all** of the following installed:
 
 1. **Git** - see the [Git Installation Guide] [git-install]
-2. **Ruby and RVM*** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup)
+2. **Ruby and RVM*** - see our [Ruby and RVM setup guide](Ruby-and-RVM-setup). Both EmrEtlRunner and StorageLoader require Ruby 1.9.3
 
 \* If you prefer, an alternative Ruby manager such as chruby or rbenv should work fine too.
 
