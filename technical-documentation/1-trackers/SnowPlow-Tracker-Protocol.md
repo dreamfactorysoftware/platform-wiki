@@ -49,6 +49,7 @@ In the [first part of this guide](#common), we cover the parameters in the Snowp
 
 | **Parameter** | **Maps to**      | **Type** |**Description**               | **Implemented?** | **Example values**        | 
 |:--------------|:-----------------|:---------|:------------------------------|:-----------------|:--------------------------|
+| `tna`         | N/A              | text     | The tracker namespace. (Useful for users running multiple trackers, pinging to different collectors). Note that the name can be any string that *does not* contain a colon or semi-colon character |
 | `aid`         | `app_id`         | text     | Unique identifier for website / application    | Yes | `angry-birds-android` |
 | `p`           | `platform`       | text     | The platform the app runs on  | No               | `web`, `mob`, `app`      |
 
