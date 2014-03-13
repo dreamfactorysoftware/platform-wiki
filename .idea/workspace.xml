@@ -25,7 +25,19 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a35938e-2ee9-43a7-b0de-a8519f28c2d0" name="Default" comment="" />
+    <list default="true" id="2a35938e-2ee9-43a7-b0de-a8519f28c2d0" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Developer-FAQ.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Product-roadmap.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Snowplow-overview.md" afterPath="$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Technical-architecture.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/_Sidebar.md" afterPath="$PROJECT_DIR$/about-dreamfactory/_Sidebar.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/bizspark_logo.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/bizspark_logo.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/conceptual-architecture.png" afterPath="$PROJECT_DIR$/about-dreamfactory/images/conceptual-architecture.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/navicat_logo.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/navicat_logo.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/technical-architecture.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/technical-architecture.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/thanks/Software-and-services-thanks.md" afterPath="$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="dsp-core.wiki.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +58,21 @@
     <favorites_list name="dsp-core.wiki" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="_Sidebar.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/about-dreamfactory/_Sidebar.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.37887067" vertical-offset="0" max-vertical-offset="549">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -55,6 +81,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/about-dreamfactory/_Sidebar.md" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -104,6 +137,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dsp-core.wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsp-core.wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsp-core.wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technical-documentation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -190,6 +237,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42780748" vertical-offset="0" max-vertical-offset="561">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/_Sidebar.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37887067" vertical-offset="0" max-vertical-offset="549">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
