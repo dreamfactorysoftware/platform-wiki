@@ -36,7 +36,7 @@ Logging events should be disabled in production unless you're troubleshooting so
 [2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.read" triggered by /system/config/ [] []
 [2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.get.post_process" triggered by /system/config/ [] []
 [2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.get.after_data_format" triggered by /system/config/ [] []
-``` Example output of dsp.log_all_events enabled
+```
 
 ## Event Types
 
