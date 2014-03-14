@@ -12,5 +12,5 @@
 - [Contributors](Our-contributors)
 
 **External resources**
-- [DreamFactory Analytics website](https://www.dreamfactory.com)
+- [DreamFactory website](https://www.dreamfactory.com)
 - [DreamFactory Google Group](https://groups.google.com/forum/#!forum/dsp-devs)
