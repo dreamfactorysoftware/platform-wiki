@@ -4,7 +4,7 @@ Once a DSP (the **server**) is up and running, it throws a variety of events. Th
 
 > We leveraged the [Symfony EventDispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component for our event system. Not only is this a tried and true event dispatching component, it is used by many projects in the ecosystem. This makes the server less coupled and integration with other packages easier.
  
-The server also supplies an [**event service**] [system-event-service] which provides complete event/listener management via REST. The [**event service**][system-event-service] also works in tandem with the [**script**] [system-script-service] service to run any [server-side scripts] [server-side-scripting] that have been enabled.
+The server also supplies an **[[event service|system-event-service]]** which provides complete event/listener management via REST. The [**event service**][system-event-service] also works in tandem with the [**script**] [system-script-service] service to run any [server-side scripts] [server-side-scripting] that have been enabled.
 
 That's a lot to absorb so we'll break it down for you.
 
