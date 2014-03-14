@@ -17,6 +17,27 @@ Event logging can be affected by changing the values in `config/common.config.ph
 | `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it written to the DSP log. |
 | `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the ```dsp.log_events``` setting. |
 
+Logging events should be disabled in production unless you're troubleshooting something. Below is a sampling of the all events logged.
+
+```
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.pre_process" triggered by /system/config [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.read" triggered by /system/config [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.post_process" triggered by /system/config [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.after_data_format" triggered by /system/config [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.pre_process" triggered by /user/session [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.read" triggered by /user/session [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.post_process" triggered by /user/session [] []
+[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.after_data_format" triggered by /user/session [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.pre_process" triggered by /system/service/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "services.list" triggered by /system/service/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.post_process" triggered by /system/service/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.after_data_format" triggered by /system/service/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.get.pre_process" triggered by /system/config/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.read" triggered by /system/config/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.get.post_process" triggered by /system/config/ [] []
+[2014-03-14 11:17:33] app.DEBUG: Triggered: event "config.get.after_data_format" triggered by /system/config/ [] []
+``` Example output of dsp.log_all_events enabled
+
 ## Event Types
 
 There are three categories of events:
@@ -29,8 +50,14 @@ The entire event model is generated dynamically at run time. It is defined in th
 
 ### REST Events
 
-REST events are generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where event is either `pre_process`, `post_process`, and `after_data_format`. 
+REST events are dynamically generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where event is either `pre_process`, `post_process`, and `after_data_format`. 
 
+Some examples are:
+
+  * user.get.pre_process
+  * db.
+
+  
 > This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
 
 ### Platform Events
