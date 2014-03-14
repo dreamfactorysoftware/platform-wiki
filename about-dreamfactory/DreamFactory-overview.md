@@ -21,7 +21,7 @@ This wiki is the main source of documentation for **developers** working with (o
 * [[About DreamFactory|DreamFactory-overview]] (this section) - introducing DreamFactory, why we built it and what it does
 * [[Project and Community|DreamFactory-project-and-community]] - the open-source project, our community and how to contribute
 * [[Setup Guide|Setting-up-dreamfactory]] - a step-by-step guide to setting up and running DreamFactory
-* [[Technical Documentation|DreamFactory-technical-documentation]] - technical documentation on DreamFactory and its five sub-systems
+* [[Technical Documentation|dsp-documentation]] - technical documentation on DreamFactory and its five sub-systems
 
 ### Additional support / resources
 

@@ -5,9 +5,6 @@
 
 **2. API**
 [Overview](collectors)
-[Cloudfront collector](cloudfront-collector)
-[Clojure collector (Elastic Beanstalk)](Clojure-collector)
-[Scala Stream Collector](Scala-stream-collector)
 
 **3. Apps**
 [Overview](overview-apps)

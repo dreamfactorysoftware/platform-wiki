@@ -42,7 +42,7 @@ Very Important : For all future requests to the API, you’ll need to pass the s
 | About DreamFactory             | Project & Community              | Setup Guide          | Technical Documentation                  |
 |----------------------------|---------------------------------|-------------------------------|---------------------------|
 | [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
-| [[About DreamFactory|DreamFactory-overview]] | [[Project & Community|DreamFactory-project-and-community]]       | [[Setup Guide|Setting-up-DreamFactory]] | [[Technical Documentation|DreamFactory-technical-documentation]]|
+| [[About DreamFactory|DreamFactory-overview]] | [[Project & Community|DreamFactory-project-and-community]]       | [[Setup Guide|Setting-up-DreamFactory]] | [[Technical Documentation|dsp-documentation]]|
 | DreamFactory Services Platform&trade; - why we built it and what it does | About the open-source project, our community and how to contribute | A step-by-step guide to running a DSP | Detailed technical documentation on the platform |
 
 ## Questions or need help?
