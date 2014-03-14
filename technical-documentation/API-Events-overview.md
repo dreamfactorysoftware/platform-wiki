@@ -1,6 +1,8 @@
 # Events
 
-Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST.
+Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible. 
+
+> We leveraged the [Symfony EventDispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component as our dispatching mechanism. Not only is this a tried and true event dispatching component, it is used by many of the other projects in the ecosystem. This makes the server less coupled and makes integration with other packages less work.
  
 The server also supplies an **event** service which provides complete event/listener management via REST. The **event** service also works in tandem with the [**script**] [system-script-service] service to run any [server-side scripts] [server-side-scripting] that have been enabled.
 
