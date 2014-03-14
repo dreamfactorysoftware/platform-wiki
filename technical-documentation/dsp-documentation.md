@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**DOCUMENTATION**](dsp-documentation)
+[**Home**](Home) */* [**Documentation**](dsp-documentation)
 
 [[technical-architecture]]
 
