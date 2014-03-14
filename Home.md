@@ -19,8 +19,9 @@ During the app building process, you may find yourself using command line tools 
 For instance, to retrieve your DSP's (replace *localhost* with the URL of your DSP if different) configuration with CURL:
 
 ```
-	$ curl -3 http://localhost/rest/system/config?app_name=**api_key**
+$ curl -3 http://localhost/rest/system/config?app_name=**api_key**
 ```
+
 ### Your API Key
 
 Your **API key**, required in REST calls to your DSP, is chosen by you when you create your application. It defaults to the **name** of your application.
@@ -34,7 +35,7 @@ or
 2. Send a custom HTTP header along with your requests. Your DSP will recognize API keys provided in the header **X-DreamFactory-Application-Name**:
 
 ```
-	$ curl -3 http://localhost/rest/system/config?app_name=**api_key**
+$ curl  -H 'X-DreamFactory-Application-Name: **api_key**' -3 http://localhost/rest/system/config
 ```
 
 ### Authentication
