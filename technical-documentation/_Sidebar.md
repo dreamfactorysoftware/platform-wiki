@@ -22,7 +22,7 @@
     [Overview](overview-storage)
     
   **Events**    
-    [WIP[Overview|API Events overview]]
+    [[Overview|API Events overview]]
 
 **Miscellaneous**    
   [[Artifact repositories]]
