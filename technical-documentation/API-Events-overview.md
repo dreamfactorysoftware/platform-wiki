@@ -117,11 +117,17 @@ You, the server-side developer, can create and respond to your own events. We ar
 
 ## Listening For Events
 
-In order to find out if an event has occurred, you must deploy an event *listener*. This can take a few different forms.
+In order to find out if an event has occurred, you must deploy an event *listener*. Listeners generally live within the server code itself. Listeners can be used by your plugins to act on platform events.
 
-### PHP
+You may also wire up an event subscriber. Currently, only PHP subscribers are supported. 
 
-You can deploy a PHP listener class that is called when events it subscribes to are triggered. Below is an example listener class that handles `session.logout` events.
+### PHP Subscriber Example
+
+Below is a sample class that subscribes to the `session` service events. When these events are triggered, via user login and logout, the two methods `onSessionLogin` and `onSessionLogout` are called respectively.
+
+In the constructor, you'll see that we retrieve the event dispatcher instance from the currently running application and add ourselves as a subscriber.
+
+Far more detailed documentation about event subscribers is available in the [[Symfony|http://symfony.com/doc/current/components/event_dispatcher/introduction.html#using-event-subscribers]] documentation.
 
 ```php
 <?php
