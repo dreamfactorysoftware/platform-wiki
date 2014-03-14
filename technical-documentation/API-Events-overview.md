@@ -12,7 +12,7 @@ That's a lot to absorb so we'll break it down for you.
 
 | Setting | Values |
 |---------|--------|
-| `dsp.log_events` | If **true**, after an event has been dispatched, it is written to the DSP log. |
+| `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it written to the DSP log. |
 | `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the ```dsp.log_events``` setting. |
 
 When an event is dispatched, it's identified by a unique name (e.g. kernel.response), which any number of listeners might be listening to. An Event instance is also created and passed to all of the listeners. As you'll see later, the Event object itself often contains data about the event being dispatched.
