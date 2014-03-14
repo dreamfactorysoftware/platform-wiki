@@ -4,25 +4,13 @@
 [Overview](overview)
 
 **API**        
-  [Overview](overview-api)
-  
-  **User Management**        
-    [Overview](overview-users)
-    
-  **System Services**    
-    [Overview](overview-system)
-    
-  **User Services**    
-    [Overview](overview-services)
-    
-  **Applications**    
-    [Overview](overview-apps)
-    
-  **Storage**    
-    [Overview](overview-storage)
-    
-  **Events**    
-    [[Overview|API Events overview]]
+  [**Overview**](overview-api)
+  [**User Management**](overview-users)
+  [**System Services**](overview-system)    
+  [**User Services**](overview-services)
+  [**Applications**](overview-apps)
+  [**Storage**](overview-storage)
+  [[**Events**|API Events overview]]
 
-**Miscellaneous**    
-  [[Artifact repositories]]
+    
+[[**Miscellaneous**|Artifact repositories]]
