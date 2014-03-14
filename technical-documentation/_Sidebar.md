@@ -1,15 +1,12 @@
 [**Home**](Home) <span class="divider">&nbsp;*/*&nbsp;</span> [**Documentation**](technical-documentation)
 
 **Introduction**
-
- [Overview](overview)
+* [Overview](overview)
 
 **API**
-
- [Overview](overview-api)
-
- **User Management**
-  [Overview](overview-users)
+* [Overview](overview-api)
+* **User Management**
+ * [Overview](overview-users)
 
  **System Services**
   [Overview](overview-system)
