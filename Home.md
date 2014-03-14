@@ -20,6 +20,7 @@ For instance, to retrieve your DSP's (replace *localhost* with the URL of your D
 
 ```
 $ curl -3 http://localhost/rest/system/config?app_name=**api_key**
+{"id":1,"created_date":null,"created_by_id":null,"last_modified_date":"2014-03-11 22:46:44","last_modified_by_id":1,"db_version":"1.5.0","allow_open_registration":false,"open_reg_role_id":null,"open_reg_email_service_id":null,"open_reg_email_template_id":null,"invite_email_service_id":null,"invite_email_template_id":null,"password_email_service_id":null,"password_email_template_id":null,"allow_guest_user":false,"guest_role_id":null,"editable_profile_fields":"email,display_name,first_name,last_name,phone,default_app_id,security_question,security_answer","custom_settings":[],"lookup_keys":[],"dsp_version":"1.5.x-dev","latest_version":"1.4.0","upgrade_available":false,"is_guest":true,"allow_admin_remote_logins":false,"allow_remote_logins":false,"allowed_hosts":[]}
 ```
 
 ### Your API Key
@@ -36,6 +37,7 @@ or
 
 ```
 $ curl  -H 'X-DreamFactory-Application-Name: **api_key**' -3 http://localhost/rest/system/config
+{"id":1,"created_date":null,"created_by_id":null,"last_modified_date":"2014-03-11 22:46:44","last_modified_by_id":1,"db_version":"1.5.0","allow_open_registration":false,"open_reg_role_id":null,"open_reg_email_service_id":null,"open_reg_email_template_id":null,"invite_email_service_id":null,"invite_email_template_id":null,"password_email_service_id":null,"password_email_template_id":null,"allow_guest_user":false,"guest_role_id":null,"editable_profile_fields":"email,display_name,first_name,last_name,phone,default_app_id,security_question,security_answer","custom_settings":[],"lookup_keys":[],"dsp_version":"1.5.x-dev","latest_version":"1.4.0","upgrade_available":false,"is_guest":true,"allow_admin_remote_logins":false,"allow_remote_logins":false,"allowed_hosts":[]}
 ```
 
 ### Authentication
