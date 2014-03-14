@@ -10,6 +10,6 @@
 - [**User Services**](overview-services)
 - [**Applications**](overview-apps)
 - [**Storage**](overview-storage)
-- [[**Events**|API Events overview]]
+- [[Events|API Events overview]]
 
-[**Miscellaneous**|Artifact repositories]
+[Miscellaneous|Artifact repositories]
