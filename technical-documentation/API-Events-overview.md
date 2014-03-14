@@ -46,6 +46,15 @@ There are three categories of events:
   
 The entire event model is generated dynamically at run time. It is defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for our Live API. Since the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
 
+All event types contain the following data fields. 
+
+| Field | Type | Description |
+|-------|------|-------------|
+| data | array/hash | Optional data sent by the source. For REST events, this contains the request/response body |
+| event_name | string | The name of the event that was triggered |
+| dispatcher_id | string | The ID of the event dispatcher instance that triggered this event |
+| trigger | string | The request URI that triggered this event |
+
 > This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
 
 ### REST Events
@@ -61,7 +70,16 @@ Some examples are:
 You saw some others in the log sample above. They're pretty straightforward and you shouldn't have any problems figuring out what they represent.
 
 REST events may also carry data from the source of the event. Data from events can be obtained via the event object passed to your listener. The method of retrieval varies depending on the type of listener you have created. But more on this when we talk about listeners.
-  
+
+### REST Event Data
+
+REST events contain two extra data fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| api_name | string | The name of the service/API that was called |
+| resource | string | The resource type requested |
+
 ### Platform Events
 
 Platform events are a boiled down version of REST events and are mapped to specific server operations. These operations are defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for each service.
