@@ -21,7 +21,7 @@ limitations under the License.
 
 The loosely-coupled architecture of DreamFactory makes it easy to swap out individual sub-system implementations for first- or third-party alternatives. For example, in place of the first-party CloudFront collector, you can use the third-party [SnowCannon] [snowcannon] node.js-based collector.
 
-The DreamFactory Analytics team curate some third-party sub-system implementations by git-submoduling those GitHub repositories into the DreamFactory repository - see the [2-collectors] [2-collectors] folder for an example of this.
+The DreamFactory Software team curate some third-party sub-system implementations by git-submoduling those GitHub repositories into the DreamFactory repository - see the [2-collectors] [2-collectors] folder for an example of this.
 
 Please note that third-party, git-submoduled contributions to DreamFactory remain the copyright of their respective authors.
 

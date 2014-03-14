@@ -18,7 +18,7 @@ Current libraries are:
 
 Add an appropriate line to your application's composer.json, for example, to use the [Oasys] [dreamfactory-oasys] library:
 
-```json
+```
 "require": {
 	"dreamfactory/oasys": "*"
 }

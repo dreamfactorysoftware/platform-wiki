@@ -2,7 +2,7 @@
 
 The No-JS tracker (pixel tracker) enables you to track page views of HTML pages where it is not possible to insert standard DreamFactory Javascript tracking tags: for example HTML emails or pages hosted with 3rd party service providers.
 
-The tracker is effectively a wizard that generates an HTML tracking tag based on parameters that you pass into it via a webform. The sourcecode for the wizard is [available on the Github repo] [no-js-tracker-repo]. A hosted version of the wizard is available on the [DreamFactory Analytics website] [no-js-wizard].
+The tracker is effectively a wizard that generates an HTML tracking tag based on parameters that you pass into it via a webform. The sourcecode for the wizard is [available on the Github repo] [no-js-tracker-repo]. A hosted version of the wizard is available on the [DreamFactory Software website] [no-js-wizard].
 
 Using the No-JS tracker is a simple, three step process:
 

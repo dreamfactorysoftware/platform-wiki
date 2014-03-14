@@ -1,10 +1,10 @@
-To simplify setting up and running DreamFactory, the DreamFactory Analytics team provide public hosting for some of the DreamFactory sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for DreamFactory community members.
+To simplify setting up and running DreamFactory, the DreamFactory Software team provide public hosting for some of the DreamFactory sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for DreamFactory community members.
 
 As we release new versions of these assets, we will leave old versions unchanged on their existing URLs - so you won't have to upgrade your own DreamFactory installation unless you want to.
 
 **Disclaimer: While DreamFactory Software, Inc. will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [dreamfactory-repo] and you are encouraged to host them yourselves.**
 
-The **current versions** of the assets hosted by the DreamFactory Analytics team are as follows:
+The **current versions** of the assets hosted by the DreamFactory Software team are as follows:
 
 ## 1. Trackers
 
@@ -62,7 +62,7 @@ Both Enrichment processes make use of the free [GeoLite City database] [geolite]
 
     s3://dreamfactory-hosted-assets/third-party/maxmind/GeoLiteCity.dat
 
-This file is updated every month by the DreamFactory Analytics team.
+This file is updated every month by the DreamFactory Software team.
 
 If you are running Scala Kinesis Enrich, you will need a local copy of this file. Right-click on this [Download link] [glc-download] to save it down locally via CloudFront CDN.
 
@@ -76,7 +76,7 @@ No hosted assets currently.
 
 ## See also
 
-As well as these hosted assets for running DreamFactory, the DreamFactory Analytics team also make code components and libraries available through Ruby and Java artifact repositories.
+As well as these hosted assets for running DreamFactory, the DreamFactory Software team also make code components and libraries available through Ruby and Java artifact repositories.
 
 Please see the [[Artifact repositories]] wiki page for more information.
 

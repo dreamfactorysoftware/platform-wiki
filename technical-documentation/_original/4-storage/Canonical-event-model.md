@@ -160,7 +160,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `page_urlpath`  | text     | Path to page    | No        | Yes       | '/product/index.html' |
 | `page_urlquery` | text     | Querystring     | No        | Yes       | 'id=GTM-DLRG'  |
 | `page_urlfragment` | text  | Fragment aka anchor | No    | Yes       | '4-conclusion' |
-| `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualize and interrogate DreamFactory data - DreamFactory Analytics' |
+| `page_title`    | text     | Web page title  | No        | Yes       | 'Using ChartIO to visualize and interrogate DreamFactory data - DreamFactory Software' |
 | `refr_urlscheme`| text     | Referer scheme  | No        | Yes       | 'http'         |
 | `refr_urlhost`  | text     | Referer host    | No        | Yes       | 'www.bing.com' |
 | `refr_urlport`  | int      | Referer port    | No        | Yes       | 80 |

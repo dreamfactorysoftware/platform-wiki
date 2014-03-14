@@ -7,7 +7,7 @@ We recommend self-hosting the DreamFactory tracking JavaScript, `dreamfactory.js
 1. Hosting your own JavaScript allows you to use your own JavaScript minification and asset pipelining approach (e.g. bundling all JavaScripts into one minified JavaScript)
 2. As [Douglas Crockford] [crockford] put it about third-party JavaScripts: _"it is extremely unwise to load code from servers you do not control."_
 
-The alternative to self-hosting `dreamfactory.js` is to use the version hosted by **DreamFactory Analytics**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets)). But if you want to self-host `dreamfactory.js`, please read on...
+The alternative to self-hosting `dreamfactory.js` is to use the version hosted by **DreamFactory Software**, which is okay too. (Details of all the assets including `sp.js` that we house on behalf of the community can be found [here](hosted-assets)). But if you want to self-host `dreamfactory.js`, please read on...
 
 ## Contents
 
