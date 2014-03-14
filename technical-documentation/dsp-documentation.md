@@ -1,5 +1,3 @@
-[**Home**](Home) */* [**Documentation**](dsp-documentation)
-
 ## 1. Introduction
 [Overview](overview)
 
@@ -13,6 +11,6 @@
 [Overview](overview-storage)
 
 ## 5. Event System
-[Overview](overview-events)
+[Overview](API-Events-overview)
 
 [technical-architecture]: /dreamfactorysoftware/dsp-core/wiki/technical-documentation/images/dsp-architecture.png
