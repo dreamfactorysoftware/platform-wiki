@@ -1,6 +1,6 @@
 [**Home**](Home) */* [**Documentation**](dsp-documentation)
 
-[[technical-architecture]]
+[technical-architecture]
 
 ## 1. Introduction
 [Overview](overview)
@@ -17,4 +17,4 @@
 ## 5. Event System
 [Overview](overview-events)
 
-[technical-architecture]: /dreamfactorysoftware/dsp-core/wiki/technical-documentation/images/dsp-architecture.png
+[technical-architecture]: /dreamfactorysoftware/dsp-core/wiki/technical-documentation/technical-architecture
