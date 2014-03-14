@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with DreamFactory] (Setting-up-Infobright)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with DreamFactory] (Setting-up-Infobright)
 
 Setting up DreamFactory to work with Infobright is a five step process:
 
@@ -182,7 +182,7 @@ Alternatively you can also test by running Navicat or another database querying 
 
 Now that you've got ICE up and running, its time to setup a database for DreamFactory on it, and create the DreamFactory events table in it.
 
-We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/dreamfactory/dreamfactory/tree/master/4-storage/infobright-storage) section of the [DreamFactory Github repo](https://github.com/dreamfactory/dreamfactory).
+We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/dreamfactorysoftware/dsp-core/tree/master/4-storage/infobright-storage) section of the [DreamFactory Github repo](https://github.com/dreamfactory/dreamfactory).
 
 First, checkout the DreamFactory repository and navigate to the Infobright storage folder:
 
@@ -195,8 +195,8 @@ Now run the `setup.sh` script, passing in your Infobright username and password 
 
 The `setup.sh` script will run the two 'sql' files in the [sql](https://github.com/dreamfactory/dreamfactory) folder:
 
-1. [setup_infobright.sql](https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the DreamFactory database and creates a table in it called `events`, where the DreamFactory event-level data will be stored
-2. [verify_infobright](https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the DreamFactory database and events table in your Infobright installion.
+1. [setup_infobright.sql](https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the DreamFactory database and creates a table in it called `events`, where the DreamFactory event-level data will be stored
+2. [verify_infobright](https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the DreamFactory database and events table in your Infobright installion.
 
 [Back to top](#top)
 

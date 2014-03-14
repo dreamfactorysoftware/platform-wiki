@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [1: Installing EmrEtlRunner](1-Installing-EmrEtlRunner)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [1: Installing EmrEtlRunner](1-Installing-EmrEtlRunner)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
@@ -110,7 +110,7 @@ EmrEtlRunner requires a YAML format configuration file to run. There is a config
     :task_instance_type: m1.small
     :task_instance_bid: 0.015 # In USD. Adjust bid, or leave blank for non-spot-priced (i.e. on-demand) task instances
 :etl:
-  :job_name: SnowPlow ETL # Give your job a name
+  :job_name: DreamFactory ETL # Give your job a name
   :hadoop_etl_version: 0.3.6 # Version of the Hadoop ETL
   :collector_format: cloudfront # Or 'clj-tomcat' for the Clojure Collector
   :continue_on_unexpected_error: false # You can switch to 'true' (and set :out_errors: above) if you really don't want the ETL throwing exceptions
@@ -205,5 +205,5 @@ This section is where we configure exactly how we want our ETL process to operat
 All done installing EmrEtlRunner? Then [learn how to use it] [using-emretlrunner]
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
+[config-yml]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
 [using-emretlrunner]: 2-Using-EmrEtlRunner

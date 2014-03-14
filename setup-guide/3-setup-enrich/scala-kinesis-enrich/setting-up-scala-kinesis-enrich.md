@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]]
 
@@ -19,4 +19,4 @@ This guide covers how to setup Scala Kinesis Enrich, specifically:
 2. [Configuration](Configure-Scala-Kinesis-Enrich) - how to use Scala Kinesis Enrich at the command line, to instruct it to process data from your collector
 3. [Running](Run-Scala-Kinesis-Enrich) - how to run Scala Kinesis Enrich
 
-[scala-kinesis-enrich]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/scala-kinesis-enrich
+[scala-kinesis-enrich]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/scala-kinesis-enrich

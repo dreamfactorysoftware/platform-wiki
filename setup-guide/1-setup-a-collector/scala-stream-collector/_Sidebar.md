@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Collectors**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](Setting-up-the-Scala-Stream-Collector)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Collectors**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](Setting-up-the-Scala-Stream-Collector)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

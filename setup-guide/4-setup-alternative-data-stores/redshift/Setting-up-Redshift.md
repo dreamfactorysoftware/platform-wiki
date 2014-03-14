@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup Redshift
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup Redshift
 
 Setting up Redshift is an 6 step process:
 
@@ -349,4 +349,4 @@ Now that you have your DreamFactory database and table setup on Redshift, you ar
 [emr-etl-runner]: 1-Installing-EmrEtlRunner
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
-[redshift-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/redshift-storage/sql/atomic-def.sql
+[redshift-table-def]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/redshift-storage/sql/atomic-def.sql

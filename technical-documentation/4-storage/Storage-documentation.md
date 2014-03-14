@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]]
 

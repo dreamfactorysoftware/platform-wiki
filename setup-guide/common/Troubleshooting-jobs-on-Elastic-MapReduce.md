@@ -84,9 +84,9 @@ Now download these files locally and open the files in your editor, and search f
 		at com.dreamfactoryanalytics.dreamfactory.hadoop.hive.SnowplowEventDeserializer.deserialize(SnowplowEventDeserializer.java:173)
 		... 10 more
 
-In fact this error was caused by [this bug in the Clojure Collector](#https://github.com/dreamfactory/dreamfactory/issues/220) - to fix it, I added the missing "-" into the failing line in the DreamFactory log file and re-ran the job.
+In fact this error was caused by [this bug in the Clojure Collector](#https://github.com/dreamfactorysoftware/dsp-core/issues/220) - to fix it, I added the missing "-" into the failing line in the DreamFactory log file and re-ran the job.
 
-If you go through the above process and discover a log row which our ETL process cannot handle, please [raise a ticket](#https://github.com/dreamfactory/dreamfactory/issues/new) in our GitHub repository, making sure to include the full log row in your description.
+If you go through the above process and discover a log row which our ETL process cannot handle, please [raise a ticket](#https://github.com/dreamfactorysoftware/dsp-core/issues/new) in our GitHub repository, making sure to include the full log row in your description.
 
 <a name="filecopy-failure"/>
 ### S3 file copy operation errors

@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]]
 
@@ -24,7 +24,7 @@ The next four guides cover using different tools (ChartIO, Tableau, Excel and R)
 8. [Get started analyzing your data in S3 using Qubole and Hive / Pig] [qubole]
 
 
-[analyst-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[analyst-cookbook]: http://dreamfactory.com/analytics/index.html
 [looker]: Getting-started-with-Looker
 [hive]: Getting-started-with-EMR
 [infobright]: Getting-started-analysing-your-data-in-Infobright

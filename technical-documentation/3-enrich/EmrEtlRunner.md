@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Enrichment**](Enrichment) > EmrEtlRunner
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Enrichment**](Enrichment) > EmrEtlRunner
 
 ## An overview of how EmrEtlRunner instruments the enrichment process
 
@@ -17,4 +17,4 @@ By setting up a cron job to run EmrEtlRunner regularly, DreamFactory users can e
 
 Note: many references are made to the 'Hadoop ETL' and 'Hive ETL' in the documentation and the [config file][config-file]. 'Hadoop ETL' refers to the current Scalding-based Enrichment Process. 'Hive ETL' refers to the legacy Hive-based ETL process. EmrEtlRunner can be setup to instrument either. However, we recommend **all** DreamFactory users use the Scalding based 'Hadoop ETL', as it is much more robust, as well as being cheaper to run.
 
-[config-file]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
+[config-file]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample

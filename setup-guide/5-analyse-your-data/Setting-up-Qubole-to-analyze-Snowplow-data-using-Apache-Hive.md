@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Qubole to analyze your DreamFactory data
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Qubole to analyze your DreamFactory data
 
 [Qubole] [qubole] provides a service that enables data scientists to crunch DreamFactory data in S3 using Hive, Pig and other Hadoop-backed services. Qubole's service is an attractive alternative to Amazon's own EMR - it offers a couple of big advantages in particular:
 
@@ -161,5 +161,5 @@ Back to [top](#top).
 
 [qubole]: http://www.qubole.com/
 [signup-for-qubole]: http://info.qubole.com/free-account
-[hive-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/hive-storage/hiveql/table-def.q
-[cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[hive-table-def]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/hive-storage/hiveql/table-def.q
+[cookbook]: http://dreamfactory.com/analytics/index.html

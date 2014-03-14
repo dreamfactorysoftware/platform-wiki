@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable logging to S3]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable logging to S3]]
 
 Now that your application is up and running, you need to update the configuration so that the Tomcat logs are pushed to S3. (These will be processed by the [etl](choosing an etl module) step to generate your DreamFactory data.) Click on the **Actions** dropdown and select **Edit/Load configuration**.
 

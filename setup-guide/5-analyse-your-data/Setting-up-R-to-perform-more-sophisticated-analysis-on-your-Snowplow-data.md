@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up R to perform more sophisticated analysis on your data
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up R to perform more sophisticated analysis on your data
 
 ## Contents
 
@@ -168,8 +168,8 @@ TO WRITE
 
 Back ot [top](#top)
 
-[cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[cookbook]: http://dreamfactory.com/analytics/index.html
 [r]: http://www.r-project.org/
 [download-r]: http://www.r-project.org/
 [aws-console]: https://console.aws.amazon.com/console/home
-[get-started-with-r]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/get-started-analysing-dreamfactory-data-with-r.html
+[get-started-with-r]: http://dreamfactory.com/analytics/tools-and-techniques/get-started-analysing-dreamfactory-data-with-r.html

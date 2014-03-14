@@ -32,4 +32,4 @@ Third-party, git-submoduled contributions may be released under a different lice
 [piwikjs]: https://github.com/piwik/piwik/blob/master/js/piwik.js
 [bsd]: http://www.opensource.org/licenses/bsd-license.php
 [snowcannon]: https://github.com/shermozle/SnowCannon
-[2-collectors]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors
+[2-collectors]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Self-hosting DreamFactory.js](Self-hosting-dreamfactory-js)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Self-hosting DreamFactory.js](Self-hosting-dreamfactory-js)
 
 ## Overview
 
@@ -190,7 +190,7 @@ Return to the [setup guide] (Setting-up-DreamFactory).
 [aws]: http://aws.amazon.com/
 [yuic]: http://developer.yahoo.com/yui/compressor/
 [crockford]: https://github.com/douglascrockford
-[js]: https://raw.github.com/dreamfactory/dreamfactory/master/1-trackers/javascript/js/sp.js
+[js]: https://raw.github.com/dreamfactorysoftware/dsp-core/master/1-trackers/javascript/js/sp.js
 [js-bucket]: setup-guide/images/js_bucket.png
 [js-select]: setup-guide/images/js_select.png
 [js-upload]: setup-guide/images/js_upload.png

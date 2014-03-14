@@ -1,5 +1,5 @@
 <a name="top" />
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers)
 
 <a name="overview" />
 ## Overview
@@ -308,7 +308,7 @@ Back to [event tracking](#events).
 <a name="linkclick" />
 #### 3.3 Link click tracking
 
-This is not currently supported: adding support is on the roadmap (https://github.com/dreamfactory/dreamfactory/issues/75).
+This is not currently supported: adding support is on the roadmap (https://github.com/dreamfactorysoftware/dsp-core/issues/75).
 
 Back to [event tracking](#events).
 

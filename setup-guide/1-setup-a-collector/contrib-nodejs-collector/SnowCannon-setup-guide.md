@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](DreamFactory setup guide) > [**Step 1: setup a Collector**](choosing-a-collector) > [SnowCannon setup](snowcannon-setup-guide)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](DreamFactory setup guide) > [**Step 1: setup a Collector**](choosing-a-collector) > [SnowCannon setup](snowcannon-setup-guide)
 
 ## Before You Begin
 

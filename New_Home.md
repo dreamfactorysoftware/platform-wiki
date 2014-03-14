@@ -49,7 +49,7 @@ Very Important : For all future requests to the API, you’ll need to pass the s
 
 Check out our [[Talk to us]] page for different ways of getting in touch.
 
-[website]: http://dreamfactoryanalytics.com
+[website]: http://dreamfactory.com
 [hadoop]: http://hadoop.apache.org/
 [hive]: http://hive.apache.org/
 [redshift]: http://aws.amazon.com/redshift/

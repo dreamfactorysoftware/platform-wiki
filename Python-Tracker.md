@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > Python Tracker
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > Python Tracker
 
 ## Contents
 
@@ -35,7 +35,7 @@
 <a name="overview" />
 ## 1. Overview
 
-The [DreamFactory Python Tracker](https://github.com/dreamfactory/dreamfactory-python-tracker) allows you to track DreamFactory events from your Python apps and games.
+The [DreamFactory Python Tracker](https://github.com/dreamfactorysoftware/dsp-core-python-tracker) allows you to track DreamFactory events from your Python apps and games.
 
 The tracker should be straightforward to use if you are comfortable with Python development; any prior experience with DreamFactory"s [[JavaScript Tracker]] or [[Lua Tracker]], Google Analytics or Mixpanel (which have similar APIs to DreamFactory) is helpful but not necessary.
 

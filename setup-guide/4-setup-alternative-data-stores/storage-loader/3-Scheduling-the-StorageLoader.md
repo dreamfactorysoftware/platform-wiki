@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](3-Scheduling-the-StorageLoader)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](3-Scheduling-the-StorageLoader)
 
 1. [Overview](#scheduling-overview)
 2. [Scheduling StorageLoader only](#storage-loader-cron)
@@ -94,25 +94,25 @@ These options are explored in a little more detail in the [Scheduling EmrEtlRunn
 Setup the StorageLoader! Now you are ready to [do some analysis!](Setting-up-DreamFactory#step5).
 
 
-[storage-loader]: https://github.com/dreamfactory/dreamfactory/tree/master/4-storage/storage-loader
+[storage-loader]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/4-storage/storage-loader
 
 [ice]: http://www.infobright.org/
 [iee]: http://www.infobright.com/Products/
 [irl]: https://github.com/dreamfactory/infobright-ruby-loader
 
-[hive-etl]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/hive-etl
-[trackers]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers
-[collectors]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors
-[getting-started]: http://dreamfactoryanalytics.com/product/get-started.html
+[hive-etl]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/hive-etl
+[trackers]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers
+[collectors]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors
+[getting-started]: http://dreamfactory.com/product/get-started.html
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [ruby-install]: http://www.ruby-lang.org/en/downloads/
 [nokogiri-install]: http://nokogiri.org/tutorials/installing_nokogiri.html
 [rubygems-install]: http://docs.rubygems.org/read/chapter/3
 
-[config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/config.yml
-[loader-bash]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/bin/dreamfactory-storage-loader.sh
-[combo-bash]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/bin/dreamfactory-runner-and-loader.sh
+[config-yml]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/config.yml
+[loader-bash]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/bin/dreamfactory-storage-loader.sh
+[combo-bash]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/bin/dreamfactory-runner-and-loader.sh
 
 [cronic]: http://habilis.net/cronic/
 [jenkins]: http://jenkins-ci.org/

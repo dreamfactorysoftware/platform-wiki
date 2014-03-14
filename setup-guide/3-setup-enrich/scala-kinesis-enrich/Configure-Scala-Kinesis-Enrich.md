@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [2: Configuring](Configuring-Scala-Kinesis-Enrich)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [2: Configuring](Configuring-Scala-Kinesis-Enrich)
 
 The Scala Stream Collector has a number of configuration options available.
 
@@ -62,4 +62,4 @@ Next, make sure that the `enrich.enrichments.geo_ip.maxmind_file` configuration 
 
 Next: [[Run Scala Kinesis Enrich]]
 
-[app-conf]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/scala-kinesis-enrich/src/main/resources/default.conf
+[app-conf]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/3-enrich/scala-kinesis-enrich/src/main/resources/default.conf

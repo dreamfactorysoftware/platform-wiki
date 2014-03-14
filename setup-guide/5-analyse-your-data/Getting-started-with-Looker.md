@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > [Setting up Looker](Getting-started-with-Looker)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > [Setting up Looker](Getting-started-with-Looker)
 
 <a name="top" />
 ## Contents
@@ -176,9 +176,9 @@ TO WRITE
 Back to [top](#top).
 
 
-[introducing-looker-blog-post]: http://dreamfactoryanalytics.com/blog/2013/12/10/introducing-looker-a-fresh-approach-to-bi-on-dreamfactory-data/
+[introducing-looker-blog-post]: http://dreamfactory.com/blog/2013/12/10/introducing-looker-a-fresh-approach-to-bi-on-dreamfactory-data/
 [looker-website]: http://www.looker.com/
-[dreamfactory-contact]: mailto:contact@dreamfactoryanalytics.com
+[dreamfactory-contact]: mailto:contact@dreamfactory.com
 [psql]: http://www.postgresql.org/docs/9.2/static/app-psql.html
 [navicat]: http://www.navicat.com/
-[looker-yamls-on-dreamfactory-repo]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics/looker-analytics
+[looker-yamls-on-dreamfactory-repo]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/5-analytics/looker-analytics

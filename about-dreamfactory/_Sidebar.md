@@ -1,13 +1,12 @@
 **ABOUT DREAMFACTORY**
 
 **Introduction**
-- [DreamFactory overview](DreamFactory-overview)
+- [Platform overview](DreamFactory-overview)
 - [[Technical architecture|Technical-architecture]]
 - [[Developer FAQ]]
 - [Roadmap](Product-roadmap)
 
 **Thanks**
-- Sponsors
 - [Software and services](Software-and-services-thanks)
 - [Contributors](Our-contributors)
 

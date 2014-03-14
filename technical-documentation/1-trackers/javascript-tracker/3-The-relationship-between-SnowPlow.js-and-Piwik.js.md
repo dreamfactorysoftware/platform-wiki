@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > The relationship between DreamFactory.js and Piwik.js
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > The relationship between DreamFactory.js and Piwik.js
 
 `dreamfactory.js` is based on Anthon Pang's excellent [`piwik.js`] [piwikjs], the JavaScript tracker for the open-source [Piwik] [piwik] project, and is distributed under the same license ([Simplified BSD] [bsd]). For completeness, the main differences between `dreamfactory.js` and `piwik.js` are documented below.
 
@@ -48,8 +48,8 @@ Licensed under the [Simplified BSD] [bsd] license.
 [piwikjs]: https://github.com/piwik/piwik/blob/master/js/piwik.js
 [piwikphp]: https://github.com/piwik/piwik/blob/master/piwik.php
 [bsd]: http://www.opensource.org/licenses/bsd-license.php
-[integrating]: /dreamfactory/dreamfactory/blob/master/docs/03_integrating_dreamfactoryjs.md
-[selfhosting]: /dreamfactory/dreamfactory/blob/master/docs/04_selfhosting_dreamfactory.md
-[setup]: https://github.com/dreamfactory/dreamfactory/wiki/javascript-tracker-setup
-[integrating-js-on-website]: https://github.com/dreamfactory/dreamfactory/wiki/integrating-javascript-tags-onto-your-website
-[tech-docs]: https://github.com/dreamfactory/dreamfactory/wiki/javascript-tracker
+[integrating]: /dreamfactorysoftware/dsp-core/blob/master/docs/03_integrating_dreamfactoryjs.md
+[selfhosting]: /dreamfactorysoftware/dsp-core/blob/master/docs/04_selfhosting_dreamfactory.md
+[setup]: https://github.com/dreamfactorysoftware/dsp-core/wiki/javascript-tracker-setup
+[integrating-js-on-website]: https://github.com/dreamfactorysoftware/dsp-core/wiki/integrating-javascript-tags-onto-your-website
+[tech-docs]: https://github.com/dreamfactorysoftware/dsp-core/wiki/javascript-tracker

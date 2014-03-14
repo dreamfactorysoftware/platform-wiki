@@ -37,4 +37,4 @@ We are working on a set of Contributor Guides to make contributing to every aspe
 [corp-cla]: https://docs.google.com/forms/d/1ZUzz7lQJhs7oZqbkBL1bp0r048hAi7uIN6aLWCyZWWs/viewform
 
 [dreamfactory-user]: https://groups.google.com/forum/#!forum/dreamfactory-user
-[new-issue]: https://github.com/dreamfactory/dreamfactory/issues/new
+[new-issue]: https://github.com/dreamfactorysoftware/dsp-core/issues/new

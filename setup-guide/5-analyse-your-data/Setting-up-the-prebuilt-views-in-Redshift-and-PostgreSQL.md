@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up the prebuilt views (cubes and recipes) in Redshift and PostgreSQL
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up the prebuilt views (cubes and recipes) in Redshift and PostgreSQL
 
 ## Introduction
 
@@ -70,8 +70,8 @@ We recommend that you experiment by viewing and plotting the output of the diffe
 
 
 
-[analytics-on-github]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics
-[redshift-sql]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics/redshift
-[postgres-sql]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics/postgresql/recipes
+[analytics-on-github]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/5-analytics
+[redshift-sql]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/5-analytics/redshift
+[postgres-sql]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/5-analytics/postgresql/recipes
 [navicat]: http://www.navicat.com/
 

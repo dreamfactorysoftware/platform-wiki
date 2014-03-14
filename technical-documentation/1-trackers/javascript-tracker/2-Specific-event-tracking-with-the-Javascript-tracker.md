@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
@@ -33,9 +33,9 @@ DreamFactory has been built to enable users to track a wide range of events that
 <a name="overview" />
 ## 1. Overview
 
-The [DreamFactory Javascript tracker](https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the DreamFactory Javascript tags.
+The [DreamFactory Javascript tracker](https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the DreamFactory Javascript tags.
 
-Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [dreamfactory.js](https://github.com/dreamfactory/dreamfactory/blob/master/1-trackers/javascript-tracker/js/dreamfactory.js), that trigger GET requests of the DreamFactory pixel. The Javascript functions append data points to be passed into DreamFactory onto the query string for the GET requests. These then get logged by the DreamFactory [collector](collectors). For a full list of data points that can be passed into DreamFactory in this way, please refer to the [DreamFactory tracker protocol](dreamfactory-tracker-protocol) documentation.
+Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [dreamfactory.js](https://github.com/dreamfactorysoftware/dsp-core/blob/master/1-trackers/javascript-tracker/js/dreamfactory.js), that trigger GET requests of the DreamFactory pixel. The Javascript functions append data points to be passed into DreamFactory onto the query string for the GET requests. These then get logged by the DreamFactory [collector](collectors). For a full list of data points that can be passed into DreamFactory in this way, please refer to the [DreamFactory tracker protocol](dreamfactory-tracker-protocol) documentation.
 
 The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times.
 
@@ -775,7 +775,7 @@ This feature is on the roadmap: it has not been developed yet.
 
 
 [openx]: http://www.openx.com/publisher/enterprise-ad-server
-[zoneappend]: /dreamfactory/dreamfactory/wiki/setup-guide/images/03a_zone_prepend_openx.png
+[zoneappend]: /dreamfactorysoftware/dsp-core/wiki/setup-guide/images/03a_zone_prepend_openx.png
 [magicmacros]: http://www.openx.com/docs/whitepapers/magic-macros
 [dmp]: http://www.adopsinsider.com/online-ad-measurement-tracking/data-management-platforms/what-are-data-management-platforms/
 [contactus]: mailto:dreamfactory-ads@keplarllp.com

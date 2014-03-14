@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Enrichment**](Enrichment) > Enrichment
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Enrichment**](Enrichment) > Enrichment
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]]
 
@@ -30,4 +30,4 @@ In this guide, we cover:
 [kinesis]: http://aws.amazon.com/kinesis/
 
 [emr-etl-runner]: EmrEtlRunner
-[hadoop-enrich]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/scala-hadoop-enrich
+[hadoop-enrich]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/scala-hadoop-enrich

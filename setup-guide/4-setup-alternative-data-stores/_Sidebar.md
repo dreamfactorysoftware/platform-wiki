@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: Setting up alternative data stores**](setting-up-alternative-data-stores)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: Setting up alternative data stores**](setting-up-alternative-data-stores)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

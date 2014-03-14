@@ -6,7 +6,7 @@ At DreamFactory, our daily lives wouldn't be nearly as productive without the ge
 
 | **Supported by**                          | **Description**                                                                               |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
-| ![dreamfactory-logo] [dreamfactory-logo]  | [Snowplow] [dreamfactory] for this killer wiki template and design!
+| ![dreamfactory-logo] [dreamfactory-logo]  | [DreamFactory] [dreamfactory] for this killer wiki template and design!
 | ![jetbrains-logo] [jetbrains-logo]        | [JetBrains](http://jetbrains.com) creator of the most excellent [PhpStorm]() and [WebStorm]()!
 
 ### Open source projects
@@ -20,8 +20,8 @@ The DreamFactory platform is built standing on the shoulders of a whole host of 
 * [PHP](http://php.net/)
 * [Symfony](http://symfony.com/)
 
-[dreamfactory-logo]: /dreamfactory/dreamfactory/wiki/about-dreamfactory/images/dreamfactory_logo.jpg
-[jetbrains-logo]: /dreamfactory/dreamfactory/wiki/about-dreamfactory/images/jetbrains_logo.jpg
+[dreamfactory-logo]: /dreamfactorysoftware/dsp-core/wiki/about-dreamfactory/images/logo-dreamfactory.png
+[jetbrains-logo]: /dreamfactorysoftware/dsp-core/wiki/about-dreamfactory/images/logo-phpstorm.png
 
 [dreamfactory]: https://www.microsoft.com/dreamfactory/‎
 [jetbrains]: http://www.jetbrains.com/

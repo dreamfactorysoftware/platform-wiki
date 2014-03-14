@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers)
 
 This guide covers:
 
@@ -16,7 +16,7 @@ In a normal Javascript tag, the name-value pairs of data that are sent through t
 
 In an environment where Javascript is not permitted, these values need to be set in advance, and hardcoded into the tracking tag. As a result, if you want to record a different `page_title`, for example, for several different HTML-only web pages using the tracking code, you will need to generate a different tracking tag for each of those different web pages, with the right `page_title` set for each.
 
-To make it easy to quickly generate No-JS tracking tags, we have created a wizard. This is hosted on [dreamfactoryanalytics.com] [wizard]. The source code is available on the core [Github repo] [no-js-repo].
+To make it easy to quickly generate No-JS tracking tags, we have created a wizard. This is hosted on [dreamfactory.com] [wizard]. The source code is available on the core [Github repo] [no-js-repo].
 
 <a name="anatomy" />
 ## 2. Anatomy of a No-JS tracking tag
@@ -56,5 +56,5 @@ When using the No-JS tracker with the Clojure collector, the Clojure collector s
 Care must therefore be exercised when using the No-JS tracker on domains that you do not own. **It is your responsibility to abide by the terms and conditions of any domain owner for domains where you post content including uploading No-JS tracking tags.** Some domain owners forbid 3rd parties from dropping cookies on their domains. It is your responsibility to ensure you do not violate the terms and conditions of any domain owners that you work with.
 
 
-[wizard]: http://dreamfactoryanalytics.com/no-js-tracker.html
-[no-js-repo]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/no-js-tracker
+[wizard]: http://dreamfactory.com/no-js-tracker.html
+[no-js-repo]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers/no-js-tracker

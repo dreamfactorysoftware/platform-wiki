@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Collectors**](collectors)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Collectors**](collectors)
 
 ## Introduction
 
@@ -55,16 +55,16 @@ To run it locally:
 * [GitHub repository] [github-repo]
 * [Setup guide] [setup-guide]
 
-[dreamfactory]: http://dreamfactoryanalytics.com
-[cloudfront-collector]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors/cloudfront-collector
+[dreamfactory]: http://dreamfactory.com
+[cloudfront-collector]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors/cloudfront-collector
 [snowcannon]: https://github.com/shermozle/SnowCannon
-[dreamfactory-js]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/javascript
+[dreamfactory-js]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers/javascript
 
 [elastic-beanstalk]: http://aws.amazon.com/elasticbeanstalk/
 [tomcat]: http://tomcat.apache.org/
 
-[github-repo]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors/clojure-collector
-[setup-guide]: https://github.com/dreamfactory/dreamfactory/wiki/Setting-up-the-Clojure-collector
+[github-repo]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors/clojure-collector
+[setup-guide]: https://github.com/dreamfactorysoftware/dsp-core/wiki/Setting-up-the-Clojure-collector
 
 [ring]: https://github.com/ring-clojure/ring
 [compojure]: https://github.com/weavejester/compojure

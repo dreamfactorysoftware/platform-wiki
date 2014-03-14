@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [Scala Stream Collector setup](Setting-up-the-Scala-Stream-Collector)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [Scala Stream Collector setup](Setting-up-the-Scala-Stream-Collector)
 
 ## Overview of the Scala Stream Collector
 

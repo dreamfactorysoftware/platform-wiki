@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 1. Setup a bucket on S3 for the pixel
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 1. Setup a bucket on S3 for the pixel
 
 Log into your AWS account on [console.aws.amazon.com](https://console.aws.amazon.com) and select **S3** from the list of services offered. (Under **Storage & Content Delivery**.) You should be presented with a screen like the one below:
 

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Collectors**](collectors)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Collectors**](collectors)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]]
 

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](setting-up-the-Scala-Stream-Collector) > [[Configure the Scala Stream Collector]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream Collector setup**](setting-up-the-Scala-Stream-Collector) > [[Configure the Scala Stream Collector]]
 
 The Scala Stream Collector has a number of configuration options available.
 
@@ -74,4 +74,4 @@ If no value is provided, cookies set default to expiring after one year (i.e. 36
 
 Next: [[Run the Scala Stream collector]]
 
-[app-conf]: https://github.com/dreamfactory/dreamfactory/blob/master/2-collectors/scala-stream-collector/src/main/resources/application.conf.example
+[app-conf]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/2-collectors/scala-stream-collector/src/main/resources/application.conf.example

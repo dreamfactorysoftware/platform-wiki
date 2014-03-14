@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Arduino tracker**](Arduino-tracker-setup)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Arduino tracker**](Arduino-tracker-setup)
 
 ## Contents
 

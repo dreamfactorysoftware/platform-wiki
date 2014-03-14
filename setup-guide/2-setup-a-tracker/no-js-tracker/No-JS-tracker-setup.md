@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**No-JS tracker**](No-JS-tracker-setup)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**No-JS tracker**](No-JS-tracker-setup)
 
 The No-JS tracker (pixel tracker) enables you to track page views of HTML pages where it is not possible to insert standard DreamFactory Javascript tracking tags: for example HTML emails or pages hosted with 3rd party service providers.
 
@@ -70,7 +70,7 @@ Return to the [setup guide](Setting-up-DreamFactory).
 
 
 
-[no-js-tracker-repo]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/no-js-tracker
-[no-js-wizard]: http://dreamfactoryanalytics.com/no-js-tracker.html
-[intro-to-no-js-tracker]: http://dreamfactoryanalytics.com/blog/2013/01/29/introducing-the-no-js-tracker/
+[no-js-tracker-repo]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers/no-js-tracker
+[no-js-wizard]: http://dreamfactory.com/no-js-tracker.html
+[intro-to-no-js-tracker]: http://dreamfactory.com/blog/2013/01/29/introducing-the-no-js-tracker/
 [ebay-prohibit]: http://pages.ebay.com/help/policies/listing-javascript.html

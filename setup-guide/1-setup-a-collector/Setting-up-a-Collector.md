@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 1: setup a Collector](Setting-up-a-collector)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 1: setup a Collector](Setting-up-a-collector)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]]
 

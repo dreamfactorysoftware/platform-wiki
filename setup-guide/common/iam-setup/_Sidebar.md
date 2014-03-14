@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](DreamFactory setup guide) > **Common**
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](DreamFactory setup guide) > **Common**
 
 **1. Trackers**
 [Tracker setup: choosing a tracker](choosing-a-tracker)

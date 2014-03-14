@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up EMR command line tools]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up EMR command line tools]]
 
 1. [Before you get started...](#intro)
 2. [A note on OSes](#oses)

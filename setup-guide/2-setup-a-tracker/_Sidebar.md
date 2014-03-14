@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: Setup a Tracker**](setting-up-a-tracker)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: Setup a Tracker**](setting-up-a-tracker)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

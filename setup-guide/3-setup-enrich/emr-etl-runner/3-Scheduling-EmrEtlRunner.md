@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
 
 1. [Overview](#scheduling-overview)
 2. [cron](#cron)
@@ -73,19 +73,19 @@ If you get this working, please let us know!
 Now you have installed and scheduled [EmrEtlRunner] [emr-etl-runner], you have all your data ready for analysis in S3. Learn how to [setup the StorageLoader] [storage-loader] to regularly load your data into a database e.g. Infobright or Redshift for e.g. OLAP analysis, or to [analyse it on S3 via Emr] [emr-analysis].
 
 
-[emr-etl-runner]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/emr-etl-runner
-[hive-etl]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/hive-etl
-[trackers]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers
-[collectors]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors
-[getting-started]: http://dreamfactoryanalytics.com/product/get-started.html
+[emr-etl-runner]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/emr-etl-runner
+[hive-etl]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/hive-etl
+[trackers]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers
+[collectors]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors
+[getting-started]: http://dreamfactory.com/product/get-started.html
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [ruby-install]: http://www.ruby-lang.org/en/downloads/
 [nokogiri-install]: http://nokogiri.org/tutorials/installing_nokogiri.html
 [rubygems-install]: http://docs.rubygems.org/read/chapter/3
 
-[config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/config/config.yml
-[bash-script]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/bin/dreamfactory-emr-etl-runner.sh
+[config-yml]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/3-enrich/emr-etl-runner/config/config.yml
+[bash-script]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/3-enrich/emr-etl-runner/bin/dreamfactory-emr-etl-runner.sh
 
 [cronic]: http://habilis.net/cronic/
 [jenkins]: http://jenkins-ci.org/
@@ -93,5 +93,5 @@ Now you have installed and scheduled [EmrEtlRunner] [emr-etl-runner], you have a
 [jenkins-tutorial]: http://blog.lusis.org/blog/2012/01/23/lowtech-monitoring-with-jenkins/
 [windows-task-scheduler]: http://en.wikipedia.org/wiki/Windows_Task_Scheduler#Task_Scheduler_2.0
 
-[storage-loader]: https://github.com/dreamfactory/dreamfactory/wiki/Setting-up-DreamFactory#wiki-step4
-[emr-analysis]: https://github.com/dreamfactory/dreamfactory/wiki/Setting-up-DreamFactory#wiki-step5
+[storage-loader]: https://github.com/dreamfactorysoftware/dsp-core/wiki/Setting-up-DreamFactory#wiki-step4
+[emr-analysis]: https://github.com/dreamfactorysoftware/dsp-core/wiki/Setting-up-DreamFactory#wiki-step5

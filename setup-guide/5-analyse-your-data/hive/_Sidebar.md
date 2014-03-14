@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Getting started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Getting started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

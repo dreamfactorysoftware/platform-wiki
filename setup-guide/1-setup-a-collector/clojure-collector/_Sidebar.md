@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Collectors**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

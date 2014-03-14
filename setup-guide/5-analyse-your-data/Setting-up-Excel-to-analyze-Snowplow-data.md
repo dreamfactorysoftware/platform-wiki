@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Excel to analyze DreamFactory data
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Excel to analyze DreamFactory data
 
 <a name="top" />
 ## Contents
@@ -340,5 +340,5 @@ Back to [top](#top).
 [64-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_09_00_0101-x64.zip
 [32-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_08_04_0200.zip
 [redshift-create-user]: http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html
-[cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
-[olap-analysis]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html
+[cookbook]: http://dreamfactory.com/analytics/index.html
+[olap-analysis]: http://dreamfactory.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html

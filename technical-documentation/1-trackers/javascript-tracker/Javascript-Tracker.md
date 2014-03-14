@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker)
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker)
 
 ## Contents
 
@@ -38,22 +38,22 @@
     - 3.8.1 [`trackUnstructEvent`](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-trackUnstructEvent)
   - 3.9 [Link click tracking](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-link-click-track)
     - 3.9.1 [`enableLinkTracking`](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-enableLinkTracking)
-- 4. [The relationship between DreamFactory.js and Piwik.js](3-The-relationship-between-SnowPlow.js-and-Piwik.js)
+- 4. [The relationship between DreamFactory.js and Piwik.js](3-The-relationship-between-DreamFactory.js-and-Piwik.js)
 - 4. [Modifying DreamFactory JS](Modifying-dreamfactory-js)
 
 
 <a name="overview" />
 ## 1. Overview
 
-The [DreamFactory Javascript tracker](https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the DreamFactory Javascript tags.
+The [DreamFactory Javascript tracker](https://github.com/dreamfactorysoftware/dsp-core/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the DreamFactory Javascript tags.
 
-Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [dreamfactory.js](https://github.com/dreamfactory/dreamfactory/blob/master/1-trackers/javascript-tracker/js/dreamfactory.js), that trigger GET requests of the DreamFactory pixel. The Javascript functions append data points to be passed into DreamFactory onto the query string for the GET requests. These then get logged by the DreamFactory [collector](collectors). For a full list of data points that can be passed into DreamFactory in this way, please refer to the [DreamFactory tracker protocol](dreamfactory-tracker-protocol) documentation.
+Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [dreamfactory.js](https://github.com/dreamfactorysoftware/dsp-core/blob/master/1-trackers/javascript-tracker/js/dreamfactory.js), that trigger GET requests of the DreamFactory pixel. The Javascript functions append data points to be passed into DreamFactory onto the query string for the GET requests. These then get logged by the DreamFactory [collector](collectors). For a full list of data points that can be passed into DreamFactory in this way, please refer to the [DreamFactory tracker protocol](dreamfactory-tracker-protocol) documentation.
 
 The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times.
 
 [2. General parameters](1-General-paramaters-for-the-Javascript-tracker#wiki-general)
 [3. Tracking specific events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-tracking-specific-events)
-[4. The relationship between DreamFactory.js and Piwik.js](3-The-relationship-between-SnowPlow.js-and-Piwik.js)
+[4. The relationship between DreamFactory.js and Piwik.js](3-The-relationship-between-DreamFactory.js-and-Piwik.js)
 [5. Modifying DreamFactory JS](Modifying-dreamfactory-js)
 
 

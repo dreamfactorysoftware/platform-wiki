@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Tableau to perform OLAP analysis on your data
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Tableau to perform OLAP analysis on your data
 
 ## Contents
 
@@ -212,17 +212,17 @@ Back to [top](#top)
 
 There is a huge number of ways you can interrogate DreamFactory data using Tableau. For some ideas, see the [Analytics Cookbook] [cookbook] and the following blog posts for some examples:
 
-* [Performing web analytics on DreamFactory dadta using Tableau - a video demo](http://dreamfactoryanalytics.com/blog/2012/10/24/web-analytics-with-tableau-and-dreamfactory/)
-* [Funnel analysis with DreamFactory] (http://dreamfactoryanalytics.com/blog/2013/04/23/performing-funnel-analysis-with-dreamfactory/)
-* [Measuring content page performance] (http://dreamfactoryanalytics.com/blog/2013/04/12/online-catalog-analytics-with-dreamfactory/)
+* [Performing web analytics on DreamFactory dadta using Tableau - a video demo](http://dreamfactory.com/blog/2012/10/24/web-analytics-with-tableau-and-dreamfactory/)
+* [Funnel analysis with DreamFactory] (http://dreamfactory.com/blog/2013/04/23/performing-funnel-analysis-with-dreamfactory/)
+* [Measuring content page performance] (http://dreamfactory.com/blog/2013/04/12/online-catalog-analytics-with-dreamfactory/)
 
 Back ot [top](#top)
 
-[olap]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html#what
+[olap]: http://dreamfactory.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html#what
 [r]: Setting-up-R-to-perform-more-sophisticated-analysis-on-your-data
 [tableau-trial]: http://www.tableausoftware.com/products/trial
 [aws-console]: https://console.aws.amazon.com/console/home
 [white-list-ip-address]: setting-up-redshift#wiki-authorise
-[pp-analytics]: http://dreamfactoryanalytics.com/analytics/catalog-analytics/measuring-and-comparing-product-page-performance.html#visualising
-[individual-customer-visualisation]: http://dreamfactoryanalytics.com/analytics/catalog-analytics/measuring-and-comparing-content-page-performance.html#single-user-journey
-[cookbook]: http://dreamfactoryanalytics.com/analytics/
+[pp-analytics]: http://dreamfactory.com/analytics/catalog-analytics/measuring-and-comparing-product-page-performance.html#visualising
+[individual-customer-visualisation]: http://dreamfactory.com/analytics/catalog-analytics/measuring-and-comparing-content-page-performance.html#single-user-journey
+[cookbook]: http://dreamfactory.com/analytics/

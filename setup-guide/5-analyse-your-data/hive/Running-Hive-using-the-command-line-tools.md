@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
 
 Many of the analyses we perform in DreamFactory use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
 
@@ -337,7 +337,7 @@ Return to [get started analysing data](Getting-started-analysing-DreamFactory-da
 
 Return to the [setup guide home](Setting-up-DreamFactory).
 
-[analysts-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
-[redshift-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/redshift-storage/sql/table-def.sql
+[analysts-cookbook]: http://dreamfactory.com/analytics/index.html
+[redshift-table-def]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/redshift-storage/sql/table-def.sql
 [bucketexplorer]: http://www.bucketexplorer.com/
 [cloudberry]: http://www.cloudberrylab.com/

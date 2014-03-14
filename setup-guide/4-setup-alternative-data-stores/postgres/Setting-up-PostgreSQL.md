@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup PostgreSQL
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup PostgreSQL
 
 ## Contents
 
@@ -404,5 +404,5 @@ Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
-[postgresql-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/postgres-storage/sql/atomic-def.sql
+[postgresql-table-def]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/postgres-storage/sql/atomic-def.sql
 [simon-rumble]: https://github.com/shermozle

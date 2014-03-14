@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
 
 This guide takes you through the process for integrating DreamFactory's JavaScript tracker into your website or web app.
 
@@ -155,5 +155,5 @@ Once you have integrated DreamFactory tracking tags on your site, you can [test 
 [chrome-dev-tools]: http://code.google.com/chrome/devtools/docs/overview.html
 [firebug]: http://getfirebug.com/
 [network-pane]: setup-guide/images/01_network_pane.png
-[contact]: mailto:services@dreamfactoryanalytics.com
+[contact]: mailto:services@dreamfactory.com
 [gtm]: http://www.google.com/tagmanager/

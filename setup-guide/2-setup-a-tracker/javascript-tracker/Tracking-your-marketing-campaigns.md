@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [[Tracking your marketing campaigns]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [[Tracking your marketing campaigns]]
 
 A very common requirement for web analytics platforms including DreamFactory is that they correctly identify traffic from different campaigns, so that it is possible to:
 
@@ -114,5 +114,5 @@ Return to the [setup guide] (Setting-up-DreamFactory).
 [gahelppage]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033863&ctx=cb&src=cb&cbid=-oxeewb61m1du&cbrank=1
 [gaurlbuilder]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033867
 [gavaluetrackparameters]: http://support.google.com/adwords/bin/answer.py?hl=en&answer=2375447
-[gaadwordsediturl]: /dreamfactory/dreamfactory/wiki/setup-guide/images/adwords-query-string.png
-[zoneappend]: /dreamfactory/dreamfactory/wiki/setup-guide/images/03a_zone_prepend_openx.png
+[gaadwordsediturl]: /dreamfactorysoftware/dsp-core/wiki/setup-guide/images/adwords-query-string.png
+[zoneappend]: /dreamfactorysoftware/dsp-core/wiki/setup-guide/images/03a_zone_prepend_openx.png

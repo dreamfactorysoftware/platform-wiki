@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
@@ -245,7 +245,7 @@ All done? You have the StorageLoader installed! Now find out [how to use it](2-u
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-[redshift-config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/redshift.yml.sample
-[postgres-config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/postgres.yml.sample
+[redshift-config-yml]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/redshift.yml.sample
+[postgres-config-yml]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/postgres.yml.sample
 
 [redshift-copy]: http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html

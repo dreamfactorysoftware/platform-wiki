@@ -20,7 +20,7 @@ Our individual and corporate CLAs are based on the Contributor License Agreement
 1. [Individual Contributor License Agreement ("Agreement") V2.0] [apache-indiv-cla]
 2. [Software Grant and Corporate Contributor License Agreement ("Agreement") v r190612] [apache-corp-cla]
 
-If you have questions about DreamFactory's own CLAs, please contact us at [legal@dreamfactoryanalytics.com] [mailto-legal].
+If you have questions about DreamFactory's own CLAs, please contact us at [legal@dreamfactory.com] [mailto-legal].
 
 [apache]: http://www.apache.org/
 
@@ -30,4 +30,4 @@ If you have questions about DreamFactory's own CLAs, please contact us at [legal
 [apache-indiv-cla]: http://www.apache.org/licenses/icla.txt
 [apache-corp-cla]: http://www.apache.org/licenses/cla-corporate.txt
 
-[mailto-legal]: mailto:legal@dreamfactoryanalytics.com
+[mailto-legal]: mailto:legal@dreamfactory.com

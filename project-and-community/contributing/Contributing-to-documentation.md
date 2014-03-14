@@ -6,8 +6,8 @@ We welcome contributors to the DreamFactory documentation with open arms - just 
 
 We have two main stores of documentation currently:
 
-* Our wiki: https://github.com/dreamfactory/dreamfactory/wiki
-* Our website: http://dreamfactoryanalytics.com/ including the [Analytics Cookbook] [analytics-cookbook] at: http://dreamfactoryanalytics.com/analytics/index.html
+* Our wiki: https://github.com/dreamfactorysoftware/dsp-core/wiki
+* Our website: http://dreamfactory.com/ including the [Analytics Cookbook] [analytics-cookbook] at: http://dreamfactory.com/analytics/index.html
 
 <a name="wiki" />
 ## 1. Contributing to the wiki
@@ -31,7 +31,7 @@ Please note that the setup on the website is a bit complicated, because it uses 
 
 Full instructions on how to work with this setup, including all the software you need to have available locally, can be found on the [repo README][website-repo-readme].
 
-[analytics-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[analytics-cookbook]: http://dreamfactory.com/analytics/index.html
 [gollum-readme]: https://github.com/github/gollum/blob/master/README.md
 [gollum]: https://github.com/github/gollum
 [github-pages]: http://pages.github.com/

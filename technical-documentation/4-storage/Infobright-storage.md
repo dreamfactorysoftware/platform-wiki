@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > Storage in Infobright
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > Storage in Infobright
 
 Please note: DreamFactory dropped support for loading data into Infobright with version 0.8.0. We plan to add back Infobright support at a later date, however, this is low priority.
 

@@ -16,5 +16,5 @@ Using DreamFactory in your company? Add your site [to our list](Our-users)!
 * Chat to us - in our #dreamfactory channel on Freenode
 * [DreamFactory wiki] [wiki] - fork it to contribute tips and documentation
 
-[issues]: https://github.com/dreamfactory/dreamfactory/issues
-[wiki]: https://github.com/dreamfactory/dreamfactory/wiki
+[issues]: https://github.com/dreamfactorysoftware/dsp-core/issues
+[wiki]: https://github.com/dreamfactorysoftware/dsp-core/wiki

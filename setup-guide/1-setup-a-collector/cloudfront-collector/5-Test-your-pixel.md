@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 5. Test your pixel
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 5. Test your pixel
 
 Wait 10-15 minutes after creating the Cloudfront distribution before running the following test. (As it takes a little bit for the Cloudfront setup to complete...) Now try accessing your pixel over both `HTTP` and `HTTPS` using a browser, `wget` or `curl`:
 

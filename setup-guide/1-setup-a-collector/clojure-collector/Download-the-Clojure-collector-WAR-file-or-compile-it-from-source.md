@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Download the Clojure collector WAR file or compile it from source]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Download the Clojure collector WAR file or compile it from source]]
 
 Elastic Beanstalk does not allow you to specify an S3 URL for your WAR file, so you will have to manually upload a local copy.
 
@@ -26,6 +26,6 @@ The `war` file will be saved in the `target` subdirectory - it is now ready to b
 
 Next: [[create a new application in Elastic Beanstalk and upload the WAR file into it]]
 
-[github-download]: https://github.com/dreamfactory/dreamfactory/downloads
-[s3-download]: https://github.com/dreamfactory/dreamfactory/wiki/Hosted-assets
+[github-download]: https://github.com/dreamfactorysoftware/dsp-core/downloads
+[s3-download]: https://github.com/dreamfactorysoftware/dsp-core/wiki/Hosted-assets
 [leiningen]: https://github.com/technomancy/leiningen

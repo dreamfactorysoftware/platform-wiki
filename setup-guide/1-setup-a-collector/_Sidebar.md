@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: Setup a Collector**](setting-up-a-collector)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: Setup a Collector**](setting-up-a-collector)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 

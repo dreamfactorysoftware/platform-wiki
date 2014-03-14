@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > [Setting up ChartIO](Setting-up-ChartIO-to-visualize-your-data)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > [Setting up ChartIO](Setting-up-ChartIO-to-visualize-your-data)
 
 <a name="top" />
 ## Contents
@@ -224,4 +224,4 @@ Return to the [setup guide](Setting-up-DreamFactory#wiki-step5).
 
 [trial]: https://chartio.com/users/signup/
 [ChartIO]: http://chartio.com/
-[analyst-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[analyst-cookbook]: http://dreamfactory.com/analytics/index.html

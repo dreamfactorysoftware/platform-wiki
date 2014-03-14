@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with QuBit OpenTag](Integrating-Javascript-tags-with-QuBit-OpenTag)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with QuBit OpenTag](Integrating-Javascript-tags-with-QuBit-OpenTag)
 
 This setup guide is divided into two sections:
 
@@ -181,7 +181,7 @@ In addition, you can optionally use the `setCookieDomain` method to change your 
 
 #### Updating the reference to `sp.js`
 
-The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js` loads `sp.js`, the DreamFactory Javascript tracker. The version loaded is the version [hosted by the DreamFactory team from our own Cloudfront subdomain](https://github.com/dreamfactory/dreamfactory/wiki/hosted-assets).
+The reference to `://d1fc8wv8zag5ca.cloudfront.net/0.9.1/sp.js` loads `sp.js`, the DreamFactory Javascript tracker. The version loaded is the version [hosted by the DreamFactory team from our own Cloudfront subdomain](https://github.com/dreamfactorysoftware/dsp-core/wiki/hosted-assets).
 
 If you are hosting your own DreamFactory Javascript file (see the guide to [self-hosting dreamfactory.js](self hosting dreamfactory js)), then you need to update the tag above, swapping your own Cloudfront `{{SUBDOMAIN}}` (the one from which you serve `sp.js`) in for ours:
 

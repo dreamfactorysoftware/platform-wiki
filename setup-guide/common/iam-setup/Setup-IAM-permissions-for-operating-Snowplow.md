@@ -611,5 +611,5 @@ Back to [top](#top).
 
 
 
-[emretlrunner.config]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/emr-etl-runner/config
-[storageloader.config]: https://github.com/dreamfactory/dreamfactory/tree/master/4-storage/storage-loader/config
+[emretlrunner.config]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/3-enrich/emr-etl-runner/config
+[storageloader.config]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/4-storage/storage-loader/config

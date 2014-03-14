@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Getting started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Getting started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data)
 
 [**Setup DreamFactory**](Setting-up-DreamFactory)
 
@@ -24,7 +24,7 @@
 - [[Hosted assets]]
 
 
-[analyst-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[analyst-cookbook]: http://dreamfactory.com/analytics/index.html
 [hive]: Getting-started-with-EMR
 [infobright]: Getting-started-analysing-your-data-in-Infobright
 [chartio]: Setting-up-ChartIO-to-visualize-DreamFactory-data

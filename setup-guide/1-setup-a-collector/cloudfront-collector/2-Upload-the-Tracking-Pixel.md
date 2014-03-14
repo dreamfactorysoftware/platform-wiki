@@ -1,8 +1,8 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 2. Upload the tracking pixel
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 2. Upload the tracking pixel
 
-You can download a copy of the tracking pixel from the [DreamFactory Github repo](https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors/cloudfront-collector/static). One convenient way to quickly grab `i` is to execute the following at the command line:
+You can download a copy of the tracking pixel from the [DreamFactory Github repo](https://github.com/dreamfactorysoftware/dsp-core/tree/master/2-collectors/cloudfront-collector/static). One convenient way to quickly grab `i` is to execute the following at the command line:
 
-	$ wget https://github.com/dreamfactory/dreamfactory/raw/master/2-collectors/cloudfront-collector/static/i
+	$ wget https://github.com/dreamfactorysoftware/dsp-core/raw/master/2-collectors/cloudfront-collector/static/i
 
 To upload the tracking pixel into the bucket you just created, click on the **Upload** button on teh top left of the **Objects and Folders** window that makes up most of the screen. A popup will appear:
 

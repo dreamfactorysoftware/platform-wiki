@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [Getting started analysing your data in Infobright](Getting-started-analysing-your-data-in-Infobright)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [Getting started analysing your data in Infobright](Getting-started-analysing-your-data-in-Infobright)
 
 Broadly speaking, there are three ways to query your data in Infobright:
 
@@ -57,5 +57,5 @@ We will be adding guides to analysing your data using R and Weka to the [Analyts
 [r]: http://www.r-project.org/
 [weka]: http://weka.pentaho.com/
 [chartio]: Setting-up-ChartIO-to-visualize-your-data-in-Infobright
-[olap]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html
-[analysts-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[olap]: http://dreamfactory.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html
+[analysts-cookbook]: http://dreamfactory.com/analytics/index.html

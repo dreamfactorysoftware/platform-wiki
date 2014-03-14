@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]]
 
@@ -34,7 +34,7 @@ All done? Then [start analysing your data][analyse].
 [redshift]: http://aws.amazon.com/redshift/
 [skydb]: http://skydb.io/
 [chartio]: http://chartio.com/
-[storageloader]: https://github.com/dreamfactory/dreamfactory/tree/master/4-storage/storage-loader
+[storageloader]: https://github.com/dreamfactorysoftware/dsp-core/tree/master/4-storage/storage-loader
 [setup-redshift]: setting-up-redshift
 [setup-infobright]: Setting-up-Infobright
 [storage-loader-setup]: 1-Installing-the-StorageLoader

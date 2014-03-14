@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > Canonical Event Model
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > Canonical Event Model
 
 <a name="top" />
 # Canonical data structure
@@ -72,7 +72,7 @@ Back to [top](#top).
 | `dvce_tstamp`   | timestamp | Timestamp event was recorded on the client device | No | Yes | '2013-11-26 00:03:57.885' |
 | `os_timezone`   | text     | Client operating system timezone | No | Yes | 'Europe/London' |
 
-We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/dreamfactory/dreamfactory/issues/149) for details.
+We are currently considering extending the date / time fields to store the date / time as recorded on the client and server in separate fields. See [issue 149](https://github.com/dreamfactorysoftware/dsp-core/issues/149) for details.
 
 Back to [top](#top).
 
@@ -155,7 +155,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
 | **Page fields** |          |                 |           |           |                |
 | `page_urlscheme`| text     | Scheme aka protocol | Yes   | Yes       | 'https'        |
-| `page_urlhost`  | text     | Host aka domain | Yes       | yes       | '“www.dreamfactoryanalytics.com' |
+| `page_urlhost`  | text     | Host aka domain | Yes       | yes       | '“www.dreamfactory.com' |
 | `page_urlport`  | int      | Port if specified, 80 if not| Yes       | 80             |
 | `page_urlpath`  | text     | Path to page    | No        | Yes       | '/product/index.html' |
 | `page_urlquery` | text     | Querystring     | No        | Yes       | 'id=GTM-DLRG'  |
@@ -192,7 +192,7 @@ Currently the only platform supported is `web`. However, as we build trackers fo
 | `br_viewheight`| int     | Viewport height    | No     | No         | 1000 |
 | `br_viewwidth` | int     | Viewport width     | No     | No         | 1000 |
 
-See [issue 94](https://github.com/dreamfactory/dreamfactory/issues/94) for more details on `br_windowheight` and `br_windowwidth`.
+See [issue 94](https://github.com/dreamfactorysoftware/dsp-core/issues/94) for more details on `br_windowheight` and `br_windowwidth`.
 
 Back to [top](#top).
 
@@ -252,14 +252,14 @@ Back to [top](#top).
 <a name="linkclicks" />
 #### 2.3.3 Link clicks
 
-This is not currently supported: we plan to add support shortly. For details see [issue 75] (https://github.com/dreamfactory/dreamfactory/issues/75).
+This is not currently supported: we plan to add support shortly. For details see [issue 75] (https://github.com/dreamfactorysoftware/dsp-core/issues/75).
 
 Back to [top](#top).
 
 <a name="ad-imp" />
 #### 2.3.4 Ad impressions
 
-Currently the following ad-impression specific fields are not included in the canonical event model. We need to implement them shortly. (See [issue 129](https://github.com/dreamfactory/dreamfactory/issues/129).)
+Currently the following ad-impression specific fields are not included in the canonical event model. We need to implement them shortly. (See [issue 129](https://github.com/dreamfactorysoftware/dsp-core/issues/129).)
 
 | **Field**       | **Type** | **Description** | **Reqd?** | **Impl?** | **Example**    |
 |:----------------|:---------|:----------------|:----------|:----------|:---------------|
@@ -324,7 +324,7 @@ This has not been implemented yet. The intention is to implement the following f
 | `item_rank`     | integer  | Item rank (position if there is a list of items displayed on the page) | No | No | 3 |
 | `item_location` | text     | Location of the item on the web page | No | No | 'div-cat-4' |
 
-For additional details see [this gist](https://gist.github.com/4327909) and [issue 113](https://github.com/dreamfactory/dreamfactory/issues/113)
+For additional details see [this gist](https://gist.github.com/4327909) and [issue 113](https://github.com/dreamfactorysoftware/dsp-core/issues/113)
 
 Back to [top](#top).
 
@@ -349,7 +349,7 @@ If you wish to track an event that DreamFactory does not recognise as a first cl
 | `se_value`      | decimal  | A value associated with the event / action e.g. the value of goods added-to-basket | No | Yes | 9.99 |
 
 
-See [issue 74](https://github.com/dreamfactory/dreamfactory/issues/74) for additional information.
+See [issue 74](https://github.com/dreamfactorysoftware/dsp-core/issues/74) for additional information.
 
 Back to [top](#top).
 
@@ -369,4 +369,4 @@ Back to [top](#top).
 
 Back to [top](#top).
 
-[avro-blog-post]: http://dreamfactoryanalytics.com/blog/2013/02/04/help-us-build-out-the-dreamfactory-event-model/
+[avro-blog-post]: http://dreamfactory.com/blog/2013/02/04/help-us-build-out-the-dreamfactory-event-model/

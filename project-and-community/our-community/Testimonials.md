@@ -2,7 +2,7 @@
 
 [Thoughtworks Tech Radar May 2013] [thoughtworks]
 
-*#measure folks should all have a look @SnowPlowData. Great project being open source developing pretty quickly*
+*#measure folks should all have a look @dfsoftwareinc. Great project being open source developing pretty quickly*
 
 [Phil Berryman, Simply Business] [simply-business]
 

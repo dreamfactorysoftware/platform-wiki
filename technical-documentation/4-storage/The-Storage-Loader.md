@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > The Storage Loader
+[**HOME**](Home) > [**DREAMFACTORY TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Storage**](storage documentation) > The Storage Loader
 
 ## An overview of how the StorageLoader instruments the loading of data from S3 into Redshift
 
@@ -9,7 +9,7 @@
 
 The StorageLoader is configured via its config file. (Example config files for Redshift users can be found [here] [redshift.yml.sample] and Postgres users [here] [postgres.yml.sample].) For more information, see the guide to [setting up the StorageLoader][storage-loader-setup].
 
-[config-file]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/config.yml.sample
+[config-file]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/config.yml.sample
 [storage-loader-setup]: 1-Installing-the-StorageLoader
-[postgres.yml.sample]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/postgres.yml.sample
-[redshift.yml.sample]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/redshift.yml.sample
+[postgres.yml.sample]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/postgres.yml.sample
+[redshift.yml.sample]: https://github.com/dreamfactorysoftware/dsp-core/blob/master/4-storage/storage-loader/config/redshift.yml.sample

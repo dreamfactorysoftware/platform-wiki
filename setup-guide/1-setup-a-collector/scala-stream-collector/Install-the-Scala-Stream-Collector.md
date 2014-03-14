@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](Setting-up-the-Scala-Stream-Collector) > [[Install the Scala Stream Collector]]
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Scala Stream collector setup**](Setting-up-the-Scala-Stream-Collector) > [[Install the Scala Stream Collector]]
 
 ## 1. Dependencies
 
@@ -39,7 +39,7 @@ The `jar` file will be saved as `dreamfactory-scala-collector-0.1.0` in the `tar
 
 Next: [[Configure the Scala Stream Collector]]
 
-[s3-download]: https://github.com/dreamfactory/dreamfactory/wiki/Hosted-assets
+[s3-download]: https://github.com/dreamfactorysoftware/dsp-core/wiki/Hosted-assets
 [scala]: http://scala-lang.org/
 [sbt]: http://www.scala-sbt.org/
 [thrift]: thrift.apache.org/

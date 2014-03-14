@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [4: Self-hosting Hadoop Enrich](4-Self-hosting-Hadoop-Enrich)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [4: Self-hosting Hadoop Enrich](4-Self-hosting-Hadoop-Enrich)
 
 1. [Overview](#overview)
 2. [Bucket and directory setup](#bucket-setup)

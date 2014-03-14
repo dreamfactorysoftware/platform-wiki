@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with Google Tag Manager](Integrating-Javascript-tags-with-Google-Tag-Manager)
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Setting up the Javascript Tracker with Google Tag Manager](Integrating-Javascript-tags-with-Google-Tag-Manager)
 This setup guide is divided into three sections:
 
 1. [Setting up Google Tag Manager](#setup-gtm) (GTM)
@@ -214,11 +214,11 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 <!-- DreamFactory stops plowing -->
 ```
 
-You will need to update the {{CLOUDFRONT DOMAIN}} with the Cloudfront subdomain details you created as part of the [collector setup](https://github.com/dreamfactory/dreamfactory/wiki/setting-up-cloudfront-collector). (If you are using a version of DreamFactory hosted by the DreamFactory team, we will provide you with a Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. If you are using a different collector the Cloudfront collector (e.g. the Clojure collector), you will need to use the `setCollectorUrl` method instead. For full instructions on all the options available for setting the collector endpoint, see the [Javascript tracker technical documentation](Javascript-Tracker).
+You will need to update the {{CLOUDFRONT DOMAIN}} with the Cloudfront subdomain details you created as part of the [collector setup](https://github.com/dreamfactorysoftware/dsp-core/wiki/setting-up-cloudfront-collector). (If you are using a version of DreamFactory hosted by the DreamFactory team, we will provide you with a Cloudfront domain to enter.) It will look something like `d3rkrsqld9gmqf`. If you are using a different collector the Cloudfront collector (e.g. the Clojure collector), you will need to use the `setCollectorUrl` method instead. For full instructions on all the options available for setting the collector endpoint, see the [Javascript tracker technical documentation](Javascript-Tracker).
 
 The calls to `setAppId` and `setCookieDomain` are optional: the first is used if you are running DreamFactory across different applications and want to distinguish data for each easily. `setCookieDomain` is used if you are tracking users across multiple subdomains e.g. 'blog.mysite.com', 'www.mysite.com', 'mysite.com'. Full instructions on the use of both these methods can be found in the [Javascript tracker technical documentation](Javascript-Tracker).
 
-If you are hosting your own DreamFactory JavaScript file (see the guide to [Self-hosting dreamfactory.js] (https://github.com/dreamfactory/dreamfactory/wiki/Self-hosting-dreamfactory-js)), then you need to update the tag above, swapping your own {{CLOUDFRONT DOMAIN}} (the one from which you serve sp.js in for ours:
+If you are hosting your own DreamFactory JavaScript file (see the guide to [Self-hosting dreamfactory.js] (https://github.com/dreamfactorysoftware/dsp-core/wiki/Self-hosting-dreamfactory-js)), then you need to update the tag above, swapping your own {{CLOUDFRONT DOMAIN}} (the one from which you serve sp.js in for ours:
 
 ```javascript
 sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://{{CLOUDFRONT DOMAIN}}.cloudfront.net/sp.js';
@@ -519,6 +519,6 @@ Now you have setup the Javascript tracking tags, you are in a position to [test 
 [Return to setup guide](Setting-up-DreamFactory).
 
 [datalayer]: https://developers.google.com/tag-manager/reference
-[event-tracking]: https://github.com/dreamfactory/dreamfactory/wiki/javascript-tracker#wiki-events
-[ecomm-tracking]: https://github.com/dreamfactory/dreamfactory/wiki/javascript-tracker#wiki-ecommerce
+[event-tracking]: https://github.com/dreamfactorysoftware/dsp-core/wiki/javascript-tracker#wiki-events
+[ecomm-tracking]: https://github.com/dreamfactorysoftware/dsp-core/wiki/javascript-tracker#wiki-ecommerce
 [gtm-vars]: https://developers.google.com/tag-manager/reference#varnames

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > Testing the Javascript tracker is firing
+[**HOME**](Home) > [**DREAMFACTORY SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > Testing the Javascript tracker is firing
 
 Once you have integrated DreamFactory tracking tags on your website, you can test that they are firing from your browser, using tools like [Firebug] [firebug] for Firefox, or developer tools in Chrome or IE.
 
@@ -22,14 +22,14 @@ In the above example, we've selected one of the requests, and clicked on the **P
 
 * We can see the Cloudfront domain that the tracker is pinging is `d10wr4jwvp55f9.cloudfront.net`. We can check that this is the domain used to setup the Cloudfront collector. (I.e. our tracker is pointing to the right endpoint.)
 * We see that the status of the request is a '200 OK'. That's good!
-* We can see the different parameters on the query string. In particular, we can see that `e` is set to 'pp': `e` is event type: and 'pp' represents a page ping event. We can also see that `duid`, which is the `domain_userid` is set to '8fbe862fff4ddef3'. You can look up the meaning of the other parameters on the [DreamFactory Tracker Protocol page] (SnowPlow-Tracker-Protocol).
+* We can see the different parameters on the query string. In particular, we can see that `e` is set to 'pp': `e` is event type: and 'pp' represents a page ping event. We can also see that `duid`, which is the `domain_userid` is set to '8fbe862fff4ddef3'. You can look up the meaning of the other parameters on the [DreamFactory Tracker Protocol page] (DreamFactory-Tracker-Protocol).
 
 #### 3. Specific things to check for
 
 We recommend checking the following:
 
 1. That the page view event fires at least once on each page load. This will include the parameter `e=pv`, to indicate that the event type is 'page_view'.
-2. Check that any event specific tags (e.g. custom structured events or transaction events) are fired when you expect them. A structured event will include the parameter `e=se`. For other parameters, see the [DreamFactory Tracker Protocol page] (SnowPlow-Tracker-Protocol).
+2. Check that any event specific tags (e.g. custom structured events or transaction events) are fired when you expect them. A structured event will include the parameter `e=se`. For other parameters, see the [DreamFactory Tracker Protocol page] (DreamFactory-Tracker-Protocol).
 
 #### 4. My tracker is firing correctly. Can I check that my collector is receiving the data sent from the tracker?
 
