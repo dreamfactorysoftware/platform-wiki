@@ -1,8 +1,8 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Create a new application in Elastic Beanstalk and upload the WAR file into it]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Create a new application in Elastic Beanstalk and upload the WAR file into it]]
 
 Amazon makes it easy to create a new application in Elastic Beanstalk and upload your `war` file into it. All of this is possible via the web UI.
 
-On your web browser, log into the [AWS control panel][aws]. From the **Services** dropdown menu select **Elastic Beanstalk**. 
+On your web browser, log into the [AWS control panel][aws]. From the **Services** dropdown menu select **Elastic Beanstalk**.
 
 Before you create your application, you need to switch to the region you want your web server located. Select your region from the dropdown on the top right of the screen:
 
@@ -30,7 +30,7 @@ For the **Application Health Check URL**, leave this blank. By default, Elastic 
 
 [[/setup-guide/images/clojure-collector-setup-guide/4.png]]
 
-Click **Continue**. Amazon gives you the chance to review your inputs. When you've checked them click **Finish**. 
+Click **Continue**. Amazon gives you the chance to review your inputs. When you've checked them click **Finish**.
 
 Amazon then sets up your the application and environment. When this is complete, you should see a screen like the one below. Note the green box, and the **Successflly running version First Release** notice.
 

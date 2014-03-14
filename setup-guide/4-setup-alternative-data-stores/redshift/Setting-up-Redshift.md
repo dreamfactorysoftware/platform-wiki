@@ -1,20 +1,20 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup Redshift
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup Redshift
 
 Setting up Redshift is an 6 step process:
 
 1. [Launch a cluster](#launch)
-2. [Authorize client connections to your cluster](#authorise)  
+2. [Authorize client connections to your cluster](#authorise)
 3. [Connect to your cluster](#connect)
-4. [Setting up the Snowplow database and events table](#db)
-5. [Setting up the Snowplow views on your data](#views)
+4. [Setting up the DreamFactory database and events table](#db)
+5. [Setting up the DreamFactory views on your data](#views)
 6. [Setup user access on Redshift](#user)
 7. [Update the search path of your cluster](#search_path)
-8. [Generating Redshift-format data from Snowplow](#etl)
-9. [Automating the loading of Snowplow data into Redshift](#load)
+8. [Generating Redshift-format data from DreamFactory](#etl)
+9. [Automating the loading of DreamFactory data into Redshift](#load)
 
-**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+**Note**: We recommend running all DreamFactory AWS operations through an IAM user with the bare minimum permissions required to run DreamFactory. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
 <a name="launch" />
 ## 1. Launch a Redshift Cluster
@@ -44,7 +44,7 @@ Amazon summarises your cluster information. Click "Launch Cluster" to fire your 
 
 You authorize access to Redshift differently depending on whether the client you're authorizing is an EC2 instance or not
 
-2.1 [EC2 instance](#ec2)  
+2.1 [EC2 instance](#ec2)
 2.2 [Other client](#other)
 
 <a name="ec2" />
@@ -75,9 +75,9 @@ In this example we're going to establish a direct connection between Redshift an
 
 [[/setup-guide/images/redshift-setup-guide/8.png]]
 
-and click "Add". 
+and click "Add".
 
-We should now be able to connect a SQL client on our local machine to Amazon Redshift. 
+We should now be able to connect a SQL client on our local machine to Amazon Redshift.
 
 
 
@@ -86,11 +86,11 @@ We should now be able to connect a SQL client on our local machine to Amazon Red
 
 There are two ways to connect to your Redshift cluster:
 
-4.1 [Directly](#directly)  
-4.2 [Via SSL](#ssl)  
+4.1 [Directly](#directly)
+4.2 [Via SSL](#ssl)
 
 <a name="directly" />
-### 3.1 Directly connect 
+### 3.1 Directly connect
 
 Amazon has helpfully provided detailed instructions for connecting to Redshift using [SQL Workbench] [sql-workbench-tutorial]. In this tutorial we will connect using [Navicat](http://www.navicat.com/), a database querying tool which we recommend (30 day trial versios are available from the [Navicat website](http://www.navicat.com/)).
 
@@ -127,15 +127,15 @@ The Redshift cluster is now visible on Navicat, alongside every other database i
 TO WRITE
 
 <a name="db" />
-## 4. Setting up the Snowplow events table
+## 4. Setting up the DreamFactory events table
 
-Now that you have Redshift up and running, you need to create your Snowplow events table.
+Now that you have Redshift up and running, you need to create your DreamFactory events table.
 
-The Snowplow events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute the queries in the file - this can be done using psql as follows: 
+The DreamFactory events table definition for Redshift is available on the repo [here] [redshift-table-def]. Execute the queries in the file - this can be done using psql as follows:
 
-Navigate to your snowplow github repo:
+Navigate to your dreamfactory github repo:
 
-	$ cd snowplow
+	$ cd dreamfactory
 
 Navigate to the sql file:
 
@@ -143,21 +143,21 @@ Navigate to the sql file:
 
 Now execute the `atomic-def.sql` file:
 
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomic-def.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f atomic-def.sql
 
 If you prefer using a GUI (e.g. Navicat) rather than `psql`, you can do so. These will let you either run the files directly, or you can simply copy and paste the queries in the files into your GUI of choice, and execute them from there.
 
 <a name="views" />
-## 5. Setting up the Snowplow views on your data
+## 5. Setting up the DreamFactory views on your data
 
 Once you've created the `atomic.events` table, you are in a position to create the different views on the data in that table. This can be done using `psql` at the command line:
 
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-basic.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-catalog.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-customers.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-pages.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-visits.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-transactions.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-basic.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-catalog.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-customers.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-pages.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-visits.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-transactions.sql
 
 
 
@@ -173,7 +173,7 @@ We recommend you setup access credentials for at least three different users:
 <a name="storageloader-user" />
 ### 6.1 Creating a user for the StorageLoader
 
-We recommend that you create a specific user in Redshift with *only* the permissions required to load data into your Snowplow events table, and use this user's credentials in the StorageLoader config to manage the automatic movement of data into the table. (That way, in the event that the server running StorageLoader is hacked and the hacker gets access to those credentials, they cannot use them to do any harm to your data.)
+We recommend that you create a specific user in Redshift with *only* the permissions required to load data into your DreamFactory events table, and use this user's credentials in the StorageLoader config to manage the automatic movement of data into the table. (That way, in the event that the server running StorageLoader is hacked and the hacker gets access to those credentials, they cannot use them to do any harm to your data.)
 
 To create a new user with restrictive permissions, log into Redshift, connect to the Snopwlow database and execute the following SQL:
 
@@ -183,12 +183,12 @@ GRANT USAGE ON SCHEMA atomic TO storageloader;
 GRANT INSERT ON TABLE "atomic"."events" TO storageloader;
 ```
 
-You can set the user name and password (`storageloader` and `$storageloaderpassword` in the example above) to your own values. Note them down: you will need them when you come to setup the storageLoader in the next phase of the your Snowplow setup.
+You can set the user name and password (`storageloader` and `$storageloaderpassword` in the example above) to your own values. Note them down: you will need them when you come to setup the storageLoader in the next phase of the your DreamFactory setup.
 
 <a name="read-only-user" />
 ### 6.2 Creating a read-only user
 
-To create a new user who can read Snowplow data, but not modify it, connect to the Snowplow database and execute the following SQL:
+To create a new user who can read DreamFactory data, but not modify it, connect to the DreamFactory database and execute the following SQL:
 
 ```sql
 CREATE USER read_only PASSWORD '$read_only_user';
@@ -295,7 +295,7 @@ GRANT SELECT ON 	cubes_ecomm	.	transactions_with_visits	 TO other_user;
 <a name="power-user" />
 ### 6.3 Creating a power user
 
-To create a power user that has super user privilages, connect to the Snowplow database in Redshift and execute the following:
+To create a power user that has super user privilages, connect to the DreamFactory database in Redshift and execute the following:
 
 ```sql
 create user power_user createuser password '$poweruserpassword';
@@ -304,16 +304,16 @@ create user power_user createuser password '$poweruserpassword';
 Note that now you've created your different users, we recommend that you no longer use the credentials you created when you created the Redshift cluster originally.
 
 <a name="etl" />
-## 7. Generating Redshift-format data from Snowplow
+## 7. Generating Redshift-format data from DreamFactory
 
-Assuming you are working through the setup guide sequentially, you will have already  ([setup EmrEtlRunner] [emr-etl-runner]). You should therefore have Snowplow events in S3, ready for uploading into Redshift.
+Assuming you are working through the setup guide sequentially, you will have already  ([setup EmrEtlRunner] [emr-etl-runner]). You should therefore have DreamFactory events in S3, ready for uploading into Redshift.
 
 If you have not already [setup EmrEtlRunner] [emr-etl-runner], then please do so now, before proceeding onto the [next stage](#load).
 
 <a name="search_path" />
 ## 8. Update the search path for your Redshift cluster
 
-The `search path` specifies where Redshift should look to locate tables and views that are specified in queries submitted to it. This is important, because the Snowplow events table is located in the "atomic" schema, whilst different recipe views are located in their own schemas (e.g. "customer_recipes" and "catalog_recipes"). By adding these schemas to the Redshift search path, it means that when you connect to Redshift from different tools (e.g. Tableau, SQL workbench), those tools can identify tables and views in each of those schemas, and present them as options for the user to connect to.
+The `search path` specifies where Redshift should look to locate tables and views that are specified in queries submitted to it. This is important, because the DreamFactory events table is located in the "atomic" schema, whilst different recipe views are located in their own schemas (e.g. "customer_recipes" and "catalog_recipes"). By adding these schemas to the Redshift search path, it means that when you connect to Redshift from different tools (e.g. Tableau, SQL workbench), those tools can identify tables and views in each of those schemas, and present them as options for the user to connect to.
 
 Updating the search path is straightforward. In the AWS Redshift console, click on the **Parameters Group** menu item on the left hand. menu, and select the button to **Create Cluster Parameter Group**:
 
@@ -339,9 +339,9 @@ Click the **Modify** button to save the changes. We now need to reboot the clust
 
 
 <a name="load" />
-## 9. Automating the loading of Snowplow data into Redshift
+## 9. Automating the loading of DreamFactory data into Redshift
 
-Now that you have your Snowplow database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
+Now that you have your DreamFactory database and table setup on Redshift, you are ready to [setup the StorageLoader to regularly upload DreamFactory data into the table] [storage-loader]. Click [here] [storage-loader] for step-by-step instructions on how.
 
 [Back to top](#top).
 
@@ -349,5 +349,4 @@ Now that you have your Snowplow database and table setup on Redshift, you are re
 [emr-etl-runner]: 1-Installing-EmrEtlRunner
 [storage-loader]: 1-Installing-the-StorageLoader
 [sql-workbench-tutorial]: http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
-[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/atomic-def.sql
-                      
+[redshift-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/redshift-storage/sql/atomic-def.sql

@@ -1,13 +1,13 @@
 <a name="top" />
 ## Overview
 
-Setting up permissions in IAM for the user(s) installing Snowplow is an 3 step process:
+Setting up permissions in IAM for the user(s) installing DreamFactory is an 3 step process:
 
 1. [Create an IAM group (incl. creating a user and setting permissions)] (#create-group)
 2. [Enable users to log into AWS] (#enable-login)
 
 
-**Disclaimer: Snowplow Analytics Ltd will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
+**Disclaimer: DreamFactory Software, Inc. will not be liable for any problems caused by the full or partial implementation of these instructions on your Amazon Web Services account. If in doubt, please consult an independent AWS security expert.**
 
 _Warning: these permissions are still more permissive than they need to be. We will be putting in time to narrow them down further over the coming weeks._
 
@@ -26,9 +26,9 @@ Now click on the _Create a New Group of Users_ button:
 
 ### Group Name
 
-Enter a _Group Name_ of `snowplow-setup`:
+Enter a _Group Name_ of `dreamfactory-setup`:
 
-[[/setup-guide/images/iam/new-iam-group-snowplow.png]]
+[[/setup-guide/images/iam/new-iam-group-dreamfactory.png]]
 
 ### Permissions
 
@@ -36,7 +36,7 @@ Now choose the _Custom Policy_ option and click _Select_:
 
 [[/setup-guide/images/iam/new-iam-group-custom-policy.png]]
 
-Let's give it a _Policy Name_ of `snowplow-policy-setup-infrastructure`:
+Let's give it a _Policy Name_ of `dreamfactory-policy-setup-infrastructure`:
 
 [[/setup-guide/images/iam/new-iam-group-policy-name.png]]
 
@@ -150,9 +150,9 @@ From the _Add Existing Users_ tab, switch to the _Create New Users_ tab:
 
 [[/setup-guide/images/iam/new-iam-group-create-new-user.png]]
 
-Now enter a first _User Name_ - we use `snowplow-setup`:
+Now enter a first _User Name_ - we use `dreamfactory-setup`:
 
-[[/setup-guide/images/iam/new-iam-group-create-new-user-snowplow.png]]
+[[/setup-guide/images/iam/new-iam-group-create-new-user-dreamfactory.png]]
 
 Keep the option _Generate an access key for each User_ checked, and then click _Continue_.
 
@@ -168,40 +168,40 @@ Click _Continue_ and you should see the following:
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-Provide these credentials in a secure way - **not** via email - to whoever is setting up Snowplow for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
+Provide these credentials in a secure way - **not** via email - to whoever is setting up DreamFactory for you, so that they can add them into the configuration of your EmrEtlRunner and StorageLoader applications.
 
 Back to [top](#top).
 
 <a name="enable-login" />
 ## 2. Allow the IAM user to login
 
-For much of the Snowplow setup process, the IAM user you have setup above will need access to the Amazon Web Services control panel.
+For much of the DreamFactory setup process, the IAM user you have setup above will need access to the Amazon Web Services control panel.
 
-From within the _Users_ tab inside the IAM dashboard, click on your `snowplow` user:
+From within the _Users_ tab inside the IAM dashboard, click on your `dreamfactory` user:
 
-[[/setup-guide/images/iam/user-snowplow.png]]
+[[/setup-guide/images/iam/user-dreamfactory.png]]
 
 Now switch to the _Security Credentials_ tab in the bottom pane, and click _Manage Password_ on the right:
 
-[[/setup-guide/images/iam/user-snowplow-manage-password.png]]
+[[/setup-guide/images/iam/user-dreamfactory-manage-password.png]]
 
 Now choose _Assign an auto-generated password_:
 
-[[/setup-guide/images/iam/user-snowplow-auto-password.png]]
+[[/setup-guide/images/iam/user-dreamfactory-auto-password.png]]
 
 Click _Apply_ and you should see the following:
 
-[[/setup-guide/images/iam/user-snowplow-download-credentials.png]]
+[[/setup-guide/images/iam/user-dreamfactory-download-credentials.png]]
 
 Click _Download Credentials_ to save these credentials locally. Then click _Close Window_.
 
-Now, provide the following details in a secure way - **not** via email - to whoever is setting up Snowplow for you:
+Now, provide the following details in a secure way - **not** via email - to whoever is setting up DreamFactory for you:
 
 * Login URL: [https://snplow.signin.aws.amazon.com/console](https://snplow.signin.aws.amazon.com/console)
-* Username: `snowplow`
+* Username: `dreamfactory`
 * Password: as downloaded
 
 Back to [top](#top).
 
 [iam]: http://aws.amazon.com/iam/
-[operate-snowplow]: Setup-IAM-permissions-for-operating-Snowplow
+[operate-dreamfactory]: Setup-IAM-permissions-for-operating-DreamFactory

@@ -1,35 +1,35 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting started analyzing Snowplow data) > Setting up Excel to analyze Snowplow data
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up Excel to analyze DreamFactory data
 
 <a name="top" />
 ## Contents
 
-1. [Why use Excel to analyze / visualize Snowplow data](#why)
-2. [Setting up Excel to directly fetch Snowplow data from Amazon Redshift](#redshift)
+1. [Why use Excel to analyze / visualize DreamFactory data](#why)
+2. [Setting up Excel to directly fetch DreamFactory data from Amazon Redshift](#redshift)
 3. [Setting up Excel to directly fetch Snwoplow data from PostgreSQL](#postgres)
 4. [Fetching data into Excel as a PivotTable or PivotChart Report](#simple-analysis)
 5. [Notes](#notes)
 6. [Next steps](#next-steps)
 
 <a name="why" />
-## 1. Why use Excel to analyze / visualize Snowplow data?
+## 1. Why use Excel to analyze / visualize DreamFactory data?
 
 Excel is the most popular BI / analysis tool in the world. *Every* analyst, and a large number of business, sales and marketing people are excellent at using Excel, but shy away from other tools.
 
-By accessing your Snowplow data diretly from Excel, anyone who's familiar with Excel can start doing sophisticated web analysis.
+By accessing your DreamFactory data diretly from Excel, anyone who's familiar with Excel can start doing sophisticated web analysis.
 
 Back to [top](#top).
 
 <a name="redshift" />
-## 2. Setting up Excel to directly fetch Snowplow data from Amazon Redshift
+## 2. Setting up Excel to directly fetch DreamFactory data from Amazon Redshift
 
 *This guide walks through the process of setting up a fetching data directly into Excel from Amazon Redshift on a Windows PC. We have not tried to do this on an Mac.*
 
-Setting up Excel so that you can grab live Snowplow data directly from Amazon Redshift is a 4 step process:
+Setting up Excel so that you can grab live DreamFactory data directly from Amazon Redshift is a 4 step process:
 
 1. [Install the Redshift ODBC driver](#driver)
 2. [White label your local IP address with Amazon Redshift security](#security)
-3. [Create a data connection in Windows to your Snowplow data in Redshift, via ODBC](#windows)
-4. [Use that connection to fetch Snowplow data from Excel, directly into your Excel workbook](#excel)
+3. [Create a data connection in Windows to your DreamFactory data in Redshift, via ODBC](#windows)
+4. [Use that connection to fetch DreamFactory data from Excel, directly into your Excel workbook](#excel)
 5. [Fetching data into Excel as a PivotTable or PivotChart Report](#pivot)
 
 <a name="driver" />
@@ -53,7 +53,7 @@ Once completed, you can check that the driver is available in Windows. Open up y
 
 [[/setup-guide/images/excel/odbc-data-sources-drivers-listed.JPG]]
 
-Notice the listings for `PostgreSQL ANSI(x64)` and `PostgreSQL Unicode(x64)`. These are the drivers that have been, that we will use to connect to Redshift with. 
+Notice the listings for `PostgreSQL ANSI(x64)` and `PostgreSQL Unicode(x64)`. These are the drivers that have been, that we will use to connect to Redshift with.
 
 **Note:** if you are running a 64 bit version of Windows, but are running a 32 bit version of Excel, so have installed the 32 bit driver, this will **not** be visible in the list of data sources you've just pulled up. Instead, you will need to open `c:\Windows\SysWOW64\odbcad32.exe`, to see a version of the same software with all the 32 bit drivers listed. All the rest of the instructions that follow should be the same.
 
@@ -62,7 +62,7 @@ Back to [top](#top).
 <a name="security" />
 ### 2.2 White label your local IP address with Amazon Redshift security
 
-As a security measure, Amazon only allows connection to Redshift clusters from white-labelled IP addresses. That means you need to white label the IP address of the computer running Excel that you want to connect to Redshift. 
+As a security measure, Amazon only allows connection to Redshift clusters from white-labelled IP addresses. That means you need to white label the IP address of the computer running Excel that you want to connect to Redshift.
 
 To do this, log into the AWS console. (Ideally, from the computer you plan to run Excel on.) Click on **Redshift** and then select **Security Groups**:
 
@@ -74,18 +74,18 @@ Click on your security group. A list of white labelled IP addresses should be sh
 
 Enter the IP address you would like to white list, with the '/32' at the end. Note: Amazon gives you the IP address of the computer you have logged into AWS with - if this is the same computer, you can simply copy and paste the result in the AWS console. (In the example above, it is `37.157.33.178/32`.)
 
-If you do not know the IP address of the computer you wish to use Excel on, you can find it out by visiting [www.findmyip.org] (http://www.findmyip.org/). In most cases, you will simply need to add `/32` to the IP address to correctly get the CIDR/IP address. 
+If you do not know the IP address of the computer you wish to use Excel on, you can find it out by visiting [www.findmyip.org] (http://www.findmyip.org/). In most cases, you will simply need to add `/32` to the IP address to correctly get the CIDR/IP address.
 
 Enter the address into the AWS console and click **Authorize**. You are now ready to create an ODBC connection between your Windows machine and Amazon Redshift!
 
 Back to [top](#top).
 
 <a name="windows" />
-### 2.3 Create a data connection in Windows to your Snowplow data in Redshift, via ODBC
+### 2.3 Create a data connection in Windows to your DreamFactory data in Redshift, via ODBC
 
 Now that you have a Redshift compatible ODBC driver installed on your local machine, and have white labelled the IP address on that same machine, you're in a position to create a connection between it and your Amazon Redshift instance.
 
-Go back to **Data Sources (ODBC)** (in Control Panel / Administrative Tools). 
+Go back to **Data Sources (ODBC)** (in Control Panel / Administrative Tools).
 
 [[/setup-guide/images/excel/connection-1.JPG]]
 
@@ -110,7 +110,7 @@ Once the details have been entered, you can test them (hit the **Test** button),
 Back to [top](#top).
 
 <a href="excel" />
-### 2.4 Use that connection to fetch Snowplow data from Excel, directly into your Excel workbook
+### 2.4 Use that connection to fetch DreamFactory data from Excel, directly into your Excel workbook
 
 Create a new Excel workbook.
 
@@ -122,11 +122,11 @@ Select **ODBC DSN** and click **Next**:
 
 [[/setup-guide/images/excel/connection-6.JPG]]
 
-You should see a list of your ODBC connections, including the connection you created to your Snowplow data on Redshift in [section 2.3](#windows) above. Select it and click **Next**:
+You should see a list of your ODBC connections, including the connection you created to your DreamFactory data on Redshift in [section 2.3](#windows) above. Select it and click **Next**:
 
 [[/setup-guide/images/excel/connection-7.JPG]]
 
-Excel shows you all the tables in the Snowplow database: which is *just* the events table. Click **Next**:
+Excel shows you all the tables in the DreamFactory database: which is *just* the events table. Click **Next**:
 
 [[/setup-guide/images/excel/connection-8.JPG]]
 
@@ -138,7 +138,7 @@ Excel now gives you a set of options related to the format you data will be impo
 
 [[/setup-guide/images/excel/connection-10.JPG]]
 
-Excel now gives us options to set how frequently data is refreshed. We recommend refrehing the data when the file is opened, but then now refreshing it again. (Minimizing the refresh rate keeps the spreadsheet quick to use- and Snowplow data does not generally change so quickly.) Given that, we recommend checking the box **Refreesh when opening the file** and unchecking **Enable background refresh**.
+Excel now gives us options to set how frequently data is refreshed. We recommend refrehing the data when the file is opened, but then now refreshing it again. (Minimizing the refresh rate keeps the spreadsheet quick to use- and DreamFactory data does not generally change so quickly.) Given that, we recommend checking the box **Refreesh when opening the file** and unchecking **Enable background refresh**.
 
 [[/setup-guide/images/excel/connection-11.JPG]]
 
@@ -176,7 +176,7 @@ Voila! Our slice of data appears directly in Excel. We can graph it as normal:
 
 [[/setup-guide/images/excel/connection-16.JPG]]
 
-Note: we can use pull *any* cut of Snowplow data direclty into Excel in the method described above. For ideas of other slices of data / queries to run, see the [Analytics Cookbook] [cookbook].
+Note: we can use pull *any* cut of DreamFactory data direclty into Excel in the method described above. For ideas of other slices of data / queries to run, see the [Analytics Cookbook] [cookbook].
 
 Back to [top](#top).
 
@@ -190,11 +190,11 @@ Back to [top](#top).
 <a name="simple-analysis" />
 ## 4. Fetching data into Excel as a PivotTable or PivotChart Report
 
-In the above examples, we a cut of Snowplow data into Excel as a simple table.
+In the above examples, we a cut of DreamFactory data into Excel as a simple table.
 
 Often, however, it is nice to pull a larger data set into Excel directly as a PivotTable or PivotChart. This lets us slice and dice the data by different dimensions and metric combinations within Excel, enabling us to create multiple visualizations and explore the relationship between different variables in our data set.
 
-Importing data from Snowplow into Excel as a PivotTable or PivotChart is reasonably straightforward. The key thing to understand is that the data must be suitably formatted for Excel to correctly read it into the PivotTable or PivotChart. We've written a set of instructions on [formatting Snowplow data for OLAP analysis][olap-analysis]: those instructions apply here, as PivotTables / PivotCharts are a form of OLAP analysis.
+Importing data from DreamFactory into Excel as a PivotTable or PivotChart is reasonably straightforward. The key thing to understand is that the data must be suitably formatted for Excel to correctly read it into the PivotTable or PivotChart. We've written a set of instructions on [formatting DreamFactory data for OLAP analysis][olap-analysis]: those instructions apply here, as PivotTables / PivotCharts are a form of OLAP analysis.
 
 To demonstrate, we're going to use the following query to generate our PivotChart report. (Refer to the [guide to formatting data for OLAP analysis] [olap-analysis] for instructions in how this was derived):
 
@@ -225,7 +225,7 @@ SELECT
 	visits.visit_refr_urlpath,
 	page_views.page_urlpath,
 	page_views.page_views,
-	1 AS number_of_visits	
+	1 AS number_of_visits
 FROM (
 	SELECT
 		domain_userid,
@@ -292,7 +292,7 @@ LEFT JOIN (
 ON page_views.domain_userid = users.domain_userid
 ```
 
-Create a new workbook in Excel. Go to DATA > Get External Data > From other data sources > Data connection wizard > ODBC DSN > Snowplow connection as you would to pull in data as a table. When presented with the following screen:
+Create a new workbook in Excel. Go to DATA > Get External Data > From other data sources > Data connection wizard > ODBC DSN > DreamFactory connection as you would to pull in data as a table. When presented with the following screen:
 
 [[/setup-guide/images/excel/connection-9.JPG]]
 
@@ -319,7 +319,7 @@ Back to [top](#top).
 
 ### Managing the volume of data inserted into Excel
 
-Snowplow data is often very large volume. Most analyses on Snowplow data start by identifying the slice, or cut of Snowplow data that is required, generating that cut in Redshift, and then importing that into a standard analysis tool like Excel, Tableau, or R, that is not built to handle the types of volumes that Amazon Redshift / EMR are built to handle.
+DreamFactory data is often very large volume. Most analyses on DreamFactory data start by identifying the slice, or cut of DreamFactory data that is required, generating that cut in Redshift, and then importing that into a standard analysis tool like Excel, Tableau, or R, that is not built to handle the types of volumes that Amazon Redshift / EMR are built to handle.
 
 These considerations are especially important in the case of Excel, which is much worse at handling data at large volumes than e.g. Tableau or R. As a result, we recommend analysts check how many results their query returns (e.g. using Navicat) before running it in Excel.
 
@@ -340,5 +340,5 @@ Back to [top](#top).
 [64-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_09_00_0101-x64.zip
 [32-bit-driver]: http://ftp.postgresql.org/pub/odbc/versions/msi/psqlodbc_08_04_0200.zip
 [redshift-create-user]: http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html
-[cookbook]: http://snowplowanalytics.com/analytics/index.html
-[olap-analysis]: http://snowplowanalytics.com/analytics/tools-and-techniques/converting-snowplow-data-into-a-format-suitable-for-olap.html
+[cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[olap-analysis]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html

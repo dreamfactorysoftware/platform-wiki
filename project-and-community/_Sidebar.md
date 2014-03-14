@@ -1,16 +1,16 @@
-**[HOME](Home)** > **[PROJECT & COMMUNITY](Snowplow-project-and-community)**
+**[HOME](Home)** > **[PROJECT & COMMUNITY](DreamFactory-project-and-community)**
 
 **Our community**
-- [[Talk to us]]  
-- [[Our users]]  
-- [[Our contributors]] 
-- [[Testimonials]]  
+- [[Talk to us]]
+- [[Our users]]
+- [[Our contributors]]
+- [[Testimonials]]
 
-**[[Contributing]]** 
+**[[Contributing]]**
 - [Development](Contributing-to-development)
 - [Documentation](Contributing-to-documentation)
 - Translations _(coming soon)_
 
-**Legal**  
-- [Copyright & license](Copyright-and-license)  
+**Legal**
+- [Copyright & license](Copyright-and-license)
 - [[CLA]]

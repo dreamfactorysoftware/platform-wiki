@@ -1,8 +1,8 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Modifying Snowplow.js](Modifying-Snowplow-js)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [Modifying DreamFactory.js](Modifying-DreamFactory-js)
 
 ## Overview
 
-It may be necessary for you to make changes to `snowplow.js`. If you do, then you will also need to minify your updated `snowplow.js` prior to deploying it. This guide covers how to do this.
+It may be necessary for you to make changes to `dreamfactory.js`. If you do, then you will also need to minify your updated `dreamfactory.js` prior to deploying it. This guide covers how to do this.
 
 To continue with this guide, you will need the following
 
@@ -18,19 +18,19 @@ Once you have those ready, please read on...
 First please download the source code to your development machine:
 
     $ cd ~/development
-    $ git clone http://github.com/snowplow/snowplow.git
+    $ git clone http://github.com/dreamfactory/dreamfactory.git
 	...
-	$ cd snowplow/1-trackers/javascript/js/
+	$ cd dreamfactory/1-trackers/javascript/js/
 	$ ls
-    snowplow.js   sp.js         snowpak.sh
+    dreamfactory.js   sp.js         snowpak.sh
 
-In the listing above, `snowplow.js` is the original JavaScript; `sp.js` is the minified version and `snowpak.sh` is a Bash shell script for performing the minification.
+In the listing above, `dreamfactory.js` is the original JavaScript; `sp.js` is the minified version and `snowpak.sh` is a Bash shell script for performing the minification.
 
-## 2. Update `snowplow.js`
+## 2. Update `dreamfactory.js`
 
-Making changes to `snowplow.js` (and testing them) is out of scope of this document.
+Making changes to `dreamfactory.js` (and testing them) is out of scope of this document.
 
-Once you have made your changes and tested them, you are ready to **minify** your new `snowplow.js`.
+Once you have made your changes and tested them, you are ready to **minify** your new `dreamfactory.js`.
 
 ### 3. Install YUI Compressor 2.4.2
 
@@ -49,15 +49,15 @@ Just check that the required jarfile has now been installed:
     $ file /opt/yui/yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar
     /opt/yui/yuicompressor-2.4.2/build/yuicompressor-2.4.2.jar: Zip archive data, at least v1.0 to extract
 
-Now you're ready to minify `snowplow.js`.
+Now you're ready to minify `dreamfactory.js`.
 
 ## 4. Minify the JavaScript
 
-Minification is handled by the bash shell script `snowpak.sh`, in the same folder as `snowplow.js`. `snowpak.sh` takes one argument, which is the path to the folder in which you installed YUI Compressor.
+Minification is handled by the bash shell script `snowpak.sh`, in the same folder as `dreamfactory.js`. `snowpak.sh` takes one argument, which is the path to the folder in which you installed YUI Compressor.
 
 To run `snowpak.sh` is easy:
 
-    $ cd ~/development/snowplow/1-trackers/javascript/js/
+    $ cd ~/development/dreamfactory/1-trackers/javascript/js/
     $ ./snowpak.sh /opt/yui/yuicompressor-2.4.2
 
 This will overwrite your existing `sp.js`.
@@ -66,19 +66,19 @@ A note: in theory it should be possible to use any JavaScript minifier or pipeli
 
 ## 5. Upload the minified JavaScript
 
-Use your standard asset pipelining strategy to upload the minified `sp.js` JavaScript to your servers. Note that to avoid "mixed content" warnings, Snowplow expects the `sp.js` JavaScript to be available both via HTTP and via HTTPS.
+Use your standard asset pipelining strategy to upload the minified `sp.js` JavaScript to your servers. Note that to avoid "mixed content" warnings, DreamFactory expects the `sp.js` JavaScript to be available both via HTTP and via HTTPS.
 
 ## 6. Test your updated JavaScript
 
 As a final step, you will want to just check that your customised `sp.js` JavaScript is working okay.
 
-To do this, please follow the testing instructions at the end of the guide to [Integrating Snowplow tags directly onto your website] (Integrating Javascript tags onto your website#testing).
+To do this, please follow the testing instructions at the end of the guide to [Integrating DreamFactory tags directly onto your website] (Integrating Javascript tags onto your website#testing).
 
 ## Next steps
 
-Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3).
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-DreamFactory#wiki-step3).
 
-Return to the [setup guide] (Setting-up-Snowplow).
+Return to the [setup guide] (Setting-up-DreamFactory).
 
 [aws]: http://aws.amazon.com/
 [yuic]: http://developer.yahoo.com/yui/compressor/

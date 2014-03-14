@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.1: setting up EmrEtlRunner**](Setting-up-EmrEtlRunner) > [3: Scheduling EmrEtlRunner](2-Scheduling-EmrEtlRunner)
 
 1. [Overview](#scheduling-overview)
 2. [cron](#cron)
@@ -26,25 +26,25 @@ To consider your different scheduling options in turn:
 <a name="cron"/>
 ## 2. cron
 
-The recommended way of scheduling the ETL process is as a daily cronjob using the 
-shell script available in the Snowplow GitHub repository at 
-[`/3-enrich/emr-etl-runner/bin/snowplow-emr-etl-runner.sh`] [bash-script].
+The recommended way of scheduling the ETL process is as a daily cronjob using the
+shell script available in the DreamFactory GitHub repository at
+[`/3-enrich/emr-etl-runner/bin/dreamfactory-emr-etl-runner.sh`] [bash-script].
 
 You need to edit this script and update the three variables:
 
     rvm_path=/path/to/.rvm # Typically in the $HOME of the user who installed RVM
-    RUNNER_PATH=/path/to/snowplow/3-enrich/snowplow-emr-etl-runner
+    RUNNER_PATH=/path/to/dreamfactory/3-enrich/dreamfactory-emr-etl-runner
     RUNNER_CONFIG=/path/to/your-config.yml
 
 So for example if you installed RVM as the `admin` user, then you would set:
 
     rvm_path=/home/admin/.rvm
 
-Now, assuming you're using the excellent [cronic] [cronic] as a wrapper for 
-your cronjobs, and that both cronic and Bundler are on your path, you can 
+Now, assuming you're using the excellent [cronic] [cronic] as a wrapper for
+your cronjobs, and that both cronic and Bundler are on your path, you can
 configure your cronjob like so:
 
-    0 4   * * *   root    cronic /path/to/snowplow/3-enrich/bin/snowplow-emr-etl-runner.sh
+    0 4   * * *   root    cronic /path/to/dreamfactory/3-enrich/bin/dreamfactory-emr-etl-runner.sh
 
 This will run the ETL job daily at 4am, emailing any failures to you via cronic.
 
@@ -73,19 +73,19 @@ If you get this working, please let us know!
 Now you have installed and scheduled [EmrEtlRunner] [emr-etl-runner], you have all your data ready for analysis in S3. Learn how to [setup the StorageLoader] [storage-loader] to regularly load your data into a database e.g. Infobright or Redshift for e.g. OLAP analysis, or to [analyse it on S3 via Emr] [emr-analysis].
 
 
-[emr-etl-runner]: https://github.com/snowplow/snowplow/tree/master/3-enrich/emr-etl-runner
-[hive-etl]: https://github.com/snowplow/snowplow/tree/master/3-enrich/hive-etl
-[trackers]: https://github.com/snowplow/snowplow/tree/master/1-trackers
-[collectors]: https://github.com/snowplow/snowplow/tree/master/2-collectors
-[getting-started]: http://snowplowanalytics.com/product/get-started.html
+[emr-etl-runner]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/emr-etl-runner
+[hive-etl]: https://github.com/dreamfactory/dreamfactory/tree/master/3-enrich/hive-etl
+[trackers]: https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers
+[collectors]: https://github.com/dreamfactory/dreamfactory/tree/master/2-collectors
+[getting-started]: http://dreamfactoryanalytics.com/product/get-started.html
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [ruby-install]: http://www.ruby-lang.org/en/downloads/
 [nokogiri-install]: http://nokogiri.org/tutorials/installing_nokogiri.html
 [rubygems-install]: http://docs.rubygems.org/read/chapter/3
 
-[config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml
-[bash-script]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/bin/snowplow-emr-etl-runner.sh
+[config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/config/config.yml
+[bash-script]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/bin/dreamfactory-emr-etl-runner.sh
 
 [cronic]: http://habilis.net/cronic/
 [jenkins]: http://jenkins-ci.org/
@@ -93,5 +93,5 @@ Now you have installed and scheduled [EmrEtlRunner] [emr-etl-runner], you have a
 [jenkins-tutorial]: http://blog.lusis.org/blog/2012/01/23/lowtech-monitoring-with-jenkins/
 [windows-task-scheduler]: http://en.wikipedia.org/wiki/Windows_Task_Scheduler#Task_Scheduler_2.0
 
-[storage-loader]: https://github.com/snowplow/snowplow/wiki/Setting-up-Snowplow#wiki-step4
-[emr-analysis]: https://github.com/snowplow/snowplow/wiki/Setting-up-Snowplow#wiki-step5
+[storage-loader]: https://github.com/dreamfactory/dreamfactory/wiki/Setting-up-DreamFactory#wiki-step4
+[emr-analysis]: https://github.com/dreamfactory/dreamfactory/wiki/Setting-up-DreamFactory#wiki-step5

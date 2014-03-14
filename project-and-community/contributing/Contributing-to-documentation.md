@@ -1,18 +1,18 @@
 <a name="top" />
 
-[**HOME**](Home) > [**PROJECT & COMMUNITY**](Snowplow-project-and-community) > [**CONTRIBUTING**](Contributing) > [Documentation](Contributing-to-documentation)
+[**HOME**](Home) > [**PROJECT & COMMUNITY**](DreamFactory-project-and-community) > [**CONTRIBUTING**](Contributing) > [Documentation](Contributing-to-documentation)
 
-We welcome contributors to the Snowplow documentation with open arms - just as we welcome contributors to the Snowplow codebase!
+We welcome contributors to the DreamFactory documentation with open arms - just as we welcome contributors to the DreamFactory codebase!
 
 We have two main stores of documentation currently:
 
-* Our wiki: https://github.com/snowplow/snowplow/wiki
-* Our website: http://snowplowanalytics.com/ including the [Analytics Cookbook] [analytics-cookbook] at: http://snowplowanalytics.com/analytics/index.html
+* Our wiki: https://github.com/dreamfactory/dreamfactory/wiki
+* Our website: http://dreamfactoryanalytics.com/ including the [Analytics Cookbook] [analytics-cookbook] at: http://dreamfactoryanalytics.com/analytics/index.html
 
 <a name="wiki" />
 ## 1. Contributing to the wiki
 
-To make edits to the wiki, fork the repo (git://github.com/snowplow/snowplow.wiki.git), make edits and then submit a pull request. The wiki is powered by [Gollum] [gollum]: to date the best documentation we've found on using Gollum (particularly embedding code, generating sidebars etc.) is from the [Gollum Readme][gollum-readme].
+To make edits to the wiki, fork the repo (git://github.com/dreamfactory/dreamfactory.wiki.git), make edits and then submit a pull request. The wiki is powered by [Gollum] [gollum]: to date the best documentation we've found on using Gollum (particularly embedding code, generating sidebars etc.) is from the [Gollum Readme][gollum-readme].
 
 All the wiki documentation is stored in Markdown format. Good tools for editing markdown include [Markdownpad] (http://markdownpad.com/) on Windows, or [Mou] (http://mouapp.com/) for Mac. We also like [Sublime Text] (http://www.sublimetext.com/).
 
@@ -21,7 +21,7 @@ Going forwards we intend to start hosting the wiki ourselves: this will give us 
 <a name="website" />
 ## 2. Contributing to the website
 
-The Snowplow website is hosted also hosted on Github (via [Github Pages][github-pages]). The repo is on [https://github.com/snowplow/snowplow.github.com](https://github.com/snowplow/snowplow.github.com). As with the wiki, you can contribute by forking the repo, making edits and then submitting a pull request.
+The DreamFactory website is hosted also hosted on Github (via [Github Pages][github-pages]). The repo is on [https://github.com/dreamfactory/dreamfactory.github.com](https://github.com/dreamfactory/dreamfactory.github.com). As with the wiki, you can contribute by forking the repo, making edits and then submitting a pull request.
 
 Please note that the setup on the website is a bit complicated, because it uses a number of Jekyll features that are not supported by Github pages. As a result:
 
@@ -31,8 +31,8 @@ Please note that the setup on the website is a bit complicated, because it uses 
 
 Full instructions on how to work with this setup, including all the software you need to have available locally, can be found on the [repo README][website-repo-readme].
 
-[analytics-cookbook]: http://snowplowanalytics.com/analytics/index.html
+[analytics-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
 [gollum-readme]: https://github.com/github/gollum/blob/master/README.md
 [gollum]: https://github.com/github/gollum
 [github-pages]: http://pages.github.com/
-[website-repo-readme]: https://github.com/snowplow/snowplow.github.com/blob/master/README.md
+[website-repo-readme]: https://github.com/dreamfactory/dreamfactory.github.com/blob/master/README.md

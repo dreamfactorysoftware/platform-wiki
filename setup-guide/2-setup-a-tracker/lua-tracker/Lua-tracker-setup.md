@@ -1,14 +1,14 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Lua tracker**](Lua-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Lua tracker**](Lua-tracker-setup)
 
 ## Contents
 
-- 1. [Overview](#overview)  
+- 1. [Overview](#overview)
 - 2. [Integration options](#integration-options)
-  - 2.1 [Tracker compatibility](#compatibility)  
-  - 2.2 [Dependencies](#dependencies)  
-  - 2.3 [Documented environments](#documented-envs)  
+  - 2.1 [Tracker compatibility](#compatibility)
+  - 2.2 [Dependencies](#dependencies)
+  - 2.3 [Documented environments](#documented-envs)
 - 3. [Setup](#setup)
   - 3.1 [LuaRocks](#luarocks)
   - 3.2 [Debian/Ubuntu](#deb-ubuntu)
@@ -17,7 +17,7 @@
 <a name="overview" />
 ## 1. Overview
 
-The [Snowplow Lua Tracker](https://github.com/snowplow/snowplow-lua-tracker) lets you add analytics to your [Lua] [lua]-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
+The [DreamFactory Lua Tracker](https://github.com/dreamfactory/dreamfactory-lua-tracker) lets you add analytics to your [Lua] [lua]-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
 
 The tracker should be relatively straightforward to setup if you are familiar with Lua development.
 
@@ -32,7 +32,7 @@ Ready? Let's get started.
 
 As a lightweight, easily-embeddable scripting language, Lua is available in a huge number of different computing environments and platforms, from [World of Warcraft] [wow] through [OpenResty] [openresty] to [Adobe Lightroom] [lightroom].
 
-To make the Snowplow Lua Tracker work out-of-the-box with as many different Lua programs as possible, we have tried to:
+To make the DreamFactory Lua Tracker work out-of-the-box with as many different Lua programs as possible, we have tried to:
 
 1. Minimize external dependencies
 2. Provide setup instructions for the most popular Lua environments
@@ -42,9 +42,9 @@ To make the Snowplow Lua Tracker work out-of-the-box with as many different Lua 
 <a name="dependencies" />
 ### 2.2 Dependencies
 
-To make the Snowplow Lua Tracker work with as many different Lua programs as possible, we have tried to keep external dependencies to a minimum. There is only one external dependency currently:
+To make the DreamFactory Lua Tracker work with as many different Lua programs as possible, we have tried to keep external dependencies to a minimum. There is only one external dependency currently:
 
-* [LuaSocket] [luasocket] - network support for the Lua language. Required to send events to the Snowplow collector
+* [LuaSocket] [luasocket] - network support for the Lua language. Required to send events to the DreamFactory collector
 
 All other dependencies are bundled with the Lua Tracker itself - see the [`src/lib`] [tracker-lib] folder for details.
 
@@ -59,7 +59,7 @@ Below we provide setup instructions for the following popular Lua environments:
 2. **Debian/Ubuntu** for developers working directly with Lua in a Linux environment
 3. **Embedded environments** for game, app and SDK developers working with embedded Lua
 
-We expect that the Snowplow Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
+We expect that the DreamFactory Lua Tracker should work in other Lua environments too - please [let us know](Talk-to-us) how you get on with setting it up elsewhere.
 
 [Back to top](#top)
 
@@ -69,15 +69,15 @@ We expect that the Snowplow Lua Tracker should work in other Lua environments to
 <a name="luarocks" />
 ### 3.1 LuaRocks
 
-The Snowplow Lua Tracker is published to [LuaRocks] [luarocks], the popular deployment and management system for Lua modules.
+The DreamFactory Lua Tracker is published to [LuaRocks] [luarocks], the popular deployment and management system for Lua modules.
 
 This makes it easy to either install the tracker locally, or to add it as a dependency into your own LuaRocks-based app.
 
-To install the Snowplow Lua Tracker locally (assuming you already have LuaRocks installed):
+To install the DreamFactory Lua Tracker locally (assuming you already have LuaRocks installed):
 
     $ luarocks install SnowplowTracker
 
-To add the Snowplow Tracker as a dependency to your own LuaRocks-based app, edit your `rockspec` and add:
+To add the DreamFactory Tracker as a dependency to your own LuaRocks-based app, edit your `rockspec` and add:
 
 ```lua
 dependencies = {
@@ -98,18 +98,18 @@ On Debian:
 
     $ sudo apt-get install lua liblua5.1-socket2
 
-Then download the Snowplow Lua Tracker like so:
+Then download the DreamFactory Lua Tracker like so:
 
-    $ git clone git@github.com:snowplow/snowplow-lua-tracker.git
+    $ git clone git@github.com:dreamfactory/dreamfactory-lua-tracker.git
 
-Copy the `/src/snowplow` folder into your own Lua app's library folder, something like:
+Copy the `/src/dreamfactory` folder into your own Lua app's library folder, something like:
 
-    $ cp -r snowplow-lua-tracker/src/snowplow my-app/lib/
+    $ cp -r dreamfactory-lua-tracker/src/dreamfactory my-app/lib/
 
-Now add the Snowplow Lua Tracker into your Lua app's `package.path`, like so:
+Now add the DreamFactory Lua Tracker into your Lua app's `package.path`, like so:
 
 ```lua
-package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
+package.path = './lib/?.lua;' .. './lib/dreamfactory/?.lua;' .. package.path
 ```
 
 Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
@@ -119,7 +119,7 @@ Done? Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 
 For embedded Lua environments, you will first need to ensure that LuaSocket is available (or installable). Here are instructions for adding LuaSocket into some popular games, SDKs and other apps which use Lua:
 
-| **Game/app/SDK**              | **LuaSocket bundled?**      | **Installation instructions**                     | 
+| **Game/app/SDK**              | **LuaSocket bundled?**      | **Installation instructions**                     |
 |:------------------------------|:----------------------------|:--------------------------------------------------|
 | [cocos2d-x] [cocos2d-x]       | No                          | [Installation instructions] [cocos2d-x-socket]    |
 | [Garry's Mod] [gmod]          | No                          | [Port of LuaSocket for GMod] [gmod-socket]        |
@@ -130,18 +130,18 @@ For embedded Lua environments, you will first need to ensure that LuaSocket is a
 | [Moai] [moai]                 | Yes ([ref] [moai-socket])   | -                |
 | [World of Warcraft] [wow]     | Yes ([ref] [wow-socket])    | -                |
 
-LuaSocket taken care of? Next, download the Snowplow Lua Tracker like so:
+LuaSocket taken care of? Next, download the DreamFactory Lua Tracker like so:
 
-    $ git clone git@github.com:snowplow/snowplow-lua-tracker.git
+    $ git clone git@github.com:dreamfactory/dreamfactory-lua-tracker.git
 
-Now copy the `/src/snowplow` folder into the folder for your Lua scripts, perhaps something like:
+Now copy the `/src/dreamfactory` folder into the folder for your Lua scripts, perhaps something like:
 
-    $ cp -r snowplow-lua-tracker/src/snowplow my-app/lua-scripts/lib/
+    $ cp -r dreamfactory-lua-tracker/src/dreamfactory my-app/lua-scripts/lib/
 
-Now add the Snowplow Lua Tracker into your Lua app's `package.path`, like so:
+Now add the DreamFactory Lua Tracker into your Lua app's `package.path`, like so:
 
 ```lua
-package.path = './lib/?.lua;' .. './lib/snowplow/?.lua;' .. package.path
+package.path = './lib/?.lua;' .. './lib/dreamfactory/?.lua;' .. package.path
 ```
 
 That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
@@ -179,4 +179,4 @@ That's it! Now read the [Lua Tracker API](Lua-Tracker) to start tracking events.
 [moai]: http://getmoai.com/
 [moai-socket]: https://github.com/moai/moai-dev/tree/master/3rdparty/luasocket-2.0.2/samples
 
-[tracker-lib]: https://github.com/snowplow/snowplow-lua-tracker/tree/master/src/snowplow/lib
+[tracker-lib]: https://github.com/dreamfactory/dreamfactory-lua-tracker/tree/master/src/dreamfactory/lib

@@ -1,16 +1,16 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with Snowplow] (Setting-up-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [Setting up Infobright to work with DreamFactory] (Setting-up-Infobright)
 
-Setting up Snowplow to work with Infobright is a five step process:
+Setting up DreamFactory to work with Infobright is a five step process:
 
 1. [Installing ICE](#install)
 2. [Configuring ICE](#config)
 3. [Testing ICE](#test)
-4. [Setting up the Snowplow database and events table](#snowplow)
-5. [Automating the loading of Snowplow data into Infobright](#storageloader)
+4. [Setting up the DreamFactory database and events table](#dreamfactory)
+5. [Automating the loading of DreamFactory data into Infobright](#storageloader)
 
-Note: if you already have Infobright up and running, you can skip straight to [step 5: Setting up the Snowplow database and events table](#snowplow)
+Note: if you already have Infobright up and running, you can skip straight to [step 5: Setting up the DreamFactory database and events table](#dreamfactory)
 
 ## 1. Installing ICE
 
@@ -27,7 +27,7 @@ You can download the latest version of ICE on the [Infobright downloads](http://
 ## 1. Install
 
 To install:
-	
+
 	$ sudo -i
 	$ cd ~/downloads
 	$ dpkg -i infobright-4.0.7-0-x86_64-ice.deb
@@ -68,11 +68,11 @@ Now we need to secure your ICE installation. Assuming you are still sudo'ed in a
 And set the root password:
 
 	Set root password? [Y/n] Y
-	New password: <<Enter password>> 
-	Re-enter new password: <<Enter password>> 
+	New password: <<Enter password>>
+	Re-enter new password: <<Enter password>>
 	Password updated successfully!
 	Reloading privilege tables..
-	 ... Success!    
+	 ... Success!
 
 And get rid of anonymous users:
 
@@ -164,7 +164,7 @@ To test using the client that comes with ICE:
 
 	$ cd /usr/local/infobright
 	$ bin/mysql --defaults-file=/etc/my-ib.cnf -uroot --password
-	Enter password: <<Enter password>> 
+	Enter password: <<Enter password>>
 	Welcome to the MySQL monitor.  Commands end with ; or \g.
 	Your MySQL connection id is 12
 	Server version: 5.1.40 build number (revision)=IB_4.0.7_r16961_17249(ice) (static)
@@ -177,33 +177,33 @@ Alternatively you can also test by running Navicat or another database querying 
 
 [Back to top](#top)
 
-<a name="snowplow" />
-## 4. Setting up the Snowplow database and events table
+<a name="dreamfactory" />
+## 4. Setting up the DreamFactory database and events table
 
-Now that you've got ICE up and running, its time to setup a database for Snowplow on it, and create the Snowplow events table in it.
+Now that you've got ICE up and running, its time to setup a database for DreamFactory on it, and create the DreamFactory events table in it.
 
-We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/snowplow/snowplow/tree/master/4-storage/infobright-storage) section of the [Snowplow Github repo](https://github.com/snowplow/snowplow).
+We've created a bash script to do the above for you: the script is called `setup.sh` and can be found in the [Infobright storage](https://github.com/dreamfactory/dreamfactory/tree/master/4-storage/infobright-storage) section of the [DreamFactory Github repo](https://github.com/dreamfactory/dreamfactory).
 
-First, checkout the Snowplow repository and navigate to the Infobright storage folder:
+First, checkout the DreamFactory repository and navigate to the Infobright storage folder:
 
-    $ git clone git@github.com:snowplow/snowplow.git
-    $ cd snowplow/4-storage/infobright-storage
+    $ git clone git@github.com:dreamfactory/dreamfactory.git
+    $ cd dreamfactory/4-storage/infobright-storage
 
 Now run the `setup.sh` script, passing in your Infobright username and password i.e.:
 
     $ ./setup.sh {{username}} {{password}}
 
-The `setup.sh` script will run the two 'sql' files in the [sql](https://github.com/snowplow/snowplow) folder:
+The `setup.sh` script will run the two 'sql' files in the [sql](https://github.com/dreamfactory/dreamfactory) folder:
 
-1. [setup_infobright.sql](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the Snowplow database and creates a table in it called `events`, where the Snowplow event-level data will be stored
-2. [verify_infobright](https://github.com/snowplow/snowplow/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the Snowplow database and events table in your Infobright installion.
+1. [setup_infobright.sql](https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/infobright-storage/sql/setup_infobright.sql) creates the DreamFactory database and creates a table in it called `events`, where the DreamFactory event-level data will be stored
+2. [verify_infobright](https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/infobright-storage/sql/verify_infobright.sql) simply checks for the presence of the DreamFactory database and events table in your Infobright installion.
 
 [Back to top](#top)
 
 <a name="storageloader" />
-## 5. Automating the loading of Snowplow data into Infobright
+## 5. Automating the loading of DreamFactory data into Infobright
 
-Now you have setup Infobright and a database / table in it for Snowplow data, you are ready to [setup the StorageLoader to regularly upload Snowplow data into the table] [storage-loader-for-infobright]. Click [here] [storage-loader-for-infobright] for step-by-step instruction on how.
+Now you have setup Infobright and a database / table in it for DreamFactory data, you are ready to [setup the StorageLoader to regularly upload DreamFactory data into the table] [storage-loader-for-infobright]. Click [here] [storage-loader-for-infobright] for step-by-step instruction on how.
 
 [Back to top](#top)
 

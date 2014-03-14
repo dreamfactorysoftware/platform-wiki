@@ -1,10 +1,10 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers)
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers)
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]]
 
 ## Overview
 
-**Trackers** are client- or server-side libraries which track customer behaviour by sending Snowplow events to a [Collector](collectors).
+**Trackers** are client- or server-side libraries which track customer behaviour by sending DreamFactory events to a [Collector](collectors).
 
 ## Tracker documentation
 
@@ -19,4 +19,4 @@ For other trackers (e.g. iOS, Android) and their approximate timelines, please s
 
 ### Protocol
 
-* [Snowplow Tracker Protocol](snowplow-tracker-protocol) - the protocol implemented by all trackers
+* [DreamFactory Tracker Protocol](dreamfactory-tracker-protocol) - the protocol implemented by all trackers

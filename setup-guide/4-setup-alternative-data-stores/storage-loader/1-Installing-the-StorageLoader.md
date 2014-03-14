@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Installing the StorageLoader**](1-Installing-the-StorageLoader)
 
 1. [Assumptions](#assumptions)
 2. [Dependencies](#dependencies)
@@ -23,16 +23,16 @@ To install StorageLoader, first make sure that your server has **all** of the fo
 
 \* If you prefer, an alternative Ruby manager such as chruby or rbenv should work fine too.
 
-Also make sure that if you are loading Snowplow events into a PostgreSQL database, then the StorageLoader **must be run on the same server running PostgreSQL**. That is because it downloads the files locally, and Postgres needs to be able to ingest the data from the local file system.
+Also make sure that if you are loading DreamFactory events into a PostgreSQL database, then the StorageLoader **must be run on the same server running PostgreSQL**. That is because it downloads the files locally, and Postgres needs to be able to ingest the data from the local file system.
 
 <a name="s3-buckets"/>
 ### 2.2 S3 buckets
 
-StorageLoader moves the Snowplow event files through three distinct S3 buckets during
+StorageLoader moves the DreamFactory event files through three distinct S3 buckets during
 the load process. These buckets are as follows:
 
-1. **In Bucket** - contains the Snowplow event files to process
-2. **Archive Bucket** - where StorageLower moves the Snowplow
+1. **In Bucket** - contains the DreamFactory event files to process
+2. **Archive Bucket** - where StorageLower moves the DreamFactory
    event files after successful loading
 
 The In Bucket for StorageLoader is the same as the Out Bucket for the EmrEtlRunner -
@@ -49,10 +49,10 @@ Right, now we can install StorageLoader.
 <a name="installation"/>
 ## 3. Installation
 
-First, checkout the Snowplow repository and navigate to the StorageLoader root:
+First, checkout the DreamFactory repository and navigate to the StorageLoader root:
 
-    $ git clone git://github.com/snowplow/snowplow.git
-    $ cd snowplow/4-storage/storage-loader
+    $ git clone git://github.com/dreamfactory/dreamfactory.git
+    $ cd dreamfactory/4-storage/storage-loader
 
 StorageLoader depends on some Postgres libraries being installed to talk to Redshift. You will need to install this first:
 
@@ -64,13 +64,13 @@ Now you are ready to install the application on your system:
 
 Check it worked okay:
 
-    $ bundle exec bin/snowplow-storage-loader --version
-    snowplow-storage-loader 0.0.4
+    $ bundle exec bin/dreamfactory-storage-loader --version
+    dreamfactory-storage-loader 0.0.4
 
 <a name="configuration"/>
 ## 4. Configuration
 
-StorageLoader requires a YAML format configuration file to run. We provide two configuration file templates in the Snowplow GitHub repository:
+StorageLoader requires a YAML format configuration file to run. We provide two configuration file templates in the DreamFactory GitHub repository:
 
 1. [`/4-storage/storage-loader/config/redshift.yml.sample`] [redshift-config-yml]
 2. [`/4-storage/storage-loader/config/postgres.yml.sample`] [postgres-config-yml]
@@ -162,8 +162,8 @@ The following are examples of valid bucket settings:
 
 ```yaml
 :buckets:
-  :in: s3://my-snowplow-data/events/
-  :archive: s3://my-snowplow-archive/events/
+  :in: s3://my-dreamfactory-data/events/
+  :archive: s3://my-dreamfactory-archive/events/
 ```
 
 Please note that all buckets must exist prior to running StorageLoader.
@@ -171,7 +171,7 @@ Please note that all buckets must exist prior to running StorageLoader.
 #### download
 
 This is where we configure the StorageLoader download operation, which
-downloads the Snowplow event files from Amazon S3 to your local server, 
+downloads the DreamFactory event files from Amazon S3 to your local server,
 ready for loading into your database.
 
 This setting is needed for Postgres, but not if you are only loading into Redshift
@@ -180,7 +180,7 @@ This setting is needed for Postgres, but not if you are only loading into Redshi
 You will need to set the `folder` variable to a local directory path -
 please make sure that:
 
-* this path exists, 
+* this path exists,
 * is writable by StorageLoader
 * it is empty
 * the postgres user needs to be able to read **every** directory containing the folder specified. This is necessary to ensure that PostgreSQL can read the data in the folder, when it comes to ingest it
@@ -188,12 +188,12 @@ please make sure that:
 #### target
 
 In this section we configure exactly what database(s) StorageLoader should
-load our Snowplow events into. At the moment, StorageLoader supports
+load our DreamFactory events into. At the moment, StorageLoader supports
 only two types of load target, Redshift and Postgres, which require slightly different configurations.
 
 To take each variable in turn:
 
-1. `name`, enter a descriptive name for this Snowplow storage target
+1. `name`, enter a descriptive name for this DreamFactory storage target
 2. `type`, what type of database are we loading into? Currently the
    only supported formats are "postgres" and "redshift"
 3. `host`, the host (endpoint in Redshift parlance) of the databse to
@@ -202,8 +202,8 @@ To take each variable in turn:
 5. `port`, the port of the database to load. 5439 is the default Redshift
    port; 5432 is the default Postgres port
 6. `table`, the name of the database table which will store your
-   Snowplow events. Must have been setup previously  
-7. `username`, the database user to load your Snowplow events with.
+   DreamFactory events. Must have been setup previously
+7. `username`, the database user to load your DreamFactory events with.
    You can leave this blank to default to the user running the script
 8. `password`, the password for the database user. Leave blank if there
    is no password
@@ -217,7 +217,7 @@ server it is being run on, and accesses it on the standard Infobright port (5029
 
 ### Loading multiple databases
 
-It is possible to load Snowplow events into multiple storage targets using
+It is possible to load DreamFactory events into multiple storage targets using
 StorageLoader.
 
 Simply add additional entries under the `:targets:` section, like so:
@@ -245,7 +245,7 @@ All done? You have the StorageLoader installed! Now find out [how to use it](2-u
 
 [git-install]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-[redshift-config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/redshift.yml.sample
-[postgres-config-yml]: https://github.com/snowplow/snowplow/blob/master/4-storage/storage-loader/config/postgres.yml.sample
+[redshift-config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/redshift.yml.sample
+[postgres-config-yml]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/storage-loader/config/postgres.yml.sample
 
 [redshift-copy]: http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html

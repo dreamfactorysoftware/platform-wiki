@@ -1,25 +1,25 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup PostgreSQL
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > Setup PostgreSQL
 
 ## Contents
 
 1. [Setting up PostgreSQL on a EC2 instance](#ec2)
 2. [Setting up PostgreSQL on Debian / Ubuntu](#debian)
-3. [Creating the Snowplow events table in PostgreSQL](#events-table)
+3. [Creating the DreamFactory events table in PostgreSQL](#events-table)
 4. [Next steps](#next-steps)
 
 <a name="ec2" />
 ## 1. Setting up PostgreSQL on EC2
 
-**Note**: We recommend running all Snowplow AWS operations through an IAM user with the bare minimum permissions required to run Snowplow. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
+**Note**: We recommend running all DreamFactory AWS operations through an IAM user with the bare minimum permissions required to run DreamFactory. Please see our [IAM user setup page](IAM-setup) for more information on doing this.
 
 <a name="1.1" />
 ### 1.1 Setup an EC2 instance to run PostgreSQL server
 
-If you do not have a server / EC2 instance already available to run PostgreSQL, you will need to create one. (If you do have one, skip to the next step, [installing PostgreSQL](#1.2)). 
+If you do not have a server / EC2 instance already available to run PostgreSQL, you will need to create one. (If you do have one, skip to the next step, [installing PostgreSQL](#1.2)).
 
-Log into the AWS console, navigate to the EC2 section: 
+Log into the AWS console, navigate to the EC2 section:
 
 [[/setup-guide/images/postgresql/aws-ec2-console.png]]
 
@@ -95,7 +95,7 @@ You should see something like this:
 	https://aws.amazon.com/amazon-linux-ami/2013.03-release-notes/
 	There are 6 security update(s) out of 11 total update(s) available
 	Run "sudo yum update" to apply all updates.
-	[ec2-user@ip-10-34-176-225 ~]$ 
+	[ec2-user@ip-10-34-176-225 ~]$
 
 
 #### 1.2.2 Download and install PostgreSQL on the instance
@@ -132,7 +132,7 @@ To read this:
 	# IPv4 local connections:
 	host    all             power_user      0.0.0.0/0               md5
 	host    all             other_user      0.0.0.0/0               md5
-	host    all             storageLoader   0.0.0.0/0               md5 
+	host    all             storageLoader   0.0.0.0/0               md5
 	# IPv6 local connections:
 	host    all             all             ::1/128                 md5
 
@@ -161,7 +161,7 @@ Now start the server:
 	$ sudo service postgresql start
 
 Log into the server:
-	
+
 	$ sudo su - postgres
 	$ psql -U postgres
 
@@ -169,14 +169,14 @@ And add a password for your PostgreSQL admin:
 
 	ALTER USER postgres WITH PASSWORD '$password';
 
-Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load Snowplow data into Postgres.
+Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load DreamFactory data into Postgres.
 
 ```sql
 CREATE USER power_user SUPERUSER;
 ALTER USER power_user WITH PASSWORD '$poweruserpassword';
 CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
-CREATE DATABASE snowplow WITH OWNER other_user;
+CREATE DATABASE dreamfactory WITH OWNER other_user;
 CREATE USER storageloader PASSWORD '$storageloaderpassword';
 ```
 
@@ -214,7 +214,7 @@ Select either the username `power_user` and associated password you created in t
 
 You should now be able to either test the connection or click **OK** to save the connection. You can then double click it to go into the database.
 
-You are now ready to [setup the Snowplow events table and views] (#events-table).
+You are now ready to [setup the DreamFactory events table and views] (#events-table).
 
 Back to [top](#top).
 
@@ -246,52 +246,52 @@ Log into PostgreSQL:
 
 Update your Postres user credentials:
 
-Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load Snowplow data into Postgres.
+Now we need to create user credentials for our differnet users. Power users will be able to do anything (these are really admins.) "Other users" will be suitable for analysts who wish to query the data. We also create a particular user with limited access for the storageloader - these credentials will be used just to load DreamFactory data into Postgres.
 
 ```sql
 CREATE USER power_user SUPERUSER;
 ALTER USER power_user WITH PASSWORD '$poweruserpassword';
 CREATE USER other_user NOSUPERUSER;
 ALTER USER other_user WITH PASSWORD '$otheruserpassword';
-CREATE DATABASE snowplow WITH OWNER other_user;
+CREATE DATABASE dreamfactory WITH OWNER other_user;
 CREATE USER storageloader PASSWORD '$storageloaderpassword';
 \q
 ```
 
 Now log back into Postgres and with your new user credentials:
 
-	psql -U power_user snowplow
+	psql -U power_user dreamfactory
 
-You can now Snowplow events table as described in the [next step](#events-table).
+You can now DreamFactory events table as described in the [next step](#events-table).
 
 Back to [top](#top).
 
 <a name="events-table" />
-## 3. Create the Snowplow events table and views in PostgreSQL
+## 3. Create the DreamFactory events table and views in PostgreSQL
 
-Now that PostgreSQL has been setup, we need to create the table for the Snowplow events, and then all the different views that ship with Snowplow. 
+Now that PostgreSQL has been setup, we need to create the table for the DreamFactory events, and then all the different views that ship with DreamFactory.
 
-First, let's create the `atomic.events` table, where the actual Snowplow data will live. The SQL for creating the atomic schema and table can be found [here] [postgres-table-def]. Either copy and paste that SQL into PSQL / Navicat, or you can run that file into PSQL at the command line. To do this, navigate to your Snowplow repo, then:
+First, let's create the `atomic.events` table, where the actual DreamFactory data will live. The SQL for creating the atomic schema and table can be found [here] [postgres-table-def]. Either copy and paste that SQL into PSQL / Navicat, or you can run that file into PSQL at the command line. To do this, navigate to your DreamFactory repo, then:
 
 	$ cd 4-storage/postgres-storage/sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f atomoic-def.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f atomoic-def.sql
 
 You'll need to substitute in your credentials for `<HOSTNAME>` and `<PORT>`. Make sure you use the `power_user` credentials to create new tables etc.
 
 Now that you've created your `atomic.events` table, you're in a position to the different views. This can also be done at the command line:
 
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-basic.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-catalog.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f recipes/recipes-customers.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-pages.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-visits.sql
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT> -f cubes/cube-transactions.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-basic.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-catalog.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f recipes/recipes-customers.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-pages.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-visits.sql
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT> -f cubes/cube-transactions.sql
 
 Finally, you need to grant access relevant access permissions to your different users to the different tables and views.
 
 We need to make sure that the `StorageLoader` user can write to the `atomic.events` table:
 
-	$ psql -h <HOSTNAME> -U power_user -d snowplow -p <PORT>
+	$ psql -h <HOSTNAME> -U power_user -d dreamfactory -p <PORT>
 	GRANT USAGE ON SCHEMA atomic TO storageloader;
 	GRANT INSERT ON TABLE   "atomic"."events" TO storageloader;
 
@@ -400,9 +400,9 @@ Back to [top](#top).
 <a name="next-steps" />
 ## 4. Next steps
 
-Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-storageloader] to automate the regular loading of Snowplow data into the PostgreSQL events table.
+Now you have setup PostgreSQL, you are ready to [setup the StorageLoader][setup-storageloader] to automate the regular loading of DreamFactory data into the PostgreSQL events table.
 
 [amazon-emr-guide]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
 [setup-storageloader]: 1-Installing-the-StorageLoader
-[postgresql-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/postgres-storage/sql/atomic-def.sql
+[postgresql-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/postgres-storage/sql/atomic-def.sql
 [simon-rumble]: https://github.com/shermozle

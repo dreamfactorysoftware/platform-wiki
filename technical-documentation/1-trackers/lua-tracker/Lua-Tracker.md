@@ -1,17 +1,17 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers) > Lua Tracker
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > Lua Tracker
 
 ## Contents
 
-- 1. [Overview](#overview)  
-- 2. [Initialization](#init)  
+- 1. [Overview](#overview)
+- 2. [Initialization](#init)
   - 2.1 [Requiring the module](#requiring)
-  - 2.2 [Creating a tracker](#create-tracker)  
-    - 2.2.1 [`newTrackerForCf()`](#create-cf)  
+  - 2.2 [Creating a tracker](#create-tracker)
+    - 2.2.1 [`newTrackerForCf()`](#create-cf)
     - 2.2.2 [`newTrackerForUri()`](#create-uri)
   - 2.3 [Creating multiple trackers](#multi-tracker)
-- 3. [Configuration](#config)  
+- 3. [Configuration](#config)
   - 3.1 [Configuring your tracker](#configure-tracker)
     - 3.1.1 [`platform()`](#platform)
     - 3.1.2 [`encodeBase64()`](#encode-base64)
@@ -33,11 +33,11 @@
 <a name="overview" />
 ## 1. Overview
 
-The [Snowplow Lua Tracker](https://github.com/snowplow/snowplow-lua-tracker) allows you to track Snowplow events from your Lua-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
+The [DreamFactory Lua Tracker](https://github.com/dreamfactory/dreamfactory-lua-tracker) allows you to track DreamFactory events from your Lua-based applications, Lua web servers/frameworks, or from the Lua scripting layer within your games or apps.
 
-The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with Snowplow"s [[JavaScript Tracker]], Google Analytics or Mixpanel (which have similar APIs to Snowplow) is helpful but not necessary.
+The tracker should be straightforward to use if you are comfortable with Lua development; any prior experience with DreamFactory"s [[JavaScript Tracker]], Google Analytics or Mixpanel (which have similar APIs to DreamFactory) is helpful but not necessary.
 
-Note that this tracker has access to a more restricted set of Snowplow events than the [[JavaScript Tracker]].
+Note that this tracker has access to a more restricted set of DreamFactory events than the [[JavaScript Tracker]].
 
 <a name="init" />
 ## 2 Initialization
@@ -50,10 +50,10 @@ Assuming you have completed the [[Lua Tracker Setup]] for your Lua project, you 
 Require the Lua Tracker"s module into your Lua code like so:
 
 ```lua
-local snowplow = require( "snowplow" )
+local dreamfactory = require( "dreamfactory" )
 ```
 
-That's it - you are now ready to initialize a tracker instance. 
+That's it - you are now ready to initialize a tracker instance.
 
 [Back to top](#top)
 
@@ -70,13 +70,13 @@ If you are using a Cloudfront collector, use [newTrackerForCf()](#create-cf) to 
 You can initialize a tracker instance for a Cloudfront collector with:
 
 ```lua
-local t = snowplow.newTrackerForCf( "{{CLOUDFRONT-SUBDOMAIN}}" )
+local t = dreamfactory.newTrackerForCf( "{{CLOUDFRONT-SUBDOMAIN}}" )
 ```
 
 So if your Cloudfront subdomain is `d3rkrsqld9gmqf`, you would write:
 
 ```lua
-local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
+local t = dreamfactory.newTrackerForCf( "d3rkrsqld9gmqf" )
 ```
 
 This completes the initialization of your tracker instance.
@@ -89,13 +89,13 @@ This completes the initialization of your tracker instance.
 You can initialize a tracker instance for a non-Cloudfront collector with:
 
 ```lua
-local t = snowplow.newTrackerForUri( "{{COLLECTOR-URI}}" )
+local t = dreamfactory.newTrackerForUri( "{{COLLECTOR-URI}}" )
 ```
 
 So if your collector is available at "my-company.c.snplow.com", you would write:
 
 ```lua
-local t = snowplow.newTrackerForUri( "my-company.c.snplow.com" )
+local t = dreamfactory.newTrackerForUri( "my-company.c.snplow.com" )
 ```
 
 This completes the initialization of your tracker instance.
@@ -110,15 +110,15 @@ Each tracker instance is completely sandboxed, so you can create multiple tracke
 Here is an example of instantiating two separate trackers:
 
 ```lua
-local t1 = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
+local t1 = dreamfactory.newTrackerForCf( "d3rkrsqld9gmqf" )
 t1:platform( "cnsl" )
 t1:trackUnstructEvent( "save-game", { save_id = 23 }, 1369330092 )
 
-local t2 = snowplow.newTrackerForUri( "cc-endpoint.mysite.com" )
+local t2 = dreamfactory.newTrackerForUri( "cc-endpoint.mysite.com" )
 t2:platform( "cnsl" )
 t2:trackScreenView( "Game HUD", "23" )
 
-t1:trackScreenView( "Test", "23" ) -- Back to first tracker 
+t1:trackScreenView( "Test", "23" ) -- Back to first tracker
 ```
 
 [Back to top](#top)
@@ -151,7 +151,7 @@ For example:
 t:platform( "tv" ) -- Running on a Connected TV
 ```
 
-For a full list of supported platforms, please see the [[Snowplow Tracker Protocol]].
+For a full list of supported platforms, please see the [[DreamFactory Tracker Protocol]].
 
 [Back to top](#top)
 
@@ -175,7 +175,7 @@ t:encodeBase64( false )
 <a name="add-data" />
 ## 3.2 Adding extra data
 
-You may have additional information about your application"s environment, current user and so on, which you want to send to Snowplow with each event.
+You may have additional information about your application"s environment, current user and so on, which you want to send to DreamFactory with each event.
 
 The tracker instance has a set of `set...()` methods to attach extra data to all tracked events:
 
@@ -223,7 +223,7 @@ t:setUserId( "alexd" )
 <a name="set-screen-res" />
 ### 3.2.1 Set screen resolution with `setScreenResolution()`
 
-If your Lua code has access to the device"s screen resolution, then you can pass this in to Snowplow too:
+If your Lua code has access to the device"s screen resolution, then you can pass this in to DreamFactory too:
 
 ```lua
 t:setScreenResolution( {{WIDTH}}, {{HEIGHT}} )
@@ -240,7 +240,7 @@ t:setScreenResolution( 1366, 768 )
 <a name="set-color-depth" />
 ### 3.2.1 Set color depth with `setColorDepth()`
 
-If your Lua code has access to the bit depth of the device"s color palette for displaying images, then you can pass this in to Snowplow too:
+If your Lua code has access to the bit depth of the device"s color palette for displaying images, then you can pass this in to DreamFactory too:
 
 ```lua
 t:setColorDepth( {{BITS PER PIXEL}} )
@@ -257,15 +257,15 @@ t:setColorDepth( 32 )
 <a name="events" />
 ## 4. Tracking specific events
 
-Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
+DreamFactory has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 Tracking methods supported by the Lua Tracker at a glance:
 
 | **Function**                                  | **Description**                                        |
 |----------------------------------------------:|:-------------------------------------------------------|
 | [`trackScreenView()`](#trackScreenView)       | Track the user viewing a screen within the application |
-| [`trackStructEvent()`](#trackStructEvent)     | Track a Snowplow custom structured event               |
-| [`trackUnstructEvent()`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
+| [`trackStructEvent()`](#trackStructEvent)     | Track a DreamFactory custom structured event               |
+| [`trackUnstructEvent()`](#trackUnstructEvent) | Track a DreamFactory custom unstructured event             |
 
 <a name="common" />
 ### 4.1 Common
@@ -280,7 +280,7 @@ Lua is a dynamically typed language, but each of our `track...()` methods expect
 If the validation check fails, then a runtime error is thrown:
 
 ```lua
-local t = snowplow.newTrackerForCf( "d3rkrsqld9gmqf" )
+local t = dreamfactory.newTrackerForCf( "d3rkrsqld9gmqf" )
 local f = function() t:setColorDepth( "unknown" ) end
 assert.has_error( f, "depth is required and must be a positive integer, not [unknown]" ) # Busted assertion passes
 ```
@@ -332,7 +332,7 @@ These values are as follows:
 <a name="screen-view" />
 ### 4.2 Track screen views with `trackScreenView()`
 
-**Warning:** this feature is implemented in the Lua tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log screen views to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
+**Warning:** this feature is implemented in the Lua tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the DreamFactory data pipeline. As a result, if you use this feature, you will log screen views to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
 
 Use `trackScreenView()` to track a user viewing a screen (or equivalent) within your app. Arguments are:
 
@@ -375,11 +375,11 @@ local s, msg = t:trackStructEvent( "shop", "add-to-basket", nil, "pcs", 2, 13693
 <a name="unstruct-event" />
 ### 4.4 Track unstructured events with `trackUnstructEvent()`
 
-**Warning:** this feature is implemented in the Lua tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
+**Warning:** this feature is implemented in the Lua tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the DreamFactory data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
 
 Use `trackUnstructEvent()` to track a custom event which consists of a name and an unstructured set of properties. This is useful when:
 
-* You want to track event types which are proprietary/specific to your business (i.e. not already part of Snowplow), or
+* You want to track event types which are proprietary/specific to your business (i.e. not already part of DreamFactory), or
 * You want to track events which have unpredictable or frequently changing properties
 
 The arguments are as follows:
@@ -397,7 +397,7 @@ local s, msg = t:trackUnstructEvent( "save-game", {
                    save_id = "4321",
                    level = 23,
                    difficultyLevel = "HARD",
-                   dl_content = true 
+                   dl_content = true
                  }, 1369330929 )
 ```
 
@@ -408,9 +408,9 @@ The properties table consists of a set of individual `name = value` pairs. The s
 <a name="unstruct-datatypes" />
 #### 4.4.1 Supported datatypes
 
-Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Lua datatypes, we have introduced some "type suffixes" for the Lua property names, so that Snowplow knows what Snowplow data types the Lua data types map onto:
+DreamFactory unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Lua datatypes, we have introduced some "type suffixes" for the Lua property names, so that DreamFactory knows what DreamFactory data types the Lua data types map onto:
 
-| Snowplow datatype | Description                  | Lua datatype       | Type suffix(es)      | Supports array? |
+| DreamFactory datatype | Description                  | Lua datatype       | Type suffix(es)      | Supports array? |
 |:------------------|:-----------------------------|:-------------------|:---------------------|:----------------|
 | Null              | Absence of a value           | N/A                | -                    | No              |
 | String            | String of characters         | string             | -                    | Yes             |
@@ -425,7 +425,7 @@ Let"s go through each of these in turn, providing some examples as we go:
 
 ###### 4.4.1.1 Null
 
-Tracking a Null value for a given field is currently unsupported in the Lua Tracker. There is a [ticket](https://github.com/snowplow/snowplow-lua-tracker/issues/7) to fix this.
+Tracking a Null value for a given field is currently unsupported in the Lua Tracker. There is a [ticket](https://github.com/dreamfactory/dreamfactory-lua-tracker/issues/7) to fix this.
 
 ###### 4.4.1.2 String
 
@@ -457,7 +457,7 @@ To track an Integer, use a Lua number but add a type suffix like so:
 }
 ```
 
-**Warning:** if you do not add the `_INT` type suffix, Snowplow will assume you are tracking a Floating point number.
+**Warning:** if you do not add the `_INT` type suffix, DreamFactory will assume you are tracking a Floating point number.
 
 ###### 4.4.1.5 Floating point
 
@@ -465,7 +465,7 @@ To track a Floating point number, use a Lua number; adding a type suffix is opti
 
 ```lua
 {
-    price_INT = 4.99, 
+    price_INT = 4.99,
     sales_tax = 49.99 -- Same as sales_tax_FLT = ...
 }
 ```
@@ -482,11 +482,11 @@ Tracking a pair of Geographic coordinates is done like so:
 
 Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
 
-**Warning:** if you do not add the `_GEO` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+**Warning:** if you do not add the `_GEO` type suffix, then the value will be incorrectly interpreted by DreamFactory as an Array of Floating points.
 
 ###### 4.4.1.6 Date
 
-Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
+DreamFactory Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
 * `_DT` - the Number of days since the epoch
 * `_TM` - the Number of seconds since the epoch
@@ -502,16 +502,16 @@ You can track a date by adding a Lua number to your `properties` object. The fol
 }
 ```
 
-Note that the type prefix only indicates how the Lua number sent to Snowplow is interpreted - all Snowplow Dates are stored to milliseconds precision (whether or not they include that level of precision).
+Note that the type prefix only indicates how the Lua number sent to DreamFactory is interpreted - all DreamFactory Dates are stored to milliseconds precision (whether or not they include that level of precision).
 
 **Two warnings:**
 
-1. If you specify a Lua number but do not add a valid Date suffix (`_DT`, `_TM` or `_TMS`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
-2. If you specify a Lua number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
+1. If you specify a Lua number but do not add a valid Date suffix (`_DT`, `_TM` or `_TMS`), then the value will be incorrectly interpreted by DreamFactory as a Number, not a Date
+2. If you specify a Lua number but add the wrong Date suffix, then the Date will be incorrectly interpreted by DreamFactory, for example:
 
 ```lua
 {
-    last_ping_DT = 1371129610 -- Should have been _TM. Snowplow will interpret this as the year 3756521449
+    last_ping_DT = 1371129610 -- Should have been _TM. DreamFactory will interpret this as the year 3756521449
 }
 ```
 

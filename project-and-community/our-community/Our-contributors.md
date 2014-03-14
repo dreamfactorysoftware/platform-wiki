@@ -23,7 +23,7 @@ Thanks to the following people who have contributed patches, new code or given u
 * [Matt Walker](https://github.com/mrwalker) @ [Radico] [radico] (cube fixes)
 * [Ryan Sorensen](https://github.com/rcs) (JavaScript Tracker improvements)
 
-Original concept for Snowplow inspired by [Radek Maciaszek](https://github.com/rathko).
+Original concept for DreamFactory inspired by [Radek Maciaszek](https://github.com/rathko).
 
 ## Documentation
 

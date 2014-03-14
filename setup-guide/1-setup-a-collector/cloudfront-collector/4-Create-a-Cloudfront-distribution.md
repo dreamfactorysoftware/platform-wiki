@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 4. Create a Cloudfront distribution
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-collector) > [**Setup the Cloudfront collector**](setting up the cloudfront collector) > 4. Create a Cloudfront distribution
 
-Having setup everything in S3, we now need to create a Cloudfront distribution. This will be used to serve the tracking pixel `i`. (So we need to tell Cloudfront to serve the contents of the [first bucket](#bucket1) in S3 we created, that houses the tracking pixel.) We also need to switch on Cloudfront logging, so that every request made for the tracking pixel by the Snowplow tracker will be logged. Again, we need to tell Cloudfront to store these logs in the bucket we created in [step 3 above](#bucket2).
+Having setup everything in S3, we now need to create a Cloudfront distribution. This will be used to serve the tracking pixel `i`. (So we need to tell Cloudfront to serve the contents of the [first bucket](#bucket1) in S3 we created, that houses the tracking pixel.) We also need to switch on Cloudfront logging, so that every request made for the tracking pixel by the DreamFactory tracker will be logged. Again, we need to tell Cloudfront to store these logs in the bucket we created in [step 3 above](#bucket2).
 
 ## 4.1 Switch from S3 to Cloudfront
 
@@ -56,4 +56,4 @@ Proceed to [step 5: test your pixel](5-Test-your-pixel).
 
 Return to an [overview of the Cloudfront Collector setup](Setting-up-the-Cloudfront-collector).
 
-Return to the [setup guide](setting-up-Snowplow).
+Return to the [setup guide](setting-up-DreamFactory).

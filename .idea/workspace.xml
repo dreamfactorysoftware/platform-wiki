@@ -26,17 +26,145 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a35938e-2ee9-43a7-b0de-a8519f28c2d0" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Developer-FAQ.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Product-roadmap.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Snowplow-overview.md" afterPath="$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/Technical-architecture.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/_Sidebar.md" afterPath="$PROJECT_DIR$/about-dreamfactory/_Sidebar.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/bizspark_logo.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/bizspark_logo.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/conceptual-architecture.png" afterPath="$PROJECT_DIR$/about-dreamfactory/images/conceptual-architecture.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/navicat_logo.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/navicat_logo.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/images/technical-architecture.jpg" afterPath="$PROJECT_DIR$/about-dreamfactory/images/technical-architecture.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/about-snowplow/thanks/Software-and-services-thanks.md" afterPath="$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/1-General-paramaters-for-the-Javascript-tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/1-General-paramaters-for-the-Javascript-tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/1-Installing-EmrEtlRunner.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/1-Installing-EmrEtlRunner.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/1-Installing-the-StorageLoader.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/1-Installing-the-StorageLoader.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/1-Setup-a-bucket-on-S3-for-the-pixel.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/1-Setup-a-bucket-on-S3-for-the-pixel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/2-Specific-event-tracking-with-the-Javascript-tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/2-Specific-event-tracking-with-the-Javascript-tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/2-Upload-the-Tracking-Pixel.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/2-Upload-the-Tracking-Pixel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/2-Using-EmrEtlRunner.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/2-Using-EmrEtlRunner.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/2-Using-the-StorageLoader.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/2-Using-the-StorageLoader.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/3-Create-a-bucket-for-Cloudfront-logs.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/3-Create-a-bucket-for-Cloudfront-logs.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/3-Scheduling-EmrEtlRunner.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/3-Scheduling-EmrEtlRunner.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/3-Scheduling-the-StorageLoader.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/storage-loader/3-Scheduling-the-StorageLoader.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/3-The-relationship-between-SnowPlow.js-and-Piwik.js.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/3-The-relationship-between-SnowPlow.js-and-Piwik.js.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/4-Create-a-Cloudfront-distribution.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/4-Create-a-Cloudfront-distribution.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/4-Self-hosting-Hadoop-Enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/4-Self-hosting-Hadoop-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/5-Test-your-pixel.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/5-Test-your-pixel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Additional-configuration-options.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Additional-configuration-options.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/Amazon-Redshift-storage.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/Amazon-Redshift-storage.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/5-analytics/Analytics-documentation.md" afterPath="$PROJECT_DIR$/technical-documentation/5-analytics/Analytics-documentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/arduino-tracker/Arduino-Tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/arduino-tracker/Arduino-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/arduino-tracker/Arduino-tracker-setup.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/arduino-tracker/Arduino-tracker-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/common/Artifact-repositories.md" afterPath="$PROJECT_DIR$/technical-documentation/common/Artifact-repositories.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/legal/CLA.md" afterPath="$PROJECT_DIR$/project-and-community/legal/CLA.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/Canonical-event-model.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/Canonical-event-model.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/Clojure-collector.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/Clojure-collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/Cloudfront-collector.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/Cloudfront-collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/Collector-logging-formats.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/Collector-logging-formats.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/Collectors.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/Collectors.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Configure-Scala-Kinesis-Enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Configure-Scala-Kinesis-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Configure-the-Scala-Stream-Collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Configure-the-Scala-Stream-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/contributing/Contributing-to-development.md" afterPath="$PROJECT_DIR$/project-and-community/contributing/Contributing-to-development.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/contributing/Contributing-to-documentation.md" afterPath="$PROJECT_DIR$/project-and-community/contributing/Contributing-to-documentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/contributing/Contributing.md" afterPath="$PROJECT_DIR$/project-and-community/contributing/Contributing.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/legal/Copyright-and-license.md" afterPath="$PROJECT_DIR$/project-and-community/legal/Copyright-and-license.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Create-a-new-application-in-Elastic-Beanstalk-and-upload-the-WAR-file-into-it.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Create-a-new-application-in-Elastic-Beanstalk-and-upload-the-WAR-file-into-it.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Download-the-Clojure-collector-WAR-file-or-compile-it-from-source.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Download-the-Clojure-collector-WAR-file-or-compile-it-from-source.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md" afterPath="$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/3-enrich/EmrEtlRunner.md" afterPath="$PROJECT_DIR$/technical-documentation/3-enrich/EmrEtlRunner.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Enable-logging-to-S3.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Enable-logging-to-S3.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Enable-support-for-HTTPS.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Enable-support-for-HTTPS.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/3-enrich/Enrichment.md" afterPath="$PROJECT_DIR$/technical-documentation/3-enrich/Enrichment.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/infobright/Getting-started-analysing-your-data-in-Infobright.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/infobright/Getting-started-analysing-your-data-in-Infobright.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Getting-started-analyzing-SnowPlow-data.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Getting-started-analyzing-SnowPlow-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Getting-started-with-EMR.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Getting-started-with-EMR.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Getting-started-with-Looker.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Getting-started-with-Looker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home.md" afterPath="$PROJECT_DIR$/Home.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/Hosted-assets.md" afterPath="$PROJECT_DIR$/setup-guide/common/Hosted-assets.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/iam-setup/IAM-setup.md" afterPath="$PROJECT_DIR$/setup-guide/common/iam-setup/IAM-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/Infobright-storage.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/Infobright-storage.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Install-Scala-Kinesis-Enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Install-Scala-Kinesis-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Install-the-Scala-Stream-Collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Install-the-Scala-Stream-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/3-enrich/Instrumentation.md" afterPath="$PROJECT_DIR$/technical-documentation/3-enrich/Instrumentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-Javascript-tags-onto-your-website.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-Javascript-tags-onto-your-website.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-Javascript-tags-with-QuBiT-OpenTag.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-Javascript-tags-with-QuBiT-OpenTag.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-javascript-tags-with-Google-Tag-Manager.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Integrating-javascript-tags-with-Google-Tag-Manager.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/Javascript-Tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/Javascript-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Javascript-tracker-setup.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Javascript-tracker-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/lua-tracker/Lua-Tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/lua-tracker/Lua-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/lua-tracker/Lua-tracker-setup.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/lua-tracker/Lua-tracker-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/Modifying-snowplow-js.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/Modifying-snowplow-js.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/No-JS-Tracker.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/No-JS-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/no-js-tracker/No-JS-tracker-setup.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/no-js-tracker/No-JS-tracker-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/our-community/Our-contributors.md" afterPath="$PROJECT_DIR$/project-and-community/our-community/Our-contributors.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/our-community/Our-users.md" afterPath="$PROJECT_DIR$/project-and-community/our-community/Our-users.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/PostgreSQL-storage.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/PostgreSQL-storage.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Python-Tracker.md" afterPath="$PROJECT_DIR$/Python-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Python-tracker-setup.md" afterPath="$PROJECT_DIR$/Python-tracker-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/Ruby-and-RVM-setup.md" afterPath="$PROJECT_DIR$/setup-guide/common/Ruby-and-RVM-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Run-Scala-Kinesis-Enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/Run-Scala-Kinesis-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Run-the-Scala-Stream-Collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Run-the-Scala-Stream-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Running-Hive-using-the-command-line-tools.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Running-Hive-using-the-command-line-tools.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/S3-Storage.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/S3-Storage.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/3-enrich/Scala-Kinesis-Enrich.md" afterPath="$PROJECT_DIR$/technical-documentation/3-enrich/Scala-Kinesis-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/Scala-Stream-Collector.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/Scala-Stream-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Self-hosting-snowplow-js.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Self-hosting-snowplow-js.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Set-your-tracker-to-point-at-the-Clojure-collector-endpoint.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Set-your-tracker-to-point-at-the-Clojure-collector-endpoint.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-ChartIO-to-visualize-Snowplow-data.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-ChartIO-to-visualize-Snowplow-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Setting-up-EMR-command-line-tools.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/Setting-up-EMR-command-line-tools.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/Setting-up-EmrEtlRunner.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/Setting-up-EmrEtlRunner.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/Setting-up-Enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/Setting-up-Enrich.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Excel-to-analyze-Snowplow-data.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Excel-to-analyze-Snowplow-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/infobright/Setting-up-Infobright.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/infobright/Setting-up-Infobright.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/postgres/Setting-up-PostgreSQL.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/postgres/Setting-up-PostgreSQL.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Qubole-to-analyze-Snowplow-data-using-Apache-Hive.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Qubole-to-analyze-Snowplow-data-using-Apache-Hive.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-R-to-perform-more-sophisticated-analysis-on-your-Snowplow-data.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-R-to-perform-more-sophisticated-analysis-on-your-Snowplow-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/redshift/Setting-up-Redshift.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/redshift/Setting-up-Redshift.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/Setting-up-Snowplow.md" afterPath="$PROJECT_DIR$/setup-guide/Setting-up-Snowplow.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Tableau-to-analyze-your-Snowplow-data.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-Tableau-to-analyze-your-Snowplow-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/Setting-up-a-Collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/Setting-up-a-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/Setting-up-a-Tracker.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/Setting-up-a-Tracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/Setting-up-alternative-data-stores.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/Setting-up-alternative-data-stores.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Setting-up-the-Clojure-collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Setting-up-the-Clojure-collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/Setting-up-the-Cloudfront-collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/Setting-up-the-Cloudfront-collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Setting-up-the-Scala-Stream-Collector.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/Setting-up-the-Scala-Stream-Collector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-the-prebuilt-views-in-Redshift-and-PostgreSQL.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/Setting-up-the-prebuilt-views-in-Redshift-and-PostgreSQL.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/iam-setup/Setup-IAM-permissions-for-operating-Snowplow.md" afterPath="$PROJECT_DIR$/setup-guide/common/iam-setup/Setup-IAM-permissions-for-operating-Snowplow.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/iam-setup/Setup-IAM-permissions-for-users-installing-Snowplow.md" afterPath="$PROJECT_DIR$/setup-guide/common/iam-setup/Setup-IAM-permissions-for-users-installing-Snowplow.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/contrib-nodejs-collector/SnowCannon-setup-guide.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/contrib-nodejs-collector/SnowCannon-setup-guide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/2-collectors/SnowCannon.md" afterPath="$PROJECT_DIR$/technical-documentation/2-collectors/SnowCannon.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/SnowPlow-Tracker-Protocol.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/SnowPlow-Tracker-Protocol.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/Snowplow-project-and-community.md" afterPath="$PROJECT_DIR$/project-and-community/Snowplow-project-and-community.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/Snowplow-technical-documentation.md" afterPath="$PROJECT_DIR$/technical-documentation/Snowplow-technical-documentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md" afterPath="$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/Storage-documentation.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/Storage-documentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/our-community/Talk-to-us.md" afterPath="$PROJECT_DIR$/project-and-community/our-community/Talk-to-us.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md" afterPath="$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/our-community/Testimonials.md" afterPath="$PROJECT_DIR$/project-and-community/our-community/Testimonials.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Testing-the-Javascript-tracker-is-firing.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Testing-the-Javascript-tracker-is-firing.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/3-enrich/The-Enrichment-Process.md" afterPath="$PROJECT_DIR$/technical-documentation/3-enrich/The-Enrichment-Process.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/4-storage/The-Storage-Loader.md" afterPath="$PROJECT_DIR$/technical-documentation/4-storage/The-Storage-Loader.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/Trackers.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/Trackers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Tracking-your-marketing-campaigns.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/Tracking-your-marketing-campaigns.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/Troubleshooting-jobs-on-Elastic-MapReduce.md" afterPath="$PROJECT_DIR$/setup-guide/common/Troubleshooting-jobs-on-Elastic-MapReduce.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/Troubleshooting.md" afterPath="$PROJECT_DIR$/setup-guide/common/Troubleshooting.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Update-the-EmrEtlRunner-configuration-YAML-file.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/Update-the-EmrEtlRunner-configuration-YAML-file.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_Footer.md" afterPath="$PROJECT_DIR$/_Footer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/_Sidebar.md" afterPath="$PROJECT_DIR$/project-and-community/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-and-community/contributing/_Sidebar.md" afterPath="$PROJECT_DIR$/project-and-community/contributing/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/clojure-collector/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/cloudfront-collector/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/1-setup-a-collector/scala-stream-collector/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/javascript-tracker/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/no-js-tracker/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/2-setup-a-tracker/no-js-tracker/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/emr-etl-runner/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/4-setup-alternative-data-stores/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/hive/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/common/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/common/iam-setup/_Sidebar.md" afterPath="$PROJECT_DIR$/setup-guide/common/iam-setup/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/_Sidebar.md" afterPath="$PROJECT_DIR$/technical-documentation/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/_Sidebar.md" afterPath="$PROJECT_DIR$/technical-documentation/1-trackers/javascript-tracker/_Sidebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/amazon-permissions-for-qubole-policy.js" afterPath="$PROJECT_DIR$/setup-guide/5-analyse-your-data/amazon-permissions-for-qubole-policy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/setting-up-scala-kinesis-enrich.md" afterPath="$PROJECT_DIR$/setup-guide/3-setup-enrich/scala-kinesis-enrich/setting-up-scala-kinesis-enrich.md" />
     </list>
     <ignored path="dsp-core.wiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,14 +187,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_Sidebar.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/about-dreamfactory/_Sidebar.md">
+      <file leaf-file-name="Home.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Home.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37887067" vertical-offset="0" max-vertical-offset="549">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8689138" vertical-offset="0" max-vertical-offset="976">
+              <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -86,6 +214,14 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/about-dreamfactory/_Sidebar.md" />
+        <option value="$PROJECT_DIR$/_Footer.md" />
+        <option value="$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md" />
+        <option value="$PROJECT_DIR$/project-and-community/legal/CLA.md" />
+        <option value="$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md" />
+        <option value="$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md" />
+        <option value="$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md" />
+        <option value="$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md" />
+        <option value="$PROJECT_DIR$/Home.md" />
       </list>
     </option>
   </component>
@@ -154,6 +290,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsp-core.wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsp-core.wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="about-dreamfactory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -162,6 +312,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntries" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../lib/lib-php-common-platform" />
   </component>
   <component name="RunManager">
     <list size="0" />
@@ -169,7 +321,7 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="746" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796207" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32417062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -185,7 +337,7 @@
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32928944" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6003788" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21827795" sideWeight="0.682811" order="2" side_tool="false" content_ui="combo" x="1574" y="87" width="491" height="650" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21827795" sideWeight="0.682811" order="2" side_tool="false" content_ui="combo" x="1574" y="87" width="491" height="650" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.8484525" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -196,7 +348,7 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32732448" sideWeight="0.85005337" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30267558" sideWeight="0.791889" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30166668" sideWeight="0.791889" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985783" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -222,21 +374,81 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Home.md">
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/_Sidebar.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="336">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="512">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-and-community/legal/CLA.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="608">
+          <caret line="4" column="82" selection-start-line="4" selection-start-column="82" selection-end-line="4" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_Footer.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="160">
+          <caret line="3" column="87" selection-start-line="3" selection-start-column="87" selection-end-line="3" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2120" max-vertical-offset="2656">
+          <caret line="155" column="61" selection-start-line="155" selection-start-column="61" selection-end-line="155" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="592">
+          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/_Sidebar.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="336">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42780748" vertical-offset="0" max-vertical-offset="561">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="336">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -246,8 +458,99 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37887067" vertical-offset="0" max-vertical-offset="549">
+        <state vertical-scroll-proportion="0.36236933" vertical-offset="0" max-vertical-offset="574">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_Footer.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08743169" vertical-offset="0" max-vertical-offset="549">
+          <caret line="3" column="87" selection-start-line="3" selection-start-column="87" selection-end-line="3" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-and-community/legal/CLA.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="608">
+          <caret line="4" column="82" selection-start-line="4" selection-start-column="82" selection-end-line="4" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/thanks/Software-and-services-thanks.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6865672" vertical-offset="0" max-vertical-offset="536">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/Developer-FAQ.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20400728" vertical-offset="0" max-vertical-offset="549">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/Product-roadmap.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3283582" vertical-offset="0" max-vertical-offset="536">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/DreamFactory-overview.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.029850746" vertical-offset="0" max-vertical-offset="592">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about-dreamfactory/Technical-architecture.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="549">
+          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8689138" vertical-offset="0" max-vertical-offset="976">
+          <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
           <folding />
         </state>
       </provider>

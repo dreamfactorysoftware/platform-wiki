@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](2-Using-the-StorageLoader)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 4: setting up alternative data stores**](Setting-up-alternative-data-stores) > [**Using the StorageLoader**](2-Using-the-StorageLoader)
 
 1. [Overview](#usage-overview)
 2. [Command-line options](#cli-options)
@@ -10,21 +10,21 @@
 ## 1. Overview
 
 Running the StorageLoader is very straightforward - please review the
-command-line options in the next section. 
+command-line options in the next section.
 
 <a name="cli-options"/>
 ## 2. Command-line options
 
 Invoke StorageLoader using Bundler's `bundle exec` syntax:
 
-    $ bundle exec bin/snowplow-storage-loader
-    
+    $ bundle exec bin/dreamfactory-storage-loader
+
 Note the `bin/` sub-folder, and that the `bundle exec` command will
 only work when you are inside the `storage-loader` folder.
 
 The command-line options for StorageLoader look like this:
 
-    Usage: snowplow-storage-loader [options]
+    Usage: dreamfactory-storage-loader [options]
 
     Specific options:
         -c, --config CONFIG              configuration file
@@ -53,16 +53,16 @@ re-run only part of it.
 
 As per the above, running StorageLoader is a matter of populating
 your configuration file, let's call it `my-config.yml` for this
-example, and then invoking StorageLoader like so: 
+example, and then invoking StorageLoader like so:
 
-    $ bundle exec snowplow-storage-loader --config my-config.yml
+    $ bundle exec dreamfactory-storage-loader --config my-config.yml
 
 <a name="troubleshooting" />
 ## 4. Troubleshooting
 
 ### locate command missing
 
-StorageLoader depends on Snowplow's [Infobright Ruby Loader] [irl],
+StorageLoader depends on DreamFactory's [Infobright Ruby Loader] [irl],
 which in turn uses the `locate` shell command. If your shell complains
 that this is missing, in which case you can install it separately.
 

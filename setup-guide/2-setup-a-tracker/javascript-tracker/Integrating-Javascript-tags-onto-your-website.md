@@ -1,35 +1,35 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [Javascript tracker](Javascript-tracker-setup)
 
-This guide takes you through the process for integrating Snowplow's JavaScript tracker into your website or web app.
+This guide takes you through the process for integrating DreamFactory's JavaScript tracker into your website or web app.
 
 ## Before you get started...
 
-The following guide covers the process for integrating Snowplow tracking tags directly onto your website. We recommend integrating Snowplow via a Tag Management solution. If you wish to integrate Snowplow tags using a tag management platform, we have provided separate guides for:
+The following guide covers the process for integrating DreamFactory tracking tags directly onto your website. We recommend integrating DreamFactory via a Tag Management solution. If you wish to integrate DreamFactory tags using a tag management platform, we have provided separate guides for:
 
 * [Google Tag Manager](integrating-javascript-tags-with-google-tag-manager)
 * [Qubit's OpenTag](integrating-javascript-tags-with-qubit-opentag)
 
-We recommend using the Snowplow asynchronous tags. Doing so means that the loading of the Snowplow tags will not cause site content to load more slowly, thereby providing a better experience for your users.
+We recommend using the DreamFactory asynchronous tags. Doing so means that the loading of the DreamFactory tags will not cause site content to load more slowly, thereby providing a better experience for your users.
 
 ## Table of Contents
 
-1. [Setting up Snowplow pageview tracking](#pageview)
+1. [Setting up DreamFactory pageview tracking](#pageview)
 2. [Tracking more than Pageviews. (Event tracking, ecommerce tracking, social tracking...)](#events)
 4. [Next steps](#next-steps)
 
 <a name="pageview"/>
-## 1. Setting up Snowplow pageview tracking
+## 1. Setting up DreamFactory pageview tracking
 
 ### 1.1 Asyncronous integration
 
-In general, we recommend Snowplow users to install the asyncronous version of the Snowplow tags. These enable web pages to load faster, by only firing Snowplow tracking events *after* page load is complete.
+In general, we recommend DreamFactory users to install the asyncronous version of the DreamFactory tags. These enable web pages to load faster, by only firing DreamFactory tracking events *after* page load is complete.
 
 #### 1.1.1 Installing the header script
 
-To use `snowplow.js` in an 'async' manner, first add the following script into your website template's `<head>` section:
+To use `dreamfactory.js` in an 'async' manner, first add the following script into your website template's `<head>` section:
 
 ```html
-<!-- Snowplow starts plowing -->
+<!-- DreamFactory starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -44,7 +44,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
 </script>
-<!-- Snowplow stops plowing -->
+<!-- DreamFactory stops plowing -->
 ```
 
 #### 1.1.2 Configuring the header script: setting the Collector endpoint
@@ -76,29 +76,29 @@ _snaq.push(['setCollectorUrl', 'c.snplow.com']);
 ```
 ### 1.3 Configuring the header script: application ID and cookie domain
 
-Setting the collector endpoint is essential for Snowplow to work. Setting the application ID and cookie domain are optional. For details on setting these, see the (Javascript technicla documentation guide)[Javascript-Tracker.]
+Setting the collector endpoint is essential for DreamFactory to work. Setting the application ID and cookie domain are optional. For details on setting these, see the (Javascript technicla documentation guide)[Javascript-Tracker.]
 
 <a name="sync"/>
 ### 1.2 Synchronous integration
 
 #### 1.2.1 Installing the header script
 
-To use `snowplow.js` in a 'sync' manner, first add the following script into your website template's `<head>` section:
+To use `dreamfactory.js` in a 'sync' manner, first add the following script into your website template's `<head>` section:
 
 ```html
-<!-- Snowplow starts plowing -->
+<!-- DreamFactory starts plowing -->
 <script type="text/javascript">
 var spSrc = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.13.1/sp.js';
 document.write(unescape("%3Cscript src='" + spSrc + "' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
-var snowplowTracker = Snowplow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
-snowplowTracker.trackPageView();
-snowplowTracker.enableLinkTracking();
+var dreamfactoryTracker = DreamFactory.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
+dreamfactoryTracker.trackPageView();
+dreamfactoryTracker.enableLinkTracking();
 } catch ( err ) {}
 </script>
-<!-- Snowplow stops plowing -->
+<!-- DreamFactory stops plowing -->
 ```
 
 #### 1.2.2 Configuring the header script: setting your collector endpoint
@@ -108,52 +108,52 @@ You need to set the collector endpoint in the header script: this ensures that a
 If you are using the [Cloudfront Collector](setting-up-the-cloudfront-collector)) you will need to do so using the following line:
 
 ```javascript
-var snowplowTracker = Snowplow.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
+var dreamfactoryTracker = DreamFactory.getTrackerCf('{{CLOUDFRONT DOMAIN}}');
 ```
 
 Simply substitude your Cloudfront domain in for the {{CLOUDFROUNT DOMAIN}} e.g.
 
 ```javascript
-var snowplowTracker = Snowplow.getTrackerCf('d1x5tduoxffdr7');
+var dreamfactoryTracker = DreamFactory.getTrackerCf('d1x5tduoxffdr7');
 ```
 
 If you are using another Collector type (e.g. the [Clojure Collector](setting-up-the-clojure-collector)) you will need to use an alternative `setCollectorUrl` function rather than the `setCollectorCf` to set the Collector endpoint:
 
 ```javascript
-var snowplowTracker = Snowplow.getTrackerUrl('{{COLLECTOR URL}}');
+var dreamfactoryTracker = DreamFactory.getTrackerUrl('{{COLLECTOR URL}}');
 ```
 
 For example, if your collector is at `c.snplow.com` then your tag would contain the line:
 
 ```javascript
-var snowplowTracker = Snowplow.getTrackerUrl('c.snplow.com');
+var dreamfactoryTracker = DreamFactory.getTrackerUrl('c.snplow.com');
 ```
 
 
 <a name="events" />
 ## 2. Tracking more than just page views: event tracking, ecommerce tracking etc.
 
-Snowplow has been built to track more than simply page views. We believe, as far as possible, that *every* every that can happen on a user journey should be captured in Snowplow, and that includes every in-page events that might not result in a new page load. (Which are the only events that are captured as by the page view tracking already implemented.) The Javascript tracker incorporates a number of functions to capture a wealth of events including:
+DreamFactory has been built to track more than simply page views. We believe, as far as possible, that *every* every that can happen on a user journey should be captured in DreamFactory, and that includes every in-page events that might not result in a new page load. (Which are the only events that are captured as by the page view tracking already implemented.) The Javascript tracker incorporates a number of functions to capture a wealth of events including:
 
 1. [Custom structured events](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-custom-structured-events). A general purpose event tracking tag that can be used to track events like *add-to-baskets*, *video-plays* amongst others. It is modelled closely on Google's Event tracking
 2. [Ecommerce transactions](2-Specific-event-tracking-with-the-Javascript-tracker#wiki-ecommerce). Use this to track orders placed on your site
 3. [Page pings] (2-Specific-event-tracking-with-the-Javascript-tracker#wiki-pagepings). Use this to track how long visitors dwell on each page on your site, and how they scroll of pages over time.
 
-Detailed documentation on how to capture the complete range of events possible with Snowplow can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (snowplow-technical-documentation).
+Detailed documentation on how to capture the complete range of events possible with DreamFactory can be found in the [[Javascript Tracker]] section of the [Technical Documentation] (dreamfactory-technical-documentation).
 
-Note: once you have finished setting up the additional Snowplow events (as documented in the [Technical Documentation](snowplow-technical-documentation) section), we recommend returning to the setup guide to complete your Snowplow installation.
+Note: once you have finished setting up the additional DreamFactory events (as documented in the [Technical Documentation](dreamfactory-technical-documentation) section), we recommend returning to the setup guide to complete your DreamFactory installation.
 
 <a name="next-steps" />
 ## 3. Next steps
 
-Once you have integrated Snowplow tracking tags on your site, you can [test that the tags fire] (testing the javascript tracker is firing).
+Once you have integrated DreamFactory tracking tags on your site, you can [test that the tags fire] (testing the javascript tracker is firing).
 
-[Return to setup guide](Setting-up-Snowplow).
+[Return to setup guide](Setting-up-DreamFactory).
 
 
 [ga-event-guide]: http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html
 [chrome-dev-tools]: http://code.google.com/chrome/devtools/docs/overview.html
 [firebug]: http://getfirebug.com/
 [network-pane]: setup-guide/images/01_network_pane.png
-[contact]: mailto:services@snowplowanalytics.com
+[contact]: mailto:services@dreamfactoryanalytics.com
 [gtm]: http://www.google.com/tagmanager/

@@ -1,10 +1,10 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable support for HTTPS]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Enable support for HTTPS]]
 
 In order to track user behaviour on HTTPS web pages (e.g. shop checkouts), it is necessary to configure HTTPS for your AWS Elastic Beanstalk Environment. This requires that you use a custom domain as your endpoint (rather than the `{{ENVIRONMENT-NAME}}.elasticbeanstalk.com`) and have purchased an SSL certificate for that custom domain.
 
 ### 4.1 Using custom domains
 
-Using a custom domain is straightforward. In this tutorial, we will use the custom domain `collector.snplow.com`. We own the domain `snplow.com` and have it managed through [Linode][linode]. If you host a domain name with a different 3rd party to Linode, the steps will be broadly the same, although the UI will likely be different. If you use Amazon Route 53 to host your domains, instructions on using these with Elastic Beanstalk can be found [here][route-53]. 
+Using a custom domain is straightforward. In this tutorial, we will use the custom domain `collector.snplow.com`. We own the domain `snplow.com` and have it managed through [Linode][linode]. If you host a domain name with a different 3rd party to Linode, the steps will be broadly the same, although the UI will likely be different. If you use Amazon Route 53 to host your domains, instructions on using these with Elastic Beanstalk can be found [here][route-53].
 
 To use a custom domain, all we have to do is create a CNAME with our DNS provider, and map that CNAME to our Elastic Beanstalk environment URL. (In our case, `cc-endpoint.elasticbeanstalk.com`.) In Linode, we login and naviage to the **DNS Manager**, where we select the custom domain we want to use i.e. `snplow.com` and scroll down to the **CNAME Records**:
 
@@ -20,7 +20,7 @@ In due course, we should be able to enter our custom domain with a `/i` in a bro
 
 ### 4.2 Configuring HTTPS for Elastic Beanstalk
 
-Now that we are running our collector on our own domain, we can serve it via HTTPS. 
+Now that we are running our collector on our own domain, we can serve it via HTTPS.
 
 #### 4.2.1 Pre-requisites
 
@@ -34,10 +34,10 @@ The following will walk you through the process of enabling HTTPS using a wildca
 
 The following steps are required to setup SSL:
 
-1. [Download and install the AWS Identity and Access Management (IAM) command line tools](#download-and-install-cli)  
-2. [Use OpenSSL to convert the signed certificates received from your SSL provider (in our case, Comodo) into a format suitable for Amazon](#openssl-prep-keys)  
-3. [Use the command line tools to upload the certificates to Amazon](#upload-cert-to-amazon)  
-4. [Update your Elastic Beanstalk environment to use HTTPS](#use-https)  
+1. [Download and install the AWS Identity and Access Management (IAM) command line tools](#download-and-install-cli)
+2. [Use OpenSSL to convert the signed certificates received from your SSL provider (in our case, Comodo) into a format suitable for Amazon](#openssl-prep-keys)
+3. [Use the command line tools to upload the certificates to Amazon](#upload-cert-to-amazon)
+4. [Update your Elastic Beanstalk environment to use HTTPS](#use-https)
 
 <a name="download-and-install-cli"></a>
 
@@ -62,7 +62,7 @@ Now set the variable `AWS-IAM_HOME` to the location where you saved the command 
 	$ export PATH=$AWS_IAM_HOME/bin:$PATH
 
 Use a text-editor to create a file in command line tools directory with your AWS Access Key and Secret Key specified e.g.:
-	
+
 	AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 	AWSSecretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
@@ -90,7 +90,7 @@ To check your installation is working, try running `iam-usercreate -h` at the co
 	 -k                                    : create a key for the user
 	 -p PATH                               : the path of the user, defaults to /
 	 -u USERNAME                           : the name of the user
-	 -v VERBOSE                            : print out the newly created user's arn 
+	 -v VERBOSE                            : print out the newly created user's arn
 	                                         and guid
 
 <a name="openssl-prep-keys" ></a>

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Snowplow setup guide) > [**Step 1: setup a Collector**](choosing-a-collector) > [SnowCannon setup](snowcannon-setup-guide)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](DreamFactory setup guide) > [**Step 1: setup a Collector**](choosing-a-collector) > [SnowCannon setup](snowcannon-setup-guide)
 
 ## Before You Begin
 
@@ -6,7 +6,7 @@
 
 For the purpose of this guide, we are going to assume:
 
-1. That you want to log the Snowplow event data collected by SnowCannon to **Amazon S3**
+1. That you want to log the DreamFactory event data collected by SnowCannon to **Amazon S3**
 2. That you want to use **Fluentd** to handle the actual file upload to S3 (versus SnowCannon's built-in S3 sink)
 3. That you will use **Upstart** as your service wrapper
 4. That you will use **Monit** as your process monitor
@@ -31,7 +31,7 @@ Section to come.
 
 ### Overview
 
-[Fluentd] [fluentd] is a lightweight log collector from the team at [Treasure Data] [treasure-data]. SnowCannon supports Fluentd as an event sink - and Fluentd in turn supports a variety of different "output plugins", meaning that SnowCannon to use Fluentd to send Snowplow events to Amazon S3 as well as other data stores.
+[Fluentd] [fluentd] is a lightweight log collector from the team at [Treasure Data] [treasure-data]. SnowCannon supports Fluentd as an event sink - and Fluentd in turn supports a variety of different "output plugins", meaning that SnowCannon to use Fluentd to send DreamFactory events to Amazon S3 as well as other data stores.
 
 ### Installation options
 

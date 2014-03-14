@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [1: Installing ](Install-Scala-Kinesis-Enrich)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [1: Installing ](Install-Scala-Kinesis-Enrich)
 
 ## 1. Dependencies
 
@@ -23,15 +23,15 @@ To get a local copy, you can download the executable jarfile directly from our H
 
 You will need to add the executable flag onto the file:
 
-    $ chmod +x snowplow-kinesis-enrich-0.1.0
+    $ chmod +x dreamfactory-kinesis-enrich-0.1.0
 
 ### 3.2 Compile from source
 
-Alternatively, you can build it from the source files. To do so, you will need [scala][scala] and [sbt][sbt] installed. 
+Alternatively, you can build it from the source files. To do so, you will need [scala][scala] and [sbt][sbt] installed.
 
-To do so, clone the Snowplow repo:
+To do so, clone the DreamFactory repo:
 
-	$ git clone https://github.com/snowplow/snowplow.git
+	$ git clone https://github.com/dreamfactory/dreamfactory.git
 
 Navigate into the Scala Kinesis Enrich folder:
 
@@ -41,7 +41,7 @@ Use `sbt` to resolve dependencies, compile the source, and build an [assembled][
 
 	$ sbt assembly
 
-The `jar` file will be saved as `snowplow-kinesis-enrich-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
+The `jar` file will be saved as `dreamfactory-kinesis-enrich-0.1.0` in the `target/scala-2.10` subdirectory - it is now ready to be deployed.
 
 Next: [[Configure Scala Kinesis Enrich]]
 

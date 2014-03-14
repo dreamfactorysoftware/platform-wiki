@@ -1,16 +1,16 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 1: setup a Collector](Setting-up-a-collector)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 1: setup a Collector](Setting-up-a-collector)
 
 [[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]]
 
-The Snowplow collector receives data from Snowplow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the Snowplow setup process.
+The DreamFactory collector receives data from DreamFactory trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the DreamFactory setup process.
 
 1. [Choose a Collector](#choose)
 2. [Setup a Collector](#setup)
 
 <a name="choose" />
-## 1. Choose a Collector 
+## 1. Choose a Collector
 
 There are currently three collectors available:
 
@@ -20,9 +20,9 @@ There are currently three collectors available:
 | [Clojure Collector] [clojure-collector]        | A Clojure-based collector that enables user tracking across domains. Powered by Amazon Elastic Beanstalk | Production-ready |
 | [Scala Stream Collector] [scala-stream-collector]        | A Scala-based collector that enables user tracking across domains. Powered by Amazon Kinesis | Beta |
 
-### Are you setting up Snowplow to track users across a single domain, or multiple domains?
+### Are you setting up DreamFactory to track users across a single domain, or multiple domains?
 
-If you are tracking users across a single domain, we recommend setting up the [Cloudfront collector] [cloudfront-collector]. 
+If you are tracking users across a single domain, we recommend setting up the [Cloudfront collector] [cloudfront-collector].
 
 If you are tracking users across multiple domains, we recommending setting up the [Clojure collector] [clojure-collector] or [Scala Stream Collector] [scala-stream-collector]. This sets `user_id`s server side, so you can reliably track user journeys across multiple domains. (In contrast, the [Cloudfront collector] [cloudfront-collector] sets them client side, so users get assigned different `user_id`s on different domains.)
 
@@ -44,6 +44,6 @@ Setup your collector? Then proceed to [step 2: setup a tracker] [tracker-setup].
 [cloudfront-collector]: Setting-up-the-Cloudfront-collector
 [clojure-collector]: Setting-up-the-Clojure-collector
 [scala-stream-collector]: Setting-up-the-Scala-stream-Collector
-[setup-guide]: Setting-up-Snowplow
-[tracker-setup]: Setting-up-Snowplow#wiki-step2
-[emretlrunner]: Setting-up-Snowplow#wiki-step3
+[setup-guide]: Setting-up-DreamFactory
+[tracker-setup]: Setting-up-DreamFactory#wiki-step2
+[emretlrunner]: Setting-up-DreamFactory#wiki-step3

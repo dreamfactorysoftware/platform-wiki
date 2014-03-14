@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up EMR command line tools]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [[Setting up EMR command line tools]]
 
 1. [Before you get started...](#intro)
 2. [A note on OSes](#oses)
@@ -30,11 +30,11 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 <a name="rubyclient"/>
 ## 4. Installing the Amazon Elastic MapReduce Ruby Client
 
-### Downloading the Client 
+### Downloading the Client
 
 * On **Linux** or **Mac**, install the Elastic Map Reduce tools into
   your apps folder:
-  
+
     $ mkdir -p ~/Apps/elastic-mapreduce-cli
     $ cd ~/Apps/elastic-mapreduce-cli
     $ wget http://elasticmapreduce.s3.amazonaws.com/elastic-mapreduce-ruby.zip
@@ -51,7 +51,7 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 * Now go to the folder you just installed Ruby in, and in it, create a new folder where you'll save the Elastic Map Reduce tools. Give this folder an appropriate name e.g. `elastic-mapreduce-cli`. Unzip the download into the new folder, by double clicking on the Zip file (to access the contents), selecting the contents, copying it and then pasting it into the new folder.
 
 ![Unzip CLI](setup-guide/images/emr-guide/install-cli-3.PNG)
-    
+
 ### Configuring the client
 
 * To use the client successfully, you will need the tools to talk directly to your Amazon account without any difficulty. That means ensuring that the correct security / login details are available to the command-line tools
@@ -70,7 +70,7 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 
 * In the EC2 window, check what region has been set in the top left, and if necessary, change the region to the one in which you plan to do your analysis. (We use EU West (Ireland) for most of our analysis because we're based in the UK, but Amazon still often defaults to one of the US data center locations...)
 
-* Click on *Key Pairs* on the left hand navigation. (In the _Network & Security_ section.) 
+* Click on *Key Pairs* on the left hand navigation. (In the _Network & Security_ section.)
 
 ![Create key pair](setup-guide/images/emr-guide/install-cli-7.PNG)
 
@@ -88,7 +88,7 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 
 * Add the following (JSON) code to it, substituting the relevant values, noted above, for `access_id`, `private_key`, `keypair`, `key-pair-file`:
 
-	```javascript	
+	```javascript
 	{
 		"access_id": "[Your AWS Access Key ID. (See above)]",
 		"private_key": "[Your AWS Secret Access Key. (See above)]",
@@ -97,20 +97,20 @@ A guide to installing RVM and Ruby can be found [here](Ruby and RVM setup).
 		"log_uri": "[A path to the bucket on S3 where your SnowPLow logs are kept. We will identify this in the next section.]",
 		"region": "[The Region of yoru job flow, either us-east-1, us-west-2, us-east-1, eu-west-1", eu-west-1, ap-northeast-1, ap-southeast-1, or sa-east-1. We will identify this in the next section]"
 	}
-	
+
 	```
 
 * The `log-uri` parameter in the `credentials.json` file needs to point at the Amazon S3 bucket that you will use to store the outputs of your analysis. (And any logging of Hadoop sessions, if you desire.) It makes sense to create a new bucket to store these results. To do so, click on the `S3` tab at the top of the _AWS Management Console_, and in the left hand menu under _Buckets_ click the *Create Bucket* button:
 
 ![Name new S3 bucket to house analysis](setup-guide/images/emr-guide/install-cli-11.PNG)
 
-* Name the bucket. (You'll need top pick a name that is unique across Amazon S3, to `snowplow-analysis` will not be an option, unfortunately 
+* Name the bucket. (You'll need top pick a name that is unique across Amazon S3, to `dreamfactory-analysis` will not be an option, unfortunately
 
-* Select which Region you want the bucket located in. Because we're based in the UK, we've picked Ireland: pick the data center that makes the most sense for you. (Most likely the same location as the S3 buckets with the raw Snowplow data you intend to analyse.) Click the *create* button.
+* Select which Region you want the bucket located in. Because we're based in the UK, we've picked Ireland: pick the data center that makes the most sense for you. (Most likely the same location as the S3 buckets with the raw DreamFactory data you intend to analyse.) Click the *create* button.
 
-* Now update `credentials.json` with the `log-uri`. This will be `s3n://` + the bucket name + `/`. For us, then 
+* Now update `credentials.json` with the `log-uri`. This will be `s3n://` + the bucket name + `/`. For us, then
 
-	`"log_uri" = "s3n://snowplow-analysis/"`
+	`"log_uri" = "s3n://dreamfactory-analysis/"`
 
 * You also need to set the `region` field in `credentials.json`. Pick the appropriate region - this should match the Region you selected when you created the bucket. So for us that is `eu-west-1`. (we selected _Ireland_)
 
@@ -147,7 +147,7 @@ Now that you have configured the Ruby client, the last thing to do before you ca
 
 * Navigate to your `.PEM` file in the command line tool and set the permissions on the file as below:
 
-    $ chmod og-rwx mykeypair.pem 
+    $ chmod og-rwx mykeypair.pem
 
 #### SSH Setup: for Windows
 
@@ -168,7 +168,7 @@ Now that you have configured the Ruby client, the last thing to do before you ca
 * Now download *PUTTY* and *Pageant* from
   [the same webpage you downloaded PUTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). You
   will need these to establish the SSH connection and run Hive
-  
+
 ### Testing
 
 Now you're ready to test! Check that the EMR command-line tool runs
@@ -180,14 +180,14 @@ okay:
 
       Creating Job Flows
       <snip>
-      
+
 Let's try something more adventurous:
 
     $ ./elastic-mapreduce --list
     j-11IY9G5EHZGP1     WAITING        ec2-54-247-19-229.eu-west-1.compute.amazonaws.com Development Job Flow (requires manual termination)
        COMPLETED      Setup Hive
        <snip>
-       
+
 And finally, let's try starting and ending a job:
 
     $ ./elastic-mapreduce --create --alive
@@ -201,4 +201,4 @@ is now working. Next up, you can proceed to the guide to [[running Hive using th
 <a name="next-steps" />
 ## 5. Next steps
 
-All done setting up the command-line tools? Then [get started querying your Snowplow data with Hive](Running-Hive-using-the-command-line-tools).
+All done setting up the command-line tools? Then [get started querying your DreamFactory data with Hive](Running-Hive-using-the-command-line-tools).

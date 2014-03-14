@@ -1,43 +1,43 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > [**Javascript Tracker**](Javascript-Tracker) > Specific event tracking
 
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-Snowplow has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+DreamFactory has been built to enable users to track a wide range of events that occur when consumers interact with their websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
 
-  - 3.1 [Pageviews](#page)  
-    - 3.1.1 [`trackPageView`](#trackPageView)  
-  - 3.2 [Pagepings](#pagepings)  
-    - 3.2.1 [`enableActivityTracking`](#enableActivityTracking)  
-  - 3.3 [Ecommerce transaction tracking](#ecommerce)  
-    - 3.3.1 [`addTrans`](#addTrans)  
-    - 3.3.2 [`addItem`](#addItem)  
-    - 3.3.3 [`trackTrans`](#trackTrans)  
+  - 3.1 [Pageviews](#page)
+    - 3.1.1 [`trackPageView`](#trackPageView)
+  - 3.2 [Pagepings](#pagepings)
+    - 3.2.1 [`enableActivityTracking`](#enableActivityTracking)
+  - 3.3 [Ecommerce transaction tracking](#ecommerce)
+    - 3.3.1 [`addTrans`](#addTrans)
+    - 3.3.2 [`addItem`](#addItem)
+    - 3.3.3 [`trackTrans`](#trackTrans)
     - 3.3.4 [Pulling it all together: an example](#ecomm-example)
-  - 3.4 [Social tracking](#social) 
-    - 3.4.1 [`trackSocial`](#trackSocial) 
-  - 3.5 [Campaign tracking](#campaign)  
-    - 3.5.1 [Identifying paid sources](#identifying-paid-sources)  
+  - 3.4 [Social tracking](#social)
+    - 3.4.1 [`trackSocial`](#trackSocial)
+  - 3.5 [Campaign tracking](#campaign)
+    - 3.5.1 [Identifying paid sources](#identifying-paid-sources)
     - 3.5.2 [Anatomy of the query parameter](#anatomy-of-the-query-parameter)
-  - 3.6 [Ad impression tracking](#adimps) 
+  - 3.6 [Ad impression tracking](#adimps)
     - 3.6.1 [`trackImpression`](#trackImpression)
-  - 3.7 [Tracking custom structured events](#custom-structured-events)  
+  - 3.7 [Tracking custom structured events](#custom-structured-events)
     - 3.7.1 [`trackStructEvent`](#trackStructEvent)
   - 3.8 [Tracking custom unstructured events](#custom-unstructured-events)
-    - 3.8.1 [`trackUnstructEvent`](#trackUnstructEvent)   
+    - 3.8.1 [`trackUnstructEvent`](#trackUnstructEvent)
   - 3.9 [Link click tracking](#link-click-track)
     - 3.9.1 [`enableLinkTracking`](#enableLinkTracking)
 
 <a name="overview" />
 ## 1. Overview
 
-The [Snowplow Javascript tracker](https://github.com/snowplow/snowplow/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the Snowplow Javascript tags.
+The [DreamFactory Javascript tracker](https://github.com/dreamfactory/dreamfactory/tree/master/1-trackers/javascript-tracker/) works in much the same way as Javascript trackers for other major web analytics solutions including Google Analytics and Omniture. We have tried, as far as possible, to keep the API very close to that used by Google Analytics, so that users who have implemented Google Analytics Javascript tags have no difficulty also implementing the DreamFactory Javascript tags.
 
-Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [snowplow.js](https://github.com/snowplow/snowplow/blob/master/1-trackers/javascript-tracker/js/snowplow.js), that trigger GET requests of the Snowplow pixel. The Javascript functions append data points to be passed into Snowplow onto the query string for the GET requests. These then get logged by the Snowplow [collector](collectors). For a full list of data points that can be passed into Snowplow in this way, please refer to the [Snowplow tracker protocol](snowplow-tracker-protocol) documentation.
+Tracking is done by inserting Javascript tags onto pages. These tags run functions defined in [dreamfactory.js](https://github.com/dreamfactory/dreamfactory/blob/master/1-trackers/javascript-tracker/js/dreamfactory.js), that trigger GET requests of the DreamFactory pixel. The Javascript functions append data points to be passed into DreamFactory onto the query string for the GET requests. These then get logged by the DreamFactory [collector](collectors). For a full list of data points that can be passed into DreamFactory in this way, please refer to the [DreamFactory tracker protocol](dreamfactory-tracker-protocol) documentation.
 
-The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times. 
+The Javascript tracker supports both synchronous and asynchronous tags. We recommend the asynchronous tags in nearly all instances, as these do not slow down page load times.
 
 [Back to top](#top)
 
@@ -49,10 +49,10 @@ There are two "global parameters" that should be set for the Javascript tracker:
 1. The [collector endpoint](#endpoint)
 2. The [application ID](#app-id)
 
-These are generally set as part of the pageview tracking tags, before the actual `trackPageView` method is called e.g. 
+These are generally set as part of the pageview tracking tags, before the actual `trackPageView` method is called e.g.
 
 ```javascript
-<!-- Snowplow starts plowing -->
+<!-- DreamFactory starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -66,7 +66,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- Snowplow stops plowing -->
+<!-- DreamFactory stops plowing -->
 ```
 
 <a name="endpoint" />
@@ -91,7 +91,7 @@ So if your domain is `d3rkrsqld9gmqf`, you would include:
 _snaq.push(['setCollectorCf', 'd3rkrsqld9gmqf']);
 ```
 
-in your Snowplow tag.
+in your DreamFactory tag.
 
 
 [Back to top](#top)
@@ -111,7 +111,7 @@ E.g. if your collector endpoint is at 'my-company.c.snplow.com' then you would i
 _snaq.push(['setCollectorUrl', 'my-company.c.snplow.com'])
 ```
 
-in your Snowplow tags.
+in your DreamFactory tags.
 
 [Back to top](#top)
 
@@ -156,15 +156,15 @@ Note: this will only set the user ID on further events fired while the user is o
 <a name="tracking-specific-events" />
 ## 3. Tracking specific events
 
-Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
+DreamFactory has been built to enable you to track a wide range of events that occur when users interact with your websites and webapps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 <a name="page" />
 ### 3.1 Pageviews
 
-Page views are tracked using the `trackPageView` method. This is generally part of the first Snowplow tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setAppId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
+Page views are tracked using the `trackPageView` method. This is generally part of the first DreamFactory tag to fire on a particular web page. As a result, the `trackPageView` method is usually deployed with "global" method like `setAppId` and `setCollectorCf` in a single tag that also invokes the SnwoPlow Javascript (sp.js) e.g.
 
 ```javascript
-<!-- Snowplow starts plowing -->
+<!-- DreamFactory starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -178,7 +178,7 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- Snowplow stops plowing -->
+<!-- DreamFactory stops plowing -->
 ```
 
 <a name="trackPageView" />
@@ -200,7 +200,7 @@ _snaq.push(['trackPageView', 'my custom page title']);
 
 Note: going forwards we plan to extend this method to also capture page category.
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="pagepings" />
@@ -227,39 +227,39 @@ _snaq.push(['enableActivityTracking', 30, 10]);
 
 The first ping would occur after 30 seconds, and subsequent pings every 10 seconds as long as the user continued to browse the page actively.
 
-Notes: 
+Notes:
 
-* In general this is executed as part of the main Snowplow tracking tag. As a result, you can elect to enable this on specific pages.
+* In general this is executed as part of the main DreamFactory tracking tag. As a result, you can elect to enable this on specific pages.
 * The `enableActivityTracking` method **must** be called *before* the `trackPageView` method.
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="ecommerce" />
 ### 3.3 Ecommerce tracking
 
-Modelled on Google Analytics ecommerce tracking capability, Snowplow uses three methods that have to be used together track online transactions:
+Modelled on Google Analytics ecommerce tracking capability, DreamFactory uses three methods that have to be used together track online transactions:
 
 1. **Create a transaction object**. Use `addTrans()` method to initialize a transaction object. This will be the object that is loaded with all the data relevant to the specific transaction that is being tracked including all the items in the order, the prices of the items, the price of shipping and the `order_id`.
 2. **Add items to the transaction.** Use the `addItem()` method to add data about each individual item to the transaction object.
-3. **Submit the transaction to Snowplow** using the trackTrans() method, once all the relevant data has been loaded into the object.
+3. **Submit the transaction to DreamFactory** using the trackTrans() method, once all the relevant data has been loaded into the object.
 
 <a name="addTrans" >
 #### 3.3.1 `addTrans`
 
 The `addTrans` method creates a transaction object. It takes seven possible parameters, two of which are required:
 
-| **Parameter**                  | **Required?** | **Example value** | 
+| **Parameter**                  | **Required?** | **Example value** |
 |:-------------------------------|:--------------|:------------------|
 | `order ID`                     | Yes           | '1234'            |
 | `affiliation or store name`    | No            | 'Womens Apparel'  |
 | `total spend`                  | Yes           | '19.99'           |
 | `shipping cost`                | No            | '2.99'            |
-| `city`                         | No            | 'San Jose'        | 
+| `city`                         | No            | 'San Jose'        |
 | `state or province`            | No            | 'California'      |
 | `country`                      | No            | 'USA'             |
 
-For example: 
+For example:
 
 ```javascript
 _snaq.push(['addTrans',
@@ -274,7 +274,7 @@ _snaq.push(['addTrans',
   ]);
 ```
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="addItem" />
@@ -359,7 +359,7 @@ _snaq.push(['trackTrans']);
     '1'               // quantity - required
   ]);
 
-  // trackTrans sends the transaction to Snowplow tracking servers.
+  // trackTrans sends the transaction to DreamFactory tracking servers.
   // Must be called last to commit the transaction.
   _snaq.push(['trackTrans']); //submits transaction to the collector
 
@@ -373,7 +373,7 @@ _snaq.push(['trackTrans']);
 </html>
 ```
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="social" />
@@ -388,7 +388,7 @@ Social tracking will be used to track the way users interact with Facebook, Twit
 
 The `trackSocial` method takes four parameters:
 
-| **Parameter** | **Description** | **Required?** | **Example value**     | 
+| **Parameter** | **Description** | **Required?** | **Example value**     |
 |:--------------|:----------------|:--------------|:----------------------|
 | `network`     | Social network  | Yes           | 'facebook', 'twitter' |
 | `socialAction`| Social action performed | Yes           | 'like', 'retweet'     |
@@ -412,7 +412,7 @@ Or if the optional parameters were left off:
 ```javascript
 _snaq.push('trackSocial', 'facebook', 'like', '', '')
 ```
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="campaign" />
@@ -422,12 +422,12 @@ Campaign tracking is used to identify the source of traffic coming to a website.
 
 At the highest level, we can distinguish **paid** traffic (that derives from ad spend) with **non paid** traffic: visitors who come to the website by entering the URL directly, clicking on a link from a referrer site or clicking on an organic link returned in a search results, for example.
 
-In order to identify **paid** traffic, Snowplow users need to set five query parameters on the links used in ads. Snowplow checks for the presence of these query parameters on the web pages that users load: if it finds them, it knows that that user came from a paid source, and stores the values of those parameters so that it is possible to identify the paid source of traffic exactly.
+In order to identify **paid** traffic, DreamFactory users need to set five query parameters on the links used in ads. DreamFactory checks for the presence of these query parameters on the web pages that users load: if it finds them, it knows that that user came from a paid source, and stores the values of those parameters so that it is possible to identify the paid source of traffic exactly.
 
-If the query parameters are not present, Snowplow reasons that the user is from a **non paid** source of traffic. It then checks the page referrer (the url of the web page the user was on before visiting our website), and uses that to deduce the source of traffic:
+If the query parameters are not present, DreamFactory reasons that the user is from a **non paid** source of traffic. It then checks the page referrer (the url of the web page the user was on before visiting our website), and uses that to deduce the source of traffic:
 
-1. If the URL is identified as a search engine, the traffic medium is set to "organic" and Snowplow tries to derive the search engine name from the referrer URL domain and the keywords from the  query string.
-2. If the URL is a non-search 3rd party website, the medium is set to "referrer". Snowplow derives the source from the referrer URL domain.
+1. If the URL is identified as a search engine, the traffic medium is set to "organic" and DreamFactory tries to derive the search engine name from the referrer URL domain and the keywords from the  query string.
+2. If the URL is a non-search 3rd party website, the medium is set to "referrer". DreamFactory derives the source from the referrer URL domain.
 
 <a name="identifying-paid-sources" />
 #### 3.5.1 Identifying paid sources
@@ -444,12 +444,12 @@ We want to be able to identify people who've clicked on ads e.g. in a marketing 
 <a href="http://mysite.com/myproduct.html?utm_source=newsletter-october&utm_medium=email&utm_campaign=cn0201">Visit website</a>
 ```
 
-For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at http://mysite.com/myproduct.html.) But Snowplow then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = cn0201.
+For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at http://mysite.com/myproduct.html.) But DreamFactory then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = cn0201.
 
 <a name="anatomy-of-the-query-parameters" />
 #### 3.5.2 Anatomy of the query parameters
 
-Snowplow uses the same query parameters used by Google Analytics. Because of this, Snowplow users who are also using GA do not need to do any additional work to make their campaigns trackable in Snowplow as well as GA. Those parameters are:
+DreamFactory uses the same query parameters used by Google Analytics. Because of this, DreamFactory users who are also using GA do not need to do any additional work to make their campaigns trackable in DreamFactory as well as GA. Those parameters are:
 
 | **Parameter**        | **Name**              | **Description**                                     |
 |:--------------------:|:---------------------:|:---------------------------------------------------:|
@@ -462,22 +462,22 @@ Snowplow uses the same query parameters used by Google Analytics. Because of thi
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="adimps" />
 ### 3.6 Ad impression tracking
 
-Snowplow tracking code can be included in ad tags in order to track impressions. This is used by e.g. ad networks to identify which sites and web pages users visit across a network, so that they can be segmented, for example.
+DreamFactory tracking code can be included in ad tags in order to track impressions. This is used by e.g. ad networks to identify which sites and web pages users visit across a network, so that they can be segmented, for example.
 
 Impression tracking is accomplished using the `trackImpression` method.
 
 <a name="trackImpression" />
 #### 3.6.1 `trackImpression`
 
-**Note**: Although this feature is implemented in the Javascript tracker, it is **not** currently supported by the ETL, storage and analytics stages of the Snowplow data pipeline. As a result, if you implement this feature, you will successfully track impression data to your collector logs, but this data will not be extracted and loaded into e.g. Redshift for analysis. 
+**Note**: Although this feature is implemented in the Javascript tracker, it is **not** currently supported by the ETL, storage and analytics stages of the DreamFactory data pipeline. As a result, if you implement this feature, you will successfully track impression data to your collector logs, but this data will not be extracted and loaded into e.g. Redshift for analysis.
 
-Adding support for this event type to the ETL, storage and analytics stages of the data pipeline is on the Snowplow roadmap. Until it is delivered, we recommend using the [custom structured event tracking] [custom-structured-events] to track impressions.
+Adding support for this event type to the ETL, storage and analytics stages of the data pipeline is on the DreamFactory roadmap. Until it is delivered, we recommend using the [custom structured event tracking] [custom-structured-events] to track impressions.
 
 The method takes four parameters:
 
@@ -486,26 +486,26 @@ The method takes four parameters:
 |     `BannerID` | Yes           | Adserver identifier for the ad banner (creative) being displayed                             |
 |   `CampaignID` | No            | Adserver identifier for the ad campaign which the banner belongs to                          |
 | `AdvertiserID` | No            | Adserver identifier for the advertiser which the campaign belongs to                         |
-|       `UserID` | No            | Adserver identifier for the web user. Not to be confused with Snowplow's own user identifier |
+|       `UserID` | No            | Adserver identifier for the web user. Not to be confused with DreamFactory's own user identifier |
 
 You will want to set these arguments programmatically, across all of your ad zones/slots - for guidelines on how to achieve this with the [OpenX adserver] [openx], please see the following sub-sections.
 
-#### 3.6.2 Example: implementing impression tracking with Snowplow and OpenX
+#### 3.6.2 Example: implementing impression tracking with DreamFactory and OpenX
 
-Most ad servers enable you to append custom code to your ad tags. Here's what the zone append functionality looks like in the OpenX adserver (OnRamp edition): 
+Most ad servers enable you to append custom code to your ad tags. Here's what the zone append functionality looks like in the OpenX adserver (OnRamp edition):
 
 ![zoneappend] [zoneappend]
 
-You will need to populate the ad zone append field with Snowplow tags for **every ad zone/unit** which you use to serve ads across your site or network. Read on for the Snowplow HTML code to use for OpenX. 
+You will need to populate the ad zone append field with DreamFactory tags for **every ad zone/unit** which you use to serve ads across your site or network. Read on for the DreamFactory HTML code to use for OpenX.
 
-#### OpenX: Snowplow impression tracking using magic macros
+#### OpenX: DreamFactory impression tracking using magic macros
 
 Because OpenX has a feature called [magic macros] [magicmacros], it is relatively straightforward to pass the banner, campaign and user ID arguments into the call to `trackImpression()` (advertiser ID is not available through magic macros).
 
-The full HTML code to append, using asynchronous Snowplow invocation, looks like this:
+The full HTML code to append, using asynchronous DreamFactory invocation, looks like this:
 
 ```html
-<!-- Snowplow starts plowing -->
+<!-- DreamFactory starts plowing -->
 <script type="text/javascript">
 var _snaq = _snaq || [];
 
@@ -518,25 +518,25 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d107t
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
  </script>
-<!-- Snowplow stops plowing -->
+<!-- DreamFactory stops plowing -->
 ```
 
-Once you have appended this code to all of your active ad zones, Snowplow should be collecting all of your ad impression data.
+Once you have appended this code to all of your active ad zones, DreamFactory should be collecting all of your ad impression data.
 
 [Back to top](#top)
 
 <a name="custom-structured-events" />
 ### 3.7 Tracking custom structured events
 
-There are likely to be a large number of AJAX events that can occur on your site, for which a specific tracking method is part of Snowplow. Examples include:
+There are likely to be a large number of AJAX events that can occur on your site, for which a specific tracking method is part of DreamFactory. Examples include:
 
 * Playing a video
 * Adding an item to basket
 * Submitting a lead form
 
-Our philosophy in creating Snowplow is that users should capture "every" consumer interaction and work out later how to use this data. This is different from traditional web analytics and business intelligence, that argues that you should first work out what you need, and only then start capturing the data. 
+Our philosophy in creating DreamFactory is that users should capture "every" consumer interaction and work out later how to use this data. This is different from traditional web analytics and business intelligence, that argues that you should first work out what you need, and only then start capturing the data.
 
-As part of a Snowplow implementation, therefore, we recommend that you identify every type of AJAX interaction that a user might have with your site: each one of these is an event that will not be captured as part of the standard page view tracking. All of them are candidates to track using `trackStructEvent`, if none of the other event-specific methods outlined above are appropriate.
+As part of a DreamFactory implementation, therefore, we recommend that you identify every type of AJAX interaction that a user might have with your site: each one of these is an event that will not be captured as part of the standard page view tracking. All of them are candidates to track using `trackStructEvent`, if none of the other event-specific methods outlined above are appropriate.
 
 #### 3.7.1 `trackStructEvent`
 
@@ -564,15 +564,15 @@ _snaq.push(['trackStructEvent', 'Mixes', 'Play', 'MrC/fabric-0503-mix', '', '0.0
 
 Note that in the above example no value is set for the `event property`.
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="custom-unstructured-events" />
 ### 3.8 Tracking custom unstructured events
 
-**Note**: this feature is implemented in the Javascript tracker, but it is **not** currently supported in the ETL, storage or analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.) Until the ETL and storage steps are upgraded to support unstructured events, anyone using them will have to write their own custom jobs to extract the events from the collector logs and analyse them.
+**Note**: this feature is implemented in the Javascript tracker, but it is **not** currently supported in the ETL, storage or analytics stages in the DreamFactory data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.) Until the ETL and storage steps are upgraded to support unstructured events, anyone using them will have to write their own custom jobs to extract the events from the collector logs and analyse them.
 
-There are certain events that you may want to track on your website or application, which are not directly supported by Snowplow, and are not suitable for being captured using the [structured event tracking] (#custom-structured-events). There are two use cases:
+There are certain events that you may want to track on your website or application, which are not directly supported by DreamFactory, and are not suitable for being captured using the [structured event tracking] (#custom-structured-events). There are two use cases:
 
 1. Where you want to track event types which are proprietary/specific to your business, and the type of data associated with each visit does not fit into the [structured event tracking] (#custom-structured-events), either because you want to capture data of a specific type (e.g. geographical coordinates or arrays), or you want to capture more data than the five structured event fields offer allow.
 2. Where you want to track events which have unpredictable or frequently changing properties, so that it is not possible to specify the fields in advance.
@@ -611,9 +611,9 @@ Notes regarding the `properties` JSON:
 
 ##### 3.8.1.1 Supported datatypes
 
-Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto JavaScript datatypes, we have introduced some "type suffixes" for the JavaScript property names, so that Snowplow knows what Snowplow data types the JavaScript data types map onto:
+DreamFactory unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto JavaScript datatypes, we have introduced some "type suffixes" for the JavaScript property names, so that DreamFactory knows what DreamFactory data types the JavaScript data types map onto:
 
-| Snowplow datatype | Description                  | JavaScript datatype  | Type suffix(es)      | Supports array? |
+| DreamFactory datatype | Description                  | JavaScript datatype  | Type suffix(es)      | Supports array? |
 |:------------------|:-----------------------------|:---------------------|:---------------------|:----------------|
 | Null              | Absence of a value           | Null                 | -                    | No              |
 | String            | String of characters         | String               | -                    | Yes             |
@@ -666,7 +666,7 @@ To track an Integer, use a JavaScript Number but add a type suffix like so:
 }
 ```
 
-**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
+**Warning:** if you do not add the `$int` type suffix, DreamFactory will assume you are tracking a Floating point number.
 
 ###### 3.8.1.1.5 Floating point
 
@@ -674,7 +674,7 @@ To track a Floating point number, use a JavaScript Number; adding a type suffix 
 
 ```javascript
 {
-    price$flt: 4.99, 
+    price$flt: 4.99,
     sales_tax: 49.99 // Same as $sales_tax:$flt
 }
 ```
@@ -691,11 +691,11 @@ Tracking a pair of Geographic coordinates is done like so:
 
 Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
 
-**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by DreamFactory as an Array of Floating points.
 
 ###### 3.8.1.1.6 Date
 
-Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
+DreamFactory Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
 * `$dt` - the Number of days since the epoch
 * `$ts` - the Number of seconds since the epoch
@@ -705,27 +705,27 @@ You can track a date by adding either a JavaScript Number _or_ JavaScript Date t
 
 ```javascript
 {
-    birthday$dt: new Date(1980,11,10), // Sent to Snowplow as birthday$dt: 3996
+    birthday$dt: new Date(1980,11,10), // Sent to DreamFactory as birthday$dt: 3996
     birthday2$dt: 3996, // ^ Same as above
-    
-    registered$ts: new Date(2013,05,13,14,20,10), // Sent to Snowplow as registered$ts: 1371129610
+
+    registered$ts: new Date(2013,05,13,14,20,10), // Sent to DreamFactory as registered$ts: 1371129610
     registered2$ts: 1371129610, // Same as above
-    
+
     last_action$tms: 1368454114215, // Accurate to milliseconds
-    last_action2: new Date() // Sent to Snowplow as last_action2$tms: 1368454114215
+    last_action2: new Date() // Sent to DreamFactory as last_action2$tms: 1368454114215
 }
 ```
 
-Note that the type prefix only indicates how the JavaScript Number sent to Snowplow is interpreted - all Snowplow Dates are stored to milliseconds precision (whether or not they include that level of precision).
+Note that the type prefix only indicates how the JavaScript Number sent to DreamFactory is interpreted - all DreamFactory Dates are stored to milliseconds precision (whether or not they include that level of precision).
 
 **Two warnings:**
 
-1. If you specify a JavaScript Number but do not add a valid Date suffix (`$dt`, `$ts` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
-2. If you specify a JavaScript Number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
+1. If you specify a JavaScript Number but do not add a valid Date suffix (`$dt`, `$ts` or `$tms`), then the value will be incorrectly interpreted by DreamFactory as a Number, not a Date
+2. If you specify a JavaScript Number but add the wrong Date suffix, then the Date will be incorrectly interpreted by DreamFactory, for example:
 
 ```javascript
 {
-    last_ping$dt: 1371129610 // Should have been $ts. Snowplow will interpret this as the year 3756521449
+    last_ping$dt: 1371129610 // Should have been $ts. DreamFactory will interpret this as the year 3756521449
 }
 ```
 
@@ -751,7 +751,7 @@ By contrast, the following are all allowed:
 }
 ```
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 <a name="link-click-tracking" />
@@ -764,7 +764,7 @@ This feature is on the roadmap: it has not been developed yet.
 
 This feature is on the roadmap: it has not been developed yet.
 
-[Back to top](#top)  
+[Back to top](#top)
 [Back to Javascript technical documentation contents][contents]
 
 [contents]: Javascript-Tracker
@@ -775,10 +775,10 @@ This feature is on the roadmap: it has not been developed yet.
 
 
 [openx]: http://www.openx.com/publisher/enterprise-ad-server
-[zoneappend]: /snowplow/snowplow/wiki/setup-guide/images/03a_zone_prepend_openx.png
+[zoneappend]: /dreamfactory/dreamfactory/wiki/setup-guide/images/03a_zone_prepend_openx.png
 [magicmacros]: http://www.openx.com/docs/whitepapers/magic-macros
-[dmp]: http://www.adopsinsider.com/online-ad-measurement-tracking/data-management-platforms/what-are-data-management-platforms/ 
-[contactus]: mailto:snowplow-ads@keplarllp.com
+[dmp]: http://www.adopsinsider.com/online-ad-measurement-tracking/data-management-platforms/what-are-data-management-platforms/
+[contactus]: mailto:dreamfactory-ads@keplarllp.com
 [mixpanel]: https://mixpanel.com/
 [kissmetrics]: https://www.kissmetrics.com/
 [keen.io]: https://keen.io/

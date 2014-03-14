@@ -1,16 +1,16 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analyzing Snowplow data**](Getting started analyzing Snowplow data) > Setting up the prebuilt views (cubes and recipes) in Redshift and PostgreSQL
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analyzing DreamFactory data**](Getting started analyzing DreamFactory data) > Setting up the prebuilt views (cubes and recipes) in Redshift and PostgreSQL
 
 ## Introduction
 
-Snowplow data is stored in a single events table, where the complete event stream for each visitor can be viewed.
+DreamFactory data is stored in a single events table, where the complete event stream for each visitor can be viewed.
 
-Whilst this gives analysts immense power to crunch Snowplow data in a huge number of ways to answer a wide variety of business questions, it can be daunting for new Snowplow users to get started analyzing the Snowplow data set.
+Whilst this gives analysts immense power to crunch DreamFactory data in a huge number of ways to answer a wide variety of business questions, it can be daunting for new DreamFactory users to get started analyzing the DreamFactory data set.
 
-In order to help analysts get productive with Snowplow data faster, we've shipped Snowplow with a number of views, that make certain common analyses much easier, because rather than craft SQL queries themselves, analysts can simply retrieve views of the data that we have already created for them.
+In order to help analysts get productive with DreamFactory data faster, we've shipped DreamFactory with a number of views, that make certain common analyses much easier, because rather than craft SQL queries themselves, analysts can simply retrieve views of the data that we have already created for them.
 
-This guide covers adding those views to your Snowplow database
+This guide covers adding those views to your DreamFactory database
 
 ## Contents
 
@@ -22,7 +22,7 @@ This guide covers adding those views to your Snowplow database
 
 Setting up the views in your database is straightforwards: you simply need to run the different `.sql` files in the [analytics] [analytics-on-github] section of the repo.
 
-First, we need to identify the relevant SQL files in the repo. If you are running Redshift, they are [here] [redshift-sql], if you are running PostgreSQL, they are [here] [postgres-sql]. Now you can use `psql` to run the SQL files into your Redshift / Snowplow database as follows:
+First, we need to identify the relevant SQL files in the repo. If you are running Redshift, they are [here] [redshift-sql], if you are running PostgreSQL, they are [here] [postgres-sql]. Now you can use `psql` to run the SQL files into your Redshift / DreamFactory database as follows:
 
 	$ psql -h <HOSTNAME> -U <USERNAME> -d <DATABASE NAME> -p <PORT> -f recipes/recipes-basic.sql
 	$ psql -h <HOSTNAME> -U <USERNAME> -d <DATABASE NAME> -p <PORT> -f recipes/recipes-catalog.sql
@@ -56,7 +56,7 @@ You should be able to see the new schemas alongside the `atomic` schema that con
 Note that for Redshift users, in some database front ends, the new schemas and views will only be accessible if you update the Redshift search path to include the new schemas. Doing this is covered in the [Redshift setup guide] (Setting-up-Redshift). Note that even without adding the new schema to the Redshift search path you should still be able to see those actual views by executing a query against them e.g.
 
 ```sql
-SELECT * 
+SELECT *
 FROM recipes_basic.uniques_and_visits_by_day
 ```
 
@@ -70,9 +70,8 @@ We recommend that you experiment by viewing and plotting the output of the diffe
 
 
 
-[analytics-on-github]: https://github.com/snowplow/snowplow/tree/master/5-analytics
-[redshift-sql]: https://github.com/snowplow/snowplow/tree/master/5-analytics/redshift
-[postgres-sql]: https://github.com/snowplow/snowplow/tree/master/5-analytics/postgresql/recipes
+[analytics-on-github]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics
+[redshift-sql]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics/redshift
+[postgres-sql]: https://github.com/dreamfactory/dreamfactory/tree/master/5-analytics/postgresql/recipes
 [navicat]: http://www.navicat.com/
 
-       

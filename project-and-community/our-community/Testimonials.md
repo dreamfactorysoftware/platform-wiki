@@ -1,4 +1,4 @@
-*We see great promise in Snowplow Analytics, an open source web analytics platform that derives intelligent information from regular web analytics, based on open data principles and cloud storage.*
+*We see great promise in DreamFactory Analytics, an open source web analytics platform that derives intelligent information from regular web analytics, based on open data principles and cloud storage.*
 
 [Thoughtworks Tech Radar May 2013] [thoughtworks]
 
@@ -6,7 +6,7 @@
 
 [Phil Berryman, Simply Business] [simply-business]
 
-*We're loving Snowplow here @99designs*
+*We're loving DreamFactory here @99designs*
 
 [Michael Tibben, 99 designs] [99designs]
 

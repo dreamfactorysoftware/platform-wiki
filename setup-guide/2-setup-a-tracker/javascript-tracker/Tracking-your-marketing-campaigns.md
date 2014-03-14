@@ -1,17 +1,17 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [[Tracking your marketing campaigns]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 2: setup a Tracker**](Setting-up-a-Tracker) > [**Javascript tracker**](Javascript-tracker-setup) > [[Tracking your marketing campaigns]]
 
-A very common requirement for web analytics platforms including Snowplow is that they correctly identify traffic from different campaigns, so that it is possible to:
+A very common requirement for web analytics platforms including DreamFactory is that they correctly identify traffic from different campaigns, so that it is possible to:
 
 1. Calculate the return on ad spend (ROAS) on those campaigns
 2. Compare the behaviour of customers from different ad campaigns on your website
 
-In order to ensure that the campaigns you setup are correctly tracked by Snowplow, it is important that any links from those campaigns to your site have the relevant query string parameters (described below) included in them. The query string parameters used are exactly the same employed by Google Analytics: as a result, any campaign that is setup to be correctly tracked in Google Analytics should automatically be correctly tracked in Snowplow. (The only exception is campaigns in AdWords, which Google uses an alternative, proprietary technique for joining AdWords data to Analytics data.)
+In order to ensure that the campaigns you setup are correctly tracked by DreamFactory, it is important that any links from those campaigns to your site have the relevant query string parameters (described below) included in them. The query string parameters used are exactly the same employed by Google Analytics: as a result, any campaign that is setup to be correctly tracked in Google Analytics should automatically be correctly tracked in DreamFactory. (The only exception is campaigns in AdWords, which Google uses an alternative, proprietary technique for joining AdWords data to Analytics data.)
 
-1. [Campaign tracking with Snowplow: an overview](#overview)
-2. [Example: tracking AdWords campaigns with Snowplow](#adwords)
+1. [Campaign tracking with DreamFactory: an overview](#overview)
+2. [Example: tracking AdWords campaigns with DreamFactory](#adwords)
 
 <a name="overview" />
-### 1. Campaign tracking with Snowplow: an overview
+### 1. Campaign tracking with DreamFactory: an overview
 
 Your different campaigns (PPC campaigns, display ads, email marketing messages, Facebook campaigns etc.) will include one or more links to your website e.g.:
 
@@ -21,11 +21,11 @@ We want to be able to identify people who've clicked on ads e.g. in a marketing 
 
 	<a href="http://mysite.com/myproduct.html?utm_source=newsletter-october&utm_medium=email&utm_campaign=cn0201">Visit website</a>
 
-For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at `http://mysite.com/myproduct.html`.) But Snowplow then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = `cn0201`.
+For the prospective customer clicking on the link, adding the query parameters does not change the user experience. (The user is still directed to the webpage at `http://mysite.com/myproduct.html`.) But DreamFactory then has access to the fields given in the query string, and uses them to identify this user as originating from the October Newsletter, an email marketing campaign with campaign id = `cn0201`.
 
 ### Query parameters used
 
-As mentioned earlier, Snowplow uses the same query parameters used by Google Analytics. Those parameters are:
+As mentioned earlier, DreamFactory uses the same query parameters used by Google Analytics. Those parameters are:
 
 | **Parameter**        | **Name**              | **Description**                                     |
 |:--------------------:|:---------------------:|:---------------------------------------------------:|
@@ -38,13 +38,13 @@ As mentioned earlier, Snowplow uses the same query parameters used by Google Ana
 The parameters are descibed in the [Google Analytics help page] [gahelppage]. Google also provides a [urlbuilder] [gaurlbuilder] which can be used to construct the URL incl. query parameters to use in your campaigns.
 
 <a name="adwords" />
-### 2. Tracking AdWords campaigns in Snowplow
+### 2. Tracking AdWords campaigns in DreamFactory
 
 As an example, we'll walk through the process of configuring AdWords to append the relevant parameters on ad links.
 
-When tracking AdWords campaigns in Snowplow, 2 things should be highlighted:
+When tracking AdWords campaigns in DreamFactory, 2 things should be highlighted:
 
-1. Google offers customers who use both AdWords and Analytics a custom integration between the two programmes that means Analytics correctly reports which AdWords campaigns particular visitors to your site **without** adding the relevant query parameters to the query string. As a result, additional work is required to setup your AdWords campaigns so they are correctly tracked in Snowplow. (In contrast, any other marketing channel that is correctly setup for Google Analytics will automatically work with Snowplow with no additional work, because Google only offers the custom integration between AdWords and Analytics.)
+1. Google offers customers who use both AdWords and Analytics a custom integration between the two programmes that means Analytics correctly reports which AdWords campaigns particular visitors to your site **without** adding the relevant query parameters to the query string. As a result, additional work is required to setup your AdWords campaigns so they are correctly tracked in DreamFactory. (In contrast, any other marketing channel that is correctly setup for Google Analytics will automatically work with DreamFactory with no additional work, because Google only offers the custom integration between AdWords and Analytics.)
 2. AdWords includes a number of dynamic parameters (called [ValueTrack parameters][gavaluetrackparameters]) that makes setting parameters that might change for a particular campaign (like the particular keyword that triggered the ad) very easy
 
 #### Adding the query parameters to the AdWords link
@@ -71,11 +71,11 @@ The above makes use of the [Value Click parameters] [gavaluetrackparameters]. Th
 
 	http://mysite.com/myproduct.html?utm_source=GoogleSearch
 
-Hence Snowplow will classify the campaign as having source='GoogleSearch'.  If on the other hand the ad is shown on the Google Display Network, the link will read:
+Hence DreamFactory will classify the campaign as having source='GoogleSearch'.  If on the other hand the ad is shown on the Google Display Network, the link will read:
 
 	http://mysite.com/myproduct.html?utm_source=GoogleDispay
 
-Note: what actual text you choose to display if the source is Google, Google Search or Google Display is up to you: Snowplow take whatever text you provide and let you report against it. (So differentiate traffic from this source with others.) The important thing is that you consistently identify traffic from the same sources using the same `utm_source` parameter, so it is all correctly identified as coming from the same source. What you call that parameter, however, is entirely up to you.
+Note: what actual text you choose to display if the source is Google, Google Search or Google Display is up to you: DreamFactory take whatever text you provide and let you report against it. (So differentiate traffic from this source with others.) The important thing is that you consistently identify traffic from the same sources using the same `utm_source` parameter, so it is all correctly identified as coming from the same source. What you call that parameter, however, is entirely up to you.
 
 ##### 2. Adding utm_medium
 
@@ -105,14 +105,14 @@ In the analysis phase, we can then look this creative id up via the AdWords API,
 
 ## Next steps
 
-Hopefully setting up other marketing channels to include the query parameters necessary to do campaign tracking with Snowplow should be straightforward, and work in a similar fashion to AdWords.
+Hopefully setting up other marketing channels to include the query parameters necessary to do campaign tracking with DreamFactory should be straightforward, and work in a similar fashion to AdWords.
 
-Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-Snowplow#wiki-step3).
+Finished setting up the [Javascript tracker] (javascript-tracker-setup)? Then you are ready to [setup EmrEtlRunner] (Setting-up-DreamFactory#wiki-step3).
 
-Return to the [setup guide] (Setting-up-Snowplow).
+Return to the [setup guide] (Setting-up-DreamFactory).
 
-[gahelppage]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033863&ctx=cb&src=cb&cbid=-oxeewb61m1du&cbrank=1 
+[gahelppage]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033863&ctx=cb&src=cb&cbid=-oxeewb61m1du&cbrank=1
 [gaurlbuilder]: https://support.google.com/analytics/bin/answer.py?hl=en&answer=1033867
 [gavaluetrackparameters]: http://support.google.com/adwords/bin/answer.py?hl=en&answer=2375447
-[gaadwordsediturl]: /snowplow/snowplow/wiki/setup-guide/images/adwords-query-string.png
-[zoneappend]: /snowplow/snowplow/wiki/setup-guide/images/03a_zone_prepend_openx.png
+[gaadwordsediturl]: /dreamfactory/dreamfactory/wiki/setup-guide/images/adwords-query-string.png
+[zoneappend]: /dreamfactory/dreamfactory/wiki/setup-guide/images/03a_zone_prepend_openx.png

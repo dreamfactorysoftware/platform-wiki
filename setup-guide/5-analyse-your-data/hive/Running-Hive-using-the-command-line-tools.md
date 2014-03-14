@@ -1,6 +1,6 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [**Getting started with EMR and Hive**](Getting-started-with-EMR) > [Getting started querying your data with Hive](Running-Hive-using-the-command-line-tools)
 
-Many of the analyses we perform in Snowplow use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
+Many of the analyses we perform in DreamFactory use Hive. We tend to use Hive Interactive Sessions to develop queries and analyses. Once a set of queries has been developed in the interactive sessions, they can be stored as a text file in S3 and run as a batch process directly from the Elastic Mapreduce Command Line tools.
 
 This part of the guide walks through the process of launching and running a Hive Interactive session. The steps involved are:
 
@@ -11,12 +11,12 @@ This part of the guide walks through the process of launching and running a Hive
 
 Most of the analyses we perform are in Hive interactive sessions: because it is in these types of sessions that we can actively query data, explore results and develop more sophisticated analyses.
 
-New sessions can either be initiated at the command-line, or via aws.amazon.com console. 
+New sessions can either be initiated at the command-line, or via aws.amazon.com console.
 
 <a name="startingajob"/>
 ## 1. Starting a job
 
-There are 2 ways to start a job / fire up instances to run Hive: 
+There are 2 ways to start a job / fire up instances to run Hive:
 
 1. [Using the Ruby Client](#usingtherubyclient)
 2. [From the Amazon Web UI](#fromtheamazonwebui)
@@ -52,7 +52,7 @@ TO WRITE: Add instructions to launch a session from the PC command-line, incl. s
 <a name="fromtheamazonwebui" />
 ### 1.2 Starting a job using the web UI
 
-TO WRITE: Add instructions on creating jobs via the Amazon web UI. 
+TO WRITE: Add instructions on creating jobs via the Amazon web UI.
 
 ### Checking that the job has been setup using the Amazon web UI
 
@@ -81,22 +81,22 @@ You can get your jobflowID either from the Amazon web UI or by listing all the j
 
 Substituting the JobFlowID generated when you created the session. You should see somethign like this:
 
-	$ ./elastic-mapreduce --ssh --jobflow j-2HP3I6BHDI3EB                                                                                
-	ssh -o ServerAliveInterval=10 -o StrictHostKeyChecking=no -i /home/alex/.emr/snplow-nasqueron-3.pem hadoop@ec2-54-216-57-136.eu-west-1.compute.amazonaws.com 
+	$ ./elastic-mapreduce --ssh --jobflow j-2HP3I6BHDI3EB
+	ssh -o ServerAliveInterval=10 -o StrictHostKeyChecking=no -i /home/alex/.emr/snplow-nasqueron-3.pem hadoop@ec2-54-216-57-136.eu-west-1.compute.amazonaws.com
 	Warning: Permanently added 'ec2-54-216-57-136.eu-west-1.compute.amazonaws.com,54.216.57.136' (RSA) to the list of known hosts.
 	Linux (none) 3.2.30-49.59.amzn1.i686 #1 SMP Wed Oct 3 19:55:00 UTC 2012 i686
 	--------------------------------------------------------------------------------
 
 	Welcome to Amazon Elastic MapReduce running Hadoop and Debian/Squeeze.
-	 
+
 	Hadoop is installed in /home/hadoop. Log files are in /mnt/var/log/hadoop. Check
 	/mnt/var/log/hadoop/steps for diagnosing step failures.
 
-	The Hadoop UI can be accessed via the following commands: 
+	The Hadoop UI can be accessed via the following commands:
 
 	  JobTracker    lynx http://localhost:9100/
 	  NameNode      lynx http://localhost:9101/
-	 
+
 	--------------------------------------------------------------------------------
 
 
@@ -114,7 +114,7 @@ TO WRITE
 <a name="runninghivequeries"/>
 ## 3. Running Hive queries
 
-Snowplow data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
+DreamFactory data is stored in a table called `events`. Before we can query it, we need to let Hive know about it (define it in Hive). We do so using the `CREATE EXTERNAL TABLE` statement:
 
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS `events` (
@@ -144,7 +144,7 @@ geo_longitude double,
 page_title string,
 page_urlscheme string,
 page_urlhost string,
-page_urlport int, 
+page_urlport int,
 page_urlpath string,
 page_urlquery string,
 page_urlfragment string,
@@ -224,14 +224,14 @@ LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
 LOCATION '${EVENTS_TABLE}' ;
 ```
- 
+
 #### Notes:
 
-1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitute it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
-2. If you are **not** running the StorageLoader, because you are **only** analysing your Snowplow data using EMR, then you will find your data to analyse in the `out` bucket specified in the EmrEtlRunner config file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://snowplow-events-archive-abanalytics-eu/' ;`)
+1. If you are running the StorageLoader to push data into e.g. Redshift or PostgreSQL, you will find your data on S3 to analyse in the archive bucket specified in your StorageLoader configuration file. You should specify this folder name in your table definition on the last line (i.e. substitute it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://dreamfactory-events-archive-abanalytics-eu/' ;`)
+2. If you are **not** running the StorageLoader, because you are **only** analysing your DreamFactory data using EMR, then you will find your data to analyse in the `out` bucket specified in the EmrEtlRunner config file. You should specify this folder name in your table definition on the last line (i.e. substitutde it for `${EVENTS_TABLE}` e.g. `LOCATION 's3://dreamfactory-events-archive-abanalytics-eu/' ;`)
 3. The table definition is very similar to the [table definition in Redshift] [redshift-table-def]. The data types have been changed to reflect Hive's data types, and the data is partitioned by 'r' i.e. run_id. (The date / time that EmrEtlRunner processed the raw collector logs and wrote the enriched logs back to S3 for processing in EMR / uploading into Redshift / PostgreSQL.)
 
-In S3, Snowplow data is divided into different folders, where each folder represents one "run" of data. That is why in the table definition, `run` is given as a partitioning field.
+In S3, DreamFactory data is divided into different folders, where each folder represents one "run" of data. That is why in the table definition, `run` is given as a partitioning field.
 
 We need to tell Hive to look at S3 and identify all the partitions of data that have been saved down:
 
@@ -249,7 +249,7 @@ We can now try running some simple queries. Remember: these will take some time 
 
 The following query will return the number of unique visitors by day:
 
-	SELECT 
+	SELECT
 	to_date(collector_tstamp) AS `Date`,
 	COUNT(DISTINCT domain_userid) AS `unique_visitors`
 	FROM events
@@ -260,7 +260,7 @@ You will see something like this:
 	hive> SELECT
 	    > to_date(collector_tstamp) as `dt`,
 	    > count(distinct(domain_userid)) as `uniques`
-	    > from events 
+	    > from events
 	    > group by to_date(collector_tstamp);
 	Total MapReduce jobs = 1
 	Launching Job 1 out of 1
@@ -302,7 +302,7 @@ You will see something like this:
 	MapReduce Total cumulative CPU time: 5 seconds 910 msec
 	Ended Job = job_201307011142_0001
 	Counters:
-	MapReduce Jobs Launched: 
+	MapReduce Jobs Launched:
 	Job 0: Map: 1  Reduce: 1   Accumulative CPU: 5.91 sec   HDFS Read: 319 HDFS Write: 27 SUCCESS
 	Total MapReduce CPU Time Spent: 5 seconds 910 msec
 	OK
@@ -331,13 +331,13 @@ To terminate the sessions via the command line, simply exit the session (by typi
 
 ## 5. Want to learn more?
 
-Consult the Snowplow [Analytics Cookbook] [analysts-cookbook] for more Hive recipes.
+Consult the DreamFactory [Analytics Cookbook] [analysts-cookbook] for more Hive recipes.
 
-Return to [get started analysing data](Getting-started-analysing-Snowplow-data).
+Return to [get started analysing data](Getting-started-analysing-DreamFactory-data).
 
-Return to the [setup guide home](Setting-up-Snowplow).
+Return to the [setup guide home](Setting-up-DreamFactory).
 
-[analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html
-[redshift-table-def]: https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/table-def.sql
+[analysts-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html
+[redshift-table-def]: https://github.com/dreamfactory/dreamfactory/blob/master/4-storage/redshift-storage/sql/table-def.sql
 [bucketexplorer]: http://www.bucketexplorer.com/
 [cloudberry]: http://www.cloudberrylab.com/

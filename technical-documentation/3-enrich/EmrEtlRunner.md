@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Enrichment**](Enrichment) > EmrEtlRunner
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Enrichment**](Enrichment) > EmrEtlRunner
 
 ## An overview of how EmrEtlRunner instruments the enrichment process
 
@@ -13,8 +13,8 @@ EmrEtlRunner then triggers the Enrichment process to run. It spins up an EMR clu
 3. Write the output of that Enrichment to the Out-bucket in S3. (As specified in the [config file][config-file]).
 4. When the job has completed, EmrEtlRunner moves the processed collector log files from the in-bucket to the archive bucket. (This, again, is specified in the [config file][config-file].)
 
-By setting up a cron job to run EmrEtlRunner regularly, Snowplow users can ensure that the event data regularly flows through the Snowplow data pipeline from the collector to storage.
+By setting up a cron job to run EmrEtlRunner regularly, DreamFactory users can ensure that the event data regularly flows through the DreamFactory data pipeline from the collector to storage.
 
-Note: many references are made to the 'Hadoop ETL' and 'Hive ETL' in the documentation and the [config file][config-file]. 'Hadoop ETL' refers to the current Scalding-based Enrichment Process. 'Hive ETL' refers to the legacy Hive-based ETL process. EmrEtlRunner can be setup to instrument either. However, we recommend **all** Snowplow users use the Scalding based 'Hadoop ETL', as it is much more robust, as well as being cheaper to run.
+Note: many references are made to the 'Hadoop ETL' and 'Hive ETL' in the documentation and the [config file][config-file]. 'Hadoop ETL' refers to the current Scalding-based Enrichment Process. 'Hive ETL' refers to the legacy Hive-based ETL process. EmrEtlRunner can be setup to instrument either. However, we recommend **all** DreamFactory users use the Scalding based 'Hadoop ETL', as it is much more robust, as well as being cheaper to run.
 
-[config-file]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
+[config-file]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample

@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [2: Configuring](Configuring-Scala-Kinesis-Enrich)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [Step 3: Setting up Enrich](Setting-up-enrich) > [**Step 3.2: setting up Scala Kinesis Enrich**](Setting-up-Scala-Kinesis-Enrich) > [2: Configuring](Configuring-Scala-Kinesis-Enrich)
 
 The Scala Stream Collector has a number of configuration options available.
 
@@ -21,19 +21,19 @@ Values that must be configured are:
 
 ### Source
 
-The `enrich.source` setting determines which of the supported sources to read raw Snowplow events from:
+The `enrich.source` setting determines which of the supported sources to read raw DreamFactory events from:
 
 + `"kinesis`" for reading Thrift-serialized records from a named Amazon Kinesis stream
 + `"stdin`" for reading Base64-encoded Thrift-serialized records from the app's own `stdin` I/O stream
 
-If you select `"kinesis"`, you need to set `enrich.streams.in` to the name of your raw Snowplow event stream [configured in your Scala Stream Collector](Configure-the-Scala-Stream-Collector).
+If you select `"kinesis"`, you need to set `enrich.streams.in` to the name of your raw DreamFactory event stream [configured in your Scala Stream Collector](Configure-the-Scala-Stream-Collector).
 
 ### Sinks
 
-The `enrich.sink` setting determines which of the supported sinks to write enriched Snowplow events to:
+The `enrich.sink` setting determines which of the supported sinks to write enriched DreamFactory events to:
 
-+ `"kinesis`" for writing enriched Snowplow events to a named Amazon Kinesis stream
-+ `"stdouterr`" for writing enriched Snowplow events records to the app's own `stdout` I/O stream
++ `"kinesis`" for writing enriched DreamFactory events to a named Amazon Kinesis stream
++ `"stdouterr`" for writing enriched DreamFactory events records to the app's own `stdout` I/O stream
 
 If you select `"kinesis"`, you need to also update the `enrich.streams.out` section:
 
@@ -62,4 +62,4 @@ Next, make sure that the `enrich.enrichments.geo_ip.maxmind_file` configuration 
 
 Next: [[Run Scala Kinesis Enrich]]
 
-[app-conf]: https://github.com/snowplow/snowplow/blob/master/3-enrich/scala-kinesis-enrich/src/main/resources/default.conf
+[app-conf]: https://github.com/dreamfactory/dreamfactory/blob/master/3-enrich/scala-kinesis-enrich/src/main/resources/default.conf

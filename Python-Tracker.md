@@ -1,17 +1,17 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow technical documentation) > [**Trackers**](trackers) > Python Tracker
+[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](DreamFactory technical documentation) > [**Trackers**](trackers) > Python Tracker
 
 ## Contents
 
-- 1. [Overview](#overview)  
-- 2. [Initialization](#init)  
+- 1. [Overview](#overview)
+- 2. [Initialization](#init)
   - 2.1 [Importing the module](#importing)
-  - 2.2 [Creating a tracker](#create-tracker)  
-    - 2.2.1 [`cloudfront()`](#create-cf)  
+  - 2.2 [Creating a tracker](#create-tracker)
+    - 2.2.1 [`cloudfront()`](#create-cf)
     - 2.2.2 [`hostname()`](#create-uri)
   - 2.3 [Creating multiple trackers](#multi-tracker)
-- 3. [Configuration](#config)  
+- 3. [Configuration](#config)
   - 3.1 [Configuring your tracker](#configure-tracker)
     - 3.1.1 [`set_platform()`](#platform)
     - 3.1.2 [`set_base64_to()`](#encode-base64)
@@ -26,8 +26,8 @@
     - 4.1.2 [Optional timestamp argument](#tstamp-arg)
     - 4.1.3 [Return values](#ret-vals)
   - 4.2 [`track_screen_view()`](#screen-view)
-  - 4.3 
-  - 4.4 
+  - 4.3
+  - 4.4
   - 4.5 [`track_struct_event()`](#struct-event)
   - 4.6 [`track_unstruct_event()`](#unstruct-event)
     - 4.6.1 [Supported datatypes](#unstruct-datatypes)
@@ -35,11 +35,11 @@
 <a name="overview" />
 ## 1. Overview
 
-The [Snowplow Python Tracker](https://github.com/snowplow/snowplow-python-tracker) allows you to track Snowplow events from your Python apps and games.
+The [DreamFactory Python Tracker](https://github.com/dreamfactory/dreamfactory-python-tracker) allows you to track DreamFactory events from your Python apps and games.
 
-The tracker should be straightforward to use if you are comfortable with Python development; any prior experience with Snowplow"s [[JavaScript Tracker]] or [[Lua Tracker]], Google Analytics or Mixpanel (which have similar APIs to Snowplow) is helpful but not necessary.
+The tracker should be straightforward to use if you are comfortable with Python development; any prior experience with DreamFactory"s [[JavaScript Tracker]] or [[Lua Tracker]], Google Analytics or Mixpanel (which have similar APIs to DreamFactory) is helpful but not necessary.
 
-Note that this tracker has access to a more restricted set of Snowplow events than the [[JavaScript Tracker]] and covers almost all the events from the [[Lua Tracker]].
+Note that this tracker has access to a more restricted set of DreamFactory events than the [[JavaScript Tracker]] and covers almost all the events from the [[Lua Tracker]].
 
 <a name="init" />
 ## 2 Initialization
@@ -52,16 +52,16 @@ Assuming you have completed the [[Python Tracker Setup]] for your Python project
 Require the Python Tracker"s module into your Python code like so:
 
 ```python
-from snowplowtracker import tracker
+from dreamfactorytracker import tracker
 ```
 
 or
 
 ```python
-from snowplowtracker.tracker import Tracker
+from dreamfactorytracker.tracker import Tracker
 ```
 
-That's it - you are now ready to initialize a tracker instance. 
+That's it - you are now ready to initialize a tracker instance.
 
 [Back to top](#top)
 
@@ -125,7 +125,7 @@ t2 = Tracker.hostname("my-company.c.snplow.com")
 t2.set_platform("cnsl")
 t2.track_screen_view("Game HUD", "23")
 
-t1.track_screen_view("Test", "23") # Back to first tracker 
+t1.track_screen_view("Test", "23") # Back to first tracker
 ```
 
 [Back to top](#top)
@@ -158,7 +158,7 @@ For example:
 t.set_platform("tv") # Running on a Connected TV
 ```
 
-For a full list of supported platforms, please see the [[Snowplow Tracker Protocol]].
+For a full list of supported platforms, please see the [[DreamFactory Tracker Protocol]].
 
 [Back to top](#top)
 
@@ -182,7 +182,7 @@ t.set_base64_to(False)
 <a name="add-data" />
 ## 3.2 Adding extra data
 
-You may have additional information about your application"s environment, current user and so on, which you want to send to Snowplow with each event.
+You may have additional information about your application"s environment, current user and so on, which you want to send to DreamFactory with each event.
 
 The tracker instance has a set of `set...()` methods to attach extra data to all tracked events:
 
@@ -230,7 +230,7 @@ t.set_user_id("alexd")
 <a name="set-screen-res" />
 ### 3.2.1 Set screen resolution with `set_screen_resolution()`
 
-If your Python code has access to the device"s screen resolution, then you can pass this in to Snowplow too:
+If your Python code has access to the device"s screen resolution, then you can pass this in to DreamFactory too:
 
 ```python
 t.set_screen_resolution( {{WIDTH}}, {{HEIGHT}} )
@@ -247,7 +247,7 @@ t.set_screen_resolution(1366, 768)
 <a name="set-color-depth" />
 ### 3.2.1 Set color depth with `set_color_depth()`
 
-If your Python code has access to the bit depth of the device"s color palette for displaying images, then you can pass this in to Snowplow too:
+If your Python code has access to the bit depth of the device"s color palette for displaying images, then you can pass this in to DreamFactory too:
 
 ```python
 t.set_color_depth( {{BITS PER PIXEL}} )
@@ -264,7 +264,7 @@ t.set_color_depth(32)
 <a name="events" />
 ## 4. Tracking specific events
 
-Snowplow has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
+DreamFactory has been built to enable you to track a wide range of events that occur when users interact with your websites and apps. We are constantly growing the range of functions available in order to capture that data more richly.
 
 Tracking methods supported by the Python Tracker at a glance:
 
@@ -272,10 +272,10 @@ Tracking methods supported by the Python Tracker at a glance:
 |----------------------------------------------:|:-------------------------------------------------------|
 | [`track_page_view()`]                           | Track and record views of web pages. |
 | [`track__ecommerce_transaction()`]              | Track an ecommerce transaction on transcation level. |
-| [`track_ecommerce_transaction_item()`]          | Track an ecommerce transaction on item level. 
+| [`track_ecommerce_transaction_item()`]          | Track an ecommerce transaction on item level.
 | [`track_screen_view()`](#trackScreenView)       | Track the user viewing a screen within the application |
-| [`track_struct_event()`](#trackStructEvent)     | Track a Snowplow custom structured event               |
-| [`track_unstruct_event()`](#trackUnstructEvent) | Track a Snowplow custom unstructured event             |
+| [`track_struct_event()`](#trackStructEvent)     | Track a DreamFactory custom structured event               |
+| [`track_unstruct_event()`](#trackUnstructEvent) | Track a DreamFactory custom unstructured event             |
 
 <a name="common" />
 ### 4.1 Common
@@ -295,11 +295,11 @@ t.set_color_depth("walrus")
 
 contracts.interface.ContractNotRespected: Breach for argument 'depth' to Tracker:set_color_depth().
 Expected type 'int', got 'str'.
-checking: Int      for value: Instance of str: 'walrus'   
-checking: $(Int)   for value: Instance of str: 'walrus'   
-checking: int      for value: Instance of str: 'walrus'   
+checking: Int      for value: Instance of str: 'walrus'
+checking: $(Int)   for value: Instance of str: 'walrus'
+checking: int      for value: Instance of str: 'walrus'
 Variables bound in inner context:
-- self: Instance of Tracker: <snowplowtracker.tracker.Tracker object... [clip]
+- self: Instance of Tracker: <dreamfactorytracker.tracker.Tracker object... [clip]
 
 ```
 
@@ -354,7 +354,7 @@ These values are as follows:
 <a name="screen-view" />
 ### 4.2 Track screen views with `track_screen_view()`
 
-**Warning:** this feature is implemented in the Lua and Python tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log screen views to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
+**Warning:** this feature is implemented in the Lua and Python tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the DreamFactory data pipeline. As a result, if you use this feature, you will log screen views to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
 
 Use `track_screen_view()` to track a user viewing a screen (or equivalent) within your app. Arguments are:
 
@@ -401,11 +401,11 @@ t.track_struct_event("shop", "add-to-basket", None, "pcs", 2, 1369330909)
 <a name="unstruct-event" />
 ### 4.6 Track unstructured events with `track_unstruct_event()`
 
-**Warning:** this feature is implemented in the Python tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the Snowplow data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
+**Warning:** this feature is implemented in the Python tracker, but it is **not** currently supported in the Enrichment, Storage or Analytics stages in the DreamFactory data pipeline. As a result, if you use this feature, you will log unstructured events to your collector logs, but these will not be parsed and loaded into e.g. Redshift to analyse. (Adding this capability is on the roadmap.)
 
 Use `track_unstruct_event()` to track a custom event which consists of a name and an unstructured set of properties. This is useful when:
 
-* You want to track event types which are proprietary/specific to your business (i.e. not already part of Snowplow), or
+* You want to track event types which are proprietary/specific to your business (i.e. not already part of DreamFactory), or
 * You want to track events which have unpredictable or frequently changing properties
 
 The arguments are as follows:
@@ -423,7 +423,7 @@ t.track_unstruct_event("save-game", {
     "save_id" = "4321",
     "level" = 23,
     "difficultyLevel" = "HARD",
-    "dl_content" = true 
+    "dl_content" = true
     }, 1369330929 )
 ```
 
@@ -434,9 +434,9 @@ The properties table consists of a set of individual `name = value` pairs. The s
 <a name="unstruct-datatypes" />
 #### 4.6.1 Supported datatypes
 
-Snowplow unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Python datatypes, we have introduced some "type suffixes" for the Python property names, so that Snowplow knows what Snowplow data types the Python data types map onto:
+DreamFactory unstructured events support a relatively rich set of datatypes. Because these datatypes do not always map directly onto Python datatypes, we have introduced some "type suffixes" for the Python property names, so that DreamFactory knows what DreamFactory data types the Python data types map onto:
 
-| Snowplow datatype | Description                  | Python datatype       | Type suffix(es)      | Supports array? |
+| DreamFactory datatype | Description                  | Python datatype       | Type suffix(es)      | Supports array? |
 |:------------------|:-----------------------------|:-------------------|:---------------------|:----------------|
 | Null              | Absence of a value           | N/A                | -                    | No              |
 | String            | String of characters         | string             | -                    | Yes             |
@@ -483,7 +483,7 @@ To track an Integer, use a Python number but add a type suffix like so:
 }
 ```
 
-**Warning:** if you do not add the `$int` type suffix, Snowplow will assume you are tracking a Floating point number.
+**Warning:** if you do not add the `$int` type suffix, DreamFactory will assume you are tracking a Floating point number.
 
 ###### 4.6.1.5 Floating point
 
@@ -491,7 +491,7 @@ To track a Floating point number, use a Python number; adding a type suffix is o
 
 ```python
 {
-    "price$int" = 4.99, 
+    "price$int" = 4.99,
     "sales_tax" = 49.99 # Same as sales_tax$flt = ...
 }
 ```
@@ -508,11 +508,11 @@ Tracking a pair of Geographic coordinates is done like so:
 
 Please note that the datatype takes the format **latitude** followed by **longitude**. That is the same order used by services such as Google Maps.
 
-**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by Snowplow as an Array of Floating points.
+**Warning:** if you do not add the `$geo` type suffix, then the value will be incorrectly interpreted by DreamFactory as an Array of Floating points.
 
 ###### 4.6.1.6 Date
 
-Snowplow Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
+DreamFactory Dates include the date _and_ the time, with milliseconds precision. There are three type suffixes supported for tracking a Date:
 
 * `$dt` - the Number of days since the epoch
 * `$ts` - the Number of seconds since the epoch
@@ -528,16 +528,16 @@ You can track a date by adding a Python number to your `properties` object. The 
 }
 ```
 
-Note that the type prefix only indicates how the Python number sent to Snowplow is interpreted - all Snowplow Dates are stored to milliseconds precision (whether or not they include that level of precision).
+Note that the type prefix only indicates how the Python number sent to DreamFactory is interpreted - all DreamFactory Dates are stored to milliseconds precision (whether or not they include that level of precision).
 
 **Two warnings:**
 
-1. If you specify a Python number but do not add a valid Date suffix (`$dt`, `$ts` or `$tms`), then the value will be incorrectly interpreted by Snowplow as a Number, not a Date
-2. If you specify a Python number but add the wrong Date suffix, then the Date will be incorrectly interpreted by Snowplow, for example:
+1. If you specify a Python number but do not add a valid Date suffix (`$dt`, `$ts` or `$tms`), then the value will be incorrectly interpreted by DreamFactory as a Number, not a Date
+2. If you specify a Python number but add the wrong Date suffix, then the Date will be incorrectly interpreted by DreamFactory, for example:
 
 ```python
 {
-    "last_ping$dt" = 1371129610 # Should have been $ts. Snowplow will interpret this as the year 3756521449
+    "last_ping$dt" = 1371129610 # Should have been $ts. DreamFactory will interpret this as the year 3756521449
 }
 ```
 

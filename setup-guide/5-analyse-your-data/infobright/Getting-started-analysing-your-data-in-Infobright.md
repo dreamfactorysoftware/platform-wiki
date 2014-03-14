@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 5: Get started analysing Snowplow data**](Getting-started-analysing-Snowplow-data) > [Getting started analysing your data in Infobright](Getting-started-analysing-your-data-in-Infobright)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 5: Get started analysing DreamFactory data**](Getting-started-analysing-DreamFactory-data) > [Getting started analysing your data in Infobright](Getting-started-analysing-your-data-in-Infobright)
 
 Broadly speaking, there are three ways to query your data in Infobright:
 
@@ -16,9 +16,9 @@ It is possible to query the data directly in Infobright. SSH into the server run
 
 Enter your password when prompted.
 
-Now switch to the Snowplow database:
+Now switch to the DreamFactory database:
 
-	mysql> use snowplow ;
+	mysql> use dreamfactory ;
 	Database changed
 
 We can now query the events table directly. For example, to count the number of uniques, visits and page views per day:
@@ -28,7 +28,7 @@ We can now query the events table directly. For example, to count the number of 
 	COUNT(DISTINCT(user_id)) AS uniques,
 	COUNT(DISTINCT( CONCAT( user_id, "-", visit_id))) AS visits,
 	COUNT(page_url) AS page_views
-	FROM 
+	FROM
 	events
 	WHERE page_url IS NOT NULL
 	GROUP BY dt ;
@@ -45,11 +45,11 @@ When setting up your connection between your tool of choice and Infobright, foll
 <a name="analysis-tool" />
 ## 3. Querying the data in Infobright using an analysis tool e.g. Tableau, R, Weka
 
-Because any tool that can read data from MySQL can also read data from Infobright, it is possible to access and process the data stored in Infobright using some very powerful analysis tools e.g. [ChartIO] [chartio], [Tableau] [tableau], [R] [r] and [Weka] [weka]. 
+Because any tool that can read data from MySQL can also read data from Infobright, it is possible to access and process the data stored in Infobright using some very powerful analysis tools e.g. [ChartIO] [chartio], [Tableau] [tableau], [R] [r] and [Weka] [weka].
 
-[ChartIO] [chartio] is a great tool for generating dashboards and quickly visualising Snowplow data. We provide a dedicated guide to getting up and running with ChartIO [here] [chartio].
+[ChartIO] [chartio] is a great tool for generating dashboards and quickly visualising DreamFactory data. We provide a dedicated guide to getting up and running with ChartIO [here] [chartio].
 
-Whilst it is possible to connect a BI / OLAP tool like Tableau or Microstrategy to run directly on top of your Snowplow data, you are better off generating a copy of that data optimized for OLAP analysis. (I.e. formatted with distinct dimensions and metrics.) We provide a detailed guide on doing so [here] [olap].
+Whilst it is possible to connect a BI / OLAP tool like Tableau or Microstrategy to run directly on top of your DreamFactory data, you are better off generating a copy of that data optimized for OLAP analysis. (I.e. formatted with distinct dimensions and metrics.) We provide a detailed guide on doing so [here] [olap].
 
 We will be adding guides to analysing your data using R and Weka to the [Analytsts Cookbook] [analysts-cookbook] in the near future.
 
@@ -57,5 +57,5 @@ We will be adding guides to analysing your data using R and Weka to the [Analyts
 [r]: http://www.r-project.org/
 [weka]: http://weka.pentaho.com/
 [chartio]: Setting-up-ChartIO-to-visualize-your-data-in-Infobright
-[olap]: http://snowplowanalytics.com/analytics/tools-and-techniques/converting-snowplow-data-into-a-format-suitable-for-olap.html
-[analysts-cookbook]: http://snowplowanalytics.com/analytics/index.html
+[olap]: http://dreamfactoryanalytics.com/analytics/tools-and-techniques/converting-dreamfactory-data-into-a-format-suitable-for-olap.html
+[analysts-cookbook]: http://dreamfactoryanalytics.com/analytics/index.html

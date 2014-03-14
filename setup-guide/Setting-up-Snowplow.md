@@ -1,30 +1,30 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow)
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory)
 
-Setting up Snowplow is a five step process:
+Setting up DreamFactory is a five step process:
 
-1. [Setup a Snowplow Collector](#step1)
-2. [Setup a Snowplow Tracker](#step2)
+1. [Setup a DreamFactory Collector](#step1)
+2. [Setup a DreamFactory Tracker](#step2)
 3. [Setup Enrich](#step3)
 4. [Setting up alternative data stores (e.g. Redshift, PostgreSQL)](#step4)
 5. [Analyze your data!](#step5)
 
 <a name="step1" />
-## Step 1: Setup a Snowplow Collector
+## Step 1: Setup a DreamFactory Collector
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/2-collectors.png]]
 
-The Snowplow collector receives data from Snowplow trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the Snowplow setup process.
+The DreamFactory collector receives data from DreamFactory trackers and logs that data to S3 for storage and further processing. Setting up a collector is the first step in the DreamFactory setup process.
 
-[Setup a Snowplow collector now!](Setting-up-a-collector)
+[Setup a DreamFactory collector now!](Setting-up-a-collector)
 
 Setup your collector? Then proceed to [step 2: setup a tracker](#step2).
 
 <a name="step2" />
-## Step 2: Setup a Snowplow Tracker
+## Step 2: Setup a DreamFactory Tracker
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/1-trackers.png]]
 
-Snowplow trackers generate event data and send that data to Snowplow collectors to be captured. The most common Snowplow tracker used is the Javascript tracker, which is integrated in websites (either directly or via a tag management solution) the same way that any web analytics tracker (e.g. Google Analytics or Omniture tags) is integrated.
+DreamFactory trackers generate event data and send that data to DreamFactory collectors to be captured. The most common DreamFactory tracker used is the Javascript tracker, which is integrated in websites (either directly or via a tag management solution) the same way that any web analytics tracker (e.g. Google Analytics or Omniture tags) is integrated.
 
 [Setup a tracker now!](Setting-up-a-Tracker)
 
@@ -35,9 +35,9 @@ Setup your tracker? Now proceed to [step 3: Setup Enrich](#step3).
 <a name="step3" />
 ## Step 3: Setup Enrich
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/3-enrich.png]]
 
-The Snowplow enrichment process processes raw events from a collector and
+The DreamFactory enrichment process processes raw events from a collector and
 
 1. **Cleans up the data** into a format that is easier to parse / analyse
 2. **Enriches the data** (e.g. infers the location of the visitor from his / her IP address and infers the search engine keywords from the query string)
@@ -52,9 +52,9 @@ Setup Enrich? Proceed to [step 4: setup the StorageLoader](#step4).
 <a name="step4" />
 ## Step 4: Setup the alternative data stores (e.g. Redshift, PostgreSQL)
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/4-storage.png]]
 
-Most Snowplow users store their web event data in at least two places: S3 for processing in Hadoop (e.g. to enable machine learning via Mahout) and a database (e.g. Redshift or PostgreSQL) for more traditional OLAP analysis.
+Most DreamFactory users store their web event data in at least two places: S3 for processing in Hadoop (e.g. to enable machine learning via Mahout) and a database (e.g. Redshift or PostgreSQL) for more traditional OLAP analysis.
 
 The StorageLoader is an application to regularly transfer data from S3 into other databases e.g. Redshift. If you **only** wish to process your data using Hadoop on EMR, you do not need to setup the StorageLoader. However, if you would find it convenient to have your data in another data store (e.g. Redshift) then you can set this up at this stage.
 
@@ -65,16 +65,16 @@ Setup the alternative data stores? Then proceed to [step 5: analyse your data](#
 <a name="step5" />
 ## Step 5: Analyse your data!
 
-[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]] 
+[[https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/5-analytics.png]]
 
 Once your data is stored in S3 and Redshift, setup is complete and you are in a position to start analysing it. As part of the setup guide we run through the steps necessary to perform some intiial analysis and plugin a couple of analytics tools, to get you started.
 
-[Get started analysing Snowplow data](Getting-started-analyzing-Snowplow-data)
+[Get started analysing DreamFactory data](Getting-started-analyzing-DreamFactory-data)
 
 ## Setup is complete!
 
 ![architecture] [conceptual-architecture]
 
-You now have all five Snowplow subsystems working!
+You now have all five DreamFactory subsystems working!
 
 [conceptual-architecture]: https://d3i6fms1cm1j0i.cloudfront.net/github-wiki/images/conceptual-architecture.png

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Additional configuration options]]
+[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-DreamFactory) > [**Step 1: setup a Collector**](Setting-up-a-Collector) > [**Clojure collector setup**](setting-up-the-clojure-collector) > [[Additional configuration options]]
 
 There are a environment configuration parameters that you may want to consider tailoring to your specific needs. All of them can be accessed via the **Edit Configuration** dialogue box in the AWS Management Console.
 
@@ -42,7 +42,7 @@ If no value is provided, cookies set default to expiring after one year (i.e. 36
 
 Elastic Beanstalk can scale up the number of webservers running the collector to handle spikes in traffic.
 
-Basic settings (minimum and maximum numbers of servers) can be set in the configuration dialogue box, under the **Auto Scaling** tab. 
+Basic settings (minimum and maximum numbers of servers) can be set in the configuration dialogue box, under the **Auto Scaling** tab.
 
 [[/setup-guide/images/clojure-collector-setup-guide/11.png]]
 
@@ -54,5 +54,5 @@ You have setup the Clojure collector! You are now ready to [setup a tracker][tra
 
 Return to the [setup guide][setup-guide].
 
-[setup-guide]: Setting-up-Snowplow
-[tracker-setup]: Setting-up-Snowplow#wiki-step2
+[setup-guide]: Setting-up-DreamFactory
+[tracker-setup]: Setting-up-DreamFactory#wiki-step2

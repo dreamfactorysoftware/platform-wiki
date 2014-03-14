@@ -1,10 +1,10 @@
-To simplify setting up and running Snowplow, the Snowplow Analytics team provide public hosting for some of the Snowplow sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for Snowplow community members.
+To simplify setting up and running DreamFactory, the DreamFactory Analytics team provide public hosting for some of the DreamFactory sub-components. These hosted assets are publically available through Amazon Web Services (CloudFront and S3), and using them is free for DreamFactory community members.
 
-As we release new versions of these assets, we will leave old versions unchanged on their existing URLs - so you won't have to upgrade your own Snowplow installation unless you want to.
+As we release new versions of these assets, we will leave old versions unchanged on their existing URLs - so you won't have to upgrade your own DreamFactory installation unless you want to.
 
-**Disclaimer: While Snowplow Analytics Ltd will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [snowplow-repo] and you are encouraged to host them yourselves.** 
+**Disclaimer: While DreamFactory Software, Inc. will make every reasonable effort to host these assets, we will not be liable for any failure to provide this service. All of the hosted assets listed below are freely available via [our GitHub repository] [dreamfactory-repo] and you are encouraged to host them yourselves.**
 
-The **current versions** of the assets hosted by the Snowplow Analytics team are as follows:
+The **current versions** of the assets hosted by the DreamFactory Analytics team are as follows:
 
 ## 1. Trackers
 
@@ -24,7 +24,7 @@ where 0 is the semantic MAJOR version. If you prefer, you can use this path and 
 
 The Clojure Collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
 
-    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
+    s3://dreamfactory-hosted-assets/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
 
 Right-click on this [Download link] [cc-download] to save it down locally via CloudFront CDN.
 
@@ -32,7 +32,7 @@ Right-click on this [Download link] [cc-download] to save it down locally via Cl
 
 The Scala Stream Collector is packaged as an executable jarfile:
 
-    s3://snowplow-hosted-assets/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
+    s3://dreamfactory-hosted-assets/2-collectors/scala-stream-collector/dreamfactory-stream-collector-0.1.0
 
 Right-click on this [Download link] [ssc-download] to save it down locally via CloudFront CDN.
 
@@ -42,7 +42,7 @@ Right-click on this [Download link] [ssc-download] to save it down locally via C
 
 The Scala Hadoop Enrich process uses a single jarfile containing the MapReduce job. This is made available in a public Amazon S3 bucket, for Snowplowers who are running their Hadoop Enrich process on Amazon EMR:
 
-    s3://snowplow-hosted-assets/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
+    s3://dreamfactory-hosted-assets/3-enrich/hadoop-etl/dreamfactory-hadoop-etl-0.3.6.jar
 
 Right-click on this [Download link] [hadoop-enrich-download] to save it down locally via CloudFront CDN.
 
@@ -50,7 +50,7 @@ Right-click on this [Download link] [hadoop-enrich-download] to save it down loc
 
 The Scala Kinesis Enrich process is packaged as an executable jarfile:
 
-    s3://snowplow-hosted-assets/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
+    s3://dreamfactory-hosted-assets/3-enrich/scala-kinesis-enrich/dreamfactory-kinesis-enrich-0.1.0
 
 Right-click on this [Download link] [kinesis-enrich-download] to save it down locally via CloudFront CDN.
 
@@ -60,9 +60,9 @@ Right-click on this [Download link] [kinesis-enrich-download] to save it down lo
 
 Both Enrichment processes make use of the free [GeoLite City database] [geolite] from [MaxMind, Inc] [maxmind], also stored in this public Amazon S3 bucket:
 
-    s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
+    s3://dreamfactory-hosted-assets/third-party/maxmind/GeoLiteCity.dat
 
-This file is updated every month by the Snowplow Analytics team.
+This file is updated every month by the DreamFactory Analytics team.
 
 If you are running Scala Kinesis Enrich, you will need a local copy of this file. Right-click on this [Download link] [glc-download] to save it down locally via CloudFront CDN.
 
@@ -76,15 +76,15 @@ No hosted assets currently.
 
 ## See also
 
-As well as these hosted assets for running Snowplow, the Snowplow Analytics team also make code components and libraries available through Ruby and Java artifact repositories.
+As well as these hosted assets for running DreamFactory, the DreamFactory Analytics team also make code components and libraries available through Ruby and Java artifact repositories.
 
 Please see the [[Artifact repositories]] wiki page for more information.
 
-[snowplow-repo]: https://github.com/snowplow/snowplow
+[dreamfactory-repo]: https://github.com/dreamfactory/dreamfactory
 [cc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/clojure-collector/clojure-collector-0.5.0-standalone.war
-[ssc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/scala-stream-collector/snowplow-stream-collector-0.1.0
-[hadoop-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/hadoop-etl/snowplow-hadoop-etl-0.3.6.jar
-[kinesis-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/scala-kinesis-enrich/snowplow-kinesis-enrich-0.1.0
+[ssc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/scala-stream-collector/dreamfactory-stream-collector-0.1.0
+[hadoop-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/hadoop-etl/dreamfactory-hadoop-etl-0.3.6.jar
+[kinesis-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/scala-kinesis-enrich/dreamfactory-kinesis-enrich-0.1.0
 [glc-download]: http://d2io1hx8u877l0.cloudfront.net/third-party/maxmind/GeoLiteCity.dat
 [geolite]: http://dev.maxmind.com/geoip/legacy/geolite
 [maxmind]: http://www.maxmind.com/
