@@ -1,7 +1,5 @@
 [**Home**](Home) */* [**Documentation**](dsp-documentation)
 
-[[technical-architecture]]
-
 ## 1. Introduction
 [Overview](overview)
 
