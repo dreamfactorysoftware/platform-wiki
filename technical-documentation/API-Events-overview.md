@@ -10,20 +10,46 @@ That's a lot to absorb so we'll break it down for you.
 
 ## Event Configuration Options
 
+Event logging can be affected by changing the values in `config/common.config.php`. Available options are below. 
+
 | Setting | Values |
 |---------|--------|
 | `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it written to the DSP log. |
 | `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the ```dsp.log_events``` setting. |
 
-When an event is dispatched, it's identified by a unique name (e.g. kernel.response), which any number of listeners might be listening to. An Event instance is also created and passed to all of the listeners. As you'll see later, the Event object itself often contains data about the event being dispatched.
-
 ## Event Types
+
+There are three categories of events:
+
+  * REST Events
+  * Platform Events
+  * User-defined Events
+  
+The entire event model is generated dynamically at run time. It is defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for our Live API. Since the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
 
 ### REST Events
 
+REST events are generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where event is either `pre_process`, `post_process`, and `after_data_format`. 
+
+> This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
+
 ### Platform Events
+
+REST events are generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where event is either `pre_process`, `post_process`, and `after_data_format`. 
+
+> This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
+
 
 ### User-Defined Events
 
+## Throwing Events
+
+## Listening For Events
+
+### Server-Side
+
+### Client
+
+### External Listeners
 
 ## Sending Events
