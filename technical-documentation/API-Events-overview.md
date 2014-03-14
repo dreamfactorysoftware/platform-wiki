@@ -94,30 +94,97 @@ Platform events are more free-form than REST events but adhere to the following 
 
 #### Standard Event Actions
 
-There are currently six standard event actions. These map as follows:
+There are currently eight standard event actions. These map as follows:
 
 | Action | Description |
 |--------|-------------|
-| *.list | GET all resources |
-| *.read | GET a single resource |
-| *.write | POST a single resource |
-| *.create | POST a single resource |
-| *.update | PUT a single resource |
-| *.delete | DELETE a single resource |
+| `*.list` | GET all resources |
+| `*.read` | GET a single resource |
+| `*.write` | POST a single resource |
+| `*.create` | POST a single resource |
+| `*.update` | PUT a single resource |
+| `*.delete` | DELETE a single resource |
+| `session.login` | A session has been created |
+| `session.logout` | A session has been ended |
 
-To see the currently defined events, read through the [[Swagger|https://github.com/wordnik/swagger-ui]] for the [[DSP services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]]. Have a look at the `*.swagger.php` files.
+The asterisk (*) will be the API name or service that triggered the action. Examples are `config.read` for a configuration being read. Or `session.login` for when a user log's into the DSP. `login` and `logout` are triggered only by the `session` service at this time.
+
+To see the currently defined events, read through the [[Swagger|https://github.com/wordnik/swagger-ui]] files available in our repository. Specifically, have a look at the `*.swagger.php` files in [[Services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]] and [[Resources|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Resources/?at=develop]].
 
 ### User-Defined Events
 
 You, the server-side developer, can create and respond to your own events. We are working on a client-side solution as well. But server-side is good to go.  
 
-## Throwing Events
+## Listening For Events
+
+In order to find out if an event has occurred, you must deploy an event *listener*. This can take a few different forms.
 
 ### PHP
 
-### Javascript
+You can deploy a PHP listener class that is called when events it subscribes to are triggered. Below is an example listener class that handles `session.logout` events.
 
-## Listening For Events
+```php
+<?php
+namespace DreamFactory\Samples\Events;
+
+use Composer\EventDispatcher\EventSubscriberInterface;
+use DreamFactory\Platform\Events\EventDispatcher;
+use DreamFactory\Platform\Events\RestServiceEvent;
+use DreamFactory\Yii\Utility\Pii;
+
+/**
+ * SessionEventListener.php
+ * An example class that listens for session logouts
+ */
+class SessionEventListener implements EventSubscriberInterface
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        //  Register with the event dispatcher
+        Pii::app()->getDispatcher()->addSubscriber( $this );
+    }
+
+    /**
+     * Return the list of events to which we wish to subscribe
+     *
+     * @return array
+     */
+    public static function getSubscribedEvents()
+    {
+        return array(
+            'session.login'  => array( 'onSessionLogin', 0 ),
+            'session.logout' => array( 'onSessionLogout', 0 ),
+        );
+    }
+
+    /**
+     * Called on 'session.login'
+     *
+     * @param RestServiceEvent $event
+     * @param string           $eventName
+     * @param EventDispatcher  $dispatcher
+     */
+    public function onSessionLogin( RestServiceEvent $event, $eventName, $dispatcher )
+    {
+        //  Do something useful        
+    }
+
+    /**
+     * Called on 'session.logout'
+     *
+     * @param RestServiceEvent $event
+     * @param string           $eventName
+     * @param EventDispatcher  $dispatcher
+     */
+    public function onSessionLogout( RestServiceEvent $event, $eventName, $dispatcher )
+    {
+        //  Do something useful        
+    }
+}
+```
 
 ### PHP/DSP Plugin
 
@@ -126,3 +193,10 @@ You, the server-side developer, can create and respond to your own events. We ar
 ### Javascript
 
 ### HTTP
+
+## Throwing Events
+
+### PHP
+
+### Javascript
+
