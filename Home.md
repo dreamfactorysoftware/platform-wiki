@@ -5,8 +5,8 @@ This wiki is the main source of documentation for **developers** working with (o
 ## Quick navigation
 
 | About DreamFactory             | Project & Community              | Setup Guide          | Technical Documentation                  |
-|----------------------------|---------------------------------|-------------------------------|---------------------------|
-| <span style="text-align: center; vertical-align: middle;">[[/images/help.png]]</span> | <span style="text-align: center; vertical-align: middle;">[[/images/users.png]]</span> | <span style="text-align: center; vertical-align: middle;">[[/images/tools.png]]</span> | <span style="text-align: center; vertical-align: middle;">[[/images/database.png]]</span> |
+|:----------------------------------------:|:---------------------------------:|:-------------------------------:|:---------------------------:|
+| [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
 | [[About DreamFactory|DreamFactory-overview]] | [[Project & Community|DreamFactory-project-and-community]]       | [[Setup Guide|Setting-up-DreamFactory]] | [[Technical Documentation|DreamFactory-technical-documentation]]|
 | DreamFactory Services Platform&trade; - why we built it and what it does | About the open-source project, our community and how to contribute | A step-by-step guide to running a DSP | Detailed technical documentation on the platform |
 
