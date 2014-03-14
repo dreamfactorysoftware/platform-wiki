@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**DOCUMENTATION**](Documentation)
+[**Home**](Home) <span class="divider">&nbsp;*/*&nbsp;</span> [**Documentation**](technical-documentation)
 
 **1. Introduction**
 [Overview](overview)
