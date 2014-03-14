@@ -4,8 +4,8 @@ The DreamFactory Services Platform&trade; is very grateful for the help and assi
 
 At DreamFactory, our daily lives wouldn't be nearly as productive without the generous support of the following companies and organizations, providing us variously with free software, services and support:
 
-| **Supported by**                          | **Description**                                                                               |
-|-------------------------------------------|-----------------------------------------------------------------------------------------------|
+| **Supported by** |:**Description** |
+|:-----------------------------------------:|:-----------------------------------------------------------------------|
 | ![dreamfactory-logo] [dreamfactory-logo]  | [DreamFactory] [dreamfactory] for this killer wiki template and design!
 | ![jetbrains-logo] [jetbrains-logo]        | [JetBrains](http://jetbrains.com) creator of the most excellent [PhpStorm]() and [WebStorm]()!
 
