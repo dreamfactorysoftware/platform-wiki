@@ -12,9 +12,9 @@
   [**Storage**](overview-storage)  
   [[Events|API Events overview]]
     
-**Plugins**
-  [[**Overview**|overview-plugins]]
-  [[**Custom Resource Example**|code-custom-resource]]
+**Plugins**  
+  [[Overview|overview-plugins]]
+  [[Custom Trigger Example|code-custom-trigger]]
 
-**Miscellaneous**
+**Miscellaneous**  
   [[Artifact repositories]]

@@ -1,3 +1,3 @@
-# Custom Resource Example
+# Custom Trigger Example
 
-http://github.com/dreamfactorysoftware/jetpack-custom-resource/
+http://github.com/dreamfactorysoftware/jetpack-custom-trigger/
