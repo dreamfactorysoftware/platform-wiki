@@ -10,7 +10,11 @@
   [**User Services**](overview-services)  
   [**Applications**](overview-apps)  
   [**Storage**](overview-storage)  
-  [[Events|API Events overview]]  
+  [[Events|API Events overview]]
+    
+**Plugins**
+  [[**Overview**|overview-plugins]]
+  [[**Custom Resource Example**|code-custom-resource]]
 
 **Miscellaneous**
   [[Artifact repositories]]

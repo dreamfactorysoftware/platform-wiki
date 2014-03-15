@@ -139,10 +139,10 @@ use DreamFactory\Platform\Events\RestServiceEvent;
 use DreamFactory\Yii\Utility\Pii;
 
 /**
- * SessionEventListener.php
+ * SessionEventSubscriber.php
  * An example class that listens for session logouts
  */
-class SessionEventListener implements EventSubscriberInterface
+class SessionEventSubscriber implements EventSubscriberInterface
 {
     /**
      * Constructor
@@ -191,6 +191,10 @@ class SessionEventListener implements EventSubscriberInterface
     }
 }
 ```
+
+### Deploying Your Listener/Subscriber
+
+Because portions of the DSP core update themselves, you should not place any code or change any configuration settings in the core directory structure. Extensions, libraries, etc. should be placed into a directory under `/path/to/root/storage/.private/src`. This area is reserved for customization code and will never be overwritten by the platform. You can also place an `autoload.php` file in the  
 
 ### PHP/DSP Plugin
 

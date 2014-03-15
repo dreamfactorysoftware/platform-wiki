@@ -7,10 +7,10 @@ use DreamFactory\Platform\Events\RestServiceEvent;
 use DreamFactory\Yii\Utility\Pii;
 
 /**
- * SessionEventListener.php
+ * SessionEventSubscriber.php
  * An example class that listens for session logouts
  */
-class SessionEventListener implements EventSubscriberInterface
+class SessionEventSubscriber implements EventSubscriberInterface
 {
     /**
      * Constructor
