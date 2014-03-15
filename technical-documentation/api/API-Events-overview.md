@@ -14,6 +14,7 @@ Event logging can be affected by changing the values in `config/common.config.ph
 
 | Setting | Values |
 |---------|--------|
+| `dsp.enable_event_scripts` | If **false**, event scripts will **not** be run. |
 | `dsp.enable_rest_events` | If **false**, REST events will **not** be generated. |
 | `dsp.enable_platform_events` | If **false**, Platform events will **not** be generated. |
 | `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it written to the DSP log. |
@@ -35,6 +36,14 @@ Logging events should be disabled in production unless you're troubleshooting so
 [2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.post_process" triggered by /system/service/ [] []
 [2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.after_data_format" triggered by /system/service/ [] []
 ```
+
+## Listener Priority
+
+While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called. 
+
+### Scripts and Propagation
+
+Event scripts can halt propagation like a listener as well. Setting the "event.stop_propagation" property to **true** will halt propagation of the event immediately upon return from the script. 
 
 ## Event Types
 
