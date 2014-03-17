@@ -129,24 +129,24 @@ You, the server-side developer, can create and respond to your own events. We ar
 In order to find out if an event has occurred, you must deploy an event *listener*. Listeners generally live within the server code itself. Listeners can be used by your plugins to act on platform events.
 
 To register a listener for an event, you must use one of the following methods:
-	* Use the `on()` method of the DSP's main application instance.
-		```php
-			Pii::app()->on(
-				'session.logout',
-				function( $event, $eventName, $dispatcher )
-				{
-					//	Do something very important when a user logs out...
-				}
-			);
+	* Use the `on()` method of the DSP's main application instance:
+```php
+	Pii::app()->on(
+		'session.logout',
+		function( $event, $eventName, $dispatcher )
+		{
+			//	Do something very important when a user logs out...
+		}
+	);
 
-			Pii::app()->on(
-				'my.private.event',
-				function( $event, $eventName, $dispatcher )
-				{
-					//	Do something very private...
-				}
-			);
-		```
+	Pii::app()->on(
+		'my.private.event',
+		function( $event, $eventName, $dispatcher )
+		{
+			//	Do something very private...
+		}
+	);
+```
 	* Use the `/rest/system/script` endpoint, *PUT*ing an URL to a client-side listener which will be called via HTTP POST
 	* Use the `/rest/system/script` endpoint, *PUT*ing Javascript code to be run when the event is triggered. This is run on the server-side.
 	* Create an event subscriber class
