@@ -1,16 +1,16 @@
 <!-- Title: API Events -->
 
-Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible. 
+Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible.
 
 > We leveraged the [Symfony EventDispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component for our event system. Not only is this a tried and true event dispatching component, it is used by many projects in the ecosystem. This makes the server less coupled and integration with other packages easier.
- 
+
 The server also supplies an [[event service|system-event-service]] which provides complete event/listener management via REST. The [[event service|system-event-service]] also works in tandem with the [[script service|system-script-service]] service to run any [[server-side scripts|server-side-scripting]] that have been enabled.
 
 That's a lot to absorb so we'll break it down for you.
 
 ## Event Configuration Options
 
-Event logging can be affected by changing the values in `config/common.config.php`. Available options are below. 
+Event logging can be affected by changing the values in `config/common.config.php`. Available options are below.
 
 | Setting | Values |
 |---------|--------|
@@ -39,11 +39,11 @@ Logging events should be disabled in production unless you're troubleshooting so
 
 ## Listener Priority
 
-While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called. 
+While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called.
 
 ### Scripts and Propagation
 
-Event scripts can halt propagation like a listener as well. Setting the "event.stop_propagation" property to **true** will halt propagation of the event immediately upon return from the script. 
+Event scripts can halt propagation like a listener as well. Setting the "event.stop_propagation" property to **true** will halt propagation of the event immediately upon return from the script.
 
 ## Event Types
 
@@ -52,10 +52,10 @@ There are three categories of events:
   * REST Events
   * Platform Events
   * User-defined Events
-  
+
 The entire event model is generated dynamically at run time. It is defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for our Live API. Since the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
 
-All event types contain the following data fields. 
+All event types contain the following data fields.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -75,7 +75,7 @@ Some examples are:
   * user.get.pre_process
   * config.post.after_data_format
   * service.get.post_process
-  
+
 You saw some others in the log sample above. They're pretty straightforward and you shouldn't have any problems figuring out what they represent.
 
 REST events may also carry data from the source of the event. Data from events can be obtained via the event object passed to your listener. The method of retrieval varies depending on the type of listener you have created. But more on this when we talk about listeners.
@@ -93,17 +93,17 @@ REST events contain two extra data fields:
 
 Platform events are a boiled down version of REST events and are mapped to specific server operations. These operations are defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for each service.
 
-Platform events are more general to application-level operations. If you're writing a client-side application, *these are the events you're looking for*. 
+Platform events are more general to application-level operations. If you're writing a client-side application, *these are the events you're looking for*.
 
 Platform events are more free-form than REST events but adhere to the following constraints:
- 
+
   * Always begin with the **API name** that was called
   * Multiple levels allowed, but only logically sub-sections (i.e. db.table.row.read)
-  * Always end with a standard event action: **list**, **read**, **write**, **create**, **update**, or **delete**.
+  * Always end with a standard descriptive term/action/verb (i.e. **list**, **read**, **write**, **create**, **update**, **delete**, etc.).
 
-#### Standard Event Actions
+#### Platform Event Categories
 
-There are currently eight standard event actions. These map as follows:
+There are currently eight platform event categories. These map as follows:
 
 | Action | Description |
 |--------|-------------|
@@ -122,15 +122,40 @@ To see the currently defined events, read through the [[Swagger|https://github.c
 
 ### User-Defined Events
 
-You, the server-side developer, can create and respond to your own events. We are working on a client-side solution as well. But server-side is good to go.  
+You, the server-side developer, can create and respond to your own events. We are working on a client-side solution as well. But server-side is good to go.
 
 ## Listening For Events
 
 In order to find out if an event has occurred, you must deploy an event *listener*. Listeners generally live within the server code itself. Listeners can be used by your plugins to act on platform events.
 
-You may also wire up an event subscriber. Currently, only PHP subscribers are supported. 
+To register a listener for an event, you must use one of the following methods:
+	* Use the `on()` method of the DSP's main application instance.
+		```php
+			Pii::app()->on(
+				'session.logout',
+				function( $event, $eventName, $dispatcher )
+				{
+					//	Do something very important when a user logs out...
+				}
+			);
 
-### PHP Subscriber Example
+			Pii::app()->on(
+				'my.private.event',
+				function( $event, $eventName, $dispatcher )
+				{
+					//	Do something very private...
+				}
+			);
+		```
+	* Use the `/rest/system/script` endpoint, *PUT*ing an URL to a client-side listener which will be called via HTTP POST
+	* Use the `/rest/system/script` endpoint, *PUT*ing Javascript code to be run when the event is triggered. This is run on the server-side.
+	* Create an event subscriber class
+
+#### Event Subscribers
+
+Event subscriber classes are PHP classes which listen for, and are called when events are triggered. They can be stand-alone classes which do nothing but handle events or it may be part of a custom service you've created. As long as your class implements the `EventSubscriberInterface` it can subscribe to events.
+
+##### PHP Subscriber Example
 
 Below is a sample class that subscribes to the `session` service events. When these events are triggered, via user login and logout, the two methods `onSessionLogin` and `onSessionLogout` are called respectively.
 
@@ -184,7 +209,7 @@ class SessionEventSubscriber implements EventSubscriberInterface
      */
     public function onSessionLogin( RestServiceEvent $event, $eventName, $dispatcher )
     {
-        //  Do something useful        
+        //  Do something useful
     }
 
     /**
@@ -196,26 +221,58 @@ class SessionEventSubscriber implements EventSubscriberInterface
      */
     public function onSessionLogout( RestServiceEvent $event, $eventName, $dispatcher )
     {
-        //  Do something useful        
+        //  Do something useful
     }
 }
 ```
 
 ### Deploying Your Listener/Subscriber
 
-Because portions of the DSP core update themselves, you should not place any code or change any configuration settings in the core directory structure. Extensions, libraries, etc. should be placed into a directory under `/path/to/root/storage/.private/src`. This area is reserved for customization code and will never be overwritten by the platform. You can also place an `autoload.php` file in the  
+Because portions of the DSP core update themselves, you should not place any code or change any configuration settings in the core directory structure. Extensions, libraries, etc. should be placed into a directory under `/path/to/root/storage/.private/src`. This area is reserved for customization code and will never be overwritten by the platform.
 
-### PHP/DSP Plugin
+#### Namespacing Your Code
 
-### PHP/External Application
+TBD
 
-### Javascript
+#### Autoloading Your Code
 
-### HTTP
+You can also place an `autoload.php` file in the `/path/to/root/storage/.private/src` directory. This will be automatically loaded and cached with each session.
 
-## Throwing Events
+### Javascript Handlers
+
+Use the `/rest/system/script` service.
+
+### HTTP Handlers
+
+Use the `/rest/system/event` service.
+
+## Triggering Events
 
 ### PHP
 
+```php
+	Pii::app()->trigger( 'session.logout' );
+	Pii::app()->trigger( 'my.private.event', $_myEventData );
+```
+
 ### Javascript
 
+POST to the `/rest/system/event` service.
+
+## Unbinding Listeners
+
+### PHP
+
+```php
+	Pii::app()->off( 'session.logout', $_callback );
+```
+
+### Javascript
+
+Use the `/rest/system/script` service.
+
+### HTTP
+
+Use the `/rest/system/event` service.
+
+Send an HTTP **DELETE** with the event name and callback URL to delete a registered URL.
