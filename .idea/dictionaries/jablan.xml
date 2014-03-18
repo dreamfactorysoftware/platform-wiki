@@ -2,6 +2,8 @@
   <dictionary name="jablan">
     <words>
       <w>devs</w>
+      <w>logouts</w>
+      <w>namespacing</w>
       <w>roadmap</w>
     </words>
   </dictionary>
