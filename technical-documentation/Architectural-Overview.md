@@ -1,3 +1,5 @@
+<!-- --- title: DreamFactory Services Platform&trade; Architecture -->
+
 The DreamFactory Services Platform&trade; (DSP) is an open-source software package that provides a REST API for mobile enterprise application development. DreamFactory enables the enterprise developer to quickly hook up, and then securely expose, a wide variety of backend systems via a comprehensive palette of RESTful services.
 
 The platform supports access to data and meta-data from any ANSI SQL database including, but not limited to, MySQL, SQL Server, DB2, and PostgreSQL. Also supported are a wide variety of NoSQL databases including Amazon DynamoDB, Amazon SimpleDB, Azure Tables, MongoDB, MongoHQ, and CouchDB. For file storage Amazon S3, Azure Tables, and OpenStack Objects are supported.
