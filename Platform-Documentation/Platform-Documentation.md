@@ -26,6 +26,6 @@ copy needed
 copy needed
 
 ## Platform Events
-[Overview](API-Events-Overview)
+[[Overview|The-Platform-Event-System]]
 
 [dfcom]: https://www.dreamfactory.com/ "DreamFactory"
