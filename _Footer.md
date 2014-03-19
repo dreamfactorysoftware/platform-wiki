@@ -1,7 +1,8 @@
 [[About|DreamFactory-overview]] *|*
 [[Doc|Documentation]] *|*
-[[Install|Getting-Your-Own-DSP]] *|*
-[[Community|DreamFactory-project-and-community]] *|*
+[[Install|Getting-Your-Own-DSP
+]] *|*
+[[Community|project-and-community]] *|*
 &nbsp;&copy; 2012-2014 [DreamFactory Software, Inc.][dfcom]
 
 [dfcom]: https://www.dreamfactory.com/  "DreamFactory.com"
