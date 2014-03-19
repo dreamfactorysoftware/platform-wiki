@@ -1,4 +1,4 @@
-## Getting Started with the DSP API
+<h1>Getting Started with the DSP API</h1>
 
 ## RESTful Services
 
