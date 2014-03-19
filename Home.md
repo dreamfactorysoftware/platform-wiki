@@ -1,8 +1,5 @@
 **DreamFactory Services Platform&trade;**
 
-  - [![Code Climate](https://img.shields.io/codeclimate/github/dreamfactorysoftware/dsp-core.svg)](https://codeclimate.com/github/dreamfactorysoftware/dsp-core)
-  - [![Build Status](https://img.shields.io/travis/dreamfactorysoftware/dsp-core/master.svg)](https://travis-ci.org/dreamfactorysoftware/dsp-core)
-
 This wiki is the main source of documentation for **developers** working with (or contributing to) the DreamFactory Services Platform&trade; project(s). If this is your first time hearing about DreamFactory, we recommend starting with the [DreamFactory website][website].
 
 ## Quick navigation
