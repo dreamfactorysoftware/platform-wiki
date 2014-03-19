@@ -10,4 +10,4 @@ On the client side, all transactions use either JSON objects or XML documents. T
 
 On the server side, our Apache License software package can be installed from the Amazon Marketplace, Azure Marketplace, BitNami Website, VMware Marketplace, or on any Linux operating system including Redhat, CentOS, Debian, and Ubuntu. We also provide a free "dev and test" version of the product available at our website www.dreamfactory.com..
 
-[[/dreamfactorysoftware/dsp-core/wiki/images/dsp-architecture.png]]
+[[dsp-architecture.png|frame|alt=10,000 foot view]]
