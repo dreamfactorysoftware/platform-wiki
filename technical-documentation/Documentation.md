@@ -3,7 +3,8 @@
 copy needed
 
 ### Architecture
-![[technical-architecture]]
+
+Read all about the [anatomy of a DSP|Architectural-Overview].
 
 ## Getting Started
 
@@ -28,5 +29,3 @@ copy needed
 
 ## Platform Events
 [Overview](API-Events-overview)
-
-[technical-architecture]: /dreamfactorysoftware/dsp-core/wiki/technical-documentation/images/dsp-architecture.png
