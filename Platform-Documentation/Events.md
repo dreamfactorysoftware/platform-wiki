@@ -1,4 +1,4 @@
-<!-- Title: System Events -->
+<h1>The Event System</h1>
 
 Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible.
 
