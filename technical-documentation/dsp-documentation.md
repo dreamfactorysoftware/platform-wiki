@@ -1,16 +1,30 @@
-## 1. Introduction
-[Overview](overview)
+## Introduction
 
-## 2. API
-[Overview](overview-api)
+copy needed
 
-## 3. Apps
-[Overview](overview-apps)
+### Architecture
+[technical-architecture]
 
-## 4. Storage
-[Overview](overview-storage)
+## Getting Started
 
-## 5. Event System
+### Installation Methods
+
+#### Free Hosted
+#### Bitnami Stack
+#### Amazon AMI
+#### Windows Azure VHD
+#### From Source
+
+## API
+copy needed
+
+## Apps
+copy needed
+
+## Storage
+copy needed
+
+## Platform Events
 [Overview](API-Events-overview)
 
 [technical-architecture]: /dreamfactorysoftware/dsp-core/wiki/technical-documentation/images/dsp-architecture.png
