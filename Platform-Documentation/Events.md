@@ -1,4 +1,4 @@
-<!-- Title: API Events -->
+<!-- Title: System Events -->
 
 Once a DSP (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible.
 
