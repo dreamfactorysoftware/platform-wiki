@@ -1,5 +1,3 @@
-<!-- --- title: My titties -->
-
 Welcome to the DreamFactory Services Platform&trade; Wiki!
 
 This site will serve as the central document repository for all things DSP! Developers are encouraged to add their own content. We want to keep this site as up-to-date as possible, so I'm gonna have to ask you to go ahead and "Watch" it.
