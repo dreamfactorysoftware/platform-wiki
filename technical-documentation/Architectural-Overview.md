@@ -1,4 +1,4 @@
-# DreamFactory Services Platform&trades; Architecture
+## DreamFactory Services Platform&trade; Architecture
 
 The DreamFactory Services Platform&trade; (DSP) is an open-source software package that provides a REST API for mobile enterprise application development. DreamFactory enables the enterprise developer to quickly hook up, and then securely expose, a wide variety of backend systems via a comprehensive palette of RESTful services.
 
