@@ -12,17 +12,9 @@ The documentation on this site is geared towards developers. Should you have mar
 Read all about the [[anatomy of a DSP|Architectural-Overview]].
 
 ## Getting Started
+<a name="getting-started"></a>
 
-### Installation Methods
-<a name="installation-methods"></a>
-
-You can get a DSP up and running through a variety of methods. The most common is the DreamFactory free-hosted edition. This gives you almost a completely functional DSP for free. More information is available at the [DreamFactory web site](https://www.dreamfactory.com)
-
-#### Free Hosted
-#### Bitnami Stack
-#### Amazon AMI
-#### Windows Azure VHD
-#### From Source
+There are a variety of ways you can experience the glory that is the DSP. Head on over to [[Getting Your Own DSP]] for all the installation and setup guids.
 
 ## API
 copy needed
