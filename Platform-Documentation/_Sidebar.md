@@ -10,7 +10,7 @@
  [[User Services]]
  [[Applications]]
  [[Storage]]
- [Events](Events)
+ [[Overview|The-Platform-Event-System]]
 
 **Plugins**
  [[Overview|overview-plugins]]
