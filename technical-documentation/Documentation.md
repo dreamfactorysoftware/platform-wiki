@@ -5,7 +5,7 @@ This site will serve as the central document repository for all things DSP! Deve
 The documentation on this site is geared towards developers. Should you have marketing-types that need good info, send them over to the [DreamFactory main web site][dreamfactory-com].
 
 ### Terms Used
- * **DSP** We use **DSP** and **DreamFactory Services Platform&trade;** interchangeably throughout the site.
+ * **DSP** stands for **DreamFactory Services Platform&trade;**. We use them both throughout the site.
 
 ### Architecture
 
