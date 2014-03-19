@@ -1,4 +1,4 @@
-## Architecture
+## Overview
 
 The DreamFactory Services Platform&trade; (DSP) is an open-source software package that provides a REST API for mobile enterprise application development. DreamFactory enables the enterprise developer to quickly hook up, and then securely expose, a wide variety of backend systems via a comprehensive palette of RESTful services.
 
@@ -10,6 +10,4 @@ On the client side, all transactions use either JSON objects or XML documents. T
 
 On the server side, our Apache License software package can be installed from the Amazon Marketplace, Azure Marketplace, BitNami Website, VMware Marketplace, or on any Linux operating system including Redhat, CentOS, Debian, and Ubuntu. We also provide a free "dev and test" version of the product available at our website www.dreamfactory.com..
 
-![dsp-architecture] [dsp-architecture]
-
-[dsp-architecture]: /dreamfactorysoftware/dsp-core/wiki/images/dsp-architecture.png
+![image-architecture] [image-architecture]
