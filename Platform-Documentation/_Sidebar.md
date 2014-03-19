@@ -4,13 +4,13 @@
  [Overview](overview)
 
 **API**
- [[Overview|API-Overview]]
- [[User Management]]
- [[System Services]]
- [[User Services]]
- [[Applications]]
- [[Storage]]
- [[Overview|The-Platform-Event-System]]
+ * [[Getting Started|API-Getting-Started]]
+ * [[User Management]]
+ * [[System Services]]
+ * [[User Services]]
+ * [[Applications]]
+ * [[Storage]]
+ * [[Events|The-Platform-Event-System]]
 
 **Plugins**
  [[Overview|overview-plugins]]
