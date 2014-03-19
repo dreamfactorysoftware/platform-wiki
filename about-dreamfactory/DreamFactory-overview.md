@@ -22,7 +22,7 @@ This wiki is the main source of documentation for **developers** working with (o
 * [[About DreamFactory|DreamFactory-overview]] (this section) - introducing DreamFactory
 * [[Project and Community|DreamFactory-project-and-community]] - the open-source project, our community and how to contribute
 * [[Setup Guide|Setting-up-dreamfactory]] - a step-by-step guide to setting up and running a DSP
-* [[Technical Documentation|dsp-documentation]] - technical documentation on the platform
+* [[Technical Documentation|Documentation]] - technical documentation on the platform
 
 ### Additional support / resources
 
