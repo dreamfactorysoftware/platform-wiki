@@ -4,7 +4,7 @@ copy needed
 
 ### Architecture
 
-Read all about the [anatomy of a DSP|Architectural-Overview].
+Read all about the [[anatomy of a DSP|Architectural-Overview]].
 
 ## Getting Started
 
