@@ -4,7 +4,7 @@
  [Overview](overview)
 
 **API**
- * [[Getting Started|api/Getting-Started]]
+ * [[Getting Started|api-Getting-Started]]
  * [[User Management]]
  * [[System Services]]
  * [[User Services]]
