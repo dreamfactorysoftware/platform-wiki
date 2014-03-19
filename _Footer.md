@@ -1,6 +1,6 @@
 [[About|DreamFactory-overview]] *|*
 [[Doc|Documentation]] *|*
-[[Install|Architectural-Overview#installation-methods]] *|*
+[[Install|Getting-Your-Own-DSP]] *|*
 [[Community|DreamFactory-project-and-community]] *|*
 &nbsp;&copy; 2012-2014 [DreamFactory Software, Inc.][dfcom]
 
