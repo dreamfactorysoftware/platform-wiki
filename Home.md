@@ -1,6 +1,6 @@
 ## **DreamFactory Services Platform&trade;**
 
-This wiki is the main source of documentation for **developers** working with (or contributing to) the DreamFactory Services Platform&trade; project(s). If this is your first time hearing about DreamFactory, we recommend starting with the [DreamFactory website][website].
+This wiki is the main source of documentation for **developers** working with (or contributing to) the [DreamFactory Services Platform&trade;](/dreamfactorysoftware/dsp-core/) project(s). If this is your first time hearing about DreamFactory, we recommend starting with the [DreamFactory website][website].
 
 ## Quick navigation
 
