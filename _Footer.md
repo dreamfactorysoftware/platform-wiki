@@ -1,9 +1,9 @@
 <div align="center">
-<table border=0 cellspacing=2 cellpadding=4 fontsize=14 size="14" width="100%"><tr>
-<td>[[About|DreamFactory-overview]]</td><td color="#cccccc">|</td>
-<td>[[Doc|Documentation]]</td><td color="#cccccc">|</td>
-<td>[[Install|Getting-Your-Own-DSP]]</td><td color="#cccccc">|</td>
-<td>[[Community|platform-and-community]]</td>
+<table border=0 cellspacing=2 cellpadding=8 width="100%"><tr>
+<td align=center>[[About|DreamFactory-overview]]</td><td color="#cccccc"><h4nowrap>|</h4></td>
+<td align=center>[[Doc|Documentation]]</td><td color="#cccccc"><h4>|</h4 nowrap></td>
+<td align=center>[[Install|Getting-Your-Own-DSP]]</td><td color="#cccccc"><h4 nowrap>|</h4></td>
+<td align=center>[[Community|platform-and-community]]</td>
 </tr></table>
 </div>
 
