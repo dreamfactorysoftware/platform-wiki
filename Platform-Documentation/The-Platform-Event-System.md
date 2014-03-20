@@ -6,6 +6,12 @@ The server also supplies an [[event service|system-event-service]] which provide
 
 That's a lot to absorb so we'll break it down for you.
 
+## Important Note
+
+Server-side event scripting require the [V8js](https://github.com/v8/v8) library from [PECL](http://pecl.php.net/package/v8js), and an older version of the library at that.
+
+This can be challenging as it is considered *beta* code. Complete instructions for getting this installed on your development system are on the [[Installing V8js]] page.
+
 ## Event Configuration Options
 
 Event logging can be affected by changing the values in `config/common.config.php`. Available options are below.
