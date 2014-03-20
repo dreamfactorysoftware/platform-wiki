@@ -1,5 +1,5 @@
-| | :cloud: &copy; 2012-2014 [DreamFactory Software, Inc.][dfcom] | | |
-| :------------------------------- | :-------------------- | :------------------------------- | :---------------------------------- | ----: |
-| [[About|DreamFactory-overview]] | [[Doc|Documentation]] | [[Install|Getting-Your-Own-DSP]] | [[Community|platform-and-community]] |
+[[About|DreamFactory-overview]]   :cloud:   [[Doc|Documentation]]   :cloud:   [[Install|Getting-Your-Own-DSP]]   :cloud:   [[Community|platform-and-community]]
+
+<p align="center">&copy; 2012-2014 [DreamFactory Software, Inc.][dfcom]</p>
 
 [dfcom]: https://www.dreamfactory.com/  "DreamFactory.com"
