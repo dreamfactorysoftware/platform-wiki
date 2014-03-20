@@ -1,8 +1,8 @@
 <div align="center">
 <table border=0 cellspacing=2 cellpadding=8 width="100%" align=center><tr align=center>
-<td align=center>[[About|DreamFactory-overview]]</td><td align=center>&nbsp;<small>|</small></td>
-<td align=center>[[Doc|Documentation]]</td><td align=center>&nbsp;<small>|</small></td>
-<td align=center>[[Install|Getting-Your-Own-DSP]]</td><td align=center>&nbsp;<small>|</small></td>
+<td align=center>[[About|DreamFactory-overview]]</td><td align=center>&nbsp;<span textMuted="true" class="text-muted">|</span>&nbsp;</td>
+<td align=center>[[Doc|Documentation]]</td><td align=center>&nbsp;<span textMuted="true" class="text-muted">|</span>&nbsp;</td>
+<td align=center>[[Install|Getting-Your-Own-DSP]]</td><td align=center>&nbsp;<span textMuted="true" class="text-muted">|</span>&nbsp;</td></td>
 <td align=center>[[Community|platform-and-community]]</td>
 </tr></table>
 </div>
