@@ -1,5 +1,10 @@
 <div align="center">
-<table border=0 cellspacing=2 cellpadding=4 fontsize=14><tr><td color="#cccccc">&ordm;</td><td>[[About|DreamFactory-overview]]</td><td text-muted>|</td><td>[[Doc|Documentation]]</td><td>[[Install|Getting-Your-Own-DSP]]</td><td>[[Community|platform-and-community]]</td></tr></table>
+<table border=0 cellspacing=2 cellpadding=4 fontsize=14 size="14" width="100%"><tr>
+<td>[[About|DreamFactory-overview]]</td><td color="#cccccc">|</td>
+<td>[[Doc|Documentation]]</td><td color="#cccccc">|</td>
+<td>[[Install|Getting-Your-Own-DSP]]</td><td color="#cccccc">|</td>
+<td>[[Community|platform-and-community]]</td>
+</tr></table>
 </div>
 
 <p align="center">
