@@ -1,5 +1,5 @@
 <div align="center">
-[[About|DreamFactory-overview]]   :cloud:   [[Doc|Documentation]]   :cloud:   [[Install|Getting-Your-Own-DSP]]   :cloud:   [[Community|platform-and-community]]
+<table border=0><tr><td>[[About|DreamFactory-overview]]</td><td>[[Doc|Documentation]]</td><td>[[Install|Getting-Your-Own-DSP]]</td><td>[[Community|platform-and-community]]</td></tr></table>
 </div>
 
 <p align="center">
