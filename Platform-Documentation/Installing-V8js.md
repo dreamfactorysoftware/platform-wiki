@@ -9,7 +9,7 @@ The following instructions are one way to get the PECL extension to install. It 
 In a nutshell, this is what needs to happen...
 
  * Create a new, or change to a, directory where you can clone a repository.
- * Clone the V8 repository and then we need to check out the [tagged branch 3.14.5](https://github.com/v8/v8/tree/3.15.4) which we've determined as **working**
+ * Clone the V8 repository and then we need to check out the [tagged branch 3.15.5](https://github.com/v8/v8/tree/3.15.4) which we've determined as **working**
  * Make the **dependencies** target
  * Make the **native** target
  * Copy the include files and libraries to your system directories
