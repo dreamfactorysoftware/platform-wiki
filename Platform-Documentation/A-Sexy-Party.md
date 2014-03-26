@@ -1,9 +1,9 @@
 **Stewie loves a sexy party!**
 
-![He loves this](images/SexyPartyDance.gif "A Stewart Gilligan Griffin SexyParty(tm) Production")
+[[images/SexyPartyDance.gif]]
 
 
 **Hunter S. Thompson Agrees!**
 
-![HST Agrees](images/fearandloathing.gif)
+[[images/fearandloathing.gif]]
 
