@@ -17,7 +17,7 @@ Read all about the [[anatomy of a DSP|Architectural-Overview]].
 There are a variety of ways you can experience the glory that is the DSP. Head on over to [[Getting Your Own DSP]] for all the installation and setup guids.
 
 ## API
-* [[Platform SDK|Platform-SDK-For-PHP]]
+* [[Platform SDK|/wiki/API-Documentation/lib-php-common-platform/index.html]]
 
 ## Apps
 copy needed
