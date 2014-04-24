@@ -26,7 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a35938e-2ee9-43a7-b0de-a8519f28c2d0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home.md" afterPath="$PROJECT_DIR$/Home.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/API-Documentation/API-Documentation.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/API-Documentation/Platform-SDK-For-PHP/index.html" afterPath="$PROJECT_DIR$/API-Documentation/Platform-SDK-For-PHP/Platform-SDK-For-PHP.html" />
     </list>
     <ignored path="dsp-core.wiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,16 +51,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Home.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Home.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Home.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1704142" vertical-offset="0" max-vertical-offset="960">
+            <state vertical-scroll-proportion="-5.76" vertical-offset="0" max-vertical-offset="960">
               <caret line="9" column="192" selection-start-line="9" selection-start-column="192" selection-end-line="9" selection-end-column="192" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="API-Documentation.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/API-Documentation/API-Documentation.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.25368065" vertical-offset="0" max-vertical-offset="883">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -147,6 +158,7 @@
         <option value="$PROJECT_DIR$/Platform-Documentation/post-install-extras/Building and Installing V8 and V8JS.md" />
         <option value="$PROJECT_DIR$/Platform-Documentation/_Sidebar.md" />
         <option value="$PROJECT_DIR$/Home.md" />
+        <option value="$PROJECT_DIR$/API-Documentation/API-Documentation.md" />
       </list>
     </option>
   </component>
@@ -314,11 +326,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/API-Documentation" />
       <recent name="$PROJECT_DIR$/platform-documentation/Extending-The-DSP/Plugins" />
       <recent name="$PROJECT_DIR$/platform-documentation/Extending-The-DSP" />
       <recent name="$PROJECT_DIR$/platform-documentation/api" />
       <recent name="$PROJECT_DIR$/technical-documentation" />
-      <recent name="$PROJECT_DIR$/technical-documentation/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Platform-Documentation" />
@@ -415,13 +427,21 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Home.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1704142" vertical-offset="0" max-vertical-offset="960">
+        <state vertical-scroll-proportion="-5.76" vertical-offset="0" max-vertical-offset="960">
           <caret line="9" column="192" selection-start-line="9" selection-start-column="192" selection-end-line="9" selection-end-column="192" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API-Documentation/API-Documentation.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25368065" vertical-offset="0" max-vertical-offset="883">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
