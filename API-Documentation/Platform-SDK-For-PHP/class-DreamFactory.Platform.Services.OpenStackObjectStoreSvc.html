@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class DreamFactory\Platform\Services\OpenStackObjectStoreSvc | Platform SDK For PHP</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1431553788"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-DreamFactory.html">DreamFactory<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.Interfaces.html">Interfaces</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.html">Platform<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Events.Client.html">Client</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Stores.html">Stores</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Exceptions.html">Exceptions</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Interfaces.html">Interfaces</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.html">Resources<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Resources.System.html">System</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.User.html">User</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Services.html">Services</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Utility.html">Utility</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Views.html">Views</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.html">Yii<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Behaviors.html">Behaviors</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Commands.html">Commands</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Controllers.html">Controllers</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Models.html">Models</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Stores.html">Stores</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Utility.html">Utility</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-Kisma.html">Kisma<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.html">Core<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.Components.html">Components</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DreamFactory.Platform.Services.AsgardService.html">AsgardService</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.AwsDynamoDbSvc.html">AwsDynamoDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.AwsS3Svc.html">AwsS3Svc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.AwsSimpleDbSvc.html">AwsSimpleDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.BaseDbSvc.html">BaseDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.BaseFileSvc.html">BaseFileSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html">BasePlatformRestService</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.BasePlatformService.html">BasePlatformService</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.BaseSystemRestService.html">BaseSystemRestService</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.CouchDbSvc.html">CouchDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.EmailSvc.html">EmailSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.LocalFileSvc.html">LocalFileSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.MongoDbSvc.html">MongoDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.NoSqlDbSvc.html">NoSqlDbSvc</a></li>
+				<li class="active"><a href="class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html">OpenStackObjectStoreSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.Portal.html">Portal</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html">RemoteFileSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.RemoteWebSvc.html">RemoteWebSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.SalesforceDbSvc.html">SalesforceDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.SchemaSvc.html">SchemaSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.SqlDbSvc.html">SqlDbSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.SwaggerManager.html">SwaggerManager</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.SystemManager.html">SystemManager</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.UserManager.html">UserManager</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.WindowsAzureBlobSvc.html">WindowsAzureBlobSvc</a></li>
+				<li><a href="class-DreamFactory.Platform.Services.WindowsAzureTablesSvc.html">WindowsAzureTablesSvc</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-DreamFactory.Platform.Services.html" title="Summary of DreamFactory\Platform\Services"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class OpenStackObjectStoreSvc</h1>
+
+
+	<div class="description">
+	
+<p>RemoteFileSvc.php Remote File Storage Service giving REST access to file
+storage.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Kisma\Core\Seed
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html"><span>DreamFactory\Platform\Services\BasePlatformService</span></a>
+			
+			 implements 
+				<a href="class-DreamFactory.Platform.Interfaces.PlatformServiceLike.html"><span>DreamFactory\Platform\Interfaces\PlatformServiceLike</span></a>, 
+			
+<span>Kisma\Core\Interfaces\ConsumerLike</span>
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html"><span>DreamFactory\Platform\Services\BasePlatformRestService</span></a>
+			
+			 implements 
+				<a href="class-DreamFactory.Platform.Interfaces.RestServiceLike.html"><span>DreamFactory\Platform\Interfaces\RestServiceLike</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html"><span>DreamFactory\Platform\Services\BaseFileSvc</span></a>
+			
+			 implements 
+				<a href="class-DreamFactory.Platform.Interfaces.FileServiceLike.html"><span>DreamFactory\Platform\Interfaces\FileServiceLike</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:120px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html"><span>DreamFactory\Platform\Services\RemoteFileSvc</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:150px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>DreamFactory\Platform\Services\OpenStackObjectStoreSvc</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-DreamFactory.html">DreamFactory</a>\<a href="namespace-DreamFactory.Platform.html">Platform</a>\<a href="namespace-DreamFactory.Platform.Services.html">Services</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#35-764" title="Go to source code">Services/OpenStackObjectStoreSvc.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="checkConnection" id="_checkConnection">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkConnection">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#54-63" title="Go to source code">checkConnection</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html">DreamFactory\Platform\Services\BasePlatformRestService</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#65-151" title="Go to source code">__construct</a>( <span>array <var>$config</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$config</var></dt>
+					<dd><code>array</code><br>$config</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html">DreamFactory\Platform\Services\BasePlatformRestService</a></code></code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#___construct">DreamFactory\Platform\Services\BasePlatformRestService::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__destruct" id="___destruct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___destruct">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#153-159" title="Go to source code">__destruct</a>( )</code>
+
+		<div class="description short">
+			
+<p>Object destructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Object destructor</p>
+
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Services.BasePlatformService.html#___destruct">DreamFactory\Platform\Services\BasePlatformService::__destruct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listContainers" id="_listContainers">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listContainers">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#161-192" title="Go to source code">listContainers</a>( <span>boolean <var>$include_properties</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>List all containers, just names if noted</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>List all containers, just names if noted</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$include_properties</var></dt>
+					<dd><code>boolean</code><br>$include_properties If true, additional properties are retrieved</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getContainer" id="_getContainer">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getContainer">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#194-232" title="Go to source code">getContainer</a>( <span>string <var>$container</var></span>, <span>boolean <var>$include_files</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$include_folders</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$full_tree</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$include_properties</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Gets all properties of a particular container, if options are false,
+otherwise include content from the container</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets all properties of a particular container, if options are false,
+otherwise include content from the container</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+					<dt><var>$include_files</var></dt>
+					<dd><code>boolean</code><br>$include_files</dd>
+					<dt><var>$include_folders</var></dt>
+					<dd><code>boolean</code><br>$include_folders</dd>
+					<dt><var>$full_tree</var></dt>
+					<dd><code>boolean</code><br>$full_tree</dd>
+					<dt><var>$include_properties</var></dt>
+					<dd><code>boolean</code><br>$include_properties</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="containerExists" id="_containerExists">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_containerExists">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#234-261" title="Go to source code">containerExists</a>( <span>string <var>$container</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Check if a container exists</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Check if a container exists</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createContainer" id="_createContainer">
+
+		<td class="attributes"><code>
+			 public 
+			array|
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createContainer">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#263-296" title="Go to source code">createContainer</a>( <span>array <var>$properties</var></span>, <span>array <var>$metadata</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$properties</var></dt>
+					<dd><code>array</code><br>$properties</dd>
+					<dt><var>$metadata</var></dt>
+					<dd><code>array</code><br>$metadata</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array|</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="updateContainerProperties" id="_updateContainerProperties">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_updateContainerProperties">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#298-328" title="Go to source code">updateContainerProperties</a>( <span>string <var>$container</var></span>, <span>array <var>$properties</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Update a container with some properties</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Update a container with some properties</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$properties</var></dt>
+					<dd><code>array</code><br>$properties</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="deleteContainer" id="_deleteContainer">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_deleteContainer">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#330-361" title="Go to source code">deleteContainer</a>( <span>string <var>$container</var></span>, <span>boolean <var>$force</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Delete a container and all of its content</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete a container and all of its content</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$force</var></dt>
+					<dd><code>boolean</code><br>$force Force a delete if it is not empty</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="blobExists" id="_blobExists">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_blobExists">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#363-393" title="Go to source code">blobExists</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Check if a blob exists</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Check if a blob exists</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Blob name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="putBlobData" id="_putBlobData">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_putBlobData">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#395-432" title="Go to source code">putBlobData</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span></span>, <span>string <var>$blob</var> = <span class="php-quote">''</span></span>, <span>string <var>$type</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$blob</var></dt>
+					<dd><code>string</code><br>$blob</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="putBlobFromFile" id="_putBlobFromFile">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_putBlobFromFile">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#434-471" title="Go to source code">putBlobFromFile</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span></span>, <span>string <var>$localFileName</var> = <span class="php-quote">''</span></span>, <span>string <var>$type</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$localFileName</var></dt>
+					<dd><code>string</code><br>$localFileName</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="copyBlob" id="_copyBlob">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_copyBlob">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#473-511" title="Go to source code">copyBlob</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span></span>, <span>string <var>$src_container</var> = <span class="php-quote">''</span></span>, <span>string <var>$src_name</var> = <span class="php-quote">''</span></span>, <span>array <var>$properties</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$src_container</var></dt>
+					<dd><code>string</code><br>$src_container</dd>
+					<dt><var>$src_name</var></dt>
+					<dd><code>string</code><br>$src_name</dd>
+					<dt><var>$properties</var></dt>
+					<dd><code>array</code><br>$properties</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getBlobAsFile" id="_getBlobAsFile">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getBlobAsFile">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#513-546" title="Go to source code">getBlobAsFile</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span></span>, <span>string <var>$localFileName</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Get blob</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get blob</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Blob name</dd>
+					<dt><var>$localFileName</var></dt>
+					<dd><code>string</code><br>$localFileName Local file name to store downloaded blob</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getBlobData" id="_getBlobData">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getBlobData">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#548-576" title="Go to source code">getBlobData</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="deleteBlob" id="_deleteBlob">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_deleteBlob">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#578-616" title="Go to source code">deleteBlob</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listBlobs" id="_listBlobs">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listBlobs">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#618-679" title="Go to source code">listBlobs</a>( <span>string <var>$container</var> = <span class="php-quote">''</span></span>, <span>string <var>$prefix</var> = <span class="php-quote">''</span></span>, <span>string <var>$delimiter</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>List blobs</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>List blobs</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+					<dt><var>$prefix</var></dt>
+					<dd><code>string</code><br>$prefix Optional. Filters the results to return only blobs whose name begins
+with the specified prefix.</dd>
+					<dt><var>$delimiter</var></dt>
+					<dd><code>string</code><br>$delimiter Optional. Delimiter, i.e. '/', for specifying folder hierarchy</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getBlobProperties" id="_getBlobProperties">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getBlobProperties">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#681-718" title="Go to source code">getBlobProperties</a>( <span>string <var>$container</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>List blob</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>List blob</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container Container name</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Blob name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="streamBlob" id="_streamBlob">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_streamBlob">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#720-763" title="Go to source code">streamBlob</a>( <span>string <var>$container</var></span>, <span>string <var>$name</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd><code>string</code><br>$container</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BlobServiceException.html">DreamFactory\Platform\Exceptions\BlobServiceException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#methods">DreamFactory\Platform\Services\RemoteFileSvc</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_checkContainerForWrite">checkContainerForWrite()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_copyFile">copyFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_copyFolder">copyFolder()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_createContainers">createContainers()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_createFolder">createFolder()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_deleteContainers">deleteContainers()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_deleteFile">deleteFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_deleteFiles">deleteFiles()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_deleteFolder">deleteFolder()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_deleteFolders">deleteFolders()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_extractZipFile">extractZipFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_fileExists">fileExists()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_folderExists">folderExists()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_getFileContent">getFileContent()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_getFileProperties">getFileProperties()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_getFolder">getFolder()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_getFolderAsZip">getFolderAsZip()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_moveFile">moveFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_streamFile">streamFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_updateFileProperties">updateFileProperties()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_updateFolderProperties">updateFolderProperties()</a>, 
+			<a href="class-DreamFactory.Platform.Services.RemoteFileSvc.html#_writeFile">writeFile()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#methods">DreamFactory\Platform\Services\BaseFileSvc</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__deleteFolderContent">_deleteFolderContent()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__detectResourceMembers">_detectResourceMembers()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__handleFile">_handleFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__handleFileContent">_handleFileContent()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__handleFolderContentFromData">_handleFolderContentFromData()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__handleFolderContentFromFiles">_handleFolderContentFromFiles()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__handleResource">_handleResource()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__listResources">_listResources()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#__preProcess">_preProcess()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#methods">DreamFactory\Platform\Services\BasePlatformRestService</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__buildCriteria">_buildCriteria()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__detectAppName">_detectAppName()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__detectResponseMembers">_detectResponseMembers()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleConnect">_handleConnect()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleCopy">_handleCopy()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleDelete">_handleDelete()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleExtraActions">_handleExtraActions()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleGet">_handleGet()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleMerge">_handleMerge()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handleOptions">_handleOptions()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handlePatch">_handlePatch()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handlePost">_handlePost()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__handlePut">_handlePut()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__postProcess">_postProcess()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__respond">_respond()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__setAction">_setAction()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#__triggerActionEvent">_triggerActionEvent()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_addExtraAction">addExtraAction()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_checkPermission">checkPermission()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_clearVerbAlias">clearVerbAlias()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getAction">getAction()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getAutoDispatch">getAutoDispatch()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getAutoDispatchPattern">getAutoDispatchPattern()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getExtraActions">getExtraActions()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getOriginalAction">getOriginalAction()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getOutputAsFile">getOutputAsFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getOutputFormat">getOutputFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getPermissions">getPermissions()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getRequestPayload">getRequestPayload()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getRequestedAction">getRequestedAction()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResource">getResource()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResourceArray">getResourceArray()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResourcePath">getResourcePath()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResponse">getResponse()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResponseCode">getResponseCode()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getResponseFormat">getResponseFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getServiceId">getServiceId()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_getVerbAliases">getVerbAliases()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_processRequest">processRequest()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setAutoDispatch">setAutoDispatch()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setAutoDispatchPattern">setAutoDispatchPattern()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setExtraActions">setExtraActions()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setOutputAsFile">setOutputAsFile()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setOutputFormat">setOutputFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setRequestPayload">setRequestPayload()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setResponse">setResponse()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setResponseCode">setResponseCode()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setResponseFormat">setResponseFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setVerbAlias">setVerbAlias()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_setVerbAliases">setVerbAliases()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#_trigger">trigger()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Services.BasePlatformService.html#methods">DreamFactory\Platform\Services\BasePlatformService</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#__checkPermission">_checkPermission()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#__determineTypeId">_determineTypeId()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getApiName">getApiName()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getDescription">getDescription()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getIsActive">getIsActive()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getNativeFormat">getNativeFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getProxyClient">getProxyClient()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getType">getType()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getTypeId">getTypeId()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_getUserId">getUserId()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_processInlineRequest">processInlineRequest()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setApiName">setApiName()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setDescription">setDescription()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setIsActive">setIsActive()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setNativeFormat">setNativeFormat()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setProxyClient">setProxyClient()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setType">setType()</a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#_setTypeId">setTypeId()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Interfaces.PlatformServiceLike.html#methods">DreamFactory\Platform\Interfaces\PlatformServiceLike</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Interfaces.PlatformServiceLike.html#_getName">getName()</a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.PlatformServiceLike.html#_setName">setName()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#constants">DreamFactory\Platform\Services\BasePlatformRestService</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#ACTION_TOKEN"><b>ACTION_TOKEN</b></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#DEFAULT_HANDLER_PATTERN"><b>DEFAULT_HANDLER_PATTERN</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_blobConn" id="$_blobConn">
+		<td class="attributes"><code>
+			protected  
+			OpenCloud\ObjectStore\Service
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Services.OpenStackObjectStoreSvc.html#45-48" title="Go to source code"><var>$_blobConn</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$_blobConn" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#properties">DreamFactory\Platform\Services\BaseFileSvc</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#$_container"><var>$_container</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#$_filePath"><var>$_filePath</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BaseFileSvc.html#$_folderPath"><var>$_folderPath</var></a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#properties">DreamFactory\Platform\Services\BasePlatformRestService</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_action"><var>$_action</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_autoDispatch"><var>$_autoDispatch</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_autoDispatchPattern"><var>$_autoDispatchPattern</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_extraActions"><var>$_extraActions</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_originalAction"><var>$_originalAction</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_outputAsFile"><var>$_outputAsFile</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_outputFormat"><var>$_outputFormat</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_requestPayload"><var>$_requestPayload</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_resource"><var>$_resource</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_resourceArray"><var>$_resourceArray</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_resourcePath"><var>$_resourcePath</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_response"><var>$_response</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_responseCode"><var>$_responseCode</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_responseFormat"><var>$_responseFormat</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_serviceId"><var>$_serviceId</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformRestService.html#$_verbAliases"><var>$_verbAliases</var></a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-DreamFactory.Platform.Services.BasePlatformService.html#properties">DreamFactory\Platform\Services\BasePlatformService</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_apiName"><var>$_apiName</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_currentUserId"><var>$_currentUserId</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_description"><var>$_description</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_isActive"><var>$_isActive</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_nativeFormat"><var>$_nativeFormat</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_proxyClient"><var>$_proxyClient</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_type"><var>$_type</var></a>, 
+			<a href="class-DreamFactory.Platform.Services.BasePlatformService.html#$_typeId"><var>$_typeId</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Platform SDK For PHP API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

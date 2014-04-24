@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class DreamFactory\Platform\Yii\Behaviors\SecureString | Platform SDK For PHP</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1431553788"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-DreamFactory.html">DreamFactory<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.Interfaces.html">Interfaces</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.html">Platform<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Events.Client.html">Client</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Stores.html">Stores</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Exceptions.html">Exceptions</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Interfaces.html">Interfaces</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.html">Resources<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Resources.System.html">System</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.User.html">User</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Services.html">Services</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Utility.html">Utility</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Views.html">Views</a>
+						</li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Yii.html">Yii<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Yii.Behaviors.html">Behaviors</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Commands.html">Commands</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Controllers.html">Controllers</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Models.html">Models</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Stores.html">Stores</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Utility.html">Utility</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-Kisma.html">Kisma<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.html">Core<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.Components.html">Components</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureJson.html">SecureJson</a></li>
+				<li class="active"><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">SecureString</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-DreamFactory.Platform.Yii.Behaviors.html" title="Summary of DreamFactory\Platform\Yii\Behaviors"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SecureString</h1>
+
+
+	<div class="description">
+	
+<p>SecureString.php If attached to a model, fields are decrypted/encrypted on
+load/save</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+DreamFactory\Yii\Behaviors\BaseModelBehavior
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>DreamFactory\Platform\Yii\Behaviors\SecureString</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-DreamFactory.html">DreamFactory</a>\<a href="namespace-DreamFactory.Platform.html">Platform</a>\<a href="namespace-DreamFactory.Platform.Yii.html">Yii</a>\<a href="namespace-DreamFactory.Platform.Yii.Behaviors.html">Behaviors</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#26-276" title="Go to source code">Yii/Behaviors/SecureString.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setSecureAttributes" id="_setSecureAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSecureAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#53-63" title="Go to source code">setSecureAttributes</a>( <span>array <var>$secureAttributes</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$secureAttributes</var></dt>
+					<dd><code>array</code><br>$secureAttributes</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addSecureAttributes" id="_addSecureAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addSecureAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#65-75" title="Go to source code">addSecureAttributes</a>( <span>array <var>$secureAttributes</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$secureAttributes</var></dt>
+					<dd><code>array</code><br>$secureAttributes</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addSecureAttribute" id="_addSecureAttribute">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addSecureAttribute">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#77-87" title="Go to source code">addSecureAttribute</a>( <span>string <var>$secureAttribute</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$secureAttribute</var></dt>
+					<dd><code>string</code><br>$secureAttribute</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSecureAttributes" id="_getSecureAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSecureAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#89-95" title="Go to source code">getSecureAttributes</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSalt" id="_setSalt">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSalt">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#97-107" title="Go to source code">setSalt</a>( <span>string <var>$salt</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$salt</var></dt>
+					<dd><code>string</code><br>$salt</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSalt" id="_getSalt">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSalt">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#109-115" title="Go to source code">getSalt</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_convertAttributes" id="__convertAttributes">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__convertAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#121-152" title="Go to source code">_convertAttributes</a>( <span>CModelEvent <var>$event</var></span>, <span>array <var>$attributes</var></span>, <span>boolean <var>$fromDB</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$secure</var> = <span class="php-keyword1">true</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+					<dt><var>$attributes</var></dt>
+					<dd><code>array</code><br>$attributes</dd>
+					<dt><var>$fromDB</var></dt>
+					<dd><code>boolean</code><br>$fromDB</dd>
+					<dt><var>$secure</var></dt>
+					<dd><code>boolean</code><br>$secure</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_convertTo" id="__convertTo">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__convertTo">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#154-161" title="Go to source code">_convertTo</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_convertFrom" id="__convertFrom">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__convertFrom">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#163-170" title="Go to source code">_convertFrom</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beforeFind" id="_beforeFind">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beforeFind">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#172-179" title="Go to source code">beforeFind</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beforeValidate" id="_beforeValidate">
+
+		<td class="attributes"><code>
+			 public 
+			boolean|
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beforeValidate">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#181-192" title="Go to source code">beforeValidate</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Apply any formats</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Apply any formats</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>event parameter</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="afterSave" id="_afterSave">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_afterSave">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#194-201" title="Go to source code">afterSave</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="afterFind" id="_afterFind">
+
+		<td class="attributes"><code>
+			 public 
+			boolean|
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_afterFind">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#203-212" title="Go to source code">afterFind</a>( <span>CModelEvent <var>$event</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd><code>CModelEvent</code><br>$event</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setInsecureAttributes" id="_setInsecureAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setInsecureAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#214-224" title="Go to source code">setInsecureAttributes</a>( <span>array <var>$insecureAttributes</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$insecureAttributes</var></dt>
+					<dd><code>array</code><br>$insecureAttributes</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Behaviors.SecureString.html">DreamFactory\Platform\Yii\Behaviors\SecureString</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getInsecureAttributes" id="_getInsecureAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInsecureAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#226-232" title="Go to source code">getInsecureAttributes</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_toSecureString" id="__toSecureString">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__toSecureString">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#234-251" title="Go to source code">_toSecureString</a>( <span>mixed <var>$data</var></span>, <span>string <var>$salt</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$defaultValue</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data</dd>
+					<dt><var>$salt</var></dt>
+					<dd><code>string</code><br>$salt The encrypting salt</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd><code>string</code><br>$defaultValue</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|string</code><br>Returns FALSE on error if $data cannot be serialized by json_encode<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_fromSecureString" id="__fromSecureString">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__fromSecureString">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#253-275" title="Go to source code">_fromSecureString</a>( <span>string <var>$data</var></span>, <span>string <var>$salt</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$defaultValue</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>string</code><br>$data The encrypted data</dd>
+					<dt><var>$salt</var></dt>
+					<dd><code>string</code><br>$salt The salt used to encrypt the data</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd><code>string</code><br>$defaultValue The value to return when $data is empty</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|string</code><br>Returns FALSE on error if $data cannot be deserialized by json_decode<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_secureAttributes" id="$_secureAttributes">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#36-39" title="Go to source code"><var>$_secureAttributes</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_secureAttributes" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The attributes which will be en/decrypted</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The attributes which will be en/decrypted</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_salt" id="$_salt">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#40-43" title="Go to source code"><var>$_salt</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_salt" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The salt/password to use to encrypt/decrypt the data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The salt/password to use to encrypt/decrypt the data</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_insecureAttributes" id="$_insecureAttributes">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Behaviors.SecureString.html#44-47" title="Go to source code"><var>$_insecureAttributes</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_insecureAttributes" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The attributes which will be converted to string but not encrypted</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The attributes which will be converted to string but not encrypted</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Platform SDK For PHP API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

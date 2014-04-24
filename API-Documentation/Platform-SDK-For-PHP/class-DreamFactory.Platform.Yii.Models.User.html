@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class DreamFactory\Platform\Yii\Models\User | Platform SDK For PHP</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1431553788"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-DreamFactory.html">DreamFactory<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.Interfaces.html">Interfaces</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.html">Platform<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Events.Client.html">Client</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Stores.html">Stores</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Exceptions.html">Exceptions</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Interfaces.html">Interfaces</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.html">Resources<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Resources.System.html">System</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.User.html">User</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Services.html">Services</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Utility.html">Utility</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Views.html">Views</a>
+						</li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Yii.html">Yii<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Behaviors.html">Behaviors</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Commands.html">Commands</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Controllers.html">Controllers</a>
+						</li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Yii.Models.html">Models</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Stores.html">Stores</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Utility.html">Utility</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-Kisma.html">Kisma<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.html">Core<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.Components.html">Components</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.App.html">App</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.AppGroup.html">AppGroup</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.AppServiceRelation.html">AppServiceRelation</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html">BasePlatformModel</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html">BasePlatformSystemModel</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Config.html">Config</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Device.html">Device</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.DynamicPlatformModel.html">DynamicPlatformModel</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.EmailTemplate.html">EmailTemplate</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Event.html">Event</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.LookupKey.html">LookupKey</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">Provider</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.ProviderUser.html">ProviderUser</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Role.html">Role</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.RoleServiceAccess.html">RoleServiceAccess</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.RoleSystemAccess.html">RoleSystemAccess</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Service.html">Service</a></li>
+				<li><a href="class-DreamFactory.Platform.Yii.Models.Stat.html">Stat</a></li>
+				<li class="active"><a href="class-DreamFactory.Platform.Yii.Models.User.html">User</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-DreamFactory.Platform.Yii.Models.html" title="Summary of DreamFactory\Platform\Yii\Models"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class User</h1>
+
+
+	<div class="description">
+	
+<p>User.php The system user model for the DSP</p>
+
+<p>Columns</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+DreamFactory\Yii\Models\BaseFactoryModel
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html"><span>DreamFactory\Platform\Yii\Models\BasePlatformModel</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html"><span>DreamFactory\Platform\Yii\Models\BasePlatformSystemModel</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>DreamFactory\Platform\Yii\Models\User</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-DreamFactory.html">DreamFactory</a>\<a href="namespace-DreamFactory.Platform.html">Platform</a>\<a href="namespace-DreamFactory.Platform.Yii.html">Yii</a>\<a href="namespace-DreamFactory.Platform.Yii.Models.html">Models</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-DreamFactory.Platform.Yii.Models.User.html#36-751" title="Go to source code">Yii/Models/User.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="tableName" id="_tableName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_tableName">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#95-101" title="Go to source code">tableName</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>the associated database table name<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="behaviors" id="_behaviors">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_behaviors">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#103-121" title="Go to source code">behaviors</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#_behaviors">DreamFactory\Platform\Yii\Models\BasePlatformModel::behaviors()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rules" id="_rules">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rules">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#123-142" title="Go to source code">rules</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>validation rules for model attributes.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="relations" id="_relations">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_relations">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#144-167" title="Go to source code">relations</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>relational rules.<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_relations">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel::relations()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="attributeLabels" id="_attributeLabels">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_attributeLabels">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#169-196" title="Go to source code">attributeLabels</a>( <span>array <var>$additionalLabels</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$additionalLabels</var></dt>
+					<dd><code>array</code><br>$additionalLabels</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>customized attribute labels (name=&gt;label)<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_attributeLabels">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel::attributeLabels()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setAttributes" id="_setAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#198-243" title="Go to source code">setAttributes</a>( <span>mixed <var>$values</var></span>, <span>mixed <var>$safeOnly</var> = <span class="php-keyword1">true</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beforeValidate" id="_beforeValidate">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beforeValidate">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#245-275" title="Go to source code">beforeValidate</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beforeDelete" id="_beforeDelete">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beforeDelete">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#277-295" title="Go to source code">beforeDelete</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="afterFind" id="_afterFind">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_afterFind">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#297-305" title="Go to source code">afterFind</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="refresh" id="_refresh">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_refresh">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#307-322" title="Go to source code">refresh</a>( )</code>
+
+		<div class="description short">
+			
+<p>Repopulates this active record with the latest data.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Repopulates this active record with the latest data.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>whether the row still exists in the database. If true, the latest data will be
+populated to this active record.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRetrievableAttributes" id="_getRetrievableAttributes">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRetrievableAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#324-359" title="Go to source code">getRetrievableAttributes</a>( <span>string <var>$requested</var></span>, <span>array <var>$columns</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$hidden</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$requested</var></dt>
+					<dd><code>string</code><br>$requested</dd>
+					<dt><var>$columns</var></dt>
+					<dd><code>array</code><br>$columns</dd>
+					<dt><var>$hidden</var></dt>
+					<dd><code>array</code><br>$hidden</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>Kisma\Core\Exceptions\NotImplementedException</code><br>
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_getRetrievableAttributes">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel::getRetrievableAttributes()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getProfileAttributes" id="_getProfileAttributes">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getProfileAttributes">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#361-384" title="Go to source code">getProfileAttributes</a>( <span>boolean <var>$writable</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$writable</var></dt>
+					<dd><code>boolean</code><br>$writable</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setRelated" id="_setRelated">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setRelated">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#386-396" title="Go to source code">setRelated</a>( <span>array <var>$values</var></span>, <span>integer <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$values</var></dt>
+					<dd><code>array</code><br>$values</dd>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_setRelated">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel::setRelated()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticate" id="_authenticate">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticate">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#398-440" title="Go to source code">authenticate</a>( <span>string <var>$userName</var></span>, <span>string <var>$password</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$userName</var></dt>
+					<dd><code>string</code><br>$userName</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>string</code><br>$password</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoleServicePermissions" id="_getRoleServicePermissions">
+
+		<td class="attributes"><code>
+			 public 
+			array|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoleServicePermissions">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#442-496" title="Go to source code">getRoleServicePermissions</a>( <span>array <var>$columns</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$columns</var></dt>
+					<dd><code>array</code><br>$columns The columns to return in the permissions array</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array|null</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getByEmail" id="_getByEmail">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getByEmail">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#498-506" title="Go to source code">getByEmail</a>( <span>string <var>$email</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loginRequest" id="_loginRequest">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loginRequest">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#508-559" title="Go to source code">loginRequest</a>( <span>string <var>$email</var></span>, <span>string <var>$password</var></span>, <span>integer <var>$duration</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>string</code><br>$password</dd>
+					<dt><var>$duration</var></dt>
+					<dd><code>integer</code><br>$duration</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>| array<br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.InternalServerErrorException.html">DreamFactory\Platform\Exceptions\InternalServerErrorException</a></code></code><br>
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BadRequestException.html">DreamFactory\Platform\Exceptions\BadRequestException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_createRemoteLoginUser" id="__createRemoteLoginUser">
+
+		<td class="attributes"><code>
+			 protected static
+			<code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__createRemoteLoginUser">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#563-639" title="Go to source code">_createRemoteLoginUser</a>( <span>string <var>$email</var></span>, <span>DreamFactory\Oasys\Components\GenericUser <var>$profile</var></span>, <span>string <var>$providerId</var></span>, <span>DreamFactory\Oasys\Interfaces\ProviderLike <var>$provider</var></span>, <span><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code> <var>$providerModel</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email</dd>
+					<dt><var>$profile</var></dt>
+					<dd><code>DreamFactory\Oasys\Components\GenericUser</code><br>$profile</dd>
+					<dt><var>$providerId</var></dt>
+					<dd><code>string</code><br>$providerId</dd>
+					<dt><var>$provider</var></dt>
+					<dd><code>DreamFactory\Oasys\Interfaces\ProviderLike</code><br>$provider</dd>
+					<dt><var>$providerModel</var></dt>
+					<dd><code><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code></code><br>$providerModel</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code></code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>CDbException</code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.ForbiddenException.html">DreamFactory\Platform\Exceptions\ForbiddenException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_createRemoteLoginAuthorization" id="__createRemoteLoginAuthorization">
+
+		<td class="attributes"><code>
+			 protected static
+			<code><a href="class-DreamFactory.Platform.Yii.Models.ProviderUser.html">DreamFactory\Platform\Yii\Models\ProviderUser</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__createRemoteLoginAuthorization">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#641-681" title="Go to source code">_createRemoteLoginAuthorization</a>( <span><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code> <var>$user</var></span>, <span>DreamFactory\Oasys\Components\GenericUser <var>$profile</var></span>, <span>DreamFactory\Oasys\Interfaces\ProviderLike <var>$provider</var></span>, <span><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code> <var>$providerModel</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code></code><br>$user</dd>
+					<dt><var>$profile</var></dt>
+					<dd><code>DreamFactory\Oasys\Components\GenericUser</code><br>$profile</dd>
+					<dt><var>$provider</var></dt>
+					<dd><code>DreamFactory\Oasys\Interfaces\ProviderLike</code><br>$provider</dd>
+					<dt><var>$providerModel</var></dt>
+					<dd><code><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code></code><br>$providerModel</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Models.ProviderUser.html">DreamFactory\Platform\Yii\Models\ProviderUser</a></code></code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>CDbException</code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="remoteLoginRequest" id="_remoteLoginRequest">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_remoteLoginRequest">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Yii.Models.User.html#683-750" title="Go to source code">remoteLoginRequest</a>( <span>string <var>$providerId</var></span>, <span>DreamFactory\Oasys\Interfaces\ProviderLike <var>$provider</var></span>, <span><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code> <var>$providerModel</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$providerId</var></dt>
+					<dd><code>string</code><br>$providerId</dd>
+					<dt><var>$provider</var></dt>
+					<dd><code>DreamFactory\Oasys\Interfaces\ProviderLike</code><br>$provider</dd>
+					<dt><var>$providerModel</var></dt>
+					<dd><code><code><a href="class-DreamFactory.Platform.Yii.Models.Provider.html">DreamFactory\Platform\Yii\Models\Provider</a></code></code><br>$providerModel</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Yii.Models.User.html">DreamFactory\Platform\Yii\Models\User</a></code></code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.ForbiddenException.html">DreamFactory\Platform\Exceptions\ForbiddenException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#methods">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#__checkForRequestDuplicates">_checkForRequestDuplicates()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_asResource">asResource()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_assignManyToOne">assignManyToOne()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_assignManyToOneByMap">assignManyToOneByMap()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_byApiName">byApiName()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_restMap">restMap()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_search">search()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#_tableNamePrefix">tableNamePrefix()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#methods">DreamFactory\Platform\Yii\Models\BasePlatformModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#_getRestAttributes">getRestAttributes()</a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#_setRestAttributes">setRestAttributes()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#constants">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#ALL_ATTRIBUTES"><b>ALL_ATTRIBUTES</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="confirmed" id="$confirmed">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#82-85" title="Go to source code"><var>$confirmed</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$confirmed" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Is this service a system service that should not be deleted or modified in
+certain ways, i.e. api name and type.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Is this service a system service that should not be deleted or modified in
+certain ways, i.e. api name and type.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_dspConfig" id="$_dspConfig">
+		<td class="attributes"><code>
+			protected static 
+			<code><a href="class-DreamFactory.Platform.Yii.Models.Config.html">DreamFactory\Platform\Yii\Models\Config</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#86-89" title="Go to source code"><var>$_dspConfig</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_dspConfig" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>This DSP's configuration</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>This DSP's configuration</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#properties">DreamFactory\Platform\Yii\Models\BasePlatformModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#$_resourceClass"><var>$_resourceClass</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+	<table class="summary" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="email" id="m$email">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#42" title="Go to source code"><var>$email</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$email" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="password" id="m$password">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#43" title="Go to source code"><var>$password</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$password" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="first_name" id="m$first_name">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#44" title="Go to source code"><var>$first_name</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$first_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="last_name" id="m$last_name">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#45" title="Go to source code"><var>$last_name</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$last_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="display_name" id="m$display_name">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#46" title="Go to source code"><var>$display_name</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$display_name" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="phone" id="m$phone">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#47" title="Go to source code"><var>$phone</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$phone" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="is_active" id="m$is_active">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#48" title="Go to source code"><var>$is_active</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$is_active" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="is_sys_admin" id="m$is_sys_admin">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#49" title="Go to source code"><var>$is_sys_admin</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$is_sys_admin" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="confirm_code" id="m$confirm_code">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#50" title="Go to source code"><var>$confirm_code</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$confirm_code" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="confirmed" id="m$confirmed">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#51" title="Go to source code"><var>$confirmed</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$confirmed" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="default_app_id" id="m$default_app_id">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#52" title="Go to source code"><var>$default_app_id</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$default_app_id" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="role_id" id="m$role_id">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#53" title="Go to source code"><var>$role_id</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$role_id" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="security_question" id="m$security_question">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#54" title="Go to source code"><var>$security_question</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$security_question" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="security_answer" id="m$security_answer">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#55" title="Go to source code"><var>$security_answer</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$security_answer" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="user_source" id="m$user_source">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#56" title="Go to source code"><var>$user_source</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$user_source" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="user_data" id="m$user_data">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#57" title="Go to source code"><var>$user_data</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$user_data" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="last_login_date" id="m$last_login_date">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#58-60" title="Go to source code"><var>$last_login_date</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$last_login_date" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Relations</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Relations</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="default_app" id="m$default_app">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-DreamFactory.Platform.Yii.Models.App.html">DreamFactory\Platform\Yii\Models\App</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#72" title="Go to source code"><var>$default_app</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$default_app" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="role" id="m$role">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-DreamFactory.Platform.Yii.Models.Role.html">DreamFactory\Platform\Yii\Models\Role</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Yii.Models.User.html#73" title="Go to source code"><var>$role</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$role" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Magic properties inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#properties">DreamFactory\Platform\Yii\Models\BasePlatformSystemModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#m$created_by"><var>$created_by</var></a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#m$created_by_id"><var>$created_by_id</var></a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#m$last_modified_by"><var>$last_modified_by</var></a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformSystemModel.html#m$last_modified_by_id"><var>$last_modified_by_id</var></a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Magic properties inherited from <a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#properties">DreamFactory\Platform\Yii\Models\BasePlatformModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#m$created_date"><var>$created_date</var></a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#m$id"><var>$id</var></a>, 
+			<a href="class-DreamFactory.Platform.Yii.Models.BasePlatformModel.html#m$last_modified_date"><var>$last_modified_date</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+</div>
+
+	<div id="footer">
+		Platform SDK For PHP API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class DreamFactory\Platform\Utility\SqlDbUtilities | Platform SDK For PHP</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1431553788"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-DreamFactory.html">DreamFactory<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Events.Interfaces.html">Interfaces</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.html">Platform<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.html">Events<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Events.Client.html">Client</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Enums.html">Enums</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Events.Stores.html">Stores</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Exceptions.html">Exceptions</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Interfaces.html">Interfaces</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.html">Resources<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Resources.System.html">System</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Resources.User.html">User</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-DreamFactory.Platform.Services.html">Services</a>
+						</li>
+				<li class="active"><a href="namespace-DreamFactory.Platform.Utility.html">Utility</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Views.html">Views</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.html">Yii<span></span></a>
+						<ul>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Behaviors.html">Behaviors</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Commands.html">Commands</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Components.html">Components</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Controllers.html">Controllers</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Models.html">Models</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Stores.html">Stores</a>
+						</li>
+				<li><a href="namespace-DreamFactory.Platform.Yii.Utility.html">Utility</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-Kisma.html">Kisma<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.html">Core<span></span></a>
+						<ul>
+				<li><a href="namespace-Kisma.Core.Components.html">Components</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DreamFactory.Platform.Utility.CorsManager.html">CorsManager</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.Drupal.html">Drupal</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.EmailUtilities.html">EmailUtilities</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.Fabric.html">Fabric</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.FileUtilities.html">FileUtilities</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.Packager.html">Packager</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.Platform.html">Platform</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.ResourceStore.html">ResourceStore</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.RestData.html">RestData</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.RestResponse.html">RestResponse</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.ServiceHandler.html">ServiceHandler</a></li>
+				<li class="active"><a href="class-DreamFactory.Platform.Utility.SqlDbUtilities.html">SqlDbUtilities</a></li>
+				<li><a href="class-DreamFactory.Platform.Utility.Utilities.html">Utilities</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-DreamFactory.Platform.Utility.html" title="Summary of DreamFactory\Platform\Utility"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SqlDbUtilities</h1>
+
+
+	<div class="description">
+	
+<p>SqlDbUtilities Generic database utilities</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>DreamFactory\Platform\Utility\SqlDbUtilities</span></b>			
+			 implements 
+				<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html"><span>DreamFactory\Platform\Interfaces\SqlDbDriverTypes</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-DreamFactory.html">DreamFactory</a>\<a href="namespace-DreamFactory.Platform.html">Platform</a>\<a href="namespace-DreamFactory.Platform.Utility.html">Utility</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#36-2246" title="Go to source code">Utility/SqlDbUtilities.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getDbDriverType" id="_getDbDriverType">
+
+		<td class="attributes"><code>
+			 public static
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDbDriverType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#63-71" title="Go to source code">getDbDriverType</a>( <span>CDbConnection <var>$db</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="correctTableName" id="_correctTableName">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_correctTableName">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#73-89" title="Go to source code">correctTableName</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BadRequestException.html">DreamFactory\Platform\Exceptions\BadRequestException</a></code></code><br>
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.NotFoundException.html">DreamFactory\Platform\Exceptions\NotFoundException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="doesTableExist" id="_doesTableExist">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_doesTableExist">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#91-116" title="Go to source code">doesTableExist</a>( <span>CDbConnection|array <var>$db</var></span>, <span>string <var>$name</var></span>, <span>boolean <var>$returnName</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection|array</code><br>$db A database connection or the array of tables if you already have it pulled</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The name of the table to check</dd>
+					<dt><var>$returnName</var></dt>
+					<dd><code>boolean</code><br>$returnName If true, the table name is returned instead of TRUE</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listTables" id="_listTables">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listTables">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#118-163" title="Go to source code">listTables</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$include</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$exclude</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$include</var></dt>
+					<dd><code>string</code><br>$include</dd>
+					<dt><var>$exclude</var></dt>
+					<dd><code>string</code><br>$exclude</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeDatabase" id="_describeDatabase">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeDatabase">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#165-238" title="Go to source code">describeDatabase</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$include_prefix</var> = <span class="php-quote">''</span></span>, <span>string <var>$exclude_prefix</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$include_prefix</var></dt>
+					<dd><code>string</code><br>$include_prefix</dd>
+					<dt><var>$exclude_prefix</var></dt>
+					<dd><code>string</code><br>$exclude_prefix</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeTables" id="_describeTables">
+
+		<td class="attributes"><code>
+			 public static
+			array|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeTables">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#240-257" title="Go to source code">describeTables</a>( <span>CDbConnection <var>$db</var></span>, <span>null <var>$names</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$remove_prefix</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$names</var></dt>
+					<dd><code>null</code><br>$names</dd>
+					<dt><var>$remove_prefix</var></dt>
+					<dd><code>string</code><br>$remove_prefix</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array|string</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeTable" id="_describeTable">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeTable">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#259-322" title="Go to source code">describeTable</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$name</var></span>, <span>string <var>$remove_prefix</var> = <span class="php-quote">''</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$remove_prefix</var></dt>
+					<dd><code>string</code><br>$remove_prefix</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeTableFields" id="_describeTableFields">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeTableFields">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#324-364" title="Go to source code">describeTableFields</a>( <span>CDbConnection <var>$db</var></span>, <span>mixed <var>$name</var></span>, <span>array <var>$labels</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>mixed</code><br>$name</dd>
+					<dt><var>$labels</var></dt>
+					<dd><code>array</code><br>$labels</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeFields" id="_describeFields">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeFields">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#366-411" title="Go to source code">describeFields</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>array <var>$field_names</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$field_names</var></dt>
+					<dd><code>array</code><br>$field_names</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeField" id="_describeField">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeField">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#413-457" title="Go to source code">describeField</a>( <span>CDbConnection <var>$db</var></span>, <span>mixed <var>$table_name</var></span>, <span>mixed <var>$field_name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>mixed</code><br>$table_name</dd>
+					<dt><var>$field_name</var></dt>
+					<dd><code>mixed</code><br>$field_name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeFieldInternal" id="_describeFieldInternal">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeFieldInternal">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#459-503" title="Go to source code">describeFieldInternal</a>( <span>CDbColumnSchema <var>$column</var></span>, <span>array <var>$foreign_keys</var></span>, <span>array <var>$label_info</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$column</var></dt>
+					<dd><code>CDbColumnSchema</code><br>$column</dd>
+					<dt><var>$foreign_keys</var></dt>
+					<dd><code>array</code><br>$foreign_keys</dd>
+					<dt><var>$label_info</var></dt>
+					<dd><code>array</code><br>$label_info</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="describeTableRelated" id="_describeTableRelated">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_describeTableRelated">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#505-580" title="Go to source code">describeTableRelated</a>( <span>CDbConnection <var>$db</var></span>, <span>mixed <var>$parent_table</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$parent_table</var></dt>
+					<dd><code>mixed</code><br>$parent_table</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_determineDfType" id="__determineDfType">
+
+		<td class="attributes"><code>
+			 protected static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__determineDfType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#582-634" title="Go to source code">_determineDfType</a>( <span>mixed <var>$column</var></span>, <span>null|array <var>$label_info</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$column</var></dt>
+					<dd><code>mixed</code><br>$column</dd>
+					<dt><var>$label_info</var></dt>
+					<dd><code>null|array</code><br>$label_info</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determineMultiByteSupport" id="_determineMultiByteSupport">
+
+		<td class="attributes"><code>
+			 protected static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determineMultiByteSupport">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#636-652" title="Go to source code">determineMultiByteSupport</a>( <span>mixed <var>$type</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd><code>mixed</code><br>$type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determineIfFixedLength" id="_determineIfFixedLength">
+
+		<td class="attributes"><code>
+			 protected static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determineIfFixedLength">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#654-670" title="Go to source code">determineIfFixedLength</a>( <span>mixed <var>$type</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd><code>mixed</code><br>$type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determineRequired" id="_determineRequired">
+
+		<td class="attributes"><code>
+			 protected static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determineRequired">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#672-685" title="Go to source code">determineRequired</a>( <span>mixed <var>$column</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$column</var></dt>
+					<dd><code>mixed</code><br>$column</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listAllFieldsFromDescribe" id="_listAllFieldsFromDescribe">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listAllFieldsFromDescribe">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#687-701" title="Go to source code">listAllFieldsFromDescribe</a>( <span>mixed <var>$avail_fields</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$avail_fields</var></dt>
+					<dd><code>mixed</code><br>$avail_fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFieldFromDescribe" id="_getFieldFromDescribe">
+
+		<td class="attributes"><code>
+			 public static
+			null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFieldFromDescribe">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#703-720" title="Go to source code">getFieldFromDescribe</a>( <span>mixed <var>$field_name</var></span>, <span>mixed <var>$avail_fields</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field_name</var></dt>
+					<dd><code>mixed</code><br>$field_name</dd>
+					<dt><var>$avail_fields</var></dt>
+					<dd><code>mixed</code><br>$avail_fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="findFieldFromDescribe" id="_findFieldFromDescribe">
+
+		<td class="attributes"><code>
+			 public static
+			boolean|integer|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_findFieldFromDescribe">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#722-739" title="Go to source code">findFieldFromDescribe</a>( <span>mixed <var>$field_name</var></span>, <span>mixed <var>$avail_fields</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field_name</var></dt>
+					<dd><code>mixed</code><br>$field_name</dd>
+					<dt><var>$avail_fields</var></dt>
+					<dd><code>mixed</code><br>$avail_fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|integer|string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPrimaryKeyFieldFromDescribe" id="_getPrimaryKeyFieldFromDescribe">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPrimaryKeyFieldFromDescribe">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#741-757" title="Go to source code">getPrimaryKeyFieldFromDescribe</a>( <span>mixed <var>$avail_fields</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$avail_fields</var></dt>
+					<dd><code>mixed</code><br>$avail_fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPrimaryKeys" id="_getPrimaryKeys">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPrimaryKeys">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#759-777" title="Go to source code">getPrimaryKeys</a>( <span>array <var>$avail_fields</var></span>, <span>boolean <var>$names_only</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$avail_fields</var></dt>
+					<dd><code>array</code><br>$avail_fields</dd>
+					<dt><var>$names_only</var></dt>
+					<dd><code>boolean</code><br>$names_only Return only an array of names, otherwise return all properties</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="buildColumnType" id="_buildColumnType">
+
+		<td class="attributes"><code>
+			 protected static
+			array|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_buildColumnType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#779-1136" title="Go to source code">buildColumnType</a>( <span>mixed <var>$field</var></span>, <span>integer <var>$driver_type</var> = self::DRV_MYSQL </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>mixed</code><br>$field</dd>
+					<dt><var>$driver_type</var></dt>
+					<dd><code>integer</code><br>$driver_type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array|string</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="buildTableFields" id="_buildTableFields">
+
+		<td class="attributes"><code>
+			 protected static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_buildTableFields">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1138-1417" title="Go to source code">buildTableFields</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>array <var>$fields</var></span>, <span>boolean <var>$allow_update</var> = <span class="php-keyword1">true</span></span>, <span>null|CDbTableSchema <var>$schema</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$fields</var></dt>
+					<dd><code>array</code><br>$fields</dd>
+					<dt><var>$allow_update</var></dt>
+					<dd><code>boolean</code><br>$allow_update</dd>
+					<dt><var>$schema</var></dt>
+					<dd><code>null|CDbTableSchema</code><br>$schema</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createFieldExtras" id="_createFieldExtras">
+
+		<td class="attributes"><code>
+			 protected static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createFieldExtras">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1419-1503" title="Go to source code">createFieldExtras</a>( <span>CDbConnection <var>$db</var></span>, <span>array <var>$extras</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$extras</var></dt>
+					<dd><code>array</code><br>$extras</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createFields" id="_createFields">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createFields">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1505-1563" title="Go to source code">createFields</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>array <var>$fields</var></span>, <span>boolean <var>$allow_update</var> = <span class="php-keyword1">true</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$fields</var></dt>
+					<dd><code>array</code><br>$fields</dd>
+					<dt><var>$allow_update</var></dt>
+					<dd><code>boolean</code><br>$allow_update</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createTable" id="_createTable">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createTable">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1565-1647" title="Go to source code">createTable</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>array <var>$data</var></span>, <span>boolean <var>$return_labels_refs</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$checkExist</var> = <span class="php-keyword1">true</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+					<dt><var>$return_labels_refs</var></dt>
+					<dd><code>boolean</code><br>$return_labels_refs</dd>
+					<dt><var>$checkExist</var></dt>
+					<dd><code>boolean</code><br>$checkExist</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BadRequestException.html">DreamFactory\Platform\Exceptions\BadRequestException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="updateTable" id="_updateTable">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_updateTable">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1649-1743" title="Go to source code">updateTable</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>array <var>$data</var></span>, <span>boolean <var>$return_labels_refs</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+					<dt><var>$return_labels_refs</var></dt>
+					<dd><code>boolean</code><br>$return_labels_refs</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createTables" id="_createTables">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createTables">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1745-1846" title="Go to source code">createTables</a>( <span>CDbConnection <var>$db</var></span>, <span>array <var>$tables</var></span>, <span>boolean <var>$allow_merge</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$rollback</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$tables</var></dt>
+					<dd><code>array</code><br>$tables</dd>
+					<dt><var>$allow_merge</var></dt>
+					<dd><code>boolean</code><br>$allow_merge</dd>
+					<dt><var>$rollback</var></dt>
+					<dd><code>boolean</code><br>$rollback</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="dropTable" id="_dropTable">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_dropTable">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1848-1887" title="Go to source code">dropTable</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.NotFoundException.html">DreamFactory\Platform\Exceptions\NotFoundException</a></code></code><br>
+					<code>Kisma\Core\Exceptions\StorageException</code><br>
+					<code><code><a href="class-DreamFactory.Platform.Exceptions.BadRequestException.html">DreamFactory\Platform\Exceptions\BadRequestException</a></code></code><br>
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="dropField" id="_dropField">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_dropField">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1889-1926" title="Go to source code">dropField</a>( <span>CDbConnection <var>$db</var></span>, <span>string <var>$table_name</var></span>, <span>string <var>$field_name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$table_name</var></dt>
+					<dd><code>string</code><br>$table_name</dd>
+					<dt><var>$field_name</var></dt>
+					<dd><code>string</code><br>$field_name</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLabels" id="_getLabels">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLabels">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1928-1949" title="Go to source code">getLabels</a>( <span>string <var>$where</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$select</var> = <span class="php-quote">'*'</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$where</var></dt>
+					<dd><code>string</code><br>| array $where</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>array</code><br>$params</dd>
+					<dt><var>$select</var></dt>
+					<dd><code>string</code><br>$select</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLabels" id="_setLabels">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLabels">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#1951-2052" title="Go to source code">setLabels</a>( <span>array <var>$labels</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$labels</var></dt>
+					<dd><code>array</code><br>$labels</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>CDbException</code><br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="removeLabels" id="_removeLabels">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_removeLabels">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2054-2067" title="Go to source code">removeLabels</a>( <span>mixed <var>$where</var></span>, <span>null <var>$params</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$where</var></dt>
+					<dd><code>mixed</code><br>$where</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>null</code><br>$params</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="reformatFieldLabelArray" id="_reformatFieldLabelArray">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reformatFieldLabelArray">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2069-2084" title="Go to source code">reformatFieldLabelArray</a>( <span>array <var>$original</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$original</var></dt>
+					<dd><code>array</code><br>$original</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determineGenericType" id="_determineGenericType">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determineGenericType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2086-2152" title="Go to source code">determineGenericType</a>( <span>CDbColumnSchema <var>$column</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Returns a generic type suitable for type-casting</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a generic type suitable for type-casting</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$column</var></dt>
+					<dd><code>CDbColumnSchema</code><br>$column</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determinePdoBindingType" id="_determinePdoBindingType">
+
+		<td class="attributes"><code>
+			 public static
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determinePdoBindingType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2154-2184" title="Go to source code">determinePdoBindingType</a>( <span>mixed <var>$type</var></span>, <span>mixed <var>$db_type</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd><code>mixed</code><br>$type</dd>
+					<dt><var>$db_type</var></dt>
+					<dd><code>mixed</code><br>$db_type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>| null<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="determinePhpConversionType" id="_determinePhpConversionType">
+
+		<td class="attributes"><code>
+			 public static
+			null|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_determinePhpConversionType">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2186-2217" title="Go to source code">determinePhpConversionType</a>( <span>mixed <var>$type</var></span>, <span>mixed <var>$db_type</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd><code>mixed</code><br>$type</dd>
+					<dt><var>$db_type</var></dt>
+					<dd><code>mixed</code><br>$db_type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null|string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_getCachedTables" id="__getCachedTables">
+
+		<td class="attributes"><code>
+			 protected static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__getCachedTables">#</a>
+		<code><a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#2219-2245" title="Go to source code">_getCachedTables</a>( <span>CDbConnection <var>$db</var></span>, <span>boolean <var>$reset</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd><code>CDbConnection</code><br>$db</dd>
+					<dt><var>$reset</var></dt>
+					<dd><code>boolean</code><br>$reset</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#constants">DreamFactory\Platform\Interfaces\SqlDbDriverTypes</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_DBLIB"><b>DRV_DBLIB</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_MYSQL"><b>DRV_MYSQL</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_OCSQL"><b>DRV_OCSQL</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_OTHER"><b>DRV_OTHER</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_PGSQL"><b>DRV_PGSQL</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_SQLITE"><b>DRV_SQLITE</b></a>, 
+			<a href="class-DreamFactory.Platform.Interfaces.SqlDbDriverTypes.html#DRV_SQLSRV"><b>DRV_SQLSRV</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_tableCache" id="$_tableCache">
+		<td class="attributes"><code>
+			protected static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#46-49" title="Go to source code"><var>$_tableCache</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_tableCache" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_tableNameCache" id="$_tableNameCache">
+		<td class="attributes"><code>
+			protected static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#50-53" title="Go to source code"><var>$_tableNameCache</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_tableNameCache" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_schemaCache" id="$_schemaCache">
+		<td class="attributes"><code>
+			protected static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DreamFactory.Platform.Utility.SqlDbUtilities.html#54-57" title="Go to source code"><var>$_schemaCache</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_schemaCache" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Platform SDK For PHP API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
