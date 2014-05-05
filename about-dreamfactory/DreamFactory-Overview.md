@@ -36,9 +36,14 @@ On the client side, all transactions use either JSON objects or XML documents. D
 
 As each new service is hooked up, DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from <a href="https://github.com/dreamfactorysoftware/javascript-sdk">JavaScript</a>, <a href="https://github.com/dreamfactorysoftware/angular-dreamfactory">AngularJS</a>, <a href="https://github.com/dreamfactorysoftware/ios-sdk">iOS</a>, and <a href="https://github.com/dreamfactorysoftware/android-sdk">Android</a>.
 
-### Installation Options
+### Usage Options
 
-On the server side, our Apache License software package can be installed from the <a href = "https://aws.amazon.com/marketplace/search/results/ref=sp_navgno_search_box?page=1&searchTerms=dreamfactory">Amazon Marketplace</a>, <a href="http://vmdepot.msopentech.com/Vhd/Show?vhdId=34072">Azure Marketplace</a>, <a href="https://bitnami.com/stack/dreamfactory">Bitnami Website</a>, <a href="https://bitnami.com/stack/dreamfactory/virtual-machine#vmware">VMWare Marketplace</a>, or on any Linux operating system including [Red Hat](https://github.com/dfryan/dsp-core/wiki/Manual-for-CentOS), [CentOS](https://github.com/dfryan/dsp-core/wiki/Manual-for-CentOS), [Debian](https://github.com/dfryan/dsp-core/wiki/Manual-for-Ubuntu), and [Ubuntu](https://github.com/dfryan/dsp-core/wiki/Manual-for-Ubuntu). 
+On the server side, you can install our Apache License software package in a couple of ways:
 
-We also provide a free "dev and test" version of the product available at our website 
+* Installable Bitnami Packages for Linux, Mac OS X, Microsoft Windows, VMWare, Amazon EC2, and Windows Azure
+* Install the open source code from GitHub on Mac OS X, CentOS Linux, Red Hat Linux, Debian Linux, Ubuntu Linux, and Microsoft Windows.
+
+Bitnami hosts DreamFactory on Amazon EC2 if you don't want to install DreamFactory yourself.
+
+We also provide a free hosted sandbox version of DreamFactory available at our website 
 <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>.
