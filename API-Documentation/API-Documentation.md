@@ -8,7 +8,7 @@ Read all about the [[anatomy of a DSP|Architectural-Overview]].
 ## Getting Started
 <a name="getting-started"></a>
 
-There are a variety of ways you can experience the glory that is the DSP. Head on over to [[Getting Your Own DSP]] for all the installation and setup guids.
+There are a variety of ways you can experience the glory that is the DSP. Head on over to [[Usage Options]] for all the installation and setup guids.
 
 ## API
 * [[Platform SDK|API-Documentation/Platform-SDK-For-PHP/Platform-SDK-For-PHP]]
