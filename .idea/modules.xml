@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dsp-core.wiki.iml" filepath="$PROJECT_DIR$/.idea/dsp-core.wiki.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dreamfactory.wiki.iml" filepath="$PROJECT_DIR$/.idea/dreamfactory.wiki.iml" />
     </modules>
   </component>
 </project>
