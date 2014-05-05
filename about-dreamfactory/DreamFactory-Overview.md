@@ -10,7 +10,7 @@ DreamFactory enables developers to quickly hook up a wide variety of backend sys
 
 ### Architecture
 
-![DreamFactory Architecture](http://dev.dreamfactory.com/sites/default/files/DF-diagram-alt-3-02.png)
+![DreamFactory Architecture](/dreamfactorysoftware/dsp-core/wiki/images/dsp-architecture.png)
 
 ### RESTful Access to Backend Data
 
