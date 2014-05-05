@@ -40,10 +40,10 @@ As each new service is hooked up, DreamFactory automatically produces written do
 
 On the server side, you can install our Apache License software package in a couple of ways:
 
-* Installable Bitnami Packages for Linux, Mac OS X, Microsoft Windows, VMWare, Amazon EC2, and Windows Azure
-* Install the open source code from GitHub on Mac OS X, CentOS Linux, Red Hat Linux, Debian Linux, Ubuntu Linux, and Microsoft Windows.
+* [Installable Bitnami Packages for Linux, Mac OS X, Microsoft Windows, VMWare, Amazon EC2, and Windows Azure.](Bitnami-Installers)
+* [Install the open source code from GitHub on Mac OS X, CentOS Linux, Red Hat Linux, Debian Linux, Ubuntu Linux, and Microsoft Windows.](Install-From-GitHub)
 
-Bitnami hosts DreamFactory on Amazon EC2 if you don't want to install DreamFactory yourself.
+Bitnami [hosts DreamFactory on Amazon EC2](Paid-Hosting) if you don't want to install DreamFactory yourself.
 
 We also provide a free hosted sandbox version of DreamFactory available at our website 
 <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>.
