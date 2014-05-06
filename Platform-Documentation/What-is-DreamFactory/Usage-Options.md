@@ -1,4 +1,6 @@
-There are multiple ways to install and use DreamFactory. DreamFactory is free and open source. We provide an optional paid support package. More information on the support package is on our website [here](http://www.dreamfactory.com/pricing/support).
+DreamFactory is free open source software available under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). We provide an optional paid support package. More information on the support package is on our website [here](http://www.dreamfactory.com/pricing/support). 
+
+There are multiple ways to install and use DreamFactory. 
 
 ### Free Hosted Sandbox Account
 
