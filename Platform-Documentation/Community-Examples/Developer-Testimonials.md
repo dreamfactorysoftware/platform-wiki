@@ -2,6 +2,10 @@ Here's what developers are saying about DreamFactory.
 
 We'd love to hear your feedback. Contact benbusse at dreamfactory.com if you'd like to share your experience with DreamFactory or contribute to the open source project.
 
+> "DreamFactory is a swiss army knife for Javascript and database developers."
+<br>
+-- Jason R.
+
 > "I love what your team is doing at DreamFactory; I’m using this for an upcoming project." 
 <br>
 -- Mitch L.
