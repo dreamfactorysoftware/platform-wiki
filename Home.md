@@ -6,15 +6,15 @@ The documentation on this site is geared towards developers. For general informa
 
 ### Architecture
 
-Read all about the [anatomy of DreamFactory](https://github.com/dfryan/dsp-core/wiki/DreamFactory-Overview).
+Read all about the [anatomy of DreamFactory](DreamFactory-Overview).
 
 ### Important Information
 
-Before you start developing, read about [your API key and authenticating with DreamFactory](https://github.com/dfryan/dsp-core/wiki/Important-Information).
+Before you start developing, read about [your API key and authenticating with DreamFactory](Important-Information).
 
 ### Getting Started
 
-There are a variety of ways you can use DreamFactory. Head on over to [usage options](https://github.com/dfryan/dsp-core/wiki/Usage-Options) for all the installation and setup guides.
+There are a variety of ways you can use DreamFactory. Head on over to [usage options](Usage-Options) for all the installation and setup guides.
 
 ### Learn More
 
