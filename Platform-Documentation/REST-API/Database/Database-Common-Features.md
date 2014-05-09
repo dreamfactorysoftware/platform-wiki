@@ -7,7 +7,7 @@ The following operations are typically available for retrieving records from all
 ## Record Operations
 
 * [Retrieving Records](Database-Retrieving-Records)
-  * [by Old or Partial Records](#get-records)
+  * [by Old or Partial Records](Database-Retrieving-Records#get-records)
   * [by Filter](#get-filter)
   * [by List of Identifiers](#get-ids)
   * [by a Single Identifier](#get-id)
