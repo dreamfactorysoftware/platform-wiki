@@ -1,4 +1,4 @@
- Schema Service
+Schema Service
 The SQL database schema service provides a way of managing the SQL database, retrieving the viewable fields and their storage types and requirements.
 
  Defining the Schema

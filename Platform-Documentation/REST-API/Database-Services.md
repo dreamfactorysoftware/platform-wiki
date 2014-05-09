@@ -4,9 +4,11 @@ DreamFactory makes accessing each of these back-end storage databases easy with 
 
 ## SQL Database Services
 
-DreamFactory database services give the client a REST access point for your SQL database, and can support both local and remote databases. By default, each DSP comes with a native SQL database service. In LAMP setups, this is the MySQL database running on the same server as the DSP, although it could use a different SQL database accessible via PHP PDO by changing the DSP configuration files. This default service has a type of "Local SQL DB" with a name of "Database" and a API Name of 'db'. Consequently, this is the same physical database used by the [System Configuration](System-Configuration) REST service, but access to system tables is controlled by the server-side software and not allowed via this service.
+DreamFactory database services give the client a REST access point to your SQL databases, and can support both local and remote databases. By default, each DSP comes with a native SQL database service. In LAMP setups, this is the MySQL database running on the same server as the DSP, although it could use a different SQL database accessible via PHP PDO by changing the DSP [database configuration file](https://github.com/dreamfactorysoftware/dsp-core/blob/master/config/database.config.php-dist). This default service has a type of "Local SQL DB" with a name of "Database" and a API Name of 'db'. Consequently, this is the same physical database used by the [System Configuration](System-Configuration) REST service, but access to system tables is controlled by the server-side software and not allowed via this service.
 
 To access other databases via your DSP, running either on the same server or remotely on another server, you can create a separate SQL DB service, see [System Configuration](System-Configuration) or the [Admin Console](Services) sections on how to accomplish this.
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db) to see this service type in action in our [Live API](Admin-Console-api-sdk).
 
 ### Schema Services
 
@@ -16,15 +18,29 @@ To access schema of other databases via your DSP, running either on the same ser
 
 For more detail of the REST API for schema editing for SQL databases, go [here](SQL-Schema-Services).
 
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/schema) to see this service type in action in our [Live API](Admin-Console-api-sdk).
+
 ## NoSQL Database Services
 
 DreamFactory database services give the client a REST access point for most of the popular NoSQL databases, and can support both local and remote databases. To access these databases via your DSP, running either on the same server or remotely on another server or as a cloud service, you can create a new NoSQL DB service, see [System Configuration](System-Configuration) or the [Admin Console](Services) sections on how to accomplish this.
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/nosql) to see this service type in action in our [Live API](Admin-Console-api-sdk).
 
 ## Common Features
 
 Database record CRUD (Create, Read, Update and Delete) operations and some table-level operations are available for both SQL and NoSQL database types, as well as our Salesforce, service. This gives the API client the ability to write an application once with very little refactoring required to completely swap out the back-end database. It also makes the learning curve for adopting new databases very small. 
 
 * [Common Features](Database-Common-Features)
+  * Retrieving Table Information
+  * Common Parameters
+  * [Retrieving Records](Database-Retrieving-Records)
+  * [Creating Records](Database-Creating-Records)
+  * [Updating or Replacing Records](Database-Updating-Records)
+  * [Patching or Merging Records](Database-Patching-Records)
+  * [Deleting Records](Database-Deleting-Records)
+
+
+## Unique Features and Restrictions
 
 There are some features of each of these services that are unique to that service type, for example, relational queries in SQL databases, or using the native filtering language in MongoDB. Those features are documented in the following sections...
 

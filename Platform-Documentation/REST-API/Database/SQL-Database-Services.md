@@ -1,4 +1,12 @@
- Schema Service
+Name | Required | Description
+:--- | :------: | :----------
+`related` | No | Comma-delimited list of relations to return in response. By default, all fields of the related record(s) are returned. Optional fields, limit, and order can be sent for each relation.
+`<relation_name>.fields` | No | When ‘related’ parameter given,  comma-delimited list of fields to return in the response for the related record(s). If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
+`<relation_name>.limit` | No | When ‘related’ parameter given, integer count value of number of related records to limit the response to. Default is unlimited until max response size met.
+`<relation_name>.order` | No | When ‘related’ parameter given, declares the ‘order by’ field and direction for sorting the related results.
+
+
+Schema Service
 The SQL database schema service provides a way of managing the SQL database, retrieving the viewable fields and their storage types and requirements.
 
  Defining the Schema
