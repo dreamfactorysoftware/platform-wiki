@@ -22,7 +22,9 @@ DreamFactory database services give the client a REST access point for most of t
 
 ## Common Features
 
-Database record CRUD (Create, Read, Update and Delete) operations and some table-level operations are available for both SQL and NoSQL database types, as well as our Salesforce, service. This gives the API client the ability to write an application once with very little refactoring required to completely swap out the back-end database. It also makes the learning curve for adopting new databases very small. To view the common CRUD methods for record handling, go [here](Database-Common-Features).
+Database record CRUD (Create, Read, Update and Delete) operations and some table-level operations are available for both SQL and NoSQL database types, as well as our Salesforce, service. This gives the API client the ability to write an application once with very little refactoring required to completely swap out the back-end database. It also makes the learning curve for adopting new databases very small. 
+
+* [Common Features](Database-Common-Features)
 
 There are some features of each of these services that are unique to that service type, for example, relational queries in SQL databases, or using the native filtering language in MongoDB. Those features are documented in the following sections...
 
