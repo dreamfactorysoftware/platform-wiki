@@ -1,5 +1,3 @@
-# Database Services
-
 DreamFactory REST API supports several types of database services. There are SQL database services (supporting the likes of MySQL, PostgreSQL, MS SQL Server, etc.), SQL database schema-editing services, NoSQL database services (supporting the likes of MongoDB, AWS DynamoDB, etc.), and a Salesforce database service.
 
 DreamFactory makes accessing each of these back-end storage databases easy with a common REST interface, while still allowing most of the unique features of each underlying database type to be accessed. Each of these types of services is briefly discussed below. For how to access tables and records via the database services, start with the Common Features section. Follow the links in each section for more detail.
