@@ -6,7 +6,7 @@ The following operations are typically available for retrieving tables on all Dr
 
 ## <a name="get-resources"></a>As a Resource List
 
-Description: Filter records for a db table.
+Description: Retrieve a list of all tables available from the database service.
 
 #### Request
 
@@ -21,7 +21,7 @@ URI Parameters: No additional parameters required.
 Sample JSON Request
 
 
-> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact?filter=LastName%3D%27Blow%27&fields=Id HTTP/1.1
+> GET http://demo-dsp.cloud.dreamfactory.com/rest/db HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -87,7 +87,7 @@ HTTP Method: **GET**
 
 Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
 
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?names=<table_names>`
+URI: `http[s]://<dsp-server-name>/rest/<service-api-name>?names=<table_names>`
 
 URI Parameters:
 
