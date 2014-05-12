@@ -17,7 +17,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables_ge
 
 ### <a name="common-params"></a>Common Parameters
 
-In addition to the [Common Headers and Parameters](Common-Headers-Parameters), many of the database services' API operations support the following parameters. To make things more flexible, most parameters can be passed as URI parameters in the form of `name=value` or included in the posted data itself. If passed as a URI parameter, the values must be encoded accordingly. If it is included in the posted data, and the parameter supports a comma-separated list as a value, like the `ids` parameter, then it could also even be sent as an array of items.
+In addition to the [Common Headers and Parameters](Common-Headers-Parameters), many of the database services' API operations support the following parameters. To make things more flexible, most parameters can be passed as URI parameters in the form of `name=value` or included in the posted data itself. If passed as a URI parameter, the values **_must be encoded_** accordingly. If it is included in the posted data, and the parameter supports a list (i.e. comma-separated values) as a value, like the `ids` parameter, then it could also even be sent as an array of items.
 
 For example, using the `ids` parameter as a URI parameter would look like...
 
@@ -45,28 +45,40 @@ or this...
 ####  <a name="fields"></a>Selecting Returned Fields
 
 * `fields`
-Comma-delimited list of fields to return in response, must be url-encoded. If this parameter is ‘*’ all field values will be returned. If it is missing or set to empty (‘’), just the primary key field(s) values will be returned, except in a retrieve (GET) request, where the default is to return all field values.
+The list of fields to return in response. If this parameter is ‘*’, or missing on a retrieve (GET) request, all field values will be returned. If it is missing or set to empty (‘’), just the primary key field(s) values will be returned. Can be used on all record operations to return the latest field values, when used on a DELETE request, it returns the values from the record before the deletion.
 
 
 #### <a name="identifiers"></a>Identifying Records
 
+* `ids`
+The list of identifier values to operate on, matching the default primary key or the identifier defined by the `id_field` parameter.
+
 * `id_field`
-Single or comma-delimited list of the fields used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned.
+A single or list of field(s) used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned. In some scenarios, this parameter may be used to retrieve records using secondary indexes.
 
 * `id_type`
-Single or comma-delimited list of the field types used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned.
+Requires `id_field`. A single or list of field type(s) for the identifiers of the table, used to override defaults or provide identifiers when none are provisioned.
 
-* `ids`
-Single or comma-delimited list of identifier values to operate on, matching the default primary key or the identifier defined by the `id_field` parameter.
+
+#### <a name="filters"></a>Using Filters
 
 * `filter`
 URL-encoded filter string. If this parameter is empty or missing all records will be returned, subject to the 'limit' and 'offset' parameters, or the maximum allowed by the system settings.
 
-  * `params` An array of name-value pairs used as filter replacement parameters. To use with GET requests, use [tunnelling](Common-Headers-Parameters#tunnelling) via POST.
-  * `limit` Max number of records to return. If this parameter is empty or missing all matching records will be returned, subject to the 'offset' parameter.
-  * `order` Field to order results by. Also supports sort direction ASC or DESC such as 'Name ASC'. Default direction is ASC.
-  * `offset` Index of first record to return, e.g., to get records 91-100 set offset to 90 and limit to 10.
-  * `include_count` Set to true for the meta information containing count value for the filter given.
+* `params`
+An array of name-value pairs used as filter replacement parameters. To use with GET requests, use [tunnelling](Common-Headers-Parameters#tunnelling) via POST.
+
+* `limit`
+Max number of records to return. If this parameter is empty or missing all matching records will be returned, subject to the 'offset' parameter.
+
+* `order`
+Field to order results by. Also supports sort direction ASC or DESC such as 'Name ASC'. Default direction is ASC.
+
+* `offset`
+Index of first record to return, e.g., to get records 91-100 set offset to 90 and limit to 10.
+
+* `include_count`
+Set to true for the meta information containing count value for the filter given.
 
 
 #### <a name="batching"></a>Batching Records
