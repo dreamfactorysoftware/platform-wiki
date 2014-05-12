@@ -1,6 +1,6 @@
 The DreamFactory REST API is a REST-ful implementation of our interface allowing access to the native services available on every DSP, as well as, other remote web services that you make available on your DSP.
 
-A very cool tool to help you with our REST API is the **Live API** module included in the Admin Console of every DSP. More information on using Live API can be found [here](Admin-Console-api-sdk).
+A very cool tool to help you with our REST API is the **Live API** module included in the Admin Console of every DSP. More information on using Live API can be found [here](Admin-Console-api-sdk). An example of our **Live API** can be viewed and tested [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/).
 
 The format of the typical DreamFactory REST API call can best be described as follows...
 

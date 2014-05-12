@@ -2,7 +2,7 @@ The following features are typically available for all DreamFactory Database Ser
 
 ## Table Operations
 
-### Retrieving Table Information
+### <a name="get-tables"></a>Retrieving Table Information
 
 Most native services of the DSP will return a list of resources if a REST GET request is sent to the root url of that service. Database services are no different. This list of resources for database services is the list of tables available for use on the service, restricted by user role if applicable.
 
@@ -15,7 +15,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables_ge
 
 ## Record Operations
 
-### Common Parameters
+### <a name="common-params"></a>Common Parameters
 
 In addition to the [Common Headers and Parameters](Common-Headers-Parameters), many of the database services' API operations support the following parameters. To make things more flexible, most parameters can be passed as URI parameters in the form of `name=value` or included in the posted data itself. If passed as a URI parameter, the values must be encoded accordingly. If it is included in the posted data, and the parameter supports a comma-separated list as a value, like the `ids` parameter, then it could also even be sent as an array of items.
 
@@ -42,22 +42,13 @@ or this...
 ```
 
 
-####  Selecting Returned Fields
+####  <a name="fields"></a>Selecting Returned Fields
 
 * `fields`
 Comma-delimited list of fields to return in response, must be url-encoded. If this parameter is ‘*’ all field values will be returned. If it is missing or set to empty (‘’), just the primary key field(s) values will be returned, except in a retrieve (GET) request, where the default is to return all field values.
 
 
-#### Batching Records
-
-* `continue`
-In batch scenarios, where supported, continue processing even after one record fails. Default behavior is to halt and return results up to the first point of failure.
-
-* `rollback`
-In batch scenarios, where supported, rollback all changes if any record of the batch fails. Default behavior is to halt and return results up to the first point of failure, leaving any changes.
-
-
-#### Identifying Records
+#### <a name="identifiers"></a>Identifying Records
 
 * `id_field`
 Single or comma-delimited list of the fields used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned.
@@ -71,13 +62,21 @@ Single or comma-delimited list of identifier values to operate on, matching the 
 * `filter`
 URL-encoded filter string. If this parameter is empty or missing all records will be returned, subject to the 'limit' and 'offset' parameters, or the maximum allowed by the system settings.
 
+  * `params` An array of name-value pairs used as filter replacement parameters. To use with GET requests, use [tunnelling](Common-Headers-Parameters#tunnelling) via POST.
   * `limit` Max number of records to return. If this parameter is empty or missing all matching records will be returned, subject to the 'offset' parameter.
   * `order` Field to order results by. Also supports sort direction ASC or DESC such as 'Name ASC'. Default direction is ASC.
   * `offset` Index of first record to return, e.g., to get records 91-100 set offset to 90 and limit to 10.
   * `include_count` Set to true for the meta information containing count value for the filter given.
 
 
-### Server-Side Field Value Replacement
+#### <a name="batching"></a>Batching Records
+
+* `continue`
+In batch scenarios, where supported, continue processing even after one record fails. Default behavior is to halt and return results up to the first point of failure.
+
+* `rollback`
+In batch scenarios, where supported, rollback all changes if any record of the batch fails. Default behavior is to halt and return results up to the first point of failure, leaving any changes.
+
 
 ### [Retrieving Records](Database-Retrieving-Records)
   * [by Old or Partial Records](Database-Retrieving-Records#get-records)
