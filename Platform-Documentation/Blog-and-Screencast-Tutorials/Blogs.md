@@ -20,6 +20,18 @@ The following is a list of blog posts and tutorials about DreamFactory, and how 
 * [Getting Started with the DreamFactory API](http://blog.dreamfactory.com/blog/bid/326379/Getting-Started-with-the-DreamFactory-API)
 * [Mobile App Development with CORs and Pub/Sub](http://blog.dreamfactory.com/blog/bid/300138/Mobile-App-Development-with-CORs-and-Pub-Sub)
 
+### Server-Side Scripting
+
+* [DreamFactory 1.5 Introduces Server-Side Scripting](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-scripting)
+
+### Server-Side Filters
+
+* [DreamFactory 1.5 Introduces Server-Side Filters](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-filters)
+
+### Lookup Keys
+
+* [DreamFactory 1.5 Introduces Lookup Keys](http://blog.dreamfactory.com/dreamfactory-introduces-lookup-keys)
+
 ### iOS
 
 * [To Do List CRUD App in the iOS SDK](https://github.com/dreamfactorysoftware/ios-sdk/tree/master/SampleApp)
