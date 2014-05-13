@@ -2,7 +2,7 @@
 
 DreamFactory is an open source software package that provides a REST API for mobile enterprise application development. DreamFactory connects mobile devices, such as phones and tablets, to backend data (SQL, NoSQL, and file storage) with a Representational State Transfer (REST) API.
 
-Client devices that make REST calls to DreamFactory can be phones, tablets, and the "internet of things", such as sensors. Desktop applications and web apps can also make REST API calls to DreamFactory. 
+Client devices that make REST calls to DreamFactory can be phones, tablets, and the "internet of things," such as sensors. Desktop applications and web apps can also make REST API calls to DreamFactory. 
 
 Backend data is typically SQL, NoSQL, file storage, and remote web services. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
 
