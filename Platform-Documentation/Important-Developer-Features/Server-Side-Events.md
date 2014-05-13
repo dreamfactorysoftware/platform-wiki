@@ -1,1 +1,1 @@
-Documentation for server-side events is in progress, estimated May 9th.
+Documentation for server-side events is coming soon.
