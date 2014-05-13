@@ -6,6 +6,13 @@ Client devices that make REST calls to DreamFactory can be phones, tablets, and 
 
 Backend data is typically SQL, NoSQL, file storage, and remote web services. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
 
+In a nutshell, DreamFactory provides four things to simplify application development.
+
+1. A secure proxy connection to backend data sources, including SQL, NoSQL, file repositories, and external REST services.
+2. A REST API for each of these data sources, so you don't have to create your own REST APIs. You can immediately interact with the REST API with a tool called Swagger that lets you view HTTP requests and responses in JSON or XML format.
+3.  Documentation of REST API calls and available methods.
+4.  SDKs to easily use the REST API, including iOS, Android, Javascript, and AngularJS.
+
 DreamFactory enables developers to quickly hook up a wide variety of backend systems and expose these assets with a comprehensive palette of RESTful services. The REST API allows client-server separation that simplifies component implementation, reduces the complexity of connectivity, improves performance tuning, and increases the scalability of server-side components.
 
 ### Architecture
