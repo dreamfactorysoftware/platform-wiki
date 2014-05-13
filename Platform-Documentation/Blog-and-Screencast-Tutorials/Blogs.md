@@ -1,4 +1,4 @@
-The following is a list of blog posts and tutorials about DreamFactory, and how to use DreamFactory.
+Here's a consolidated list of blog posts and tutorials about how to use DreamFactory.
 
 ### DreamFactory Technology and Architecture
 
