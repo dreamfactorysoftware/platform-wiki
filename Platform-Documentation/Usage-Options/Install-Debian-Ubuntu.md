@@ -71,7 +71,7 @@ Bye
 ```
 
 
-<b>Configuring MongoDB Support<\b>
+<b>Configuring MongoDB Support</b>
 
 <p>There is an extra step to setup library support for MongoDB:</p>
 
