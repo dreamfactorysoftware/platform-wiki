@@ -17,37 +17,7 @@ HTTP Method: **GET**
 
 Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
 
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?filter=<filter_string>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`filter` | No | URL-encoded filter string. If this parameter is empty or missing all records will be returned, subject to the 'limit' and 'offset' parameters, or the maximum allowed by the system settings.
-`fields` | No | Comma-delimited list of fields to return in response, must be url-encoded. If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`limit` | No | Max number of records to return. If this parameter is empty or missing all matching records will be returned, subject to the 'offset' parameter.
-`order` | No | Field to order results by. Also supports sort direction ASC or DESC such as 'Name ASC'. Default direction is ASC.
-`offset` | No | Index of first record to return, e.g., to get records 91-100 set offset to 90 and limit to 10.
-`include_count` | No | Set to true for the meta information containing count value for the filter given.
-`related` | No | Comma-delimited list of relations to return in response. By default, all fields of the related record(s) are returned. Optional fields, limit, and order can be sent for each relation.
-`<relation_name>.fields` | No | When ‘related’ parameter given,  comma-delimited list of fields to return in the response for the related record(s). If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`<relation_name>.limit` | No | When ‘related’ parameter given, integer count value of number of related records to limit the response to. Default is unlimited until max response size met.
-`<relation_name>.order` | No | When ‘related’ parameter given, declares the ‘order by’ field and direction for sorting the related results.
-
-Filter String Examples:
-
-
-FirstName='John'
-
-LastName='Doe'
-
-FirstName like 'J%'
-
-LastName like 'D%'
-
-FirstName!='John'
-
-Age > 30
+URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 
 Sample JSON Request

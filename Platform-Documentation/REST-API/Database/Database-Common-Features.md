@@ -57,13 +57,22 @@ The list of identifier values to operate on, matching the default primary key or
 A single or list of field(s) used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned. In some scenarios, this parameter may be used to retrieve records using secondary indexes.
 
 * `id_type`
-Requires `id_field`. A single or list of field type(s) for the identifiers of the table, used to override defaults or provide identifiers when none are provisioned.
+Requires `id_field`. A single or list of field type(s) for the identifiers of the table, used to override defaults, i.e. using numbers for MongoDB.
 
 
 #### <a name="filters"></a>Using Filters
 
 * `filter`
 URL-encoded filter string. If this parameter is empty or missing all records will be returned, subject to the 'limit' and 'offset' parameters, or the maximum allowed by the system settings.
+Filter String Examples:
+
+  * first_name='John' AND last_name='Smith'
+  * first_name='John' OR first_name='Jane'
+  * first_name!='John'
+  * first_name like 'J%'
+  * email like '%@mycompany.com'
+  * Age >= 30 AND Age < 40
+
 
 * `params`
 An array of name-value pairs used as filter replacement parameters. To use with GET requests, use [tunnelling](Common-Headers-Parameters#tunnelling) via POST.

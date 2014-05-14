@@ -40,6 +40,7 @@
  * [[API/SDK|Admin-Console-api-sdk]]
  * [[Packages]]
  * [[Config]]
+ * [[Scripts]]
 
 **REST API**
 
@@ -75,6 +76,7 @@
  * [[Android SDK]]
  * [[Javascript SDK]]
  * [[AngularJS SDK]]
+ * [[Titanium SDK]]
 
 <!-- * [[Sencha SDK]]-->
 <!-- * [[Windows Mobile SDK]]-->

@@ -14,6 +14,7 @@
 <li>API / SDK</li>
 <li>Packages</li>
 <li>Config</li>
+<li>Scripts</li>
 </ul>
 
 <p>Each module is described in the following sections of the <b>Admin Console</b> documentation.</p>
