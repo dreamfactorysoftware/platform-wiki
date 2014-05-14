@@ -82,7 +82,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 
 ### Amazon DynamoDB
 
-* [DynamoDB App Tutorial with the DreamFactory SDK](http://blog.dreamfactory.com/dynamodb-app-tutorial-with-the-dreamfactory-sdk)
+* [DynamoDB App Tutorial with the DreamFactory Javascript SDK](http://blog.dreamfactory.com/dynamodb-app-tutorial-with-the-dreamfactory-sdk)
 * [Tutorial: DreamFactory Essentials for AWS - Create a Mobile Backend in Minutes with Bitnami](http://blog.dreamfactory.com/tutorial-dreamfactory-essentials-for-aws-with-bitnami)
    
 ### Amazon S3
