@@ -10,16 +10,20 @@ There are three ways to get the SDKs:
 
 ### iOS SDK
 
-The iOS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/ios-sdk).
+The [iOS SDK] is on GitHub [here](https://github.com/dreamfactorysoftware/ios-sdk).
 
 ### Android SDK
 
-The Android SDK is on GitHub [here](https://github.com/dreamfactorysoftware/android-sdk).
+The [Android SDK] is on GitHub [here](https://github.com/dreamfactorysoftware/android-sdk).
 
 ### Javascript SDK
 
-The Javascript SDK is on GitHub [here](https://github.com/dreamfactorysoftware/javascript-sdk).
+The [Javascript SDK] is on GitHub [here](https://github.com/dreamfactorysoftware/javascript-sdk).
 
 ### AngularJS SDK
 
-The AngularJS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/angular-dreamfactory).
+The [AngularJS SDK] is on GitHub [here](https://github.com/dreamfactorysoftware/angular-dreamfactory).
+
+### Titanium SDK
+
+The [Titanium SDK] is on GitHub [here](https://github.com/dreamfactorysoftware/titanium-dreamfactory).

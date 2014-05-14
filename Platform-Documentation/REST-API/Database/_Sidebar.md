@@ -1,6 +1,6 @@
 [Home](Home)
 
-[REST API](REST-API-Overview)
+[REST API](REST-API)
 
  **Database Services**
 

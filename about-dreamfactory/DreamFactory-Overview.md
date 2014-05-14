@@ -11,7 +11,7 @@ DreamFactory enables developers to quickly hook up a wide variety of backend sys
 In a nutshell, DreamFactory provides four things to simplify application development.
 
 1. A secure proxy connection to backend data sources, including SQL, NoSQL, file repositories, and external REST services.
-2. A [REST API](REST-API-Overview) for each of these data sources, so you don't have to create your own REST APIs. You can immediately interact with the REST API with a tool called [Swagger](https://helloreverb.com/developers/swagger)  that lets you view HTTP requests and responses in JSON or XML format.
+2. A [REST API](REST-API) for each of these data sources, so you don't have to create your own REST APIs. You can immediately interact with the REST API with a tool called [Swagger](https://helloreverb.com/developers/swagger)  that lets you view HTTP requests and responses in JSON or XML format.
 3.  Documentation of REST API calls and available methods.
 4.  [SDKs](Client-SDKs) to easily use the REST API, including iOS, Android, Javascript, and AngularJS.
 

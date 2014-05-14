@@ -2,7 +2,7 @@
 
 **REST API**
 
- * [[Overview|REST-API-Overview]]
+ * [[Overview|REST-API]]
  * [[Common Headers and Parameters|Common-Headers-Parameters]]
  * [[Authentication|REST-API-Authentication]]
  * [[System Configuration|System-Configuration]]
