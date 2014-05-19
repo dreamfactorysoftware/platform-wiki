@@ -9,21 +9,17 @@ The examples given below use a single simple identifier field named "id" which i
 
 ## <a name="get-records"></a>By Old or Partial Records
 
-Description: Filter records for a db table.
+Description: Refresh a client-side copy of old or partial records from a db table. Requires that at a minimum the old or partial records contain the identifying fields for the table.
+
+URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecords_get_2) to see this in action in our [Live API](Admin-Console-api-sdk).
+
 
 #### Request
 
-HTTP Method: **GET**
 
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
-
-
-Sample JSON Request
-
-
-> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact?filter=LastName%3D%27Blow%27&fields=Id HTTP/1.1
+> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?filter=last_name%3D%27Smith%27&fields=Id HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -37,8 +33,6 @@ Sample JSON Request
 
 
 #### Response
-
-Sample JSON Response
 
 
 > HTTP/1.1 200 OK
@@ -61,49 +55,14 @@ Sample JSON Response
 
 Description: Filter records for a db table.
 
+URI: **GET** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?filter=<filter_string>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecords_get_2) to see this in action in our [Live API](Admin-Console-api-sdk).
+
 #### Request
 
-HTTP Method: **GET**
 
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?filter=<filter_string>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`filter` | No | URL-encoded filter string. If this parameter is empty or missing all records will be returned, subject to the 'limit' and 'offset' parameters, or the maximum allowed by the system settings.
-`fields` | No | Comma-delimited list of fields to return in response, must be url-encoded. If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`limit` | No | Max number of records to return. If this parameter is empty or missing all matching records will be returned, subject to the 'offset' parameter.
-`order` | No | Field to order results by. Also supports sort direction ASC or DESC such as 'Name ASC'. Default direction is ASC.
-`offset` | No | Index of first record to return, e.g., to get records 91-100 set offset to 90 and limit to 10.
-`include_count` | No | Set to true for the meta information containing count value for the filter given.
-`related` | No | Comma-delimited list of relations to return in response. By default, all fields of the related record(s) are returned. Optional fields, limit, and order can be sent for each relation.
-`<relation_name>.fields` | No | When ‘related’ parameter given,  comma-delimited list of fields to return in the response for the related record(s). If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`<relation_name>.limit` | No | When ‘related’ parameter given, integer count value of number of related records to limit the response to. Default is unlimited until max response size met.
-`<relation_name>.order` | No | When ‘related’ parameter given, declares the ‘order by’ field and direction for sorting the related results.
-
-Filter String Examples:
-
-
-FirstName='John'
-
-LastName='Doe'
-
-FirstName like 'J%'
-
-LastName like 'D%'
-
-FirstName!='John'
-
-Age > 30
-
-
-Sample JSON Request
-
-
-> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact?filter=LastName%3D%27Blow%27&fields=Id HTTP/1.1
+> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?filter=last_name%3D%27Smith%27&fields=id HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -117,8 +76,6 @@ Sample JSON Request
 
 
 #### Response
-
-Sample JSON Response
 
 
 > HTTP/1.1 200 OK
@@ -141,30 +98,14 @@ Sample JSON Response
 
 Description: Retrieve one or more records for a db table by id.
 
+URI: **GET** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?ids=<id_list>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecords_get_2) to see this in action in our [Live API](Admin-Console-api-sdk).
+
 #### Request
 
-HTTP Method: **GET**
 
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>?ids=<id_list>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`ids` | Yes unless included in POST data | Comma-delimited list of ids to retrieve. Results will be returned in order of ids listed.
-`id_field` | No | The field that this identifier applies to. This is primarily used in the case where a table has no well-defined primary key, but could be used to identify any record by a unique field value. If this parameter is not present, then the primary key of the table is used, or an error is returned if there is no primary key.
-`fields` | No | Comma-delimited list of fields to return in response. If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`related` | No | Comma-delimited list of relations to return in response. By default, all fields of the related record(s) are returned. Optional fields, limit, and order can be sent for each relation.
-`<relation_name>.fields` | Optional when ‘related’ parameter given. Comma-delimited list of fields to return in the response for the related record(s). If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`<relation_name>.limit` | Optional when ‘related’ parameter given. Integer count value of number of related records to limit the response to. Default is unlimited until max response size met.
-`<relation_name>.order` | Optional when ‘related’ parameter given. Declares the ‘order by’ field and direction for sorting the related results.
-
-
-Sample JSON Request
-
-> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/1?fields=FirstName%2CLastName HTTP/1.1
+> GET http://demo-dsp.cloud.dreamfactory.com/rest/db/contact/1?fields=first_name%2Clast_name HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -178,8 +119,6 @@ Sample JSON Request
 
 
 #### Response
-
-Sample JSON Response
 
 
 > HTTP/1.1 200 OK
@@ -203,26 +142,11 @@ Sample JSON Response
 
 Description: Retrieve one record for a db table by id.
 
+URI: **GET** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>/<id>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecords_get_2) to see this in action in our [Live API](Admin-Console-api-sdk).
+
 #### Request
-
-HTTP Method: **GET**
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>/<id>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`id_field` | No | The field that this identifier applies to. This is primarily used in the case where a table has no well-defined primary key, but could be used to identify any record by a unique field value. If this parameter is not present, then the primary key of the table is used, or an error is returned if there is no primary key.
-`fields` | No | Comma-delimited list of fields to return in response. If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`related` | No | Comma-delimited list of relations to return in response. By default, no relations are returned. Optional fields, limit, and order parameters can be sent for each relation.
-`<relation_name>.fields` | No | When ‘related’ parameter given, comma-delimited list of fields to return in the response for the related record(s). If this parameter is ‘*’ or missing all fields will be returned. Setting it to empty (‘’) will result in just the primary key field(s) and value(s) being returned.
-`<relation_name>.limit` | No | When ‘related’ parameter given, integer count value of number of related records to limit the response to. Default is unlimited until max response size met.
-`<relation_name>.order` | No | When ‘related’ parameter given, declares the ‘order by’ field and direction for sorting the related results.
-
-Sample JSON Request
 
 
 > GET http://demo-dsp.cloud.dreamfactory.com/rest/db/account/2
@@ -241,8 +165,6 @@ Sample JSON Request
 
 
 #### Response
-
-Sample JSON Response
 
 
 > HTTP/1.1 200 OK
