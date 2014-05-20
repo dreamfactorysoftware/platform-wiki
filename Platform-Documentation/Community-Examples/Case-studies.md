@@ -4,4 +4,4 @@ Below are a few case studies of projects built with DreamFactory. Please contact
 * [How Circa5 Connects an iOS Mobile App to DreamFactory](http://blog.dreamfactory.com/blog/bid/341114/How-Circa5-Connects-an-iOS-Mobile-App-to-DreamFactory)
 * [DreamFactory & Modus Create Case Study](http://www.sencha.com/blog/sencha-and-backend-rest-services-how-modus-create-connects-an-app-to-dreamf)
 * [DreamTeam Project Management Meets DreamFactory](http://blog.dreamfactory.com/dreamteam-project-management-meets-the-dreamfactory-services-platform)
-* [SkyLab FM, a single-page application that uses DreamFactory, RequireJS, BackboneJS, and the SoundCloud API](http://blog.dreamfactory.com/get-your-front-end-on-a-guest-blog-post-by-andrew-baldock-)
+* [SkyLab FM, a single-page app with DreamFactory, RequireJS, BackboneJS, and the SoundCloud API](http://blog.dreamfactory.com/get-your-front-end-on-a-guest-blog-post-by-andrew-baldock-)
