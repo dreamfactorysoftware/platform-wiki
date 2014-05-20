@@ -27,6 +27,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 ### Server-Side Filters
 
 * [DreamFactory 1.5 Introduces Server-Side Filters](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-filters)
+* [Data Segmentation with Server-Side Filtering and Lookup Keys](http://blog.dreamfactory.com/data-segmentation-with-server-side-filtering-and-lookup-keys)
 
 ### Lookup Keys
 
