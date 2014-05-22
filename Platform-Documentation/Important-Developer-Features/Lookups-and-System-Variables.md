@@ -26,10 +26,17 @@ Lookup Keys allow the DSP administrator to store any number of "key value" pairs
 
 ###Provisioning New Lookup Keys
 
-###Where to Use Lookup Keys
+####In Global Config
+
+####In Role Config
+
+####In User Config
+
+###Using Lookup Keys
 
 The key names can currently be used in the following DSP interfaces and APIs... 
 
+* in Server-Side Filters in the Role Service Access provisioning.
 * in the username and password fields required to hook up to a SQL or NoSQL database. 
-* in Email Templates 
+* in Email Templates in the subject line and message body.
 * in Remote Web Services as parameters or headers.
