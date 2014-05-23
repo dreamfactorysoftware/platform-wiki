@@ -60,6 +60,9 @@ The new `event` object has a dedicated `record` array (read-write) that contains
 <tr>
   <td>platform.config</td><td></td><td></td>
 </tr>
+<tr>
+  <td>platform.session</td><td></td><td></td>
+</tr>
 </tbody>
 </table>
 
