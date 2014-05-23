@@ -75,7 +75,7 @@ Therefore the data exposed by the event system has been "normalized" to provide 
 
 To recap, below is a side-by-side comparison of record data as shown returned to the caller, and sent to an event handler.
 
-```
+```php
 /**
  *  REST API v1.0                           Event Representation
  *  -------------                           --------------------
