@@ -21,8 +21,8 @@ The new `event` object has a dedicated `record` array (read-write) that contains
   <th>Type<\th>
 </thead>
 <tbody>
-<tr>
-  <td>id</td><td></td><td></td>
+<tr style="">
+  <td><code>id</code></td><td></td><td></td>
 </tr>
 <tr>
   <td>name</td><td></td><td></td>
