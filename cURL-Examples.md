@@ -1,6 +1,6 @@
-**// login**
+**// login - POST to /user/session**
 
-POST to /user/session and use returned session_id as X-DreamFactory-Session-Token header in subsequent calls
+use returned session_id as X-DreamFactory-Session-Token header in subsequent calls
 change yourdsp to your dsp name
 change email and password to your email and password
 
@@ -34,7 +34,7 @@ curl -k -3 -X DELETE https://dsp-yourdsp.cloud.dreamfactory.com/rest/db/todo/1 \
   -H "X-DreamFactory-Application-Name: todojquery" \
   -H "X-DreamFactory-Session-Token: bhc7lov8r41h4cbn6pue1r63gbgh7jf6"
 
-**// Logout - DELETE /user/session**
+**// logout - DELETE /user/session**
 
 curl -k -3 -X DELETE https://dsp-yourdsp.cloud.dreamfactory.com/rest/user/session \
   -H "X-DreamFactory-Application-Name: todojquery" \
