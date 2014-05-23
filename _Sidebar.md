@@ -45,6 +45,7 @@
 **REST API**
 
  * [[Overview|REST-API]]
+ * [[cURL Examples|cURL-Examples]]
  * [[Common Headers and Parameters|Common-Headers-Parameters]]
  * [[Authentication|REST-API-Authentication]]
  * [[System Configuration|System-Configuration]]
