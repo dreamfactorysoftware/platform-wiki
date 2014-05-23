@@ -1,9 +1,23 @@
-## Script Context and the "event" Object
-Previously, the event object only contained the contents of the original event's data element. That made it necessary to test if event.record or event.records etc.
+## Script Context and Available Data
 
-This new event structure normalized the data into a consistent format allowing scripts to consume the information as efficiently as possible.
+intro
 
-Now the event object has a dedicated record array (read-write) that contains the payload from the request that triggered the event. In addition, I've added the following new features and information (read-only):
+### The DSP Object
+
+This was previously accessed as **PHP**. It is the PHP context that owns the V8 instance. There is no data in this object other then the event, which is extracted for you.
+
+### The Event Object
+
+In the initial release of server-side scripting (v1.5), the `event` object only contained the contents of the original event's `data` element. That made it necessary to test if `event.record` or `event.records` etc.
+
+The new event structure to be released exposes a normalized view of the data. It is now in a consistent format allowing scripts to consume the information more efficiently and without confusion. This also allows for far more code reuse between scripts.
+
+The new `event` object has a dedicated `record` array (read-write) that contains the payload from the request that triggered the event. Below is a table of the `event` object properties and descriptions.
+
+
+
+| Property | Description | Type |
+|
 
 Object	Property	Description
 		
