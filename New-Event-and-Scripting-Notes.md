@@ -14,57 +14,21 @@ The new event structure to be released exposes a normalized view of the data. It
 
 The new `event` object has a dedicated `record` array (read-write) that contains the payload from the request that triggered the event. Below is a table of the `event` object properties and descriptions.
 
-<table>
-<thead> 
-  <th>Property<\th>
-  <th>Description<\th>
-  <th>Type<\th>
-</thead>
-<tbody>
-<tr style="">
-  <td><code>id</code></td><td></td><td></td>
-</tr>
-<tr>
-  <td>name</td><td></td><td></td>
-</tr>
-<tr>
-  <td>trigger</td><td></td><td></td>
-</tr>
-<tr>
-  <td>stop_propagation</td><td></td><td></td>
-</tr>
-<tr>
-  <td>dispatcher.id</td><td></td><td></td>
-</tr>
-<tr>
-  <td>record</td><td></td><td></td>
-</tr>
-<tr>
-  <td>request.api_name</td><td></td><td></td>
-</tr>
-<tr>
-  <td>request.resource</td><td></td><td></td>
-</tr>
-<tr>
-  <td>request.resource_id</td><td></td><td></td>
-</tr>
-<tr>
-  <td>request.path</td><td></td><td></td>
-</tr>
-<tr>
-  <td>request.resource_id</td><td></td><td></td>
-</tr>
-<tr>
-  <td>platform.api</td><td></td><td></td>
-</tr>
-<tr>
-  <td>platform.config</td><td></td><td></td>
-</tr>
-<tr>
-  <td>platform.session</td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+| Property | Description | Type |
+|:--------:|:-----------:|:----:|
+|<code>id</code>||string|
+|<code>name</code>||string|
+|<code>trigger</code>||string|
+|<code>stop_propagation</code>||boolean|
+|<code>dispatcher.id</code>||string|
+|<code>dispatcher.type</code>||string|
+|<code>payload</code>||array|
+|<code>request</code>||array|
+|<code>request.timestamp</code>||string|
+|<code>request.path</code>||string|
+|<code>platform.api</code>||callable|
+|<code>platform.config</code>||array|
+|<code>platform.session</code>||array|
 
 #### Notes
 
