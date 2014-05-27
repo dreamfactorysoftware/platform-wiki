@@ -22,7 +22,7 @@ The new `event` object has a dedicated `record` array (read-write) that contains
 |<code>stop_propagation</code>||boolean|
 |<code>dispatcher.id</code>||string|
 |<code>dispatcher.type</code>||string|
-|<code>payload</code>||array|
+|<code>record</code>||array|
 |<code>request</code>||array|
 |<code>request.timestamp</code>||string|
 |<code>request.path</code>||string|
