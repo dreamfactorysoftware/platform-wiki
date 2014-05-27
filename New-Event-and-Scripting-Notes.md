@@ -14,8 +14,8 @@ The new event structure to be released exposes a normalized view of the data. It
 
 The new `event` object has a dedicated `record` array (read-write) that contains the payload from the request that triggered the event. Below is a table of the `event` object properties and descriptions.
 
-| Property | Description | Type |
-|:--------:|:-----------:|:----:|
+|Property|Description|Type|
+|--------|-----------|----|
 |<code>id</code>||string|
 |<code>name</code>||string|
 |<code>trigger</code>||string|
