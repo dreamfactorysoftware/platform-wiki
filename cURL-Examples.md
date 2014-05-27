@@ -1,8 +1,8 @@
 **// login - POST to /user/session**
 
-use returned session_id as X-DreamFactory-Session-Token header in subsequent calls
-change yourdsp to your dsp name
-change email and password to your email and password
+* Use returned session_id as X-DreamFactory-Session-Token header in subsequent calls
+* Change yourdsp to your dsp name 
+* Change email and password to your email and password
 
 curl -k -3 -X POST https://dsp-yourdsp.cloud.dreamfactory.com/rest/user/session \
  -H "X-DreamFactory-Application-Name: todojquery" \
