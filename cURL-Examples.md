@@ -4,9 +4,11 @@
 * Change yourdsp to your dsp name 
 * Change email and password to your email and password
 
+```
 curl -k -3 -X POST https://dsp-yourdsp.cloud.dreamfactory.com/rest/user/session \
  -H "X-DreamFactory-Application-Name: todojquery" \
  -d '{ "email" : "foo@bar.com", "password" : "yourpassword" }'
+```
 
 **// get all records from table named todo**
 
