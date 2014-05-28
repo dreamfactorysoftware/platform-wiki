@@ -15,7 +15,7 @@ Bitnami currently supports the following platforms/environments. To install Drea
 * [Linux](https://bitnami.com/stack/dreamfactory/installer#linux)
 * [Mac OS X](https://bitnami.com/stack/dreamfactory/installer#osx)
 * [Microsoft Windows](https://bitnami.com/stack/dreamfactory/installer#windows)
-* [VMWare](https://bitnami.com/stack/dreamfactory/virtual-machine)
+* [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
 * [Amazon EC2](https://bitnami.com/stack/dreamfactory/cloud/amazon)
 * [Windows Azure](https://bitnami.com/stack/dreamfactory/cloud/azure).
 
