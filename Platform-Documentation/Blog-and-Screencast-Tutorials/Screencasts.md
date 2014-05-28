@@ -1,4 +1,4 @@
-The following is a list of screencast tutorials about DreamFactory, and how to use Dreamfactory.
+The following is a list of screencast tutorials about DreamFactory, and how to use DreamFactory.
 
 ### Overview 
 
