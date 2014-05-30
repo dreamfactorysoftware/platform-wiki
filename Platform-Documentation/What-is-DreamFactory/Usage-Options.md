@@ -4,7 +4,7 @@ There are multiple ways to install and use DreamFactory.
 
 ### Free Hosted Sandbox Account
 
-Sign up for a free hosted account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. A free hosted account allows you to try out DreamFactory. It has the same capabilities as the open source installers but is not for deploying production applications. 
+Sign up for a free hosted account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. A free hosted account allows you to try out DreamFactory. It has the same capabilities as the open source installers (except for server-side scripting) but is not for deploying production applications. 
 
 ### Installable Bitnami Packages
 
