@@ -10,13 +10,13 @@ The DreamFactory Services Platform&trade; Google Group (aka `dsp-devs`) is a goo
 
 `#dreamfactory`
 
-We're big fans of IRC here at DreamFactory. We have a `#dreamfactory` channel on Freenode - stop by and say hi, you can even use [Freenode's webchat service] [freenode-webchat] so don't need to install anything to access it.
+We're big fans of IRC here at DreamFactory. We have a `#dreamfactory` channel on Freenode - stop by and say hi, you can even use [Freenode's webchat service] [freenode-webchat] so you don't need to install anything to access it.
 
 ## Twitter
 
 [@dfsoftwareinc] [dreamfactory-twitter]
 
-Follow and chat to us on Twitter.
+Follow us and chat with us on Twitter.
 
 ## GitHub
 
