@@ -1,28 +1,30 @@
-Once DreamFactory (the **server**) is up and running, it throws a variety of events. These events can be listened for, and acted upon; on the server or the client; in real-time or via HTTP POST. We tried to make it as flexible and light-weight as possible.
+Throughout the lifecycle of a single DSP request, the core fires notification events at key points within that request. These notifications can be consumed by client applications, [[server-side scripts|server-side-scripting]], or remote URLs (ala [WebHooks](http://en.wikipedia.org/wiki/Webhook)).
 
 > We leveraged the [Symfony EventDispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component for our event system. Not only is this a tried and true event dispatching component, it is used by many projects in the ecosystem. This makes the server less coupled and integration with other packages easier.
 
-The server also supplies an [[event service|system-event-service]] which provides complete event/listener management via REST. The [[event service|system-event-service]] also works in tandem with the [[script service|system-script-service]] service to run any [[server-side scripts|server-side-scripting]] that have been enabled.
+The server also supplies an [[event service|system-event-service]] providing complete event/listener management via REST. The [[event service|system-event-service]] also works in tandem with the [[script service|system-script-service]] service to run any [[server-side scripts|server-side-scripting]] that have been enabled.
 
-That's a lot to absorb so we'll break it down for you.
+We'll walk through some basics and code examples to help you start leveraging events in your apps.
 
 ## Important Note
 
 Server-side event scripting require the [V8js](https://github.com/v8/v8) library from [PECL](http://pecl.php.net/package/v8js), and an older version of the library at that.
 
-This can be challenging as it is considered *beta* code. Complete instructions for getting this installed on your development system are on the [[Installing V8js]] page.
+This can be challenging as it is considered *beta* code. Complete instructions for getting this installed on your development system are on the [[Installing V8js]] page. 
 
 ## Event Configuration Options
 
-Event logging can be affected by changing the values in `config/common.config.php`. Available options are below.
+Event logging can be affected by changing the values in `config/common.config.php`. Available settings are:
 
 | Setting | Values |
 |---------|--------|
-| `dsp.enable_event_scripts` | If **false**, event scripts will **not** be run. |
-| `dsp.enable_rest_events` | If **false**, REST events will **not** be generated. |
-| `dsp.enable_platform_events` | If **false**, Platform events will **not** be generated. |
-| `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it written to the DSP log. |
-| `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the ```dsp.log_events``` setting. |
+| `dsp.enable_event_observers` | If **true** (default), event observation is allowed. |
+| `dsp.enable_rest_events` | If **true** (default), REST events will be fired. |
+| `dsp.enable_platform_events` | If **true** (default), platform events will be fired. |
+| `dsp.enable_event_scripts` | If **true** (default), event scripts will be run. |
+| `dsp.enable_user_scripts` | If **false** (default), user scripts will **not** be run. |
+| `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it logged. |
+| `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the `dsp.log_events` setting. |
 
 Logging events should be disabled in production unless you're troubleshooting something. Below is a sampling of the all events logged.
 
@@ -47,7 +49,58 @@ While you are able to prioritize listeners when registering with the dispatcher,
 
 ### Scripts and Propagation
 
-Event scripts can halt propagation like a listener as well. Setting the "event.stop_propagation" property to **true** will halt propagation of the event immediately upon return from the script.
+Event scripts can halt propagation to future listeners as well. Setting the `event.stop_propagation` property to **true** will halt propagation of the event immediately upon return from the script.
+
+## Event Representation
+
+All events are normalized down to a single **container** which is then passed to all the listeners. PHP listeners will receive this as an array. Scripts will receive this as a native object. All others get arrays of data. 
+
+This container is defined as follows:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| _meta | object | Contains event meta-data |
+| record | array | The payload of the request, or the response on a **GET** |
+| meta | array | Any meta-data associated with the request |
+| payload | object | The non-normalized payload of the request |
+| payload_changed | boolean | If a listener has changed the payload, this flag should be set to **true** |
+| platform | object | Contains information about the session and the DSP |
+
+### event._meta
+
+This contains information about the event and dispatcher.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| _meta.id | string | A unique event ID |
+| _meta.name | string | The event name |
+| _meta.timestamp | string | The timestamp of the request |
+| _meta.trigger | string | The REST call that triggered this event |
+| _meta.request_path | string | The path of the REST call |
+| _meta.stop_propagation | boolean | Set this to **true** to halt propagation of the event to downstream listeners |
+| _meta.dispatcher_id | string | The dispatcher's ID |
+| _meta.dispatcher_type | string | The dispatcher's type |
+| _meta.extra | array | Any extra relevant data sent by the triggerer |
+
+### event.record & event.payload
+
+`event.record` contains a normalized array of record-type data. The REST API currently allows for various methods of passing data into the DSP. To alleviate any necessity to determine the structure of the payload, it is normalized into an array of records. 
+
+> The allowance of multiple formats of inbound data is considered deprecated and will be removed in the 2.0 release of the DSP. All data-type requests will be required to pass an array of records, even for single rows.
+
+`event.payload` contains a copy of the request/response data as it was received. It is not normalized in any way.
+
+### event.platform
+
+This object provides information about the platform configuration, the current session, and access to the REST API via **inline** calls. This make DSP requests directly without requiring an HTTP call. This object is only available in server-side scripts.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| platform.api | object | An object that allows access to the DSP's REST API |
+| platform.config | object | The current configuration of the DSP |
+| platform.session | object | The current session information |
+
+> This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
 
 ## Event Types
 
@@ -57,18 +110,7 @@ There are three categories of events:
   * Platform Events
   * User-defined Events
 
-The entire event model is generated dynamically at run time. It is defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for our Live API. Since the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
-
-All event types contain the following data fields.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| data | array/hash | Optional data sent by the source. For REST events, this contains the request/response body |
-| event_name | string | The name of the event that was triggered |
-| dispatcher_id | string | The ID of the event dispatcher instance that triggered this event |
-| trigger | string | The request URI that triggered this event |
-
-> This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
+The entire event model is generated dynamically at run time. It is defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for our Live API. Since the [Swagger](https://github.com/wordnik/swagger-ui) documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
 
 ### REST Events
 
@@ -93,9 +135,11 @@ REST events contain two extra data fields:
 | api_name | string | The name of the service/API that was called |
 | resource | string | The resource type requested |
 
+Depending on the event, more fields may be available. It depends on the service.
+
 ### Platform Events
 
-Platform events are a boiled down version of REST events and are mapped to specific server operations. These operations are defined in the [[Swagger|https://github.com/wordnik/swagger-ui]] documentation for each service.
+Platform events are a boiled down version of REST events and are mapped to specific service operations. These operations are defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for each service.
 
 Platform events are more general to application-level operations. If you're writing a client-side application, *these are the events you're looking for*.
 
@@ -107,23 +151,42 @@ Platform events are more free-form than REST events but adhere to the following 
 
 #### Platform Event Categories
 
-There are currently eight platform event categories. These map as follows:
+There are currently various platform event categories. These map to CRUD operations for the most part:
 
 | Action | Description |
 |--------|-------------|
 | `*.list` | GET all resources |
-| `*.read` | GET a single resource |
-| `*.write` | POST a single resource |
-| `*.create` | POST a single resource |
-| `*.update` | PUT a single resource |
-| `*.delete` | DELETE a single resource |
-| `session.login` | A session has been created |
-| `session.logout` | A session has been ended |
+| `*.read` | GET a resource |
+| `*.create` | POST a resource |
+| `*.update` | PUT a resource |
+| `*.delete` | DELETE a resource |
 
-The asterisk (*) will be the API name or service that triggered the action. Examples are `config.read` for a configuration being read. Or `session.login` for when a user logs into the DreamFactory. `login` and `logout` are triggered only by the `session` service at this time.
+Database calls generate a slightly different set of events. These map to SQL statements:
+
+| Action | Description |
+|--------|-------------|
+| `*.select` | GET a database resource |
+| `*.insert` | POST a database resource |
+| `*.update` | PUT a database resource |
+| `*.delete` | DELETE a single resource |
+
+Database calls generate a slightly different set of events. These map to SQL statements:
+
+| Action | Description |
+|--------|-------------|
+| `*.select` | GET a database resource |
+| `*.insert` | POST a database resource |
+| `*.update` | PUT a database resource |
+| `*.delete` | DELETE a single resource |
+
+The asterisk (*) will be the API name or service that triggered the action. Examples are `config.read` for a configuration being read. Or `session.login` for when a user log's into the DSP. `login` and `logout` are triggered only by the `session` service at this time.
 
 To see the currently defined events, read through the [[Swagger|https://github.com/wordnik/swagger-ui]] files available in our repository. Specifically, have a look at the `*.swagger.php` files in [[Services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]] and [[Resources|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Resources/?at=develop]].
 
+#### Bucket Events
+
+In addition, the event system throws what we call **bucket** events. These events are thrown for operations that happen in child paths. An example would be a GET to the local database table called "todo". The request will generate a `db.todo.select` event. However, the event `db.table_selected` will also be generated at the database level. This provides a bit more granularity to the event consumer. 
+ 
 ### User-Defined Events
 
 You, the server-side developer, can create and respond to your own events. We are working on a client-side solution as well. But server-side is good to go.
@@ -234,7 +297,7 @@ class SessionEventSubscriber implements EventSubscriberInterface
 
 ### Deploying Your Listener/Subscriber
 
-Because portions of the DreamFactory core update themselves, you should not place any code or change any configuration settings in the core directory structure. Extensions, libraries, etc. should be placed into a directory under `/path/to/root/storage/.private/src`. This area is reserved for customization code and will never be overwritten by the platform.
+Because portions of the DSP core update themselves, you should not place any code or change any configuration settings in the core directory structure. Extensions, libraries, etc. should be placed into a directory under `/path/to/root/storage/.private/src`. This area is reserved for customization code and will never be overwritten by the platform.
 
 #### Namespacing Your Code
 
