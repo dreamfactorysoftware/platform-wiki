@@ -173,7 +173,7 @@ Database calls generate a slightly different set of events. These map to SQL sta
 | `*.update` | PUT a database resource |
 | `*.delete` | DELETE a single resource |
 
-The asterisk (*) will be the API name or service that triggered the action. Examples are `config.read` for a configuration being read. Or `session.login` for when a user log's into the DSP. `login` and `logout` are triggered only by the `session` service at this time.
+The asterisk (*) will be the API name or service that triggered the action. Examples are `system.config.read` for a configuration being read. Or `user.session.delete` for when a user logs out of the DSP. 
 
 To see the currently defined events, read through the [Swagger](https://github.com/wordnik/swagger-ui) files available in our repository. Specifically, have a look at the `*.swagger.php` files in [[Services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]] and [[Resources|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Resources/?at=develop]].
 
