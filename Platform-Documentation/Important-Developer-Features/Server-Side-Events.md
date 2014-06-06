@@ -194,7 +194,7 @@ To register a listener for an event, you must use one of the following methods:
 
 ```php
 	Pii::app()->on(
-		'session.logout',
+		'user.session.delete',
 		function( $event, $eventName, $dispatcher )
 		{
 			//	Do something very important when a user logs out...
@@ -258,8 +258,8 @@ class SessionEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'session.login'  => array( 'onSessionLogin', 0 ),
-            'session.logout' => array( 'onSessionLogout', 0 ),
+            'user.session.create'  => array( 'onSessionLogin', 0 ),
+            'user.session.delete' => array( 'onSessionLogout', 0 ),
         );
     }
 
@@ -299,11 +299,11 @@ TBD
 
 #### Autoloading Your Code
 
-You can also place an `autoload.php` file in the `/path/to/root/storage/.private/src` directory. This will be automatically loaded and cached with each session.
+You can also place an `autoload.php` file in the `/path/to/root/storage/.private/config` directory. This will be automatically loaded and cached with each session.
 
 ### Javascript Handlers
 
-Use the `/rest/system/script` service.
+The **Script** tab of the Admin Console provides rudimentary script writing and saving capabilities. Or you can optionally just use the `/rest/system/script` service.
 
 ### HTTP Handlers
 
