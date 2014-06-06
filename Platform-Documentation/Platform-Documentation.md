@@ -10,12 +10,8 @@ Read all about the [anatomy of DreamFactory](DreamFactory-Overview).
 
 ### Important Information
 
-<<<<<<< HEAD
 ## API
 * [[Platform SDK|/dreamfactorysoftware/wiki/API-Documentation/lib-php-common-platform/index.html]]
-=======
-Before you start developing, read about [your API key and authenticating with DreamFactory](Important-Information).
->>>>>>> 2c33a5b08d3432ee15bd771df3c68572ac6e3926
 
 ### Getting Started
 

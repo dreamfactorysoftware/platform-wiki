@@ -100,7 +100,19 @@ This object provides information about the platform configuration, the current s
 | platform.config | object | The current configuration of the DSP |
 | platform.session | object | The current session information |
 
-> This is **beta documentation**. More (or less) events may be available in the future. For instance, we may do away with `after_data_format` before release. Be aware.
+> This is **beta documentation**. More (or less) events may be available in the future. 
+
+More information about `platform.api` is available on the [[Scripting API Access|Scripting-Api-Access]] page.
+
+## Event Types
+
+There are three categories of events:
+
+  * REST Events
+  * Platform Events
+  * User-defined Events
+
+The entire event model is generated dynamically at run time. It is defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for our Live API. Since the [Swagger](https://github.com/wordnik/swagger-ui) documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
 
 ## Event Types
 
@@ -135,6 +147,8 @@ REST events contain two extra data fields:
 | api_name | string | The name of the service/API that was called |
 | resource | string | The resource type requested |
 
+Depending on the event, more fields may be available. It depends on the service.
+
 ### Platform Events
 
 Platform events are a boiled down version of REST events and are mapped to specific service operations. These operations are defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for each service.
@@ -168,9 +182,18 @@ Database calls generate a slightly different set of events. These map to SQL sta
 | `*.update` | PUT a database resource |
 | `*.delete` | DELETE a single resource |
 
+Database calls generate a slightly different set of events. These map to SQL statements:
+
+| Action | Description |
+|--------|-------------|
+| `*.select` | GET a database resource |
+| `*.insert` | POST a database resource |
+| `*.update` | PUT a database resource |
+| `*.delete` | DELETE a single resource |
+
 The asterisk (*) will be the API name or service that triggered the action. Examples are `config.read` for a configuration being read. Or `session.login` for when a user log's into the DSP. `login` and `logout` are triggered only by the `session` service at this time.
 
-To see the currently defined events, read through the [[Swagger|https://github.com/wordnik/swagger-ui]] files available in our repository. Specifically, have a look at the `*.swagger.php` files in [[Services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]] and [[Resources|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Resources/?at=develop]].
+To see the currently defined events, read through the [Swagger](https://github.com/wordnik/swagger-ui) files available in our repository. Specifically, have a look at the `*.swagger.php` files in [[Services|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Services/?at=develop]] and [[Resources|https://bitbucket.org/dreamfactory/lib-php-common-platform/src/4e0e6dce1e6f234ed7c7d2372c1582fdc5fde701/src/Resources/?at=develop]].
 
 #### Bucket Events
 
@@ -219,7 +242,7 @@ Below is a sample class that subscribes to the `session` service events. When th
 
 In the constructor, you'll see that we retrieve the event dispatcher instance from the currently running application and add ourselves as a subscriber.
 
-Far more detailed documentation about event subscribers is available in the [[Symfony|http://symfony.com/doc/current/components/event_dispatcher/introduction.html#using-event-subscribers]] documentation.
+Far more detailed documentation about event subscribers is available in the [Symfony](http://symfony.com/doc/current/components/event_dispatcher/introduction.html#using-event-subscribers) documentation.
 
 ```php
 <?php
@@ -242,7 +265,7 @@ class SessionEventSubscriber implements EventSubscriberInterface
     public function __construct()
     {
         //  Register with the event dispatcher
-        Pii::app()->getDispatcher()->addSubscriber( $this );
+        Platform::getDispatcher()->addSubscriber( $this );
     }
 
     /**
@@ -309,8 +332,8 @@ Use the `/rest/system/event` service.
 ### PHP
 
 ```php
-	Pii::app()->trigger( 'session.logout' );
-	Pii::app()->trigger( 'my.private.event', $_myEventData );
+	Platform::trigger( 'session.logout' );
+	Platform::trigger( 'my.private.event', $_myEventData );
 ```
 
 ### Javascript
@@ -322,7 +345,7 @@ POST to the `/rest/system/event` service.
 ### PHP
 
 ```php
-	Pii::app()->off( 'session.logout', $_callback );
+	Platform::off( 'session.logout', $_callback );
 ```
 
 ### Javascript
