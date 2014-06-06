@@ -1,31 +1,26 @@
-Welcome to the DreamFactory Services Platform&trade; Wiki!
+Welcome to the DreamFactory Wiki!
 
-This site will serve as the central document repository for all things DSP! Developers are encouraged to add their own content. We want to keep this site as up-to-date as possible, so I'm gonna have to ask you to go ahead and "Watch" it.
+This site is the central document repository for all things DreamFactory! Developers are encouraged to add their own content. We want to keep this site as up-to-date as possible, so go ahead and "Watch" it.
 
-The documentation on this site is geared towards developers. Should you have marketing-types that need good info, send them over to the [DreamFactory main web site][dfcom].
-
-### Terms Used
- * **DSP** stands for **DreamFactory Services Platform&trade;**. We use them both throughout the site.
+The documentation on this site is geared towards developers. For general information about DreamFactory, check out our [website](http://www.dreamfactory.com).
 
 ### Architecture
 
-Read all about the [[anatomy of a DSP|Architectural-Overview]].
+Read all about the [anatomy of DreamFactory](DreamFactory-Overview).
 
-## Getting Started
-<a name="getting-started"></a>
+### Important Information
 
-There are a variety of ways you can experience the glory that is the DSP. Head on over to [[Getting Your Own DSP]] for all the installation and setup guids.
-
+<<<<<<< HEAD
 ## API
 * [[Platform SDK|/dreamfactorysoftware/wiki/API-Documentation/lib-php-common-platform/index.html]]
+=======
+Before you start developing, read about [your API key and authenticating with DreamFactory](Important-Information).
+>>>>>>> 2c33a5b08d3432ee15bd771df3c68572ac6e3926
 
-## Apps
-copy needed
+### Getting Started
 
-## Storage
-copy needed
+There are a variety of ways you can use DreamFactory. Head on over to [usage options](Usage-Options) for all the installation and setup guides.
 
-## Platform Events
-[[Overview|The-Platform-Event-System]]
+### Learn More
 
-[dfcom]: https://www.dreamfactory.com/ "DreamFactory"
+The Wiki is divided into a number of topics in the right-hand sidebar. Just click on a link to learn more.
