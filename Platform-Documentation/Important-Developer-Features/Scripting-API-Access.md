@@ -15,11 +15,9 @@ They all accept the same arguments:
 	platform.api.get( "service[/resource[/resource_id]]"[, payload] );
 ```
 
-`service` is always required.
-
-`resource` and `resource_id` are optional and depend on your call.
-
-`payload` is optional, but must contain a valid object for the language of the script. 
+ * `service` is always required.
+ * `resource` and `resource_id` are optional and depend on your call.
+ * `payload` is optional, but must contain a valid object for the language of the script. 
 
 You may also pass absolute URLs to these methods to retrieve external resources:
 
