@@ -112,17 +112,7 @@ There are three categories of events:
   * Platform Events
   * User-defined Events
 
-The entire event model is generated dynamically at run time. It is defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for our Live API. Since the [Swagger](https://github.com/wordnik/swagger-ui) documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
-
-## Event Types
-
-There are three categories of events:
-
-  * REST Events
-  * Platform Events
-  * User-defined Events
-
-The entire event model is generated dynamically at run time. It is defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for our Live API. Since the [Swagger](https://github.com/wordnik/swagger-ui) documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file. More to come on this.
+The entire event model is generated dynamically at run time. It is defined in the [Swagger](https://github.com/wordnik/swagger-ui) documentation for our Live API. Since the [Swagger](https://github.com/wordnik/swagger-ui) documentation describes our API in such fine detail, and nearly all REST operations generate an event; this seemed like a logical and efficient place to describe our event model. This allows your apps/services/plugins to generate events simply by supplying the proper Swagger file.
 
 ### REST Events
 
