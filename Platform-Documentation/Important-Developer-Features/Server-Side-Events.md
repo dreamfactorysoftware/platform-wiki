@@ -59,12 +59,12 @@ This container is defined as follows:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| _meta | object | Contains event meta-data |
-| record | array | The payload of the request, or the response on a **GET** |
-| meta | array | Any meta-data associated with the request |
-| payload | object | The non-normalized payload of the request |
-| payload_changed | boolean | If a listener has changed the payload, this flag should be set to **true** |
-| platform | object | Contains information about the session and the DSP |
+| `_meta` | object | Contains event meta-data |
+| `record` | array | The payload of the request, or the response on a **GET** |
+| `meta` | array | Any meta-data associated with the request |
+| `payload` | object | The non-normalized payload of the request |
+| `payload_changed` | boolean | If a listener has changed the payload, this flag should be set to **true** |
+| `platform` | object | Contains information about the session and the DSP |
 
 ### event._meta
 
@@ -72,15 +72,15 @@ This contains information about the event and dispatcher.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| _meta.id | string | A unique event ID |
-| _meta.name | string | The event name |
-| _meta.timestamp | string | The timestamp of the request |
-| _meta.trigger | string | The REST call that triggered this event |
-| _meta.request_path | string | The path of the REST call |
-| _meta.stop_propagation | boolean | Set this to **true** to halt propagation of the event to downstream listeners |
-| _meta.dispatcher_id | string | The dispatcher's ID |
-| _meta.dispatcher_type | string | The dispatcher's type |
-| _meta.extra | array | Any extra relevant data sent by the triggerer |
+| `_meta.id` | string | A unique event ID |
+| `_meta.name` | string | The event name |
+| `_meta.timestamp` | string | The timestamp of the request |
+| `_meta.trigger` | string | The REST call that triggered this event |
+| `_meta.request_path` | string | The path of the REST call |
+| `_meta.stop_propagation` | boolean | Set this to **true** to halt propagation of the event to downstream listeners |
+| `_meta.dispatcher_id` | string | The dispatcher's ID |
+| `_meta.dispatcher_type` | string | The dispatcher's type |
+| `_meta.extra` | array | Any extra relevant data sent by the triggerer |
 
 ### event.record & event.payload
 
@@ -96,9 +96,9 @@ This object provides information about the platform configuration, the current s
 
 | Field | Type | Description |
 |-------|------|-------------|
-| platform.api | object | An object that allows access to the DSP's REST API |
-| platform.config | object | The current configuration of the DSP |
-| platform.session | object | The current session information |
+| `platform.api` | object | An object that allows access to the DSP's REST API |
+| `platform.config` | object | The current configuration of the DSP |
+| `platform.session` | object | The current session information |
 
 > This is **beta documentation**. More (or less) events may be available in the future. 
 
@@ -130,9 +130,10 @@ REST events are dynamically generated automatically by inbound REST calls to the
 
 Some examples are:
 
-  * user.get.pre_process
-  * config.post.after_data_format
-  * service.get.post_process
+  * `user.session.get.pre_process`
+  * `system.config.post.pre_process`
+  * `user.session.read`
+  * `db.Contacts.get.post_process`
 
 You saw some others in the log sample above. They're pretty straightforward and you shouldn't have any problems figuring out what they represent.
 
@@ -144,8 +145,8 @@ REST events contain two extra data fields:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| api_name | string | The name of the service/API that was called |
-| resource | string | The resource type requested |
+| `api_name` | string | The name of the service/API that was called |
+| `resource` | string | The resource type requested |
 
 Depending on the event, more fields may be available. It depends on the service.
 
