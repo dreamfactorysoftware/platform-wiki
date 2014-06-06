@@ -210,8 +210,8 @@ To register a listener for an event, you must use one of the following methods:
 	);
 ```
 
-  * Use the `/rest/system/script` endpoint, *PUT*ing an URL to a client-side listener which will be called via HTTP POST
-  * Use the `/rest/system/script` endpoint, *PUT*ing Javascript code to be run when the event is triggered. This is run on the server-side.
+  * Use the `/rest/system/script` endpoint, **PUT**ing an URL to a client-side listener which will be called via HTTP POST
+  * Use the `/rest/system/script` endpoint, **PUT**ing Javascript code to be run when the event is triggered. This is run on the server-side.
   * Create an event subscriber class
 
 #### Event Subscribers
