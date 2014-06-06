@@ -64,7 +64,7 @@
  * [[Server-Side Filters]] 
  * [[Server-Side Events]] 
  * [[Server-Side Scripting]] 
- ** [[Scripting API Access]] 
+   * [[Scripting API Access]] 
  
 <!-- * [[Packager]] -->
 <!-- * [[Active Directory Integration] -->
