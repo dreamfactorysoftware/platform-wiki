@@ -1,0 +1,7 @@
+It's nice to write code with your preferred debug tools and test suites. DreamFactory provides CORs support so you can develop and run apps outside of DreamFactory while leveraging the power of our REST API.
+
+To Enable CORs, log into to the Admin Console and click on the Config tab on the left-hand side. On the Config screen, you'll see CORs Access options. Setting * will allow you to work from your desktop, your localhost server, or another DreamFactory instance or remote server that needs access to your data or service. The allowed verbs checkboxes enforce another layer of access control. This locks down your DreamFactory instance to allow only the verbs checked for CORs.
+
+To use CORs without logging in, you need to allow Guest Users in the Config tab and create a Role for guest user access. This lets you limit guest access (i.e. users who don't log into your app) to only database tables or services you see fit.
+
+If you’d like to pass authentication instead of having a guest role, consult our Swagger API docs here for the latest API call for logging in a user (see the /user/session POST request). That POST will return a session_id that you can pass as a new header called X-DreamFactory-Session-Token with all your future API requests. You will also need to include the API name you created with your application as X-DreamFactory-Application-Name if you haven’t already.

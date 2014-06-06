@@ -1,34 +1,56 @@
-### Overview
+### Software Overview
 
-The DreamFactory Services Platform&trade; (DSP) is an open-source software package that provides a REST API for mobile enterprise application development. DreamFactory enables the enterprise developer to quickly hook up, and then securely expose, a wide variety of backend systems via a comprehensive palette of RESTful services.
+DreamFactory is an open source software package that provides a REST API for mobile enterprise application development. DreamFactory connects mobile devices, such as phones and tablets, to backend data (SQL, NoSQL, and file storage) with a Representational State Transfer (REST) API.
 
-The platform supports access to data and meta-data from any ANSI SQL database including, but not limited to, MySQL, SQL Server, DB2, and PostgreSQL. Also supported are a wide variety of NoSQL databases including Amazon DynamoDB, Amazon SimpleDB, Azure Tables, MongoDB, MongoHQ, and CouchDB. For file storage Amazon S3, Azure Tables, and OpenStack Objects are supported.
+Client devices that make REST calls to DreamFactory can be phones, tablets, and the "internet of things," such as sensors. Desktop applications and web apps can also make REST API calls to DreamFactory. 
 
-The platform provides myriad services for application development. User management features include password hashing, single sign-on, OAuth, Active Directory, Guest Users, and Open Registration. Application hosting includes the ability to store and run application files from any cloud storage system. Security services include the ability to control access to all backend assets through detailed user roles and permissions. Lastly, we can perform external service integration with URL parameters and HTTP headers.
+Backend data is typically SQL, NoSQL, file storage, and remote web services. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
 
-On the client side, all transactions use either JSON objects or XML documents. The services are compatible with applications written in either HTML5 or native client technologies like iOS, Windows 8, and Android. We provide HTML5 example projects for jQuery, AngularJS, and Sencha. As each new service is hooked up DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from JavaScript, iOS, Android, and Windows 8.
+DreamFactory enables developers to quickly hook up a wide variety of backend systems and expose these assets with a comprehensive palette of RESTful services. The REST API allows client-server separation that simplifies component implementation, reduces the complexity of connectivity, improves performance tuning, and increases the scalability of server-side components.
 
-On the server side, our Apache License software package can be installed from the Amazon Marketplace, Azure Marketplace, BitNami Website, VMware Marketplace, or on any Linux operating system including Redhat, CentOS, Debian, and Ubuntu. We also provide a free "dev and test" version of the product available at our website www.dreamfactory.com..
+In a nutshell, DreamFactory provides four things to simplify application development.
+
+1. A secure proxy connection to backend data sources, including SQL, NoSQL, file repositories, and external REST services.
+2. A [REST API](REST-API) for each of these data sources, so you don't have to create your own REST APIs. You can immediately interact with the REST API with a tool called [Swagger](https://helloreverb.com/developers/swagger)  that lets you view HTTP requests and responses in JSON or XML format.
+3.  Documentation of REST API calls and available methods.
+4.  [SDKs](Client-SDKs) to easily use the REST API, including iOS, Android, Javascript, and AngularJS.
 
 ### Architecture
 
-![dsp-architecture] [dsp-architecture]
+![DreamFactory Architecture](/dreamfactorysoftware/dsp-core/wiki/images/dsp-architecture.png)
 
-### More information
+### RESTful Access to Backend Data
 
-For documentation geared towards business, product and marketing folk, please see the [DreamFactory website](http://dreamfactory.com).
+DreamFactory provides REST APIs for SQL, NoSQL, file storage, and any REST-accessible web service.
 
-This wiki is the main source of documentation for **developers** working with (or contributing to) the DreamFactory Services Platform&trade; projects. Sections include:
-* [[About DreamFactory|DreamFactory-overview]] (this section) - introducing DreamFactory
-* [[Project and Community|DreamFactory-project-and-community]] - the open-source project, our community and how to contribute
-* [[Setup Guide|Setting-up-dreamfactory]] - a step-by-step guide to setting up and running a DSP
-* [[Technical Documentation|Documentation]] - technical documentation on the platform
+* DreamFactory supports RESTful data and metadata access to any ANSI SQL database including MySQL, SQL Server, DB2, and PostgreSQL. 
+* DreamFactory also provides RESTful access to a wide variety of NoSQL databases including Amazon DynamoDB, Amazon SimpleDB, Azure Tables, MongoDB, MongoHQ, and CouchDB. 
+* For file storage DreamFactory provides RESTful access to Amazon S3, Azure Tables, and OpenStack Objects. 
+* Lastly, DreamFactory supports external service integration manually or automatically with Swagger or RAML (i.e., the ability to securely access any REST API that returns JSON or XML to the client).
 
-### Additional support / resources
+### Security and Core Backend Features
 
-* [[Talk to us]] (and other community members) through various channels
-* DreamFactory Software, Inc. ([contact] [contact]) may be available to provide consultancy services, including setup and business consultancy to use DreamFactory Services Platform&trade; on-premise.
+DreamFactory provides other services for application development. 
 
-[contact]: mailto:support@dreamfactory.com
-[dsp-architecture]: /dreamfactorysoftware/dsp-core/wiki/images/dsp-architecture.png
+* User management features include password hashing, single sign-on, OAuth, Active Directory, Guest Users, and Open Registration. 
+* Security services include the ability to control access to all backend assets through user roles and permissions. 
+* Application hosting includes the ability to store and run application files from any cloud storage system. 
+* Advanced features include server-side filters, events, and scripting (server-side Javascript currently supported). 
 
+### Client SDKs for Consuming REST APIs
+
+On the client side, all transactions use either JSON objects or XML documents. DreamFactory is compatible with applications written in either HTML5 or native client technologies such as iOS and Android. We provide HTML5 example projects for [jQuery](http://www.dreamfactory.com/jquery-example), [AngularJS](http://www.dreamfactory.com/angularjs-example), and [Sencha](http://www.dreamfactory.com/sencha-touch-example). 
+
+As each new service is hooked up, DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from <a href="https://github.com/dreamfactorysoftware/javascript-sdk">JavaScript</a>, <a href="https://github.com/dreamfactorysoftware/angular-dreamfactory">AngularJS</a>, <a href="https://github.com/dreamfactorysoftware/ios-sdk">iOS</a>, and <a href="https://github.com/dreamfactorysoftware/android-sdk">Android</a>.
+
+### Usage Options
+
+On the server side, you can install our Apache License software package in a couple of ways:
+
+* [Installable Bitnami Packages for Linux, Mac OS X, Microsoft Windows, VMWare, Amazon EC2, and Windows Azure.](Bitnami-Installers)
+* [Install the open source code from GitHub on Mac OS X, CentOS Linux, Red Hat Linux, Debian Linux, Ubuntu Linux, and Microsoft Windows.](Install-From-GitHub)
+
+Bitnami [hosts DreamFactory on Amazon EC2](Paid-Hosting) if you don't want to install DreamFactory yourself.
+
+We also provide a free hosted sandbox version of DreamFactory available at our website 
+<a href="http://www.dreamfactory.com">www.dreamfactory.com</a>.
