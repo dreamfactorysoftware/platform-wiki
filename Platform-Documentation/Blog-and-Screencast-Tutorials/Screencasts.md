@@ -32,5 +32,5 @@ Here's a list of screencast tutorials about DreamFactory, and how to use DreamFa
 
 ### Webinars and Live Events
 
-* [2014 O'Reilly Fluent Conference - The Big Shift From Web Pages to RESTful Apps](https://www.youtube.com/embed/K9kUzuNsNIs)
-* [Mar 2014 AngularJS Meetup at Google - AngularJS + REST Made Simple: Connecting AngularJS to a Backend with REST & JSON](https://www.youtube.com/embed/aGHzqwQU06g)
+* [O'Reilly Fluent Conference - The Big Shift From Web Pages to RESTful Apps](https://www.youtube.com/embed/K9kUzuNsNIs)
+* [AngularJS Meetup at Google - AngularJS + REST Made Simple](https://www.youtube.com/embed/aGHzqwQU06g)
