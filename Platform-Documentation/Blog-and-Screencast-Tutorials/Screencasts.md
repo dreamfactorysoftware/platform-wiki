@@ -1,4 +1,4 @@
-The following is a list of screencast tutorials about DreamFactory, and how to use DreamFactory.
+Here's a list of screencast tutorials about DreamFactory, and how to use DreamFactory. All these videos are on our [YouTube channel](https://www.youtube.com/user/dreamfactorysoftware/playlists).
 
 ### Overview 
 
@@ -16,7 +16,11 @@ The following is a list of screencast tutorials about DreamFactory, and how to u
  
 * [Getting Started with Native Apps (iOS, Android, Windows Mobile)](http://www.dreamfactory.com/developers/screencasts#nativequick)
 
-### "How To" Tutorials
+### 2-Minute Tutorials
+
+
+
+### Extended Tutorials
 
 * [Add a REST API to Your Own SQL Database](http://www.dreamfactory.com/developers/screencasts#remotesql)
 * [Install DreamFactory on AWS and Create a REST API for S3 and DynamoDB](http://www.dreamfactory.com/developers/screencasts#installaws)
