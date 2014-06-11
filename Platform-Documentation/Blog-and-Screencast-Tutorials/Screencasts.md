@@ -2,9 +2,9 @@ Here's a list of screencast tutorials about DreamFactory, and how to use DreamFa
 
 ### Overview 
 
-* [What Is DreamFactory?](http://www.dreamfactory.com/developers/screencasts#whatisdf)
-* [Getting Started with the DreamFactory Admin Console](http://www.dreamfactory.com/developers/screencasts#adminconsole)
-* [Avoiding Backend Lock-In](http://www.dreamfactory.com/developers/screencasts#avoidlockin)
+* [What Is DreamFactory?](https://www.youtube.com/embed/EmfUwV0aGd4?vq=hd720)
+* [Getting Started with the DreamFactory Admin Console](https://www.youtube.com/embed/SRtAZ7Rt4A8?vq=hd720)
+* [Avoiding Backend Lock-In](https://www.youtube.com/embed/JGiTltbiLgs?vq=hd720)
 
 ### Javascript QuickStart
 
