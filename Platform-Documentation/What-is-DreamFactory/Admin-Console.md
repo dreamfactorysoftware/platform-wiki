@@ -1,6 +1,6 @@
 The Admin Console is a browser-based user interface for configuring backend assets in DreamFactory. "Backend assets" comprise everything a software developer must configure on the backend within DreamFactory in order for a frontend application to properly function. 
 
-A frontend application simply makes REST API calls (or SOAP calls) to DreamFactory. DreamFactory then returns JSON documents (or XML documents) to the frontend application. All of the APIs are defined, documented, and viewed interactively inside the Admin Console. 
+A frontend application simply makes REST API calls to DreamFactory. DreamFactory then returns JSON documents (or XML documents) to the frontend application. All of the APIs are defined, documented, and viewed interactively inside the Admin Console. 
 
 The Admin Console is also important for securing your applications. Each end user of an application is associated with a single role. Each role governs the set of applications, REST APIs, and data that users of the role can access. When a user authenticates, the user gets a session token, and can only access those backend assets granted by the assigned role. 
 
