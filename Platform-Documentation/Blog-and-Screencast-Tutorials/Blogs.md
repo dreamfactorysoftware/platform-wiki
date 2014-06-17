@@ -66,6 +66,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 * [Add a REST API to any SQL DB in Minutes](http://blog.dreamfactory.com/add-a-rest-api-to-any-sql-db-in-minutes)
 * [SQL and REST - Working with Related Data](http://blog.dreamfactory.com/sql-and-rest-working-with-related-data)
 * [Demo - How to Make Relationship Queries with DreamFactory’s REST API](http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API)
+* [The Enterprise-Grade REST API for SQL](http://blog.dreamfactory.com/an-enterprise-grade-rest-api-for-sql)
 
 ### NoSQL Databases
 
