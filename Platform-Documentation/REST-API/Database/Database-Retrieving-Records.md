@@ -1,5 +1,5 @@
 The following operations are typically available for all DreamFactory Database Services.
-The examples given below use a single simple identifier field named "id" which is in this case an auto-incrementing primary key, this may not be the case for all tables or all database service types. Refer to the specifics of your database type documented in other pages in this section.
+The examples given below use a single simple identifier field named "id" which is, in this case, an auto-incrementing primary key, this may not be the case for all tables or all database service types. Refer to the specifics of your database type documented in other pages in this section.
 
 * [by Old or Partial Records](#get-records)
 * [by Filter](#get-filter)

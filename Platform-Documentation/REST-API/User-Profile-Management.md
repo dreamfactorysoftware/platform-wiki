@@ -10,7 +10,7 @@ The user service is responsible for session management and profile and password 
 
 
 
- Session
+***Session
 The session allows a user to access the system. All communication with the provisioned services are done while in a valid session. Only authentication resources (login and challenge) are allowed without a valid session.
 
  To Login

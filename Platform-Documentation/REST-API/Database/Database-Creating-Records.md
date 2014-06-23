@@ -5,26 +5,10 @@ The following operations are typically available for creating records on all Dre
 
 Description: Create one or more new records for a db table.
 
+URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
+
 #### Request
 
-HTTP Method: **POST**
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`fields` | No | Comma-delimited list of fields to return in response. If this parameter is empty or missing, only the primary key(s) are returned. ‘*’ returns all viewable fields.
-`id_field` | No | Single or comma-delimited list of the fields used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned.
-`id_type` | No | Single or comma-delimited list of the field types used as identifiers for the table, used to override defaults or provide identifiers when none are provisioned.
-`continue` | No | In batch scenarios, where supported, continue processing even after one record fails. Default behavior is to halt and return results up to the first point of failure.
-`rollback` | No | In batch scenarios, where supported, rollback all changes if any record of the batch fails. Default behavior is to halt and return results up to the first point of failure, leaving any changes.
-
-
-Sample JSON Request
 
 > POST http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?fields=first_name%2Clast_name HTTP/1.1
 
@@ -56,8 +40,6 @@ Sample JSON Request
 
 #### Response
 
-
-Sample JSON Response
 
 > HTTP/1.1 200 OK
 
@@ -99,21 +81,10 @@ Sample JSON Response
 
 Description: Create a new record for a db table, without using the batching notation ('record' wrapper).
 
-#### Request 
+URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
-HTTP Method: **POST**
+#### Request
 
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`fields` | No | Comma-delimited list of fields to return in response. If this parameter is empty or missing, only the primary key(s) are returned. ‘*’ returns all viewable fields.
-
-Sample JSON Request
 
 > POST http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?fields=first_name%2Clast_name HTTP/1.1
 
@@ -133,20 +104,14 @@ Sample JSON Request
 
 ```javascript
 {
-  "record": [
-    {
-      "first_name": "Joe",
-      "last_name": "Smith"
-    }
-  ]
+  "first_name": "Joe",
+  "last_name": "Smith"
 }
 ```
 
 
 #### Response
 
-
-Sample JSON Response
 
 > HTTP/1.1 200 OK
 
@@ -174,13 +139,9 @@ Sample JSON Response
 
 ```javascript
 {
-  "record": [
-    {
-      "first_name": "Joe",
-      "last_name": "Smith",
-      "id": "1"
-    }
-  ]
+  "first_name": "Joe",
+  "last_name": "Smith",
+  "id": "1"
 }
 ```
 
