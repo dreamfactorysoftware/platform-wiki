@@ -3,14 +3,18 @@ The following operations are typically available for creating records on all Dre
 ## Multiple Records
 
 
-Description: Create one or more new records for a db table.
+Description: Create one or more new records for a db table. Server-side lookups may be used as field values, and will be replaced on the server with the correct lookup value.
+
+* without lookups => { "name": "my new task", "complete": false }
+* with lookups => { "name": "my new task", "complete": "{lookup_name}" }
+
 
 URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 #### Request
 
 
-> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?fields=first_name%2Clast_name HTTP/1.1
+> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/todo HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -20,7 +24,7 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 > Content-Type: application/json; charset=UTF-8
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Content-Length: 72
 
@@ -30,8 +34,8 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 {
   "record": [
     {
-      "first_name": "Joe",
-      "last_name": "Smith"
+      "name": "Test my cool app",
+      "complete": "{lookup_name}"
     }
   ]
 }
@@ -43,25 +47,7 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 > HTTP/1.1 200 OK
 
-> Date: Wed, 26 Dec 2012 20:49:11 GMT
-
-> Server: Apache
-
-> X-Powered-By: PHP/5.3.10-1ubuntu3.4
-
-> Expires: Thu, 19 Nov 1981 08:52:00 GMT
-
-> Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-
-> Pragma: no-cache
-
-> Vary: Accept-Encoding
-
 > Content-Length: 69
-
-> Keep-Alive: timeout=5, max=100
-
-> Connection: Keep-Alive
 
 > Content-Type: application/json
 
@@ -69,9 +55,7 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 {
   "record": [
     {
-      "first_name": "Joe",
-      "last_name": "Smith",
-      "id": "1"
+      "id": "3"
     }
   ]
 }
@@ -80,13 +64,14 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 ## Single Record
 
 Description: Create a new record for a db table, without using the batching notation ('record' wrapper).
+Notice that if no wrapper is used in the request, only a single record is allowed, and only a single record response will be returned without a wrapper.
 
 URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 #### Request
 
 
-> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/contact?fields=first_name%2Clast_name HTTP/1.1
+> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/todo HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -96,7 +81,7 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 > Content-Type: application/json; charset=UTF-8
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Content-Length: 72
 
@@ -104,8 +89,8 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 ```javascript
 {
-  "first_name": "Joe",
-  "last_name": "Smith"
+  "name": "Test my cool app",
+  "complete": false
 }
 ```
 
@@ -115,32 +100,12 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 > HTTP/1.1 200 OK
 
-> Date: Wed, 26 Dec 2012 20:49:11 GMT
-
-> Server: Apache
-
-> X-Powered-By: PHP/5.3.10-1ubuntu3.4
-
-> Expires: Thu, 19 Nov 1981 08:52:00 GMT
-
-> Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-
-> Pragma: no-cache
-
-> Vary: Accept-Encoding
-
 > Content-Length: 69
-
-> Keep-Alive: timeout=5, max=100
-
-> Connection: Keep-Alive
 
 > Content-Type: application/json
 
 ```javascript
 {
-  "first_name": "Joe",
-  "last_name": "Smith",
   "id": "1"
 }
 ```

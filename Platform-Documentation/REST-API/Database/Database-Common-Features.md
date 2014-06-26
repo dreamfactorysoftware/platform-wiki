@@ -100,10 +100,12 @@ In batch scenarios, where supported, rollback all changes if any record of the b
 
 
 ### [Retrieving Records](Database-Retrieving-Records)
-  * [by Old or Partial Records](Database-Retrieving-Records#get-records)
   * [by Filter](Database-Retrieving-Records#get-filter)
   * [by List of Identifiers](Database-Retrieving-Records#get-ids)
   * [by a Single Identifier](Database-Retrieving-Records#get-id)
+  * [by Posting Partial Records](Database-Retrieving-Records#get-records)
+  * [by Posting a Filter with Replacement Parameters](Database-Retrieving-Records#get-post-filter)
+  * [by Posting Ids](Database-Retrieving-Records#get-post-ids)
 
 
 ### [Creating Records](Database-Creating-Records)
