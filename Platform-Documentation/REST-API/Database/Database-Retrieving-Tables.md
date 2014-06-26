@@ -24,7 +24,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getResources
 
 > Accept-Encoding: gzip, deflate
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
@@ -88,7 +88,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables_ge
 
 > Accept-Encoding: gzip, deflate
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
