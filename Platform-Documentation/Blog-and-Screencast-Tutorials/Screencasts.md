@@ -1,27 +1,36 @@
-The following is a list of screencast tutorials about DreamFactory, and how to use DreamFactory.
+Here's a list of screencast tutorials about DreamFactory, and how to use DreamFactory. All these videos are on our [YouTube channel](https://www.youtube.com/user/dreamfactorysoftware/playlists).
 
 ### Overview 
 
-* [What Is DreamFactory?](http://www.dreamfactory.com/developers/screencasts#whatisdf)
-* [Getting Started with the DreamFactory Admin Console](http://www.dreamfactory.com/developers/screencasts#adminconsole)
-* [Avoiding Backend Lock-In](http://www.dreamfactory.com/developers/screencasts#avoidlockin)
+* [What Is DreamFactory?](https://www.youtube.com/embed/EmfUwV0aGd4?vq=hd720)
+* [Getting Started with the DreamFactory Admin Console](https://www.youtube.com/embed/SRtAZ7Rt4A8?vq=hd720)
+* [Avoiding Backend Lock-In](https://www.youtube.com/embed/JGiTltbiLgs?vq=hd720)
 
 ### Javascript QuickStart
 
-* [Getting Started with the Javascript SDK](http://www.dreamfactory.com/developers/screencasts#javascriptsdk)
-* [Developing Locally on the Desktop with the Javascript SDK](http://www.dreamfactory.com/developers/screencasts#desktopquick)
-* [Developing in the Web Browser with the Javascript SDK](http://www.dreamfactory.com/developers/screencasts#browserquick)
+* [Getting Started with the Javascript SDK](https://www.youtube.com/embed/T6Q8KhOZ3Gw?vq=hd720)
+* [Developing Locally on the Desktop with the Javascript SDK](https://www.youtube.com/embed/HssvT7bzaJs?vq=hd720)
+* [Developing in the Web Browser with the Javascript SDK](https://www.youtube.com/embed/ko_1dIkj2Bo?vq=hd720)
 
 ### Native Mobile QuickStart
  
-* [Getting Started with Native Apps (iOS, Android, Windows Mobile)](http://www.dreamfactory.com/developers/screencasts#nativequick)
+* [Getting Started with Native Apps (iOS, Android, Windows Mobile)](https://www.youtube.com/embed/Dg9ZF6I_-gc?vq=hd720)
 
-### "How To" Tutorials
+### 2-Minute Tutorials
 
-* [Add a REST API to Your Own SQL Database](http://www.dreamfactory.com/developers/screencasts#remotesql)
-* [Install DreamFactory on AWS and Create a REST API for S3 and DynamoDB](http://www.dreamfactory.com/developers/screencasts#installaws)
-* [Build a RESTful To Do List App with MySQL](http://www.dreamfactory.com/developers/screencasts#buildsql)
-* [Build a RESTful To Do List App with MongoDB](http://www.dreamfactory.com/developers/screencasts#buildmongo)
-* [Build a RESTful To Do List App with Amazon DynamoDB](http://www.dreamfactory.com/developers/screencasts#builddynamodb)
-* [Build a RESTful Account List App with Salesforce](http://www.dreamfactory.com/developers/screencasts#buildsfdc)
+[This playlist on YouTube](https://www.youtube.com/playlist?list=PL2nQn3mpqAp6GKFAab0HROrZXZHeXMdPh) has a bunch of useful 2-minute tutorials on how to use DreamFactory.
 
+### Extended Tutorials
+
+* [Add a REST API to Your Own SQL Database](https://www.youtube.com/embed/0S4EtXsyGHU?vq=hd720)
+* [Install DreamFactory on AWS and Create a REST API for S3 and DynamoDB](https://www.youtube.com/embed/HqBJl62MKmY?vq=hd720)
+* [Build a RESTful To Do List App with MySQL](https://www.youtube.com/embed/C07KOLuNwxQ?vq=hd720)
+* [Build a RESTful To Do List App with MongoDB](https://www.youtube.com/embed/1In7dtbyUO8?vq=hd720)
+* [Build a RESTful To Do List App with Amazon DynamoDB](https://www.youtube.com/embed/Rn91F__CfUo?vq=hd720)
+* [Build a RESTful Account List App with Salesforce.com](https://www.youtube.com/embed/IyqNPeLeo50?vq=hd720)
+* [Mobilize Your Salesforce.com Data](https://www.youtube.com/embed/gbDXAm7ZVvE?vq=hd720)
+
+### Webinars and Live Events
+
+* [O'Reilly Fluent Conference - The Big Shift From Web Pages to RESTful Apps](https://www.youtube.com/embed/K9kUzuNsNIs)
+* [AngularJS Meetup at Google - AngularJS + REST Made Simple](https://www.youtube.com/embed/aGHzqwQU06g)

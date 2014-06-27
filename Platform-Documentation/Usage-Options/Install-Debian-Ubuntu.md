@@ -165,6 +165,11 @@ $ sudo a2enmod rewrite
 ```bash
 $ sudo chmod 775 /opt/dreamfactory/platform/web/assets/
 ```
+Enable mcrypt
+
+```bash
+$ sudo php5enmod mcrypt
+```
 
 Restart the apache server
 

@@ -10,7 +10,7 @@ with the following breakdown for each part...
 
 * **_rest-verb_** - The typical REST HTTP verbs like GET, POST, PUT, DELETE. We have also added support for PATCH or MERGE. In certain services, HEAD and OPTIONS verbs may be supported as well. We also support HTTP verb tunnelling discussed in more detail [here](Common-Headers-Parameters).
 * **_dsp-server-name_** - Our hosted DSP name, localhost, your specific server name or IP, etc.
-* **rest** - This is static name for accessing the REST API. Performing a **GET** here returns an array of available services.
+* **rest** - This is static name for accessing the REST API. Performing a **GET** here returns an array of available services when permissions allow.
 * **_service-api-name_** - The API name (api_name - different than the name used for listing in the admin console) of the service you want to access. Performing a GET here on most of the native services will return an array of available resources.
 * **_resource-path_** - The optional resource of the service. This path may include multiple sections divided by '/' as such to define the resource.
 * **_param-name_** and **_param-value_** - See Common Headers and Parameters or each specific service type for allowed URL parameters for each REST call.

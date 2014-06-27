@@ -6,11 +6,11 @@ The following features are typically available for all DreamFactory Database Ser
 
 Most native services of the DSP will return a list of resources if a REST GET request is sent to the root url of that service. Database services are no different. This list of resources for database services is the list of tables available for use on the service, restricted by user role if applicable.
 
-Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getResources_get_0) to see this in action in our [Live API](Admin-Console-api-sdk).
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getResources) to see this in action in our [Live API](Admin-Console-api-sdk).
 
 An additional operation is also provided to retrieve specific details about a requested set of tables. In SQL databases, this will also include our schema listing for each table. For other databases, the properties are database type dependent and vary.
 
-Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables_get_1) to see this in action in our [Live API](Admin-Console-api-sdk).
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables) to see this in action in our [Live API](Admin-Console-api-sdk).
 
 
 ## Record Operations
@@ -45,7 +45,7 @@ or this...
 ####  <a name="fields"></a>Selecting Returned Fields
 
 * `fields`
-The list of fields to return in response. If this parameter is ‘*’, or missing on a retrieve (GET) request, all field values will be returned. If it is missing or set to empty (‘’), just the primary key field(s) values will be returned. Can be used on all record operations to return the latest field values, when used on a DELETE request, it returns the values from the record before the deletion.
+The list of fields to return in response. If this parameter is ‘*’, or missing on a retrieve (GET) request, all field values will be returned. If it is missing or set to empty (‘’), just the primary key field(s) values will be returned. It can be used on all record operations to return the latest field values. When used on a DELETE request, it returns the values from the record before the deletion.
 
 
 #### <a name="identifiers"></a>Identifying Records
@@ -100,10 +100,12 @@ In batch scenarios, where supported, rollback all changes if any record of the b
 
 
 ### [Retrieving Records](Database-Retrieving-Records)
-  * [by Old or Partial Records](Database-Retrieving-Records#get-records)
   * [by Filter](Database-Retrieving-Records#get-filter)
   * [by List of Identifiers](Database-Retrieving-Records#get-ids)
   * [by a Single Identifier](Database-Retrieving-Records#get-id)
+  * [by Posting Partial Records](Database-Retrieving-Records#get-records)
+  * [by Posting a Filter with Replacement Parameters](Database-Retrieving-Records#get-post-filter)
+  * [by Posting Ids](Database-Retrieving-Records#get-post-ids)
 
 
 ### [Creating Records](Database-Creating-Records)

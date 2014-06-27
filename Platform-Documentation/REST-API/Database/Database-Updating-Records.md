@@ -21,21 +21,6 @@ Headers: No additional headers required, See [Common Headers and Parameters](Com
 
 URI: http://<server_name>/rest/db/<tablename>/<Id>
 
-URI Parameters:
-
-Parameter Name
-Description
-format
-Optional. xml or json, default is json.
-ids
-Required when no id specified in base url. Comma-delimited list of ids to delete, must be url-encoded. If this parameter is required and is empty or missing an error will be returned.
-fields
-Optional. Comma-delimited list of fields to return in response, must be url-encoded. Empty or missing returns the primary key(s). ‘*’ returns all viewable fields.
-
-
-Sample JSON Request
-
-
 
 POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/2 HTTP/1.1
 Accept: application/json, text/javascript, */*; q=0.01
@@ -49,9 +34,6 @@ Request Body: None
 
 
 #### Response
-
-Sample JSON Response
-
 
 
 HTTP/1.1 200 OK
