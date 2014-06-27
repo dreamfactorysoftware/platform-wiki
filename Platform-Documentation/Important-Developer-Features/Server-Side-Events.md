@@ -205,7 +205,7 @@ To register a listener for an event, you must use one of the following methods:
   * Use the `on()` method of the DSP's main application instance:
 
 ```php
-	Pii::app()->on(
+	Platform::on(
 		'user.session.delete',
 		function( $event, $eventName, $dispatcher )
 		{
@@ -213,7 +213,7 @@ To register a listener for an event, you must use one of the following methods:
 		}
 	);
 
-	Pii::app()->on(
+	Platform::on(
 		'my.private.event',
 		function( $event, $eventName, $dispatcher )
 		{
@@ -245,7 +245,6 @@ namespace DreamFactory\Samples\Events;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use DreamFactory\Platform\Events\EventDispatcher;
 use DreamFactory\Platform\Events\RestServiceEvent;
-use DreamFactory\Yii\Utility\Pii;
 
 /**
  * SessionEventSubscriber.php
