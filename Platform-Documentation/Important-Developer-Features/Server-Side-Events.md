@@ -56,14 +56,6 @@ Logging events should be disabled in production unless you're troubleshooting so
  [2014-06-24 10:49:52] app.DEBUG: Triggered: "system.user.get.post_process" by rest/system/user [] []
 ```
 
-## Listener Priority
-
-While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called.
-
-### Scripts and Propagation
-
-Event scripts can halt propagation to future listeners as well. Setting the `event.stop_propagation` property to **true** will halt propagation of the event immediately upon return from the script.
-
 ## Event Representation
 
 All events are normalized down to a single **container** which is then passed to all the listeners. PHP listeners will receive this as an array. Scripts will receive this as a native object. All others get arrays of data. 
@@ -102,21 +94,11 @@ In `event.request` you will find all the components of the original HTTP request
 Any changes to this data will overwrite existing data in the response, before further listeners are called and/or the request completes.
 
 ### event.response
-In `event.response` object contains the data being sent back to the client from the request. This data generally only available/relevant on **post_process** and GET events. Other events may produce a response but you probably won't need to modify it.
+In `event.response` object contains the data being sent back to the client from the request. This data generally only available/relevant on **post_process** and GET events. Other events may produce a response but you probably won't need to modify it. The layout/format of the response varies by call.
    
 Just like `event.request`, any changes to `event.response` will overwrite existing data in the response, before it is sent back to the client. 
 
-|Property|Type|Description|
-|--------|-----------|----|
-| `method` | string | The HTTP method of the request (i.e. GET, POST, PUT) |
-| `headers` | array | The HTTP headers from the request|
-| `cookies` | array | Any cookies sent with the HTTP request|
-| `query` | array | An array of query string parameters received with the request|
-| `body` | object | The body (POST/PUT body) of the request converted to an object |
-| `files` | array | Any file upload information received |
-
 ### event.platform
-
 This object provides information about the platform configuration, the current session, and access to the REST API via **inline** calls. This make DSP requests directly without requiring an HTTP call. This object is only available in server-side scripts.
 
 | Field | Type | Description |
@@ -127,8 +109,15 @@ This object provides information about the platform configuration, the current s
 
 More information about `platform.api` is available on the [[Scripting API Access|Scripting-Api-Access]] page.
 
-## Event Types
+### Listener Priority
 
+While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called.
+
+#### Scripts and Propagation
+
+Event scripts can halt propagation to future listeners as well. Setting the `event.stop_propagation` property to **true** will halt propagation of the event immediately upon return from the script.
+
+## Event Types
 There are three categories of events:
 
   * REST Events
