@@ -19,28 +19,41 @@ Event logging can be affected by changing the values in `config/common.config.ph
 | Setting | Values |
 |---------|--------|
 | `dsp.enable_event_observers` | If **true** (default), event observation is allowed. |
-| `dsp.enable_rest_events` | If **true** (default), REST events will be fired. |
 | `dsp.enable_platform_events` | If **true** (default), platform events will be fired. |
+| `dsp.enable_rest_events` | If **true** (default), REST events will be fired. |
 | `dsp.enable_event_scripts` | If **true** (default), event scripts will be run. |
 | `dsp.enable_user_scripts` | If **false** (default), user scripts will **not** be run. |
 | `dsp.log_events` | If **true**, only after an event has been *dispatched*, is it logged. |
 | `dsp.log_all_events` | If **true**, when an event is triggered, it is written to the DSP log. This trumps the `dsp.log_events` setting. |
-
+| `dsp.log_script_memory_usage` | If **true**, the script engine will report memory usage and other useful debug information. |
+        
 Logging events should be disabled in production unless you're troubleshooting something. Below is a sampling of the all events logged.
 
 ```
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.pre_process" triggered by /system/config [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.read" triggered by /system/config [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.post_process" triggered by /system/config [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "config.get.after_data_format" triggered by /system/config [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.pre_process" triggered by /user/session [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.read" triggered by /user/session [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.post_process" triggered by /user/session [] []
-[2014-03-14 11:17:32] app.DEBUG: Triggered: event "session.get.after_data_format" triggered by /user/session [] []
-[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.pre_process" triggered by /system/service/ [] []
-[2014-03-14 11:17:33] app.DEBUG: Triggered: event "services.list" triggered by /system/service/ [] []
-[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.post_process" triggered by /system/service/ [] []
-[2014-03-14 11:17:33] app.DEBUG: Triggered: event "service.get.after_data_format" triggered by /system/service/ [] []
+ [2014-06-24 10:49:44] app.DEBUG: Triggered: "system.config.get.pre_process" by rest/system/config [] []
+ [2014-06-24 10:49:44] app.DEBUG: Triggered: "system.config.read" by rest/system/config [] []
+ [2014-06-24 10:49:44] app.DEBUG: Triggered: "system.config.get.post_process" by rest/system/config [] []
+ [2014-06-24 10:49:44] app.DEBUG: Triggered: "user.session.get.pre_process" by rest/user/session [] []
+ [2014-06-24 10:49:45] app.DEBUG: Triggered: "user.session.read" by rest/user/session [] []
+ [2014-06-24 10:49:45] app.DEBUG: Triggered: "user.session.get.post_process" by rest/user/session [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.config.get.pre_process" by rest/system/config [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.config.read" by rest/system/config [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.config.get.post_process" by rest/system/config [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.service.get.pre_process" by rest/system/service [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.services.list" by rest/system/service [] []
+ [2014-06-24 10:49:46] app.DEBUG: Triggered: "system.service.get.post_process" by rest/system/service [] []
+ [2014-06-24 10:49:50] app.DEBUG: Triggered: "system.app.get.pre_process" by rest/system/app [] []
+ [2014-06-24 10:49:50] app.DEBUG: Triggered: "system.apps.list" by rest/system/app [] []
+ [2014-06-24 10:49:50] app.DEBUG: Triggered: "system.app.get.post_process" by rest/system/app [] []
+ [2014-06-24 10:49:50] app.DEBUG: Triggered: "system.role.get.pre_process" by rest/system/role [] []
+ [2014-06-24 10:49:51] app.DEBUG: Triggered: "system.roles.list" by rest/system/role [] []
+ [2014-06-24 10:49:51] app.DEBUG: Triggered: "system.role.get.post_process" by rest/system/role [] []
+ [2014-06-24 10:49:51] app.DEBUG: Triggered: "system.service.get.pre_process" by rest/system/service [] []
+ [2014-06-24 10:49:51] app.DEBUG: Triggered: "system.services.list" by rest/system/service [] []
+ [2014-06-24 10:49:51] app.DEBUG: Triggered: "system.service.get.post_process" by rest/system/service [] []
+ [2014-06-24 10:49:52] app.DEBUG: Triggered: "system.user.get.pre_process" by rest/system/user [] []
+ [2014-06-24 10:49:52] app.DEBUG: Triggered: "system.users.list" by rest/system/user [] []
+ [2014-06-24 10:49:52] app.DEBUG: Triggered: "system.user.get.post_process" by rest/system/user [] []
 ```
 
 ## Listener Priority
@@ -55,40 +68,52 @@ Event scripts can halt propagation to future listeners as well. Setting the `eve
 
 All events are normalized down to a single **container** which is then passed to all the listeners. PHP listeners will receive this as an array. Scripts will receive this as a native object. All others get arrays of data. 
 
-This container is defined as follows:
+This container properties are defined as follows:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_meta` | object | Contains event meta-data |
-| `record` | array | The payload of the request, or the response on a **GET** |
-| `meta` | array | Any meta-data associated with the request |
-| `payload` | object | The non-normalized payload of the request |
-| `payload_changed` | boolean | If a listener has changed the payload, this flag should be set to **true** |
-| `platform` | object | Contains information about the session and the DSP |
+|Property|Type|Description|
+|--------|-----------|----|
+| `id` | string | A unique event ID |
+| `name` |string| The name of the event |
+| `timestamp` |string| The time and date of this event |
+| `request_path` |string| The inbound HTTP path that triggered this event |
+| `trigger` |string| The inbound REST API call that triggered this event |
+| `stop_propagation` |boolean| Set this to **true** to halt propagation of the event to downstream listeners |
+| `dispatcher_id` | string|The ID of the dispatcher |
+| `dispatcher_type` | string|The dispatcher's type |
+| `extra` | array|Any extra relevant data sent by the triggerer |
+| `request` | object|An object representing the inbound REST API call |
+| `response` | object|An object containing the response to an inbound REST API call |
+| `platform.api` |object|An object with methods to make in-line REST API calls|
+| `platform.config` |array|The configuration of the DSP|
+| `platform.session` |array|The session of the current user|
 
-### event._meta
+### event.request
+In `event.request` you will find all the components of the original HTTP request.
 
-This contains information about the event and dispatcher.
+|Property|Type|Description|
+|--------|-----------|----|
+| `method` | string | The HTTP method of the request (i.e. GET, POST, PUT) |
+| `headers` | array | The HTTP headers from the request|
+| `cookies` | array | Any cookies sent with the HTTP request|
+| `query` | array | An array of query string parameters received with the request|
+| `body` | object | The body (POST/PUT body) of the request converted to an object |
+| `files` | array | Any file upload information received |
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_meta.id` | string | A unique event ID |
-| `_meta.name` | string | The event name |
-| `_meta.timestamp` | string | The timestamp of the request |
-| `_meta.trigger` | string | The REST call that triggered this event |
-| `_meta.request_path` | string | The path of the REST call |
-| `_meta.stop_propagation` | boolean | Set this to **true** to halt propagation of the event to downstream listeners |
-| `_meta.dispatcher_id` | string | The dispatcher's ID |
-| `_meta.dispatcher_type` | string | The dispatcher's type |
-| `_meta.extra` | array | Any extra relevant data sent by the triggerer |
+Any changes to this data will overwrite existing data in the response, before further listeners are called and/or the request completes.
 
-### event.record & event.payload
+### event.response
+In `event.response` object contains the data being sent back to the client from the request. This data generally only available/relevant on **post_process** and GET events. Other events may produce a response but you probably won't need to modify it.
+   
+Just like `event.request`, any changes to `event.response` will overwrite existing data in the response, before it is sent back to the client. 
 
-`event.record` contains a normalized array of record-type data. The REST API currently allows for various methods of passing data into the DSP. To alleviate any necessity to determine the structure of the payload, it is normalized into an array of records. 
-
-> The allowance of multiple formats of inbound data is considered deprecated and will be removed in the 2.0 release of the DSP. All data-type requests will be required to pass an array of records, even for single rows.
-
-`event.payload` contains a copy of the request/response data as it was received. It is not normalized in any way.
+|Property|Type|Description|
+|--------|-----------|----|
+| `method` | string | The HTTP method of the request (i.e. GET, POST, PUT) |
+| `headers` | array | The HTTP headers from the request|
+| `cookies` | array | Any cookies sent with the HTTP request|
+| `query` | array | An array of query string parameters received with the request|
+| `body` | object | The body (POST/PUT body) of the request converted to an object |
+| `files` | array | Any file upload information received |
 
 ### event.platform
 
@@ -99,8 +124,6 @@ This object provides information about the platform configuration, the current s
 | `platform.api` | object | An object that allows access to the DSP's REST API |
 | `platform.config` | object | The current configuration of the DSP |
 | `platform.session` | object | The current session information |
-
-> This is **beta documentation**. More (or less) events may be available in the future. 
 
 More information about `platform.api` is available on the [[Scripting API Access|Scripting-Api-Access]] page.
 
@@ -116,7 +139,7 @@ The entire event model is generated dynamically at run time. It is defined in th
 
 ### REST Events
 
-REST events are dynamically generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where `service` is the API name of the service called; `method` is the HTTP method to said service; and event is either `pre_process`, `post_process`, and `after_data_format`. It closely maps to the requested URI.
+REST events are dynamically generated automatically by inbound REST calls to the server. The format of these event names is `service.method.event` where `service` is the API name of the service called; `method` is the HTTP method to said service; and event is either `pre_process` or `post_process`. It closely maps to the requested URI.
 
 Some examples are:
 
