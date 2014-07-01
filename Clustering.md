@@ -1,10 +1,10 @@
 ## Hardware Setup
 1. Created two EC2 t2.micro instances.
 
-| Instance ID | Public IP | Name |
-|-------------|-----------|------|
-| i-30a8c71b | 54.84.133.89 | [abbott.cloud.dreamfactory.com](https://abbott.cloud.dreamfactory.com/) |
-| i-31a8c71a | 54.88.140.165 | [costello.cloud.dreamfactory.com](https://constello.cloud.dreamfactory.com/) |
+| Instance ID | Public IP | Name | MySQL ID |
+|-------------|-----------|------| --------------- |
+| i-30a8c71b | 54.84.133.89 | [abbott.cloud.dreamfactory.com](https://abbott.cloud.dreamfactory.com/) | 1 |
+| i-31a8c71a | 54.88.140.165 | [costello.cloud.dreamfactory.com](https://constello.cloud.dreamfactory.com/) | 2|
 
 2. DSP adminstrator setup: Created **dfadmin** user and added to same groups as **ubuntu**
 3. Updated all system software
@@ -13,3 +13,18 @@
  * apt-get install php5 apache2 mysql-server git-all bash-completion git-flow
 5. Installed required PHP extensions
  * apt-get install php5-curl php5-mcrypt mcrypt
+
+### Database Configuration
+The standard MySQL distribution/install is being used for this demonstration. The configuration file `/etc/mysql/my.cnf` was changed to reflect the correct server number for clustering. `abbott` was assigned #1 and `costello` was assigned #2.
+
+Abbott:
+
+```mysql
+server-id = 1
+```
+
+Costello: 
+
+```mysql
+server-id = 2
+```
