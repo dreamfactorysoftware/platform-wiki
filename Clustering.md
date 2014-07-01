@@ -28,3 +28,14 @@ Costello:
 ```mysql
 server-id = 2
 ```
+
+#### Defaults
+On `abbott`, the DSP database and user were created:
+
+```mysql
+mysql> create database dreamfactory;
+mysql> grant all privileges on dreamfactory.* to 'dsp_user'@'localhost' identified by 'dsp_user';
+```
+
+#### Setting Up Replication
+Now that both databases are up and the master (#1) is configured and has the dreamfactory database and the dsp_user, we can set up replication to our slave (#2).
