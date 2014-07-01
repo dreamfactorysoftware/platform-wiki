@@ -8,3 +8,5 @@
 
 2. DSP adminstrator setup: Created **dfadmin** user and added to same groups as **ubuntu**
 3. Updated all system software
+ * apt-get update && apt-get upgrade
+ * apt-get install php5 apache2 mysql-server git-all bash-completion git-flow
