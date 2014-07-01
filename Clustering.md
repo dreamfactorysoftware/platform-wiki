@@ -29,7 +29,7 @@ Costello:
 server-id = 2
 ```
 
-#### Defaults
+#### Create Database and User
 On `abbott`, the DSP database and user were created:
 
 ```mysql
