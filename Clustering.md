@@ -39,3 +39,9 @@ mysql> grant all privileges on dreamfactory.* to 'dsp_user'@'localhost' identifi
 
 #### Setting Up Replication
 Now that both databases are up and the master (#1) is configured and has the dreamfactory database and the dsp_user, we can set up replication to our slave (#2).
+
+## DSP Setup
+
+## Name Server Setup
+
+## Testing
