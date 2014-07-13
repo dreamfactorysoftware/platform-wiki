@@ -2,7 +2,7 @@
 
 # Versions 1.6.x
 
-## v1.6.11-dev (Released Date TBD)
+## v1.6.x (Released Date TBD)
 * Support for stored procedures in role service access
 * Consolidation of all platform caches down to a single cache stored in /storage/.private/app.store
 * Added new optional [memcached](http://memcached.org/) support. If memcached is detected, and running, it will be used for the platform cache instead of the file system.
@@ -20,8 +20,7 @@
 * web/admin/js/app.js: added type ids for schema
 * Added pre and post process event support for Schema and File services 
 
-## v1.6.1 (Release 2014-06-24)
-## v1.6.1 (Release 2014-06-24)
+## v1.6.10 (Release 2014-06-24)
 ###Fixes
 * Pull Common library DataFormat class to this library as DataFormatter and fix csv file ending detection. Update references.
 
