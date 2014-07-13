@@ -1,5 +1,60 @@
-# DreamFactory Services Platform&trade; Change Log
+# DreamFactory Services Platform&trade; Release/Change Log
 
+# Versions 1.6.x
+
+## v1.6.11-dev (Released Date TBD)
+* Support for stored procedures in role service access
+* Consolidation of all platform caches down to a single cache stored in /storage/.private/app.store
+* Added new optional [memcached](http://memcached.org/) support. If memcached is detected, and running, it will be used for the platform cache instead of the file system.
+ * Requires `memcached` and PHP `memcached` extension: `$ sudo apt-get install memcached php5-memcached`
+* Added `/web/config` route for `phpinfo()` output to admin.  
+* Removed `dsp.use_memcached` flag and servers from composer.json.
+* `memcache/d` has own config file now (see `/config/memcached.config.php-dist`).  
+* Launchpad refactorings  
+* config for app store
+* Update Admin Data
+ * Fix table row btn bar from breaking
+ * Add related child system table parse for service.
+ * Update Admin Config and AppGroups. Add bottom bar UI btns
+* Cleaned up debug on/off in index.php.
+* web/admin/js/app.js: added type ids for schema
+* Added pre and post process event support for Schema and File services 
+
+## v1.6.1 (Release 2014-06-24)
+## v1.6.1 (Release 2014-06-24)
+###Fixes
+* Pull Common library DataFormat class to this library as DataFormatter and fix csv file ending detection. Update references.
+
+## v1.6.0 (Release 2014-06-20)
+###New!
+* Server Side Lookups changed so private can only be used by service configuration, and non-private for other things like filtering
+* Server Side Lookups can now be used for database filter parameter replacement.
+* Server Side Lookups can now be used for database record field creation and modification.
+* Role's Service and System Accesses now use REST verb selection instead of access string.
+* Server Side Scripting gets major overhaul and adds detailed request and response handling and call outs to REST API and external HTTP calls.
+* Major Swagger update for db services to expose the various *ByFilter and *ByIds options.
+
+###Fixes, Updates, and Upgrades
+* Changed Swagger output to be locked down by valid application api_name only, no session required because of sdk usage.
+* App import bug fix, also removing default description from swagger service
+* Fix for AWS container creation
+* Schema service changes to support PUT properly, deletes any fields not in posted data.
+* Additional lookup usage in NoSQL DB cases
+* Improvements for CouchDb view support
+* Improvements for Postgresql support
+* Cleanup use of MERGE vs. PATCH, allowing both.
+* Changes to database services to remedy the xml translation and lack of record wrapper problem.
+* Expose auto-login option to swagger for password reset and registration
+* Remove pass by reference use
+
+# Versions 1.5.x
+## v1.5.12 (Release 2014-05-09)
+### Fixes
+* System Config caching issue
+* MongoDB support for MongoDB style filters in url filter parameter, and fix IN support
+* Importing data records from app package
+* User display name on registration
+* Parameter include_count usage on system object queries has been corrected to be total count
 
 ## v1.5.9 (Release 2014-04-29)
 ### New!

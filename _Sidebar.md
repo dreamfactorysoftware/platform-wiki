@@ -5,6 +5,7 @@
 
   * [[Overview|DreamFactory-Overview]]
   * [[Important Information]]
+  * [[Releases|CHANGELOG]]
   * [[Usage Options]]
   * [[Admin Console|Admin-Console]]
   * [[REST API|REST-API]]
