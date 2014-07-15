@@ -34,3 +34,4 @@ Here's a list of screencast tutorials about DreamFactory, and how to use DreamFa
 
 * [O'Reilly Fluent Conference - The Big Shift From Web Pages to RESTful Apps](https://www.youtube.com/embed/K9kUzuNsNIs)
 * [AngularJS Meetup at Google - AngularJS + REST Made Simple](https://www.youtube.com/embed/aGHzqwQU06g)
+* [DreamFactory Services Platform 1.5 Release Webinar (Server-Side Scripting, Lookup Keys, and Filters)](https://www.youtube.com/watch?v=CHtIEcY7vuw)
