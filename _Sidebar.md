@@ -18,6 +18,7 @@
  * [[Free Sandbox Account|Free-Sandbox-Account]]
  * [[Bitnami Installers|Bitnami-Installers]]
  * [[Other Installers|Other-Installers]]
+ * [[Using nginx|Configuring-nginx]]
  * [[Paid Hosting|Paid-Hosting]]
  * [[Direct from GitHub|Install-From-Github]]
  * [[Product Upgrades|Product-Upgrades]]

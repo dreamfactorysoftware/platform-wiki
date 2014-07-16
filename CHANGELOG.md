@@ -1,6 +1,6 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
-# Versions 1.6.x
+# Version 1.6.x
 
 ## v1.6.x (Released Date TBD)
 * Support for stored procedures in role service access
@@ -21,11 +21,13 @@
 * Added pre and post process event support for Schema and File services 
 
 ## v1.6.10 (Release 2014-06-24)
+
 ###Fixes
 * Pull Common library DataFormat class to this library as DataFormatter and fix csv file ending detection. Update references.
 
 ## v1.6.0 (Release 2014-06-20)
-###New!
+
+### New!
 * Server Side Lookups changed so private can only be used by service configuration, and non-private for other things like filtering
 * Server Side Lookups can now be used for database filter parameter replacement.
 * Server Side Lookups can now be used for database record field creation and modification.
@@ -33,7 +35,7 @@
 * Server Side Scripting gets major overhaul and adds detailed request and response handling and call outs to REST API and external HTTP calls.
 * Major Swagger update for db services to expose the various *ByFilter and *ByIds options.
 
-###Fixes, Updates, and Upgrades
+### Fixes, Updates, and Upgrades
 * Changed Swagger output to be locked down by valid application api_name only, no session required because of sdk usage.
 * App import bug fix, also removing default description from swagger service
 * Fix for AWS container creation
@@ -46,8 +48,10 @@
 * Expose auto-login option to swagger for password reset and registration
 * Remove pass by reference use
 
-# Versions 1.5.x
+# Version 1.5.x
+
 ## v1.5.12 (Release 2014-05-09)
+
 ### Fixes
 * System Config caching issue
 * MongoDB support for MongoDB style filters in url filter parameter, and fix IN support
@@ -56,6 +60,7 @@
 * Parameter include_count usage on system object queries has been corrected to be total count
 
 ## v1.5.9 (Release 2014-04-29)
+
 ### New!
 * New DSP-level persistent storage mechanism interfaces with redis, xcache, memcache(d), etc.
 * Added support for [libv8](https://github.com/v8) for server-side Javascript support
@@ -89,6 +94,7 @@
 * More code cleanup
 
 ## v1.4.x (Last Updated 2014-03-03)
+
 ### Major Foundational Changes
 * Project Tree Reorganization
 	* The [dsp-core](https://github.com/dreamfactorysoftware/dsp-core/) ```config/schema``` tree has been moved to this library.
