@@ -16,13 +16,13 @@ This is by no means an exhaustive or definitive guide to configuring nginx and A
 ### CentOS
 CentOS requires the EPEL repository. If you do not already have it installed, perform the following:
 
-#### CentOS 5.x
+#### v5.x
 
 ```
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
 ```
 
-#### CentOS 6.x
+#### v6.x
 
 ```
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -32,35 +32,35 @@ rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.r
 The *nginx* package is available from the distribution itself. No additional setup is necessary.
 
 ## Install nginx
-The first thing we need to do is install and configure *nginx*. Let's go ahead and install it with our package manager:
+THe first thing we need to do is install and configure *nginx*. Let's go ahead and install it with our package manager:
 
-#### Ubuntu/Debian
+### Ubuntu/Debian
 ```
 $ sudo apt-get install nginx
 ```
 
-#### CentOS
+### CentOS
 ```
 $ sudo yum install nginx
 ```
 
-### Create nginx Configuration File
+## Create nginx Configuration File
 
 Create the following nginx configuration file:
 
-#### Ubuntu 
+### Ubuntu 
 ```bash
 $ sudo nano /etc/nginx/sites-available/dsp.local
 ```
 
 The file name is irrelevant. All files in `/etc/nginx/sites-available`, once enabled, are read.
 
-#### CentOS 
+### CentOS 
 ```bash
 $ sudo nano /etc/nginx/conf.d/dsp.local.conf
 ```
 
-#### File Contents
+### File Contents
 
 Fill your newly created file with the following:
 
@@ -87,7 +87,7 @@ server {
 		try_files $uri $uri/ /index.php?$args;
 	}
 	
-	#  Bypass apache to server static files, 404-ing non-existent ones
+	#  Bypass apache to serve static files, 404-ing non-existent ones
 	location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar|mustache)$ {
 		try_files $uri =404;
 	}
@@ -100,10 +100,70 @@ server {
 #		proxy_set_header X-Real-IP $remote_addr;
 #		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 #		proxy_set_header Host $host;
-#		proxy_pass http://127.0.0.1:8080;
+#		proxy_pass unix:/var/run/php5-fpm.sock
 	
 		## Apache2/PHP5 FPM configuration. Comment out and uncomment above to disable
-		fastcgi_pass 127.0.0.1:8080;
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+	
+	#  No dot files (.htaccess, .git, etc.). Don't log either
+	location ~ /\. {
+		deny all;
+		access_log off;
+		log_not_found off;
+	}
+}
+
+server {
+	# listen on 443
+    listen          443;
+
+	# The document root for the server
+	root /var/www/launchpad/web;
+
+	# Place web server logs into DSP's log directory
+	error_log  /var/www/launchpad/log/nginx-ssl.error.log;
+	access_log /var/www/launchpad/log/nginx-ssl.access.log;
+
+	# Allow for index.php files
+	index index.php index.html
+
+	# Change this/these to the name of your server (can be localhost)
+	server_name www.example.com example.com localhost 
+	                           
+    ## SSL Configuration
+    ssl on;
+    ssl_certificate /path/to/your/certificate/file;
+    ssl_certificate_key /path/to/your/certificate/key/file;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+	#  Bypass apache to serve static files, 404-ing non-existent ones
+	location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar|mustache)$ {
+		try_files $uri =404;
+	}
+	
+	#  Proxy PHP requests on to Apache
+	location ~* ^.*\.php$ {
+		try_files $uri =404;
+		
+		## Use standard Apache configuration (non-FPM). Uncomment and comment out below block to enable
+#		proxy_set_header X-Real-IP $remote_addr;
+#		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#		proxy_set_header Host $host;
+#		proxy_pass unix:/var/run/php5-fpm.sock
+	
+		## Apache2/PHP5 FPM configuration. Comment out and uncomment above to disable
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
 		fastcgi_index index.php;
 		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 		include fastcgi_params;
@@ -124,9 +184,9 @@ You'll also notice that there is a commented block of configuration code in the 
 
 Our alternative, and more efficient method, is to use Apache's *FPM* or *fastcgi* processing module. When using this dispatch method, Apache waits for requests via an already-open TCP/IP socket. This can result in a significant boost in performance. We've encountered between 10%-20% increase depending on the hardware. This is mainly because the there is no socket open/close overhead by Apache.
 
-Once that file is saved, you need to tell *nginx* to use it:
-
 #### Ubuntu
+In Ubuntu, once that file is saved, you need to tell *nginx* to use it:
+
 ```bash
 $ sudo ln -s /etc/nginx/sites-available/dsp.local /etc/nginx/sites-enabled/dsp.local
 $ sudo nginx -t
@@ -144,23 +204,51 @@ $ sudo unlink /etc/nginx/sites-enabled/dsp.local
 > In Ubuntu's Apache package, a set of of scripts called `a2ensite` and `a2dissite` are provided to perform the above steps. *nginx* doesn't provide these by default.
 
 #### CentOS
-```bash
-$ sudo nginx -t
-$ sudo service nginx restart
-```
+In CentOS, no symlinking is necessary. Files in `/etc/nginx/conf.d` are automatically used if they end it `.conf`. 
 
-No symlinking is necessary. Files in /etc/nginx/conf.d are automatically used if they end it `.conf`. To disable your configuration, simply rename it:
+To disable your configuration, simply rename add `.off` to the file name like so:
 
 ```bash
 $ sudo mv /etc/nginx/conf.d/dsp.local /etc/nginx/conf.d/dsp.local.conf.off
 ```
 
-#### Apache Configuration
+Now test your setup and restart `nginx`
 
+```bash
+$ sudo nginx -t
+$ sudo service nginx restart
+```
+
+## Apache Configuration
 Now, let's set up a configuration for PHP5 FPM that can be turned on or off at will. You can do this system-wide or on a per-server basis.
  
-##### Per-Server
-In your virtual host's configuration file (usually in `/etc/apache2/sites-available`) add the following snippet of code right before the `</VirtualHost>` tag:
+You may need to add some Apache modules, so install them:
+
+```bash
+$ sudo apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm
+$ sudo a2enmod actions fastcgi alias
+```
+
+> Some of those modules may already be installed and/or enabled.
+ 
+### Per-Server
+The default setup for the DSP is to live on ports 80 and 443. For the *nginx* configuration we need to change these ports.
+
+Edit your DSP's Apache configuration file in `/etc/apache2/sites-available/`
+
+The first thing you need to do is change the port upon which Apache listens. You should see at the top of the file something like this:
+
+```apache
+<VirtualHost *:80>
+```
+
+Change that to read:
+
+```apache
+<VirtualHost 127.0.0.1:8080>
+```
+
+Now we add the support for the FPM module. Add the following snippet of code right before the end `</VirtualHost>` tag:
 
 ```apache
 <IfModule mod_fastcgi.c>
@@ -171,8 +259,9 @@ In your virtual host's configuration file (usually in `/etc/apache2/sites-availa
 </IfModule>
 ```
 
-##### System-Wide
+### System-Wide
 Alternatively, you can enable this feature for *all* sites served by your Apache instance. To do this, create a file called `php5-fpm.conf` in your Apache's global configuration directory `/etc/apache2/conf.d`: 
+ 
 ```bash
 $ sudo nano /etc/apache2/conf.d/php5-fpm.conf
 ```
@@ -188,9 +277,19 @@ And place the following into it and save:
 </IfModule>
 ```
 
-##### Enabling FPM
-Now that we've have it configured, we need to enable it:
+> There is no need to add this to your virtual host configuration files as it will now be available for all virtual hosts. 
+
+Finally, enable our new module:
 
 ```bash
 $ sudo a2enconf php5-fpm
 ```
+
+### Restart everything...
+Restart both nginx and Apache now:
+
+```bash
+$ sudo service apache2 restart
+$ sudo service nginx restart
+```
+
