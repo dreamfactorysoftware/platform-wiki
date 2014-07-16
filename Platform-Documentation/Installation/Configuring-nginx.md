@@ -1,4 +1,4 @@
-Your DSP can alternatively be configured to use [nginx](http://nginx.org)instead of the default Apache setup. It's not difficult but requires administrative privileges to your box and some additional setup.
+Your DSP can alternatively be configured to use [nginx](http://nginx.org) instead of the default Apache setup. It's not difficult but requires administrative privileges to your box and some additional setup.
 
 # Prerequisites and Assumptions
 This guide assumes you're running the latest DreamFactory Services Platform&trades; and on an Ubuntu installation. Other standard distributions may need tweaking to locations. But the configuration options are the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
