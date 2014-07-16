@@ -1,7 +1,7 @@
 Your DSP can alternatively be configured to use [nginx](http://nginx.org) instead of the default Apache setup. It's not difficult but requires administrative privileges to your box and some additional setup.
 
 # Prerequisites and Assumptions
-This guide assumes you're running the latest DreamFactory Services Platform&trades; and on an Ubuntu installation. Other standard distributions may need tweaking to locations. But the configuration options are the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
+This guide assumes you're running the latest DreamFactory Services Platform on an Ubuntu installation. Other standard distributions may need tweaking to locations. But the configuration options are the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
 
 # 10,000 Foot View
 The goal here is to install *nginx* as a front-end to your currently running Apache instance service your DSP. The default configuration places the DSP on ports 80 and 443. What we are going to do is install *nginx* and it will service ports 80 and 443, relaying these requests to your Apache server. The Apache configuration will be modified to live a different port (8080).
