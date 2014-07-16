@@ -1,0 +1,42 @@
+server {
+    listen          443;
+     
+    root            /opt/dreamfactory/web/web-csp/web;
+    index           index.html index.php;
+    charset         utf-8;
+    server_name     jablan.cloud.dreamfactory.com jablan.cloud dsp.local;
+                           
+    ## SSL Configuratino
+    ssl on;
+    ssl_certificate /usr/local/etc/dreamfactory/keys/star.cloud.signed.pem;
+    ssl_certificate_key /usr/local/etc/dreamfactory/keys/star.cloud.signed.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        index index.html index.php;
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    #avoid processing of calls to unexisting static files by yii
+    location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar|mustache)$ {
+        try_files $uri =404;
+    }
+
+    #  PHP goes to apache on port 18080
+    location ~ \.php {
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:18080;
+    }
+ 
+    #  No dot files (.htaccess, .git, etc.)
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}

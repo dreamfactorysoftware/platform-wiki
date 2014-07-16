@@ -1,7 +1,9 @@
 Your DSP can alternatively be configured to use [nginx](http://nginx.org)instead of the default Apache setup. It's not difficult but requires administrative privileges to your box and some additional setup.
 
 # Prerequisites and Assumptions
-This guide assumes you're running the latest DreamFactory Services Platform&trades; and on an Ubuntu installation. Other standard distributions may need tweaking to locations. But the configuration options are the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
+This guide assumes you're running the latest DreamFactory Services Platform&trades; and on an Ubuntu installation. Other standard distributions may need tweaking to locations. But the configuration options should the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
+
+Please note that this guide will not work with free-hosted or Bitnami installations. Only self-installed versions are supported.
 
 # 10,000 Foot View
 The goal here is to install *nginx* as a front-end to your currently running Apache instance service your DSP. The default configuration places the DSP on ports 80 and 443. What we are going to do is install *nginx* and it will service ports 80 and 443, relaying these requests to your Apache server. The Apache configuration will be modified to live a different port (8080).
@@ -98,7 +100,7 @@ server {
 #		proxy_set_header X-Real-IP $remote_addr;
 #		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 #		proxy_set_header Host $host;
-#		proxy_pass http://127.0.0.1:8080;
+#		proxy_pass unix:/var/run/php5-fpm.sock
 	
 		## Apache2/PHP5 FPM configuration. Comment out and uncomment above to disable
 		fastcgi_pass 127.0.0.1:8080;
@@ -156,9 +158,34 @@ $ sudo mv /etc/nginx/conf.d/dsp.local /etc/nginx/conf.d/dsp.local.conf.off
 #### Apache Configuration
 
 Now, let's set up a configuration for PHP5 FPM that can be turned on or off at will. You can do this system-wide or on a per-server basis.
+
+You may need to add some Apache modules, so install them:
+
+```bash
+$ sudo apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm
+$ sudo a2enmod actions fastcgi alias
+```
+
+> Some of those modules may already be installed and/or enabled.
  
 ##### Per-Server
-In your virtual host's configuration file (usually in `/etc/apache2/sites-available`) add the following snippet of code right before the `</VirtualHost>` tag:
+The default setup for the DSP is to live on ports 80 and 443. For the *nginx* configuration we need to change these ports.
+  
+Edit your DSP's Apache configuration file in `/etc/apache2/sites-available/`
+
+The first thing you need to do is change the port upon which Apache listens. You should see at the top of the file something like this:
+
+```apache
+<VirtualHost *:80>
+```
+
+Change that to read:
+
+```apache
+<VirtualHost 127.0.0.1:8080>
+```
+
+Now we add the support for the FPM module. Add the following snippet of code right before the end `</VirtualHost>` tag:
 
 ```apache
 <IfModule mod_fastcgi.c>
@@ -170,7 +197,8 @@ In your virtual host's configuration file (usually in `/etc/apache2/sites-availa
 ```
 
 ##### System-Wide
-Alternatively, you can enable this feature for *all* sites served by your Apache instance. To do this, create a file called `php5-fpm.conf` in your Apache's global configuration directory `/etc/apache2/conf.d`: 
+Alternatively, you can enable this feature for *all* sites served by your Apache instance. To do this, create a file called `php5-fpm.conf` in your Apache's global configuration directory `/etc/apache2/conf.d`:
+ 
 ```bash
 $ sudo nano /etc/apache2/conf.d/php5-fpm.conf
 ```
@@ -186,9 +214,19 @@ And place the following into it and save:
 </IfModule>
 ```
 
-##### Enabling FPM
-Now that we've have it configured, we need to enable it:
+> There is no need to add this to your virtual host configuration files as it will now be available for all virtual hosts. 
+
+Finally, enable our new module:
 
 ```bash
 $ sudo a2enconf php5-fpm
 ```
+
+##### Restart everything...
+Restart both nginx and Apache now:
+
+```bash
+$ sudo service apache2 restart
+$ sudo service nginx restart
+```
+
