@@ -30,7 +30,7 @@ rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.r
 The *nginx* package is available from the distribution itself. No additional setup is necessary.
 
 ## Install nginx
-THe first thing we need to do is install and configure *nginx*. Let's go ahead and install it with our package manager:
+The first thing we need to do is install and configure *nginx*. Let's go ahead and install it with our package manager:
 
 #### Ubuntu/Debian
 ```
