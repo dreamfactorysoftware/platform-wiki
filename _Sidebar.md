@@ -81,8 +81,9 @@
  * [[Javascript SDK]]
  * [[AngularJS SDK]]
  * [[Titanium SDK]]
+ * [[Windows Mobile SDK]]
 <!-- * [[Sencha SDK]]-->
-* [[Windows Mobile SDK]]
+
 <!-- * [[Backbone.js SDK]]-->
 <!-- * [[Ember.js SDK]]-->
 <!-- * [[KnockoutJS SDK]]-->
