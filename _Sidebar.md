@@ -83,7 +83,7 @@
  * [[Titanium SDK]]
 
 <!-- * [[Sencha SDK]]-->
-<!-- * [[Windows Mobile SDK]]-->
+[[Windows Mobile SDK]]
 <!-- * [[Backbone.js SDK]]-->
 <!-- * [[Ember.js SDK]]-->
 <!-- * [[KnockoutJS SDK]]-->
