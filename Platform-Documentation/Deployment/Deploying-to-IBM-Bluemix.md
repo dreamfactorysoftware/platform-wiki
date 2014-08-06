@@ -1,6 +1,6 @@
 
 ## What's IBM Bluemix?
-yada yada yada
+[IBM® Bluemix™](http://www.bluemix.net) is an open-standards, cloud-based platform for building, managing, and running apps of all types, such as web, mobile, big data, and smart devices. Capabilities include Java, mobile back-end development, and application monitoring, as well as features from ecosystem partners and open source—all provided as-a-service in the cloud. 
 
 ## Prerequisites
 In order to deploy your DSP to Bluemix, you'll need to do a little setup on your dev box. Below are the things you'll need to have installed before you can deploy your DSP. You'll only have to do these things once, not every time you deploy.
