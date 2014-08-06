@@ -1,8 +1,16 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
-# Version 1.6.x
+## v1.7.x (Soon!)
 
-## v1.6.x (Released Date TBD)
+### New!
+* New system resource `environment` containing information about the system running the DSP
+ * Pull via REST: `/rest/system/environment`
+* Many platform neutrality enhancements
+ * Added config files for [IBM Bluemix](http://www.bluemix.net/) and [Pivotal](http://www.pivotal.io) PaaS solutions
+
+## v1.6.10 (Release 2014-06-24)
+
+### New!
 * Support for stored procedures in role service access
 * Consolidation of all platform caches down to a single cache stored in /storage/.private/app.store
 * Added new optional [memcached](http://memcached.org/) support. If memcached is detected, and running, it will be used for the platform cache instead of the file system.
@@ -18,11 +26,9 @@
  * Update Admin Config and AppGroups. Add bottom bar UI btns
 * Cleaned up debug on/off in index.php.
 * web/admin/js/app.js: added type ids for schema
-* Added pre and post process event support for Schema and File services 
+* Added pre- and post-process event support for `schema` and `file` services 
 
-## v1.6.10 (Release 2014-06-24)
-
-###Fixes
+### Fixes
 * Pull Common library DataFormat class to this library as DataFormatter and fix csv file ending detection. Update references.
 
 ## v1.6.0 (Release 2014-06-20)
