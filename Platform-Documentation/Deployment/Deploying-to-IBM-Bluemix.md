@@ -10,7 +10,9 @@ In order to deploy your DSP to Bluemix, you'll need to do a little setup on your
  1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are here: [Installing the **cf** command line interface](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html). Follow the instructions on that page that refer to connecting and logging in to Bluemix. You'll have to have this done before you can deploy. 
 
 ## Code
-Build your killer app
+For Bluemix apps, we recommend that you grab a new clone of the DreamFactory Services Platform&trade; and consider that your "app".
+
+The only major difference between a regular DSP deployment and a Bluemix deployment is the lack of persistent storage. That is to say, all storage on your Bluemix DSP is ephemeral. Because of this, you must develop and test your application locally. If your application *expects* disk space, you'll need to refactor it to store that data either on a remote storage service or in the database. 
 
 ## Configure
 Configure for bluemix
