@@ -105,3 +105,108 @@ If all goes well, you should have a running DSP in Bluemix after all commands ha
 You will be prompted for your DSP administrator information (if none exists) and the familiar DSP Admin Console will be displayed.
 
 Now test your app and get it out there!
+
+# Complete Deployment Walk-Through
+
+This walk-through will install a base DSP on Bluemix from the latest version.
+
+Move into your projects or workspace directory and perform the following commands:
+
+```bash
+$ git clone https://github.com/dreamfactorysoftware/dsp-core.git dsp-bluemix
+Cloning into 'dsp-bluemix'...
+remote: Counting objects: 19720, done.
+remote: Compressing objects: 100% (421/421), done.
+remote: Total 19720 (delta 248), reused 0 (delta 0)
+Receiving objects: 100% (19720/19720), 16.08 MiB | 582.00 KiB/s, done.
+Resolving deltas: 100% (12358/12358), done.
+Checking connectivity... done.
+$ cd dsp-bluemix/
+$ mv web htdocs																# Bluemix expects the document root to be "htdocs". Default is "web". So we move it.
+$ ln -s htdocs/ web															# And create a symlink to web for local work
+$ cp config/database.bluemix.config.php-dist config/database.config.php    	# No changes necessary
+$ cp manifest.bluemix.yml-dist manifest.yml                                	# Create our manifest
+$ vi manifest.yml                                                          	# change app-name and host-name to "dsp-bluemix"
+$ sudo ./scripts/installer.sh -c										   	# Run as sudo to avoid any permission errors
+********************************************************************************
+  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.8]
+********************************************************************************
+
+  * info:	Clean install. Dependencies removed.
+  * info:	Install user is "code_ninja"
+  * info:	No composer found, installing: /opt/dreamfactory/bluemix/dsp-bluemix/composer.phar
+#!/usr/bin/env php
+  * info:	External modules updated
+  * info:	Checking file system structure and permissions
+  * info:	Installing dependencies
+  * info:	Complete. Enjoy the rest of your day!
+
+$ cf push
+Using manifest file /opt/dreamfactory/bluemix/dsp-bluemix/manifest.yml
+
+Creating app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+
+Creating route dsp-bluemix.mybluemix.net...
+OK
+
+Binding dsp-bluemix.mybluemix.net to dsp-bluemix...
+OK
+
+Uploading dsp-bluemix...
+Uploading app files from: /opt/dreamfactory/bluemix/dsp-bluemix
+Uploading 43.7M, 9109 files
+OK
+
+Using route dsp-bluemix.mybluemix.net
+Binding dsp-bluemix.mybluemix.net to dsp-bluemix...
+OK
+
+Starting app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+-----> Downloaded app package (21M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.5.13/nginx-1.5.13.tar.gz] to [/tmp/nginx-1.5.13.tar.gz]
+Installing PHP
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fpm-5.4.31.tar.gz] to [/tmp/php-fpm-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zlib-5.4.31.tar.gz] to [/tmp/php-zlib-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pear-5.4.31.tar.gz] to [/tmp/php-pear-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4.31.tar.gz] to [/tmp/php-openssl-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
+Finished: [2014-08-07 19:19:07.126665]
+-----> Uploading droplet (29M)
+
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+Showing health and status for app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: dsp-bluemix.mybluemix.net
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-07 03:19:28 PM   0.0%   20.9M of 512M   128M of 1G
+
+$ curl http://dsp-bluemix.mybluemix.net/ping.php		# Test a ping
+pong													# Got the pong!
+$ cf create-service mysql 100 mysql-dsp-bluemix 		# Create a MySQL service instance for your DSP called "mysql-dsp-bluemix"
+Creating service mysql-dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+$ cf bind-service dsp-bluemix mysql-dsp-bluemix
+Binding service mysql-dsp-bluemix to app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restart dsp-bluemix
+Restarting app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+OK
+```
