@@ -66,7 +66,7 @@ Now your app is ready and you want to put it up on Bluemix to test. This is the 
 Change to your project's root directory and update the system dependencies:
 
 ```bash
-$ sudo ./scripts/installer.sh
+$ sudo ./scripts/installer.sh -c
 ```
 
 ### Push to Bluemix
