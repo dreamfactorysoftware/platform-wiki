@@ -1,4 +1,3 @@
-
 ## What's IBM Bluemix?
 [IBM® Bluemix™](http://www.bluemix.net) is an open-standards, cloud-based platform for building, managing, and running apps of all types, such as web, mobile, big data, and smart devices. Capabilities include Java, mobile back-end development, and application monitoring, as well as features from ecosystem partners and open source—all provided as-a-service in the cloud. 
 
@@ -66,10 +65,8 @@ Now your app is ready and you want to put it up on Bluemix to test. This is the 
 Change to your project's root directory and update the system dependencies:
 
 ```bash
-$ ./scripts/installer.sh -cf
+$ sudo ./scripts/installer.sh -c
 ```
-
-> Since we're pushing this to Bluemix, and not running on an actual server, there is no need to run the installer as root. Hence, the `-f` option can be used safely.
 
 ### Push to Bluemix
 
@@ -90,7 +87,7 @@ Using the name of your MySQL service configured earlier, issue the following com
 
 ```bash
 $ cf bind-service <app-name> <mysql-name>
-$ cf restart
+$ cf restart <app-name>
 ```
 
 Where **<app-name>** is the same from your `manifest.yml` and **<mysql-name>** is the name of the MySQL service created for this application (above). 
