@@ -32,7 +32,7 @@ $ cp config/database.bluemix.config.php-dist config/database.config.php
 You do not need to edit this file. The system will automatically use it if it exists.
 
 ### Application Manifest
-In your project's root directory, there is a file called ``. We need to copy and modify this file for your application. 
+In your project's root directory, there is a file called `manifest.bluemix.yml-dist`. We need to copy and modify this file for your application. 
 
 From your project's root directory:
 
