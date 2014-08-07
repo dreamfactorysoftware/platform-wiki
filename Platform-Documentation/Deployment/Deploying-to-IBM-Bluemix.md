@@ -66,8 +66,10 @@ Now your app is ready and you want to put it up on Bluemix to test. This is the 
 Change to your project's root directory and update the system dependencies:
 
 ```bash
-$ sudo ./scripts/installer.sh -c
+$ ./scripts/installer.sh -cf
 ```
+
+> Since we're pushing this to Bluemix, and not running on an actual server, there is no need to run the installer as root. Hence, the `-f` option can be used safely.
 
 ### Push to Bluemix
 
