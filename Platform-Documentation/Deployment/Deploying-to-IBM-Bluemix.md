@@ -164,32 +164,26 @@ The last step is to push your code up to IBM Bluemix. This is done with the **cf
 
 ```bash
 $ cf push
-Using manifest file wiki-demo/manifest.yml
+Using manifest file /opt/dreamfactory/paas/bluemix/wiki-demo/manifest.yml
 
 Creating app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
-OK
-
-Creating route wiki-demo.mybluemix.net...
-OK
-
-Binding wiki-demo.mybluemix.net to wiki-demo...
-OK
-
-Uploading wiki-demo...
-Uploading app files from: wiki-demo/.
-Uploading 43.7M, 9109 files
 OK
 
 Using route wiki-demo.mybluemix.net
 Binding wiki-demo.mybluemix.net to wiki-demo...
 OK
 
+Uploading wiki-demo...
+Uploading app files from: /opt/dreamfactory/paas/bluemix/wiki-demo
+Uploading 44.7M, 9113 files
+OK
+
 Starting app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
------> Downloaded app package (21M)
+-----> Downloaded app package (22M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.5.13/nginx-1.5.13.tar.gz] to [/tmp/nginx-1.5.13.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
 Installing PHP
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
@@ -200,10 +194,9 @@ Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
-Finished: [2014-08-07 19:19:07.126665]
+Finished: [2014-08-08 18:26:43.507962]
 -----> Uploading droplet (29M)
 
-0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
@@ -212,12 +205,12 @@ Showing health and status for app wiki-demo in org someone@dreamfactory.com / sp
 OK
 
 requested state: started
-instances: 1/1
+instances: 0/1
 usage: 512M x 1 instances
 urls: wiki-demo.mybluemix.net
 
-     state     since                    cpu    memory          disk
-#0   running   2014-08-07 03:19:28 PM   0.0%   20.9M of 512M   128M of 1G
+     state     since                    cpu    memory        disk   
+#0   running   2014-08-08 02:27:06 PM   0.0%   22M of 512M   129M of 1G   
 ```
 
 ## Test Web Server
