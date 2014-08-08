@@ -9,7 +9,7 @@ In order to deploy your DSP to Bluemix, you'll need to do a little setup on your
  1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are here: [Installing the **cf** command line interface](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html). Follow the instructions on that page that refer to connecting and logging in to Bluemix. You'll have to have this done before you can deploy.
 
 ### MySQL
-One last prerequisite is to create a MySQL instance in Bluemix for use by your application. Please see the Bluemix docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `mysql-[app-name]`, where **[app-name]** is a unique name for your application.
+One last prerequisite is to create a MySQL instance in Bluemix for use by your application. Please see the Bluemix docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `mysql-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below, one is created via the command line interface. You can use the exact same method.
 
 ## Code
 Developing an application to run on Bluemix isn't really any different than developing an application that lives on a stand-alone server. However, there is one major difference. Bluemix deployed applications have no persistent storage. That is to say, all storage on your Bluemix DSP is ephemeral. Because of this, you *must* develop and test your application locally. If your application *expects* disk space, you'll need to refactor it to store that data either on a remote storage service or in the database.
@@ -131,10 +131,9 @@ Checking connectivity... done.
 $ cd wiki-demo/
 $ git checkout develop														# Pre-release features are only in develop branch until 1.7 release
 $ mv web htdocs																# Bluemix expects the document root to be "htdocs". Default is "web". So we move it.
-$ ln -s htdocs/ web															# And create a symlink to web for local work
 $ cp config/database.bluemix.config.php-dist config/database.config.php    	# No changes necessary
 $ cp manifest.bluemix.yml-dist manifest.yml                                	# Create our manifest
-$ vi manifest.yml                                                          	# change app-name and host-name to "wiki-demo"
+$ vi manifest.yml                                                          	# edit file and change app-name and host-name to "wiki-demo"
 ```
 
 ## Install Dependencies
