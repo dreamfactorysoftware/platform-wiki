@@ -112,21 +112,41 @@ This walk-through will install a base DSP on Bluemix from the latest version.
 
 Move into your projects or workspace directory and perform the following commands:
 
+## Clone and Configure
+
+In this section, we do the following:
+
+ 1. Clone the main DSP repository from GitHub
+ 2. Checkout the **develop** branch of the cloned repository
+ 3. Rename the `web` directory to `htdocs` and create a symlink back
+ 4. Create a `config/database.config.php` file for IBM Bluemix
+ 5. Create a `manifest.yml` file for deployment settings
+
 ```bash
-$ git clone https://github.com/dreamfactorysoftware/dsp-core.git dsp-bluemix
-Cloning into 'dsp-bluemix'...
+$ git clone https://github.com/dreamfactorysoftware/dsp-core.git wiki-demo
+Cloning into 'wiki-demo'...
 remote: Counting objects: 19720, done.
 remote: Compressing objects: 100% (421/421), done.
 remote: Total 19720 (delta 248), reused 0 (delta 0)
 Receiving objects: 100% (19720/19720), 16.08 MiB | 582.00 KiB/s, done.
 Resolving deltas: 100% (12358/12358), done.
 Checking connectivity... done.
-$ cd dsp-bluemix/
+$ cd wiki-demo/
+$ git checkout develop														# Pre-release features are only in develop branch until 1.7 release
 $ mv web htdocs																# Bluemix expects the document root to be "htdocs". Default is "web". So we move it.
 $ ln -s htdocs/ web															# And create a symlink to web for local work
 $ cp config/database.bluemix.config.php-dist config/database.config.php    	# No changes necessary
 $ cp manifest.bluemix.yml-dist manifest.yml                                	# Create our manifest
-$ vi manifest.yml                                                          	# change app-name and host-name to "dsp-bluemix"
+$ vi manifest.yml                                                          	# change app-name and host-name to "wiki-demo"
+```
+
+## Install Dependencies
+
+The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
+
+> This step will go away in the future and the vendor directory will not need to be pushed. It is in the works. However, for now, it kind of sucks.
+
+```bash
 $ sudo ./scripts/installer.sh -c										   	# Run as sudo to avoid any permission errors
 ********************************************************************************
   DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.8]
@@ -134,35 +154,41 @@ $ sudo ./scripts/installer.sh -c										   	# Run as sudo to avoid any permiss
 
   * info:	Clean install. Dependencies removed.
   * info:	Install user is "code_ninja"
-  * info:	No composer found, installing: /opt/dreamfactory/bluemix/dsp-bluemix/composer.phar
+  * info:	No composer found, installing: wiki-demo/composer.phar
 #!/usr/bin/env php
   * info:	External modules updated
   * info:	Checking file system structure and permissions
   * info:	Installing dependencies
   * info:	Complete. Enjoy the rest of your day!
+```
 
+## Deploy DSP
+
+The last step is to push your code up to IBM Bluemix. This is done with the **cf** command line tool:
+
+```bash
 $ cf push
-Using manifest file /opt/dreamfactory/bluemix/dsp-bluemix/manifest.yml
+Using manifest file wiki-demo/manifest.yml
 
-Creating app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+Creating app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
 
-Creating route dsp-bluemix.mybluemix.net...
+Creating route wiki-demo.mybluemix.net...
 OK
 
-Binding dsp-bluemix.mybluemix.net to dsp-bluemix...
+Binding wiki-demo.mybluemix.net to wiki-demo...
 OK
 
-Uploading dsp-bluemix...
-Uploading app files from: /opt/dreamfactory/bluemix/dsp-bluemix
+Uploading wiki-demo...
+Uploading app files from: wiki-demo/.
 Uploading 43.7M, 9109 files
 OK
 
-Using route dsp-bluemix.mybluemix.net
-Binding dsp-bluemix.mybluemix.net to dsp-bluemix...
+Using route wiki-demo.mybluemix.net
+Binding wiki-demo.mybluemix.net to wiki-demo...
 OK
 
-Starting app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+Starting app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
 -----> Downloaded app package (21M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
@@ -186,27 +212,44 @@ Finished: [2014-08-07 19:19:07.126665]
 
 App started
 
-Showing health and status for app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+Showing health and status for app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
 
 requested state: started
 instances: 1/1
 usage: 512M x 1 instances
-urls: dsp-bluemix.mybluemix.net
+urls: wiki-demo.mybluemix.net
 
      state     since                    cpu    memory          disk
 #0   running   2014-08-07 03:19:28 PM   0.0%   20.9M of 512M   128M of 1G
+```
 
-$ curl http://dsp-bluemix.mybluemix.net/ping.php		# Test a ping
-pong													# Got the pong!
-$ cf create-service mysql 100 mysql-dsp-bluemix 		# Create a MySQL service instance for your DSP called "mysql-dsp-bluemix"
-Creating service mysql-dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+## Test Web Server
+
+Send a **ping** request to your new server and see if it responds properly.
+
+```bash
+$ curl http://wiki-demo.mybluemix.net/ping.php		# Test a ping
+pong												# Got the pong!
+```
+
+## Create a Database
+
+The DSP requires a local MySQL database for storage. So this service needs to be created and bound to the application. Once bound, the application is restarted.
+
+```bash
+$ cf create-service mysql 100 mysql-wiki-demo 		# Create a MySQL service instance for your DSP called "mysql-wiki-demo"
+Creating service mysql-wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
-$ cf bind-service dsp-bluemix mysql-dsp-bluemix
-Binding service mysql-dsp-bluemix to app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+$ cf bind-service wiki-demo mysql-wiki-demo
+Binding service mysql-wiki-demo to app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
 TIP: Use 'cf restage' to ensure your env variable changes take effect
-$ cf restart dsp-bluemix
-Restarting app dsp-bluemix in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
+$ cf restart wiki-demo
+Restarting app wiki-demo in org someone@dreamfactory.com / space xyz as someone@dreamfactory.com...
 OK
 ```
+
+## Try It Out!
+
+Fire up your web browser and go to your [new app](http://wiki-demo.mybluemix.net)!
