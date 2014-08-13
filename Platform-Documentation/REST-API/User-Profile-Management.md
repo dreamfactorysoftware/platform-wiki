@@ -1,17 +1,16 @@
- User Service
 The user service is responsible for session management and profile and password maintenance. This service has the following resources…
 
-session – used for login, logout and getting the current session information
+* session – used for login, logout and getting the current session information
 
-profile – used to access and update the profile (name, email, etc.) of the current session’s user
+* profile – used to access and update the profile (name, email, etc.) of the current session’s user
 
-password – used to update the current session’s user’s password
+* password – used to update the current session’s user’s password
 
-challenge – used to retrieve the security challenge question and post the answer to gain temporary access when the password is forgotten.
+* challenge – used to retrieve the security challenge question and post the answer to gain temporary access when the password is forgotten.
 
 
 
- Session
+***Session
 The session allows a user to access the system. All communication with the provisioned services are done while in a valid session. Only authentication resources (login and challenge) are allowed without a valid session.
 
  To Login

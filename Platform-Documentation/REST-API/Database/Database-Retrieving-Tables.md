@@ -8,17 +8,12 @@ The following operations are typically available for retrieving tables on all Dr
 
 Description: Retrieve a list of all tables available from the database service.
 
+URI: **GET** `http[s]://<dsp-server-name>/rest/<service-api-name>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getResources_get_0) to see this in action in our [Live API](Admin-Console-api-sdk).
+
+
 #### Request
-
-HTTP Method: **GET**
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>`
-
-URI Parameters: No additional parameters required.
-
-Sample JSON Request
 
 
 > GET http://demo-dsp.cloud.dreamfactory.com/rest/db HTTP/1.1
@@ -29,15 +24,12 @@ Sample JSON Request
 
 > Accept-Encoding: gzip, deflate
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 
 #### Response
-
-Sample JSON Response
-
 
 > HTTP/1.1 200 OK
 
@@ -81,21 +73,11 @@ Sample JSON Response
 
 Description: Retrieve all available properties of one or more tables by name.
 
+URI: **GET** `http[s]://<dsp-server-name>/rest/<service-api-name>?names=<table_names>`
+
+Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables_get_1) to see this in action in our [Live API](Admin-Console-api-sdk).
+
 #### Request
-
-HTTP Method: **GET**
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>?names=<table_names>`
-
-URI Parameters:
-
-Name | Required | Description
-:--- | :------: | :----------
-`names` | No | Comma-delimited list of table names to return in response, must be url-encoded.
-
-Sample JSON Request
 
 
 > GET http://demo-dsp.cloud.dreamfactory.com/rest/db?names=Account%2CContact HTTP/1.1
@@ -106,14 +88,12 @@ Sample JSON Request
 
 > Accept-Encoding: gzip, deflate
 
-> X-Application-Name: Admin
+> X-Dreamfactory-Application-Name: admin
 
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 
 #### Response
-
-Sample JSON Response
 
 
 > HTTP/1.1 200 OK
