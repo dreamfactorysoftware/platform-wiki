@@ -5,6 +5,7 @@
 
   * [[Overview|DreamFactory-Overview]]
   * [[Important Information]]
+  * [[Releases|CHANGELOG]]
   * [[Usage Options]]
   * [[Admin Console|Admin-Console]]
   * [[REST API|REST-API]]
@@ -16,7 +17,9 @@
  * [[Overview|Usage-Options]]
  * [[Free Sandbox Account|Free-Sandbox-Account]]
  * [[Bitnami Installers|Bitnami-Installers]]
+ * [[PaaS Deployment|PaaS-Deployment]]
  * [[Other Installers|Other-Installers]]
+ * [[Using nginx|Configuring-nginx]]
  * [[Paid Hosting|Paid-Hosting]]
  * [[Direct from GitHub|Install-From-Github]]
  * [[Product Upgrades|Product-Upgrades]]
@@ -64,6 +67,7 @@
  * [[Server-Side Filters]] 
  * [[Server-Side Events]] 
  * [[Server-Side Scripting]] 
+   * [[Scripting API Access]] 
  
 <!-- * [[Packager]] -->
 <!-- * [[Active Directory Integration] -->
@@ -78,9 +82,9 @@
  * [[Javascript SDK]]
  * [[AngularJS SDK]]
  * [[Titanium SDK]]
+ * [[Windows Mobile SDK]]
 
 <!-- * [[Sencha SDK]]-->
-<!-- * [[Windows Mobile SDK]]-->
 <!-- * [[Backbone.js SDK]]-->
 <!-- * [[Ember.js SDK]]-->
 <!-- * [[KnockoutJS SDK]]-->
