@@ -88,21 +88,23 @@ Now, use the **cf** tool to push the application to Pivotal:
 $ cf push
 Using manifest file /opt/dreamfactory/paas/pivotal/my-dsp/manifest.yml
 
-Creating app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Creating app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
 OK
 
-Using route my-dsp.cfapps.io
+Creating route my-dsp.cfapps.io...
+OK
+
 Binding my-dsp.cfapps.io to my-dsp...
 OK
 
 Uploading my-dsp...
 Uploading app files from: /opt/dreamfactory/paas/pivotal/my-dsp
-Uploading 6.2M, 836 files
+Uploading 5.2M, 832 files
 OK
 
-Starting app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Starting app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
 OK
------> Downloaded app package (4.9M)
+-----> Downloaded app package (4.6M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
@@ -118,11 +120,6 @@ Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-cli-5.4.31.tar.gz] to [/tmp/php-cli-5.4.31.tar.gz]
 Downloaded [https://getcomposer.org/download/1.0.0-alpha8/composer.phar] to [/tmp/composer.phar]
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so' - /tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so' - 
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so' - 
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so: cannot open shared object file: No such file or directory in Unknown on line 0
 Loading composer repositories with package information
 Installing dependencies from lock file
   - Installing pear-pear.php.net/net_url2 (2.0.6)
@@ -141,9 +138,9 @@ Installing dependencies from lock file
     Downloading
   - Installing pear-pear.php.net/pear (1.9.5)
     Downloading
+    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
     Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
     Skipped installation of bin/peardev for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
   - Installing pear-pear.php.net/http_request2 (2.2.1)
     Downloading
   - Installing dreamfactory/azure-sdk-for-php (dev-develop 3326524)
@@ -158,7 +155,7 @@ Installing dependencies from lock file
     Cloning 12545cda2f7a0bd82a110f742ef455fe735e60cf
   - Installing doctrine/cache (v1.3.0)
     Downloading
-  - Installing kisma/kisma (0.2.53)
+  - Installing kisma/kisma (0.2.55)
     Downloading
   - Installing dreamfactory/lib-php-common (dev-develop 8da8fb6)
     Cloning 8da8fb68cf6ee39d63f7bd93ae15cbba6748d958
@@ -203,7 +200,7 @@ phpforce/soap-client suggests installing doctrine/common (For caching SOAP respo
 aws/aws-sdk-php suggests installing ext-apc (Allows service description opcode caching, request and response caching, and credentials caching)
 aws/aws-sdk-php suggests installing symfony/yaml (Eases the ability to write manifests for creating jobs in AWS Import/Export)
 Generating autoload files
-Finished: [2014-08-14 07:21:56.273052]
+Finished: [2014-08-14 15:15:57.737007]
 -----> Uploading droplet (57M)
 
 0 of 1 instances running, 1 starting
@@ -211,7 +208,7 @@ Finished: [2014-08-14 07:21:56.273052]
 
 App started
 
-Showing health and status for app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Showing health and status for app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
 OK
 
 requested state: started
@@ -220,7 +217,7 @@ usage: 512M x 1 instances
 urls: my-dsp.cfapps.io
 
      state     since                    cpu    memory          disk
-#0   running   2014-08-14 03:22:25 AM   0.0%   23.5M of 512M   202.5M of 1G
+#0   running   2014-08-14 11:16:26 AM   0.0%   74.9M of 512M   199.7M of 1G
 ```
 
 Your application will be automagically sent to Pivotal and started. This can take 5-10 minutes. It all depends on your internet connection, current Pivotal load, and the amount of data in your application.
