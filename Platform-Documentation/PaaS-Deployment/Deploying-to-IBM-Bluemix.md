@@ -78,9 +78,9 @@ Now your app is ready and you want to put it up on Bluemix to test. This is the 
 
 ### Update Dependencies
 
-Change to your project's root directory and update the system dependencies:
+Change to your project root directory and update the system dependencies:
 
-```bash
+```shell
 $ sudo ./scripts/installer.sh -c
 ```
 
@@ -88,19 +88,19 @@ $ sudo ./scripts/installer.sh -c
 
 Now, use the **cf** tool to push the application to Bluemix:
 
-```bash
+```shell
 $ cf push
 ```
 
 Your application will be automagically sent to Bluemix and started. This can take 5-10 minutes. It all depends on your internet connection,
-Bluemix's current load, and the amount of data in your application.
+current Bluemix load, and the amount of data in your application.
 
 ### Bind MySQL Service
 This step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
 
 Using the name of your MySQL service configured earlier, issue the following command:
 
-```bash
+```shell
 $ cf bind-service <app-name> <mysql-name>
 $ cf restage <app-name>
 ```
@@ -135,7 +135,7 @@ In this section, we do the following:
  2. Create a `config/database.config.php` file for IBM Bluemix
  3. Create a `manifest.yml` file for deployment settings
 
-```bash
+```shell
 $ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
 Cloning into 'my-dsp'...
 remote: Counting objects: 19882, done.
@@ -151,11 +151,12 @@ $ cp config/database.bluemix.config.php-dist config/database.config.php
 $ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
 # edit file and change app-name and host-name to "my-dsp"
 $ nano manifest.yml
+```
 
 ## Install Dependencies
 The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
 
- > This step is not necessarily required. However it will speed up deployment. When this script runs it creates the `composer.lock` file which contains the exact versions of the dependencies. The `vendor` directory is never tranferred with the deployment.
+> This step is not necessarily required. However it will speed up deployment. When this script runs it creates the `composer.lock` file which contains the exact versions of the dependencies. The `vendor` directory is never tranferred with the deployment.
 
 ```shell
 $ sudo ./scripts/installer.sh -c        # Run as sudo to avoid any permission errors
