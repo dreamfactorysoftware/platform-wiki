@@ -17,7 +17,7 @@ deploy your DSP. You'll only have to do these things once, not every time you de
 
 For example purposes, we will be using **my-dsp** as the name of our DSP.
 
-### MySQL
+### ClearDb
 One last prerequisite is to create a ClearDb instance in Pivotal for use by your application. Pivotal does not offer MySQL, but ClearDb is a reasonable facsimile. Please see the Pivotal docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `cleardb-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below, one is created via the command line interface. You can use the exact same method.
 
 ## Code
