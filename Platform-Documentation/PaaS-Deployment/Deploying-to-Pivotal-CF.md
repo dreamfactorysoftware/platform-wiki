@@ -222,27 +222,24 @@ urls: my-dsp.cfapps.io
 
 Your application will be automagically sent to Pivotal and started. This can take 5-10 minutes. It all depends on your internet connection, current Pivotal load, and the amount of data in your application.
 
-### Bind MySQL Service
+### Bind ClearDb Service
 This step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
 
-Using the name of your MySQL service configured earlier, issue the following command:
+Using the name of your ClearDb service configured earlier, issue the following command:
 
 ```shell
 $ cf bind-service <app-name> <mysql-name>
 $ cf restage <app-name>
 ```
 
-Where **<app-name>** is the same from your `manifest.yml` and **<mysql-name>** is the name of the MySQL service created for this application (above). 
+Where **<app-name>** is the same from your `manifest.yml` and **<mysql-name>** is the name of the ClearDb service created for this application (above).
 
-These commands bind the MySQL database to your application for storage, then tells the application to restart. Because the app was running,
-it cannot use the new service bound so it must be restarted.
+These commands bind the database to your application for storage, then tells the application to restart. Because the app was running it cannot use the newly bound service, therefore it must be restarted.
 
-You do not need to bind the service to your application each time you deploy unless the MySQL service name changed, or was removed and/or recreated.
+> You do not need to bind the service to your application each time you deploy unless the service name changed, removed, and/or recreated.
 
 ## Test
-If all goes well, you should have a running DSP in Pivotal after all commands have completed. Using the name you set in your `manifest.yml` for the `host`
-parameter, fire up your browser and go to `[host-name].cfapps.io`. If you get a white screen, just refresh your browser page. It appears the first
-connection to MySQL after being bound to an application fail thus causing a white screen. Refreshing the page makes a new connection and everything flows.
+If all goes well, you should have a running DSP in Pivotal after all commands have completed. Using the name you set in your `manifest.yml` for the `host` parameter, fire up your browser and go to `[host-name].cfapps.io`. If you get a white screen, just refresh your browser page. It appears the first connection to ClearDb after being bound to an application fail thus causing a white screen. Refreshing the page makes a new connection and everything flows.
  
 You will be prompted for your DSP administrator information (if none exists) and the familiar DSP Admin Console will be displayed.
 
@@ -265,47 +262,17 @@ In this section, we do the following:
 ```shell
  $ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
 Cloning into 'my-dsp'...
-remote: Counting objects: 19898, done.
-remote: Compressing objects: 100% (160/160), done.
-remote: Total 19898 (delta 81), reused 0 (delta 0)
-Receiving objects: 100% (19898/19898), 16.03 MiB | 820.00 KiB/s, done.
-Resolving deltas: 100% (12481/12481), done.
+remote: Counting objects: 19918, done.
+remote: Compressing objects: 100% (6999/6999), done.
+remote: Total 19918 (delta 12532), reused 19705 (delta 12400)
+Receiving objects: 100% (19918/19918), 16.00 MiB | 344.00 KiB/s, done.
+Resolving deltas: 100% (12532/12532), done.
 Checking connectivity... done.
 $ cd my-dsp/
-# No changes necessary
-$ cp config/database.bluemix.config.php-dist config/database.config.php
-# Create our manifest
-$ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
-# edit file and change app-name and host-name to "my-dsp"
-$ nano manifest.yml
+$ cp config/database.pivotal.config.php-dist config/database.config.php
+$ cp config/manifests/manifest.pivotal.yml-dist manifest.yml
+$ nano manifest.yml # edit file and change app-name and host-name to "my-dsp"
 ```
-
-## Install Dependencies
-The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
-
-> This step is not necessarily required. However it will speed up deployment. When this script runs it creates the `composer.lock` file which contains the
-exact versions of the dependencies. The `vendor` directory is never tranferred with the deployment.
-
-```shell
-$ sudo ./scripts/installer.sh -c    # Run as sudo!
-  * info:	Created /opt/dreamfactory/paas/pivotal/my-dsp/log/
-********************************************************************************
-  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.9]
-********************************************************************************
-
-  * info:	Clean install. Dependencies removed.
-  * info:	Install user is "jablan"
-  * info:	No composer found, installing: /opt/dreamfactory/paas/pivotal/my-dsp/composer.phar
-#!/usr/bin/env php
-  * info:	External modules updated
-  * info:	Checking file system structure and permissions
-  * info:	Created /opt/dreamfactory/paas/pivotal/my-dsp/storage/
-  * info:	Created /opt/dreamfactory/paas/pivotal/my-dsp/web/assets
-  * info:	Installing dependencies
-  * info:	Complete. Enjoy the rest of your day!
-```
-
-> Any directories required by the DSP will be created during the execution of the above script. Most of these are ignored by **git**, but not by **cf**.
 
 ## Deploy DSP
 The last step is to push your code up to Pivotal. This is done with the **cf** command line tool as shown below. An important note here is that whatever
@@ -475,9 +442,35 @@ TIP: Use 'cf restage' to ensure your env variable changes take effect
 $ cf restage my-dsp
 Restaging app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
 OK
+-----> Downloaded app package (4.6M)
+-----> Downloaded app buildpack cache (38M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Installing PHP
+Loading composer repositories with package information
+Installing dependencies from lock file
+Generating autoload files
+Finished: [2014-08-14 15:17:49.613308]
+-----> Uploading droplet (57M)
+
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+Showing health and status for app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: my-dsp.cfapps.io
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-14 11:18:16 AM   0.0%   76.9M of 512M   199.7M of 1G
 ```
 
-> The output of `cf restage my-dsp` is nearly identical to the output of a `cf push` and thus has been omitted.
+> The output of `cf restage my-dsp` is nearly identical to the output of a `cf push` and thus portions have been omitted.
 
 ## Try It Out!
 Fire up your web browser and go to your [new app](http://my-dsp.cfapps.io)!
