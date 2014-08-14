@@ -3,4 +3,5 @@ Currently, the DreamFactory Services Platform&trade; can be installed on IBM Blu
 * [[IBM Bluemix|Deploying-to-IBM-Bluemix]]
 * [[Pivotal CF&trade;|Deploying-to-Pivotal-CF]]
 * [[Stackato|Deploying-to-Stackato]]
+* [[AppFog|Deploying-to-AppFog]]
 
