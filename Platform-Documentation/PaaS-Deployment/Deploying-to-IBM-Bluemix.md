@@ -155,8 +155,7 @@ $ nano manifest.yml
 ## Install Dependencies
 The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
 
-> This step is necessary because it updates the `composer.lock` file with the latest dependencies so you always have the freshest code! This `vendor`
-directory will not be transferred.
+ > This step is not necessarily required. However it will speed up deployment. When this script runs it creates the `composer.lock` file which contains the exact versions of the dependencies. The `vendor` directory is never tranferred with the deployment.
 
 ```shell
 $ sudo ./scripts/installer.sh -c        # Run as sudo to avoid any permission errors
