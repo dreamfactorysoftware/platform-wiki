@@ -7,7 +7,7 @@ From the DSP Admin Console, go to the Config menu option on the left. The top of
 
 Problems?
 
-Some upgrades require database schema updates to continue operating correctly. If you run into errors after a software upgrade, log out of your DSP, complete any requested schema upgrades, and log back in.
+Some upgrades require database schema updates to continue operating correctly. If you run into errors after a software upgrade, log out of your DSP (go to <server>/web/logout), complete any requested schema upgrades, and log back in.
 
 Upgrading from pre-1.5.x releases? 
 
