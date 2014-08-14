@@ -145,10 +145,12 @@ Receiving objects: 100% (19882/19882), 16.03 MiB | 809.00 KiB/s, done.
 Resolving deltas: 100% (12472/12472), done.
 Checking connectivity... done.
 $ cd my-dsp/
-$ cp config/database.bluemix.config.php-dist config/database.config.php        # No changes necessary
-$ cp config/manifests/manifest.bluemix.yml-dist manifest.yml                # Create our manifest
-$ nano manifest.yml                                                        # edit file and change app-name and host-name to "my-dsp"
-```
+# No changes necessary
+$ cp config/database.bluemix.config.php-dist config/database.config.php
+# Create our manifest
+$ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
+# edit file and change app-name and host-name to "my-dsp"
+$ nano manifest.yml
 
 ## Install Dependencies
 The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
