@@ -1,9 +1,10 @@
 The following operations are typically available for creating records on all DreamFactory Database Services. These operations may vary significantly in handling of primary identifiers based on the database service type and sometimes based on the table definition itself. For instance, some tables may automatically create the identifier field(s) with no input from the client, like in the case of MongoDB or SQL databases with tables that have an auto-incrementing primary key. Others may require a single or multiple identifier fields to be sent with the rest of the record upon creation. Be sure to check the specific database service type for any differences documented in other pages in this section.
 
-  * [by Multiple Records](#post-records)
-  * [by a Single Record](#post-record)
+  * [Multiple Tables](Database-Creating-Schema#post-tables)
+  * [Single Table](Database-Creating-Schema#post-table)
+  * [Single Field](Database-Creating-Schema#post-field)
 
-## <a name="post-records"></a>Multiple Records
+## Multiple Records
 
 
 Description: Create one or more new records for a db table. Server-side lookups may be used as field values, and will be replaced on the server with the correct lookup value.
@@ -64,7 +65,7 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 }
 ```
 
-## <a name="post-record"></a>Single Record
+## Single Record
 
 Description: Create a new record for a db table, without using the batching notation ('record' wrapper).
 Notice that if no wrapper is used in the request, only a single record is allowed, and only a single record response will be returned without a wrapper.

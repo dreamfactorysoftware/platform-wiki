@@ -1,23 +1,107 @@
 The following features are typically available for all DreamFactory Database Services. Refer to the specifics of your database type documented in other pages in this section for additional features or restrictions or behavioral differences in these features.
 
-## Table Operations
+## Database Operations
 
-### <a name="get-tables"></a>Retrieving Table Information
+### <a name="get-resources"></a>Retrieving Database Resources
 
-Most native services of the DSP will return a list of resources if a REST GET request is sent to the root url of that service. Database services are no different. This list of resources for database services is the list of tables available for use on the service, restricted by user role if applicable.
+Most native services of the DSP will return a list of resources if a REST GET request is sent to the root url of that service. Database services are no different. This list of resources for database services is the list of tables (at a minimum), each including labels and access capabilities, restricted by user role if applicable.
+
+These operations are done on the root path of the service itself, like so...
+
+GET `http[s]://<dsp-server-name>/rest/<service-api-name>/`
+
+All returned data will be wrapped in a `resource` element.
+
+```javascript
+{
+  "resource": [
+    {
+      "name": "table_name",
+      ...
+    },
+    ...
+  ]
+}
+```
 
 Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getResources) to see this in action in our [Live API](Admin-Console-api-sdk).
 
-An additional operation is also provided to retrieve specific details about a requested set of tables. In SQL databases, this will also include our schema listing for each table. For other databases, the properties are database type dependent and vary.
+Other db-specific resources available for use on the service may be accessed by additional options.
 
-Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables) to see this in action in our [Live API](Admin-Console-api-sdk).
+* `include_schemas=true` will include the table names that are available for access via the schema control (`_schema`) resource. See [Schema Operations](#schema-operations) for more information.
+* `include_procs=true` will include the stored procedure names that are available for access via the stored procedure control (`_proc`) resource. See [SQL DB Services] for more information.
+
+Two additional url parameter options are also available to change the output format of the resource list returned to the caller.
+
+* `names_only=true` will retrieve a simple list (array) consisting of the API name of each resource only. Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getTables) to see this in action in our [Live API](Admin-Console-api-sdk).
+* `as_access_components=true` will retrieve all of the database resources as a list of all role accessible components. This will include the "None" (a blank after the parent resource, `_schema\`) and the "All" (a star after the parent resource, `_schema\*` options. This view is useful for clients when manipulating the Role Service Access capabilities, like on our Admin Panel Role tab. In SQL databases, this will also include a schema resource (table name) listing for each table and any stored procedures available. For other databases, the resources are database type dependent and vary. Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getAccessComponents) to see this in action in our [Live API](Admin-Console-api-sdk).
+
+```javascript
+{
+  "resource": [
+    "name",
+    ...
+  ]
+}
+```
+
+## <a name="schema-operations"></a>Schema Operations
+
+By "schema", we mean in its traditional SQL database sense, i.e. a set of properties that define the layout of tables and their fields including relationships between them. However, we have extended this meaning to also encompass the properties that define tables on NoSQL database, i.e. any table key configuration, etc., some of which are database-type dependent. We have also added consolidated simplified data types, a familiar json format, table and field labels, and additional "helper" functions to aid client side usage of the schema, as it pertains to managing table records.
+
+All calls to this resource take the form of...
+
+`http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/[<table_name>/[<field_name>]]`
+
+where `table_name` and `field_name` are optional and control what level of resource the client is acting on.
+All posted and returned data, when not using the `table_name` or `field_name` parameter or otherwise noted, must be an array of records wrapped with an `record` element.
+
+```javascript
+{
+  "table": [
+    {
+      "name": "table_name",
+      ...
+    },
+    ...
+  ]
+}
+```
+
+See the following sections for more detail...
+
+* [Retrieving Schema](Database-Retrieving-Schema)
+* [Creating Schema](Database-Creating-Schema)
+* [Updating or Replacing Schema](Database-Updating-Schema)
+* [Patching or Merging Schema](Database-Patching-Schema)
+* [Deleting Schema](Database-Deleting-Schema)
 
 
 ## Record Operations
 
+All calls to this resource take the form of...
+
+`http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>/[<id>]`
+
+where `id` is optional and controls whether the client is acting on a single record or an array of records.
+All posted and returned data, when not using the `id` parameter or otherwise noted, must be an array of records wrapped with an `record` element.
+
+```javascript
+{
+  "record": [
+    {
+      "name": "value",
+      ...
+    },
+    ...
+  ]
+}
+```
+
+
 ### <a name="common-params"></a>Common Parameters
 
-In addition to the [Common Headers and Parameters](Common-Headers-Parameters), many of the database services' API operations support the following parameters. To make things more flexible, most parameters can be passed as URI parameters in the form of `name=value` or included in the posted data itself. If passed as a URI parameter, the values **_must be encoded_** accordingly. If it is included in the posted data, and the parameter supports a list (i.e. comma-separated values) as a value, like the `ids` parameter, then it could also even be sent as an array of items.
+In addition to the [Common Headers and Parameters](Common-Headers-Parameters), many of the database services' record API operations support the following parameters. To make things more flexible, most parameters can be passed as URI parameters in the form of `name=value` or included in the posted data itself. If passed as a URI parameter, the values **_must be encoded_** accordingly. If it is included in the posted data, and the parameter supports a list (i.e. comma-separated values) as a value, like the `ids` parameter, then it could also even be sent as an array of items.
 
 For example, using the `ids` parameter as a URI parameter would look like...
 
@@ -99,37 +183,11 @@ In batch scenarios, where supported, continue processing even after one record f
 In batch scenarios, where supported, rollback all changes if any record of the batch fails. Default behavior is to halt and return results up to the first point of failure, leaving any changes.
 
 
-### [Retrieving Records](Database-Retrieving-Records)
-  * [by Filter](Database-Retrieving-Records#get-filter)
-  * [by List of Identifiers](Database-Retrieving-Records#get-ids)
-  * [by a Single Identifier](Database-Retrieving-Records#get-id)
-  * [by Posting Partial Records](Database-Retrieving-Records#get-records)
-  * [by Posting a Filter with Replacement Parameters](Database-Retrieving-Records#get-post-filter)
-  * [by Posting Ids](Database-Retrieving-Records#get-post-ids)
+See the following sections for more detail...
 
-
-### [Creating Records](Database-Creating-Records)
-  * [by Multiple Records](Database-Creating-Records#post-records)
-  * [by a Single Record](Database-Creating-Records#post-record)
-
-
-### [Updating or Replacing Records](Database-Updating-Records)
-  * [by Updated Records](Database-Updating-Records#put-records)
-  * [by Filter](Database-Updating-Records#put-filter)
-  * [by List of Identifiers](Database-Updating-Records#put-ids)
-  * [by a Single Identifier](Database-Updating-Records#put-id)
-
-
-### [Patching or Merging Records](Database-Patching-Records)
-  * [by Updated Records](Database-Patching-Records#patch-records)
-  * [by Filter](Database-Patching-Records#patch-filter)
-  * [by List of Identifiers](Database-Patching-Records#patch-ids)
-  * [by a Single Identifier](Database-Patching-Records#patch-id)
-
-
-### [Deleting Records](Database-Deleting-Records)
-  * [by List of Records](Database-Deleting-Records#delete-records)
-  * [by Filter](Database-Deleting-Records#delete-filter)
-  * [by List of Identifiers](Database-Deleting-Records#delete-ids)
-  * [by a Single Identifier](Database-Deleting-Records#delete-id)
+* [Retrieving Records](Database-Retrieving-Records)
+* [Creating Records](Database-Creating-Records)
+* [Updating or Replacing Records](Database-Updating-Records)
+* [Patching or Merging Records](Database-Patching-Records)
+* [Deleting Records](Database-Deleting-Records)
 
