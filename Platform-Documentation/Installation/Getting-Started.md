@@ -8,12 +8,12 @@ It's no secret that DreamFactory loves [Ubuntu](http://www.ubuntu.com/). It is a
 
 However, [CentOS](http://centos.org) is also widely used and just as compatible. However, it is not as user-friendly as Ubuntu. If you're not scared of the Linux command line, then you shouldn't have and problem with it.
 
-Here are some suggested distributions we recommend, in alphabetical order:
+Here are some recommended distributions, in alphabetical order:
 
-| Distribution | Url | Notes |
-|--------|-----|-------|
-| CentOS 5+ | http://centos.org/ | Based on Red Hat |
-| Debian 7+ | http://www.debian.org/ | Based on Red Hat |
-| LinuxMint 17+  | http://www.linuxmint.com/ | Based on Ubuntu |
-| Oracle Linux 7+ | http://www.oracle.com/ | Based on Red Hat ESL 7 |
-| Ubuntu 12.04+ | http://www.ubuntu.com/ | Based on Debian |
+| Distribution    | Url                       | Based On      |
+|-----------------|---------------------------|---------------|
+| CentOS 5+       | http://centos.org/        | Red Hat       |
+| Debian 7+       | http://www.debian.org/    | FreeBSD       |
+| LinuxMint 17+   | http://www.linuxmint.com/ | Ubuntu        |
+| Oracle Linux 7+ | http://www.oracle.com/    | Red Hat ESL 7 |
+| Ubuntu 12.04+   | http://www.ubuntu.com/    | Debian        |
