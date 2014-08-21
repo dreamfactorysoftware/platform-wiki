@@ -1,8 +1,10 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
-## v1.7.x (Soon!)
+## v1.7.6 (Release 2014-08-15)
 
 ### New!
+* SQL DB services now support stored procedures, access via the `<service_name>/_proc` resource. In this version only MySQL and SQL Server connections support stored procedures.
+* SQL DB Schema service functionality has been rolled into the SQL DB service, access via the `<service_name>/_schema` resource. The SQL DB Schema service type for existing configurations) is still operational for this release, but is deemed deprecated.
 * New system resource `environment` containing information about the system running the DSP
  * Pull via REST: `/rest/system/environment`
 * Many platform neutrality enhancements
