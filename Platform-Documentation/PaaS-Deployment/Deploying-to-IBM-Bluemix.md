@@ -8,47 +8,39 @@ In order to deploy your DSP to Bluemix, you'll need to do a little setup on your
 deploy your DSP. You'll only have to do these things once, not every time you deploy.
 
  1. An account on [IBM Bluemix](http://www.bluemix.net)
- 1. A clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
- 1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are here: [Installing the **cf** command line interface]
- (https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html). Follow the instructions on that page that refer to connecting and logging in to Bluemix.
- You'll have to have this done before you can deploy.
+ 1. A running clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
+ 1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are on Bluemix's [getting started](http://docs.run.pivotal.io/starting/) page. Follow the setup instructions on that page that refer to connecting and logging in to Bluemix. You'll have to have this done before you can deploy.
 
 For example purposes, we will be using **my-dsp** as the name of our DSP.
 
 ### MySQL
-One last prerequisite is to create a MySQL instance in Bluemix for use by your application. Please see the Bluemix docs for more information about how this
-is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you
-name your service like `mysql-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below,
-one is created via the command line interface. You can use the exact same method.
+One last prerequisite is to create a MySQL instance in Bluemix for use by your application. Please see the Bluemix docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `mysql-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below, one is created via the command line interface. You can use the exact same method.
 
 ## Code
-Developing an application to run on Bluemix isn't really any different than developing an application that lives on a stand-alone server. However,
-there is one major difference. Bluemix deployed applications have no persistent storage. That is to say, all storage on your Bluemix DSP is ephemeral.
-Because of this, you *must* develop and test your application locally. If your application *expects* disk space,
-you'll need to refactor it to store that data either on a remote storage service or in the database.
+Developing an application to run on Bluemix isn't really any different than developing an application that lives on a stand-alone server. However, there is one major difference. Bluemix deployed applications have no persistent storage. That is to say, all storage on your Bluemix DSP is ephemeral. Because of this, you *must* develop and test your application locally. If your application *expects* disk space, you'll need to refactor it to store that data either on a remote storage service or in the database.
  
 So code and test your app and when you're ready to run it on Bluemix, move on to the next step.
 
 ## Configure
-There are a few files we need to create in order to deploy to Bluemix. These are the database configuration file and the application's **manifest** file.
-Templates are provided for these two in the repository. But we'll cover them individually here.
+There are a few files we need to create in order to deploy to Bluemix. These are the database configuration file and the application's **manifest** file. Templates are provided for these two in the repository. But we'll cover them individually here.
 
 ### Database Configuration
-In your project's `config` directory there is a file called `database.bluemix.config.php-dist`. Copy this to `database.config.php`. 
+In your project's `config/databases` directory there is a file called `database.bluemix.config.php-dist`. Copy this to `config/database.config.php`
+
+>The following, and all future command line examples are shown as being done from the root of your DSP install.
 
 From your project's root directory:
 
 ```bash
-$ cp config/database.bluemix.config.php-dist config/database.config.php
+$ cp config/databases/database.bluemix.config.php-dist config/database.config.php
 ```
 
 You do not need to edit this file. The system will automatically use it if it exists.
 
 ### Application Manifest
-In the project's `config/manifests` directory there is a file called `manifest.bluemix.yml-dist`. We need to make a copy of this file and tailor it for your
-application.
+In the project's `config/manifests` directory there is a file called `manifest.bluemix.yml-dist`. We need to make a copy of this file and tailor it for your application. 
 
-From your project's root directory:
+Again, from your project's root directory:
 
 ```bash
 $ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
@@ -69,29 +61,33 @@ applications:
 ```
 
 Edit this copy with your favorite editor and change **[app-name]** and **[host-name]** to appropriate values for your app and host names. These can be the
-same but must be unique across the Bluemix environment.
+same but must be unique across the Bluemix environment. Remember, we're using **my-dsp** for our names. So your manifest should look like this:
 
-More information about application manifests can be found in the [CloudFoundry documentation](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html).
-
-### Update Dependencies
-
-Change to your project root directory and update the system dependencies:
-
-```shell
-$ sudo ./scripts/installer.sh -c
+```yml
+---
+applications:
+- name: my-dsp
+  memory: 512M
+  instances: 1
+  host: my-dsp
+  domain: mybluemix.net
+  path: .
+  buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git
 ```
 
+>More information about application manifests can be found in the [CloudFoundry documentation](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html).
+
 ## Deploy
-Now your app is ready and you want to put it up on Bluemix to test. This is the easy part.
+When your app is running correctly locally, you'll want to put it up on Bluemix to test. This is the easy part.
 
 ### Push to Bluemix
-Now, use the **cf** tool to push the application to Bluemix:
+Now, using the **cf** tool, we *push* the application to Bluemix:
 
 ```shell
 $ cf push
-Using manifest file /opt/dreamfactory/paas/bluemix/my-dsp/manifest.yml
+Using manifest file manifest.yml
 
-Creating app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Creating app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
 Using route my-dsp.mybluemix.net
@@ -100,121 +96,27 @@ OK
 
 Uploading my-dsp...
 Uploading app files from: /opt/dreamfactory/paas/bluemix/my-dsp
-Uploading 6.2M, 836 files
+Uploading 5.2M, 856 files
 OK
 
-Starting app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Starting app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
------> Downloaded app package (4.9M)
+-----> Downloaded app package (4.7M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
 Installing PHP
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fpm-5.4.31.tar.gz] to [/tmp/php-fpm-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zlib-5.4.31.tar.gz] to [/tmp/php-zlib-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pear-5.4.31.tar.gz] to [/tmp/php-pear-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4.31.tar.gz] to [/tmp/php-openssl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-cli-5.4.31.tar.gz] to [/tmp/php-cli-5.4.31.tar.gz]
-Downloaded [https://getcomposer.org/download/1.0.0-alpha8/composer.phar] to [/tmp/composer.phar]
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so' - /tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so' - 
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so' - 
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so: cannot open shared object file: No such file or directory in Unknown on line 0
 Loading composer repositories with package information
 Installing dependencies from lock file
-  - Installing pear-pear.php.net/net_url2 (2.0.6)
-    Downloading
-  - Installing pear-pear.php.net/mail_mime (1.8.9)
-    Downloading
-  - Installing pear-pear.php.net/mail_mimedecode (1.5.5)
-    Downloading
-  - Installing pear-pear.php.net/xml_util (1.2.3)
-    Downloading
-  - Installing pear-pear.php.net/structures_graph (1.0.4)
-    Downloading
-  - Installing pear-pear.php.net/console_getopt (1.3.1)
-    Downloading
-  - Installing pear-pear.php.net/archive_tar (1.3.12)
-    Downloading
-  - Installing pear-pear.php.net/pear (1.9.5)
-    Downloading
-    Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/peardev for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
-  - Installing pear-pear.php.net/http_request2 (2.2.1)
-    Downloading
-  - Installing dreamfactory/azure-sdk-for-php (dev-develop 3326524)
-    Cloning 3326524639e3f42521f7259ea6ca02a6e901e3d3
-  - Installing symfony/http-foundation (dev-master d17938f)
-    Cloning d17938f07e168c4e5bb35c209d3c289ccff15d80
-  - Installing symfony/event-dispatcher (dev-master 68ab3c3)
-    Cloning 68ab3c3f50eae2b152075da722204d4de67f596f
-  - Installing psr/log (dev-master a78d650)
-    Cloning a78d6504ff5d4367497785ab2ade91db3a9fbe11
-  - Installing monolog/monolog (dev-master 12545cd)
-    Cloning 12545cda2f7a0bd82a110f742ef455fe735e60cf
-  - Installing doctrine/cache (v1.3.0)
-    Downloading
-  - Installing kisma/kisma (0.2.53)
-    Downloading
-  - Installing dreamfactory/lib-php-common (dev-develop 8da8fb6)
-    Cloning 8da8fb68cf6ee39d63f7bd93ae15cbba6748d958
-  - Installing swiftmailer/swiftmailer (v4.3.1)
-    Downloading
-  - Installing rackspace/php-opencloud (V1.5.10)
-    Downloading
-  - Installing phpforce/common (dev-master aa96dfb)
-    Cloning aa96dfb6b0f43024c95a9d9c88396013e7513f9c
-  - Installing phpforce/soap-client (dev-master 9f014c8)
-    Cloning 9f014c8d5e48f5d983600f37098f22d67e9cb1e1
-  - Installing nikic/php-parser (0.9.x-dev ef70767)
-    Cloning ef70767475434bdb3615b43c327e2cae17ef12eb
-  - Installing jeremeamia/superclosure (1.0.1)
-    Downloading
-  - Installing dreamfactory/yii (1.1.13.3)
-    Downloading
-  - Installing dreamfactory/oasys (0.4.13)
-    Downloading
-  - Installing dreamfactory/lib-php-common-yii (dev-develop 1606bd2)
-    Cloning 1606bd207508992b9a95e592123850cad91afba1
-  - Installing dreamfactory/javascript-sdk (1.0.15)
-    Downloading
-  - Installing dready92/php-on-couch (dev-master ae738b8)
-    Cloning ae738b8779d71c8128f63e2862572516ac1a8eeb
-  - Installing guzzle/guzzle (v3.8.1)
-    Downloading
-  - Installing aws/aws-sdk-php (2.4.12)
-    Downloading
-  - Installing dreamfactory/lib-php-common-platform (1.7.8)
-    Downloading
-symfony/event-dispatcher suggests installing symfony/dependency-injection ()
-symfony/event-dispatcher suggests installing symfony/http-kernel ()
-monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
-monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
-monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
-monolog/monolog suggests installing raven/raven (Allow sending log messages to a Sentry server)
-monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
-monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
-monolog/monolog suggests installing videlalvaro/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
-phpforce/soap-client suggests installing doctrine/common (For caching SOAP responses)
-aws/aws-sdk-php suggests installing ext-apc (Allows service description opcode caching, request and response caching, and credentials caching)
-aws/aws-sdk-php suggests installing symfony/yaml (Eases the ability to write manifests for creating jobs in AWS Import/Export)
 Generating autoload files
-Finished: [2014-08-14 07:21:56.273052]
------> Uploading droplet (57M)
+Finished: [2014-08-21 15:19:58.008891]
+-----> Uploading droplet (65M)
 
 0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
 
-Showing health and status for app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
 requested state: started
@@ -223,32 +125,69 @@ usage: 512M x 1 instances
 urls: my-dsp.mybluemix.net
 
      state     since                    cpu    memory          disk
-#0   running   2014-08-14 03:22:25 AM   0.0%   23.5M of 512M   202.5M of 1G
+#0   running   2014-08-21 11:20:28 AM   0.0%   73.9M of 512M   201.5M of 1G
+Endpoint deprecated
 ```
+This process can take some time depending on your app and internet speed and whatnot. When it has completed, your app has been deployed to Bluemix and should be running. However, we still need a database configured and bound to our application. Unless you unbind or delete the database, this is only needed to be done once.
 
-Your application will be automagically sent to Bluemix and started. This can take 5-10 minutes. It all depends on your internet connection, current Bluemix load, and the amount of data in your application.
+>At the end of your first push, you may see the "Endpoint deprecated" message. This is because we haven't yet bound our database service. On subsequent pushes, you will not see this message as the database service will be available. No need for concern there.
 
-### Bind MySQL Service
-This step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
+>There is additional output that was omitted from above because it isn't relevant unless there is an error. Basically it is log information about what is being installed. You'll see when you do it.
 
-Using the name of your MySQL service configured earlier, issue the following command:
+### Create and Bind a Database Service
+As stated, this step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
+
+Let's create and bind a database service to our application:
 
 ```shell
-$ cf bind-service <app-name> <mysql-name>
-$ cf restage <app-name>
+$ cf create-service cleardb spark cleardb-my-dsp
+Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+$ cf bind-service my-dsp cleardb-my-dsp
+Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
 ```
 
-Where **<app-name>** is the same from your `manifest.yml` and **<mysql-name>** is the name of the MySQL service created for this application (above). 
+These commands create and bind the database to your application for storage. Because the app was running when we did this, it cannot use the newly bound service, therefore it must be restarted. This is done as follows:
 
-These commands bind the MySQL database to your application for storage, then tells the application to restart. Because the app was running,
-it cannot use the new service bound so it must be restarted.
+```shell
+$ cf restage my-dsp
+Restaging app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+-----> Downloaded app package (4.7M)
+-----> Downloaded app buildpack cache (32M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Installing PHP
+Loading composer repositories with package information
+Installing dependencies from lock file
+Generating autoload files
+Finished: [2014-08-21 15:24:34.557655]
+-----> Uploading droplet (65M)
 
-You do not need to bind the service to your application each time you deploy unless the MySQL service name changed, or was removed and/or recreated.
+1 of 1 instances running
+
+App started
+
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: my-dsp.mybluemix.net
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-21 11:25:01 AM   0.0%   78.7M of 512M   201.5M of 1G
+```
+
+See how we did not get the "Endpoint deprecated" message this time?
+
+>You do not need to bind the service to your application each time you deploy unless the service name has changed, been removed, and/or recreated.
 
 ## Test
-If all goes well, you should have a running DSP in Bluemix after all commands have completed. Using the name you set in your `manifest.yml` for the `host`
-parameter, fire up your browser and go to `[host-name].mybluemix.net`. If you get a white screen, just refresh your browser page. It appears the first
-connection to MySQL after being bound to an application fail thus causing a white screen. Refreshing the page makes a new connection and everything flows.
+If all goes well, you should have a running DSP in Bluemix after all commands have completed. Using the name you set in your `manifest.yml` for the `host` parameter, fire up your browser and go to `[host-name].mybluemix.net`.
  
 You will be prompted for your DSP administrator information (if none exists) and the familiar DSP Admin Console will be displayed.
 
@@ -265,189 +204,63 @@ Move into your projects or workspace directory and perform the following command
 In this section, we do the following:
 
  1. Clone the main DSP repository from GitHub
- 2. Create a `config/database.config.php` file for IBM Bluemix
+ 2. Create a `config/database.config.php` file for Bluemix
  3. Create a `manifest.yml` file for deployment settings
 
 ```shell
- $ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
+$ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
 Cloning into 'my-dsp'...
-remote: Counting objects: 19898, done.
-remote: Compressing objects: 100% (160/160), done.
-remote: Total 19898 (delta 81), reused 0 (delta 0)
-Receiving objects: 100% (19898/19898), 16.03 MiB | 820.00 KiB/s, done.
-Resolving deltas: 100% (12481/12481), done.
+remote: Counting objects: 19918, done.
+remote: Compressing objects: 100% (6999/6999), done.
+remote: Total 19918 (delta 12532), reused 19705 (delta 12400)
+Receiving objects: 100% (19918/19918), 16.00 MiB | 344.00 KiB/s, done.
+Resolving deltas: 100% (12532/12532), done.
 Checking connectivity... done.
 $ cd my-dsp/
-# No changes necessary
-$ cp config/database.bluemix.config.php-dist config/database.config.php
-# Create our manifest
+$ cp config/databases/database.bluemix.config.php-dist config/database.config.php
 $ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
-# edit file and change app-name and host-name to "my-dsp"
-$ nano manifest.yml
+$ nano manifest.yml # edit file and change app-name and host-name to "my-dsp"
 ```
-
-## Install Dependencies
-The next step is to run the DreamFactory `scripts/installer.sh` script to pull in the required dependencies.
-
-> This step is not necessarily required. However it will speed up deployment. When this script runs it creates the `composer.lock` file which contains the
-exact versions of the dependencies. The `vendor` directory is never tranferred with the deployment.
-
-```shell
-$ sudo ./scripts/installer.sh -c    # Run as sudo!
-  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/log/
-********************************************************************************
-  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.9]
-********************************************************************************
-
-  * info:	Clean install. Dependencies removed.
-  * info:	Install user is "jablan"
-  * info:	No composer found, installing: /opt/dreamfactory/paas/bluemix/my-dsp/composer.phar
-#!/usr/bin/env php
-  * info:	External modules updated
-  * info:	Checking file system structure and permissions
-  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/storage/
-  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/web/assets
-  * info:	Installing dependencies
-  * info:	Complete. Enjoy the rest of your day!
-```
-
-> Any directories required by the DSP will be created during the execution of the above script. Most of these are ignored by **git**, but not by **cf**.
 
 ## Deploy DSP
-The last step is to push your code up to IBM Bluemix. This is done with the **cf** command line tool as shown below. An important note here is that whatever
+The last step is to push your code up to Bluemix. This is done with the **cf** command line tool as shown below. An important note here is that whatever
 is in your root directory is deployed. If you do not wish for a file or directory to be deployed, add the pattern to the `.cfignore` file. The syntax is
 identical to `.gitignore`.
 
-```bash
+```shell
 $ cf push
-Using manifest file /opt/dreamfactory/paas/bluemix/my-dsp/manifest.yml
+Using manifest file manifest.yml
 
-Creating app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Creating app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
-Creating route my-dsp.mybluemix.net...
-OK
-
+Using route my-dsp.mybluemix.net
 Binding my-dsp.mybluemix.net to my-dsp...
 OK
 
 Uploading my-dsp...
 Uploading app files from: /opt/dreamfactory/paas/bluemix/my-dsp
-Uploading 5.2M, 832 files
+Uploading 5.2M, 856 files
 OK
 
-Starting app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Starting app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 -----> Downloaded app package (4.7M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
 Installing PHP
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fpm-5.4.31.tar.gz] to [/tmp/php-fpm-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zlib-5.4.31.tar.gz] to [/tmp/php-zlib-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pear-5.4.31.tar.gz] to [/tmp/php-pear-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4.31.tar.gz] to [/tmp/php-openssl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-cli-5.4.31.tar.gz] to [/tmp/php-cli-5.4.31.tar.gz]
-Downloaded [https://getcomposer.org/download/1.0.0-alpha8/composer.phar] to [/tmp/composer.phar]
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so' -
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so' -
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so' -
-/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so: cannot open shared object file: No such file or directory in Unknown on line 0
 Loading composer repositories with package information
 Installing dependencies from lock file
-  - Installing pear-pear.php.net/net_url2 (2.0.6)
-    Downloading
-  - Installing pear-pear.php.net/mail_mime (1.8.9)
-    Downloading
-  - Installing pear-pear.php.net/mail_mimedecode (1.5.5)
-    Downloading
-  - Installing pear-pear.php.net/xml_util (1.2.3)
-    Downloading
-  - Installing pear-pear.php.net/structures_graph (1.0.4)
-    Downloading
-  - Installing pear-pear.php.net/console_getopt (1.3.1)
-    Downloading
-  - Installing pear-pear.php.net/archive_tar (1.3.12)
-    Downloading
-  - Installing pear-pear.php.net/pear (1.9.5)
-    Downloading
-    Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/peardev for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
-  - Installing pear-pear.php.net/http_request2 (2.2.1)
-    Downloading
-  - Installing dreamfactory/azure-sdk-for-php (dev-develop 3326524)
-    Cloning 3326524639e3f42521f7259ea6ca02a6e901e3d3
-  - Installing symfony/http-foundation (dev-master d17938f)
-    Cloning d17938f07e168c4e5bb35c209d3c289ccff15d80
-  - Installing symfony/event-dispatcher (dev-master 68ab3c3)
-    Cloning 68ab3c3f50eae2b152075da722204d4de67f596f
-  - Installing psr/log (dev-master a78d650)
-    Cloning a78d6504ff5d4367497785ab2ade91db3a9fbe11
-  - Installing monolog/monolog (dev-master 12545cd)
-    Cloning 12545cda2f7a0bd82a110f742ef455fe735e60cf
-  - Installing doctrine/cache (v1.3.0)
-    Downloading
-  - Installing kisma/kisma (0.2.53)
-    Downloading
-  - Installing dreamfactory/lib-php-common (dev-develop 8da8fb6)
-    Cloning 8da8fb68cf6ee39d63f7bd93ae15cbba6748d958
-  - Installing swiftmailer/swiftmailer (v4.3.1)
-    Downloading
-  - Installing rackspace/php-opencloud (V1.5.10)
-    Downloading
-  - Installing phpforce/common (dev-master aa96dfb)
-    Cloning aa96dfb6b0f43024c95a9d9c88396013e7513f9c
-  - Installing phpforce/soap-client (dev-master 9f014c8)
-    Cloning 9f014c8d5e48f5d983600f37098f22d67e9cb1e1
-  - Installing nikic/php-parser (0.9.x-dev ef70767)
-    Cloning ef70767475434bdb3615b43c327e2cae17ef12eb
-  - Installing jeremeamia/superclosure (1.0.1)
-    Downloading
-  - Installing dreamfactory/yii (1.1.13.3)
-    Downloading
-  - Installing dreamfactory/oasys (0.4.13)
-    Downloading
-  - Installing dreamfactory/lib-php-common-yii (dev-develop 648fad6)
-    Cloning 648fad6fdc6be509baf6aa9207bb031f3d005c51
-  - Installing dreamfactory/javascript-sdk (1.0.15)
-    Downloading
-  - Installing dready92/php-on-couch (dev-master ae738b8)
-    Cloning ae738b8779d71c8128f63e2862572516ac1a8eeb
-  - Installing guzzle/guzzle (v3.8.1)
-    Downloading
-  - Installing aws/aws-sdk-php (2.4.12)
-    Downloading
-  - Installing dreamfactory/lib-php-common-platform (1.7.7)
-    Downloading
-symfony/event-dispatcher suggests installing symfony/dependency-injection ()
-symfony/event-dispatcher suggests installing symfony/http-kernel ()
-monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
-monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
-monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
-monolog/monolog suggests installing raven/raven (Allow sending log messages to a Sentry server)
-monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
-monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
-monolog/monolog suggests installing videlalvaro/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
-phpforce/soap-client suggests installing doctrine/common (For caching SOAP responses)
-aws/aws-sdk-php suggests installing ext-apc (Allows service description opcode caching, request and response caching, and credentials caching)
-aws/aws-sdk-php suggests installing symfony/yaml (Eases the ability to write manifests for creating jobs in AWS Import/Export)
 Generating autoload files
-Finished: [2014-08-14 06:45:21.667134]
------> Uploading droplet (57M)
+Finished: [2014-08-21 15:19:58.008891]
+-----> Uploading droplet (65M)
 
+0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
 
-Showing health and status for app my-dsp in org someone@somewhere.com / space cadet as admin@somewhere.com
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
 requested state: started
@@ -456,33 +269,56 @@ usage: 512M x 1 instances
 urls: my-dsp.mybluemix.net
 
      state     since                    cpu    memory          disk
-#0   running   2014-08-14 02:45:50 AM   0.3%   23.3M of 512M   201.5M of 1G
+#0   running   2014-08-21 11:20:28 AM   0.0%   73.9M of 512M   201.5M of 1G
+Endpoint deprecated
+$ cf create-service cleardb spark cleardb-my-dsp
+Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+$ cf bind-service my-dsp cleardb-my-dsp
+Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage my-dsp
+Restaging app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+-----> Downloaded app package (4.7M)
+-----> Downloaded app buildpack cache (32M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Installing PHP
+Loading composer repositories with package information
+Installing dependencies from lock file
+Generating autoload files
+Finished: [2014-08-21 15:24:34.557655]
+-----> Uploading droplet (65M)
+
+1 of 1 instances running
+
+App started
+
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: my-dsp.mybluemix.net
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-21 11:25:01 AM   0.0%   78.7M of 512M   201.5M of 1G
 ```
+
+>The output of `cf restage` is nearly identical to the output of a `cf push` and thus portions of both have been omitted.
+
+If the state of your push is not **running** as shown above, something has gone awry and it is suggested to try again.
 
 ## Test Web Server
 Send a **ping** request to your new server and see if it responds properly.
 
 ```bash
-$ curl http://my-dsp.mybluemix.net/ping.php		# Test a ping
-pong											# Got the pong!
+$ curl http://my-dsp.mybluemix.net/ping.php
+pong
 ```
-
-## Create and Bind a Database Service
-The DSP requires a local MySQL database for storage. So this service needs to be created and bound to the application. Once bound, the application is restarted.
-
-```bash
-$ cf create-service mysql 100 mysql-my-dsp        # Create a MySQL service instance for your DSP called "mysql-my-dsp"
-Creating service mysql-my-dsp in org someone@somewhere / space dev as someone@somewhere...
-OK
-$ cf bind-service my-dsp mysql-my-dsp
-Binding service mysql-my-dsp to app my-dsp in org someone@somewhere / space dev as someone@somewhere...
-OK
-$ cf restage my-dsp
-Restarting app my-dsp in org someone@somewhere / space dev as someone@somewhere...
-OK
-```
-
-> The output of `cf restage my-dsp` is nearly identical to the output of a `cf push` and thus has been omitted.
 
 ## Try It Out!
 Fire up your web browser and go to your [new app](http://my-dsp.mybluemix.net)!
