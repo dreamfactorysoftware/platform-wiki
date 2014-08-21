@@ -12,13 +12,13 @@ In order to deploy your DSP to Pivotal, you'll need to do a little setup on your
 deploy your DSP. You'll only have to do these things once, not every time you deploy.
 
  1. An account on [Pivotal CF](http://www.pivotal.io)
- 1. A clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
+ 1. A running clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
  1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are on Pivotal's [getting started](http://docs.run.pivotal.io/starting/) page. Follow the setup instructions on that page that refer to connecting and logging in to Pivotal. You'll have to have this done before you can deploy.
 
 For example purposes, we will be using **my-dsp** as the name of our DSP.
 
 ### ClearDb
-One last prerequisite is to create a ClearDb instance in Pivotal for use by your application. Pivotal does not offer MySQL, but ClearDb is a reasonable facsimile. Please see the Pivotal docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `cleardb-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below, one is created via the command line interface. You can use the exact same method.
+One last prerequisite is to create a ClearDb instance in Pivotal for use by your application. Pivotal does not offer MySQL proper, but ClearDb instead. ClearDb is a MySQL compatible database. Please see the Pivotal docs for more information about how this is done (it's not hard, just beyond the scope of this documentation). Remember the name of your service as it will be needed later. We recommend that you name your service like `cleardb-[app-name]`, where **[app-name]** is a unique name for your application. In the walk-through below, one is created via the command line interface. You can use the exact same method.
 
 ## Code
 Developing an application to run on Pivotal isn't really any different than developing an application that lives on a stand-alone server. However, there is one major difference. Pivotal deployed applications have no persistent storage. That is to say, all storage on your Pivotal DSP is ephemeral. Because of this, you *must* develop and test your application locally. If your application *expects* disk space, you'll need to refactor it to store that data either on a remote storage service or in the database.
@@ -29,12 +29,14 @@ So code and test your app and when you're ready to run it on Pivotal, move on to
 There are a few files we need to create in order to deploy to Pivotal. These are the database configuration file and the application's **manifest** file. Templates are provided for these two in the repository. But we'll cover them individually here.
 
 ### Database Configuration
-In your project's `config` directory there is a file called `database.pivotal.config.php-dist`. Copy this to `database.config.php`.
+In your project's `config/databases` directory there is a file called `database.pivotal.config.php-dist`. Copy this to `config/database.config.php`
+
+>The following, and all future command line examples are shown as being done from the root of your DSP install.
 
 From your project's root directory:
 
 ```bash
-$ cp config/database.pivotal.config.php-dist config/database.config.php
+$ cp config/databases/database.pivotal.config.php-dist config/database.config.php
 ```
 
 You do not need to edit this file. The system will automatically use it if it exists.
@@ -42,7 +44,7 @@ You do not need to edit this file. The system will automatically use it if it ex
 ### Application Manifest
 In the project's `config/manifests` directory there is a file called `manifest.pivotal.yml-dist`. We need to make a copy of this file and tailor it for your application. 
 
-From your project's root directory:
+Again, from your project's root directory:
 
 ```bash
 $ cp config/manifests/manifest.pivotal.yml-dist manifest.yml
@@ -63,7 +65,7 @@ applications:
 ```
 
 Edit this copy with your favorite editor and change **[app-name]** and **[host-name]** to appropriate values for your app and host names. These can be the
-same but must be unique across the Pivotal environment. Remember, we're using **my-dsp** for our names. So your manifest should look something like this:
+same but must be unique across the Pivotal environment. Remember, we're using **my-dsp** for our names. So your manifest should look like this:
 
 ```yml
 ---
@@ -76,73 +78,115 @@ applications:
   path: .
   buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git
 ```
-More information about application manifests can be found in the [CloudFoundry documentation](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html).
+
+>More information about application manifests can be found in the [CloudFoundry documentation](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html).
 
 ## Deploy
-Now your app is ready and you want to put it up on Pivotal to test. This is the easy part.
+When your app is running correctly locally, you'll want to put it up on Pivotal to test. This is the easy part.
 
 ### Push to Pivotal
-Now, use the **cf** tool to push the application to Pivotal:
+Now, using the **cf** tool, we *push* the application to Pivotal:
 
 ```shell
 $ cf push
-Using manifest file /opt/dreamfactory/paas/pivotal/my-dsp/manifest.yml
+Using manifest file manifest.yml
 
-Creating app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Creating app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
-Creating route my-dsp.cfapps.io...
-OK
-
+Using route my-dsp.cfapps.io
 Binding my-dsp.cfapps.io to my-dsp...
 OK
 
 Uploading my-dsp...
 Uploading app files from: /opt/dreamfactory/paas/pivotal/my-dsp
-Uploading 5.2M, 832 files
+Uploading 5.2M, 856 files
 OK
 
-Starting app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Starting app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
------> Downloaded app package (4.6M)
+-----> Downloaded app package (4.7M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
 Installing PHP
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fpm-5.4.31.tar.gz] to [/tmp/php-fpm-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zlib-5.4.31.tar.gz] to [/tmp/php-zlib-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pear-5.4.31.tar.gz] to [/tmp/php-pear-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4.31.tar.gz] to [/tmp/php-openssl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-cli-5.4.31.tar.gz] to [/tmp/php-cli-5.4.31.tar.gz]
-Downloaded [https://getcomposer.org/download/1.0.0-alpha8/composer.phar] to [/tmp/composer.phar]
+Loading composer repositories with package information
+Installing dependencies from lock file
+Generating autoload files
+Finished: [2014-08-21 15:19:58.008891]
+-----> Uploading droplet (65M)
+
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: my-dsp.cfapps.io
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-21 11:20:28 AM   0.0%   73.9M of 512M   201.5M of 1G
+Endpoint deprecated
+```
+This process can take some time depending on your app and internet speed and whatnot. When it has completed, your app has been deployed to Pivotal and should be running. However, we still need a database configured and bound to our application. Unless you unbind or delete the database, this is only needed to be done once.
+
+>At the end of your first push, you may see the "Endpoint deprecated" message. This is because we haven't yet bound our database service. On subsequent pushes, you will not see this message as the database service will be available. No need for concern there.
+
+>There is additional output that was omitted from above because it isn't relevant unless there is an error. Basically it is log information about what is being installed. You'll see when you do it.
+
+### Create and Bind a Database Service
+As stated, this step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
+
+Let's create and bind a database service to our application:
+
+```shell
+$ cf create-service cleardb spark cleardb-my-dsp
+Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+$ cf bind-service my-dsp cleardb-my-dsp
+Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+```
+
+These commands create and bind the database to your application for storage. Because the app was running when we did this, it cannot use the newly bound service, therefore it must be restarted. This is done as follows:
+
+```shell
+$ cf restage my-dsp
+Restaging app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+-----> Downloaded app package (4.7M)
+-----> Downloaded app buildpack cache (32M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Installing PHP
 Loading composer repositories with package information
 Installing dependencies from lock file
   - Installing pear-pear.php.net/net_url2 (2.0.6)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/mail_mime (1.8.9)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/mail_mimedecode (1.5.5)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/xml_util (1.2.3)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/structures_graph (1.0.4)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/console_getopt (1.3.1)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/archive_tar (1.3.12)
-    Downloading
+    Loading from cache
   - Installing pear-pear.php.net/pear (1.9.5)
-    Downloading
+    Loading from cache
     Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
     Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
     Skipped installation of bin/peardev for package pear-pear.php.net/pear: name conflicts with an existing file
   - Installing pear-pear.php.net/http_request2 (2.2.1)
-    Downloading
+    Loading from cache
   - Installing dreamfactory/azure-sdk-for-php (dev-develop 3326524)
     Cloning 3326524639e3f42521f7259ea6ca02a6e901e3d3
   - Installing symfony/http-foundation (dev-master d17938f)
@@ -154,15 +198,15 @@ Installing dependencies from lock file
   - Installing monolog/monolog (dev-master 12545cd)
     Cloning 12545cda2f7a0bd82a110f742ef455fe735e60cf
   - Installing doctrine/cache (v1.3.0)
-    Downloading
-  - Installing kisma/kisma (0.2.55)
-    Downloading
+    Loading from cache
+  - Installing kisma/kisma (dev-develop df893c4)
+    Cloning df893c432e3b4da5af6fb8959c797619e3dff952
   - Installing dreamfactory/lib-php-common (dev-develop 8da8fb6)
     Cloning 8da8fb68cf6ee39d63f7bd93ae15cbba6748d958
   - Installing swiftmailer/swiftmailer (v4.3.1)
-    Downloading
+    Loading from cache
   - Installing rackspace/php-opencloud (V1.5.10)
-    Downloading
+    Loading from cache
   - Installing phpforce/common (dev-master aa96dfb)
     Cloning aa96dfb6b0f43024c95a9d9c88396013e7513f9c
   - Installing phpforce/soap-client (dev-master 9f014c8)
@@ -170,23 +214,23 @@ Installing dependencies from lock file
   - Installing nikic/php-parser (0.9.x-dev ef70767)
     Cloning ef70767475434bdb3615b43c327e2cae17ef12eb
   - Installing jeremeamia/superclosure (1.0.1)
-    Downloading
+    Loading from cache
   - Installing dreamfactory/yii (1.1.13.3)
-    Downloading
+    Loading from cache
   - Installing dreamfactory/oasys (0.4.13)
-    Downloading
-  - Installing dreamfactory/lib-php-common-yii (dev-develop 1606bd2)
-    Cloning 1606bd207508992b9a95e592123850cad91afba1
+    Loading from cache
+  - Installing dreamfactory/lib-php-common-yii (dev-develop cc811df)
+    Cloning cc811df90038bf15925db64e20c2f28ec6c027dd
   - Installing dreamfactory/javascript-sdk (1.0.15)
-    Downloading
+    Loading from cache
   - Installing dready92/php-on-couch (dev-master ae738b8)
     Cloning ae738b8779d71c8128f63e2862572516ac1a8eeb
   - Installing guzzle/guzzle (v3.8.1)
-    Downloading
+    Loading from cache
   - Installing aws/aws-sdk-php (2.4.12)
-    Downloading
-  - Installing dreamfactory/lib-php-common-platform (1.7.8)
-    Downloading
+    Loading from cache
+  - Installing dreamfactory/lib-php-common-platform (dev-develop 1669dbf)
+    Cloning 1669dbf5de369fc9caf76198e1e096e7c072e320
 symfony/event-dispatcher suggests installing symfony/dependency-injection ()
 symfony/event-dispatcher suggests installing symfony/http-kernel ()
 monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
@@ -200,15 +244,14 @@ phpforce/soap-client suggests installing doctrine/common (For caching SOAP respo
 aws/aws-sdk-php suggests installing ext-apc (Allows service description opcode caching, request and response caching, and credentials caching)
 aws/aws-sdk-php suggests installing symfony/yaml (Eases the ability to write manifests for creating jobs in AWS Import/Export)
 Generating autoload files
-Finished: [2014-08-14 15:15:57.737007]
------> Uploading droplet (57M)
+Finished: [2014-08-21 15:24:34.557655]
+-----> Uploading droplet (65M)
 
-0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
 
-Showing health and status for app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
 requested state: started
@@ -217,29 +260,15 @@ usage: 512M x 1 instances
 urls: my-dsp.cfapps.io
 
      state     since                    cpu    memory          disk
-#0   running   2014-08-14 11:16:26 AM   0.0%   74.9M of 512M   199.7M of 1G
+#0   running   2014-08-21 11:25:01 AM   0.0%   78.7M of 512M   201.5M of 1G
 ```
 
-Your application will be automagically sent to Pivotal and started. This can take 5-10 minutes. It all depends on your internet connection, current Pivotal load, and the amount of data in your application.
+See how we did not get the "Endpoint deprecated" message this time?
 
-### Bind ClearDb Service
-This step only needs to be performed once per application. If you change the name of your application you may need to re-bind the service.
-
-Using the name of your ClearDb service configured earlier, issue the following command:
-
-```shell
-$ cf bind-service <app-name> <mysql-name>
-$ cf restage <app-name>
-```
-
-Where **<app-name>** is the same from your `manifest.yml` and **<mysql-name>** is the name of the ClearDb service created for this application (above).
-
-These commands bind the database to your application for storage, then tells the application to restart. Because the app was running it cannot use the newly bound service, therefore it must be restarted.
-
-> You do not need to bind the service to your application each time you deploy unless the service name changed, removed, and/or recreated.
+>You do not need to bind the service to your application each time you deploy unless the service name has changed, been removed, and/or recreated.
 
 ## Test
-If all goes well, you should have a running DSP in Pivotal after all commands have completed. Using the name you set in your `manifest.yml` for the `host` parameter, fire up your browser and go to `[host-name].cfapps.io`. If you get a white screen, just refresh your browser page. It appears the first connection to ClearDb after being bound to an application fail thus causing a white screen. Refreshing the page makes a new connection and everything flows.
+If all goes well, you should have a running DSP in Pivotal after all commands have completed. Using the name you set in your `manifest.yml` for the `host` parameter, fire up your browser and go to `[host-name].cfapps.io`.
  
 You will be prompted for your DSP administrator information (if none exists) and the familiar DSP Admin Console will be displayed.
 
@@ -260,7 +289,7 @@ In this section, we do the following:
  3. Create a `manifest.yml` file for deployment settings
 
 ```shell
- $ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
+$ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
 Cloning into 'my-dsp'...
 remote: Counting objects: 19918, done.
 remote: Compressing objects: 100% (6999/6999), done.
@@ -269,7 +298,7 @@ Receiving objects: 100% (19918/19918), 16.00 MiB | 344.00 KiB/s, done.
 Resolving deltas: 100% (12532/12532), done.
 Checking connectivity... done.
 $ cd my-dsp/
-$ cp config/database.pivotal.config.php-dist config/database.config.php
+$ cp config/databases/database.pivotal.config.php-dist config/database.config.php
 $ cp config/manifests/manifest.pivotal.yml-dist manifest.yml
 $ nano manifest.yml # edit file and change app-name and host-name to "my-dsp"
 ```
@@ -279,45 +308,45 @@ The last step is to push your code up to Pivotal. This is done with the **cf** c
 is in your root directory is deployed. If you do not wish for a file or directory to be deployed, add the pattern to the `.cfignore` file. The syntax is
 identical to `.gitignore`.
 
-```bash
+```shell
 $ cf push
-Using manifest file /opt/dreamfactory/paas/pivotal/my-dsp/manifest.yml
+Using manifest file manifest.yml
 
-Creating app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Creating app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
-Creating route my-dsp.cfapps.io...
-OK
-
+Using route my-dsp.cfapps.io
 Binding my-dsp.cfapps.io to my-dsp...
 OK
 
 Uploading my-dsp...
 Uploading app files from: /opt/dreamfactory/paas/pivotal/my-dsp
-Uploading 5.2M, 832 files
+Uploading 5.2M, 856 files
 OK
 
-Starting app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Starting app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
------> Downloaded app package (4.6M)
+-----> Downloaded app package (4.7M)
 Cloning into '/tmp/buildpacks/cf-php-build-pack'...
 Installing Nginx
-Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.0/nginx-1.6.0.tar.gz] to [/tmp/nginx-1.6.0.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/nginx/1.6.1/nginx-1.6.1.tar.gz] to [/tmp/nginx-1.6.1.tar.gz]
 Installing PHP
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-5.4.31.tar.gz] to [/tmp/php-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pdo_mysql-5.4.31.tar.gz] to [/tmp/php-pdo_mysql-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-bz2-5.4.31.tar.gz] to [/tmp/php-bz2-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zip-5.4.31.tar.gz] to [/tmp/php-zip-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fpm-5.4.31.tar.gz] to [/tmp/php-fpm-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-zlib-5.4.31.tar.gz] to [/tmp/php-zlib-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pear-5.4.31.tar.gz] to [/tmp/php-pear-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-openssl-5.4.31.tar.gz] to [/tmp/php-openssl-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-pdo-5.4.31.tar.gz] to [/tmp/php-pdo-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mysql-5.4.31.tar.gz] to [/tmp/php-mysql-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mcrypt-5.4.31.tar.gz] to [/tmp/php-mcrypt-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-curl-5.4.31.tar.gz] to [/tmp/php-curl-5.4.31.tar.gz]
+Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-fileinfo-5.4.31.tar.gz] to [/tmp/php-fileinfo-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-mongo-5.4.31.tar.gz] to [/tmp/php-mongo-5.4.31.tar.gz]
 Downloaded [http://php-bp-proxy.cfapps.io/files/lucid/php/5.4.31/php-cli-5.4.31.tar.gz] to [/tmp/php-cli-5.4.31.tar.gz]
 Downloaded [https://getcomposer.org/download/1.0.0-alpha8/composer.phar] to [/tmp/composer.phar]
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so' - /tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/pcre.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so' - /tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/xml.so: cannot open shared object file: No such file or directory in Unknown on line 0
-PHP Warning:  PHP Startup: Unable to load dynamic library '/tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so' - /tmp/staged/app/php/lib/php/extensions/no-debug-non-zts-20100525/tokenizer.so: cannot open shared object file: No such file or directory in Unknown on line 0
 Loading composer repositories with package information
 Installing dependencies from lock file
   - Installing pear-pear.php.net/net_url2 (2.0.6)
@@ -336,9 +365,9 @@ Installing dependencies from lock file
     Downloading
   - Installing pear-pear.php.net/pear (1.9.5)
     Downloading
-    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
-    Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
     Skipped installation of bin/peardev for package pear-pear.php.net/pear: name conflicts with an existing file
+    Skipped installation of bin/pecl for package pear-pear.php.net/pear: name conflicts with an existing file
+    Skipped installation of bin/pear for package pear-pear.php.net/pear: name conflicts with an existing file
   - Installing pear-pear.php.net/http_request2 (2.2.1)
     Downloading
   - Installing dreamfactory/azure-sdk-for-php (dev-develop 3326524)
@@ -353,8 +382,8 @@ Installing dependencies from lock file
     Cloning 12545cda2f7a0bd82a110f742ef455fe735e60cf
   - Installing doctrine/cache (v1.3.0)
     Downloading
-  - Installing kisma/kisma (0.2.55)
-    Downloading
+  - Installing kisma/kisma (dev-develop df893c4)
+    Cloning df893c432e3b4da5af6fb8959c797619e3dff952
   - Installing dreamfactory/lib-php-common (dev-develop 8da8fb6)
     Cloning 8da8fb68cf6ee39d63f7bd93ae15cbba6748d958
   - Installing swiftmailer/swiftmailer (v4.3.1)
@@ -373,8 +402,8 @@ Installing dependencies from lock file
     Downloading
   - Installing dreamfactory/oasys (0.4.13)
     Downloading
-  - Installing dreamfactory/lib-php-common-yii (dev-develop 1606bd2)
-    Cloning 1606bd207508992b9a95e592123850cad91afba1
+  - Installing dreamfactory/lib-php-common-yii (dev-develop cc811df)
+    Cloning cc811df90038bf15925db64e20c2f28ec6c027dd
   - Installing dreamfactory/javascript-sdk (1.0.15)
     Downloading
   - Installing dready92/php-on-couch (dev-master ae738b8)
@@ -383,8 +412,8 @@ Installing dependencies from lock file
     Downloading
   - Installing aws/aws-sdk-php (2.4.12)
     Downloading
-  - Installing dreamfactory/lib-php-common-platform (1.7.8)
-    Downloading
+  - Installing dreamfactory/lib-php-common-platform (dev-develop 1669dbf)
+    Cloning 1669dbf5de369fc9caf76198e1e096e7c072e320
 symfony/event-dispatcher suggests installing symfony/dependency-injection ()
 symfony/event-dispatcher suggests installing symfony/http-kernel ()
 monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
@@ -398,15 +427,15 @@ phpforce/soap-client suggests installing doctrine/common (For caching SOAP respo
 aws/aws-sdk-php suggests installing ext-apc (Allows service description opcode caching, request and response caching, and credentials caching)
 aws/aws-sdk-php suggests installing symfony/yaml (Eases the ability to write manifests for creating jobs in AWS Import/Export)
 Generating autoload files
-Finished: [2014-08-14 15:15:57.737007]
------> Uploading droplet (57M)
+Finished: [2014-08-21 15:19:58.008891]
+-----> Uploading droplet (65M)
 
 0 of 1 instances running, 1 starting
 1 of 1 instances running
 
 App started
 
-Showing health and status for app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 
 requested state: started
@@ -415,8 +444,46 @@ usage: 512M x 1 instances
 urls: my-dsp.cfapps.io
 
      state     since                    cpu    memory          disk
-#0   running   2014-08-14 11:16:26 AM   0.0%   74.9M of 512M   199.7M of 1G
+#0   running   2014-08-21 11:20:28 AM   0.0%   73.9M of 512M   201.5M of 1G
+Endpoint deprecated
+$ cf create-service cleardb spark cleardb-my-dsp
+Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+$ cf bind-service my-dsp cleardb-my-dsp
+Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage my-dsp
+Restaging app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+-----> Downloaded app package (4.7M)
+-----> Downloaded app buildpack cache (32M)
+Cloning into '/tmp/buildpacks/cf-php-build-pack'...
+Installing Nginx
+Installing PHP
+Loading composer repositories with package information
+Installing dependencies from lock file
+Generating autoload files
+Finished: [2014-08-21 15:24:34.557655]
+-----> Uploading droplet (65M)
+
+1 of 1 instances running
+
+App started
+
+Showing health and status for app my-dsp in org DreamFactory / space dev as user@domain.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: my-dsp.cfapps.io
+
+     state     since                    cpu    memory          disk
+#0   running   2014-08-21 11:25:01 AM   0.0%   78.7M of 512M   201.5M of 1G
 ```
+
+>The output of `cf restage` is nearly identical to the output of a `cf push` and thus portions have been omitted.
 
 If the state of your push is not **running** as shown above, something has gone awry and it is suggested to try again.
 
@@ -424,53 +491,9 @@ If the state of your push is not **running** as shown above, something has gone 
 Send a **ping** request to your new server and see if it responds properly.
 
 ```bash
-$ curl http://my-dsp.cfapps.io/ping.php # Test a ping
-pong									# Got the pong!
+$ curl http://my-dsp.cfapps.io/ping.php
+pong
 ```
-
-## Create and Bind a Database Service
-The DSP requires a local database for storage. So this service needs to be created and bound to the application. Once bound, the application must be restarted.
-
-```bash
-$ cf create-service cleardb spark cleardb-my-dsp 		# Create a database service instance for your DSP called "clear-my-dsp"
-Creating service cleardb-my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
-OK
-$ cf bind-service my-dsp cleardb-my-dsp
-Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
-OK
-TIP: Use 'cf restage' to ensure your env variable changes take effect
-$ cf restage my-dsp
-Restaging app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
-OK
------> Downloaded app package (4.6M)
------> Downloaded app buildpack cache (38M)
-Cloning into '/tmp/buildpacks/cf-php-build-pack'...
-Installing Nginx
-Installing PHP
-Loading composer repositories with package information
-Installing dependencies from lock file
-Generating autoload files
-Finished: [2014-08-14 15:17:49.613308]
------> Uploading droplet (57M)
-
-0 of 1 instances running, 1 starting
-1 of 1 instances running
-
-App started
-
-Showing health and status for app my-dsp in org DreamFactory / space development as snapshot@dreamfactory.com...
-OK
-
-requested state: started
-instances: 1/1
-usage: 512M x 1 instances
-urls: my-dsp.cfapps.io
-
-     state     since                    cpu    memory          disk
-#0   running   2014-08-14 11:18:16 AM   0.0%   76.9M of 512M   199.7M of 1G
-```
-
-> The output of `cf restage my-dsp` is nearly identical to the output of a `cf push` and thus portions have been omitted.
 
 ## Try It Out!
 Fire up your web browser and go to your [new app](http://my-dsp.cfapps.io)!
