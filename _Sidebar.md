@@ -24,7 +24,7 @@
   * [[AppFog|Deploying-to-AppFog]]
  * [[Other Installers|Other-Installers]]
  * [[Using nginx and Apache|Configuring-nginx-with-Apache]]
- * [[Using nginx instead of Apache|Configuring-nginx-without-Apache]]
+ * [[Using nginx instead of Apache|Using-nginx-without-Apache]]
  * [[Paid Hosting|Paid-Hosting]]
  * [[Direct from GitHub|Install-From-Github]]
  * [[Product Upgrades|Product-Upgrades]]
