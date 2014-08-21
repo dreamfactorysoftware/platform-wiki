@@ -9,7 +9,7 @@ deploy your DSP. You'll only have to do these things once, not every time you de
 
  1. An account on [IBM Bluemix](http://www.bluemix.net)
  1. A running clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
- 1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are on Bluemix's [**Building a Web App**](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html) page. Follow the setup instructions on that page that refer to connecting and logging in to Bluemix. You'll have to have this done before you can deploy.
+ 1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are on Bluemix's ["Building a web application"](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html) page. Follow the setup instructions on that page that refer to connecting and logging in to Bluemix. You'll have to have this done before you can deploy.
 
 For example purposes, we will be using **my-dsp** as the name of our DSP.
 
