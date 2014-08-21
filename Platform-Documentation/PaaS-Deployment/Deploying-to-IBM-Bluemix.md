@@ -140,11 +140,11 @@ As stated, this step only needs to be performed once per application. If you cha
 Let's create and bind a database service to our application:
 
 ```shell
-$ cf create-service cleardb spark cleardb-my-dsp
-Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+$ cf create-service mysql 100 mysql-my-dsp
+Creating service mysql-my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
-$ cf bind-service my-dsp cleardb-my-dsp
-Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+$ cf bind-service my-dsp mysql-my-dsp
+Binding service mysql-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 TIP: Use 'cf restage' to ensure your env variable changes take effect
 ```
@@ -271,11 +271,11 @@ urls: my-dsp.mybluemix.net
      state     since                    cpu    memory          disk
 #0   running   2014-08-21 11:20:28 AM   0.0%   73.9M of 512M   201.5M of 1G
 Endpoint deprecated
-$ cf create-service cleardb spark cleardb-my-dsp
-Creating service cleardb-my-dsp in org DreamFactory / space dev as user@domain.com...
+$ cf create-service mysql 100 mysql-my-dsp
+Creating service mysql-my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
-$ cf bind-service my-dsp cleardb-my-dsp
-Binding service cleardb-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
+$ cf bind-service my-dsp mysql-my-dsp
+Binding service mysql-my-dsp to app my-dsp in org DreamFactory / space dev as user@domain.com...
 OK
 TIP: Use 'cf restage' to ensure your env variable changes take effect
 $ cf restage my-dsp
