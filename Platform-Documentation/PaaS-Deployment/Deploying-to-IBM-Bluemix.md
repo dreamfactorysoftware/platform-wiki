@@ -203,20 +203,36 @@ Move into your projects or workspace directory and perform the following command
 
 In this section, we do the following:
 
- 1. Clone the main DSP repository from GitHub
+ 1. Clone the main DSP repository from GitHub and run the installation script
  2. Create a `config/database.config.php` file for Bluemix
  3. Create a `manifest.yml` file for deployment settings
 
 ```shell
 $ git clone https://github.com/dreamfactorysoftware/dsp-core.git my-dsp
 Cloning into 'my-dsp'...
-remote: Counting objects: 19918, done.
-remote: Compressing objects: 100% (6999/6999), done.
-remote: Total 19918 (delta 12532), reused 19705 (delta 12400)
-Receiving objects: 100% (19918/19918), 16.00 MiB | 344.00 KiB/s, done.
-Resolving deltas: 100% (12532/12532), done.
+remote: Counting objects: 20276, done.
+remote: Compressing objects: 100% (247/247), done.
+remote: Total 20276 (delta 133), reused 0 (delta 0)
+Receiving objects: 100% (20276/20276), 16.10 MiB | 398.00 KiB/s, done.
+Resolving deltas: 100% (12734/12734), done.
 Checking connectivity... done.
 $ cd my-dsp/
+$ sudo ./scripts/installer.sh
+  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/log/
+********************************************************************************
+  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.10]
+********************************************************************************
+
+  * info:	Install user is "jablan"
+  * info:	No composer found, installing: /opt/dreamfactory/paas/bluemix/my-dsp/composer.phar
+#!/usr/bin/env php
+  * info:	External modules updated
+  * info:	Checking file system structure and permissions
+  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/storage/
+  * info:	Created /opt/dreamfactory/paas/bluemix/my-dsp/web/assets
+  * info:	Installing dependencies
+  * info:	Complete. Enjoy the rest of your day!
+
 $ cp config/databases/database.bluemix.config.php-dist config/database.config.php
 $ cp config/manifests/manifest.bluemix.yml-dist manifest.yml
 $ nano manifest.yml # edit file and change app-name and host-name to "my-dsp"
