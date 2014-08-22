@@ -1,8 +1,9 @@
 ## Database Schema Operations
 
-By "schema", we mean in its traditional SQL database sense, i.e. a set of properties that define the layout of tables and their fields including relationships between them. However, we have extended this meaning to also encompass the properties that define tables on NoSQL database, i.e. any table key configuration, etc., some of which are database-type dependent.
+The DSP database schema resource provides a way of managing the database table layout, usable fields, their storage types and requirements.
+By "schema", we mean in its traditional SQL database sense, i.e. a set of properties that define the layout of tables and their fields including relationships between them, not the [schema namespaces](http://msdn.microsoft.com/en-us/library/ms176011.aspx) used by Microsoft and other database vendors. However, we have extended this meaning to also encompass the properties that define tables on NoSQL database, i.e. any table key configuration, etc., some of which are database-type dependent.
 
-We have also added what we call [Schema Extensions](#extensions), including a familiar json input and output format, consolidated simplified data types, table and field labels, and additional "helper" functions to aid client side usage of the schema, as it pertains to managing table records.
+We have also added what we call [Schema Extensions](#extensions), including a familiar **JSON** input and output format, consolidated simplified data types, table and field labels, and additional "helper" functions to aid client side usage of the schema, as it pertains to managing table records.
 
 All calls to this resource take the form of...
 
@@ -22,79 +23,93 @@ All posted and returned data, when not using the `table_name` or `field_name` pa
   ]
 }
 ```
+
+
 ### Schema Extensions
 
-#### Labels
+While there are plenty of "standard" elements that you can expect to be present in most databases, particularly SQL-based ones, there are also plenty of vendor-specific types, commands, formats, etc. that make it bothersome, and sometimes difficult for client application development. After dealing with that for several years, we decided to try to make things easier by providing the following extensions. 
 
-#### Simplified Data Types
+#### Layout Format
 
-#### Validations
-
- Schema Service
-The SQL database schema service provides a way of managing the SQL database, retrieving the viewable fields and their storage types and requirements.
-
- Defining the Schema
- Defining a Table
-
-You can create or edit tables by sending an array of tables as seen below or as a single table object with the "table" tag. An "allow_alter" url parameter can be sent when POSTing schema for allowing edits to existing tables (upgrading), otherwise, use a PUT/MERGE request to alter tables.
-
-Table Name (name): The SQL compatible table name, prefer alpha-numeric, lowercase singular nouns, using underscore for separating words. Prefixes can be used to group like tables for apps.
-
-Table Labels (label, plural): Labels in singular and plural form are tracked in a system table and used for display only purposes, not used in API calls, can contain utf-8 characters, including spaces, but no other whitespace characters.
-
-Table Options (options): These are SQL fragments for the table, such as defining complicated multi-field keys, or the MySQL engine version, i.e. "ENGINE=InnoDB".
-
-Table Fields (field): An array of fields, each with defining properties. See below for definition specifics.
-
-Example...
+If you know your favorite database flavored SQL, or NoSQL, like the back of your hand, we will not hinder you (though you might find some of this useful), but if you are like most application developers, the last thing you want to do is go find your database documentation, load up some workbench environment, and/or beg a friend or a perfect stranger for help just to define a table to store your application's data.
+Below is a JSON schema layout we came up with (pooled from various other platforms and environments over the years) to help define your table configuration, including our extensions, with each element defined below. All elements may not be available for all database, table, or field types.
+```javascript
 {
-    "table": [
-        {
-            "name": "my_table_name",
-            "label": "Contact",
-            "plural": "Contacts",
-            "field": [
-                {...},
-                {...}
-            ],
-            "options": "some SQL fragments, etc"
-        }
-    ]
+  "table": [
+    {
+      "name": "<table_name>",
+      "label": "<table_label>",
+      "plural": "<table_plural_label>",
+      "field": [
+        "name": "<field_name>",
+        "label": "<field_label>",
+        "<access_verb>",
+        ...
+      ],
+      "related": [
+        "<access_verb>",
+        ...
+      ],
+      "options": "<SQL_fragments_etc>",
+      "access": [
+        "<access_verb>",
+        ...
+      ]
+    },
+    ...
+  ]
 }
+```
 
- Defining a Field
+* `table`: The wrapper for the array of table schema designations, necessary when requesting or receiving multiple table definitions at once.
 
-Each field consists of properties that define that field and its usage. The properties may be of the following db-agnostic layout, which support some additional non-SQL features (labels, picklist, validation, etc), or direct SQL-defining strings supported by the underlying db, i.e. "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY".
+* `name`: String. Required. The database-type compatible table or field name used to designate a table or field via the database connection. DreamFactory prefers alpha-numeric, lowercase singular nouns, using underscore for separating words, but should support most vendor formats. Check with your database vendor documentation for allowed table or field names. If [schema namespaces](http://msdn.microsoft.com/en-us/library/ms176011.aspx) are used for tables, then the names must use the `<schema_name>.<table_name>` convention commonly used by those vendors.
+
+* `label`, `plural`: Labels in singular and plural form are tracked in a system table and are relayed to the client along with the schema, not used in API calls. They can contain UTF-8 characters, including spaces, but no other whitespace characters. These are useful for client applications, so that form labels don't have to be hard coded, see our admin applications. Labels are available for table and field names. Plural labels are only available for table names. When none are specified, labels are auto-generated based on commonly used techniques, i.e. -y becomes -ies, etc.
+
+* `options`: These are request-only (non-retrievable) database-specific fragments for things not generally supported otherwise when defining the table or fields, such as defining complicated multi-field keys, or the MySQL engine version, i.e. "ENGINE=InnoDB".
+
+* `field`: A wrapper for an array of fields, each with defining properties. See below for definition specifics. Currently only supported on SQL DB service types. Each field consists of properties that define that field and its usage. The properties may be of the following db-agnostic layout, which support some additional non-SQL features (labels, picklist values, validation, etc), or direct SQL-defining strings supported by the underlying db, i.e. "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY".
 
 The following are details about each of the properties supported.
 
-Name (name): String. Required. The SQL compatible field name, prefer alpha-numeric, lowercase singular nouns, underscore separating words. This name will be used in the API for requests and responses.
+  * `sql`: String. Optional. Allows a pure SQL-compatible definition for a field. If this property is defined, no other properties besides the name and label are looked at. SQL types in the definition must be supported directly by the underlying database as no translations are done.
 
-Label (label): String. Optional. Labels in singular form are tracked in a system table and used for display only purposes, not used in API calls, can contain utf-8 characters, including spaces, but no other whitespace characters. If not defined, a label will be generated using the name field.
+  * `type`: String. Required if “sql” property is not defined. The field type can be one of the simple types provided by the API defined below (i.e. “string”), or other types supported directly by the underlying database (i.e. "nvarchar"). The supported simple types are defined as follows.
 
-SQL Definition (sql): String. Optional. Allows a pure SQL-compatible definition for a field. If this property is defined, no other properties besides the name and label are looked at. SQL types in the definition must be supported directly by the underlying database as no translations are done.
+    * **id**: defines a typical table identifier, translates to "int not null auto_increment primary key". This type requires no other properties to define the field. It presumes a "type" of int with "allow_null" set to false, the "auto_increment" and "is_primary_key" are set to true. It can only be used once in a table definition.
 
-Type (type): String. Required if “sql” property is not defined. The field type can be one of the simple types provided by the API defined below (i.e. “string”), or other types supported directly by the underlying database (i.e. "nvarchar"). The supported simple types are defined as follows.
+    * **reference**: defines a typical foreign key, presumes the "type" of int and requires the "ref_table" and "ref_fields" properties to be defined as well. Optional defining properties are "ref_on_delete", "ref_on_update", "allow_null" and "default". Similar to SQL fragment "FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE”.
 
-Types
+    * **string**: defines a string field (i.e. varchar or char), defaults to a length of 255, but can be set using the "length" property. Set the "fixed_length" property to true for fixed length (i.e. char) behavior. Set "supports_multibyte" for multi-byte, national (i.e. nvarchar) behavior. Other optional properties are "allow_null", "default", and "validation".
 
-id : defines a typical table identifier, translates to "int not null auto_increment primary key". This type requires no other properties to define the field. It presumes a "type" of int with "allow_null" set to false, the "auto_increment" and "is_primary_key" are set to true. It can only be used once in a table definition.
-reference: defines a typical foreign key, presumes the "type" of int and requires the "ref_table" and "ref_fields" properties to be defined as well. Optional defining properties are "ref_on_delete", "ref_on_update", "allow_null" and "default". Similar to SQL fragment "FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE”.
-string: defines a string field (i.e. varchar or char), defaults to a length of 255, but can be set using the "length" property. Set the "fixed_length" property to true for fixed length (i.e. char) behavior. Set "supports_multibyte" for multi-byte, national (i.e. nvarchar) behavior. Other optional properties are "allow_null", "default", and "validation".
-binary: defines a binary string field (i.e. varbinary or binary), defaults to a length of 255, but can be set using the "length" property. Set the "fixed_length" property to true for fixed length (i.e. binary) behavior. Optional properties are "allow_null", "default", and "validation".
-text: defines a large string field (i.e. MySQL's text or MSSQL's varchar[max]), defaults to the largest length string allowed by the underlying database. Optional properties are "allow_null", "default", and "validation".
-blob: defines a large binary string field (i.e. MySQL's blob or MSSQL's varbinary[max]), defaults to the largest length binary string allowed by the underlying database. Optional properties are "allow_null", "default", and "validation".
-boolean: defines a boolean field, which may be represented by int of length 1, using 0 and 1 values, if a true and false boolean type is not supported by the underlying database. Optional properties are "allow_null", "default".
-integer: defines an integer field. Use "length" to set the displayable length of the integer, i.e. int(11) in MySQL. Optional properties are "allow_null", "default", and "validation".
-float: defines a standard float field. Use “scale" to set the number of desired decimal places to the right of the decimal point. Use “length” or "precision" to set the total number of digit positions. Optional properties are "allow_null", "default".
-decimal: defines a standard decimal field. Use “scale" to set the number of desired decimal places to the right of the decimal point. Use “length” or "precision" to set the total number of digit positions. Optional properties are "allow_null", "default", and "validation".
-datetime: a datetime field. Optional properties are "allow_null", "default", and "validation".
-date: a date field. Optional properties are "allow_null", "default", and "validation".
-time: a time field. Optional properties are "allow_null", "default", and "validation".
-timestamp_on_create: a timestamp with timezone awareness, i.e. MySQL’s timestamp not null default 0 or MSSQL’s datetimeoffset. This will be automatically set on record creation and not updated again unless set by the client via the api. See api_read_only validation for keeping this from being set by api.
-timestamp_on_update: a timestamp with timezone awareness, i.e. MySQL’s timestamp not null default now() on update now() or MSSQL’s datetimeoffset. This will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
-user_id_on_create: a reference to the current user. On the native database, this is implemented as a reference to the user table, on other databases, it is implemented as an  integer. This will be automatically set on record creation and not updated again unless set by the client via the api. See api_read_only validation for keeping this from being set by api.
-user_id_on_update: a reference to the current user. On the native database, this is implemented as a reference to the user table, on other databases, it is implemented as an  integer. This will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
+    * **binary**: defines a binary string field (i.e. varbinary or binary), defaults to a length of 255, but can be set using the "length" property. Set the "fixed_length" property to true for fixed length (i.e. binary) behavior. Optional properties are "allow_null", "default", and "validation".
+
+    * **text**: defines a large string field (i.e. MySQL's text or MSSQL's varchar[max]), defaults to the largest length string allowed by the underlying database. Optional properties are "allow_null", "default", and "validation".
+
+    * **blob**: defines a large binary string field (i.e. MySQL's blob or MSSQL's varbinary[max]), defaults to the largest length binary string allowed by the underlying database. Optional properties are "allow_null", "default", and "validation".
+
+    * **boolean**: defines a boolean field, which may be represented by int of length 1, using 0 and 1 values, if a true and false boolean type is not supported by the underlying database. Optional properties are "allow_null", "default".
+
+    * **integer**: defines an integer field. Use "length" to set the displayable length of the integer, i.e. int(11) in MySQL. Optional properties are "allow_null", "default", and "validation".
+
+    * **float**: defines a standard float field. Use “scale" to set the number of desired decimal places to the right of the decimal point. Use “length” or "precision" to set the total number of digit positions. Optional properties are "allow_null", "default".
+
+    * **decimal**: defines a standard decimal field. Use “scale" to set the number of desired decimal places to the right of the decimal point. Use “length” or "precision" to set the total number of digit positions. Optional properties are "allow_null", "default", and "validation".
+
+    * **datetime**: a datetime field. Optional properties are "allow_null", "default", and "validation".
+
+	* **date**: a date field. Optional properties are "allow_null", "default", and "validation".
+
+	* **time**: a time field. Optional properties are "allow_null", "default", and "validation".
+
+	* **timestamp_on_create**: a timestamp with timezone awareness, i.e. MySQL’s timestamp not null default 0 or MSSQL’s datetimeoffset. This will be automatically set on record creation and not updated again unless set by the client via the api. See api_read_only validation for keeping this from being set by api.
+
+	* **timestamp_on_update**: a timestamp with timezone awareness, i.e. MySQL’s timestamp not null default now() on update now() or MSSQL’s datetimeoffset. This will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
+
+	* **user_id_on_create**: a reference to the current user. On the native database, this is implemented as a reference to the user table, on other databases, it is implemented as an integer. This will be automatically set on record creation and not updated again unless set by the client via the api. See api_read_only validation for keeping this from being set by api.
+
+	* **user_id_on_update**: a reference to the current user. On the native database, this is implemented as a reference to the user table, on other databases, it is implemented as an  integer. This will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
 
 Length (length): Integer. Optional. Used to define the max length of strings and number fields. For strings, if length is not defined, the default is 255.
 
