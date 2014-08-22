@@ -6,16 +6,24 @@ DreamFactory makes accessing each of these back-end storage databases easy with 
 
 Database record CRUD (Create, Read, Update and Delete) operations and some table-level operations are available for both SQL and NoSQL, as well as our Salesforce, database service types. This gives the API client the ability to write an application once with very little refactoring required to completely swap out the back-end database. It also makes the learning curve for adopting new databases very small.
 
-* [Common Features](Database-Common-Features)
-  * [Retrieving Database Resources](Database-Common-Features#get-resources)
-  * [Managing Table Schema](Database-Common-Features#schema-operations)
-  * [Managing Table Records](Database-Common-Features#record-operations)
-    * [Common CRUD Parameters](Database-Common-Features#common-params)
-    * [Retrieving Records](Database-Retrieving-Records)
-    * [Creating Records](Database-Creating-Records)
-    * [Updating/Replacing Records](Database-Updating-Records)
-    * [Patching/Merging Records](Database-Patching-Records)
-    * [Deleting Records](Database-Deleting-Records)
+* [Retrieving Database Resources](Database-Resources)
+
+* [Managing Table Schema](Database-Schema)
+  * [Common Parameters & Formatting](Database-Schema#common-params)
+  * [DreamFactory Extensions](Database-Schema#extensions)
+  * [Retrieving Schema](Database-Retrieving-Schema)
+  * [Creating Schema](Database-Creating-Schema)
+  * [Updating/Replacing Schema](Database-Updating-Schema)
+  * [Patching/Merging Schema](Database-Patching-Schema)
+  * [Deleting Schema](Database-Deleting-Schema)
+
+* [Managing Table Records](Database-Records)
+  * [Common Parameters & Formatting](Database-Records#common-params)
+  * [Retrieving Records](Database-Retrieving-Records)
+  * [Creating Records](Database-Creating-Records)
+  * [Updating/Replacing Records](Database-Updating-Records)
+  * [Patching/Merging Records](Database-Patching-Records)
+  * [Deleting Records](Database-Deleting-Records)
 
 
 ## <a name="sql"></a>SQL Database Services

@@ -242,3 +242,94 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecords_g
 ```
 
 
+ Delete Table
+ Multiple Tables at Once - (TBD)
+Description: Delete (aka drop) multiple tables from the database.
+
+Request HTTP Method: DELETE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/?tables=<table_list>
+
+Request URI Parameters:
+
+
+
+Parameter Name
+Description
+tables
+Required. Comma-delimited list of table names. Tables will be dropped in the order given.
+
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+
+
+
+ Delete a Single Table
+Description: Delete (aka drop) a single table from the database.
+
+Request HTTP Method: DELETE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+
+ Delete Field
+ Delete Multiple Fields - (TBD)
+Description: Delete (aka drop) multiple fields from a table.
+
+Request HTTP Method: DELETE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>?fields=<field_list>
+
+Request URI Parameters:
+
+
+
+Parameter Name
+Description
+fields
+Required. Comma-delimited list of field names from the given table. Fields will be dropped in the order given.
+
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+
+
+
+ Delete a Single Field
+Description: Delete (aka drop) a single field on a db table.
+
+Request HTTP Method: DELETE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>/<field_name>
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+
+

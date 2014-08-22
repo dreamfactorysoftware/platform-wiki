@@ -366,3 +366,121 @@ Content-Type: application/json
 ]
 }
 
+ Update Table
+ Multiple Tables at Once
+Description: Update multiple tables in the database by adding new fields or altering existing fields.
+
+Request HTTP Method: PUT/MERGE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+{
+"table": [
+{
+"name": "account",
+"label": "Account",
+"plural": "Accounts",
+"field": [
+{
+"name": "new_field",
+"label": "My New Field",
+"type": "string"
+},
+…
+]
+},
+{
+"name": "contact",
+"field": [
+{
+"name": "old_field",
+"label": "New Type",
+"type": "integer"
+},
+…
+]
+}
+]
+}
+
+
+Response Body: See sample response.
+
+
+HTTP/1.1 200 OK
+Content-Length: 30
+Content-Type: application/json
+
+{
+"table": [
+{
+"name": "account"
+},
+{
+"name": "contact"
+}
+]
+}
+
+
+ Single Table
+Description: Update a table in the database by adding new fields or altering existing fields.
+
+Request HTTP Method: PUT/MERGE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+{
+"name": "contact",
+"label": "Contact",
+"field": [
+{
+"name": "new_field",
+"label": "My New Field",
+"type": "string"
+},
+…
+]
+}
+
+
+Response Body: See sample response.
+
+{
+"name": "contact"
+}
+
+
+
+ Update Field
+Description: Update a single field in a db table. For updating multiple fields at once, see Update Table.
+
+Request HTTP Method: PUT/MERGE
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>/<field_name>
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.

@@ -114,3 +114,160 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 }
 ```
 
+ Create Table
+ Multiple Tables at Once
+Description: Create one or more tables in the database.
+
+Request HTTP Method: POST
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+
+
+
+Sample JSON Request
+
+
+
+POST http://demo-dsp.cloud.dreamfactory.com/rest/db/schema/ HTTP/1.1
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Application-Name: Admin
+Content-Length: 971
+Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
+
+{
+"table": [
+{
+"name": "account",
+"label": "Account",
+"plural": "Accounts",
+"field": [
+{
+"name": "id",
+"label": "Record ID",
+"type": "id"
+},
+…
+]
+},
+{
+"name": "contact",
+"label": "Contact",
+"plural": "Contacts",
+"field": [
+{
+"name": "id",
+"label": "Record ID",
+"type": "id"
+},
+…
+]
+}
+]
+}
+
+Sample JSON Response
+
+
+
+HTTP/1.1 200 OK
+Content-Length: 30
+Content-Type: application/json
+
+{
+"table": [
+{
+"name": "account"
+},
+{
+"name": "contact"
+}
+]
+}
+
+
+ Single Table
+Description: Create a single table in the database.
+
+Request HTTP Method: POST
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+Response Body: See sample response.
+
+
+
+Sample JSON Request
+
+
+
+POST http://demo-dsp.cloud.dreamfactory.com/rest/db/schema/ HTTP/1.1
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Application-Name: Admin
+Content-Length: 971
+Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
+
+{
+"name": "contact",
+"label": "Contact",
+"plural": "Contacts",
+"field": [
+{
+"name": "id",
+“label": "Record ID",
+"type": "id"
+},
+…
+]
+}
+
+Sample JSON Response
+
+
+
+HTTP/1.1 200 OK
+Content-Length: 30
+Content-Type: application/json
+
+{
+"name": "contact"
+}
+
+ Add Field
+Description: Create a single field in a db table. For adding multiple fields at once, see Update Table.
+
+Request HTTP Method: POST
+
+Request Headers: No additional headers required, See Section 1 – REST Services.
+
+Request URI: http://<server_name>/rest/schema/<table_name>
+
+Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
+
+Request Body: See sample request. Schema for the new table.
+
+
+
+Response Body: See sample response.
+

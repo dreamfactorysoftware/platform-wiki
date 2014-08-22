@@ -1,3 +1,35 @@
+## Database Schema Operations
+
+By "schema", we mean in its traditional SQL database sense, i.e. a set of properties that define the layout of tables and their fields including relationships between them. However, we have extended this meaning to also encompass the properties that define tables on NoSQL database, i.e. any table key configuration, etc., some of which are database-type dependent.
+
+We have also added what we call [Schema Extensions](#extensions), including a familiar json input and output format, consolidated simplified data types, table and field labels, and additional "helper" functions to aid client side usage of the schema, as it pertains to managing table records.
+
+All calls to this resource take the form of...
+
+`http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/[<table_name>/[<field_name>]]`
+
+where `table_name` and `field_name` are optional and control what level of resource the client is acting on.
+All posted and returned data, when not using the `table_name` or `field_name` parameters, or otherwise noted, must be an array of table-defining property sets wrapped with a `table` element.
+
+```javascript
+{
+  "table": [
+    {
+      "name": "<table_name>",
+      ...
+    },
+    ...
+  ]
+}
+```
+### Schema Extensions
+
+#### Labels
+
+#### Simplified Data Types
+
+#### Validations
+
  Schema Service
 The SQL database schema service provides a way of managing the SQL database, retrieving the viewable fields and their storage types and requirements.
 
@@ -217,4 +249,12 @@ Examples...
 
 
 
+### Schema CRUD
 
+See the following sections for more detail on CRUD operations for database schema...
+
+* [Retrieving Schema](Database-Retrieving-Schema)
+* [Creating Schema](Database-Creating-Schema)
+* [Updating or Replacing Schema](Database-Updating-Schema)
+* [Patching or Merging Schema](Database-Patching-Schema)
+* [Deleting Schema](Database-Deleting-Schema)
