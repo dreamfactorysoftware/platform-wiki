@@ -4,21 +4,18 @@ The following operations are typically available for creating records on all Dre
   * [Single Table](Database-Creating-Schema#post-table)
   * [Single Field](Database-Creating-Schema#post-field)
 
-## Multiple Records
+## Multiple Tables
 
 
-Description: Create one or more new records for a db table. Server-side lookups may be used as field values, and will be replaced on the server with the correct lookup value.
-
-* without lookups => { "name": "my new task", "complete": false }
-* with lookups => { "name": "my new task", "complete": "{lookup_name}" }
+Description: Create one or more tables in the database.
 
 
-URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
+URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/`
 
 #### Request
 
 
-> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/todo HTTP/1.1
+> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -34,48 +31,73 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
 
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
+
 ```javascript
 {
-  "record": [
+  "table": [
     {
-      "name": "Test my cool app",
-      "complete": "{lookup_name}"
+      "name": "account",
+      "label": "Account",
+      "plural": "Accounts",
+      "field": [
+        {
+          "name": "id",
+          "label": "Account ID",
+          "type": "id"
+        },
+        …
+      ]
+    },
+    {
+      "name": "contact",
+      "label": "Contact",
+      "plural": "Contacts",
+      "field": [
+        {
+          "name": "id",
+          "label": "Contact ID",
+          "type": "id"
+        },
+        …
+      ]
     }
   ]
 }
 ```
-
 
 #### Response
 
 
 > HTTP/1.1 200 OK
 
-> Content-Length: 69
+> Content-Length: 30
 
 > Content-Type: application/json
 
 ```javascript
 {
-  "record": [
-    {
-      "id": "3"
-    }
-  ]
+   "table": [
+     {
+       "name": "account"
+     },
+     {
+       "name": "contact"
+     }
+   ]
 }
 ```
 
+
 ## Single Record
 
-Description: Create a new record for a db table, without using the batching notation ('record' wrapper).
-Notice that if no wrapper is used in the request, only a single record is allowed, and only a single record response will be returned without a wrapper.
+Description: Create a single table in the database.
 
-URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
+URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/<table_name>`
 
 #### Request
 
 
-> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/todo HTTP/1.1
+> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema/todo HTTP/1.1
 
 > Accept: application/json, text/javascript, */*; q=0.01
 
@@ -113,89 +135,6 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>`
   "id": "1"
 }
 ```
-
- Create Table
- Multiple Tables at Once
-Description: Create one or more tables in the database.
-
-Request HTTP Method: POST
-
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/schema/ HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-X-Application-Name: Admin
-Content-Length: 971
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-
-{
-"table": [
-{
-"name": "account",
-"label": "Account",
-"plural": "Accounts",
-"field": [
-{
-"name": "id",
-"label": "Record ID",
-"type": "id"
-},
-…
-]
-},
-{
-"name": "contact",
-"label": "Contact",
-"plural": "Contacts",
-"field": [
-{
-"name": "id",
-"label": "Record ID",
-"type": "id"
-},
-…
-]
-}
-]
-}
-
-Sample JSON Response
-
-
-
-HTTP/1.1 200 OK
-Content-Length: 30
-Content-Type: application/json
-
-{
-"table": [
-{
-"name": "account"
-},
-{
-"name": "contact"
-}
-]
-}
 
 
  Single Table

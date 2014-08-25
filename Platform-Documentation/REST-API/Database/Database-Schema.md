@@ -43,11 +43,27 @@ Below is a JSON schema layout we came up with (pooled from various other platfor
       "field": [
         "name": "<field_name>",
         "label": "<field_label>",
-        "<access_verb>",
-        ...
+        "type": "<dreamfactory_type>",
+        "db_type": "<database_specific_type>",
+        "length": 255,
+        "precision": 11,
+        "scale": 0,
+        "default": null,
+        "required": false,
+        "allow_null": false,
+        "fixed_length": false,
+        "supports_multibyte": false,
+        "auto_increment": true,
+        "is_primary_key": true,
+        "is_foreign_key": false,
+        "ref_table": "<foreign_key_referenced_table",
+        "ref_fields": "<foreign_key_referenced_fields",
+        "validation": null,
+        "value": [],
+       ...
       ],
       "related": [
-        "<access_verb>",
+        "<relationship_info>",
         ...
       ],
       "options": "<SQL_fragments_etc>",
@@ -111,50 +127,50 @@ The following are details about each of the properties supported.
 
 	* **user_id_on_update**: a reference to the current user. On the native database, this is implemented as a reference to the user table, on other databases, it is implemented as an  integer. This will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
 
-Length (length): Integer. Optional. Used to define the max length of strings and number fields. For strings, if length is not defined, the default is 255.
+  * `length`: Integer. Optional. Used to define the max length of strings and number fields. For strings, if length is not defined, the default is 255.
 
-Fixed Length (fixed_length): Boolean. Optional for string types. Set to true to represent string types as fixed length ‘char’, false for variable length ‘varchar’.
+  * `fixed_length`: Boolean. Optional for string types. Set to true to represent string types as fixed length ‘char’, false for variable length ‘varchar’.
 
-Precision and Scale (precision, scale): Integers. Optional. Used by the “decimal” type, where “scale” defines the number of decimal places to the right of the decimal. The total length of the number allowed minus the ‘.’ can be set either by the “length” property or the “precision” property, “length” takes precedence. If scale is not given, the default is 0, i.e. no decimal places.
+  * `precision`, `scale`: Integers. Optional. Used by the “decimal” type, where “scale” defines the number of decimal places to the right of the decimal. The total length of the number allowed minus the ‘.’ can be set either by the “length” property or the “precision” property, “length” takes precedence. If scale is not given, the default is 0, i.e. no decimal places.
 
-Default Value (default): Varies. Optional. Use to define the SQL DEFAULT parameter of a field, supported values are dependent on the "type" designation, but may include null, strings, numbers, and SQL expressions, i.e. "NOW()" for datetime, etc.
+  * `default`: Varies. Optional. Use to define the SQL DEFAULT parameter of a field, supported values are dependent on the "type" designation, but may include null, strings, numbers, and SQL expressions, i.e. "NOW()" for datetime, etc.
 
-Allow NULL Values (allow_null): Boolean. Optional. Defines whether or not the NULL value is allowed to be set for the field, ie. false = "NOT NULL". If not defined, the default is allow NULL (true).
+  * `allow_null`: Boolean. Optional. Defines whether or not the NULL value is allowed to be set for the field, ie. false = "NOT NULL". If not defined, the default is allow NULL (true).
 
-Picklist Values (values): Array of Strings. Optional. An array of string values for support of the "picklist" and "multi_picklist" validations.
+  * `auto_increment`: Boolean. Optional. Set to true to allow auto-incrementing of an integer or primary key. If not defined, the default is false.
 
-Auto Increment (auto_increment): Boolean. Optional. Set to true to allow auto-incrementing of an integer or primary key. If not defined, the default is false.
+  * `is_primary_key`: Boolean. Optional. Set to true to define non-trivial primary keys, use once per table definition. If not defined, the default is false. See the “id” type.
 
-Primary Key (is_primary_key): Boolean. Optional. Set to true to define non-trivial primary keys, use once per table definition. If not defined, the default is false. See the “id” type.
+  * `is_foreign_key`: Boolean. Optional. Set to true to define references or foreign keys that are not stored as integers or point to multiple primary keys. If not defined, the default is false. See the “reference” type.
 
-Foreign Key (is_foreign_key): Boolean. Optional. Set to true to define references or foreign keys that are not stored as integers or point to multiple primary keys. If not defined, the default is false. See the “reference” type.
+  * `ref_table`: defines the table name of the field of type "reference" or when `is_foreign_key` is true.
 
-Referenced Table (ref_table): defines the table name of the field of type "reference" or when "is_foreign_key" is true.
+  * `ref_fields`: defines the field(s) of the referenced table defined by `ref_table` property that the field is referencing. If multiple fields are part of the key, separate the fields by a comma. Required for fields of type “reference” or when the `is_foreign_key` is true.
 
-Referenced Fields (ref_fields): defines the field(s) of the referenced table defined by “ref_table” property that the field is referencing. If multiple fields are part of the key, separate the fields by a comma. Required for fields of type “reference” or when the “is_foriegn_key” is true.
+  * `ref_on_delete`: defines the operation to take when the referenced record is deleted. Optional for fields of type “reference” or when the `is_foriegn_key` is true.
 
-Referenced Delete Operation (ref_on_delete): defines the operation to take when the referenced record is deleted. Optional for fields of type “reference” or when the “is_foriegn_key” is true.
+  * `ref_on_update`: defines the operation to take when the referenced record is updated. Optional for fields of type “reference” or when the `is_foriegn_key` is true.
 
-Referenced Update Operation (ref_on_update): defines the operation to take when the referenced record is updated. Optional for fields of type “reference” or when the “is_foriegn_key” is true.
+  * `is_unique`: Boolean. Optional. Set to true to require that each row has a unique value for this field.
 
-Unique Index (is_unique): Boolean. Optional. Set to true to require that each row has a unique value for this field.
+  * `is_index`: Boolean. Optional. Set to true to set the field as a table index to speed up common searches that use this field.
 
-Index (is_index): Boolean. Optional. Set to true to set the field as a table index to speed up common searches that use this field.
+  * `values`: Array of Strings. Optional. An array of string values for support of the "picklist" and "multi_picklist" validations.
 
-Validation (validation): Some server-side validation can be defined for the field by setting this property to one or more of the following, separated by commas. Note that additional validation will result in additional processing which may slow response times.
-Validations
-picklist - Supported for string type only. It requires the field value to be set to one of the values listed in the "values" property. Values are checked only at create and update record; data integrity is kept for existing values even when the picklist value list is modified. Behaves similar to MySQL "enum" type.
-multi_picklist - similar to picklist but allows multiple values to be selected and stored. Behaves similar to MySQL "set" type.
-api_read_only - sets this field as read only through the API. Use “default” property to set values, i.e. useful for creating timestamps, etc. Supported for all types.
-create_only - sets this field to only allow values to be set on record creation. Supported for all types.
-not_empty - validates that the field value to be set is not empty string. Supported for string and picklist types,
-not_zero - validates that the field value to be set is not zero (0). Supported for integers, decimals and floats.
-range(min,max) - validates that the numeric value to be set is between the min and max values designated. Supported for integers, decimals and floats.
-email - validates that this field is an email, i.e. “name@company.com”. Supported for string type only.
-url - validates that this field is a url, i.e. starts with “http(s)://”. Supported for string type only.
-match(expression) - for strings matching a reg expression designated by expression. No validation by default if not defined or empty. Supported for string type only.
+  * `validation`: Some server-side validation can be defined for the field by setting this property to one or more of the following, separated by commas. Note that additional validation will result in additional processing which may slow response times. Possible validations settings are as follows...
+    * **picklist** - Supported for string type only. It requires the field value to be set to one of the values listed in the "values" property. Values are checked only at create and update record; data integrity is kept for existing values even when the picklist value list is modified. Behaves similar to MySQL "enum" type.
+    * **multi_picklist** - similar to picklist but allows multiple values to be selected and stored. Behaves similar to MySQL "set" type.
+    * **api_read_only** - sets this field as read only through the API. Use “default” property to set values, i.e. useful for creating timestamps, etc. Supported for all types.
+    * **create_only** - sets this field to only allow values to be set on record creation. Supported for all types.
+    * **not_empty** - validates that the field value to be set is not empty string. Supported for string and picklist types,
+    * **not_zero** - validates that the field value to be set is not zero (0). Supported for integers, decimals and floats.
+    * **range(min,max)** - validates that the numeric value to be set is between the min and max values designated. Supported for integers, decimals and floats.
+    * **email** - validates that this field is an email, i.e. “name@company.com”. Supported for string type only.
+    * **url** - validates that this field is a url, i.e. starts with “http(s)://”. Supported for string type only.
+    * **match(expression)** - for strings matching a regular expression designated by expression. No validation by default if not defined or empty. Supported for string type only.
 
-Examples...
+Example field schema declarations...
+```javascript
     {
         "name": "id",
         "type": "id"
@@ -261,7 +277,7 @@ Examples...
         "type": "user_id_on_update",
         “validation”: “api_read_only”
     }
-
+```
 
 
 ### Schema CRUD
