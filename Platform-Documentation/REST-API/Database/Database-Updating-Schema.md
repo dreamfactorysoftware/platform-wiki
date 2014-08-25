@@ -1,468 +1,111 @@
-# Database Services Updating Record Operations
-
-The following operations are typically available for all DreamFactory Database Services.
-The examples given below use a single simple identifier field named "id" which is in this case an auto-incrementing primary key, this may not be the case for all tables or all database service types. Refer to the specifics of your database type documented in other pages in this section.
-
-  * [Multiple Tables](Database-Updating-Schema#put-tables)
-  * [Single Table](Database-Updating-Schema#put-table)
-  * [Single Field](Database-Updating-Schema#put-field)
-
-* [by Updated Records](#put-records)
-* [by Filter](#put-filter)
-* [by List of Identifiers](#put-ids)
-* [by a Single Identifier](#put-id)
+The following operations are typically available for all DreamFactory Database Services. Refer to the specifics of your database type documented in other pages in this section. 
+The **PUT** verb on most points of our API is meant to completely replace an existing resource. The same holds for the schema resource. If you wish to just add new fields or modify existing fields, **PATCH** is a simpler and preferred option, as it will not change anything in the schema except what is requested. 
+Updating a table definition with **PUT** allows you to add or modify existing fields, as well as, delete unnecessary fields, but requires you to post all of the fields that you wish to remain in the schema. Any fields that are left out, will be deleted from the schema.
 
 
-### <a name="put-id"></a>A single record
+  * [Multiple Tables](#put-tables)
+  * [Single Table](#put-table)
+  * [Single Field](#put-field)
 
-Description: Delete one or more existing records for a db or system table.
+###Multiple Tables
+Description: Update multiple tables in the database by replacing the schema with updated schema. 
 
-#### Request
+URI: [**PUT**] `http://<server_name>/rest/<service_name>/_schema/`
 
-HTTP Method: **POST** (requires additional header, see Request Headers below)
+####Request
+```javascript
+{
+    "table": [
+        {
+            "name": "account",
+            "label": "Account",
+            "plural": "Accounts",
+            "field": [
+                {
+                    "name": "new_field",
+                    "label": "My New Field",
+                    "type": "string"
+                },
+                …
+            ]
+        },
+        {
+            "name": "contact",
+            "field": [
+                {
+                    "name": "old_field",
+                    "label": "New Type",
+                    "type": "integer"
+                },
+                …
+            ]
+        }
+    ]
+}
+```
 
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: http://<server_name>/rest/db/<tablename>/<Id>
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/2 HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-Content-Length: 0
-
-Request Body: None
-
-
-#### Response
-
-
-HTTP/1.1 200 OK
-Content-Length: 34
+####Response
+>HTTP/1.1 200 OK
+Content-Length: 30
 Content-Type: application/json
 
 ```javascript
 {
-"record": [
-{
-"id": "2"
-}
-]
+    "table": [
+        {
+            "name": "account"
+        },
+        {
+            "name": "contact"
+        }
+    ]
 }
 ```
 
+###Single Table
+Description: Update a table in the database by replacing.
 
-### A single record given an identifier
+URI: [**PUT**] `http://<server_name>/rest/<service_name>/_schema/<table_name>`
 
-Description: Delete one or more existing records for a db or system table.
-
-#### Request
-
-HTTP Method: POST (requires additional header, see Request Headers below)
-
-Headers: No additional headers required, See Section 1 – REST Services.
-
-URI: http://<server_name>/rest/db/<tablename>/<Id>
-
-URI Parameters:
-
-
-
-Parameter Name
-Description
-format
-Optional. xml or json, default is json.
-ids
-Required when no id specified in base url. Comma-delimited list of ids to delete, must be url-encoded. If this parameter is required and is empty or missing an error will be returned.
-fields
-Optional. Comma-delimited list of fields to return in response, must be url-encoded. Empty or missing returns the primary key(s). ‘*’ returns all viewable fields.
-
-
-Request Body: None
-
-
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/2 HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-Content-Length: 0
-
-
-
-
-Sample JSON Response
-
-
-
-HTTP/1.1 200 OK
-Content-Length: 34
-Content-Type: application/json
-
+####Request
+```javascript
 {
-"record": [
+    "name": "contact",
+    "label": "Contact",
+    "field": [
+        {
+            "name": "new_field",
+            "label": "My New Field",
+            "type": "string"
+        },
+        …
+    ]
+}
+```
+
+####Response
+```javascript
 {
-"id": "2"
+  "name": "contact"
 }
-]
-}
+```
 
+###Single Field
+Description: Update a single field in a db table. Here for completeness, this call behaves the same as using **PATCH** on a single field. For updating multiple fields at once, see [Patching Schema](Database-Patching-Schema).
 
+URI: [**PUT**] `http://<server_name>/rest/<service_name>/_schema/<table_name>/<field_name>`
 
-### Multiple records
-Description: Delete one or more existing records for a db or system table.
-
-Request HTTP Method: POST (requires additional header, see Request Headers below)
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>/<Id>
-
-URI Parameters:
-
-
-
-Parameter Name
-Description
-format
-Optional. xml or json, default is json.
-ids
-Required when no id specified in base url. Comma-delimited list of ids to delete, must be url-encoded. If this parameter is required and is empty or missing an error will be returned.
-fields
-Optional. Comma-delimited list of fields to return in response, must be url-encoded. Empty or missing returns the primary key(s). ‘*’ returns all viewable fields.
-
-
-Request Body: None
-
-
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/2 HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-Content-Length: 0
-
-
-
-
-Sample JSON Response
-
-
-
-HTTP/1.1 200 OK
-Content-Length: 34
-Content-Type: application/json
-
+####Request
+```javascript
 {
-"record": [
+  "label": "My New Label",
+  "default": ""
+}
+```
+
+####Response
+```javascript
 {
-"fields": {
-"id": "2"
+  "name": "contact"
 }
-}
-]
-}
-
-
-
-### <a name="put-ids"></a>Multiple records given identifier list
-Description: Delete one or more existing records for a db or system table.
-
-Request HTTP Method: POST (requires additional header, see Request Headers below)
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>/<Id>
-
-URI Parameters:
-
-
-
-Parameter Name
-Description
-format
-Optional. xml or json, default is json.
-ids
-Required when no id specified in base url. Comma-delimited list of ids to delete, must be url-encoded. If this parameter is required and is empty or missing an error will be returned.
-fields
-Optional. Comma-delimited list of fields to return in response, must be url-encoded. Empty or missing returns the primary key(s). ‘*’ returns all viewable fields.
-
-
-Request Body: None
-
-
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact/2 HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-Content-Length: 0
-
-
-
-
-Sample JSON Response
-
-
-
-HTTP/1.1 200 OK
-Content-Length: 34
-Content-Type: application/json
-
-{
-"record": [
-{
-"fields": {
-"id": "2"
-}
-}
-]
-}
-
-
-
-### <a name="put-filter"></a>Multiple records given a filter
-Description: Update one or more existing records for a db or system table.
-
-Request HTTP Method: POST (requires additional header, see Request Headers below)
-
-Headers: No additional headers required, See [Common Headers and Parameters](Common-Headers-Parameters).
-
-URI: `http[s]://<dsp-server-name>/rest/<service-api-name>/<table_name>
-
-
-
-URI Parameters:
-
-
-
-Parameter Name
-Description
-format
-Optional. xml or json, default is json.
-fields
-Optional. Comma-delimited list of fields to return in response, must be url-encoded. Empty or missing returns the primary key(s). ‘*’ returns all viewable fields.
-
-
-Request Body: See sample request. Multiple records can be updated in a single request . Id field is required for each record.
-
-
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/Contact?fields=FirstName HTTP/1.1
-Host: demo-dsp.cloud.dreamfactory.com
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-Connection: keep-alive
-Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-X-HTTP-Method: MERGE
-X-Application-Name: Admin
-X-Requested-With: XMLHttpRequest
-Referer: http://demo-dsp.cloud.dreamfactory.com/test_rest.html
-Content-Length: 67
-Cookie: __utma=266480603.1816165661.1350406266.1354720865.1355498741.19; __utmz=266480603.1354720865.18.5.utmcsr=ec2-23-20-28-223.compute-1.amazonaws.com|utmccn=(referral)|utmcmd=referral|utmcct=/; PHPSESSID=as6klno8t5cd5i2o49n2nci175
-Pragma: no-cache
-Cache-Control: no-cache
-
-{
-"records": {
-"record": [
-{
-"fields": {
-"Id": "1",
-"FirstName": "Joseph"
-}
-}
-]
-}
-}
-
-
-Sample JSON Response
-
-
-
-HTTP/1.1 200 OK
-Date: Wed, 26 Dec 2012 21:19:06 GMT
-Server: Apache
-X-Powered-By: PHP/5.3.10-1ubuntu3.4
-Expires: Thu, 19 Nov 1981 08:52:00 GMT
-Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-Pragma: no-cache
-Vary: Accept-Encoding
-Content-Length: 55
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: application/json
-
-{
-"record": [
-{
-"fields": {
-"FirstName": "Joseph",
-"id": "1"
-}
-}
-]
-}
-
- Update Table
- Multiple Tables at Once
-Description: Update multiple tables in the database by adding new fields or altering existing fields.
-
-Request HTTP Method: PUT/MERGE
-
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-
-
-{
-"table": [
-{
-"name": "account",
-"label": "Account",
-"plural": "Accounts",
-"field": [
-{
-"name": "new_field",
-"label": "My New Field",
-"type": "string"
-},
-…
-]
-},
-{
-"name": "contact",
-"field": [
-{
-"name": "old_field",
-"label": "New Type",
-"type": "integer"
-},
-…
-]
-}
-]
-}
-
-
-Response Body: See sample response.
-
-
-HTTP/1.1 200 OK
-Content-Length: 30
-Content-Type: application/json
-
-{
-"table": [
-{
-"name": "account"
-},
-{
-"name": "contact"
-}
-]
-}
-
-
- Single Table
-Description: Update a table in the database by adding new fields or altering existing fields.
-
-Request HTTP Method: PUT/MERGE
-
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/<table_name>
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-
-
-{
-"name": "contact",
-"label": "Contact",
-"field": [
-{
-"name": "new_field",
-"label": "My New Field",
-"type": "string"
-},
-…
-]
-}
-
-
-Response Body: See sample response.
-
-{
-"name": "contact"
-}
-
-
-
- Update Field
-Description: Update a single field in a db table. For updating multiple fields at once, see Update Table.
-
-Request HTTP Method: PUT/MERGE
-
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/<table_name>/<field_name>
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-
-
-Response Body: See sample response.
+```

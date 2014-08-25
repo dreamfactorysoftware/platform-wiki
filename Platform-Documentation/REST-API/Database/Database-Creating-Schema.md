@@ -1,36 +1,23 @@
-The following operations are typically available for creating records on all DreamFactory Database Services. These operations may vary significantly in handling of primary identifiers based on the database service type and sometimes based on the table definition itself. For instance, some tables may automatically create the identifier field(s) with no input from the client, like in the case of MongoDB or SQL databases with tables that have an auto-incrementing primary key. Others may require a single or multiple identifier fields to be sent with the rest of the record upon creation. Be sure to check the specific database service type for any differences documented in other pages in this section.
+The following operations are typically available for creating tables on all DreamFactory Database Services. However, these operations may vary significantly in the properties that are necessary to actually create a table entity for each specific database vendor. For instance, some tables may automatically create the identifier field(s) with no input from the client, like in the case of MongoDB. Be sure to check the specific database service type for any differences documented in other pages in this section.
 
-  * [Multiple Tables](Database-Creating-Schema#post-tables)
-  * [Single Table](Database-Creating-Schema#post-table)
-  * [Single Field](Database-Creating-Schema#post-field)
+  * [Multiple Tables](#post-tables)
+  * [Single Table](#post-table)
+  * [Single Field](#post-field)
 
-## Multiple Tables
-
-
-Description: Create one or more tables in the database.
-
+##Multiple Tables
+Description: Create one or more tables in the database. Note that the request and response should be an array of table-defining property sets wrapped with a `table` element.
 
 URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/`
 
 #### Request
-
-
 > POST http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema HTTP/1.1
-
 > Accept: application/json, text/javascript, */*; q=0.01
-
 > Accept-Language: en-us,en;q=0.5
-
 > Accept-Encoding: gzip, deflate
-
 > Content-Type: application/json; charset=UTF-8
-
 > X-Dreamfactory-Application-Name: admin
-
 > Content-Length: 72
-
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-
 
 ```javascript
 {
@@ -66,12 +53,8 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/`
 ```
 
 #### Response
-
-
 > HTTP/1.1 200 OK
-
 > Content-Length: 30
-
 > Content-Type: application/json
 
 ```javascript
@@ -87,126 +70,89 @@ URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/`
 }
 ```
 
-
-## Single Record
-
-Description: Create a single table in the database.
+##Single Table
+Description: Create a single table in the database. Note that the table name is part of the URL and must be properly encoded. Posted data must for a single table and not wrapped with the `table` wrapper, like above.
 
 URI: **POST** `http[s]://<dsp-server-name>/rest/<service-api-name>/_schema/<table_name>`
 
 #### Request
-
-
 > POST http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema/todo HTTP/1.1
-
 > Accept: application/json, text/javascript, */*; q=0.01
-
 > Accept-Language: en-us,en;q=0.5
-
 > Accept-Encoding: gzip, deflate
-
 > Content-Type: application/json; charset=UTF-8
-
 > X-Dreamfactory-Application-Name: admin
-
 > Content-Length: 72
-
 > Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 ```javascript
 {
-  "name": "Test my cool app",
-  "complete": false
+  "name": "todo",
+  "label": "Todo",
+  "plural": "Todos",
+  "field": [
+    {
+      "name": "id",
+      "label": "Todo ID",
+      "type": "id"
+    },
+    {
+      "name": "name",
+      "label": "Title",
+      "type": "string"
+    },
+    {
+      "name": "complete",
+      "label": "Completed?",
+      "type": "boolean",
+      "allow_null": false,
+      "default": false
+    }
+  ]
 }
 ```
 
-
 #### Response
-
-
 > HTTP/1.1 200 OK
-
 > Content-Length: 69
-
 > Content-Type: application/json
 
 ```javascript
 {
-  "id": "1"
+  "name": "todo"
 }
 ```
 
+###Adding a Single Field
+Description: Create a single field in a db table. The table and field name are part of the URL and must be properly encoded. For adding multiple fields at once, see [Updating Schema](Database-Updating-Schema) or [Patching Schema](Database-Patching-Schema).
 
- Single Table
-Description: Create a single table in the database.
+URI: **POST** `http://<server_name>/rest/<service_name>/_schema/<table_name>/<field_name>`
 
-Request HTTP Method: POST
+#### Request
+> POST http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema/todo/created_date HTTP/1.1
+> Accept: application/json, text/javascript, */*; q=0.01
+> Accept-Language: en-us,en;q=0.5
+> Accept-Encoding: gzip, deflate
+> Content-Type: application/json; charset=UTF-8
+> X-Dreamfactory-Application-Name: admin
+> Content-Length: 72
+> Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-Response Body: See sample response.
-
-
-
-Sample JSON Request
-
-
-
-POST http://demo-dsp.cloud.dreamfactory.com/rest/db/schema/ HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-X-Application-Name: Admin
-Content-Length: 971
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
-
+```javascript
 {
-"name": "contact",
-"label": "Contact",
-"plural": "Contacts",
-"field": [
-{
-"name": "id",
-“label": "Record ID",
-"type": "id"
-},
-…
-]
+  "name": "created_date",
+  "label": "Created Date",
+  "type": "timestamp_on_create"
 }
+```
 
-Sample JSON Response
+#### Response
+> HTTP/1.1 200 OK
+> Content-Length: 69
+> Content-Type: application/json
 
-
-
-HTTP/1.1 200 OK
-Content-Length: 30
-Content-Type: application/json
-
+```javascript
 {
-"name": "contact"
+  "name": "created_date"
 }
-
- Add Field
-Description: Create a single field in a db table. For adding multiple fields at once, see Update Table.
-
-Request HTTP Method: POST
-
-Request Headers: No additional headers required, See Section 1 – REST Services.
-
-Request URI: http://<server_name>/rest/schema/<table_name>
-
-Request URI Parameters: No additional parameters required, See Section 1 – REST Services.
-
-Request Body: See sample request. Schema for the new table.
-
-
-
-Response Body: See sample response.
-
+```
