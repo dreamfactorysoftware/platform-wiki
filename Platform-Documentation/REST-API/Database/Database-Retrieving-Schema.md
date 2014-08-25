@@ -13,7 +13,8 @@ URI: **GET** `http://<server_name>/rest/<service_name>/_schema`
 
 ####Request
 >GET http://demo-dsp.cloud.dreamfactory.com/rest/system/schema/ HTTP/1.1
->Accept: application/json, text/javascript, */*; q=0.01
+
+Accept: application/json, text/javascript, */*; q=0.01
 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip, deflate
 X-Application-Name: Admin
