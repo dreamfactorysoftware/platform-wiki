@@ -7,7 +7,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 * [Great REST APIs You Can't Use](http://blog.dreamfactory.com/blog/bid/316654/Great-REST-API-s-You-Can-t-Use)
 * [Four Big Problems DreamFactory Solves](http://blog.dreamfactory.com/blog/bid/319066/Four-Big-Problems-DreamFactory-Solves)
 * [Why You Shouldn't Build Your Own REST API](http://blog.dreamfactory.com/blog/bid/332372/Why-You-Shouldn-t-Build-Your-Own-REST-API)
-* [Four Big Mistakes In REST API Strategy](http://blog.dreamfactory.com/fourbigmistakesinyourrestapistrategy
+* [Four Big Mistakes In REST API Strategy](http://blog.dreamfactory.com/fourbigmistakesinyourrestapistrategy)
 * [Why We Like Swagger for API Docs](http://blog.dreamfactory.com/blog/bid/294825/Why-We-Like-Swagger-for-API-Docs)
 * [BitNami Interviews DreamFactory Founder Bill Appleton](http://blog.dreamfactory.com/bitnami-interviews-dreamfactory-founder-bill-appleton)
 * [Why Doesn't Your Private Cloud Have Any Cloud Services?](http://blog.dreamfactory.com/why-doesnt-your-private-cloud-have-any-cloud-services)
