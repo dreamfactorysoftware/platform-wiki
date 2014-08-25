@@ -14,17 +14,24 @@ URI: **GET** `http://<server_name>/rest/<service_name>/_schema`
 ####Request
 >GET http://demo-dsp.cloud.dreamfactory.com/rest/system/schema/ HTTP/1.1
 
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
+>Accept: application/json, text/javascript, */*; q=0.01
+
+>Accept-Language: en-us,en;q=0.5
+
+>Accept-Encoding: gzip, deflate
+
+>X-Application-Name: Admin
+
+>Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 ####Response
 >HTTP/1.1 200 OK
-Content-Length: 307
-Connection: Keep-Alive
-Content-Type: application/json
+
+>Content-Length: 307
+
+>Connection: Keep-Alive
+
+>Content-Type: application/json
 
 ```javascript
 {
@@ -55,17 +62,25 @@ URI: **GET** `http://<server_name>/rest/<service_name>/_schema/<tablename>`
 
 ####Request
 >GET http://demo-dsp.cloud.dreamfactory.com/rest/schema/App HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-X-Requested-With: XMLHttpRequest
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
+
+>Accept: application/json, text/javascript, */*; q=0.01
+
+>Accept-Language: en-us,en;q=0.5
+
+>Accept-Encoding: gzip, deflate
+
+>X-Application-Name: Admin
+
+>X-Requested-With: XMLHttpRequest
+
+>Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 ####Response
 >HTTP/1.1 200 OK
-Content-Length: 6290
-Content-Type: application/json
+
+>Content-Length: 6290
+
+>Content-Type: application/json
 
 ```javascript
 {
@@ -406,17 +421,25 @@ URI: **GET** `http://<server_name>/rest/<service_name>/_schema/<table_name>/<fie
 
 ####Request
 >GET http://demo-dsp.cloud.dreamfactory.com/rest/db/_schema/account/name HTTP/1.1
-Accept: application/json, text/javascript, */*; q=0.01
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-X-Application-Name: Admin
-X-Requested-With: XMLHttpRequest
-Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
+
+>Accept: application/json, text/javascript, */*; q=0.01
+
+>Accept-Language: en-us,en;q=0.5
+
+>Accept-Encoding: gzip, deflate
+
+>X-Application-Name: Admin
+
+>X-Requested-With: XMLHttpRequest
+
+>Cookie: PHPSESSID=as6klno8t5cd5i2o49n2nci175
 
 ####Response
 >HTTP/1.1 200 OK
-Content-Length: 6290
-Content-Type: application/json
+
+>Content-Length: 6290
+
+>Content-Type: application/json
 
 ```javascript
 {
