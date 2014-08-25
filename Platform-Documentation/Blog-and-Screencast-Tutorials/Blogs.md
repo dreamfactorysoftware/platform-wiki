@@ -3,20 +3,20 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 ### DreamFactory Technology and Architecture
 
 * [The New Mobile Architecture](http://blog.dreamfactory.com/blog/bid/257522/The-New-Mobile-Architecture)
+* [Rise of the Service Platform](http://blog.dreamfactory.com/rise-of-the-service-platform)
+* [Four Big Problems DreamFactory Solves](http://blog.dreamfactory.com/blog/bid/319066/Four-Big-Problems-DreamFactory-Solves)
 * [Securing the Mobile Enterprise](http://blog.dreamfactory.com/blog/bid/285535/Securing-the-Mobile-Enterprise)
 * [Great REST APIs You Can't Use](http://blog.dreamfactory.com/blog/bid/316654/Great-REST-API-s-You-Can-t-Use)
-* [Four Big Problems DreamFactory Solves](http://blog.dreamfactory.com/blog/bid/319066/Four-Big-Problems-DreamFactory-Solves)
 * [Why You Shouldn't Build Your Own REST API](http://blog.dreamfactory.com/blog/bid/332372/Why-You-Shouldn-t-Build-Your-Own-REST-API)
-* [Four Big Mistakes In REST API Strategy](http://blog.dreamfactory.com/fourbigmistakesinyourrestapistrategy)
-* [Why We Like Swagger for API Docs](http://blog.dreamfactory.com/blog/bid/294825/Why-We-Like-Swagger-for-API-Docs)
-* [BitNami Interviews DreamFactory Founder Bill Appleton](http://blog.dreamfactory.com/bitnami-interviews-dreamfactory-founder-bill-appleton)
+* [Four Big Mistakes In Your REST API Strategy](http://blog.dreamfactory.com/fourbigmistakesinyourrestapistrategy)
+* [It's Time to Redefine "Backend as a Service"](http://blog.dreamfactory.com/its-time-to-redefine-backend-as-a-service)
 * [Why Doesn't Your Private Cloud Have Any Cloud Services?](http://blog.dreamfactory.com/why-doesnt-your-private-cloud-have-any-cloud-services)
 * [Preventing Cloud Vendor Lock-in](http://blog.dreamfactory.com/preventing-cloud-vendor-lock-in)
 * [Avoid Cloud Lock-In With Service Virtualization](http://blog.dreamfactory.com/avoid-cloud-lock-in-with-service-virtualization)
 * [Get Ready For The Cloud API War](http://blog.dreamfactory.com/get-ready-for-the-cloud-api-war)
-* [It's Time to Redefine "Backend as a Service"](http://blog.dreamfactory.com/its-time-to-redefine-backend-as-a-service)
-* [Rise of the Service Platform](http://blog.dreamfactory.com/rise-of-the-service-platform)
+* [Why We Like Swagger for API Docs](http://blog.dreamfactory.com/blog/bid/294825/Why-We-Like-Swagger-for-API-Docs)
 * [Introducing the DreamFactory Mobile Application](http://blog.dreamfactory.com/dreamfactory-mobile-application)
+* [BitNami Interviews DreamFactory Founder Bill Appleton](http://blog.dreamfactory.com/bitnami-interviews-dreamfactory-founder-bill-appleton)
 
 ### Important Notes on Calling DreamFactory
 
