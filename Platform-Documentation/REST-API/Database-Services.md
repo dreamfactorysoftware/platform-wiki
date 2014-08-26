@@ -45,7 +45,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db) to see this
   * Retrieving Schema Along With Records
   * Retrieving Related Data Along With Records
   * Creating and Managing Related Data With Records
-  * Accessing Stored Procedures
+  * [Accessing Stored Procedures](SQL-Stored-Procedures)
 
 
 ## <a name="nosql"></a>NoSQL Database Services
