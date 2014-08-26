@@ -3,7 +3,10 @@ Stored Procedure support via the DSP API is currently just for calling the store
 ###List Available Stored Procedures
 Description:  List the available stored procedures by name, based on role accesses allowed.
 
-URI: **GET** `http://<server_name>/rest/<service_name>/_proc`
+URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc`
+
+####Request
+>GET https://demo-dsp.cloud.dreamfactory.com/rest/db/_proc/ HTTP/1.1
 
 ####Response
 ```javascript
@@ -38,10 +41,30 @@ URI: **GET** `http://<server_name>/rest/<service_name>/_proc`
   ]
 }
 ```
-###Call a Stored Procedure Without Parameters
-Description: Call a stored procedure that doesn't require parameters. Optionally, you can add a URL parameter `wrapper` that will cause the returned data to be wrapped in the requested element.
 
-URI: **GET** `http://<server_name>/rest/<service_name>/_proc/<procedure_name>[?wrapper=<wrapper_name>]`
+###Call a Stored Procedure with GET
+Description: Call a stored procedure that doesn't require parameters or formatting, which would require posted data (see POST method below). Note that without formatting, all data is returned as strings. Optionally, you can add a URL parameter `wrapper` that will cause the returned data to be wrapped in the requested element.
+
+URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc/<procedure_name>[?wrapper=<wrapper_name>]`
+
+####Request
+>GET https://demo-dsp.cloud.dreamfactory.com/rest/db/_proc/todos HTTP/1.1
+
+####Response
+```javascript
+{
+  "record": [
+    {
+      "id": "4",
+      "name": "Test the application."
+    },
+    {
+      "id": "5",
+      "name": "Demo stored procedures."
+    }
+  ]
+}
+```
 
 ###Call a Stored Procedure With Parameters
 Description: Call a stored procedure that does require parameters. By default, all data from stored procedure calls are returned as strings. Parameter settings and schema can be used to make the data more presentable to the client. Posted request can consist of the following elements:
@@ -57,9 +80,11 @@ Description: Call a stored procedure that does require parameters. By default, a
   * `wrapper` - Just like the URL parameter, the wrapper designation can be passed in the posted data.
 
 
-URI: **POST** `http://<server_name>/rest/<service_name>/_proc/<procedure_name>[?wrapper=<wrapper_name>]`
+URI: **POST** `http[s]://<server_name>/rest/<service_name>/_proc/<procedure_name>[?wrapper=<wrapper_name>]`
 
 ####Request
+>POST https://demo-dsp.cloud.dreamfactory.com/rest/db/_proc/search_todos_by_name
+
 ```javascript
 {
     "params": [
@@ -80,7 +105,7 @@ URI: **POST** `http://<server_name>/rest/<service_name>/_proc/<procedure_name>[?
         },
         {
             "name": "total",
-            "param_type": "OUt",
+            "param_type": "OUT",
             "type": "integer",
             "length": 4
         }
@@ -94,6 +119,7 @@ URI: **POST** `http://<server_name>/rest/<service_name>/_proc/<procedure_name>[?
 ```
 
 ####Response
+```javascript
 {
   "record": [
     {
@@ -111,4 +137,4 @@ URI: **POST** `http://<server_name>/rest/<service_name>/_proc/<procedure_name>[?
   "count": 2,
   "total": 5
 }
-
+```
