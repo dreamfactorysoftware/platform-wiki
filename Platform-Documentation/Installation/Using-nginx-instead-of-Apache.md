@@ -1,288 +1,156 @@
-Your DSP can be configured to use any web server you want. The core package ships with configuration examples for [Apache][_apache] as well as [nginx][_nginx].
+Your DSP can be configured to use any web server you want. The core package ships with configuration examples for [Apache][_ap2] as well as [nginx][_ng]. This guide will show you how to transform your ordinary, default Apache/pre-fork DSP into a shiny new nginx/FPM DSP! Sound cool? It is!
 
 # Prerequisites and Assumptions
 This guide assumes you're running the latest DreamFactory Services Platform&trade; and on a major linux distribution (Ubuntu, CentOS, Red Hat, Debian), or a derivative of one. The DSP can be a virtual machine on your dev box, a [vagrant](http://vagrantup.com/) box, or even a real live server. Other distributions may need tweaking to locations. But the configuration options should the same. It is also assumed (and required) that you have *sudo* access to your DSP's server.
 
-Please note that this guide will not work with free-hosted or Bitnami installations. Only self-installed versions are supported.
+Please note that this guide will not work with [free-hosted][_df-www] or [Bitnami][_bn] stack installations. Only self-installed versions are supported.
 
-# 10,000 Foot View
-The goal here is to install *nginx* as a front-end to your currently running Apache instance service your DSP. The default configuration places the DSP on ports 80 and 443. What we are going to do is install *nginx* and it will service ports 80 and 443, relaying these requests to your Apache server. The Apache configuration will be modified to live a different port (8080).
+# Install Packages
+If you've already installed the necessary part, you can skip ahead to the next part, otherwise you'll start here.
 
-There is no need to configure or run an SSL virtual host in Apache once nginx is configured as it will be handling all the SSL details for you.
+We need to install two main packages to get this going. The first is the nginx server package. The second is [PHP FPM](http://php-fpm.org/), or FastCGI Process Manager, package. Check out the link if you're not familiar with it.
 
-# Setup and Configuration
-This is by no means an exhaustive or definitive guide to configuring nginx and Apache. It is a minimalistic configuration designed to get it up and running. With that said, let's get cracking.
+## nginx
+We are going to install the `nginx-extras` package for this guide. It has the core server and a few extras we need:
 
-### CentOS
-CentOS requires the EPEL repository. If you do not already have it installed, perform the following:
-
-#### v5.x
-
-```
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+```shell
+$ sudo apt-get install nginx-extras
 ```
 
-#### v6.x
+When that's done you'll have a nice new `/etc/nginx` directory to play with.
 
-```
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-```
+## PHP FPM
+The second package we need is the PHP FPM package. Install it like this:
 
-### Ubuntu/Debian
-The *nginx* package is available from the distribution itself. No additional setup is necessary.
-
-## Install nginx
-THe first thing we need to do is install and configure *nginx*. Let's go ahead and install it with our package manager:
-
-### Ubuntu/Debian
-```
-$ sudo apt-get install nginx
+```shell
+$ sudo apt-get install php5-fpm
 ```
 
-### CentOS
-```
-$ sudo yum install nginx
-```
+After it's installed, we need to copy a file from the DSP to the PHP FPM directory. It's detailed below in [Configuration].
 
-## Create nginx Configuration File
+# Configuration
+The **VERY** first thing you *should* do is make a copy of the **nginx** installation. You can do this easily:
 
-Create the following nginx configuration file:
-
-### Ubuntu 
-```bash
-$ sudo nano /etc/nginx/sites-available/dsp.local
+```shell
+$ mkdir ~/nginx && sudo cp -r /etc/nginx/* ~/nginx
 ```
 
-The file name is irrelevant. All files in `/etc/nginx/sites-available`, once enabled, are read.
+That will come in handy someday when you break your server. Trust me. ;)
 
-### CentOS 
-```bash
-$ sudo nano /etc/nginx/conf.d/dsp.local.conf
+Now we can start fiddling in the configs. We need to copy a few files from your DSP installation directory.
+
+>For the purpose of this guide, we will assume you are in your DSP's root directory. All paths shown will be relative from there.
+
+First the PHP FPM file:
+
+```shell
+$ sudo cp config/external/php/etc/php5/mods-available/dreamfactory.ini /etc/php5/mods-available/
+$ sudo php5enmod dreamfactory
+$ sudo service php5-fpm restart
+php5-fpm stop/waiting
+php5-fpm start/running, process 15113
 ```
 
-### File Contents
+Cool beans. Now we copy the nginx files:
 
-Fill your newly created file with the following:
-
-```nginx
-server {
-	# nginx listens on port 80
-	listen 80;
-
-	# The document root for the server
-	root /var/www/launchpad/web;
-
-	# Place web server logs into DSP's log directory
-	error_log  /var/www/launchpad/log/nginx.error.log;
-	access_log /var/www/launchpad/log/nginx.access.log;
-
-	# Allow for index.php files
-	index index.php index.html
-
-	# Change this/these to the name of your server (can be localhost)
-	server_name www.example.com example.com localhost 
-	
-	# This tries to pull the file directly, otherwise, passes to the front controller
-	location / {
-		try_files $uri $uri/ /index.php?$args;
-	}
-	
-	#  Bypass apache to serve static files, 404-ing non-existent ones
-	location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar|mustache)$ {
-		try_files $uri =404;
-	}
-	
-	#  Proxy PHP requests on to Apache
-	location ~* ^.*\.php$ {
-		try_files $uri =404;
-		
-		## Use standard Apache configuration (non-FPM). Uncomment and comment out below block to enable
-#		proxy_set_header X-Real-IP $remote_addr;
-#		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-#		proxy_set_header Host $host;
-#		proxy_pass unix:/var/run/php5-fpm.sock
-	
-		## Apache2/PHP5 FPM configuration. Comment out and uncomment above to disable
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		fastcgi_index index.php;
-		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		include fastcgi_params;
-	}
-	
-	#  No dot files (.htaccess, .git, etc.). Don't log either
-	location ~ /\. {
-		deny all;
-		access_log off;
-		log_not_found off;
-	}
-}
-
-server {
-	# listen on 443
-    listen          443;
-
-	# The document root for the server
-	root /var/www/launchpad/web;
-
-	# Place web server logs into DSP's log directory
-	error_log  /var/www/launchpad/log/nginx-ssl.error.log;
-	access_log /var/www/launchpad/log/nginx-ssl.access.log;
-
-	# Allow for index.php files
-	index index.php index.html
-
-	# Change this/these to the name of your server (can be localhost)
-	server_name www.example.com example.com localhost 
-	                           
-    ## SSL Configuration
-    ssl on;
-    ssl_certificate /path/to/your/certificate/file;
-    ssl_certificate_key /path/to/your/certificate/key/file;
-    ssl_session_timeout 5m;
-    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
-    ssl_prefer_server_ciphers on;
-
-    location / {
-        try_files $uri $uri/ /index.php?$args;
-    }
-
-	#  Bypass apache to serve static files, 404-ing non-existent ones
-	location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar|mustache)$ {
-		try_files $uri =404;
-	}
-	
-	#  Proxy PHP requests on to Apache
-	location ~* ^.*\.php$ {
-		try_files $uri =404;
-		
-		## Use standard Apache configuration (non-FPM). Uncomment and comment out below block to enable
-#		proxy_set_header X-Real-IP $remote_addr;
-#		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-#		proxy_set_header Host $host;
-#		proxy_pass unix:/var/run/php5-fpm.sock
-	
-		## Apache2/PHP5 FPM configuration. Comment out and uncomment above to disable
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		fastcgi_index index.php;
-		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		include fastcgi_params;
-	}
-	
-	#  No dot files (.htaccess, .git, etc.). Don't log either
-	location ~ /\. {
-		deny all;
-		access_log off;
-		log_not_found off;
-	}
-}
+```
+$ sudo cp config/external/nginx/etc/nginx/dsp-locations.conf /etc/nginx/
+$ sudo cp config/external/nginx/etc/nginx/sites-available/* /etc/nginx/sites-available/
+$ sudo cp -r config/external/nginx/etc/nginx/conf.d/* /etc/nginx/conf.d/
 ```
 
-Change the line *server_name* to match your server's actual name. You can place multiple names on the same line separated by spaces. 
+## What Have I Done!?
+The files copied above are building blocks and do not overwrite anything that is owned by nginx. Here's a quick rundown of what they are:
 
-You'll also notice that there is a commented block of configuration code in the *location* section. You may run PHP through Apache in a few different ways. The default configuration of Apache uses the Multi-Process-Module, or MPM, system which, by default, runs in a *pre-fork* mode. Essentially this means that a single instance of Apache runs and creates a thread pool of listeners for inbound requests. Apache then dispatches those requests to PHP for handling. In the above configuration it is commented out in favor of the *FPM* configuration.
+`dsp-locations.conf` is included by the files in `/etc/nginx/sites-available` to configure the web server's routes.
 
-Our alternative, and more efficient method, is to use Apache's *FPM* or *fastcgi* processing module. When using this dispatch method, Apache waits for requests via an already-open TCP/IP socket. This can result in a significant boost in performance. We've encountered between 10%-20% increase depending on the hardware. This is mainly because the there is no socket open/close overhead by Apache.
+`/etc/nginx/sites-available` now has two new files: `dsp.single.local` and `dsp.multi.local`. These both do the same thing in different ways.
 
-#### Ubuntu
-In Ubuntu, once that file is saved, you need to tell *nginx* to use it:
+>These files configure nginx to listen for web connections and send it to PHP. If you're going to use SSL on your site we recommend you use the `dsp.single.local` file as your configuration. The **single** file runs the DSP in a single **server** section of the nginx configuration. If you're not running SSL, or not yet at least, the **multi** file has a **server** configuration for HTTP and HTTPS separated. You can comment out the HTTPS section if you do not want to use SSL.
+
+In `/etc/nginx/conf.d` there are few new files: `dreamfactory.http.conf` and `dreamfactory.php-fpm.conf`. These configure nginx for PHP FPM and set a few defaults. Please read through them if you've not already. They're commented and you can change to your liking. That goes pretty much for all these config files.
+
+In addition, there a new directory called `ssl` in which there is a file called `dreamfactory.ssl.conf`. If you're going to run SSL you just need to put the location of your keys into that file. If you're not running SSL it is ignored. This is placed in a separate place so it can be made as secure as you require.
+
+>You can adjust the source of the include from `conf.d/ssl/` to anything you want. We'll cover that in a bit.
+
+### nginx.conf
+The last file we need to copy is the `nginx.conf` file. This step is optional. You might not want to copy this file over the default configuration without giving a good perusal.
+
+We have found these settings to be generally good and many thanks to the gentleman referenced in that configuration file for those settings. There aren't any settings in our version of `nginx.conf` that are required to run the DSP properly. It is just tuned for speed. (thanks to that dude...).
+
+So copy it if you want:
+
+```shell
+$ sudo cp config/external/nginx/etc/nginx/nginx.conf /etc/nginx/
+```
+
+## Choose Your Destructor
+If you haven't decided by now if you're going to use the single or multi configuration files outlined above, go with the multi. Either way, you need to create a new configuration for your DSP using one of the two samples. We're going to use the single version and call it `dsp.local`:
+
+```shell
+$ cd /etc/nginx/sites-available
+$ sudo cp dsp.single.local dsp.local
+```
+
+Go on in that new file (`dsp.local`) with your favorite editor and change anything that calls out to you. Your DSP root directory perhaps, or the server name, port, etc. Make sure you test your changes before restarting nginx by using the following command:
+
+```shell
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+If you messed up, you'll get this fail:
+
+```shell
+$ sudo nginx -t
+nginx: [emerg] unknown directive "included" in /etc/nginx/nginx.conf:140
+nginx: configuration file /etc/nginx/nginx.conf test failed
+```
+
+#### Ninja Tip!
+When you're in *DGM* (deep geek mode), having to type `sudo service nginx restart` two or three times a minute gets old. So create an alias to do the typing for you!
+
+I run Ubuntu and **bash** is the shell that I use. When you log in, or open a terminal window, **bash** sources your `~/.bash_aliases` file. If you don't have one, you can create one and it will automatically be sourced upon next and future logins.
+
+Here are a few of the things in my `~/.bash_aliases` file for these types of situations. Feel free to add them to your arsenal.
 
 ```bash
-$ sudo ln -s /etc/nginx/sites-available/dsp.local /etc/nginx/sites-enabled/dsp.local
+alias a2off='sudo service apache2 graceful-stop'
+alias a2on='sudo service apache2 start'
+alias a2rl='sudo service apache2 reload'
+alias a2rs='sudo service apache2 restart'
+
+alias ngtrs='sudo nginx -t && sudo service nginx restart'
+alias ngtrl='sudo nginx -t && sudo service nginx reload'
+alias ngtoff='sudo nginx -t && sudo service nginx stop'
+alias ngton='sudo nginx -t && sudo service nginx start'
+```
+
+## Disable `default` Site
+The nginx server ships with a default server configuration (in `/etc/nginx/sites-available/default`), which is enabled.
+
+If you're not using (going to use) it, you should disable it:
+
+```bash
+$ sudo unlink /etc/nginx/sites-enabled/default
 $ sudo nginx -t
 $ sudo service nginx restart
 ```
 
-What we're doing is symlinking the available configuration into the enabled directory. Then test the configuration before restarting the service. 
+Now we need to **enable** the DSP:
+
+```bash
+$ sudo ln -s /etc/nginx/sites-available/dsp.local /etc/nginx/sites-enabled/dsp.local
+```
+
+What we're doing is symlinking the available configuration into the enabled directory. Then test the configuration before restarting the service.
 
 To disable this site from *nginx* just unlink the symlink:
 
 ```bash
 $ sudo unlink /etc/nginx/sites-enabled/dsp.local
-```
-
-> In Ubuntu's Apache package, a set of of scripts called `a2ensite` and `a2dissite` are provided to perform the above steps. *nginx* doesn't provide these by default.
-
-#### CentOS
-In CentOS, no symlinking is necessary. Files in `/etc/nginx/conf.d` are automatically used if they end it `.conf`. 
-
-To disable your configuration, simply rename add `.off` to the file name like so:
-
-```bash
-$ sudo mv /etc/nginx/conf.d/dsp.local /etc/nginx/conf.d/dsp.local.conf.off
-```
-
-Now test your setup and restart `nginx`
-
-```bash
-$ sudo nginx -t
-$ sudo service nginx restart
-```
-
-## Apache Configuration
-Now, let's set up a configuration for PHP5 FPM that can be turned on or off at will. You can do this system-wide or on a per-server basis.
- 
-You may need to add some Apache modules, so install them:
-
-```bash
-$ sudo apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm
-$ sudo a2enmod actions fastcgi alias
-```
-
-> Some of those modules may already be installed and/or enabled.
- 
-### Per-Server
-The default setup for the DSP is to live on ports 80 and 443. For the *nginx* configuration we need to change these ports.
-
-Edit your DSP's Apache configuration file in `/etc/apache2/sites-available/`
-
-The first thing you need to do is change the port upon which Apache listens. You should see at the top of the file something like this:
-
-```apache
-<VirtualHost *:80>
-```
-
-Change that to read:
-
-```apache
-<VirtualHost 127.0.0.1:8080>
-```
-
-Now we add the support for the FPM module. Add the following snippet of code right before the end `</VirtualHost>` tag:
-
-```apache
-<IfModule mod_fastcgi.c>
-   AddHandler php5-fcgi .php
-   Action php5-fcgi /php5-fcgi
-   Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
-   FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
-</IfModule>
-```
-
-### System-Wide
-Alternatively, you can enable this feature for *all* sites served by your Apache instance. To do this, create a file called `php5-fpm.conf` in your Apache's global configuration directory `/etc/apache2/conf.d`: 
- 
-```bash
-$ sudo nano /etc/apache2/conf.d/php5-fpm.conf
-```
-
-And place the following into it and save:
-
-```apache
-<IfModule mod_fastcgi.c>
-   AddHandler php5-fcgi .php
-   Action php5-fcgi /php5-fcgi
-   Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
-   FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
-</IfModule>
-```
-
-> There is no need to add this to your virtual host configuration files as it will now be available for all virtual hosts. 
-
-Finally, enable our new module:
-
-```bash
-$ sudo a2enconf php5-fpm
 ```
 
 ### Restart everything...
@@ -293,3 +161,11 @@ $ sudo service apache2 restart
 $ sudo service nginx restart
 ```
 
+[_df-www]: https://www.dreamfactory.com/ "DreamFactory Corporate Site"
+[_df-io]: https://dreamfactorysoftware.github.io/ "DreamFactory Software"
+[_df-gh]: https://github.com/dreamfactorysoftware/ "Our GitHub repositories"
+[_bn]: https://bitnami.com/stack/dreamfactory/ "DreamFactory on Bitnami"
+
+[_ng]: http://nginx.org "nginx"
+[_ap2]: http://apache.org "Apache"
+[_google]: http://www.google.com/
