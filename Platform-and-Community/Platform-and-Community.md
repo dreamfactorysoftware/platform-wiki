@@ -4,7 +4,7 @@ Let's build the dreams of tomorrow today!
 
 ## Contributing
 
-To get involved, share your ideas, and collaborate with us, head to our [[Contributing]] home page.
+To get involved, share your ideas, and collaborate with us, head to our [github DSP](https://github.com/dreamfactorysoftware/dsp-core/) home page.
 
 ## Tell the world
 
