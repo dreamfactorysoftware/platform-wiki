@@ -1,6 +1,6 @@
 DreamFactory REST API supports several types of database services. There are SQL database services (supporting connections to MySQL, PostgreSQL, MS SQL Server, Oracle, DB2, etc.), NoSQL database services (supporting the likes of MongoDB, AWS DynamoDB, Azure Tables, CouchDB, etc.), and a Salesforce database service. DSP database services can connect to databases installed locally along with the DSP or remotely on other servers or cloud architectures.
 
-DreamFactory makes accessing each of these back-end storage databases easy with a common REST interface, while still allowing most of the unique features of each underlying database type to be accessed. Each of these types of services is briefly discussed below.
+DreamFactory makes accessing each of these back-end storage databases easy with a common REST interface, while still allowing most of the unique features of each underlying database type to be accessed. Each of these types of services are briefly discussed below.
 
 For how to access tables and records via the database services, start with the [Common Features](#common) section. Follow the links in each section for more detail. There are some features of each of these services that are unique to that service type, for example, relational queries in SQL databases, or using the native filtering language in MongoDB. See the individual type sections below for more specifics.
 
@@ -10,10 +10,11 @@ Database record CRUD (Create, Read, Update and Delete) operations and some table
 
 The following topics document the common capabilities across all supported database service types, unless otherwise noted.
 
-* [Retrieving Database Resources](Database-Resources)
+* Database Resources
+  * [Retrieving Resources](Database-Resources)
 
-* [Managing Table Schema](Database-Schema)
-  * [Common Parameters & Formatting](Database-Schema#common-params)
+* Table Schema
+  * [Common Parameters & Formatting](Database-Schema)
   * [DreamFactory Extensions](Database-Schema#extensions)
   * [Retrieving Schema](Database-Retrieving-Schema)
   * [Creating Schema](Database-Creating-Schema)
@@ -21,8 +22,8 @@ The following topics document the common capabilities across all supported datab
   * [Patching/Merging Schema](Database-Patching-Schema)
   * [Deleting Schema](Database-Deleting-Schema)
 
-* [Managing Table Records](Database-Records)
-  * [Common Parameters & Formatting](Database-Records#common-params)
+* Table Records
+  * [Common Parameters & Formatting](Database-Records)
   * [Retrieving Records](Database-Retrieving-Records)
   * [Creating Records](Database-Creating-Records)
   * [Updating/Replacing Records](Database-Updating-Records)
