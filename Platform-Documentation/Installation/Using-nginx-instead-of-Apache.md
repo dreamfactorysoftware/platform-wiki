@@ -153,13 +153,15 @@ To disable this site from *nginx* just unlink the symlink:
 $ sudo unlink /etc/nginx/sites-enabled/dsp.local
 ```
 
-### Restart everything...
-Restart both nginx and Apache now:
+### Restart
+Restart nginx now
 
 ```bash
-$ sudo service apache2 restart
 $ sudo service nginx restart
 ```
+
+# All Done
+Now you can test out your DSP on nginx. Please let us know how your experiences compare using nginx vs. Apache, or any other server for that matter!
 
 [_df-www]: https://www.dreamfactory.com/ "DreamFactory Corporate Site"
 [_df-io]: https://dreamfactorysoftware.github.io/ "DreamFactory Software"
