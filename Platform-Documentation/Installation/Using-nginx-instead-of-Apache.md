@@ -93,10 +93,43 @@ $ cd /etc/nginx/sites-available
 $ sudo cp dsp.single.local dsp.local
 ```
 
-Go on in that new
+Go on in that new file (`dsp.local`) with your favorite editor and change anything that calls out to you. Your DSP root directory perhaps, or the server name, port, etc. Make sure you test your changes before restarting nginx by using the following command:
+
+```shell
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+If you messed up, you'll get this fail:
+
+```shell
+$ sudo nginx -t
+nginx: [emerg] unknown directive "included" in /etc/nginx/nginx.conf:140
+nginx: configuration file /etc/nginx/nginx.conf test failed
+```
+
+#### Ninja Tip!
+When you're in *DGM* (deep geek mode), having to type `sudo service nginx restart` two or three times a minute gets old. So create an alias to do the typing for you!
+
+I run Ubuntu and **bash** is the shell that I use. When you log in, or open a terminal window, **bash** sources your `~/.bash_aliases` file. If you don't have one, you can create one and it will automatically be sourced upon next and future logins.
+
+Here are a few of the things in my `~/.bash_aliases` file for these types of situations. Feel free to add them to your arsenal.
+
+```bash
+alias a2off='sudo service apache2 graceful-stop'
+alias a2on='sudo service apache2 start'
+alias a2rl='sudo service apache2 reload'
+alias a2rs='sudo service apache2 restart'
+
+alias ngtrs='sudo nginx -t && sudo service nginx restart'
+alias ngtrl='sudo nginx -t && sudo service nginx reload'
+alias ngtoff='sudo nginx -t && sudo service nginx stop'
+alias ngton='sudo nginx -t && sudo service nginx start'
+```
 
 ## Disable `default` Site
-The nginx server ships with a default configuration (in `/etc/nginx/sites-available/default`) that is enabled.
+The nginx server ships with a default server configuration (in `/etc/nginx/sites-available/default`), which is enabled.
 
 If you're not using (going to use) it, you should disable it:
 
@@ -127,10 +160,6 @@ Restart both nginx and Apache now:
 $ sudo service apache2 restart
 $ sudo service nginx restart
 ```
-
-
-
-
 
 [_df-www]: https://www.dreamfactory.com/ "DreamFactory Corporate Site"
 [_df-io]: https://dreamfactorysoftware.github.io/ "DreamFactory Software"
