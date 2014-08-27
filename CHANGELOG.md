@@ -1,5 +1,12 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.7.7 (Release 2014-08-27)
+
+### Bug Fixes!
+* SQL DB Schema bug fixes
+* Swagger output, model definitions bug fixes
+* Updated config files for [IBM Bluemix](http://www.bluemix.net/) and [Pivotal](http://www.pivotal.io) PaaS solutions
+
 ## v1.7.6 (Release 2014-08-15)
 
 ### New!
