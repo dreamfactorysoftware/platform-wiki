@@ -2,7 +2,7 @@
 
 ## v1.7.7 (Release 2014-08-27)
 
-### Bug Fixes!
+### Fixes
 * SQL DB Schema bug fixes
 * Swagger output, model definitions bug fixes
 * Updated config files for [IBM Bluemix](http://www.bluemix.net/) and [Pivotal](http://www.pivotal.io) PaaS solutions
