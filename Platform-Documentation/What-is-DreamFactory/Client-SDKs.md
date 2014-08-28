@@ -27,3 +27,7 @@ Get the [AngularJS SDK](https://github.com/dreamfactorysoftware/angular-dreamfac
 ### Appcelerator Titanium SDK
 
 Get the [Titanium SDK](https://github.com/dreamfactorysoftware/titanium-dreamfactory) on GitHub.
+
+### Windows Mobile SDK
+
+Get the [Windows Mobile SDK](https://github.com/dreamfactorysoftware/windows-sdk) on GitHub.
