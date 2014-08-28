@@ -17,7 +17,7 @@ We are going to install the `nginx-extras` package for this guide. It has the co
 $ sudo apt-get install nginx-extras
 ```
 
-[sample](/Platform-Documentation/code/configuration/nginx/dsp.local)
+[sample](/dsp-core/wiki/Platform-Documentation/code/configuration/nginx/dsp.local)
 
 When that's done you'll have a nice new `/etc/nginx` directory to play with.
 
