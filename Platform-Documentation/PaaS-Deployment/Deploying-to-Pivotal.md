@@ -2,7 +2,7 @@
 In order to deploy your DSP to Pivotal, you'll need to do a little setup on your dev box. Below are the things you'll need to have installed before you can
 deploy your DSP. You'll only have to do these things once, not every time you deploy.
 
- 1. An account on [Pivotal CF](http://www.pivotal.io)
+ 1. An account on [Pivotal](http://www.pivotal.io)
  1. A running clone (or fork) of the DreamFactory Services Platform&trade; [repository on GitHub](/dreamfactorysoftware/dsp-core)
  1. The **cf** command line tool from [CloudFoundry](http://cloudfoundry.org/). Full instructions are on Pivotal's [getting started](http://docs.run.pivotal.io/starting/) page. Follow the setup instructions on that page that refer to connecting and logging in to Pivotal. You'll have to have this done before you can deploy.
 
