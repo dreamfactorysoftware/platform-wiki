@@ -136,6 +136,7 @@ The following are details about each of the properties supported.
 
   * `validation`: Array of settings. Optional. See [validations](#validations) for more info. 
 
+###<a name="examples"></a>Example field declarations
 Example field schema declarations...
 ```javascript
     {
@@ -289,27 +290,213 @@ The supported simple types are defined as follows.
   * **user_id_on_update**: a `user_id` as documented above that will be automatically set on record creation and again on every update. See `api_read_only` validation for keeping this from being set by API.
 
 ###<a name="validations"></a>Validations
-Some server-side validation can be defined for the field by setting this property to one or more of the following, separated by commas. Note that additional validation will result in additional processing which may slow response times. Possible validations settings are as follows...
+Some server-side validation can be defined for the field by setting this property to one or more of the following, separated by commas. Note that additional validation will result in additional processing which may slow response times. Validations are configured in the following format...
+
+```javascript
+{
+  "validation":
+    {
+      "<validation_name>":
+        {
+          "on_fail" : "[ignore_field | <error_msg>]"
+          <other_config>,
+          ...
+        },
+      ...
+    }
+}
+```
+
+where `on_fail` is a configuration option that takes either the value `ignore_field`, dictating if the field should be ignored if it does not pass validation, or a specified error message to overwrite the generic exception thrown. If this configuration is missing, a generic exception will be thrown stating the validation has failed.
+
+Other validation configuration options are documented below for each validation type.
+
+Possible validations settings are as follows...
 
   * **picklist** - Supported for string type only. It requires the field value to be set to one of the values listed in the "values" property. Values are checked only at create and update record; data integrity is kept for existing values even when the picklist value list is modified. Behaves similar to MySQL "enum" type.
+                        $_values = Option::get( $field_info, 'value' );
+                        if ( empty( $_values ) )
+                        {
+                            throw new InternalServerErrorException( "Invalid validation configuration: Field '$name' has no 'value' in schema settings." );
+                        }
+
+                        if ( !empty( $value ) && ( false === array_search( $value, $_values ) ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value is invalid.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
 
   * **multi_picklist** - similar to picklist but allows multiple values to be selected and stored. Behaves similar to MySQL "set" type.
+                        $_values = Option::get( $field_info, 'value' );
+                        if ( empty( $_values ) )
+                        {
+                            throw new InternalServerErrorException( "Invalid validation configuration: Field '$name' has no 'value' in schema settings." );
+                        }
+
+                        if ( !empty( $value ) )
+                        {
+                            $_delimiter = Option::get( $_config, 'delimiter', ',' );
+                            $_min = Option::get( $_config, 'min', 1 );
+                            $_max = Option::get( $_config, 'max' );
+                            $value = DbUtilities::validateAsArray( $value, $_delimiter, true );
+                            $_count = count( $value );
+                            if ( $_count < $_min )
+                            {
+                                $_msg =
+                                    ( !empty( $_msg ) ) ? : "Field '$name' value does not contain enough selections.";
+                                throw new BadRequestException( $_msg );
+                            }
+                            if ( !empty( $_max ) && ( $_count > $_max ) )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value contains too many selections.";
+                                throw new BadRequestException( $_msg );
+                            }
+                            foreach ( $value as $_item )
+                            {
+                                if ( false === array_search( $_item, $_values ) )
+                                {
+                                    if ( $_throw )
+                                    {
+                                        $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value is invalid.";
+                                        throw new BadRequestException( $_msg );
+                                    }
+
+                                    return false;
+                                }
+                            }
+                        }
 
   * **api_read_only** - sets this field as read only through the API. Use "default” property to set values, i.e. useful for creating timestamps, etc. Supported for all types.
+                        if ( $_throw )
+                        {
+                            $_msg = ( !empty( $_msg ) ) ? : "Field '$name' is read only.";
+                            throw new BadRequestException( $_msg );
+                        }
+
+                        return false;
 
   * **create_only** - sets this field to only allow values to be set on record creation. Supported for all types.
+                        if ( $for_update )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' can only be set during record creation.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
+
+  * **not_null** - validates that the field value to be set is not null. Supported for all types,
+                        if ( is_null( $value ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value can not be null.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
 
   * **not_empty** - validates that the field value to be set is not empty string. Supported for string and picklist types,
+                        if ( !is_null( $value ) && empty( $value ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value can not be empty.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
 
   * **not_zero** - validates that the field value to be set is not zero (0). Supported for integers, decimals and floats.
+                        if ( !is_null( $value ) && empty( $value ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value can not be empty.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
 
   * **range(min,max)** - validates that the numeric value to be set is between the min and max values designated. Supported for integers, decimals and floats.
+                    case 'int':
+                        $_min = Option::getDeep( $_config, 'range', 'min' );
+                        $_max = Option::getDeep( $_config, 'range', 'max' );
+                        $_formats = Option::clean( Option::get( $_config, 'formats' ) );
 
-  * **email** - validates that this field is an email, i.e. "name@company.com”. Supported for string type only.
+                        $_options = array();
+                        if ( is_int( $_min ) )
+                        {
+                            $_options['min_range'] = $_min;
+                        }
+                        if ( is_int( $_max ) )
+                        {
+                            $_options['max_range'] = $_max;
+                        }
+                        $_flags = 0;
+                        foreach ( $_formats as $_format )
+                        {
+                            switch ( strtolower( $_format ) )
+                            {
+                                case 'hex':
+                                    $_flags &= FILTER_FLAG_ALLOW_HEX;
+                                    break;
+                                case 'octal':
+                                    $_flags &= FILTER_FLAG_ALLOW_OCTAL;
+                                    break;
+                            }
+                        }
+                        $_options = array('options' => $_options, 'flags' => $_flags);
+                        if ( !is_null( $value ) && !filter_var( $value, FILTER_VALIDATE_REGEXP, $_options ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value is not in the valid range.";
+                                throw new BadRequestException( $_msg );
+                            }
+
+                            return false;
+                        }
+
+  * **email** - validates that this field is an email, i.e. "name@company.com”. Supported for string type only. See FILTER_VALIDATE_EMAIL.
 
   * **url** - validates that this field is a url, i.e. starts with "http(s)://”. Supported for string type only.
+                        $_sections = Option::clean( Option::get( $_config, 'sections' ) );
+                        $_flags = 0;
+                        foreach ( $_sections as $_format )
+                        {
+                            switch ( strtolower( $_format ) )
+                            {
+                                case 'path':
+                                    $_flags &= FILTER_FLAG_PATH_REQUIRED;
+                                    break;
+                                case 'query':
+                                    $_flags &= FILTER_FLAG_QUERY_REQUIRED;
+                                    break;
+                            }
+                        }
+                        if ( !empty( $value ) && !filter_var( $value, FILTER_VALIDATE_URL, $_flags ) )
+                        {
+                            if ( $_throw )
+                            {
+                                $_msg = ( !empty( $_msg ) ) ? : "Field '$name' value must be a valid URL.";
+                                throw new BadRequestException( $_msg );
+                            }
 
-  * **match(expression)** - for strings matching a regular expression designated by expression. No validation by default if not defined or empty. Supported for string type only.
+                            return false;
+                        }
+
+  * **match** - for strings matching a regular expression designated by `regex`, exception thrown if not defined or empty. Supported for string type only. Due to special characters in regular expressions, the `regex` value must be encoded as base64 before being provisioned.
 
 
 ##<a name="operations"></a>Schema Operations
