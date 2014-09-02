@@ -1,5 +1,15 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.7.8 (Release 2014-09-02)
+
+### Fixes
+* inadvertent clearing of password from admin panel bug fixed.
+* All/* role service access bug
+* DB service cache refresh option fixed.
+
+### New!
+* Custom scripts available from the Admin panel scripting interface and the REST API.
+
 ## v1.7.7 (Release 2014-08-27)
 
 ### Fixes
