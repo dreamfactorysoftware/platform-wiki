@@ -17,12 +17,8 @@
  * [[Overview|Usage-Options]]
  * [[Free Sandbox Account|Free-Sandbox-Account]]
  * [[Bitnami Installers|Bitnami-Installers]]
- * [[PaaS Deployment|PaaS-Deployment]]
-  * [[IBM Bluemix|Deploying-to-IBM-Bluemix]]
-  * [[Pivotal CF|Deploying-to-Pivotal-CF]]
-  * [[Stackato|Deploying-to-Stackato]]
-  * [[AppFog|Deploying-to-AppFog]]
  * [[Other Installers|Other-Installers]]
+ * [[PaaS Deployment|PaaS-Deployment]]
  * [[Using nginx and Apache|Configuring-nginx-with-Apache]]
  * [[Using nginx instead of Apache|Using-nginx-without-Apache]]
  * [[Paid Hosting|Paid-Hosting]]
@@ -32,23 +28,6 @@
 <!--* [[Bitnami for Google Cloud]] (soon) -->
 <!--* [[Manual Installer for Windows]] (soon)-->
 <!--* [[Engine Yard Hosting]] (soon)-->
-
-**Admin Console**
-
- * [[Overview|Admin-Console-Overview]]
- * [[Quickstart|Admin-Console-QuickStart]]
- * [[Apps]]
- * [[Users]]
- * [[Roles]]
- * [[App Groups]]
- * [[Data]]
- * [[Services]]
- * [[Files]]
- * [[Schema]]
- * [[API/SDK|Admin-Console-api-sdk]]
- * [[Packages]]
- * [[Config]]
- * [[Scripts]]
 
 **REST API**
 
@@ -78,6 +57,22 @@
 <!-- * [[Active Directory Integration] -->
 <!-- * [[SAML Integration]] -->
 
+**Admin Console**
+
+ * [[Overview|Admin-Console-Overview]]
+ * [[Quickstart|Admin-Console-QuickStart]]
+ * [[Apps]]
+ * [[Users]]
+ * [[Roles]]
+ * [[App Groups]]
+ * [[Data]]
+ * [[Services]]
+ * [[Files]]
+ * [[Schema]]
+ * [[API/SDK|Admin-Console-api-sdk]]
+ * [[Packages]]
+ * [[Config]]
+ * [[Scripts]]
 
 **Client SDKs**
 
