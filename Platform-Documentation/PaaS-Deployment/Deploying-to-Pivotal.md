@@ -1,12 +1,3 @@
-## What's Pivotal CF&trade;?
-Pivotal CF&trade; is the leading enterprise PaaS, powered by Cloud Foundry. It delivers an always-available, turnkey experience for scaling and updating PaaS on the private cloud. The solution features:
-
- * Pivotal CF Elastic Runtime Service – A complete, scalable runtime environment, extensible to most modern frameworks or languages running on Linux. Deployed applications enjoy built-in services and can automatically bind to new data services through a service broker or to an existing user-provided service.
- * Pivotal CF Operations Manager – The industry’s first turnkey enterprise PaaS management platform with infrastructure-as-a-service (IaaS) integration.
- * Pivotal HD Service – Build, manage and scale Hadoop as a natively integrated Pivotal CF Service. Via the Service Broker, applications can bind to this service automatically assigning capacity in Hadoop Distributed File System (HDFS), a database in HAWQ, and a resource queue in YARN. This reduces development cycle time by eliminating common Hadoop development complexities around deployment, security, networking and resource management.
- * Pivotal RabbitMQ Service – Increase application speed, scalability and reliability by delivering asynchronous messaging to applications. A message broker for applications running on Pivotal CF, RabbitMQ Service applications can integrate with other Pivotal CF applications and with applications outside Pivotal CF using the service broker.
- * Pivotal MySQL Service – Provision multi-tenant, single instance MySQL databases suitable for rapid application development and testing.
- 
 ## Prerequisites
 In order to deploy your DSP to Pivotal, you'll need to do a little setup on your dev box. Below are the things you'll need to have installed before you can
 deploy your DSP. You'll only have to do these things once, not every time you deploy.
