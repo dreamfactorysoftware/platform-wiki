@@ -22,6 +22,12 @@
 
 * [SQL DB Specifics](SQL-Database-Services)
 
+  * [Connections and Drivers](SQL-Connections)
+
+  * [Views](SQL-Views)
+
+  * [Stored Procedures](SQL-Stored-Procedures)
+
 * [NoSQL DB Specifics](NoSQL-Database-Services)
 
 * [Salesforce Specifics](Salesforce-Services)
