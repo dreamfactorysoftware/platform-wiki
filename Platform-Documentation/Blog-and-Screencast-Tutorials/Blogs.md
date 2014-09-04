@@ -26,6 +26,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 ### Server-Side Scripting
 
 * [DreamFactory 1.5 Introduces Server-Side Scripting](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-scripting)
+* [Build Your Own Web Services Using DreamFactory Custom Scripts](http://blog.dreamfactory.com/build-your-own-web-services-using-dreamfactory-custom-scripts)
 
 ### Server-Side Filters
 
