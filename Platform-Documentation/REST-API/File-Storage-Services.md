@@ -1,6 +1,6 @@
 # Accessing the local files service(/rest/files) API
 
-Uploading as Binary:
+Uploading Binary Files:
 
 In Angular
 
@@ -16,7 +16,7 @@ Create the File Upload Service
         //Big Difference here, have to use files, not file
         fd.append('files', file);
         //Wrap the files in a body request param
-        $http.post(uploadUrl, {body: fd}, {
+        $http.post(uploadUrl + file.name + "?app_name=your_app_name", {body: fd}, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         })
@@ -31,9 +31,12 @@ Invoke that Service in your controller
 
 ```javascript
 var file = $scope.myFile;
-var uploadUrl = 'https://yourdspurl/rest/files/{container}/{file_path}';
+var uploadUrl = 'https://yourdspurl/rest/files/{container}/';
 fileUpload.uploadFileToUrl(file, uploadUrl);
 ```
+
+
+Here's a [jsFiddle](http://jsfiddle.net/specialjyo/a0umb9js/1/) That puts it all together.
 
 Check out our file management [source on github](https://github.com/dreamfactorysoftware/dsp-core/blob/master/web/filemanager/js/filemanagement.js) to see how we do it with jquery
 
