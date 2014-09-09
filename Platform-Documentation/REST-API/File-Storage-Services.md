@@ -15,8 +15,7 @@ Create the File Upload Service
         var fd = new FormData();
         //Big Difference here, have to use files, not file
         fd.append('files', file);
-        //Wrap the files in a body request param
-        $http.post(uploadUrl + file.name + "?app_name=your_app_name", {body: fd}, {
+        $http.post(uploadUrl + file.name + "?app_name=your_app_name", fd, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         })
