@@ -2,26 +2,6 @@
 
 Uploading as Binary:
 
-We'll need two headers to accomplish this feat.
-
- * X-File-Name
- * Content-Type
-
-In jQuery
-
-```javascript
-$.ajax({
-    beforeSend: function(request) {
-        request.setRequestHeader("X-File-Name", file.name);
-        request.setRequestHeader("Content-Type", file.type);
-    },
-    type :'POST',
-    url :{yourdspurl}/rest/files/{container}/{file_path} createFile()
-    data: yourfile,
-    cache:false,
-    processData: false
-});
-```
 In Angular
 
 Read This First [MULTIPART/FORM-DATA FILE UPLOAD WITH ANGULARJS](http://uncorkedstudios.com/blog/multipartformdata-file-upload-with-angularjs)
@@ -54,3 +34,6 @@ var file = $scope.myFile;
 var uploadUrl = 'https://yourdspurl/rest/files/{container}/{file_path}';
 fileUpload.uploadFileToUrl(file, uploadUrl);
 ```
+
+Check out our file management [source on github](https://github.com/dreamfactorysoftware/dsp-core/blob/master/web/filemanager/js/filemanagement.js) to see how we do it with jquery
+
