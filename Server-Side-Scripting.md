@@ -12,7 +12,9 @@
 	});
 ```
 
-See the blog posts below for a high-level overview of server-side scripting. More examples will be added to the docs soon.
+## Blog Posts
+
+See the blog posts below for a high-level overview of server-side scripting.
 
 * [DreamFactory 1.5 Introduces Server-Side Scripting](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-scripting)
 
