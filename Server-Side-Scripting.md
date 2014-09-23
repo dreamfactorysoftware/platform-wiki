@@ -1,6 +1,6 @@
 ## Basic Scripting Examples
 
-### Field Validation on Record Creation
+Field Validation on Record Creation
 
 ```
 	//	Retrieve all contacts from the Contacts database
