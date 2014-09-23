@@ -11,7 +11,8 @@ See the blog posts below for a high-level overview of server-side scripting.
 Field Validation on Record Creation
 
 ```
-	// POST /rest/db/account
+	// POST /rest/db/account triggers script db.Account.post.pre_process
+	// This script runs BEFORE records are written to the db.
 	
 	if (event.request.body.record) {
     	_.each(event.request.body.record, function(record) {
