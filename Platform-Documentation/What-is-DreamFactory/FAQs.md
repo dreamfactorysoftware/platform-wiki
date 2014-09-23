@@ -1,6 +1,6 @@
 ### Frequently Asked Questions
 
-**What is DreamFactory in a few sentences?**
+**What is DreamFactory?**
 
 DreamFactory is an open source REST API server (software). DreamFactory is installed middleware software that sits between client applications and backend data sources. 
 
