@@ -5,6 +5,7 @@
 
   * [[Overview|DreamFactory-Overview]]
   * [[Important Information]]
+  * [[FAQs]]
   * [[Releases|CHANGELOG]]
   * [[Usage Options]]
   * [[Admin Console|Admin-Console]]
