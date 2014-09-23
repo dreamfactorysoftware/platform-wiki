@@ -15,3 +15,15 @@ The biggest technical problem that DreamFactory solves is providing a comprehens
 The second hard technical problem that Dreamfactory solves is data security from a backend perspective. DreamFactory provides an entire user management system with role-based control over database tables and records. DreamFactory also enables developers to inherit existing database security with lookup keys. For more complex scenarios, such as stateful record access control, DreamFactory provides server-side scripting in Javascript.
 
 Lastly, the vast majority of mobile applications need some business logic implemented on the server. For that purpose, DreamFactory supports event scripting (aka web hooks), which can be attached to every API call. Event scripts are useful for pre-processing data going to a data source in a request, or to post-process data returning from a data source in a response. DreamFactory also supports custom scripting which can be called RESTfully from your client app. Custom scripts are useful for performing business logic that is not dependent on API calls to a specific data source.
+
+**What types of apps are well suited for DreamFactory?**
+
+At the highest level of abstraction, any data-driven application that would benefit from a REST API is a great fit for DreamFactory. Static apps or websites that do not depend on backend data are not a good fit.
+
+Native, hybrid, and HTML5 mobile applications are extremely well suited for DreamFactory, particularly enterprise mobile apps that need a secure REST API to return data stored in legacy SQL databases. We provide client SDKs for every major client-side technology (iOS, Android, Windows Phone, Titanium, Javascript, AngularJS).
+ 
+Web apps (commonly “single page apps”) that use REST and JSON for data exchange are well suited to DreamFactory. Building AngularJS applications with DreamFactory is a popular choice for many developers. We provide several popular AngularJS modules for user management, API calls, and data management. 
+
+DreamFactory is also a good fit for server-to-server API calls. For example, you can easily call DreamFactory from a .Net application running on a server or in the cloud.
+
+Lastly, Dreamfactory is becoming a popular technology for IoT (Internet of Things) applications. Device sensors can easily transmit data RESTfully to DreamFactory and human end users (or machines) can access the transmitted data via REST calls.
