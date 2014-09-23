@@ -1,12 +1,14 @@
 ### Software Overview
 
-DreamFactory is an open source software package that provides a REST API for mobile enterprise application development. You can think of DreamFactory as a "cloud services platform" that connects mobile devices, such as phones and tablets, to backend data (SQL, NoSQL, and file storage) with a Representational State Transfer (REST) API.
+DreamFactory is an open source software package that provides a REST API for mobile enterprise application development. You can think of DreamFactory as server middleware that connects mobile devices, such as phones and tablets, to backend data (SQL, NoSQL, and file storage) with a Representational State Transfer (REST) API.
 
 Client devices that make REST calls to DreamFactory can be phones, tablets, and the "internet of things", such as sensors. Desktop applications and web apps can also make REST API calls to DreamFactory. 
 
-Backend data is typically SQL, NoSQL, file storage, and remote web services. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
+Backend data sources that DreamFactory for which DreamFactory auto-generates REST APIs include every major SQL database, NoSQL database, and file storage system. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
 
-DreamFactory enables developers to quickly hook up a wide variety of backend systems, and to expose these assets with a comprehensive palette of RESTful services. The REST API allows client-server separation that simplifies component implementation, reduces the complexity of connectivity, improves performance tuning, and increases the scalability of server-side components.
+DreamFactory also makes it easy to securely consume remote web services, including custom web services you’ve written yourself. 
+
+In a nutshell, DreamFactory enables developers to quickly hook up a wide variety of backend systems, and to expose these assets with a comprehensive palette of RESTful services. The REST API allows client-server separation that simplifies component implementation, reduces the complexity of connectivity, improves performance tuning, and increases the scalability of server-side components.
 
 ### Architecture
 
