@@ -11,11 +11,18 @@ See the blog posts below for a high-level overview of server-side scripting.
 Field Validation on Record Creation
 
 ```
-	//	Retrieve all contacts from the Contacts database
-	var _records = platform.api.get( "db/Contacts" );
+	// POST /rest/db/account
+	
+	if (event.request.body.record) {
+    	_.each(event.request.body.record, function(record) {
+            	if (!record.hasOwnProperty("AnnualRevenue")) { 
+    				throw 'missing field AnnualRevenue';
+				}
+				if (record.AnnualRevenue <= 0) { 
+    				throw 'AnnualRevenue must be > 0';
+				}
+        	}
+    	);
+	}
 
-	//	Uppercase each name...
-	_.each( _records, function( record ) {
-		record.name = record.name.toUpperCase();
-	});
 ```
