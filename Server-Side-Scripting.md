@@ -1,3 +1,11 @@
+## Blog Posts
+
+See the blog posts below for a high-level overview of server-side scripting.
+
+* [DreamFactory 1.5 Introduces Server-Side Scripting](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-scripting)
+
+* [Build Your Own Web Services Using DreamFactory Custom Scripts](http://blog.dreamfactory.com/build-your-own-web-services-using-dreamfactory-custom-scripts)
+
 ## Basic Scripting Examples
 
 Field Validation on Record Creation
@@ -11,11 +19,3 @@ Field Validation on Record Creation
 		record.name = record.name.toUpperCase();
 	});
 ```
-
-## Blog Posts
-
-See the blog posts below for a high-level overview of server-side scripting.
-
-* [DreamFactory 1.5 Introduces Server-Side Scripting](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-scripting)
-
-* [Build Your Own Web Services Using DreamFactory Custom Scripts](http://blog.dreamfactory.com/build-your-own-web-services-using-dreamfactory-custom-scripts)
