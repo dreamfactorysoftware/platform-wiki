@@ -97,7 +97,7 @@ That said, if you have custom API requirements, you can add any remote web servi
 
 **How is DreamFactory different than hosted “backend as a service” (aka BaaS)?**
 
-“BaaS” is an acronym for “backend as a service”. BaaS companies host their customer’s backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
+“BaaS” is an acronym for “backend as a service”. BaaS companies such as Parse and Kinvey host their customer’s backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
 
 DreamFactory provides the same simplification benefits of BaaS. However, DreamFactory is a solution that targets enterprises. Therefore, there are some critical differences between BaaS and DreamFactory:
 
