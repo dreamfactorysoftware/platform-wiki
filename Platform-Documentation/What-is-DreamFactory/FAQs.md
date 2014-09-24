@@ -106,3 +106,9 @@ DreamFactory provides the same simplification benefits of BaaS. However, DreamFa
 * BaaS products typically use NoSQL to store data. DreamFactory supports every major database vendor, both SQL vendors and NoSQL vendors.
 * BaaS products do not integrate well with existing databases and file systems. DreamFactory provides REST APIs for your existing SQL databases, NoSQL databases, and file systems.
 * BaaS security features are oriented around consumer mobile app use cases. DreamFactory provides enterprise-grade backend security based on over a decade of enterprise app development experience, largely on the Force.com platform (i.e. Salesforce).
+
+**How is DreamFactory different than “platform as a service” (aka PaaS)?**
+
+“PaaS” is an acronym for “platform as a service”. PaaS products such as Pivotal Web Services, Red Hat OpenShift, IBM Blue Mix, and Heroku run server hardware and software (i.e. “platform”) for you. Think of PaaS as full-service IaaS (Infrastructure as a Service). Instead of having your own Dev Ops team managing AWS provisioning, you can outsource the Dev Ops function to a PaaS company to make sure your servers are humming along smoothly and letting you know when they’re not.  
+
+DreamFactory partners with PaaS companies. When you sign up for a PaaS product, you can easily deploy DreamFactory in your PaaS environment, and develop applications with DreamFactory that are hosted on your PaaS. 
