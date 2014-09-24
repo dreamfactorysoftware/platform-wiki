@@ -72,3 +72,11 @@ DreamFactory is installed as a LAMP stack (or Windows WAMP or Mac MAMP). Web ser
 To handle your API throughput requirements (i.e. the API calls coming from client applications), you can deploy and load balance as many web servers as you need. 
 
 DreamFactory has its own MySQL database, which stores users and roles (i.e. end users of your client applications). You can customize the MySQL schema and use the MySQL database for application data (there’s an API called ‘/db’ for the MySQL database). You can deploy DreamFactory on an any server infrastructure (on premises, cloud IaaS, and PaaS) and the MySQL database can handle millions of end users. You can also use the same database management tools you use today for backing up and replicating data in the MySQL database.
+
+**How can I learn to build an app using DreamFactory?**
+
+Before building your first application, it’s important to understand how REST APIs work. If you don’t understand REST APIs, read up on REST first. In a nutshell, each API call you make to DreamFactory is simply requesting a resource with a specific URL path. You can pass parameters in your API calls, such as a sort order or filter string, and these parameters are part of the URL path (appended as parameters in the URL). In effect, querying backend data with the API is asking DreamFactory to return data from a specific URL endpoint. This is a different paradigm than writing a SQL query or a stored procedure to return data from the server.
+
+The easiest way to start using DreamFactory is to sign up for a free hosted account on [www.dreamfactory.com](www.dreamfactory.com) or install DreamFactory on your local machine or server with one of the Bitnami installers. The best way to create your first app is to follow the steps in the Quickstart tab of the DreamFactory Admin Console. You should also browse the API docs tab to try out some of the API calls to the ‘/db’ API which returns data from the MySQL database that comes installed with DreamFactory.
+
+After that, you should follow the blog tutorials and screencasts to build a simple application using your frontend technology of choice. If you still need help, you should search the community forum or send an email to support@dreamfactory.com.
