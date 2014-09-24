@@ -94,3 +94,15 @@ The core principles behind DreamFactory are simple: 1) backend data resides almo
 As such, DreamFactory creates the REST APIs for SQL, NoSQL, and file storage on your behalf, so you don’t have to write your own REST APIs, reinventing the wheel once again. A common question is “how flexible are these auto-generated APIs?” The answer is that CRUD operations on SQL, NoSQL, and file storage share the same common characteristics, so the auto-generated APIs are comprehensive and cover virtually every common use case scenario. 
 
 That said, if you have custom API requirements, you can add any remote web service as a RESTful service inside DreamFactory and leverage DreamFactory’s SSO and role system to govern end user access to your custom APIs. 
+
+**How is DreamFactory different than hosted “backend as a service” (aka BaaS)?**
+
+“BaaS” is an acronym for “backend as a service”. BaaS companies host their customer’s backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
+
+DreamFactory provides many of the same simplification benefits of BaaS. However, since DreamFactory is a solution targeting enterprises, there are some important fundamental differences.
+
+* BaaS products are proprietary. DreamFactory is open source. You can modify the source code if necessary.
+* BaaS companies host your data, but they don’t have a world class data center and millions of marketing dollars to gain enterprise trust. In short, enterprises do not trust third-party companies to host their sensitive data. DreamFactory does not host your data. You host DreamFactory on whatever server infrastructure you prefer, often behind a corporate firewall. 
+* BaaS products typically use NoSQL to store data. DreamFactory supports every major database vendor, both SQL vendors and NoSQL vendors.
+* BaaS products do not integrate well with existing databases and file systems. DreamFactory provides REST APIs for your existing SQL databases, NoSQL databases, and file systems.
+* BaaS security features are oriented around consumer mobile app use cases. DreamFactory provides enterprise-grade backend security based on over a decade of enterprise app development experience, largely on the Force.com platform (i.e. Salesforce).
