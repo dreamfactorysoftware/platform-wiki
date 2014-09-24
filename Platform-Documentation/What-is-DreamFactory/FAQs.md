@@ -99,7 +99,7 @@ That said, if you have custom API requirements, you can add any remote web servi
 
 “BaaS” is an acronym for “backend as a service”. BaaS companies host their customer’s backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
 
-DreamFactory provides many of the same simplification benefits of BaaS. However, since DreamFactory is a solution targeting enterprises, there are some important fundamental differences.
+DreamFactory provides the same simplification benefits of BaaS. However, DreamFactory is a solution that targets enterprises. Therefore, there are some critical differences between BaaS and DreamFactory:
 
 * BaaS products are proprietary. DreamFactory is open source. You can modify the source code if necessary.
 * BaaS companies host your data, but they don’t have a world class data center and millions of marketing dollars to gain enterprise trust. In short, enterprises do not trust third-party companies to host their sensitive data. DreamFactory does not host your data. You host DreamFactory on whatever server infrastructure you prefer, often behind a corporate firewall. 
