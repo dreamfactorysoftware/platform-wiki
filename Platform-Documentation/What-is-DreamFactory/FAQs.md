@@ -83,4 +83,4 @@ After that, you should follow the [blog tutorials](Blogs) and [screencasts](Scre
 
 **Is there a product roadmap?**
 
-There’s a high-level roadmap published [here](Upcoming-Features). If you have a specific feature request or find a bug, please [file a ticket on GitHub](dsp-core/issues) or post it on the [community forum](http://community.dreamfactory.com/).
+There’s a high-level roadmap published [here](Upcoming-Features). If you have a specific feature request or find a bug, please [file a ticket on GitHub](https://github.com/dreamfactorysoftware/dsp-core/issues) or post it on the [community forum](http://community.dreamfactory.com/).
