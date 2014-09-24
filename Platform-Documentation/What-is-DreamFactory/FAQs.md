@@ -28,7 +28,7 @@ DreamFactory is also a good fit for server-to-server API calls. For example, you
 
 Lastly, DreamFactory is becoming a popular technology for IoT (Internet of Things) applications. Device sensors can easily transmit data RESTfully to DreamFactory and human end users (or machines) can access the transmitted data via REST calls.
 
-**Who is using DreamFactory**
+**Who is using DreamFactory?**
 
 Because DreamFactory is open source and REST APIs are very flexible, usage is diverse. 
 
