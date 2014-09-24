@@ -64,3 +64,11 @@ DreamFactory supports a number of access control features:
 * Custom CRUD security to SQL and NoSQL at the role level (called server-side scripting, particularly useful for defining permissions based on data state)
 * Bucket-level CRUD access for file storage (more granular file permissions are definable with database pointers)
 * Custom access control to any remote web service (governed server-side via JSON definition) 
+
+**How do I scale DreamFactory to handle a large volume of API calls and data?**
+
+DreamFactory is installed as a LAMP stack (or Windows WAMP or Mac MAMP). Web servers route the API requests to DreamFactory, and DreamFactory returns JSON (or XML) back to your client applications. DreamFactory supports Apache, NGINX, and IIS web servers. 
+
+To handle your API throughput requirements (i.e. the API calls coming from client applications), you can deploy and load balance as many web servers as you need. 
+
+DreamFactory has its own MySQL database, which stores users and roles (i.e. end users of your client applications). You can customize the MySQL schema and use the MySQL database for application data (there’s an API called ‘/db’ for the MySQL database). You can deploy DreamFactory on an any server infrastructure (on premises, cloud IaaS, and PaaS) and the MySQL database can handle millions of end users. You can also use the same database management tools you use today for backing up and replicating data in the MySQL database.
