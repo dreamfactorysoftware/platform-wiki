@@ -81,6 +81,6 @@ The easiest way to start using DreamFactory is to sign up for a free hosted acco
 
 After that, you should follow the [blog tutorials](Blogs) and [screencasts](Screencasts) to build a simple application using your favorite frontend technology. If you still need help, you should search the [community forum](http://community.dreamfactory.com/) or send an email to support@dreamfactory.com.
 
-**Is there a product roadmap**
+**Is there a product roadmap?**
 
 There’s a high-level roadmap published [here](Upcoming-Features). If you have a specific feature request or find a bug, please [file a ticket on GitHub](dsp-core/issues) or post it on the [community forum](http://community.dreamfactory.com/).
