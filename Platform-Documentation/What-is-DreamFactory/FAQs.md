@@ -2,11 +2,11 @@
 
 **What is DreamFactory?**
 
-DreamFactory is an open source REST API server (software). DreamFactory is installed middleware software that sits between client applications and backend data sources. 
+DreamFactory is an open source REST API platform for enterprise mobile application development. We provide a turnkey middleware solution that connects any client application to any backend data source. You can install the DreamFactory software package on any cloud or server. You can also run DreamFactory on your local desktop during development.
 
-At its core, DreamFactory provides all the run-time REST APIs you need in one place for every major SQL database, NoSQL database, and file storage system. DreamFactory also makes it easy to securely consume remote web services, including custom web services you’ve written yourself. 
+DreamFactory automatically generates all of the RESTful services that you need for modern application development. This allows developers to focus on application design and user experience instead of server-side software. You simply call the RESTful services and DreamFactory returns a JSON or XML document with the requested data.
 
-Instead of having to write your own REST APIs and backend security from scratch, DreamFactory does it all for you (i.e., DreamFactory auto-generates REST APIs for every popular data source), so you can focus on building your apps and simply call the REST APIs in DreamFactory, which returns JSON (or XML) back to your client apps. 
+DreamFactory supports every major SQL database, NoSQL document store, and file storage system. We also make it easy to securely consume any remote web services, including custom services you’ve written yourself. We provide other advanced features such as user management and server-side scripting.
 
 **What hard technical problems does DreamFactory solve?**
 
