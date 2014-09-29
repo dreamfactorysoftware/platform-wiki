@@ -53,6 +53,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 * [The Authenticated App With AngularJS + DreamFactory User Management Part One](http://blog.dreamfactory.com/the-authenticated-app-with-angularjs-dreamfactory-user-management-module)
 * [The Authenticated App With AngularJS + DreamFactory User Management Part Two](http://blog.dreamfactory.com/the-authenticated-app-with-angularjs-dreamfactory-user-management-part-two)
 * [The Authenticated App With AngularJS + DreamFactory User Management Part Three](http://blog.dreamfactory.com/the-authenticated-app-with-angularjs-dreamfactory-user-management-module-part-three)
+* [Creating a Data Manager with AngularJS + DreamFactory](http://blog.dreamfactory.com/creating-a-data-manager-with-angularjs-dreamfactory)
 
 ### jQuery
 
