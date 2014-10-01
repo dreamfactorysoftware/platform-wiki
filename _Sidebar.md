@@ -52,7 +52,7 @@
  * [[Server-Side Filters]] 
  * [[Server-Side Events]] 
  * [[Server-Side Scripting]] 
-   * [[Scripting API Access]] 
+   * [[Scripting API Access|API Access via Scripts]] 
  
 <!-- * [[Packager]] -->
 <!-- * [[Active Directory Integration] -->
