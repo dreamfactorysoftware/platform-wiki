@@ -8,7 +8,7 @@ See the blog posts below for a high-level overview of server-side scripting.
 
 ## Basic Scripting Examples
 
-Field Validation Before Record Creation
+Field validation before record creation
 
 ```
 	// POST /rest/db/Account triggers script db.Account.post.pre_process
@@ -28,7 +28,7 @@ Field Validation Before Record Creation
 	}
 
 ```
-Modify Query Results After DB GET
+Modify query results after database GET
 
 ```
 	// GET /rest/db/Account triggers script db.Account.get.post_process
@@ -46,7 +46,7 @@ Modify Query Results After DB GET
 	}
 
 ```
-Modify Query Results After DB GET
+Add library scripts to your server side scripting
 
 Starting with release 1.8.0 any script can include other custom scripts.  This allows you to use JavaScript libraries or other code in your server side scripts. As an example say my-lib.js is your library script, saved as a custom script on your dsp.
 ```
