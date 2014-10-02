@@ -52,7 +52,7 @@ Data returned from external and internal calls will return the results as they a
 Of course, any changes to the `event.record` or `event.payload` elements will be reflected back to the original client call. 
 
 ### platform.api.includeUserScript()
-> This is pre-release documentation. This feature will not be available until v1.7.9.
+> This is pre-release documentation. This feature will not be available until v1.8.0.
 
 One additional method is available in the `platform.api` object. This is the `includeUserScript()` method. This allows you to include your own library or libraries of scripts into your server-side scripts.
 
