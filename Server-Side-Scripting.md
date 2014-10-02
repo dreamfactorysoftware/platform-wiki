@@ -50,7 +50,6 @@ Add library scripts to your server side scripting
 
 Starting with release 1.8.0 any script can include other custom scripts.  This allows you to use JavaScript libraries or other code in your server side scripts. As an example say my-lib.js is your library script, saved as a custom script on your dsp.
 ```
-
     // my-lib.js
     function myFunction() {
         return true;
