@@ -46,3 +46,31 @@ Modify Query Results After DB GET
 	}
 
 ```
+Modify Query Results After DB GET
+
+Starting with release 1.8.0 any script can include other custom scripts.  This allows you to use JavaScript libraries or other code in your server side scripts. As an example say my-lib.js is your library script, saved as a custom script on your dsp.
+```
+
+    // my-lib.js
+    function myFunction() {
+        return true;
+    }
+```
+
+Your script can then include that library.
+```
+    var result;
+    
+    try
+    {
+        eval(include('my-lib.js'));
+        result = 'myFunction() available: ' + myFunction();
+    } 
+
+    catch (_ex )
+    {
+        result = 'myFunction() is NOT available: ' + _ex.message;
+    }
+    
+    return result;
+```
