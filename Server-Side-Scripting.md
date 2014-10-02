@@ -6,7 +6,7 @@ See the blog posts below for a high-level overview of server-side scripting.
 
 * [Build Your Own Web Services Using DreamFactory Custom Scripts](http://blog.dreamfactory.com/build-your-own-web-services-using-dreamfactory-custom-scripts)
 
-## Basic Scripting Examples
+## Scripting Examples
 
 Field validation before record creation
 
