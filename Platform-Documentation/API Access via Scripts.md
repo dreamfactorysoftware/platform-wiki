@@ -52,8 +52,6 @@ Data returned from external and internal calls will return the results as they a
 Of course, any changes to the `event.record` or `event.payload` elements will be reflected back to the original client call. 
 
 ### platform.api.includeUserScript()
-> This is pre-release documentation. This feature will not be available until v1.8.0.
-
 One additional method is available in the `platform.api` object. This is the `includeUserScript()` method. This allows you to include your own library or libraries of scripts into your server-side scripts.
 
 This method only loads scripts that are stored in the user script area of the DSP: `[install]/storage/.private/scripts.user`. In addition, this method merely reads the file and returns the contents. If you wish to make the objects in the included script, you must `eval` the returned data in your own script.
