@@ -18,8 +18,8 @@ In a nutshell, DreamFactory enables developers to quickly hook up a wide variety
 
 DreamFactory provides REST APIs for SQL, NoSQL, file storage, and any REST-accessible web service.
 
-* DreamFactory supports RESTful data and metadata access to any ANSI SQL database including MySQL, SQL Server, DB2, and PostgreSQL. 
-* DreamFactory also provides RESTful access to a wide variety of NoSQL databases including Amazon DynamoDB, Amazon SimpleDB, Azure Tables, MongoDB, MongoHQ, and CouchDB. 
+* DreamFactory supports RESTful data and metadata access to any ANSI SQL database including MySQL, SQL Server, Oracle, and PostgreSQL. 
+* DreamFactory also provides RESTful access to a wide variety of NoSQL databases including Amazon Web Services DynamoDB and SimpleDB, Microsoft Azure Tables, MongoDB, and CouchDB. 
 * For file storage DreamFactory provides RESTful access to Amazon S3, Azure Tables, and OpenStack Objects. 
 * DreamFactory supports external service integration manually or automatically with Swagger or RAML (i.e., the ability to securely access any REST API that returns JSON or XML to the client).
 
