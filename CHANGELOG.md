@@ -18,7 +18,7 @@
 * App import with services and database schema issues fixed.
 * Added missing tunneling headers to CORS Allowed Headers response.
 * Fixed CORS response so that '*' is returned when '*' is configured for allowed hosts in Allowed-Origin in CORS response.
-* Fix Remote Web Service to allow parameters in the base URL provisioned and allow for '[]' array notation on client calls.
+* Fix Remote Web Service to allow parameters in the base URL provisioned and allow for '[]' array notation in URL parameters from client calls.
 * Fix issues using Server-side Lookups when in guest role or via password reset scenarios.
 * Fix error notification on Admin Panel and Launchpad so they don't disappear quickly.
 * Removal of the 'Upgrade' button and supporting code. The DSP still detects new available loads, but will direct the user to wiki instructions for upgrading instead of directly upgrading, due to continuing platform complexities.
