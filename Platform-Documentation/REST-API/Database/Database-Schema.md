@@ -150,17 +150,19 @@ The supported simple types are defined as follows.
 
   * **string**: defines a string field (i.e. varchar or char), defaults to a length of 255, but can be set using the `length` property. Set the `fixed_length` property to true for fixed length (i.e. char) behavior. Set `supports_multibyte` for multi-byte, national (i.e. nvarchar) behavior. Other optional properties are `allow_null`, `default`, `values`, and `validation`.
 
-  * **binary**: defines a binary string field (i.e. varbinary or binary), defaults to a length of 255, but can be set using the `length` property. Set the `fixed_length` property to true for fixed length (i.e. binary) behavior. Optional properties are `allow_null` and `default`.
-
   * **text**: defines a large string field (i.e. MySQL's text or MSSQL's varchar[max]), defaults to the largest length string allowed by the underlying database. Optional properties are `allow_null` and `default`.
 
-  * **blob**: defines a large binary string field (i.e. MySQL's blob or MSSQL's varbinary[max]), defaults to the largest length binary string allowed by the underlying database. Optional properties are `allow_null` and `default`.
+  * **binary**: defines a binary string field (i.e. varbinary or binary), defaults to a length of 255, but can be set using the `length` property. Set the `fixed_length` property to true for fixed length (i.e. binary) behavior. Optional properties are `allow_null` and `default`.
 
   * **boolean**: defines a boolean field, which may be represented by int of length 1, using 0 and 1 values, if a true and false boolean type is not supported by the underlying database. Optional properties are `allow_null` and `default`.
 
-  * **integer** or **int**: defines an integer field. Use `length` to set the displayable length of the integer, i.e. int(11) in MySQL. Optional properties are `allow_null`, `default`, `values`, and `validation`.
+  * **integer**: defines an integer field. Use `length` to set the displayable length of the integer, i.e. int(11) in MySQL. Optional properties are `allow_null`, `default`, `values`, and `validation`.
 
-  * **float** or **decimal**: defines a standard float or decimal field. Use `scale` to set the number of desired decimal places to the right of the decimal point. Use `length` or `precision` to set the total number of digit positions. Optional properties are `allow_null` and  `default`.
+  * **float**: defines a standard single-precision float field. Some databases (i.e. MySQL) allow `length` or `precision` settings. Optional properties are `allow_null` and `default`.
+
+  * **double**: defines a standard double-precision float field. Some databases (i.e. MySQL) allow `length` or `precision` settings. Optional properties are `allow_null` and `default`.
+
+  * **decimal**: defines a standard decimal field. Use `scale` to set the number of desired decimal places to the right of the decimal point. Use `length` or `precision` to set the total number of digit positions. Optional properties are `allow_null` and `default`.
 
   * **datetime**: a datetime field. Optional properties are `allow_null`, `default`, `values`, and `validation`.
 
@@ -170,18 +172,18 @@ The supported simple types are defined as follows.
 
   * **timestamp**: a date and time stamp with timezone awareness where applicable, i.e. MySQL’s `timestamp not null default 0` or MSSQL’s `datetimeoffset`.
 
-  * **timestamp_on_create**: a `timestamp` as documented above that will be automatically set on record creation and not updated again unless set by the client via the api. See api_read_only validation for keeping this from being set by api.
+  * **timestamp_on_create**: a `timestamp` as documented above that will be automatically set on record creation and not updated again unless set by the client via the API. See "api_read_only" validation for keeping this from being set by API.
 
-  * **timestamp_on_update**: a `timestamp` as documented above that will be automatically set on record creation and again on every update. See api_read_only validation for keeping this from being set by api.
+  * **timestamp_on_update**: a `timestamp` as documented above that will be automatically set on record creation and again on every update. See "api_read_only" validation for keeping this from being set by API.
 
-  * **user_id**: a reference to the current user, assumes a valid session has been established. On the native database, this is implemented as a reference field pointing to the system's user table, on other databases, it is implemented as an integer.
+  * **user_id**: a reference to the current user, assuming a valid session has been established. On the native database, this is implemented as a reference field pointing to the system's user table, on other databases, it is implemented as an integer. Optional properties are `allow_null` and `default`.
 
-  * **user_id_on_create**: a `user_id` as documented above that will be automatically set on record creation and not updated again unless set by the client via the api. See `api_read_only` validation for keeping this from being set by API.
+  * **user_id_on_create**: a `user_id` as documented above that will be automatically set on record creation and not updated again unless set by the client via the API. See "api_read_only" validation for keeping this from being set by API.
 
-  * **user_id_on_update**: a `user_id` as documented above that will be automatically set on record creation and again on every update. See `api_read_only` validation for keeping this from being set by API.
+  * **user_id_on_update**: a `user_id` as documented above that will be automatically set on record creation and again on every update. See "api_read_only" validation for keeping this from being set by API.
 
 ###<a name="validations"></a>Validations
-Some server-side validation can be defined for the field by setting this property to one or more of the following, separated by commas. Note that additional validation will result in additional processing which may slow response times. Validations are configured in the following format...
+Some server-side validation can be defined for each field by setting this property to one or more of the following options in the given format below. Note that additional validation will result in additional processing which may slow response times. Validations are configured in the following format...
 
 ```javascript
 {
@@ -204,7 +206,7 @@ Other validation configuration options are documented below for each validation 
 
 Possible validations settings are as follows...
 
-  * **picklist** - Supported for string type only. It requires the field value to be set to one of the values listed in the `values` property. Any error is returned if the `values` property is empty or does not contain the value being set. Values are checked only on record create and update API calls; data integrity is kept for existing values even when the picklist value list is modified. Behaves similar to MySQL "enum" type.
+  * **picklist** - Supported for string type only. It requires the field value to be set to one of the values listed in the `values` property. Any error is returned if the `values` property is empty or does not contain the value being set. Values are checked only on create and update record API calls; data integrity is kept for existing values even when the picklist value list is modified. Behaves similar to MySQL "enum" type.
 
   * **multi_picklist** - similar to picklist but allows multiple values to be selected and stored. Behaves similar to MySQL "set" type.
     * `delimiter` - Optional. Defaults to comma, ",". Parameter allows setting the delimiter character used to separate each value being set from what is being stored in the field value.
@@ -230,7 +232,7 @@ Possible validations settings are as follows...
   * **float** - validates that the value to be set is a valid float.
     * `decimal` - Optional. Defaults to '.'. Designates the character used as the decimal separator, which is sometimes ','.
 
-  * **boolean** - validates that the value to be set is one of the generally accepted values for true or false, i.e.  true = "1", "true", "on" and "yes". false = "0", "false", "off", "no", and "".
+  * **boolean** - validates that the value to be set is one of the generally accepted values for true or false, i.e.  true = 1, "1", "true", "on" and "yes". false = 0, "0", "false", "off", "no", and "".
 
   * **email** - validates that this field is an email, i.e. "name@company.com”. Supported for string type only. See FILTER_VALIDATE_EMAIL.
 
