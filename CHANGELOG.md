@@ -3,11 +3,10 @@
 ## v1.8.0 (Release 2014-10-06)
 
 ### New!
-* Oracle Database support via the SQL DB Service.
+* Oracle Database support via the SQL DB Service (requires php_oci driver).
 * Added "include()" function in global scope of Server-side Scripting to allow inclusion of other javascript libraries/files.
 * Server-side scripting now allows access via non-admins and guest roles.
 * Added new method Platform::getSystemTimestamp() to provide a consistent, and user-specifiable, date-time format for datetime fields in MySQL. This is a problem with pre-MySQL v5.6.4 created databases migrating to MySQL v5.6.4+. Addresses issue #34.
-* Removal of the 'Upgrade' button and supporting code. The DSP still detects new available loads, but will direct the user to wiki instructions for upgrading instead of directly upgrading, due to continuing platform complexities.
 * Added support for "double" in schema simplified types ("float" now is single precision and "double" is double precision).
 
 ### Fixes
@@ -22,6 +21,7 @@
 * Fix Remote Web Service to allow parameters in the base URL provisioned and allow for '[]' array notation on client calls.
 * Fix issues using Server-side Lookups when in guest role or via password reset scenarios.
 * Fix error notification on Admin Panel and Launchpad so they don't disappear quickly.
+* Removal of the 'Upgrade' button and supporting code. The DSP still detects new available loads, but will direct the user to wiki instructions for upgrading instead of directly upgrading, due to continuing platform complexities.
 
 
 ## v1.7.8 (Release 2014-09-02)
