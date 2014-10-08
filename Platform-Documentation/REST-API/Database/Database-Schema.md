@@ -104,9 +104,11 @@ The following are details about each of the properties supported.
 
   * `type`: String. Required if "sql” property is not defined. In server responses, the value for this element is closest derived DreamFactory simplified type, if none apply, then it will be set to "string". In requests to the server, the value can be one of the simplified types (i.e. "string”, see the [simplified types](#types) section for more info), or other types supported directly by the underlying database. If using the latter (db-specific types), make sure you include any additional parameters in the type string, such as length, i.e. "nvarchar(128)", as the `length`, `precision`, `scale`, `fixed_length` and `supports_multibyte` parameters are not considered in this case. 
 
-  * `length`: Integer. Optional. Used to define the max length of strings and number fields. For strings, if length is not defined, the default is 255.
+  * `fixed_length`: Boolean. Optional for `string` type. Set to true to represent string types as fixed length (i.e. ‘char’), false for variable length (i.e. ‘varchar’) which is the default.
 
-  * `fixed_length`: Boolean. Optional for `string` type. Set to true to represent string types as fixed length (i.e. ‘char’), false for variable length (i.e. ‘varchar’).
+  * `supports_multibyte`: Boolean. Optional for `string` type. Set to true to represent string types that support multibyte characters, i.e. "national" in most database vernacular, (i.e. "utf8"); use false for single byte character support only (i.e. ‘ascii’) which is the default.
+
+  * `length`: Integer. Optional. Used to define the max length of strings and number fields. For strings, if length is not defined, the default is 255.
 
   * `precision`: Integer. Optional. Used by the "decimal" and "money", and in some cases the "double" and "float", types. It represents the total length of the number allowed minus the ‘.’, and can be set either by the `length` property or the `precision` property, `length` takes precedence.
 
@@ -144,11 +146,11 @@ Labels in singular and plural form are tracked in a system table and are relayed
 ###<a name="types"></a>Simplified Types
 The supported simple types are defined as follows.
 
-  * **id** or **pk**: defines a typical table identifier, translates to `"int not null auto_increment primary key"`. This type requires no other properties to define the field. It presumes a `type` of int with `allow_null` set to false, the `auto_increment` and `is_primary_key` are set to true. It can only be used once in a table definition.
+  * **id** or **pk**: defines a typical table identifier, translates to ```"INT NOT NULL AUTO_INCREMENT PRIMARY KEY"```. This type requires no other properties to define the field. It presumes a `type` of int with `allow_null` set to false, the `auto_increment` and `is_primary_key` are set to true. It can only be used once in a table definition.
 
   * **reference**: defines a typical foreign key, presumes the `type` of int and requires the `ref_table` and `ref_fields` properties to be defined as well. Optional defining properties are `ref_on_delete`, `ref_on_update`, `allow_null` and `default`. Similar to SQL fragment ```"FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE”```.
 
-  * **string**: defines a string field (i.e. varchar or char), defaults to a length of 255, but can be set using the `length` property. Set the `fixed_length` property to true for fixed length (i.e. char) behavior. Set `supports_multibyte` for multi-byte, national (i.e. nvarchar) behavior. Other optional properties are `allow_null`, `default`, `values`, and `validation`.
+  * **string**: defines a string field (i.e. varchar or char), length defaults to 255, but can be set using the `length` property. Set the `fixed_length` property to true for fixed length (i.e. char) behavior. Set `supports_multibyte` for multi-byte, national (i.e. nvarchar) behavior. Other optional properties are `allow_null`, `default`, `values`, and `validation`.
 
   * **text**: defines a large string field (i.e. MySQL's text or MSSQL's varchar[max]), defaults to the largest length string allowed by the underlying database. Optional properties are `allow_null` and `default`.
 
@@ -272,7 +274,7 @@ Example field schema declarations...
         "allow_null": false,
         "supports_multibyte": true,
         "is_unique": true,
-        "validation": "not_empty"
+        "validation": {"not_empty": {"on_fail": "Display name must not be empty."}}
     },
     {
         "name": "description",
@@ -286,7 +288,7 @@ Example field schema declarations...
         "length": 320,
         "default": null,
         "allow_null": true,
-        "validation": "email"
+        "validation": {"email": {"on_fail": "Please enter a valid email address."}}
     },
     {
         "name": "phone",
@@ -306,13 +308,13 @@ Example field schema declarations...
         "values": [ "Unknown","Cold","Warm","Hot" ],
         "default": "Unknown",
         "allow_null": false,
-        "validation": "picklist,not_empty"
+        "validation": {"picklist: {"on_fail": "Please select one of the valid options."}}
     },
     {
         "name": "website",
         "label": "Website",
         "type": "string",
-        "validation": "url"
+        "validation": {"url": {"on_fail": "Invalid URL given."}}
     },
     {
         "name": "account_id",
@@ -332,25 +334,25 @@ Example field schema declarations...
         "name": "created_date",
         "label": "Created Date",
         "type": "timestamp_on_create",
-        "validation": "api_read_only"
+        "validation": {"api_read_only": {"on_fail": "ignore_field"}}
     },
     {
         "name": "last_modified_date",
         "label": "Last Modified Date",
         "type": "timestamp_on_update",
-        "validation": "api_read_only"
+        "validation": {"api_read_only": {"on_fail": "ignore_field"}}
     },
     {
         "name": "created_by_id",
         "label": "Created By Id",
         "type": "user_id_on_create",
-        "validation": "api_read_only"
+        "validation": {"api_read_only": {"on_fail": "ignore_field"}}
     },
     {
         "name": "last_modified_by_id",
         "label": "Last Modified By Id",
         "type": "user_id_on_update",
-        "validation": "api_read_only"
+        "validation": {"api_read_only": {"on_fail": "ignore_field"}}
     }
 ```
 
