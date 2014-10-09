@@ -107,7 +107,7 @@ This object provides information about the platform configuration, the current s
 | `platform.config` | object | The current configuration of the DSP |
 | `platform.session` | object | The current session information |
 
-More information about `platform.api` is available on the [[Scripting API Access|Scripting-Api-Access]] page.
+More information about `platform.api` is available on the [[API-Access-via-Scripts]] page.
 
 ### Listener Priority
 
