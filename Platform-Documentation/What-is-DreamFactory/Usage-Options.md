@@ -21,11 +21,19 @@ Bitnami currently supports the following platforms/environments. To install Drea
 
 Go [here](Bitnami-Installers) for more detail.
 
+### PaaS Deployments
+
+You can deploy DreamFactory on a PaaS (platform-as-a-service). 
+
+* [Pivotal](https://github.com/dreamfactorysoftware/dsp-core/wiki/Deploying-to-Pivotal)
+
+More PaaS vendors will be supported soon.
+
 ### Paid Hosting
 
 You can sign up for a paid hosted account allowing you to deploy production applications using DreamFactory without installing anything or requiring any hardware of your own.
 
-* [Bitnami Hosting](https://bitnami.com/stack/dreamfactory/cloud) - Bitnami packages even more convienient.
+* [Bitnami Hosting](https://bitnami.com/stack/dreamfactory/cloud) 
 
 More paid hosting options coming soon.
 
