@@ -26,7 +26,7 @@ Lookup Keys allow the DSP administrator to store any number of "key value" pairs
 
 ###Provisioning New Lookup Keys
 
-There's a hierarchy to lookup keys. The system will use the most specific one starting with user keys then role keys and finally global keys. This allows you to create a system of default settings and, if needed, overrides for special cases. Consider the case of using lookup keys for configuring credentials on a database service. Users who belong to Role A have their own database credentials. Same for users of Role B. Users of Role A will be logging into the database as a different database user than users of Role B. Everyone else has a third more restrictive database user.
+There's a hierarchy to lookup keys. The system will use the most specific one starting with user keys then role keys and finally global keys. This allows you to create a system of default settings and, if needed, overrides for special cases. Consider the case of using lookup keys for configuring credentials on a database service. Users who belong to Role A have their own database credentials. Same for users of Role B. In other words users of Role A will be logging into the database as a different database user than users of Role B. Everyone else has a third more restrictive database user.
 
 ####In Global Config
 
