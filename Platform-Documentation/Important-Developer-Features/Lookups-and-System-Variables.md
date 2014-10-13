@@ -32,7 +32,7 @@ There's a hierarchy to lookup keys. The system will use the most specific one st
 
 For those not in Role A or Role B these credentials will be used.  These users have no lookup key at the user or role level.
 
-![Role Config Example](http://www.dreamfactory.net/dsp/images/6.png)
+![Global Config Example](http://www.dreamfactory.net/dsp/images/6.png)
 
 ####In Role Config
 
@@ -54,3 +54,7 @@ The key names can currently be used in the following DSP interfaces and APIs...
 * in the username and password fields required to hook up to a SQL or NoSQL database. 
 * in Email Templates in the subject line and message body.
 * in Remote Web Services as parameters or headers.
+
+Here is how you would use the lookup keys for username and password on a database service.
+
+![Service Example](http://www.dreamfactory.net/dsp/images/7.png)
