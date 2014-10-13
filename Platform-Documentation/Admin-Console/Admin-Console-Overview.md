@@ -11,7 +11,7 @@ The Admin Console includes the following tabs. The functionality in each tab is 
 * [Data](Data)
 * [Schema](Schema)
 * [Files](Files)
-* [API Docs](Admin-Console-api-sdk)
+* [API Docs](API-Docs)
 * [Packages](Packages)
 * [Config](Config)
 * [Scripts](Scripts)
