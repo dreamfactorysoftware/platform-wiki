@@ -30,6 +30,10 @@ Lookup Keys allow the DSP administrator to store any number of "key value" pairs
 
 ####In Role Config
 
+You can have a lookup key for each role that stores the username and password for a database service. This allows each role to inherit permissions as configured in the database. Users of Role A will be logging into the database as a different database user than users of Role B.
+
+![Role Config Example](http://www.dreamfactory.net/dsp/images/4.png)
+
 ####In User Config
 
 ###Using Lookup Keys
