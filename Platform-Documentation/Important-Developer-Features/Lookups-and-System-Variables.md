@@ -55,6 +55,6 @@ The key names can currently be used in the following DSP interfaces and APIs...
 * in Email Templates in the subject line and message body.
 * in Remote Web Services as parameters or headers.
 
-Here is how you would use the lookup keys for username and password on a database service.
+Here's how you would use the lookup keys for username and password on a database service. The system will replace {db_username} and {db_password} with the most specific lookup keys defined for the user making the API call.
 
 ![Service Example](http://www.dreamfactory.net/dsp/images/7.png)
