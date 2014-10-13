@@ -36,6 +36,10 @@ You can have a lookup key for each role that stores the username and password fo
 
 ####In User Config
 
+Now maybe you have a user in Role A who requires admin level database permissions. You can add a user lookup key that will override the role lookup key only for that user.
+
+![User Config Example](http://www.dreamfactory.net/dsp/images/5.png)
+
 ###Using Lookup Keys
 
 The key names can currently be used in the following DSP interfaces and APIs... 
