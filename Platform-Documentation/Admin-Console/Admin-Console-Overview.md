@@ -3,15 +3,15 @@ The DreamFactory Admin Console is the user interface for configuring DreamFactor
 The Admin Console includes the following tabs. The functionality in each tab is described in the Admin Console documentation.
 
 * [Quickstart](Admin-Console-QuickStart)
-* Apps
-* Users
-* Roles
-* App Groups
-* Data
-* Services
-* Files
-* Schema
-* API Docs
-* Packages
-* Config
-* Scripts
+* [Apps](Apps)
+* [App Groups](App-Groups)
+* [Users](Users)
+* [Roles](Roles)
+* [Services](Services)
+* [Data](Data)
+* [Schema](Schema)
+* [Files](Files)
+* [API Docs](Admin-Console-api-sdk)
+* [Packages](Packages)
+* [Config](Config)
+* [Scripts](Scripts)
