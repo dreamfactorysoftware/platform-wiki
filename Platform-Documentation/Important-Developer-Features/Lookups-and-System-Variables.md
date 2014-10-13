@@ -26,17 +26,23 @@ Lookup Keys allow the DSP administrator to store any number of "key value" pairs
 
 ###Provisioning New Lookup Keys
 
+There's a hierarchy to lookup keys. The system will use the most specific one starting with user keys then role keys and finally global keys. This allows you to create a system of default settings and, if needed, overrides for special cases. Consider the case of using lookup keys for configuring credentials on a database service. Users who belong to Role A have their own database credentials. Same for users of Role B. Users of Role A will be logging into the database as a different database user than users of Role B. Everyone else has a third more restrictive database user.
+
 ####In Global Config
+
+For those not in Role A or Role B these credentials will be used.  These users have no lookup key at the user or role level.
+
+![Role Config Example](http://www.dreamfactory.net/dsp/images/6.png)
 
 ####In Role Config
 
-You can have a lookup key for each role that stores the username and password for a database service. This allows each role to inherit permissions as configured in the database. Users of Role A will be logging into the database as a different database user than users of Role B.
+For those users in Role A or Role B these credentials will be used.  Since these users have a lookup key at the role level, the one at the global level will never be used.
 
 ![Role Config Example](http://www.dreamfactory.net/dsp/images/4.png)
 
 ####In User Config
 
-Now maybe you have a user in Role A who requires admin level database permissions. You can add a user lookup key that will override the role lookup key only for that user.
+There is a special user in Role A who requires admin level database permissions. You can add a user lookup key that will override the role lookup key only for that one user.  All other users in Role A get the role level credentials.
 
 ![User Config Example](http://www.dreamfactory.net/dsp/images/5.png)
 
