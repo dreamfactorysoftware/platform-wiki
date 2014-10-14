@@ -1,4 +1,4 @@
-Server-side filters allow you to limit what database records are accessible via the REST API based on some criteria that you define. The blog posts below provide a good high-level overview of server-side filters and what they can do.
+Server-side filters allow you to limit what database records are accessible via the REST API based on some criteria that you define. The blog posts below provide a good high-level overview of server-side filters and what they can do. These filters do not apply to DSP admin users, only to users that are assigned to a role on the DSP.
 
 * [DreamFactory 1.5 Introduces Server-Side Filters](http://blog.dreamfactory.com/dreamfactory-introduces-server-side-filters)
 * [Data Segmentation with Server-Side Filtering and Lookup Keys](http://blog.dreamfactory.com/data-segmentation-with-server-side-filtering-and-lookup-keys)
@@ -9,11 +9,15 @@ In some cases you want to only allow the owner of a record to have access to it.
 
 ![Filter by OwnerId](http://www.dreamfactory.net/dsp/images/1.png)
 
+When the Account table is accessed from the API, only the Account records owned by the person making the API call will be accessible.
+
 ### Filter by Field Values
 
 You can set up filters to restrict access based on the value of one or more fields. Just like the previous example this is done from the Service Access section of the Roles tab. Click the AND/OR to toggle the logical operator for multi-line filters.
 
 ![Filter by Field Values](http://www.dreamfactory.net/dsp/images/2.png)
+
+In this example only the Account records with AnnualRevenue < 1000000 and State = 'CA' will be accessible via the REST API.
 
 ### Lookup Keys in Filters
 
