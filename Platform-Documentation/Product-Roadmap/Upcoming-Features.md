@@ -1,9 +1,11 @@
-Below are "big" features on the product roadmap for 2014. If you have feature requests, please log them on GitHub [here](https://github.com/dreamfactorysoftware/dsp-core/issues). 
+Below are "big" features on the product roadmap for early 2015. If you have feature requests, please log them on GitHub [here](https://github.com/dreamfactorysoftware/dsp-core/issues). 
 
-* Active Directory / LDAP integration
-* Push notification integration
-* Multiple DreamFactory instances on one server (multi-tenancy) - for example, development, QA, and production DreamFactory instances running on a single server
-* Dev Ops administration - for example, ability to create and delete DreamFactory instances
-* Ability to apply server-side scripts globally across multiple DreamFactory instances running on a single server 
-* Usage reporting and availability alerts 
-* Modular plug-ins for the admin console - for example, ability to add your own tabs and functionality to the admin console
+* Add "multi-tenant" support. This is the ability to install DreamFactory and spin up any number of DSPs on the same server
+* Administrative features for managing multiple DSPs (add, remove, back up DSPs), migrate apps, data, schema between DSPs (dev -> test -> production)
+* Basic system monitoring and alerts for dev ops
+* Active Directory integration (LDAP)
+* Push notification integration, including Amazon SNS and others
+* API versioning
+* API limits 
+* Usage reporting e.g. API calls segmented in various ways over time
+
