@@ -45,3 +45,19 @@ Connection String - Required. The connection string for your database such as **
 User Name - Required. Can be a private lookup key.
 
 Password - Required. Can be a private lookup key.
+
+### Local File Storage
+
+This type of service will allow you to access folders and files in the /storage directory of your DSP installation. Each DSP comes with a service named 'Local File Storage' with an API Name of 'files'.  There are two ways to access these files. You can access them directly using a URL like https://dsp-test.cloud.dreamfactory.com/files/testfolder/P1020353.JPG. This would allow your browser to display that image. 'files' in this URL is the API name of the local file service. You can make a folder or file private by entering the names under Private Folders and Files in the service config.
+
+To make a folder private (not accessible directly by URL):
+
+![Private Folder](htttp://ww.dreamfactory.net/dsp/images/9.png)
+
+To make a single file private (not accessible directly by URL):
+
+![Private File](htttp://ww.dreamfactory.net/dsp/images/10.png)
+
+The second way to access files is through the REST API, in which case you can allow access to one or more top level folders using the Role Service Access settings. This also gives you control over HTTP verbs for that resource.
+
+![Role Service Access](htttp://ww.dreamfactory.net/dsp/images/8.png)
