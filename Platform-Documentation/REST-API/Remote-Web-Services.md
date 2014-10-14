@@ -122,12 +122,12 @@ Email Template Usage
 `POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
 
 `{`
-  `"template": "test_template",`
-  `"to": [`
-    `{`
-      `"name": "Todd Appleton",`
-      `"email": "todd@dreamfactory.com"`
-    `}`
-  `],`
-  `"first_name": "Todd"`
+    `"template": "test_template",`
+    `"to": [`
+        `{`
+            `"name": "Todd Appleton",`
+            `"email": "todd@dreamfactory.com"`
+        `}`
+    `],`
+    `"first_name": "Todd"`
 `}`
