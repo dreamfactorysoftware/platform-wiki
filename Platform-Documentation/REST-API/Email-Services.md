@@ -17,7 +17,7 @@ The simplest email:
 }
 ```
 
-The posted data can specify an email template. Templates are created and managed from the Config section of the admin console. The server will replace the lookups in the template with the data provided in the API request. In this example {first_name} in the template will be replaced with the value of first_name in the API request. The subject and body are stored in the template.
+The posted data can also specify an email template. Templates are created and managed from the Config section of the admin console. The server will replace the lookups in the template with the data provided in the API request. In this example {first_name} in the template will be replaced with the value of first_name in the API request. The subject and body are stored in the template. You can use system lookups like {dsp.host_url} as well.
 
 Email Template Definition
 
@@ -39,3 +39,7 @@ Email Template Usage
     "first_name": "Joe"
 }
 ```
+
+Resulting Email Body
+
+![Email Body](http://www.dreamfactory.net/dsp/images/12.png)
