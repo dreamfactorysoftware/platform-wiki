@@ -23,11 +23,7 @@ Go [here](Bitnami-Installers) for more detail.
 
 ### PaaS Deployments
 
-You can deploy DreamFactory on a PaaS (platform-as-a-service). 
-
-* [Pivotal](https://github.com/dreamfactorysoftware/dsp-core/wiki/Deploying-to-Pivotal)
-
-More PaaS vendors will be supported soon.
+You can now [deploy DreamFactory on a PaaS](PaaS-Deployment) (platform-as-a-service). Pivotal and Red Hat OpenShift are now supported and other PaaS vendors will be supported soon.  
 
 ### Paid Hosting
 
