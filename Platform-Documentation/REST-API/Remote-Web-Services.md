@@ -121,7 +121,7 @@ Email Template Usage
 
 `POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
 
-'''{
+```{
     "template": "test_template",
     "to": [
         {
@@ -130,4 +130,4 @@ Email Template Usage
         }
     ],
     "first_name": "Todd"
-}'''
+}```
