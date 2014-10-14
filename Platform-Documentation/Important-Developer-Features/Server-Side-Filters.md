@@ -21,7 +21,7 @@ In this example only the Account records with AnnualRevenue < 1000000 and State 
 
 ### Lookup Keys in Filters
 
-You can set up lookup keys at the user, role, or global level to give some users different values for filters. Going back to the previous example on the Account table, user A might have a lookup key named {MAX_REVENUE} set to 1000000. User B could have the same lookup key name but with a value of 2000000. The filter just uses {MAX_REVENUE} so each user can have their own value. This can be done for groups of users using role lookup keys.
+You can set up [lookup keys](Lookups-and-System-Variables) at the user, role, or global level to give some users different values for filters. Going back to the previous example on the Account table, user A might have a lookup key named {MAX_REVENUE} set to 1000000. User B could have the same lookup key name but with a value of 2000000. The filter just uses {MAX_REVENUE} so each user can have their own value. This can be done for groups of users using role lookup keys.
 
 ![Filter by Field Values with Lookups](http://www.dreamfactory.net/dsp/images/3.png)
 
