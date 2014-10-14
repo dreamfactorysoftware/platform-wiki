@@ -128,10 +128,10 @@ Email Template Usage
     "template": "test_template",
     "to": [
         {
-            "name": "Todd Appleton",
-            "email": "todd@dreamfactory.com"
+            "name": "Joe Blow",
+            "email": "joeblow@dreamfactory.com"
         }
     ],
-    "first_name": "Todd"
+    "first_name": "Joe"
 }
 ```
