@@ -52,12 +52,12 @@ This type of service will allow you to access folders and files in the /storage 
 
 To make a folder private (not accessible directly by URL):
 
-![Private Folder](htttp://www.dreamfactory.net/dsp/images/9.png)
+![Private Folder](http://www.dreamfactory.net/dsp/images/9.png)
 
 To make a single file private (not accessible directly by URL):
 
-![Private File](htttp://www.dreamfactory.net/dsp/images/10.png)
+![Private File](http://www.dreamfactory.net/dsp/images/10.png)
 
 The second way to access files is through the REST API, in which case you can allow access to one or more top level folders using the Role Service Access settings. This also gives you control over HTTP verbs for that resource.
 
-![Role Service Access](htttp://www.dreamfactory.net/dsp/images/8.png)
+![Role Service Access](http://www.dreamfactory.net/dsp/images/8.png)
