@@ -9,7 +9,7 @@ In some cases you want to only allow the owner of a record to have access to it.
 
 ![Filter by OwnerId](http://www.dreamfactory.net/dsp/images/1.png)
 
-When the Account table is accessed from the API, only the Account records owned by the person making the API call will be accessible.
+When the events table is accessed from the API, only the records owned by the person making the API call will be accessible.
 
 ### Filter by Field Values
 
