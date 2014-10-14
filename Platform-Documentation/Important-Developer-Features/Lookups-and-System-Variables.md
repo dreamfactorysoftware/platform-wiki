@@ -50,10 +50,10 @@ There is a special user in Role A who requires admin level database permissions.
 
 The key names can currently be used in the following DSP interfaces and APIs... 
 
-* in Server-Side Filters in the Role Service Access provisioning.
-* in the username and password fields required to hook up to a SQL or NoSQL database. 
-* in Email Templates in the subject line and message body.
-* in Remote Web Services as parameters or headers.
+* in [Server-Side Filters](Server-Side-Filters) in the Role Service Access provisioning.
+* in the username and password fields required to [hook up to a SQL or NoSQL database](Database-Services). 
+* in [Email Templates](Email-Services) in the subject line and message body.
+* in [Remote Web Services](Remote-Web-Services) as parameters or headers.
 
 Here's how you would use the lookup keys for username and password on a database service. The system will replace {db_username} and {db_password} with the most specific lookup keys defined for the user making the API call.
 
