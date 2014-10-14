@@ -1,10 +1,14 @@
 You can add as many remote services as you like to your DSP. These can be SQL or NoSQL databases, file/blob storage, or any service that has a REST API.  For databases and file storage DreamFactory provides a translation layer such that all of those services look the same from the client. This makes it easy to swap from one database type to another at any time with minimal changes to your application's code.
 
-Here are some things you must configure for each type of service.
+We have a [blog post](http://blog.dreamfactory.com/blog/bid/326051/Adding-a-Remote-Web-Service-to-Your-DSP) that details how to add a remote web service to your DSP. It also explains how the DSP acts as a proxy to that remote service using the base URL, headers, and query params that you provide when you create the service on your DSP.
+
+Here's a [quick primer] (http://community.dreamfactory.com/t/examples-on-connecting-to-web-services/71) on services.
+
+The configuration for services varies some based on the service type.
 
 ### All Types
 
-API Name - Required. The name used in the REST calls. If API Name is mydb you would issue calls to /rest/mydb to access that service.
+API Name - Required. The name used in the REST calls. If API Name is mydb you would make API requests to  /rest/mydb to access that service.
 
 Name - Required. This is the display name or label for the service which is used in the services list of the admin console.
 
@@ -16,7 +20,7 @@ User Name - Required. Can be a private [lookup key](Lookups-and-System-Variables
 
 Password - Required. Can be a private lookup key.
 
-Connection String - Required. Here is an example string **dblib:host=mssql.df.co;dbname=DFDW2008R2**  You can use the connection string helper in the ui to help build this string, or enter it manually.
+Connection String - Required. Here is an example string **dblib:host=mssql.dfsql.co;dbname=DFDW2008R2**  You can use the connection string helper in the ui to help build this string, or enter it manually.
 
 ### Remote NoSQL (Amazon DynamoDB and Amazon SimpleDB)
 
@@ -41,7 +45,3 @@ Connection String - Required. The connection string for your database such as **
 User Name - Required. Can be a private lookup key.
 
 Password - Required. Can be a private lookup key.
-
-We have a [blog post](http://blog.dreamfactory.com/blog/bid/326051/Adding-a-Remote-Web-Service-to-Your-DSP) that details how to add a remote service to your DSP. It also explains how the DSP acts as a proxy to that remote service using the base URL, headers, and query params that you provide when you create the service on your DSP.
-
-Here's a [quick primer](http://community.dreamfactory.com/t/examples-on-connecting-to-web-services/71).
