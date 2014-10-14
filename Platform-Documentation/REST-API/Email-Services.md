@@ -1,5 +1,3 @@
-### Email Services
-
 You can set up email services to facilitate sending of emails via the REST API.  Each DSP comes with an email service named 'Email Service' with API name of 'email'. This service uses sendmail to send the emails. You can also add your own email services using whatever provider you like.  You enter your mail server information and credentials in the service config then you POST data to that service. Go to the service in the API Docs to see the format of data that should be POSTed to the service.
 
 The simplest email:
