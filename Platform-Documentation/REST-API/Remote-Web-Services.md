@@ -8,7 +8,7 @@ The configuration for remote web services is shown below.  The blog post mention
 
 **Name** - Required. This is the display name or label for the service which is used in the services list of the admin console.
 
-Description - Optional.
+**Description** - Optional.
 
 **Base URL** - Required. The top level URL for the REST API of the remote web service.
 
