@@ -61,3 +61,73 @@ To make a single file private (not accessible directly by URL):
 The second way to access files is through the REST API, in which case you can allow access to one or more top level folders using the Role Service Access settings. This also gives you control over HTTP verbs for that resource.
 
 ![Role Service Access](http://www.dreamfactory.net/dsp/images/8.png)
+
+You can create new services of type Local File Storage with their own unique API name. These services will point to the same /storage directory as the 'files' service but it gives you the option to have a different service name for use in setting up Service Access to various folders under /storage.
+
+### Remote File Storage
+
+Files and folders on remote services are handled exactly the same as those in Local File Storage. You just have to configure the service then access the files directly by URL or via the REST API.
+
+### Remote File Storage (Amazon S3)
+
+Access Key - Required. The access key for your AWS account. Can be a private lookup key.
+
+Secret Key - Required. The secret key for your AWS account. Can be a private lookup key.
+
+Region - The region for your AWS service.
+
+### Remote File Storage (Windows Azure Storage)
+
+Account Name - Required. The account name for your Azure service.
+
+Account Key - Required. The account key for your Azure service.
+
+### Remote File Storage (RackSpace CloudFiles and OpenStack Object Storage)
+
+You will need to enter the following information to configure your RackSpace or OpenStack storage on DreamFactory.
+
+User Name
+API Key
+Tenant Name
+Region
+URL/Endpoint
+
+### Email Services
+
+You can set up email services to facilitate sending of emails via the REST API.  Each DSP comes with an email service named 'Email Service' with API name of 'email'. This service uses sendmail to send the emails. You can also add your own email services using whatever provider you like.  You enter your mail server information and credentials in the service config then you POST data to that service. Go to the service in the API Docs to see the format of data that should be POSTed to the service.
+
+The simplest email:
+
+`POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
+
+`{`
+  `"to": [`
+    `{`
+      `"name": "Joe Blow",`
+      `"email": "joeblow@dreamfactory.com"`
+    `}`
+  `],`
+  `"subject": "This is a test!",`
+  `"body_text": "Test"`
+`}`
+
+The posted data can specify an email template. Templates are created and managed from the Config section of the admin console. The server will replace the lookups in the template with the data provided in the API request. The subject and body are stored in the template.
+
+Email Template Definition
+
+![Email Template](http://www.dreamfactory.net/dsp/images/11.png)
+
+Email Template Usage
+
+`POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
+
+`{`
+  `"template": "test_template",`
+  `"to": [`
+    `{`
+      `"name": "Todd Appleton",`
+      `"email": "todd@dreamfactory.com"`
+    `}`
+  `],`
+  `"first_name": "Todd"`
+`}`
