@@ -70,7 +70,7 @@
  * [[Services]]
  * [[Files]]
  * [[Schema]]
- * [[API/SDK|Admin-Console-api-sdk]]
+ * [[API Docs|API-Docs]]
  * [[Packages]]
  * [[Config]]
  * [[Scripts]]
