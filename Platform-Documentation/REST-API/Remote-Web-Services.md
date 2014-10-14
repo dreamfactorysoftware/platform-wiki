@@ -12,6 +12,6 @@ The configuration for remote web services is shown below.  The blog post mention
 
 **Base URL** - Required. The top level URL for the REST API of the remote web service.
 
-**Parameters** - Optional. The query parameters that should be passed on to the service when invoked by the DSP. Common uses include specifying data format like JSON or XML.
+**Parameters** - Optional. The query parameters that should be passed on to the service when invoked by the DSP. Common uses include specifying data format like JSON or XML. You can use [lookup keys](Lookups-and-System-Variables) for parameter values.
 
-**Headers** - Optional. The request headers that should be passed on to the service when invoked by the DSP. Common uses include specifying your API key or other authentication for that service.
+**Headers** - Optional. The request headers that should be passed on to the service when invoked by the DSP. Common uses include specifying your API key or other authentication for that service. You can use lookup keys for header values.
