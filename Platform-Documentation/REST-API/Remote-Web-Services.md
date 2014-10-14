@@ -100,16 +100,17 @@ The simplest email:
 
 `POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
 
-`{`
-  `"to": [`
-    `{`
-      `"name": "Joe Blow",`
-      `"email": "joeblow@dreamfactory.com"`
-    `}`
-  `],`
-  `"subject": "This is a test!",`
-  `"body_text": "Test"`
-`}`
+```json
+{
+  "to": [
+    {
+      "name": "Joe Blow",
+      "email": "joeblow@dreamfactory.com"
+    }
+  ],
+  "subject": "This is a test!",
+  "body_text": "Test"
+}
 
 The posted data can specify an email template. Templates are created and managed from the Config section of the admin console. The server will replace the lookups in the template with the data provided in the API request. In this example {first_name} in the template will be replaced with the value of first_name in the API request. The subject and body are stored in the template.
 
