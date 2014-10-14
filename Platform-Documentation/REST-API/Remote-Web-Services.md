@@ -121,7 +121,8 @@ Email Template Usage
 
 `POST https://dsp-test.cloud.dreamfactory.com:443/rest/email`
 
-```{
+```json
+{
     "template": "test_template",
     "to": [
         {
