@@ -20,7 +20,6 @@ git pull
 cp ../htdocs.old/scripts/installer.sh ./scripts/
 cp ../htdocs.old/web/.htaccess ./web/
 cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
-../../../php/bin/php ../../../php/bin/composer.phar self-update
 ../../../php/bin/php ../../../php/bin/composer.phar update
 ../../../ctlscript.sh restart
 ```
