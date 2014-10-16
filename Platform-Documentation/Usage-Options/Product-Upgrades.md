@@ -7,7 +7,7 @@ From the DSP Admin Console, go to the Config menu option on the left. The top of
 
 We are reworking the upgrade process to make it as painless as possible. Until then here is the recommended update procedure for Bitnami installs. For 1.7.8 and older installs that still offer the Upgrade button in the admin console please use this method rather than clicking the Upgrade button. If anything goes wrong you will have a backup of your original installation.
 
-Mac OS X
+Mac OS X and Linux
 
 ```shell
 # change this line to your bitnami dreamfactory installation path
