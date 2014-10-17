@@ -14,9 +14,9 @@ Mac OS X and Linux
 cd /Applications/dreamfactory-1.7.8-0/apps/dreamfactory
 cp -r htdocs htdocs.old
 cd htdocs
-git checkout master
 git stash
-git pull
+git checkout master
+git pull origin master
 cp ../htdocs.old/scripts/installer.sh ./scripts/
 cp ../htdocs.old/web/.htaccess ./web/
 cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
