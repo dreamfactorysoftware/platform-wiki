@@ -147,7 +147,7 @@ Using the [schema](Database-Schema) portion of the database service, relationshi
 
 ###Discovering the Relationships
 
-Likewise, schema can be retrieved by the [database schema API](Database-Retrieving-Schema) to discover existing relationships. So the following GET request to /rest/<db_service_name>/_schema/contact pulls the `contact` table's schema as well as its relationships (Note: Edited for size and clarity).
+Likewise, schema can be retrieved by the [database schema API](Database-Retrieving-Schema) to discover existing relationships. So the following GET request to `/rest/<db_service_name>/_schema/contact` pulls the `contact` table's schema as well as its relationships (Note: Edited for size and clarity).
 
 ```javascript
 {
@@ -239,7 +239,7 @@ An API retrieve, by id or by filter string, using the `related` URL parameter pu
 
 For example, [retrieving](Database-Retrieving-Records) the record and related data for a specific contact with primary key '1'...
 
-GET /rest/db/contact/1?related=contact_infos_by_contact_id,contact_groups_by_contact_group_relationship
+`GET /rest/db/contact/1?related=contact_infos_by_contact_id,contact_groups_by_contact_group_relationship`
 
 ```javascript
 {
@@ -309,7 +309,7 @@ For example, the following command accomplishes all of the following in one POST
   * creating a new group "ACME Inc." for Joe's company
   * adding Joe to our existing "Sales" contact group
 
-POST /rest/db/contact
+`POST /rest/db/contact`
 ```
 {
   "first_name": "Joe",
@@ -354,7 +354,7 @@ When you update existing records using the REST API PATCH command, you can chang
   
 For example, we want to update Joe's `contact` record (given the id "33" from earlier creation) with a twitter handle, add his home phone and address info, update his address in the work info, and add him to your "Golf" group. We do this by issuing a PATCH request with the necessary related information.
 
-PATCH /rest/db/contact/33
+`PATCH /rest/db/contact/33`
 ```javascript
 {
   "twitter": "@popular_joe",
@@ -382,7 +382,7 @@ PATCH /rest/db/contact/33
 }
 ```
 
-The `contact_info` with id "44" is Joe's work info created earlier, and the `contact_group` with id "9" is a pre-existing group named "Golf". As with any of the above scenarios, when updating related records, you can pass only what changed or the whole record, whatever is most convenient for your application. You can also pass Joe's whole record including the primary key to the /rest/db/contact. This also works for updating multiple `contact` records at once.
+The `contact_info` with id "44" is Joe's work info created earlier, and the `contact_group` with id "9" is a pre-existing group named "Golf". As with any of the above scenarios, when updating related records, you can pass only what changed or the whole record, whatever is most convenient for your application. You can also pass Joe's whole record including the primary key to the `/rest/db/contact`. This also works for updating multiple `contact` records at once.
 
 
 ###Unrelating or Removing Related Data
@@ -396,7 +396,7 @@ For records related via a junction table, add the serviced table's primary key f
 
 So now we want to remove Joe from the "Sales" and "ACME" groups, and remove his work contact info. The request would look like the following...
 
-PATCH /rest/db/Contacts/33
+`PATCH /rest/db/Contacts/33`
 ```javascript
 {
   "contact_infos_by_contactId": [
