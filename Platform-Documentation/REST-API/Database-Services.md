@@ -29,6 +29,7 @@ The following topics document the common capabilities across all supported datab
   * [Updating/Replacing Records](Database-Updating-Records)
   * [Patching/Merging Records](Database-Patching-Records)
   * [Deleting Records](Database-Deleting-Records)
+  * Retrieving Schema Along With Records
 
 
 ## <a name="sql"></a>SQL Database Services
@@ -42,10 +43,9 @@ To access other databases via your DSP, you can create more SQL DB services, see
 Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db) to see this service type in action in our [Live API](Admin-Console-api-sdk).
 
 * [SQL DB Service Specifics](SQL-Database-Services)
-  * Connection Strings for each SQL Database
-  * Retrieving Schema Along With Records
-  * Retrieving Related Data Along With Records
-  * Creating and Managing Related Data With Records
+  * [Connection Strings for each SQL Database](SQL-Connections)
+  * [Retrieving Related Data Along With Records](SQL-Related-Data)
+  * [Creating and Managing Related Data With Records](SQL-Related-Data)
   * [Accessing Stored Procedures](SQL-Stored-Procedures)
 
 
