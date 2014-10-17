@@ -18,7 +18,6 @@
  * [[Overview|Usage-Options]]
  * [[Free Sandbox Account|Free-Sandbox-Account]]
  * [[Bitnami Installers|Bitnami-Installers]]
- * [[Other Installers|Other-Installers]]
  * [[PaaS Deployment|PaaS-Deployment]]
  * [[Using nginx and Apache|Configuring-nginx-with-Apache]]
  * [[Using nginx instead of Apache|Using-nginx-without-Apache]]
