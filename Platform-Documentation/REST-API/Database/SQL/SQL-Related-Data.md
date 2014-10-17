@@ -1,10 +1,8 @@
-One of the most powerful features of SQL databases is the ability to relate separate data records and perform queries that retrieve that related data all at once. One problem is that this requires a fairly in-depth knowledge of your database, it's schema, and SQL syntax. Another is that this ability of your database is not easily accessed from the web. For the veteran DB and server-side engineers, this may not seem like a big deal, but for a lot of front-end developers, that either don't know or don't want to know all that is involved, it is no small feat.
+One of the most powerful features of SQL databases is the ability to relate separate data records and perform queries that retrieve that related data all at once. DreamFactory's SQL DB service discovers these relationships automatically from the schema in your database. This allows clients of the API to work with related data as one unit. You don't have to provision anything except the connection parameters. The service can only access schema and records that are allowed by the credentials given in the connection parameters. Additional restrictions for the access through the API may be provisioned using our user role setup.
 
-**Building and Discovering the Relationships
+###Building New Relationships
 
-DreamFactory's SQL DB service discovers these relationships automatically from the schema in your database. You don't have to provision anything except the connection parameters. The service can only access what the credentials given in the connection parameters allow it too. Additional restrictions for the access through the API may be provisioned using our user role setup.
-
-Consider the following schema for a demo of tracking contacts in a database. Here we can show the various ways data can be related and how to use our API to discover, these relationships and perform CRUD operations with them. Note: The tables here have been edited for size and clarity, to see the full schema, see [Contact Demo Schema](contact_demo_schema.json). The schema here can be posted to the [database schema API](Database-Creating-Schema), or imported into the Schema Manager in the admin application, to create these tables and relationships.
+Using the [schema](Database-Schema) portion of the database service, relationships between new or existing tables can easily be created. Consider the following schema for a demo of tracking contacts in a database. Here we can show the various ways data can be related and how to use our API to discover these relationships and perform CRUD operations with them. Note: The tables here have been edited for size and clarity, to see the full schema, see [Contact Demo Schema](contact_demo_schema.json). The schema here can be posted to the [database schema API](Database-Creating-Schema), or imported into the Schema Manager in the admin application, to create these tables and relationships.
 
 ```javascript
 {
@@ -147,7 +145,9 @@ Consider the following schema for a demo of tracking contacts in a database. Her
 }
 ```
 
-Likewise, it can be retrieved by the [database schema API](Database-Retrieving-Schema) to discover these relationships. So the following GET request to /rest/<db_service_name>/_schema/contact pulls the `contact` table's schema as well as its relationships (Note: Edited for size and clarity).
+###Discovering the Relationships
+
+Likewise, schema can be retrieved by the [database schema API](Database-Retrieving-Schema) to discover existing relationships. So the following GET request to /rest/<db_service_name>/_schema/contact pulls the `contact` table's schema as well as its relationships (Note: Edited for size and clarity).
 
 ```javascript
 {
@@ -207,13 +207,6 @@ Likewise, it can be retrieved by the [database schema API](Database-Retrieving-S
 }
 ```
 
-This particular schema states that...
-
-  * `contact_info` records must belong to a single `contact` record, via the `contact_id` field. A `contact` record may have zero or more `contact_info` records pointing to it, i.e. one for work, another for home, etc. That is, `contact_info` has a "many-to-one" relationship to `contact`.
-  * `contact` records may belong to zero or more `contact_group` records, via the `contact_group_relationship` junction table. You could also say that each `contact_group` "contains" zero to multiple `contact` records, a "many-to-many" relationship.
-  * A `contact` record may be "belong" directly to one other `contact` record, via the reports_to field, creating a "belongs-to" relationship.
-  * A `contact` may be associated indirectly with zero or more `contact` records, via `associated_contact` junction table, creating a "many-to-many" relationship.
-
 Note that auto-generated "related" section returned with the schema gives the following details about each relationship.
 
   * `name` - The auto-generated relationship name to be used when issuing CRUD requests on records.
@@ -225,8 +218,15 @@ Note that auto-generated "related" section returned with the schema gives the fo
   
 The server actually uses this information to dictate the behavior of how things are retrieved and updated when dealing with related data. While most of this information may seem unnecessary for the client side to know, the `name` is necessary when using related data in API transactions. The `type` field also comes in handy, as you will see in the following section.
 
+This particular schema states that...
 
-**Getting the Related Data
+  * `contact_info` records must belong to a single `contact` record, via the `contact_id` field. A `contact` record may have zero or more `contact_info` records pointing to it, i.e. one for work, another for home, etc. That is, `contact_info` has a "many-to-one" relationship to `contact`.
+  * `contact` records may belong to zero or more `contact_group` records, via the `contact_group_relationship` junction table. You could also say that each `contact_group` "contains" zero to multiple `contact` records, a "many-to-many" relationship.
+  * A `contact` record may be "belong" directly to one other `contact` record, via the reports_to field, creating a "belongs-to" relationship.
+  * A `contact` may be associated indirectly with zero or more `contact` records, via `associated_contact` junction table, creating a "many-to-many" relationship.
+
+
+###Getting the Related Data
 
 When using data in your application, you might want to retrieve, interact, and display related data as complete units, not individual pieces. The DreamFactory REST API can return related records as part of the primary record queried so that all of the related data is in one JSON record. For SQL DB Services, when performing CRUD operations (see [database records API](Database-Records) for general usage), there are a few additional URL parameters that aid in retrieving the desired related table records. Like the [`fields`](Database-Records#selecting-returned-fields) parameter, these can be used on all CRUD operations. 
 
@@ -295,9 +295,7 @@ GET /rest/db/contact/1?related=contact_infos_by_contact_id,contact_groups_by_con
 }
 ```
 
-
-**Creating the Related Data
-
+###Creating the Related Data
 
 When you [create](Database-Creating-Records) new records using our REST API via the POST command, you can add new relationships to the records in two ways...
 
@@ -345,7 +343,7 @@ Notice that no primary key is included in the related `contact_info` or the new 
 
 To relate the new `contact` record with existing records, just include the identifying (i.e. primary key) fields or the whole existing record. Joe is added to the "Sales" group by automatically adding an entry in the `contact_group_relationship` junction table. The "name" is not necessary in this case, only the primary key of the group record. In fact, if the "name" or other fields are included along with the identifying fields, they are considered for update on that record (see updates section below). Note that for direct relationships, if the relating field (for `contact_info` it is `contact_id`) is in the record, the value will be overwritten with the current contact record's primary key, essentially "adopting" the `contact_info` record from one `contact` record to another.
 
-**Updating the Related Data
+###Updating the Related Data
 
 
 When you update existing records using the REST API PATCH command, you can change relationships to the records in three ways...
@@ -387,7 +385,7 @@ PATCH /rest/db/contact/33
 The `contact_info` with id "44" is Joe's work info created earlier, and the `contact_group` with id "9" is a pre-existing group named "Golf". As with any of the above scenarios, when updating related records, you can pass only what changed or the whole record, whatever is most convenient for your application. You can also pass Joe's whole record including the primary key to the /rest/db/contact. This also works for updating multiple `contact` records at once.
 
 
-**Unrelating or Removing Related Data
+###Unrelating or Removing Related Data
 
 
 To remove relationships from a record, we include the relating fields to indicate to the service to remove the relationship. With directly related records, just set the relating field to null. In our example, this is `contact_id` for `contact_info` records. We include the following URL parameter to help with cleanup of disassociated or abandoned records.
@@ -424,7 +422,7 @@ PATCH /rest/db/Contacts/33
 
 As before, the "name" fields are not required, and are just there for clarification.
 
-**Reminders
+###Reminders
 
 Native record fields are updated as usual.
 
