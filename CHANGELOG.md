@@ -1,6 +1,13 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
-## v1.8.0 (Release 2014-10-06)
+## v1.8.0+ - lib-php-common-platform and yii libraries only (Released 2014-10-16)
+
+* Fix SQL DB Services stored procedure calls to support multiple datasets being returned (i.e. multiple select statements).
+* Fix view support for SQL DB Services.
+* Fix Yii database schema caching issues and general speed improvements.
+
+
+## v1.8.0 (Released 2014-10-06)
 
 ### New!
 * Oracle Database support via the SQL DB Service (requires php_oci driver).
@@ -24,7 +31,7 @@
 * Removal of the 'Upgrade' button and supporting code. The DSP still detects new available loads, but will direct the user to wiki instructions for upgrading instead of directly upgrading, due to continuing platform complexities.
 
 
-## v1.7.8 (Release 2014-09-02)
+## v1.7.8 (Released 2014-09-02)
 
 ### Fixes
 * inadvertent clearing of password from admin panel bug fixed.
@@ -34,14 +41,14 @@
 ### New!
 * Custom scripts available from the Admin panel scripting interface and the REST API.
 
-## v1.7.7 (Release 2014-08-27)
+## v1.7.7 (Released 2014-08-27)
 
 ### Fixes
 * SQL DB Schema bug fixes
 * Swagger output, model definitions bug fixes
 * Updated config files for [IBM Bluemix](http://www.bluemix.net/) and [Pivotal](http://www.pivotal.io) PaaS solutions
 
-## v1.7.6 (Release 2014-08-15)
+## v1.7.6 (Released 2014-08-15)
 
 ### New!
 * SQL DB services now support stored procedures, access via the `<service_name>/_proc` resource. In this version only MySQL and SQL Server connections support stored procedures.
@@ -51,7 +58,7 @@
 * Many platform neutrality enhancements
  * Added config files for [IBM Bluemix](http://www.bluemix.net/) and [Pivotal](http://www.pivotal.io) PaaS solutions
 
-## v1.6.10 (Release 2014-06-24)
+## v1.6.10 (Released 2014-06-24)
 
 ### New!
 * Support for stored procedures in role service access
@@ -74,7 +81,7 @@
 ### Fixes
 * Pull Common library DataFormat class to this library as DataFormatter and fix csv file ending detection. Update references.
 
-## v1.6.0 (Release 2014-06-20)
+## v1.6.0 (Released 2014-06-20)
 
 ### New!
 * Server Side Lookups changed so private can only be used by service configuration, and non-private for other things like filtering
@@ -99,7 +106,7 @@
 
 # Version 1.5.x
 
-## v1.5.12 (Release 2014-05-09)
+## v1.5.12 (Released 2014-05-09)
 
 ### Fixes
 * System Config caching issue
@@ -108,7 +115,7 @@
 * User display name on registration
 * Parameter include_count usage on system object queries has been corrected to be total count
 
-## v1.5.9 (Release 2014-04-29)
+## v1.5.9 (Released 2014-04-29)
 
 ### New!
 * New DSP-level persistent storage mechanism interfaces with redis, xcache, memcache(d), etc.
