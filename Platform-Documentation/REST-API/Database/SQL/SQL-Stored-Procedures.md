@@ -1,6 +1,6 @@
 Stored Procedure support via the DSP API is currently just for calling the stored procedures that you have already created on your database, not for managing the stored procedures themselves. They can be called in two ways, using **GET** when the stored procedure does not require parameters to be passed in or out, and using **POST** when parameters are required. Stored procedures are currently supported for MySQL and MS SQL Server (via dblib and sqlsrv drivers). 
 
-###List Available Stored Procedures
+###Listing Available Stored Procedures
 Description:  List the available stored procedures by name, based on role accesses allowed.
 
 URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc`
@@ -42,8 +42,12 @@ URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc`
 }
 ```
 
-###Call a Stored Procedure with GET
-Description: Call a stored procedure that doesn't require parameters or formatting, which would require posted data (see POST method below). Note that without formatting, all data is returned as strings. Optionally, you can add a URL parameter `wrapper` that will cause the returned data to be wrapped in the requested element.
+###Calling a Stored Procedure
+
+Note that without formatting, all data is returned as strings. If the stored procedure returns multiple data sets, typically via multiple "SELECT" statements, then an array of datasets (i.e. array of records) is returned, otherwise a single array of records is returned. Optionally, you can add a URL parameter `wrapper` that will cause the returned data to be wrapped in the requested element.
+
+###Without Parameters or Formatting
+Description: Call a stored procedure that doesn't require parameters or formatting, which would require posted data (see POST method below).
 
 URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc/<procedure_name>[?wrapper=<wrapper_name>]`
 
@@ -66,8 +70,36 @@ URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc/<procedure_name>
 }
 ```
 
-###Call a Stored Procedure With Parameters
-Description: Call a stored procedure that does require parameters. By default, all data from stored procedure calls are returned as strings. Parameter settings and schema can be used to make the data more presentable to the client. Posted request can consist of the following elements:
+####Response with Multiple Data Sets
+```javascript
+{
+    "record": [
+        [
+            {
+                "id": "4",
+                "name": "Test the application."
+            },
+            {
+                "id": "5",
+                "name": "Demo stored procedures."
+            }
+        ],
+        [
+            {
+                "id": "4",
+                "name": "Test the application."
+            },
+            {
+                "id": "5",
+                "name": "Demo stored procedures."
+            }
+        ]
+    ]
+}
+```
+
+###With Parameters and/or Formatting
+Description: Call a stored procedure that does require parameters. Parameter settings and schema can be used to make the data more presentable to the client. Posted request can consist of the following elements:
 
   * `params` - An array of parameters definitions and settings for each parameter required by the stored procedure. Each parameter may consist of the following elements:
     * `name` - String. Required. Name of the parameter as defined in the stored procedure.
