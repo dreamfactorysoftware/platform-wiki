@@ -4,7 +4,6 @@ You can install DreamFactory on a number of IaaS Cloud Platforms (Infrastructure
 [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud) 
    
 [Microsoft Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
-
 [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
 
 [Red Hat OpenShift](https://www.dreamfactory.com/openshiftlanding)
