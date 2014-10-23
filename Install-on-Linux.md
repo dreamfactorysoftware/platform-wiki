@@ -1,5 +1,7 @@
 You can install DreamFactory on a Linux server or Linux desktop by following the links below.
 
+### Bitnami Installer
+
 An easy way to install on Linux is to use the Bitnami installer. Just follow the instructions on Bitnami's website.
 
 * [Bitnami Installer for Linux](https://bitnami.com/stack/dreamfactory/installer#linux)
