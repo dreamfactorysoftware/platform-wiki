@@ -16,18 +16,16 @@
 **Usage Options**
 
  * [[Overview|Usage-Options]]
- * [[Free Sandbox Account|Free-Sandbox-Account]]
- * [[Bitnami Installers|Bitnami-Installers]]
- * [[PaaS Deployment|PaaS-Deployment]]
+ * [[Free Hosted Account|Free-Sandbox-Account]]
+ * [[Install on IaaS Cloud|Install-on-IaaS-Cloud]]
+ * [[Install on PaaS Cloud|Install-on-PaaS-Cloud]]
+ * [[Install on Linux|Install-on-Linux]]
+ * [[Install on Mac|Install-Mac-OS-X]]
+ * [[Install on Windows|Install-Microsoft-Windows]]
+ * [[Product Upgrades|Product-Upgrades]]
+ * [[Installation Troubleshooting|Installation-Troubleshooting]]
  * [[Using nginx and Apache|Configuring-nginx-with-Apache]]
  * [[Using nginx instead of Apache|Using-nginx-without-Apache]]
- * [[Paid Hosting|Paid-Hosting]]
- * [[Direct from GitHub|Install-From-Github]]
- * [[Product Upgrades|Product-Upgrades]]
-
-<!--* [[Bitnami for Google Cloud]] (soon) -->
-<!--* [[Manual Installer for Windows]] (soon)-->
-<!--* [[Engine Yard Hosting]] (soon)-->
 
 **REST API**
 
