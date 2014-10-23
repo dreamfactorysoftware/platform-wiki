@@ -2,48 +2,44 @@ DreamFactory is free open source software available under the [Apache License 2.
 
 There are multiple ways to install and use DreamFactory. 
 
-### Free Hosted Sandbox Account
+### Free Hosted Account
 
 Sign up for a free hosted account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. A free hosted account allows you to try out DreamFactory. It has the same capabilities as the open source installers (except for server-side scripting) but is not for deploying production applications. 
 
-### Installable Bitnami Packages
+### Install on IaaS Cloud (Infrastructure as a Service)
 
-From development and debugging to full-production mode, these all-inclusive easy-to-install packages, available for a wide array of platforms, are the fastest way to get up and running with DreamFactory.
+DreamFactory currently supports the following IaaS cloud platforms (Infrastructure as a Service). To install DreamFactory on any of them, follow the instruction links below.
 
-Bitnami currently supports the following platforms/environments. To install DreamFactory on any of them, follow the link to instructions on Bitnami's website.
-
-* [Linux](https://bitnami.com/stack/dreamfactory/installer#linux)
-* [Mac OS X](https://bitnami.com/stack/dreamfactory/installer#osx)
-* [Microsoft Windows](https://bitnami.com/stack/dreamfactory/installer#windows)
+* [Amazon Web Services (AWS)](https://bitnami.com/stack/dreamfactory/cloud/amazon)   
+* [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud)   
+* [Microsoft Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
 * [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
-* [Amazon EC2](https://bitnami.com/stack/dreamfactory/cloud/amazon)
-* [Windows Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
+* [Red Hat OpenShift](https://www.dreamfactory.com/openshiftlanding)
+* [IBM Cloud](https://www.dreamfactory.com/ibmcloudlanding)
+* [Rackspace](https://www.dreamfactory.com/rackspacelanding)  
 
-Go [here](Bitnami-Installers) for more detail.
+### Install on PaaS Cloud (Platform as a Service)
 
-### PaaS Deployments
+DreamFactory currently supports the following PaaS cloud vendors (Platform as a Service). To install DreamFactory on any of them, follow the instruction links below.
 
-You can now [deploy DreamFactory on a PaaS](PaaS-Deployment) (platform-as-a-service). Pivotal and Red Hat OpenShift are now supported and other PaaS vendors will be supported soon.  
+* [Pivotal Web Services](http://www.dreamfactory.com/pwslanding)
+* [IBM Bluemix](https://www.dreamfactory.com/bluemixlanding)
+* Heroku (coming soon)
 
-### Paid Hosting
+### Install on Linux
 
-You can sign up for a paid hosted account allowing you to deploy production applications using DreamFactory without installing anything or requiring any hardware of your own.
+You can install DreamFactory on a Linux server or Linux desktop, either using a Bitnami package or deploying the open source code on GitHub. CentOS, Red Hat, Debian, and Ubuntu are supported. Follow the instruction link below. 
 
-* [Bitnami Hosting](https://bitnami.com/stack/dreamfactory/cloud) 
+* [Install on Linux](Install-on-Linux)
 
-More paid hosting options coming soon.
+### Install on Mac OS X
 
-### Install the Open Source Code from GitHub
+You can install DreamFactory on a Mac OS X desktop, either using a Bitnami package or deploying the open source code on GitHub. Follow the instruction link below. 
 
-For the engineer familiar with server-side installations and web-server implementations, you can install DreamFactory code directly from [github.com](http://github.com/dreamfactorysoftware/dsp-core) into your own web-server installation. This option allows you to use your existing cloud or on-premises web infrastructure to deploy production applications with DreamFactory, adding your own twist to our code base, and control every detail of the process. 
+* [Install on Mac OS X](Install-Mac-OS-X)
 
-Below you can find installation instructions for the open source code base for the following platforms:
+### Install on Windows
 
-* [Mac OS X](Install-Mac-OS-X)
-* [CentOS Linux](Install-CentOS-RedHat)
-* [Red Hat Linux](Install-CentOS-RedHat)
-* [Debian Linux](Install-Debian-Ubuntu)
-* [Ubuntu Linux](Install-Debian-Ubuntu)
-* [Microsoft Windows](Install-Microsoft-Windows)
+You can install DreamFactory on a Windows server or Windows desktop, either using a Bitnami package or deploying the open source code on GitHub. Follow the instruction link below. 
 
-Consult the main "Usage Options" section for detailed installation instructions for each option mentioned above.
+* [Install on Windows](Install-Microsoft-Windows)
