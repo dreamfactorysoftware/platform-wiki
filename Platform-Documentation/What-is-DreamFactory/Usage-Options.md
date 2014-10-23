@@ -6,7 +6,7 @@ There are multiple ways to install and use DreamFactory.
 
 Sign up for a free hosted account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. A free hosted account allows you to try out DreamFactory. It has the same capabilities as the installed open source packages listed below (except for server-side scripting) but is not for deploying production applications. 
 
-### Install on IaaS Cloud (Infrastructure as a Service)
+### Install on IaaS Cloud
 
 DreamFactory currently supports the following IaaS cloud platforms (Infrastructure as a Service). To install DreamFactory on any of them, follow the instruction links below.
 
@@ -18,7 +18,7 @@ DreamFactory currently supports the following IaaS cloud platforms (Infrastructu
 * [IBM Cloud](https://www.dreamfactory.com/ibmcloudlanding)
 * [Rackspace](https://www.dreamfactory.com/rackspacelanding)  
 
-### Install on PaaS Cloud (Platform as a Service)
+### Install on PaaS Cloud
 
 DreamFactory currently supports the following PaaS cloud vendors (Platform as a Service). To install DreamFactory on any of them, follow the instruction links below.
 
