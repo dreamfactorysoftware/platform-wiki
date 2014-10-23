@@ -16,4 +16,4 @@ For the engineer familiar with server-side installations and web server implemen
 
 Below are installation instructions for DreamFactory's open source code base for Mac OS X:
 
-* Instructions to manually install from GitHub are coming soon.
+* Instructions to install from GitHub are coming soon.
