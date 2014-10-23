@@ -1,4 +1,4 @@
-You can install DreamFactory on a Mac OS X desktop. Follow the installation links below:
+You can install DreamFactory on a Mac OS X desktop by following the links below.
 
 An easy way to install on Mac OS X is to use the Bitnami installer. Just follow the instructions on Bitnami's website.
 
