@@ -54,6 +54,8 @@ Of course, any changes to the `event.record` or `event.payload` elements will be
 ### platform.api.includeUserScript()
 One additional method is available in the `platform.api` object. This is the `includeUserScript()` method. This allows you to include your own library or libraries of scripts into your server-side scripts.
 
+> For security purposes, the includeUserScript() function, and the include() convenience function *only* load scripts from your DSP's private user script storage area. If you wish to load a remote library or from a CDN, you must download a copy of the library and create a user script with the contents.
+
 This method only loads scripts that are stored in the user script area of the DSP: `[install]/storage/.private/scripts.user`. In addition, this method merely reads the file and returns the contents. If you wish to make the objects in the included script, you must `eval` the returned data in your own script.
 
 To make this a simpler process, we've created a global function called `include()`. This will make the call and return the contents.
