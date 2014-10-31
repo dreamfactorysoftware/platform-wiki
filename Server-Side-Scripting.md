@@ -1,9 +1,9 @@
-When things happen via the REST API events are triggrred in the system. Each of these events can have an associated server side script that runs when the event is triggered. Common uses for these are taking some action before or after database CRUD operations. If I have a table named Account, the following events are supported.
+When things happen via the REST API events are triggered in the system. Each of these events can have an associated server side script that runs when the event is triggered. Common uses for these are taking some action before or after database CRUD operations. For example if you have a table named Account, the following events are supported.
 
-db.Account.select - event fires and script runs BEFORE retrieving records from database  
-db.Account.insert - event fires and script runs BEFORE writing records to database  
-db.Account.update - event fires and script runs BEFORE updating records in database  
-db.Account.delete - event fires and script runs BEFORE deleting records from database  
+**db.Account.select** - event fires and script runs BEFORE retrieving records from database  
+**db.Account.insert** - event fires and script runs BEFORE writing records to database  
+**db.Account.update** - event fires and script runs BEFORE updating records in database  
+**db.Account.delete** - event fires and script runs BEFORE deleting records from database  
 
 These four events are generally used for notifications. There are also pre_process and post_process events. In many cases it is preferable to use these since you can control when the script runs, either before or after the associated REST action takes place. For updating records you can have different scripts for PUT, PATCH, and MERGE.
 
