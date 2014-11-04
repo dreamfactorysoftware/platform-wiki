@@ -42,7 +42,9 @@ If you still encounter problems, please contact our [support](Contact-DreamFacto
 
 Use your favorite git commands to pull the latest code from the dsp-core repo. Then run the installer script from the scripts directory. For example,
 
-`git stash`  
-`git checkout master`  
-`git pull origin master`  
-`php composer.phar update`  
+```shell
+git stash
+git checkout master
+git pull origin master
+php composer.phar update
+```
