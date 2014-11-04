@@ -1,5 +1,37 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.8.1 (Released 2014-11-04)
+
+### New!
+* Added stored procedure support for Oracle and PostgreSQL.
+* Added support for stored functions (`_func` resource) across all supported SQL DB services.
+* Caching procedure and function names for speed, refresh option in GET requests to clear
+* Support for remote web service caching, UI changes in Admin Services config panel.
+
+### Fixes
+* Fixes and improvements for remote login providers
+  * Default remote login to false in config
+  * Fix link for remote login to go to correct provider.
+  * Fixed where remote providers were being put in the "allow_remote_login" key of the config array
+  * Corrected icon name for remote login providers to be the "provider_name" field vs. the "api_name".
+* Updated maintenance and unavailable pages, Cleaned up dumper utility and 404 error page
+* Support parenthesis and comma in API requests
+* Properly set dsp_name for hosted/non-hosted DSPs
+* Fixing timing problem with reference fields
+* Don't attempt retrieval of related records when no related field value is present.
+* Return all fields on app import
+* Fix app delete including storage when no return fields given, also app creation when URL is supplied
+* Refactor user service resources to use a base class where payload is handled uniformly
+* Added event triggers for non-GET, non-pre/post events on user resources.
+* Changed default cache path to be in subdir of temp instead of root. 
+* Fixed error when nothing cached for open registration.
+* Cleaned up config generation. DataFormatter::flattenArray() method added.
+* Clear activation flag when there is no database
+* New config "paths" and "timestamp_format" plus swagger doc
+* Check with kisma only if class available.
+* Update to state names to match new swagger content
+
+
 ## v1.8.0+ - lib-php-common-platform and yii libraries only (Released 2014-10-16)
 
 * Fix SQL DB Services stored procedure calls to support multiple datasets being returned (i.e. multiple select statements).
