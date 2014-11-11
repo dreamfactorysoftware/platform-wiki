@@ -71,7 +71,9 @@ DreamFactory supports a number of access control features:
 
 DreamFactory is installed as a LAMP stack (or Windows WAMP or Mac MAMP). Web servers route the API requests to DreamFactory, and DreamFactory returns JSON (or XML) back to your client applications. DreamFactory supports Apache, NGINX, and IIS web servers. 
 
-To handle your API throughput requirements (i.e. the API calls coming from client applications), you can deploy and load balance as many web servers as you need. 
+DreamFactory scales horizontally. To handle your API throughput requirements (i.e. the API calls coming from client applications), you can deploy and load balance as many web servers as you need. 
+
+DreamFactory also scales vertically. You need to install DreamFactory on servers with sufficient memory, disk space, and processing speed to handle your loads.
 
 DreamFactory has its own MySQL database, which stores users and roles (i.e. end users of your client applications). You can customize the MySQL schema and use the MySQL database for application data (there’s an API called ‘/db’ for the MySQL database). You can deploy DreamFactory on an any server infrastructure (on premises, cloud IaaS, and PaaS) and the MySQL database can handle millions of end users. You can also use the same database management tools you use today for backing up and replicating data in the MySQL database.
 
@@ -89,28 +91,28 @@ There’s a high-level roadmap published [here](Upcoming-Features). If you have 
 
 **How is DreamFactory different than API Management software?**
 
-DreamFactory is different than API management software in a fundamental way. API management requires you to build REST APIs yourself and helps you manage your custom APIs. DreamFactory, on the other hand, automatically generates REST APIs for you and manages all the backend security for those APIs.
+DreamFactory is different than API management software in a fundamental way. API management requires you to build REST APIs yourself and helps you manage your custom APIs. DreamFactory, on the other hand, is a *run-time* server that 1) automatically generates REST APIs for you 2) manages all the backend security for those APIs, and 3) returns JSON / XML from REST API calls at *run time*.
 
-The core principles behind DreamFactory are simple: 1) backend data resides almost exclusively in SQL, NoSQL, and file storage systems; 2) data transport between client and server is best done with REST and JSON (particularly for mobile apps, single page web apps, and IoT apps); 3) REST APIs for SQL, NoSQL, and file storage are well understood and SHOULD BE STANDARD for the vast majority of use cases. 
+The core principles behind DreamFactory are simple: 1) backend data resides almost exclusively in SQL, NoSQL, and file storage systems; 2) data transport between client and server is best done with REST and JSON (particularly for mobile apps, single page web apps, and IoT apps); 3) REST APIs for SQL, NoSQL, and file storage are well understood and have a standard structure for the vast majority of use cases. 
 
-As such, DreamFactory creates the REST APIs for SQL, NoSQL, and file storage on your behalf, so you don’t have to write your own REST APIs, reinventing the wheel once again. A common question is “how flexible are these auto-generated APIs?” The answer is that CRUD operations on SQL, NoSQL, and file storage share the same common characteristics, so the auto-generated APIs are comprehensive and cover virtually every common use case scenario. 
+As such, DreamFactory creates the REST APIs for SQL, NoSQL, and file storage on your behalf, so you don’t have to write your own REST APIs. A common question is “how flexible are these auto-generated APIs?” The answer is that CRUD operations on SQL, NoSQL, and file storage share the same common characteristics, so the auto-generated APIs are very comprehensive and cover most use cases. 
 
-That said, if you have custom API requirements, you can add any remote web service as a RESTful service inside DreamFactory and leverage DreamFactory’s SSO and role system to govern end user access to your custom APIs. 
+However, if you have custom API requirements, you can add any remote web service as a RESTful service inside DreamFactory and leverage DreamFactory’s SSO and role system to govern end user access to your custom APIs at run time. 
 
-**How is DreamFactory different than hosted “backend as a service” (aka BaaS)?**
+**How is DreamFactory different than hosted “mobile backend as a service” (aka MBaaS)?**
 
-“BaaS” is an acronym for “backend as a service”. BaaS companies such as Parse and Kinvey host their customer’s backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
+“MBaaS” is acronym jargon for “mobile backend as a service”. Proprietary MBaaS vendors such as Parse and Kinvey host their customers' backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
 
-DreamFactory provides the same simplification benefits of BaaS. However, DreamFactory is a solution that targets enterprises. Therefore, there are some critical differences between BaaS and DreamFactory:
+DreamFactory provides the same simplification benefits of MBaaS. However, DreamFactory is an open source solution that targets enterprises. Therefore, there are some critical differences between MBaaS vendors and DreamFactory:
 
-* BaaS products are proprietary. DreamFactory is open source. You can modify the source code if necessary.
-* BaaS companies host your data, but they don’t have a world class data center and millions of marketing dollars to gain enterprise trust. In short, enterprises do not trust third-party companies to host their sensitive data. DreamFactory does not host your data. You host DreamFactory on whatever server infrastructure you prefer, often behind a corporate firewall. 
-* BaaS products typically use NoSQL to store data. DreamFactory supports every major database vendor, both SQL vendors and NoSQL vendors.
-* BaaS products do not integrate well with existing databases and file systems. DreamFactory provides REST APIs for your existing SQL databases, NoSQL databases, and file systems.
-* BaaS security features are oriented around consumer mobile app use cases. DreamFactory provides enterprise-grade backend security based on over a decade of enterprise app development experience, largely on the Force.com platform (i.e. Salesforce).
+* MBaaS products are proprietary. DreamFactory is open source. You can modify the source code if necessary to meet your specific requirements.
+* MBaaS companies host your data. DreamFactory does not host your data. You host DreamFactory on whatever server infrastructure you prefer, often behind a corporate firewall. 
+* MBaaS products typically use NoSQL to store data. DreamFactory supports every major database vendor, both SQL vendors and NoSQL vendors.
+* MBaaS products do not specialize in integrating with existing "legacy" databases and file systems inside enterprises. DreamFactory provides REST APIs for your existing SQL databases, NoSQL databases, and file storage systems.
+* MBaaS security features are tailored for consumer mobile app use cases. DreamFactory provides enterprise-grade backend security based on over a decade of enterprise app development experience, largely on the Salesforce.com platform.
 
 **How is DreamFactory different than “platform as a service” (aka PaaS)?**
 
-“PaaS” is an acronym for “platform as a service”. PaaS products such as Pivotal Web Services, Red Hat OpenShift, IBM Blue Mix, and Heroku run server hardware and software (i.e. “platform”) for you. Think of PaaS as full-service IaaS (Infrastructure as a Service). Instead of having your own Dev Ops team managing AWS provisioning, you can outsource the Dev Ops function to a PaaS company to make sure your servers are humming along smoothly and alert you when they're not.  
+“PaaS” is an acronym for “platform as a service”. PaaS products such as Pivotal Web Services and Heroku run server hardware and software (i.e. “platform”) for you. Think of PaaS as full-service IaaS (Infrastructure as a Service). Instead of having your own Dev Ops team managing AWS provisioning, you can outsource the Dev Ops function to a PaaS company to make sure your servers are humming along smoothly and alert you when they're not.  
 
 DreamFactory partners with PaaS companies. When you sign up for a PaaS product, you can easily deploy DreamFactory in your PaaS environment, and develop applications with DreamFactory that are hosted on your PaaS. 
