@@ -36,10 +36,10 @@ DreamFactory provides other services for application development.
 
 On the client side, all transactions use either JSON objects or XML documents. DreamFactory is compatible with applications written in either HTML5 or native client technologies such as iOS and Android. We provide HTML5 example projects for [jQuery](http://www.dreamfactory.com/jquery-example), [AngularJS](http://www.dreamfactory.com/angularjs-example), and [Sencha](http://www.dreamfactory.com/sencha-touch-example). 
 
-As each new service is hooked up, DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from <a href="https://github.com/dreamfactorysoftware/javascript-sdk">JavaScript</a>, <a href="https://github.com/dreamfactorysoftware/angular-dreamfactory">AngularJS</a>, <a href="https://github.com/dreamfactorysoftware/ios-sdk">iOS</a>, and <a href="https://github.com/dreamfactorysoftware/android-sdk">Android</a>.
+As each new service is hooked up, DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from [JavaScript](javascript-sdk), [AngularJS](angular-dreamfactory),[iOS](ios-sdk), Android(android-sdk), [Windows Mobile](Windows-Mobile-SDK), and [Titanium](Titanium-SDK).
 
 ### Installation Options
 
-On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows
+On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows.
 
 Head on over to [Usage Options](Usage-Options) for installation instructions.
