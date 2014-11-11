@@ -40,12 +40,6 @@ As each new service is hooked up, DreamFactory automatically produces written do
 
 ### Installation Options
 
-On the server side, you can install the DreamFactory open source software package (Apache license) in a couple of ways:
+On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows
 
-* [Bitnami Installers](Bitnami-Installers) for Linux, Mac OS X, Microsoft Windows, VMWare, Amazon EC2, and Windows Azure.
-* [Install from GitHub](Install-From-Github) on Mac OS X, CentOS Linux, Red Hat Linux, Debian Linux, Ubuntu Linux, and Microsoft Windows.
-
-[Bitnami hosts DreamFactory](Paid-Hosting) if you prefer not to install the open source package.
-
-We also provide a free hosted sandbox version of the product available at our website 
-<a href="http://www.dreamfactory.com">www.dreamfactory.com</a>.
+Head on over to [Usage Options](Usage-Options) for installation instructions.
