@@ -4,9 +4,9 @@ As each new backend service is hooked up, DreamFactory automatically produces wr
 
 There are three ways to get the SDKs:
 
-1. Go through the "QuickStart" module in the DreamFactory Admin Console. This is an introductory tutorial that walks you through creating your first application.
-2. Click to download your preferred SDK in the "API /SDK" module in the DreamFactory Admin Console.
-3. Download your preferred SDK from GitHub. 
+1. Go through the "QuickStart" tab in the DreamFactory Admin Console. This is an introductory tutorial that walks you through creating your first application.
+2. Click to download your preferred SDK in the "API Docs" tab in the DreamFactory Admin Console.
+3. Download your preferred SDK from GitHub using the links below. 
 
 ### iOS SDK
 
