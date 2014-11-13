@@ -32,7 +32,7 @@ For additional technical details on the REST API for databases, take a look at [
 
 You can easily connect to a number of NoSQL databases with DreamFactory. All of the NoSQL REST interfaces are similar, and you can swap out different NoSQL databases without changing your client application. 
 
-DreamFactory auto-generates a REST API for these NoSQL databases:
+DreamFactory auto-generates a run-time REST API for these NoSQL databases:
 
 * MongoDB
 * MongoHQ
