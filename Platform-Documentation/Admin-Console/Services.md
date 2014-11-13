@@ -26,14 +26,26 @@ A good way to learn about setting up a remote SQL database connection is to foll
 
 For additional technical details on the REST API for databases, take a look at [Database Services](Database-Services).
 
-<b>NoSQL DB</b>
-<p>The NoSQL Service allows a user to connect to a remote NoSQL DB. Currently support for Amazon DynamoDB, Amazon SimpleDB, and Windows Azure Tables are available.</p>
-<p>All of the NoSQL REST interfaces are similar, and DreamFactory can swap out different backend services without the need for changing the client.</p>
-<p>By storing the NoSQL service credentials on DreamFactory, the originating host problem for HTML5 applications is eliminated by allowing the client to conduct all service calls through a single endpoint, instead of trying to conduct cross-domain calls to multiple remote endpoints.<p>
+## NoSQL DB
 
-<p>DreamFactory developed an excellent sample application displaying NOSQL functionality (app-todo-dynamodb). See the <a href="http://blog.dreamfactory.com/blog/dynamodb-app-tutorial-with-the-dreamfactory-sdk">DynamoDB App Tutorial</a>.</p>
+You can easily connect to a number of NoSQL databases with DreamFactory. All of the NoSQL REST interfaces are similar, and you can swap out different NoSQL databases without changing your client application. 
 
-<p>For additional information on setting up a NoSQL Service offering, see the <i>NoSQL Developers Features</i> section. </p>
+DreamFactory auto-generates a REST API for these NoSQL databases:
+
+* MongoDB
+* MongoHQ
+* MongoLab
+* CouchDB
+* Cloudant
+* Windows Azure Tables
+* Amazon DynamoDB
+* Amazon SimpleDB
+
+To set up a NoSQL DB connection, select “NoSQL DB” for Type and enter information about the service, including database name, username, password, and connection string.
+
+A good way to learn about setting up a NoSQL database connection is to follow [this tutorial with MongoDB](http://blog.dreamfactory.com/blog/bid/339945/NoSQL-No-Problem-MongoDB-Specifics) or [this tutorial with Amazon DynamoDB](http://blog.dreamfactory.com/blog/dynamodb-app-tutorial-with-the-dreamfactory-sdk) (setting up other NoSQL databases is similar).
+
+For additional technical details on the REST API for databases, take a look at [Database Services](Database-Services).
 
 <b>Remote File Storage</b>
 <p>Remote File Storage allows a developer to access external storage services. Amazon S3, Open Stack, Rackspace, and Windows Azure remote file services can be accessed from DreamFactory.</p>
