@@ -81,23 +81,25 @@ A good way to learn about setting up a remote web service is to go through the t
 * [An example of setting up the Edmunds REST API](http://blog.dreamfactory.com/blog/bid/326051/Adding-a-Remote-Web-Service-to-Your-DSP) 
 * [An example of setting up the Rotten Tomatoes REST API](http://blog.dreamfactory.com/tutorial-angular-and-rest-made-simple). This tutorial shows how to include a JSON definition of the API that can be called directly from the DreamFactory client SDKs.
 
-<b>Email Services</b>
-<p>There are three types of email: Providers Server Default, Server Command, and SMTP. When using the Server Default, we utilize the default email provider on the local machine. This is the default email setting for DreamFactory instances that are hosted on *.cloud.dreamfactory.com.</p>
+## Email Service
 
-<p>If your DreamFactory has been deployed to data center or favorite cloud provider, you have the option to use a server command of your choice to send emails.</p>
+DreamFactory makes it easy to set up a REST API for email. There are three supported flavors of email:
 
-<p>In the example below, we will use Sendmail to setup a SMTP email service.</p>
+* Server Default
+* Server Command
+* SMTP
 
-<ol>
-<li>Access the <b>Admin Console</b> by clicking the gear icon in the upper-right tool bar.</li>
-<li>Select <b>Services</b> from the left-side menu.</li>
-<li>In the service Type drop down select Email Service, then select Server Command as the provider. </li>
-<li>Provide a Service Name, API Name, and Description.</li>
-<li>In the command field enter "/usr/sbin/sendmail -bs".</li>
-<li>Under the parameters Section complete all of the fields.</li>
-<li>To test sending an email, press the explore this Service button next to the API Name you created for your SMTP service.</li>
-<li>In the POST data section you can paste the JSON data below to test your SMTP service. Then click Try it out.</li>
-</ol>
+When using the Server Default, DreamFactory utilizes the default email provider on the local machine. This is the default email setting for DreamFactory instances that are hosted on *.cloud.dreamfactory.com.
+
+If your DreamFactory has been deployed to your data center or favorite IaaS or PaaS cloud provider, you have the option to use a server command of your choice to send emails. Here’s an example:
+
+* Select “Services” from the left-side menu.
+* In the Type drop down select Email Service, then select Server Command as the provider.
+* Provide a Name for your service, an API Name, and a Description.
+* In the command field enter "/usr/sbin/sendmail -bs".
+* Under the parameters Section complete all of the required parameters for the email provider to send email and click to save.
+* To test sending an email, go the API Docs tab on the left-side menu and navigate to the Email Service you just created. 
+* In the POST section paste the JSON data below. Then click Try it out.
 
 <pre class="de1">
 {
@@ -118,21 +120,20 @@ count (1): Number of emails successfully sent.
 }
 </pre>
 
-<p>SMTP can be configured to send emails using your SMTP provider using SSL or TLS authentication.</p>
-<p>To Setup a SMTP email service using Gmail follow the instructions below:</p>
+You can configure SMTP to send emails using SSL or TLS authentication.
 
-<ol>
-<li>Access the <b>Admin Console</b> by pressing the gear icon in the upper right.</li>
-<li>Select <b>Services</b> on the left-side menu.</li>
-<li>In the service Type drop down select Email Service, then select SMTP as the provider.</li>
-<li>Provide a Service Name, API Name, and Description.</li>
-<li>For this example we will use a Gmail account. In the host name enter smtp.gmail.com and the port number of 465.</li>
-<li>Under Security, select TLS.</li>
-<li>For the username we will enter dfdemo01@gmail.com.</li>
-<li>Next, enter your gmail account password.</li>
-<li>Under the parameters Section complete all of the fields. Gmail requires that the from_email, and reply_to_email values are the same as the username.</li>
-<li>To test sending an email, click the Explore this Service button next to the API Name you created for your SMTP service. In the POST data section you can paste the JSON data below to test your SMTP service. Then click Try it out.</li>
-</ol>
+For example, to set up a SMTP email service using Gmail follow the instructions below:
+
+* Select “Services” on the left-side menu.
+* In the Type drop down select Email Service, then select SMTP as the provider.
+* Provide a Name for your service, an API Name, and a Description.
+* For this example we will use a Gmail account. In the host name enter smtp.gmail.com and the port number of 465.
+* Under Security, select TLS.
+* Enter a Gmail email address.
+* Next, enter a Gmail password.
+* Under the parameters Section enter all of the required parameters for Gmail to send email and click to save (note that Gmail requires the from_email and reply_to_email values to be the same as the username). Then click to save.
+* To test sending an email, go the API Docs tab on the left-side menu and navigate to the Email Service you just created. 
+* In the POST section paste the JSON data below. Then click Try it out.
 
 <pre class="de1">
 {
@@ -152,3 +153,5 @@ count (1): Number of emails successfully sent.
 count (1): Number of emails successfully sent.
 }
 </pre>
+
+For additional technical details on the REST API for email, take a look at [Email Services](Email-Services).
