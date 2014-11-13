@@ -1,4 +1,10 @@
-<p>Each instance of DreamFactory has the ability to communicate with a wide range of services including: SQL data, NoSQL data, remote file storage, user management, permissions and roles, external integration, and application hosting.</p>
+The Services tab is where you set up all your REST APIs in DreamFactory, specifically all the information necessary to securely connect to your SQL databases, NoSQL databases, and file storage systems. Once you’ve entered all required connection info, DreamFactory automatically generates a REST API for each SQL database, NoSQL database, and file storage system to which you’ve connected. 
+
+You can also use the Services tab to securely call remote web services. For example, you can connect to a third-party web service such as DropBox or a REST API that you wrote yourself. This enables you to call these remote web services using any of the DreamFactory [Client SDKs](Client-SDKs). 
+
+Note that each service you configure in DreamFactory is automatically documented in the [API Docs](API-Docs). The API Docs let you interactively browse each REST API and make live API calls to your data sources before building your application.
+
+To learn more about each type of Service connection, read on below.
 
 <b>NoSQL DB</b>
 <p>The NoSQL Service allows a user to connect to a remote NoSQL DB. Currently support for Amazon DynamoDB, Amazon SimpleDB, and Windows Azure Tables are available.</p>
