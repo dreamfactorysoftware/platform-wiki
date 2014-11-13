@@ -54,7 +54,7 @@ Remote File Storage allows RESTful access to a number of remote file storage ser
 * Amazon S3
 * Windows Azure Storage
 * Rackspace Cloud Files
-* OpenStack Object Storage.
+* OpenStack Object Storage
 
 “Remote” File Storage simply means that the file system is outside of DreamFactory, as opposed to the default local file storage available as part of the DreamFactory open source package (see Local File Storage below on this page for more info on generating a REST API for the local file system).
 
@@ -62,8 +62,13 @@ To set up a secure connection to remote file storage, select “Remote File Stor
 
 Follow this [short tutorial](http://blog.dreamfactory.com/blog/bid/294849/Connecting-your-DSP-to-External-File-Storage) to learn how to set up a connection to remote file storage on Amazon S3. The process is similar for other remote file storage providers.
 
-<b>Local File Storage</b>
-<p>Local File Storage Is used to store files on the DreamFactory server. Application (app) and Library (lib) are both examples of local file storage.</p> When applications are hosted on the DreamFactory file system, the files are stored in the application/{ApplicationName} directory.</p>
+## Local File Storage
+
+Local File Storage is used to store files on the server where DreamFactory is installed. Application (app) and Library (lib) are both examples of local file storage. When applications are hosted on the DreamFactory file system, the files are stored in the application/{ApplicationName} directory.
+
+To set up a new REST API path to local file storage, simply enter the name you want for the REST API. DreamFactory will then auto-generate a REST API for local file storage with the API name that you entered. That’s all there is to it.
+
+For additional technical details on the REST API for local file storage, take a look at [File Storage Services](File-Storage-Services).
 
 <b>Email Services</b>
 <p>There are three types of email: Providers Server Default, Server Command, and SMTP. When using the Server Default, we utilize the default email provider on the local machine. This is the default email setting for DreamFactory instances that are hosted on *.cloud.dreamfactory.com.</p>
