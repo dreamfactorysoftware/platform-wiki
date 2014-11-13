@@ -47,11 +47,20 @@ A good way to learn about setting up a NoSQL database connection is to follow [t
 
 For additional technical details on the REST API for databases, take a look at [Database Services](Database-Services).
 
-<b>Remote File Storage</b>
-<p>Remote File Storage allows a developer to access external storage services. Amazon S3, Open Stack, Rackspace, and Windows Azure remote file services can be accessed from DreamFactory.</p>
-<p>The master credentials for each service are hidden securely on the server side. This allows access to the storage system based on the users single sign-on credentials. Each Remote File Storage service also allows the administrator to choose the root access point for the storage tree. Because of this flexibility, individual users can be granted secure access to different BLOB services, or even different parts of the same service, by role assignment.</p>
+## Remote File Storage
 
-<p>For additional Remote File Service information, see the <i>Developers Features for Remote File Services</i>.</p>
+Remote File Storage allows RESTful access to a number of remote file storage services, including:
+
+* Amazon S3
+* Windows Azure Storage
+* Rackspace Cloud Files
+* OpenStack Object Storage.
+
+“Remote” File Storage simply means that the file system is outside of DreamFactory, as opposed to the default local file storage available as part of the DreamFactory open source package (see Local File Storage below on this page for more info on generating a REST API for the local file system).
+
+To set up a secure connection to remote file storage, select “Remote File Storage” in the Type field and enter the relevant information, including your security credentials. Master credentials for each remote file storage service are hidden securely on the server side in DreamFactory. This allows access to the storage system based on the user’s single sign-on credentials. Each Remote File Storage service also allows the administrator to choose the root access point for the storage tree. Because of this flexibility, individual users can be granted secure access to different BLOB services, or even different parts of the same service, by role assignment in DreamFactory.
+
+Follow this [short tutorial](http://blog.dreamfactory.com/blog/bid/294849/Connecting-your-DSP-to-External-File-Storage) to learn how to set up a connection to remote file storage on Amazon S3. The process is similar for other remote file storage providers.
 
 <b>Local File Storage</b>
 <p>Local File Storage Is used to store files on the DreamFactory server. Application (app) and Library (lib) are both examples of local file storage.</p> When applications are hosted on the DreamFactory file system, the files are stored in the application/{ApplicationName} directory.</p>
