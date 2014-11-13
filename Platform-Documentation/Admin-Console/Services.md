@@ -10,9 +10,9 @@ To learn more about each type of Service connection, read on below.
 
 A remote SQL DB is a SQL database running outside of DreamFactory (note that DreamFactory includes a default MySQL database and a REST API called ‘db’; a “remote” SQL DB just means any other SQL database outside of DreamFactory, as opposed to the default MySQL database installed as part of the DreamFactory open source package). 
 
-DreamFactory provides a comprehensive and secure connection to your remote SQL database and auto-generates a REST API for Create, Read, Update and Delete, complex filtering, and a complete set of metadata services. The REST API can also deliver an array of objects along with related objects in a sub-array. This is a very powerful feature for applications because large database documents can be downloaded and used immediately without any additional processing as a native JSON object. Any changes made to the array can be committed back to the database with a single transaction. All parent-child relationships, and many-to-many junction relationships are automatically updated.
+DreamFactory provides a comprehensive and secure connection to your remote SQL database and auto-generates a REST API for Create, Read, Update and Delete, complex filtering, and a complete set of metadata services. The REST API can also deliver an array of objects along with related objects in a sub-array. This is a very powerful feature for applications because large database documents can be downloaded as a native JSON object and used immediately without any additional processing. Any changes made to the array can be committed back to the database with a single transaction. All parent-child relationships, and many-to-many junction relationships are automatically updated.
 
-DreamFactory currently provides a REST API for these SQL vendors:
+DreamFactory currently provides a run-time REST API for these SQL vendors:
 
 * MySQL
 * Microsoft SQL Server
