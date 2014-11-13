@@ -70,6 +70,17 @@ To set up a new REST API path to local file storage, simply enter the name you w
 
 For additional technical details on the REST API for local file storage, take a look at [File Storage Services](File-Storage-Services).
 
+## Remote Web Service
+
+A remote web service is any external web service you want your applications to consume within DreamFactory. To set up a remote web service, select “Remote Web Service” for Type and enter information about the service. 
+
+The “Service Definition” section is required if you are using any of the DreamFactory SDKs. The Service Definition is a JSON file that describes the REST API. This JSON file is pulled down by the client SDKs, which allows the client SDKs to be aware of the REST API at run time.
+
+A good way to learn about setting up a remote web service is to go through the tutorials below:
+
+* [An example of setting up the Edmunds REST API](http://blog.dreamfactory.com/blog/bid/326051/Adding-a-Remote-Web-Service-to-Your-DSP) 
+* [An example of setting up the Rotten Tomatoes REST API](http://blog.dreamfactory.com/tutorial-angular-and-rest-made-simple). This tutorial shows how to include a JSON definition of the API that can be called directly from the DreamFactory client SDKs.
+
 <b>Email Services</b>
 <p>There are three types of email: Providers Server Default, Server Command, and SMTP. When using the Server Default, we utilize the default email provider on the local machine. This is the default email setting for DreamFactory instances that are hosted on *.cloud.dreamfactory.com.</p>
 
