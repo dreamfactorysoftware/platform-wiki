@@ -6,6 +6,26 @@ Note that each service you configure in DreamFactory is automatically documented
 
 To learn more about each type of Service connection, read on below.
 
+## Remote SQL DB
+
+A remote SQL DB is a SQL database running outside of DreamFactory (note that DreamFactory includes a default MySQL database and a REST API called ‘db’; a “remote” SQL DB just means any other SQL database outside of DreamFactory, as opposed to the default MySQL database installed as part of the DreamFactory open source package). 
+
+DreamFactory provides a comprehensive and secure connection to your remote SQL database and auto-generates a REST API for Create, Read, Update and Delete, complex filtering, and a complete set of metadata services. The REST API can also deliver an array of objects along with related objects in a sub-array. This is a very powerful feature for applications because large database documents can be downloaded and used immediately without any additional processing as a native JSON object. Any changes made to the array can be committed back to the database with a single transaction. All parent-child relationships, and many-to-many junction relationships are automatically updated.
+
+DreamFactory currently provides a REST API for these SQL vendors:
+
+* MySQL
+* Microsoft SQL Server
+* PostgreSQL
+* Oracle
+* IBM DB2
+
+To set up a remote SQL DB connection, select “Remote SQL DB” for Type and enter information about the service, including database name, username, password, host, and connection string.
+
+A good way to learn about setting up a remote SQL database connection is to follow [this tutorial](http://blog.dreamfactory.com/add-a-rest-api-to-any-sql-db-in-minutes). 
+
+For additional technical details on the REST API for databases, take a look at [Database Services](Database-Services).
+
 <b>NoSQL DB</b>
 <p>The NoSQL Service allows a user to connect to a remote NoSQL DB. Currently support for Amazon DynamoDB, Amazon SimpleDB, and Windows Azure Tables are available.</p>
 <p>All of the NoSQL REST interfaces are similar, and DreamFactory can swap out different backend services without the need for changing the client.</p>
@@ -14,11 +34,6 @@ To learn more about each type of Service connection, read on below.
 <p>DreamFactory developed an excellent sample application displaying NOSQL functionality (app-todo-dynamodb). See the <a href="http://blog.dreamfactory.com/blog/dynamodb-app-tutorial-with-the-dreamfactory-sdk">DynamoDB App Tutorial</a>.</p>
 
 <p>For additional information on setting up a NoSQL Service offering, see the <i>NoSQL Developers Features</i> section. </p>
-
-<b>SQL DB</b>
-<p>DreamFactory provides a comprehensive and secure connection to a dedicated SQL database. There are services for Create, Read, Update and Delete, as well as complex filtering, and a complete suite of metadata services.</p>
-<p>The SQL service can also deliver an array of objects along with related objects in a sub-array. This is a very powerful feature for applications because large database documents can be downloaded and used immediately without any additional processing as a native JSON object. Any changes made to the array can be committed back to the database with a single transaction. All parent-child relationships, and many-to-many junction relationships are automatically updated.</p>
-<p>These SQL capabilities are available on both the local and remote SQL services.</p>
 
 <b>Remote File Storage</b>
 <p>Remote File Storage allows a developer to access external storage services. Amazon S3, Open Stack, Rackspace, and Windows Azure remote file services can be accessed from DreamFactory.</p>
