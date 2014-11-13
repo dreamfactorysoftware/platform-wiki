@@ -155,3 +155,11 @@ count (1): Number of emails successfully sent.
 </pre>
 
 For additional technical details on the REST API for email, take a look at [Email Services](Email-Services).
+
+## Salesforce
+
+Connecting to Salesforce is similar to connecting to a remote SQL DB. Simply select “Salesforce” in the Type field and enter your Salesforce username, password, security token, and Salesforce API version.
+
+Once you’ve saved the connection, DreamFactory automatically generates a REST API for those Salesforce objects that you can access with your Salesforce credentials.
+
+There’s an [example app](https://github.com/dreamfactorysoftware/app-salesforce-service) on GitHub that demonstrates Salesforce integration.
