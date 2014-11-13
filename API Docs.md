@@ -1,5 +1,5 @@
-<p>The <b>Admin Console</b> API / SDK module is comprised of two tabs, <b>Live API</b> and <b>SDK</b>.</p>
+The “API Docs” tab in the DreamFactory Admin Console is live, interactive API documentation for every REST API configured in the [Services Tab](Services). 
 
-<p>The <b>Live API</b> consists of Swagger-built documentation detailing the DreamFactory REST API. This view not only allows you to test the various services you have added to the system, but also shows the detailed in and out data fields, formats and parameters used in making each of the REST calls. This is a great asset for learning the API, and for developing and debugging your application.</p>
+The API Docs allow you to test the various services you’ve added to the system, including URI request, request parameters, JSON and XML response, and generated events for each REST call. This is a great asset for learning the API, and for developing and debugging your applications.
 
-<p>The <b>SDK</b> includes all available, and fully documented, REST methods and how they can be accessed using our JavaScript SDK, which is included in the sample app on your DSP. Methods are accessed from the left-side navigation menu in this view.</p>
+In the upper right-hand corner of the screen, click on Downloads to get any of DreamFactory’s [Client SDKs](Client-SDKs) for Android, AngularJS, iOS, Javascript, Titanium, and Windows Phone. Every API call in the API Docs is exposed at application run-time to the client SDKs.
