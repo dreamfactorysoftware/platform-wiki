@@ -1,4 +1,6 @@
-The Services tab is where you set up all your REST APIs in DreamFactory, specifically all the information necessary to securely connect to your SQL databases, NoSQL databases, and file storage systems. Once you’ve entered all required connection info, DreamFactory automatically generates a REST API for each SQL database, NoSQL database, and file storage system to which you’ve connected. 
+The Services tab is where you set up all your REST APIs in DreamFactory, specifically all the information necessary to securely connect to your SQL databases, NoSQL databases, and file storage systems. 
+
+Once you’ve entered all required connection info, DreamFactory automatically generates a REST API for each SQL database, NoSQL database, and file storage system to which you’ve connected. 
 
 You can also use the Services tab to securely call remote web services. For example, you can connect to a third-party web service such as DropBox or a REST API that you wrote yourself. This enables you to call these remote web services using any of the DreamFactory [Client SDKs](Client-SDKs). 
 
