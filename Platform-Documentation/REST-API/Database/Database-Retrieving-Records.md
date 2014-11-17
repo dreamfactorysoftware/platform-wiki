@@ -63,7 +63,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecordsBy
 ### Examples
 **Scenario A:** You have a database on your DSP with a table called Clients with fields ID, Firstname, Surname and want to find all your clients who are called "Smith". 
 
-URI:  **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%3D'Smith'`
+URI: **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%3D'Smith'`
 
 LIVE API: `http://<dsp-server-name>/swagger/#!/db/getRecordsByFilter`
 
