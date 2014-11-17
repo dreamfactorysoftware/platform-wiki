@@ -78,7 +78,7 @@ filter: Surname='Smith'
 
 **Scenario B:** You have a database on your DSP with a table called Clients with fields ID, Firstname, Surname and want to find all you clients with names beginning with Sm
 
-URI:  **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%20LIKE%20'Sm%25'`
+URI: **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%20LIKE%20'Sm%25'`
 
 LIVE API: `http://<dsp-server-name>/swagger/#!/db/getRecordsByFilter`
 
