@@ -60,6 +60,39 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db/getRecordsBy
 }
 ```
 
+### Examples
+**Scenario A:** You have a database on your DSP with a table called Clients with fields ID, Firstname, Surname and want to find all your clients who are called "Smith". 
+
+URI:  **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%3D'Smith'`
+
+LIVE API: `http://<dsp-server-name>/swagger/#!/db/getRecordsByFilter`
+
+_Parameters:_
+```
+table_name: Clients
+...
+filter: Surname='Smith'
+...
+```
+
+
+**Scenario B:** You have a database on your DSP with a table called Clients with fields ID, Firstname, Surname and want to find all you clients with names beginning with Sm
+
+URI:  **GET** `http[s]://<dsp-server-name>/rest/db/Clients?filter=surname%20LIKE%20'Sm%25'`
+
+LIVE API: `http://<dsp-server-name>/swagger/#!/db/getRecordsByFilter`
+
+_Parameters:_
+```
+table_name: Clients
+...
+filter: Surname LIKE 'Sm%'
+...
+```
+
+Scenario B is equivalent to SQL: SELECT * FROM Clients WHERE Surname LIKE 'Sm%'
+So DreamFactory supports mySQL wildcards. In this case % matches an arbitrary number of characters (including zero characters) See: http://dev.mysql.com/doc/refman/5.5/en/pattern-matching.html 
+
 ## <a name="get-ids"></a>By a List of Identifiers
 
 Description: Retrieve one or more records for a db table by id.
