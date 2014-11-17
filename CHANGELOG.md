@@ -1,5 +1,19 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.8.2 (Released 2014-11-17)
+
+### New!
+* Added SQL DB support for IBM DB2.
+* Add configuration for OpenShift support.
+
+### Fixes
+* Scripting Events bug fixes
+  * non-pre/post_process events for Remote SQL DB services
+  * cache clearing and rebuilding on creating new or updating existing script
+* CORS config bug fix for "enable" checkbox and caching issue
+* Email Service SMTP and command configuration fix for UI and server-side.
+* Data Manager field toggle fix for Google Chrome
+
 ## v1.8.1 (Released 2014-11-04)
 
 ### New!
