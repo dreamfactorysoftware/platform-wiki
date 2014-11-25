@@ -14,7 +14,6 @@ DreamFactory currently supports the following IaaS cloud platforms (Infrastructu
 * [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud)   
 * [Microsoft Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
 * [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
-* [Red Hat OpenShift](https://www.dreamfactory.com/openshiftlanding)
 * [IBM Cloud](https://www.dreamfactory.com/ibmcloudlanding)
 * [Rackspace](https://www.dreamfactory.com/rackspacelanding)  
 
@@ -24,7 +23,8 @@ DreamFactory currently supports the following PaaS cloud vendors (Platform as a 
 
 * [Pivotal Web Services](http://www.dreamfactory.com/pwslanding)
 * [IBM Bluemix](https://www.dreamfactory.com/bluemixlanding)
-* Heroku (coming soon)
+* [Red Hat OpenShift](Deploying-to-OpenShift)
+* [Heroku](Deploying-to-Heroku)
 
 ### Install on Linux
 
