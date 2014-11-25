@@ -20,11 +20,9 @@ Note the name and remote repo location.
 `rhc cartridge add mysql-5.5 -a <your-app-name>`
 You should see output like the following...
 MySQL 5.5 database added.  Please make note of these credentials:
-```
    Root User: <user>
    Root Password: <password>
    Database Name: <db-name>
-```
 
 7. Set the MySQL credentials output by step 5 as environment variables: 
 `rhc set-env OPENSHIFT_MYSQL_DB_USER=<user> OPENSHIFT_MYSQL_DB_PASS=<password> OPENSHIFT_MYSQL_DB_NAME=<db-name> -a <your-app-name>`
