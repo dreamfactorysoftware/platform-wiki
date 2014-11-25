@@ -3,7 +3,7 @@
 For DSP instances that used any of the Bitnami packages for installation, most of the required additional libraries, drivers, and/or packages are already installed by default. See the table below for whether the service is ready to use with no additional requirements. For 'NO' values, see the particular service type section below for how to install the additional requirements.
 
 Environment / Service | Windows | Linux | OS X
---- | --- | ---
+--- | --- | ---|---
 Server-Side Scripting | YES | YES | YES
 NoSQL DB - MongoDB | YES | YES | YES
 SQL DB - MySQL | YES | YES | YES
