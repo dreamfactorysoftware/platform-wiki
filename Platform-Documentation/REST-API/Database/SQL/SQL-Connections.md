@@ -6,6 +6,10 @@ Database connections via the database services are made using the PDO drivers av
 
 ###SQL Server
 
+#### where the DSP is on Linux/Mac (DBLIB + FreeTDS driver)
+
+#### where the DSP is on Windows (SQLSRV driver)
+
 ###Oracle
 
 ###IBM DB2

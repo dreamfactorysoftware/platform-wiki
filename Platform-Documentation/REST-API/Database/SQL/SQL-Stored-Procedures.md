@@ -1,7 +1,9 @@
-Stored Procedure support via the DSP API is currently just for calling the stored procedures that you have already created on your database, not for managing the stored procedures themselves. They can be called in two ways, using **GET** when the stored procedure does not require parameters to be passed in or out, and using **POST** when parameters are required. Stored procedures are currently supported for MySQL and MS SQL Server (via dblib and sqlsrv drivers). 
+Stored procedure and function support via the DSP API is currently just for calling the stored procedures and functions that you have already created on your database, not for managing the stored procedures and functions themselves. They can be called in two ways, using **GET** when the stored procedure or function does not require parameters to be passed in or out, and using **POST** when parameters are required. Stored procedures were supported for MySQL and MS SQL Server (via dblib and sqlsrv drivers) starting with release 1.7.8. Support for procedures and functions were added for all supported database types, including Oracle and PostgreSQL in release 1.8.1. 
 
-###Listing Available Stored Procedures
-Description:  List the available stored procedures by name, based on role accesses allowed.
+Stored procedures can be accessed on each database service by the `_proc` resource. Stored functions can be accessed by the `_func` resource. While both are very similar in functionality (actually they are the same thing in PostgreSQL), there are a couple of things that differentiate how they are used in the API. Procedures can use input parameters ('IN') and output parameters ('OUT'), as well as parameters that serve both as input and output ('INOUT'). They can, except in the Oracle case, also return data directly. Functions may only have input parameters, and typically return data directly.
+
+###Listing Available Stored Procedures or Functions
+Description:  List the available stored procedures or functions by name, based on role accesses allowed.
 
 URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc`
 
@@ -26,18 +28,35 @@ URI: **GET** `http[s]://<server_name>/rest/<service_name>/_proc`
         "POST"
       ]
     },
+    ...
+  ]
+}
+```
+
+URI: **GET** `http[s]://<server_name>/rest/<service_name>/_func`
+
+####Request
+>GET https://demo-dsp.cloud.dreamfactory.com/rest/db/_func/ HTTP/1.1
+
+####Response
+```javascript
+{
+  "resource": [
     {
-      "name": "todones",
+      "name": "sum_n_product",
       "access": [
-        "GET"
+        "GET",
+        "POST"
       ]
     },
     {
-      "name": "todos",
+      "name": "days_until_christmas",
       "access": [
-        "GET"
+        "GET",
+        "POST"
       ]
-    }
+    },
+    ...
   ]
 }
 ```
