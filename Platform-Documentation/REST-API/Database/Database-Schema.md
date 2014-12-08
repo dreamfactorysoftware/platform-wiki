@@ -59,6 +59,8 @@ Below is a JSON schema layout we came up with (pooled from various other platfor
         "fixed_length": false,
         "supports_multibyte": false,
         "auto_increment": true,
+        "is_index": true,
+        "is_unique": true,
         "is_primary_key": true,
         "is_foreign_key": false,
         "ref_table": "<foreign_key_referenced_table>",
