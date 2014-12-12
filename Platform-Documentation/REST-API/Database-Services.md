@@ -30,6 +30,7 @@ The following topics document the common capabilities across all supported datab
   * [Patching/Merging Records](Database-Patching-Records)
   * [Deleting Records](Database-Deleting-Records)
   * Retrieving Schema Along With Records
+  * [Date and Time Field Formats](Database-Date-Time-Formats)
 
 
 ## <a name="sql"></a>SQL Database Services
