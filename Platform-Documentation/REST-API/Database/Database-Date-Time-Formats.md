@@ -74,6 +74,7 @@ and the same dataset from above reformatted using these settings.
 	"last_modified_date": "2014-12-10T14:42:18-05:00"
 }
 ```
+**Note:** When these values are changed, the platform cache must be reset before they will be used by the API, see the Admin panel "Tools" menu.
 
 #### <a name="fields"></a>Client Usage
 
@@ -99,6 +100,6 @@ URI: **GET** `http[s]://<server_name>/rest/system/config`
 }
 ```
 
-These format settings are used by database [record retrieval](Database-Retrieving-Records) and for [stored procedure](SQL-Stored-Procedures] call response data when using the schema parameters for data formatting.
+These format settings are used by database [record retrieval](Database-Retrieving-Records) and for [stored procedure](SQL-Stored-Procedures) call response data when using the schema parameters for data formatting.
 
 **Note:** Date and time field values must use the same format for sending data to the API as was received when retrieving the fields from the API. In other words, the client can not retrieve a date as 'yyyy/mm/dd' and then perform a record update using 'mm/dd/yyyy' format. 
