@@ -44,18 +44,13 @@ In version 1.8.3, DreamFactory adds the ability to control the date and time for
 The configuration settings for the date and time formats can be found in `<dsp-install-directory>/config/common.config.php` and include the following settings...
 
 ```
-        //-------------------------------------------------------------------------
-        //	Date and Time Format Options
-        //  The default date and time formats used for in and out requests for
-        //  all database services, including stored procedures and system service resources.
-        //  Default values of null means no formatting is performed on date and time field values.
-        //  For options see https://github.com/dreamfactorysoftware/dsp-core/wiki/Database-Date-Time-Formats
-        //  Examples: 'm/d/y h:i:s A' or 'c' or DATE_COOKIE
-        //-------------------------------------------------------------------------
-        'dsp.db_time_format' => null,
-        'dsp.db_date_format' => null,
-        'dsp.db_datetime_format' => null,
-        'dsp.db_timestamp_format' => null,
+    //-------------------------------------------------------------------------
+    //  Date and Time Format Options
+    //-------------------------------------------------------------------------
+    'dsp.db_time_format' => null,
+    'dsp.db_date_format' => null,
+    'dsp.db_datetime_format' => null,
+    'dsp.db_timestamp_format' => null,
 ```
 
 The configuration options follow the conventions used in PHP for representing date and time formats. For options, see the following... 
@@ -66,10 +61,10 @@ The configuration options follow the conventions used in PHP for representing da
 The following are example formats for each of the DreamFactory simple data types...
 
 ```
-        'dsp.db_date_format' => 'l jS \of F Y',
-        'dsp.db_time_format' => 'h:i A',
-        'dsp.db_datetime_format' => 'm/d/y h:i:s A',
-        'dsp.db_timestamp_format' => 'c',
+    'dsp.db_date_format' => 'l jS \of F Y',
+    'dsp.db_time_format' => 'h:i A',
+    'dsp.db_datetime_format' => 'm/d/y h:i:s A',
+    'dsp.db_timestamp_format' => 'c',
 ```
 and the same dataset from above reformatted using these settings.
 
