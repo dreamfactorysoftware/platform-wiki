@@ -1,5 +1,3 @@
-## Database Date and Time Formats
-
 Database vendors accept and return date and time values in different formats in some cases. This makes it difficult to get consistent behavior on the client side when dealing with multiple vendors. Here are some of the default formats coming from some of the popular databases...
 
 MySQL
