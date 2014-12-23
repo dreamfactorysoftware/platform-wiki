@@ -42,7 +42,7 @@ Calling internally however only requires the relative URL sans the `/rest/` port
 	var _records = platform.api.get( "db/Contacts" );
 
 	//	Uppercase each name...
-	_.each( _records, function( record ) {
+	_.each( _records.record, function( record ) {
 		record.name = record.name.toUpperCase();
 	});
 ```
