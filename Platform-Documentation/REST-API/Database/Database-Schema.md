@@ -310,7 +310,7 @@ Example field schema declarations...
         "values": [ "Unknown","Cold","Warm","Hot" ],
         "default": "Unknown",
         "allow_null": false,
-        "validation": {"picklist: {"on_fail": "Please select one of the valid options."}}
+        "validation": {"picklist": {"on_fail": "Please select one of the valid options."}}
     },
     {
         "name": "website",
