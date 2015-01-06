@@ -39,4 +39,4 @@ Please get in touch with us:
 
 * [Contact DreamFactory Support](Contact-DreamFactory-Support)
 * [Ask a Question on the Forum](Discuss-on-Community-Forum)
-* [Chat on IRC](Chat-on-IRC)
+* [Chat on Gitter](Chat-on-IRC)
