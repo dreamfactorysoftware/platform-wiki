@@ -72,6 +72,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 * [SQL and REST - Working with Related Data](http://blog.dreamfactory.com/sql-and-rest-working-with-related-data)
 * [Demo - How to Make Relationship Queries with DreamFactory’s REST API](http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API)
 * [The Enterprise-Grade REST API for SQL](http://blog.dreamfactory.com/an-enterprise-grade-rest-api-for-sql)
+* [How to REST-enable your Oracle database in Ten Minutes](http://blog.dreamfactory.com/how-to-access-your-oracle-database-from-dreamfactory)
 
 ### NoSQL Databases
 
@@ -104,6 +105,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 
 * [Adding a Remote Web Service to DreamFactory](http://blog.dreamfactory.com/blog/bid/326051/Adding-a-Remote-Web-Service-to-Your-DSP)
 * [Example of Swagger JSON File for Rotten Tomatoes REST API](http://blog.dreamfactory.com/tutorial-angular-and-rest-made-simple)
+* [Remote Web Service Caching](http://blog.dreamfactory.com/new-feature-remote-web-service-caching)
 
 ### User Management and OAuth
 
