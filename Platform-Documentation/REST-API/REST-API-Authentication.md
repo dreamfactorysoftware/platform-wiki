@@ -34,3 +34,35 @@ To authenticate a user, simply POST a JSON string to ```/user/session``` that ta
 If successful, in the response, you’ll see a ```session_id``` indicating that a new session has been created.
 
 Very Important: For all future requests to the API, you’ll need to pass the ```session_id``` as a new request header called **X-DreamFactory-Session-Token **
+
+### Basic HTTP Authentication
+Basic HTTP Authentication is supported on version 1.9. Now you can authenticate using ajax request by setting 'Authorization' HTTP Request Header.
+
+```
+var username = $('#username').val();
+var password = $('#password').val();
+var url = $('#url').val();
+
+$.ajax({ 
+    url: url,
+    async: true,
+    type:'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Basic "+btoa(username+':'+password));
+    },
+    success: function(json){
+        ...
+    },
+    error: function(err) {
+        ...
+    }
+});
+```
+
+You can also authenticate using curl by including username and password in your url - 
+
+```
+curl http://username:password@dsp.example.com/rest/<service>/<resource>
+```
