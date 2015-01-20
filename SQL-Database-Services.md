@@ -1,6 +1,6 @@
 ## <a name="top"></a>SQL Database Service Specifics
 
-# <a name="postgresql"></a>PostgreSQL
+### <a name="postgresql"></a>PostgreSQL
 
 * Linux
   1. [Install DSP](Install-on-Linux). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
