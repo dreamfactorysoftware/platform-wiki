@@ -14,6 +14,6 @@
     * SQL Vendor: PostgreSQL
     * Host: hostname or IP of your PostgreSQL server (localhost if appropriate)
     * Database Name: name of the PostgreSQL DB
-    * Connection String: if using a non-standard (5432) port, add `;port=####` (where #### is the actual port number) to the end of your connection string
+    * Connection String: if using a port other than the default (5432), add `;port=####` (where #### is the actual port number) to the end of your connection string
   6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
 * Windows
