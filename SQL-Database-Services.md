@@ -31,3 +31,15 @@
   6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
 
 * Windows
+  1. [Install DSP](Install-Microsoft-Windows). (The below steps assume a DSP install in `C:\dsp\` with its PHP installed in `C:\dsp\php\`.)
+  2. Check `C:\dsp\php\php.ini` to ensure the value `extension=php_pdo_pgsql.dll` is present and uncommented. (In the Bitnami installer version 1.8.2-1 it already is.)
+  3. Check `C:\dsp\php\ext\` to ensure `php_pdo_pgsql.dll` is present. (This is included in the Bitnami package.)
+  4. If you made any changes/additions in steps ii and iii, restart your Apache server.
+  5. Login to your DSP's Admin Console and create a new [service](Services). Enter the following, then click Save at the bottom of the page.
+    * Type: Remote SQL DB
+    * Username and Password: valid credentials to your PostgreSQL DB
+    * SQL Vendor: PostgreSQL
+    * Host: hostname or IP of your PostgreSQL server (localhost if appropriate)
+    * Database Name: name of the PostgreSQL DB
+    * Connection String: if using a port other than the default (5432), add `;port=####` (where #### is the actual port number) to the end of your connection string
+  6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
