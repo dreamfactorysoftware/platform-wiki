@@ -4,7 +4,7 @@
 
 * Linux
 * Mac OS X
-  1. [Install DSP](Install-Mac-OS-X). (The below steps assume a DSP install in `/Applications/dsp/` with its MAMP stack's PHP installed in `/Applications/dsp/php/`.)
+  1. [Install DSP](Install-Mac-OS-X). (The below steps assume a DSP install in `/Applications/dsp/` with its PHP installed in `/Applications/dsp/php/`.)
   2. Check `/Applications/dsp/php/etc/php.ini` to ensure the values `extension=pgsql.so` and `extension=pdo_pgsql.so` are present and uncommented. (In the Bitnami installer version 1.8.2-1 they already are.)
   3. Check `/Applications/dsp/php/lib/php/extensions/` to ensure `pgsql.so` and `pdo_pgsql.so` are present. (These are included in the Bitnami package.)
   4. If you made any changes/additions in steps ii and iii, restart your Apache server.
