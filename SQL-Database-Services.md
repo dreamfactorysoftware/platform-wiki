@@ -3,7 +3,7 @@
 # <a name="postgresql"></a>PostgreSQL
 
 * Linux
-  1. [Install DSP](Install-Mac-OS-X). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
+  1. [Install DSP](Install-on-Linux). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
   2. Check `~/dsp/php/etc/php.ini` to ensure the values `extension=pgsql.so` and `extension=pdo_pgsql.so` are present and uncommented. (In the Bitnami installer version 1.8.2-1 they already are.)
   3. Check `~/dsp/php/lib/php/extensions/` to ensure `pgsql.so` and `pdo_pgsql.so` are present. (These are included in the Bitnami package.)
   4. If you made any changes/additions in steps ii and iii, restart your Apache server.
