@@ -18,6 +18,10 @@ Email Service | NO | YES | YES
 
 For DSP instances that were installed directly from Github or by other means not using Bitnami installers, some services require additional libraries that may have to be installed in that environment. Below is a list of requirements and additional instructions for each service type.
 
+### PHP
+
+PHP 5.4.0 or higher is required.
+
 ###Server-Side Scripting
 
 This service uses the V8js extension. Instructions on how to install it can be found [here](Installing-V8js).
