@@ -1,4 +1,4 @@
-### Use of our API requires [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0)
+### Using SSL with our API requires [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0)
 
 During the app building process, you may find yourself using command line tools such as CURL, or writing code. Be sure you have chosen the correct settings/options for [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0).
 
@@ -16,8 +16,6 @@ Your **API key**, required in REST calls to your DreamFactory instance, is chose
 Providing the API key along with the request can be done in one of two ways:
 
 1. **Via Query String** Add ```?app_name=**api_key**``` to each endpoint URL
-
-or
 
 2. Send a custom HTTP header along with your requests. Your DSP will recognize API keys provided in the header **X-DreamFactory-Application-Name**:
 
