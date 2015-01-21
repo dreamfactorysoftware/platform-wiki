@@ -48,6 +48,7 @@ Go [here](https://dsp-sandman1.cloud.dreamfactory.com/swagger/#!/db) to see this
   * [Retrieving Related Data Along With Records](SQL-Related-Data)
   * [Creating and Managing Related Data With Records](SQL-Related-Data)
   * [Accessing Stored Procedures](SQL-Stored-Procedures)
+  * [Using Expressions for Field Value](SQL-Field-Expressions)
 
 
 ## <a name="nosql"></a>NoSQL Database Services

@@ -39,6 +39,8 @@
   * [Views](SQL-Views)
 
   * [Stored Procedures](SQL-Stored-Procedures)
+  
+  * [Field Expressions](SQL-Field-Expressions)
 
 * [NoSQL DB Specifics](NoSQL-Database-Services)
 
