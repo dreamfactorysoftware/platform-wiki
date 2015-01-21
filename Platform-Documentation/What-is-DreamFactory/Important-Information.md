@@ -17,8 +17,6 @@ Providing the API key along with the request can be done in one of two ways:
 
 1. **Via Query String** Add ```?app_name=**api_key**``` to each endpoint URL
 
-or
-
 2. Send a custom HTTP header along with your requests. Your DSP will recognize API keys provided in the header **X-DreamFactory-Application-Name**:
 
 ```
