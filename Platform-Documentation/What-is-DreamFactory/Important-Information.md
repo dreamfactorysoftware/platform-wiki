@@ -1,4 +1,4 @@
-### Use of our API requires [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0)
+### Using SSL with our API requires [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0)
 
 During the app building process, you may find yourself using command line tools such as CURL, or writing code. Be sure you have chosen the correct settings/options for [SSL3](http://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_3.0).
 
