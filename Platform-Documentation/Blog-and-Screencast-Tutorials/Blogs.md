@@ -73,6 +73,7 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 * [Demo - How to Make Relationship Queries with DreamFactory’s REST API](http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API)
 * [The Enterprise-Grade REST API for SQL](http://blog.dreamfactory.com/an-enterprise-grade-rest-api-for-sql)
 * [How to REST-enable your Oracle database in Ten Minutes](http://blog.dreamfactory.com/how-to-access-your-oracle-database-from-dreamfactory)
+* [Add a REST API to Your IBM DB2 Database in Four Easy Steps](http://blog.dreamfactory.com/rest-api-for-db2)
 
 ### NoSQL Databases
 
