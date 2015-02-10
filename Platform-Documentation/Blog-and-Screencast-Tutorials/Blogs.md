@@ -98,6 +98,10 @@ Here's a consolidated list of blog posts and tutorials about how to use DreamFac
 
 * [Connecting DreamFactory to External File Storage](http://blog.dreamfactory.com/blog/bid/294849/Connecting-your-DSP-to-External-File-Storage)
 
+### Amazon Simple Notification Service (SNS) Push Notifications
+
+*[DreamFactory 1.9.0 Supports Amazon SNS Push Notifications](http://blog.dreamfactory.com/dreamfactory-190-supports-push-notifications-via-amazon-sns)
+
 ### Salesforce.com
 
 * [Source Code for a Simple App that Uses the Salesforce REST API](https://github.com/dreamfactorysoftware/app-salesforce-service)
