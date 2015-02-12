@@ -72,3 +72,9 @@ curl http://username:password@dsp.example.com/rest/<service>/<resource>
 ```
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 ```
+
+Then restart apache and PHP FPM.
+
+```
+sudo /opt/bitnami/ctlscript.sh restart
+```
