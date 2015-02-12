@@ -66,3 +66,9 @@ You can also authenticate using curl by including username and password in your 
 ```
 curl http://username:password@dsp.example.com/rest/<service>/<resource>
 ```
+
+Note for Bitnami cloud installs. You ned to edit the file /opt/bitnami/apps/dreamfactory/conf/htaccess.conf in order for the auth to be made available to PHP. To do this add the following line to this file.
+
+```
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+```
