@@ -18,7 +18,7 @@ Below are installation instructions for DreamFactory's open source code base for
 
 0. Deploy your WAMP/WNMP/WIMP stack of choice. This guide will assume a WAMP stack with MySQL.
 1. Create a database for your DSP. The DSP will populate it later.
-```cmd
+```
 C:\>C:\Program Files\MySQL\MySQL Server 5.6\bin\mysql.exe -u root -p
 ```
 ```sql
@@ -32,15 +32,15 @@ Bye
 2. Ensure these PHP modules are installed and enabled: `curl`, `openssl`, `mysql`, and `gd`.
 3. Install and configure a git client, such as [GitHub for Windows](https://windows.github.com/).
 4. Clone the dsp-core repository. From the Git Shell:
-```cmd
+```
 C:\>git clone https://github.com/dreamfactorysoftware/dsp-core.git C:\dsp\
 ```
 5. Create required directories in the cloned repository's root path:
-```cmd
+```
 C:\dsp\>mkdir log storage vendor web assets
 ```
 6. Run Composer in Git Shell *from your DSP install directory:*
-```cmd
+```
 C:\dsp\>C:\php54\php.exe C:\php54\composer.phar update --no-dev
 ```
 7. Configure your web server to serve up DSP. The directory intended to be served is `C:\dsp\web\`
