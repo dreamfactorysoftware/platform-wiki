@@ -45,14 +45,10 @@ Below are installation instructions for DreamFactory's open source code base for
    C:\dsp\>mkdir log storage vendor web assets
    ```
 
-6. Run Composer in Git Shell *from your DSP install directory:*
+6. Run Composer. From the Git Shell while in your DSP install directory:
 
    ```
    C:\dsp\>C:\php54\php.exe C:\php54\composer.phar update --no-dev
    ```
 
 7. Configure your web server to serve up DSP. The directory intended to be served is `C:\dsp\web\`
-
-
-
-
