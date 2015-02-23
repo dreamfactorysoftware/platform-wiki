@@ -5,7 +5,7 @@ When things happen via the REST API events are triggered in the system. Each of 
 **db.Account.update** - event fires and script runs BEFORE updating records in database  
 **db.Account.delete** - event fires and script runs BEFORE deleting records from database  
 
-These four events are generally used for notifications. There are also pre_process and post_process events. In many cases it is preferable to use these since you can control when the script runs, either before or after the associated REST action takes place. For updating records you can have different scripts for PUT, PATCH, and MERGE.
+These four events are generally used for notifications. There are also pre_process and post_process events. In most cases it is preferable to use these since you can control when the script runs, either before or after the associated REST action takes place. For updating records you can have different scripts for PUT, PATCH, and MERGE.
 
 **db.Account.get.pre_process**  
 **db.Account.get.post_process**  
