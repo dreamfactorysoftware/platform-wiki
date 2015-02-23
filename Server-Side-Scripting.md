@@ -7,18 +7,23 @@ When things happen via the REST API events are triggered in the system. Each of 
 
 These four events are generally used for notifications. There are also pre_process and post_process events. In many cases it is preferable to use these since you can control when the script runs, either before or after the associated REST action takes place. For updating records you can have different scripts for PUT, PATCH, and MERGE.
 
-db.Account.get.pre_process  
-db.Account.get.post_process  
-db.Account.post.pre_process  
-db.Account.post.post_process  
-db.Account.put.pre_process  
-db.Account.put.post_process  
-db.Account.patch.pre_process  
-db.Account.patch.post_process  
-db.Account.merge.pre_process  
-db.Account.merge.post_process  
-db.Account.delete.pre_process  
-db.Account.delete.post_process  
+**db.Account.get.pre_process**
+**db.Account.get.post_process**
+
+**db.Account.post.pre_process**
+**db.Account.post.post_process**
+
+**db.Account.put.pre_process**
+**db.Account.put.post_process**
+
+**db.Account.patch.pre_process**
+**db.Account.patch.post_process**
+
+**db.Account.merge.pre_process**
+**db.Account.merge.post_process**
+
+**db.Account.delete.pre_process**
+**db.Account.delete.post_process**
 
 ## Blog Posts
 
@@ -29,6 +34,24 @@ See the blog posts below for a high-level overview of server-side scripting.
 * [Build Your Own Web Services Using DreamFactory Custom Scripts](http://blog.dreamfactory.com/build-your-own-web-services-using-dreamfactory-custom-scripts)
 
 ## Scripting Examples
+
+**Send SNS Push Notification when new record(s) created**
+
+```
+var name = event.request.record[0].name;
+
+var msg = {
+  "Message": {
+    "default": "A new Todo named '" + name + "' was just created!"
+  },
+  "Subject": "New Todo Created"
+}
+
+// push to SNS topic by name
+var result = platform.api.post("push/topic/642246745556%3Anew_todo", msg);
+var_dump(result);
+
+```
 
 **Field validation before record creation**
 
