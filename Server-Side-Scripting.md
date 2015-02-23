@@ -7,23 +7,23 @@ When things happen via the REST API events are triggered in the system. Each of 
 
 These four events are generally used for notifications. There are also pre_process and post_process events. In many cases it is preferable to use these since you can control when the script runs, either before or after the associated REST action takes place. For updating records you can have different scripts for PUT, PATCH, and MERGE.
 
-**db.Account.get.pre_process**
-**db.Account.get.post_process**
+**db.Account.get.pre_process**  
+**db.Account.get.post_process**  
 
-**db.Account.post.pre_process**
-**db.Account.post.post_process**
+**db.Account.post.pre_process**  
+**db.Account.post.post_process**  
 
-**db.Account.put.pre_process**
-**db.Account.put.post_process**
+**db.Account.put.pre_process**  
+**db.Account.put.post_process**  
 
-**db.Account.patch.pre_process**
-**db.Account.patch.post_process**
+**db.Account.patch.pre_process**  
+**db.Account.patch.post_process**  
 
-**db.Account.merge.pre_process**
-**db.Account.merge.post_process**
+**db.Account.merge.pre_process**  
+**db.Account.merge.post_process**  
 
-**db.Account.delete.pre_process**
-**db.Account.delete.post_process**
+**db.Account.delete.pre_process**  
+**db.Account.delete.post_process**  
 
 ## Blog Posts
 
