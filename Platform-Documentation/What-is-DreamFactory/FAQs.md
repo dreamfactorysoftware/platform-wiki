@@ -1,6 +1,6 @@
-### Frequently Asked Questions
+## Frequently Asked Questions
 
-**What is DreamFactory?**
+###**What is DreamFactory?**
 
 DreamFactory is an open source REST API platform for enterprise mobile application development. We provide a turnkey middleware solution that connects any client application to any backend data source. You can install the DreamFactory software package on any cloud or server. You can also run DreamFactory on your local desktop during development.
 
@@ -8,7 +8,7 @@ DreamFactory automatically generates all of the RESTful services that you need f
 
 DreamFactory supports every major SQL database, NoSQL document store, and file storage system. We also make it easy to securely consume any remote web services, including custom services you’ve written yourself. We provide other advanced features such as user management and server-side scripting.
 
-**What hard technical problems does DreamFactory solve?**
+###**What hard technical problems does DreamFactory solve?**
 
 The biggest technical problem that DreamFactory solves is providing a comprehensive REST API for all of your backend data sources. Without DreamFactory, developers have to write all of this server-side software themselves. DreamFactory virtualizes each data source with a generic REST API, so developers can switch between SQL databases, NoSQL document stores, and file storage systems without rewriting their frontend application.
 
@@ -18,7 +18,7 @@ The third hard problem DreamFactory solves is the generation of Client SDKs for 
 
 Lastly, some mobile applications need business logic implemented on the server. For this purpose, DreamFactory allows any API call to be customized with server-side scripting. Event scripts can be used to pre-process any request or post-process any response. DreamFactory also supports custom scripting which can be called directly from your client application. Custom scripts are useful for performing business logic that is not dependent on API calls to a specific data source.
 
-**What types of apps are well suited for DreamFactory?**
+###**What types of apps are well suited for DreamFactory?**
 
 At the highest level of abstraction, any data-driven application that would benefit from a REST API is a great fit for DreamFactory. Static apps or websites that do not depend on backend data are not a good fit.
 
@@ -30,7 +30,7 @@ DreamFactory is also a good fit for server-to-server API calls. For example, you
 
 Lastly, DreamFactory is becoming a popular technology for IoT (Internet of Things) applications. Device sensors can easily transmit data RESTfully to DreamFactory and human end users (or machines) can access the transmitted data via REST calls.
 
-**Who is using DreamFactory?**
+###**Who is using DreamFactory?**
 
 Because DreamFactory is open source and REST APIs are very flexible, usage is diverse. 
 
@@ -38,7 +38,7 @@ The most common use case is mobile app development that requires connections to 
 
 DreamFactory is also used by ISVs (independent software vendors) as the run-time API server that connects frontend apps to backend data using REST. ISVs include companies that sell mobile applications, SaaS web application companies, and IoT vendors (Internet of Things).
 
-**How would I explain the business benefits of DreamFactory to my manager?**
+###**How would I explain the business benefits of DreamFactory to my manager?**
 
 From a business perspective, DreamFactory helps companies in a few ways.
 
@@ -48,7 +48,7 @@ Second, DreamFactory prevents vendor lock-in to both cloud infrastructure vendor
 
 Third, DreamFactory centralizes control for IT departments. A typical Fortune 500 company literally has thousands of mobile applications that need to be secured. Securing backend data is extremely challenging in this context. DreamFactory provides a centralized set of REST APIs that can be shared by mobile applications across the enterprise and governed centrally by the IT department. When an end user loses a device or leaves a company, it’s important to both lock down the device (e.g. using MDM) AND the backend data. DreamFactory address the second security use case, namely the ability to control backend data access in real time.
 
-**How does DreamFactory handle security?**
+###**How does DreamFactory handle security?**
 
 DreamFactory has a user and role management system that controls access to backend data. The user management system uses the MySQL database that comes installed with DreamFactory. The user management system has a REST API, so you can mirror an existing user management system, but users and roles must also be stored in DreamFactory. Active Directory (LDAP) integration will be supported in Q1 2015.
 
@@ -67,7 +67,7 @@ DreamFactory supports a number of access control features:
 * Bucket-level CRUD access for file storage (more granular file permissions are definable with database pointers)
 * Custom access control to any remote web service (governed server-side via JSON definition) 
 
-**How do I scale DreamFactory to handle a large volume of API calls and data?**
+###**How do I scale DreamFactory to handle a large volume of API calls and data?**
 
 DreamFactory is installed as a LAMP stack (or Windows WAMP or Mac MAMP). Web servers route the API requests to DreamFactory, and DreamFactory returns JSON (or XML) back to your client applications. DreamFactory supports Apache, NGINX, and IIS web servers. 
 
@@ -77,7 +77,7 @@ DreamFactory also scales vertically. You need to install DreamFactory on servers
 
 DreamFactory has its own MySQL database, which stores users and roles (i.e. end users of your client applications). You can customize the MySQL schema and use the MySQL database for application data (there’s an API called ‘/db’ for the MySQL database). You can deploy DreamFactory on an any server infrastructure (on premises, cloud IaaS, and PaaS) and the MySQL database can handle millions of end users. You can also use the same database management tools you use today for backing up and replicating data in the MySQL database.
 
-**How can I learn to build an app using DreamFactory?**
+###**How can I learn to build an app using DreamFactory?**
 
 Before building your first application, it’s important to understand how REST APIs work. If you don’t understand REST APIs, read up on REST first. In a nutshell, each API call you make to DreamFactory is simply requesting a resource with a specific URL path. You can pass parameters in your API calls, such as a sort order or filter string, and these parameters are part of the URL path (appended as parameters in the URL). In effect, querying backend data with the API is asking DreamFactory to return data from a specific URL endpoint. This is a different paradigm than writing a SQL query or a stored procedure to return data from the server.
 
@@ -85,11 +85,11 @@ The easiest way to start using DreamFactory is to sign up for a free hosted acco
 
 After that, you should follow the [blog tutorials](Blogs) and [screencasts](Screencasts) to build a simple application using your favorite frontend technology. If you still need help, you should search the [community forum](http://community.dreamfactory.com/) or send an email to support@dreamfactory.com.
 
-**Is there a product roadmap?**
+###**Is there a product roadmap?**
 
 There’s a high-level roadmap published [here](Upcoming-Features). If you have a specific feature request or find a bug, please [file a ticket on GitHub](https://github.com/dreamfactorysoftware/dsp-core/issues) or post it on the [community forum](http://community.dreamfactory.com/).
 
-**How is DreamFactory different than API Management software?**
+###**How is DreamFactory different than API Management software?**
 
 DreamFactory is different than API management software in a fundamental way. API management requires you to build REST APIs yourself and helps you manage your custom APIs. DreamFactory, on the other hand, is a *run-time* server that 1) automatically generates REST APIs for you 2) manages all the backend security for those APIs, and 3) returns JSON / XML from REST API calls at *run time*.
 
@@ -99,7 +99,7 @@ As such, DreamFactory creates the REST APIs for SQL, NoSQL, and file storage on 
 
 However, if you have custom API requirements, you can add any remote web service as a RESTful service inside DreamFactory and leverage DreamFactory’s SSO and role system to govern end user access to your custom APIs at run time. 
 
-**How is DreamFactory different than hosted “mobile backend as a service” (aka MBaaS)?**
+###**How is DreamFactory different than hosted “mobile backend as a service” (aka MBaaS)?**
 
 “MBaaS” is acronym jargon for “mobile backend as a service”. Proprietary MBaaS vendors such as Parse and Kinvey host their customers' backend data and provide a number of beneficial features to reduce the amount of server-side code that developers need to write for their mobile applications.
 
@@ -111,7 +111,7 @@ DreamFactory provides the same simplification benefits of MBaaS. However, DreamF
 * MBaaS products do not specialize in integrating with existing "legacy" databases and file systems inside enterprises. DreamFactory provides REST APIs for your existing SQL databases, NoSQL databases, and file storage systems.
 * MBaaS security features are tailored for consumer mobile app use cases. DreamFactory provides enterprise-grade backend security based on over a decade of enterprise app development experience, largely on the Salesforce.com platform.
 
-**How is DreamFactory different than “platform as a service” (aka PaaS)?**
+###**How is DreamFactory different than “platform as a service” (aka PaaS)?**
 
 “PaaS” is an acronym for “platform as a service”. PaaS products such as Pivotal Web Services and Heroku run server hardware and software (i.e. “platform”) for you. Think of PaaS as full-service IaaS (Infrastructure as a Service). Instead of having your own Dev Ops team managing AWS provisioning, you can outsource the Dev Ops function to a PaaS company to make sure your servers are humming along smoothly and alert you when they're not.  
 
