@@ -35,7 +35,7 @@ See the blog posts below for a high-level overview of server-side scripting.
 
 ## Scripting Examples
 
-**Send SNS Push Notification when new record(s) created**
+**Send SNS push potification when new record(s) created**
 
 ```
 var name = event.request.record[0].name;
