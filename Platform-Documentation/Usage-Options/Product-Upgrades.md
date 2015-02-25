@@ -21,7 +21,7 @@ cp ../htdocs.old/scripts/installer.sh ./scripts/
 cp ../htdocs.old/web/.htaccess ./web/
 cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
 # self-update is optional, try it if you get an error without it
-../../../php/bin/composer.phar self-update
+../../../php/bin/php ../../../php/bin/composer.phar self-update
 ../../../php/bin/php ../../../php/bin/composer.phar update --no-dev
 ../../../ctlscript.sh restart
 ```
