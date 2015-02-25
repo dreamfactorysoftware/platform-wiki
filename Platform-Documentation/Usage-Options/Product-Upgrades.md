@@ -5,7 +5,7 @@
 
 From the DSP Admin Console, go to the Config menu option on the left. The top of the configuration listing will display your current version and any upgrades that are available.
 
-We are reworking the upgrade process to make it as painless as possible. Until then here is the recommended update procedure for Bitnami installs. For 1.7.8 and older installs that still offer the Upgrade button in the admin console please use this method rather than clicking the Upgrade button. If anything goes wrong you will have a backup of your original installation.
+This is the recommended update procedure for Bitnami installs. For 1.7.8 and older installs that still offer the Upgrade button in the admin console please use this method rather than clicking the Upgrade button. If anything goes wrong you will have a backup of your original installation.
 
 Mac OS X and Linux
 
@@ -20,7 +20,9 @@ git pull origin master
 cp ../htdocs.old/scripts/installer.sh ./scripts/
 cp ../htdocs.old/web/.htaccess ./web/
 cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
-../../../php/bin/php ../../../php/bin/composer.phar update
+# self-update is optional, try it if you get an error without it
+../../../php/bin/composer.phar self-update
+../../../php/bin/php ../../../php/bin/composer.phar update --no-dev
 ../../../ctlscript.sh restart
 ```
 Problems?
@@ -46,5 +48,7 @@ Use your favorite git commands to pull the latest code from the dsp-core repo. T
 git stash
 git checkout master
 git pull origin master
-php composer.phar update
+# self-update is optional, try it if you get an error without it
+php composer.phar self-update
+php composer.phar update --no-dev
 ```
