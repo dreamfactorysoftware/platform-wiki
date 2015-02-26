@@ -29,7 +29,8 @@ If your application is not part of the guest user’s role, then access to any s
 To authenticate a user, simply POST a JSON string to ```/user/session``` that takes on the following format: ```{“email":"email_value", “password":"password_value"}```
 If successful, in the response, you’ll see a ```session_id``` indicating that a new session has been created.
 
-Very Important: For all future requests to the API, you’ll need to pass the ```session_id``` as a new request header called **X-DreamFactory-Session-Token **
+Very Important: For all future requests to the API, you’ll need to pass the ```session_id``` as a new request header called **X-DreamFactory-Session-Token ** and the API key called **X-DreamFactory-Application-Name**.  
+
 
 ## Questions or Need Help?
 
