@@ -31,6 +31,11 @@ If successful, in the response, you’ll see a ```session_id``` indicating that 
 
 Very Important: For all future requests to the API, you’ll need to pass the ```session_id``` as a new request header called **X-DreamFactory-Session-Token ** and the API key called **X-DreamFactory-Application-Name**.  
 
+```
+curl -i -k -3 -X GET https://dsp-yourdsp.cloud.dreamfactory.com/rest/db/todo \
+  -H "X-DreamFactory-Application-Name: todojquery" \
+  -H "X-DreamFactory-Session-Token: bhc7lov8r41h4cbn6pue1r63gbgh7jf6"
+```
 
 ## Questions or Need Help?
 
