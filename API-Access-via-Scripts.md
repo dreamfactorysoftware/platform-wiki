@@ -56,7 +56,7 @@ Of course, any changes to the `event.record` or `event.payload` elements will be
 You can include an optional third argument to add cURL options to the request. For example to add headers
 
 ```
-result = platform.api.post("http://requestb.in/qxvtceqx",
+result = platform.api.post("http://localhost",
                JSON.stringify({"name":"test"}),
                {"CURLOPT_HTTPHEADER": ["Content-Type: application/json","Some-Other-Header: blah"]});
 ```
@@ -64,7 +64,7 @@ result = platform.api.post("http://requestb.in/qxvtceqx",
 For GET you might need to set the second argument, payload, to null to include the optional third argument for the cURL options.
 
 ```
-result = platform.api.get("http://requestb.in/qxvtceqx",
+result = platform.api.get("http://localhost",
                null,
                {"CURLOPT_HTTPHEADER": ["Some-Header: blah"]});
 ```
