@@ -49,7 +49,25 @@ Calling internally however only requires the relative URL sans the `/rest/` port
 
 Data returned from external and internal calls will return the results as they are received. No additional processing is provided for this data.
 
-Of course, any changes to the `event.record` or `event.payload` elements will be reflected back to the original client call. 
+Of course, any changes to the `event.record` or `event.payload` elements will be reflected back to the original client call.
+
+### Adding headers or other CURLOPT_* to platform.api calls
+
+You can include an optional third argument to add cURL options to the request. For example to add headers
+
+```
+result = platform.api.post("http://requestb.in/qxvtceqx",
+               JSON.stringify({"name":"test"}),
+               {"CURLOPT_HTTPHEADER": ["Content-Type: application/json","Some-Other-Header: blah"]});
+```
+
+For GET you might need to set the second argument, payload, to null to include the optional third argument for the cURL options.
+
+```
+result = platform.api.get("http://requestb.in/qxvtceqx",
+               null,
+               {"CURLOPT_HTTPHEADER": ["Some-Header: blah"]});
+```
 
 ### platform.api.includeUserScript()
 One additional method is available in the `platform.api` object. This is the `includeUserScript()` method. This allows you to include your own library or libraries of scripts into your server-side scripts.
