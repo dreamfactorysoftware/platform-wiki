@@ -97,9 +97,9 @@
 
 <!-- * [[DMA for Windows Mobile]]-->
 
-**Blog and Screencast Tutorials**
+**Tutorials and Screencasts**
 
- * [[Blogs]]
+ * [[Tutorials]]
  * [[Screencasts]]
 
 **Product Roadmap**
