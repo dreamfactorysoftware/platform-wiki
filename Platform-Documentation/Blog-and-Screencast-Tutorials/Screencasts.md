@@ -1,4 +1,4 @@
-Here's a list of screencast tutorials about DreamFactory, and how to use DreamFactory. All these videos are on our [YouTube channel](https://www.youtube.com/user/dreamfactorysoftware/playlists).
+Here's a list of screencasts about DreamFactory, and how to use DreamFactory. All these videos are on our [YouTube channel](https://www.youtube.com/user/dreamfactorysoftware/playlists).
 
 ### Overview 
 
