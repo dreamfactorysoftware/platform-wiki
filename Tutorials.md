@@ -1,4 +1,4 @@
-Here's a consolidated list of blog posts and tutorials about how to use DreamFactory.
+Here's a consolidated list of tutorials and blog posts about how to use DreamFactory.
 
 ## General Overview
 
