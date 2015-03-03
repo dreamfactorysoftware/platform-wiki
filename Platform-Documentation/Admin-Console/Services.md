@@ -129,7 +129,7 @@ For example, to set up a SMTP email service using Gmail follow the instructions 
 * Select “Services” on the left-side menu.
 * In the Type drop down select Email Service, then select SMTP as the provider.
 * Provide a Name for your service, an API Name, and a Description.
-* For this example we will use a Gmail account. In the host name enter smtp.gmail.com and the port number of 465.
+* For this example we will use a Gmail account. In the host name enter smtp.gmail.com and the port number of 587.
 * Under Security, select TLS.
 * Enter a Gmail email address.
 * Next, enter a Gmail password.
