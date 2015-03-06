@@ -61,7 +61,7 @@ Here's a consolidated list of tutorials and blog posts about how to use DreamFac
 
 ### Amazon Simple Notification Service (SNS) Push Notifications
 
-*[DreamFactory 1.9.0 Supports Amazon SNS Push Notifications](http://blog.dreamfactory.com/dreamfactory-190-supports-push-notifications-via-amazon-sns)
+* [DreamFactory 1.9.0 Supports Amazon SNS Push Notifications](http://blog.dreamfactory.com/dreamfactory-190-supports-push-notifications-via-amazon-sns)
 
 ### Salesforce.com
 
