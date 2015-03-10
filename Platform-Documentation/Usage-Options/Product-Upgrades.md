@@ -31,8 +31,8 @@ Using whatever Git client you have installed for Windows, follow the Windows equ
 
 ```shell
 cd C:\Bitnami\dreamfactory-1.9.0-1\apps\dreamfactory
-C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-0\php\composer.phar self-update
-C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-0\php\composer.phar update --no-dev
+C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar self-update
+C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar update --no-dev
 ```
 
 Problems?
