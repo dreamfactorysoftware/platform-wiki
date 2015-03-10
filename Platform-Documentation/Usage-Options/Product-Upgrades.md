@@ -25,6 +25,16 @@ cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
 ../../../php/bin/php ../../../php/bin/composer.phar update --no-dev
 ../../../ctlscript.sh restart
 ```
+
+Windows
+Using whatever Git client you have installed for Windows, follow the Windows equivalent of the steps above. Resuming at the line `# self-update is optional`:
+
+```shell
+cd C:\Bitnami\dreamfactory-1.9.0-1\apps\dreamfactory
+C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-0\php\composer.phar self-update
+C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-0\php\composer.phar update --no-dev
+```
+
 Problems?
 
 Some upgrades require database schema updates to continue operating correctly. If you run into errors after a software upgrade, log out of your DSP (go to <server>/web/logout), complete any requested schema upgrades, and log back in.
