@@ -27,6 +27,7 @@ cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
 ```
 
 Windows
+
 Using whatever Git client you have installed for Windows, follow the Windows equivalent of the steps above. Resuming at the line `# self-update is optional`:
 
 ```shell
