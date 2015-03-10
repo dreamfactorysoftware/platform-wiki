@@ -48,8 +48,7 @@ var msg = {
 }
 
 // push to SNS topic by name
-var result = platform.api.post("push/topic/642246745556%3Anew_todo", msg);
-var_dump(result);
+var result = platform.api.post("push/topic/642246745556:test_topic", msg);
 
 ```
 
