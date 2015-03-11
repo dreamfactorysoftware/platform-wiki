@@ -3,7 +3,7 @@ Here's a list of screencasts about DreamFactory, and how to use DreamFactory. Al
 ### Overview 
 
 * [What Is DreamFactory?](https://www.youtube.com/embed/EmfUwV0aGd4?vq=hd720)
-* [Getting Started with the DreamFactory Admin Console](https://www.youtube.com/embed/SRtAZ7Rt4A8?vq=hd720)
+* [Getting Started with the DreamFactory Admin Console](https://www.youtube.com/embed/1pr3HYYfv60?vq=hd720)
 * [Avoiding Backend Lock-In](https://www.youtube.com/embed/JGiTltbiLgs?vq=hd720)
 
 ### Javascript QuickStart
