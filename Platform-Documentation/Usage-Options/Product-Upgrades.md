@@ -31,7 +31,7 @@ Windows
 Using whatever Git client you have installed for Windows, follow the Windows equivalent of the steps above. Resuming at the line `# self-update is optional`:
 
 ```shell
-cd C:\Bitnami\dreamfactory-1.9.0-1\apps\dreamfactory
+cd C:\Bitnami\dreamfactory-1.9.0-1\apps\dreamfactory\htdocs\
 C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar self-update
 C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar update --no-dev
 ```
