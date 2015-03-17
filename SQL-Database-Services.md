@@ -26,6 +26,7 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * Host: hostname or IP of your DB server (localhost if appropriate)
     * Database Name: name of the MS SQL Server DB
     * Connection String: if using a port other than the default (1433), add `,####` (where #### is the actual port number) immediately after hostname/IP (e.g., `Server=localhost,4200` or `Server=192.168.1.1,4300`)
+  8. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
 * Mac OS X
 
@@ -43,7 +44,7 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * Host: hostname or IP of your PostgreSQL server (localhost if appropriate)
     * Database Name: name of the PostgreSQL DB
     * Connection String: if using a port other than the default (5432), add `;port=####` (where #### is the actual port number) to the end of your connection string
-  6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
+  6. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
 * Mac OS X
   1. [Install DSP](Install-Mac-OS-X). (The below steps assume a DSP install in `/Applications/dsp/` with its PHP installed in `/Applications/dsp/php/`.)
@@ -57,7 +58,7 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * Host: hostname or IP of your PostgreSQL server (localhost if appropriate)
     * Database Name: name of the PostgreSQL DB
     * Connection String: if using a port other than the default (5432), add `;port=####` (where #### is the actual port number) to the end of your connection string
-  6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
+  6. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
 * Windows
   1. [Install DSP](Install-Microsoft-Windows). (The below steps assume a DSP install in `C:\dsp\` with its PHP installed in `C:\dsp\php\`.)
@@ -71,4 +72,4 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * Host: hostname or IP of your PostgreSQL server (localhost if appropriate)
     * Database Name: name of the PostgreSQL DB
     * Connection String: if using a port other than the default (5432), add `;port=####` (where #### is the actual port number) to the end of your connection string
-  6. Click the "Explore this service" icon next to your new service's name, and perform a simple GET request to verify connectivity.
+  6. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
