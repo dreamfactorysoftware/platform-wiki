@@ -9,6 +9,38 @@
 _We have tested connecting to MS SQL Server 2005 and above. Most testing is done on 2008 R2._
 
 * Linux
+  1. [Install DSP](Install-on-Linux). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
+  2. DSP uses the PHP PDO_DBLIB driver and the FreeTDS library for SQL Server connections from Linux. Documentation on PDO_DBLIB is available [here](http://php.net/manual/en/ref.pdo-dblib.php) and on FreeTDS is available [here](http://www.freetds.org/docs.html). [Bitnami packages](https://github.com/dreamfactorysoftware/dsp-core/wiki/Install-on-Linux#bitnami-installer) come with dblib and FreeTDS already integrated with PHP and enabled.
+  3. Check your PHP extensions directory to ensure pdo_dblib.so is present, and check `php.ini` to ensure the value `extension=pdo_dblib.so` is present and uncommented.
+  4. Confirm PDO_DBLIB is configured in PHP.
+
+    ```bash
+    $~/dsp/php/bin/php -i
+    PDO
+    PDO support => enabled
+    PDO drivers => mysql, sqlite, pgsql, dblib
+
+    pdo_dblib
+    PDO Driver for FreeTDS/Sybase DB-lib => enabled
+    Flavour => freetds
+    ```
+
+  5. Confirm the PDO_DBLIB module is enabled in PHP.
+
+    ```bash
+    $~/dsp/php/bin/php -m | grep pdo_dblib
+    pdo_dblib
+    ```
+
+  6. If you made any PHP configuration changes in the steps above, restart your web server to apply these changes.
+  7. Login to your DSP's Admin Console and create a new [service](Services). Enter the following, then click Save at the bottom of the page.
+    * Type: Remote SQL DB
+    * Username and Password: valid credentials to your MS SQL Server DB
+    * SQL Vendor: Microsoft SQL Server
+    * Host: hostname or IP of your DB server (localhost if appropriate)
+    * Database Name: name of the MS SQL Server DB
+    * Connection String: you will need to specify the port, even if using the default (1433. Add `:1433` (or replace 1433 with the actual port number) immediately after hostname/IP (e.g., `host=localhost:1433` or `host=192.168.1.1:1433`)
+  8. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
 * Windows
   1. [Install DSP](Install-Microsoft-Windows). (The below steps assume a DSP install in `C:\dsp\` with its PHP installed in `C:\dsp\php\`.)
