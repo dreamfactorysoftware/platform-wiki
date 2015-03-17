@@ -19,6 +19,13 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     ```
 
   6. Restart your web server to apply these PHP configuration changes.
+  7. Login to your DSP's Admin Console and create a new [service](Services). Enter the following, then click Save at the bottom of the page.
+    * Type: Remote SQL DB
+    * Username and Password: valid credentials to your MS SQL Server DB
+    * SQL Vendor: Microsoft SQL Server
+    * Host: hostname or IP of your DB server (localhost if appropriate)
+    * Database Name: name of the MS SQL Server DB
+    * Connection String: if using a port other than the default (1433), add `,####` (where #### is the actual port number) immediately after hostname/IP (e.g., `Server=localhost,4200` or `Server=192.168.1.1,4300`)
 
 * Mac OS X
 
