@@ -39,7 +39,7 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * SQL Vendor: Microsoft SQL Server
     * Host: hostname or IP of your DB server (localhost if appropriate)
     * Database Name: name of the MS SQL Server DB
-    * Connection String: you will need to specify the port, even if using the default (1433. Add `:1433` (or replace 1433 with the actual port number) immediately after hostname/IP (e.g., `host=localhost:1433` or `host=192.168.1.1:1433`)
+    * Connection String: you will need to specify the port, even if using the default of 1433. Add `:1433` (or replace 1433 with the non-default port number you plan to use) immediately after hostname/IP (e.g., `host=localhost:1433` or `host=192.168.1.1:1433`).
   8. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
 * Windows
