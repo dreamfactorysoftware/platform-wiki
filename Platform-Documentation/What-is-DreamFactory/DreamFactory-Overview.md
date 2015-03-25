@@ -16,7 +16,9 @@ DreamFactory is “runtime” software, which is to say that your application ma
 
 ## Features
 
-![](http://www.dreamfactory.com/sites/default/files/marchitecture-2.png)
+<br>
+
+![](http://www.dreamfactory.com/sites/default/files/stack_detail.png)
 
 ### Automatically Generated REST APIs 
 
