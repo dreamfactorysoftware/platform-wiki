@@ -2,11 +2,21 @@
 
 ###**What is DreamFactory?**
 
-DreamFactory is an open source REST API platform for enterprise mobile application development. We provide a turnkey middleware solution that connects any client application to any backend data source. You can install the DreamFactory software package on any cloud or server. You can also run DreamFactory on your local desktop during development.
+DreamFactory is an open source mobile backend that provides RESTful services for building modern applications.
 
-DreamFactory automatically generates all of the RESTful services that you need for modern application development. This allows developers to focus on application design and user experience instead of server-side software. You simply call the RESTful services and DreamFactory returns a JSON or XML document with the requested data.
+<br>
 
-DreamFactory supports every major SQL database, NoSQL document store, and file storage system. We also make it easy to securely consume any remote web services, including custom services you’ve written yourself. We provide other advanced features such as user management and server-side scripting.
+![](http://www.dreamfactory.com/sites/default/files/short_stack.png) 
+
+<br>
+
+DreamFactory automatically generates a comprehensive, customizable, and secure REST API for any backend data resource, including SQL, NoSQL, file storage, email, and push notifications. 
+
+Other important features include server-side scripting and customization, single sign-on, user management, record-level access control, interactive API docs, and client SDKs.
+
+In technical terms, DreamFactory is a LAMP / WAMP / MAMP stack that runs on Linux (Ubuntu, Red Hat, CentOS, Debian), Windows, and Mac OS X. As such, DreamFactory scales horizontally and vertically based on the number and size of servers. [Installation options](Usage-Options) are highly flexible. You can install DreamFactory on your IaaS cloud, PaaS provider, on premises server, or laptop. 
+
+DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
 
 ###**What hard technical problems does DreamFactory solve?**
 
