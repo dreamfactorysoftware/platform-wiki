@@ -28,7 +28,7 @@ DreamFactory automatically generates a comprehensive REST API for SQL databases,
 
 ### Server-Side Scripting & Customization
 
-Any non-trivial application requires server-side logic. To handle server-side logic, DreamFactory provides server-side scripting with the V8 Javascript Engine. DreamFactory makes it easy to write server-side scripts with Javascript and attach your scripts to any API request and response event. DreamFactory also provides the flexibility to implement business logic as custom scripts, which can be invoked as simple REST API calls. 
+Any non-trivial application requires server-side logic. To handle server-side logic, DreamFactory provides [server-side scripting](Server-Side-Scripting) with the V8 Javascript Engine. DreamFactory makes it easy to write server-side scripts with Javascript and attach your scripts to any API request and response event. DreamFactory also provides the flexibility to implement business logic as custom scripts, which can be invoked as simple REST API calls. 
 
 ### Security Controls
 
