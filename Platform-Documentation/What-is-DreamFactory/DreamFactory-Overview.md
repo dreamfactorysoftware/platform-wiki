@@ -4,11 +4,13 @@ DreamFactory is an open source mobile backend that provides RESTful services for
 
 DreamFactory automatically generates a comprehensive, customizable, and secure REST API for any backend data resource, including SQL, NoSQL, file storage, email, and push notifications. 
 
-Other important features include server-side scripting, API customization, single sign-on, user management, record-level access control, interactive API docs, and client SDKs.
+Other important features include server-side scripting and customization, single sign-on, user management, record-level access control, interactive API docs, and client SDKs.
 
 In technical terms, DreamFactory is a LAMP / WAMP / MAMP stack that runs on Linux (Ubuntu, Red Hat, CentOS, Debian), Windows, and Mac OS X. As such, DreamFactory scales horizontally and vertically based on the number and size of servers. [Installation options](Usage-Options) are highly flexible. You can install DreamFactory on your IaaS cloud, PaaS provider, on premises server, or laptop. 
 
 DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
+
+![](http://www.dreamfactory.com/sites/default/files/short_stack.png)
 
 ## Features
 
