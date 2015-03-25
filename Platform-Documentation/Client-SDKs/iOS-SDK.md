@@ -1,4 +1,4 @@
-The iOS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/ios-sdk).
+The iOS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/ios-sdk). The new iOS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/platform-sdk-for-ios).
 
 The iOS SDK includes a simple "to do list" example that shows how to make REST API calls to DreamFactory.
 
