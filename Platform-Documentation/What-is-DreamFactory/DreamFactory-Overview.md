@@ -28,6 +28,8 @@ Under the hood, DreamFactory handles secure password hashing, authentication, an
 
 The security system also governs access to any remote REST service you add. For example, you can easily connect to a custom REST API with DreamFactory and use the role system to control end user access to your custom-built API.
 
+![](http://www.dreamfactory.com/sites/default/files/marchitecture-2.png)
+
 ## Installation Options
 
 On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows.
