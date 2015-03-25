@@ -7,9 +7,9 @@ The documentation on this site is geared towards developers. For general informa
 ### Current Release
 The current release is version 1.9.0. For more information please see the [[CHANGELOG]].
 
-### Architecture
+### Project Overview
 
-Read all about the [anatomy of DreamFactory](DreamFactory-Overview).
+Read all about [what DreamFactory is and why you'd use it](DreamFactory-Overview).
 
 ### Important Information
 
