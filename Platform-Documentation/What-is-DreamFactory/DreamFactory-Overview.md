@@ -2,9 +2,9 @@
 
 DreamFactory is an open source mobile backend that provides RESTful services for building modern applications.
 
-<br>
-
 ![](http://www.dreamfactory.com/sites/default/files/short_stack.png) 
+
+<br>
 
 DreamFactory automatically generates a comprehensive, customizable, and secure REST API for any backend data resource, including SQL, NoSQL, file storage, email, and push notifications. 
 
