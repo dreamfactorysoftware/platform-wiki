@@ -4,4 +4,4 @@ The Angular SDK integrates the DreamFactory REST API with your AngularJS applica
 
 The [README](https://github.com/dreamfactorysoftware/angular-dreamfactory/blob/master/README.md) file on GitHub provides installation instructions and code examples for how to use the Angular SDK.
 
-There's also a DreamFactory user management module for Angular, which you can find [here](https://github.com/dreamfactorysoftware/angular_dreamfactory_user_management_module).
+There's also a DreamFactory user management module for Angular, which is[here](https://github.com/dreamfactorysoftware/angular_dreamfactory_user_management_module) and a data management module, which is [here](https://github.com/dreamfactorysoftware/angular-data-manager).
