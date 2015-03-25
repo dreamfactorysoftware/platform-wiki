@@ -1,4 +1,4 @@
-The AngularJS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/angular-dreamfactory). The new AngularJS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/platform-sdk-for-angular).
+The AngularJS SDK is on GitHub [here](https://github.com/dreamfactorysoftware/angular-dreamfactory). 
 
 The Angular SDK integrates the DreamFactory REST API with your AngularJS application. The SDK is dynamically generated when your Angular application loads, so your methods and services are always in sync with every REST API on the server in DreamFactory. 
 
