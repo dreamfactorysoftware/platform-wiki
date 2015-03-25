@@ -18,15 +18,40 @@ In technical terms, DreamFactory is a LAMP / WAMP / MAMP stack that runs on Linu
 
 DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
 
+###**What are some benefits of using DreamFactory?**
+
+DreamFactory provides many benefits, depending on your role.
+
+DreamFactory helps front-end developers 
+
+* Focus on front-end development rather than working on (or waiting on) server-side software
+* Connect to new data sources in minutes with just a few clicks
+* Access multiple data sources with RESTful ease and automatic security
+* Deliver projects cheaper and faster via instant, robust RESTful services
+
+DreamFactory helps back-end / API developers
+
+* Automatically generate and document secure, reliable, and reusable RESTful APIs
+* Customize auto-generated APIs with pre- and post-processing scripting logic
+* Integrate with existing security controls so you don’t have to re-implement and test for each API
+* Move applications between clouds or between your cloud and data center
+
+DreamFactory helps enterprise architects
+
+* Govern security with your own data access platform running in the cloud or on premises
+* Accelerate innovation with secure, scalable, reusable REST APIs to enterprise data sources
+* Enable standardized services abstraction layer for modern apps
+* Improve application reliability and security enterprise-wide with managed RESTful services
+
 ###**What hard technical problems does DreamFactory solve?**
 
-The biggest technical problem that DreamFactory solves is providing a comprehensive REST API for all of your backend data sources. Without DreamFactory, developers have to write all of this server-side software themselves. DreamFactory virtualizes each data source with a generic REST API, so developers can switch between SQL databases, NoSQL document stores, and file storage systems without rewriting their frontend application.
+The biggest technical problem that DreamFactory solves is providing a comprehensive, automatically generated, documented, and secure REST API for every popular backend data source. Without DreamFactory, developers have to manually create, document, maintain, and securely expose custom REST APIs to disparate data sources, and repeat that exercise for each new development project. DreamFactory automatically REST-enables all these data sources with a standard interface, so it becomes really easy to use any popular SQL database, NoSQL database, and file storage system for any application project, and re-use the REST API across a portfolio of application projects.
 
-The second hard technical problem DreamFactory solves is data security from a backend perspective. DreamFactory provides a complete user management system with role-based permissions that control all access to the backend data. We support record-level access control for any SQL or NoSQL data source. We also provide a complete set of services for session and password management.
+Any non-trivial application necessitates server-side business logic. For this purpose, DreamFactory allows you to easily customize any API call with server-side scripting. Event scripts can be used to pre-process any API request and post-process any API response. DreamFactory also supports custom scripting which can be called directly from your client application or from a server. 
 
-The third hard problem DreamFactory solves is the generation of Client SDKs for every major development environment. Once you hook up the backend data sources, you can immediately use our JavaScript SDK from any HTML5, Titanium, or PhoneGap application. Code libraries are generated for native developers using Xcode, Visual Studio, and Eclipse. This vastly simplifies calling our REST API from any popular developer tool or framework.
+The next hard technical problem DreamFactory solves is backend data security. DreamFactory provides a user management system with role-based access control access to your backend data, including table-level and record-level access to SQL and NoSQL, BLOB storage, email, and push notifications. The security system also governs access to any remote REST service you add. For example, you can easily connect to a custom REST API with DreamFactory and use the role system to control end user access to your custom-built API. The user management system includes an administrative application to manage end users, user roles, OAuth, LDAP, and Active Directory integration. Under the hood, DreamFactory handles secure password hashing, authentication, and session handling for you. 
 
-Lastly, some mobile applications need business logic implemented on the server. For this purpose, DreamFactory allows any API call to be customized with server-side scripting. Event scripts can be used to pre-process any request or post-process any response. DreamFactory also supports custom scripting which can be called directly from your client application. Custom scripts are useful for performing business logic that is not dependent on API calls to a specific data source.
+Another problem DreamFactory solves is the generation of Client SDKs for every major front-end development platform. Once you hook up the backend data sources, you can immediately use DreamFactory JavaScript SDK from any HTML5 or PhoneGap application. Code libraries are generated for native developers using Xcode, Visual Studio, Eclipse, and Titanium. This vastly simplifies calling the DreamFactory REST API from your client application.
 
 ###**What types of apps are well suited for DreamFactory?**
 
