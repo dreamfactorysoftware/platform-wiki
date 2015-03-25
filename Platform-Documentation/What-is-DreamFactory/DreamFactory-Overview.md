@@ -14,7 +14,7 @@ DreamFactory is “runtime” software, which is to say that your application ma
 
 ![](http://www.dreamfactory.com/sites/default/files/marchitecture-2.png)
 
-### Automatically Generated REST APIs for Any Data Source 
+### Automatically Generated REST APIs 
 
 DreamFactory automatically generates a comprehensive REST API for SQL databases, NoSQL document stores, file storage, email, and push notifications. You can also use DreamFactory to securely call any RESTful web service, including custom-built REST APIs. DreamFactory securely stores the credentials of backend data sources and exposes these data sources as a standard REST interface. The REST API includes live API documentation and client SDKs for iOS, Android, Titanium, Javascript, and AngularJS.
 
@@ -30,9 +30,31 @@ Under the hood, DreamFactory handles secure password hashing, authentication, an
 
 The security system also governs access to any remote REST service you add. For example, you can easily connect to a custom REST API with DreamFactory and use the role system to control end user access to your custom-built API.
 
+## Benefits
 
-## Installation Options
+### Front-end Developers
 
-On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows.
+* Focus on front-end development rather than working on (or waiting on) server-side software
+* Connect to new data sources in minutes with just a few clicks
+* Access multiple data sources with RESTful ease and automatic security
+* Faster, less costly projects via instant, robust RESTful services
 
-Head on over to [Usage Options](Usage-Options) for installation instructions.
+### Back-end / API Developers
+
+* Automatically generate and document secure, reliable, and reusable RESTful APIs
+* Customize auto-generated APIs with pre- and post-processing scripting logic
+* Integrated with existing security controls so you don’t have to re-implement and test for each API
+* Move applications between clouds or between your cloud and data center
+
+### Enterprise Architects
+
+* Govern security with your own data access platform running in the cloud or on premises
+* Accelerate innovation with secure, scalable, reusable REST APIs to enterprise data sources
+* Enable standardized services abstraction layer for modern apps
+* Improve application reliability and security enterprise-wide with managed RESTful services
+
+## Try DreamFactory Out
+
+To install the DreamFactory open source package on a server or laptop, head on over to [Usage Options](Usage-Options) for instructions.
+
+To try out DreamFactory without installing it, sign up for a free hosted developer environment at www.dreamfactory.com.
