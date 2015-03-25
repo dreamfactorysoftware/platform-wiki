@@ -126,7 +126,9 @@ There’s a high-level roadmap published [here](Upcoming-Features). If you have 
 
 ###**How is DreamFactory different than API Management software?**
 
-API management requires you to build REST APIs yourself and helps you manage your custom APIs. DreamFactory, on the other hand, is a *run-time* server that 1) automatically generates REST APIs for you; 2) enables you to customize API behavior with server-side scripts; 3) manages all the backend security for those APIs; and 4) returns JSON / XML from REST API calls at *run time*.
+API management requires you to build REST APIs yourself and helps you manage your custom APIs. 
+
+DreamFactory, on the other hand, is a *run-time* server that 1) automatically generates REST APIs for you; 2) enables you to customize API behavior with server-side scripts; 3) manages all the backend security for those APIs; and 4) returns JSON / XML from REST API calls at *run time*.
 
 The principles behind DreamFactory are simple: 1) backend data resides almost exclusively in SQL, NoSQL, and file storage systems; 2) data transport between client and server is best done with REST and JSON (particularly for mobile apps, single page web apps, and IoT apps); 3) REST APIs for SQL, NoSQL, and file storage are well understood and benefit from a standardized path structure for the vast majority of use cases. Hence, REST APIs can be automatically generated and ready to use. DreamFactory auto-generates a comprehensive REST API for SQL, NoSQL, and file storage, so you don’t have to write your own APIs.
 
