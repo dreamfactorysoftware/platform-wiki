@@ -1,14 +1,17 @@
-### Software Overview
+### Introduction
 
-DreamFactory is an open source software package that provides a REST API for mobile enterprise application development. You can think of DreamFactory as server middleware that connects mobile devices, such as phones and tablets, to backend data (SQL, NoSQL, and file storage) with a Representational State Transfer (REST) API.
+DreamFactory is an open source mobile backend that provides RESTful services for building modern applications. 
 
-Client devices that make REST calls to DreamFactory can be phones, tablets, and the "internet of things", such as sensors. Desktop applications and web apps can also make REST API calls to DreamFactory. 
+DreamFactory automatically generates a comprehensive, customizable, and secure REST API for any backend data resource, including SQL, NoSQL, file storage, email, and push notifications. 
 
-Backend data sources that DreamFactory for which DreamFactory auto-generates REST APIs include every major SQL database, NoSQL database, and file storage system. SQL is probably the most significant and widely implemented by enterprises, based upon recent survey feedback.
+Other important features include server-side scripting, API customization, single sign-on, user management, record-level access control, interactive API docs, and client SDKs.
 
-DreamFactory also makes it easy to securely consume remote web services, including custom web services you’ve written yourself. 
+In technical terms, DreamFactory is a LAMP stack (Linux, Apache, MySQL, PHP) that runs on Linux (Ubuntu, Red Hat, CentOS, Debian), Windows, and Mac OS X. You can install DreamFactory on your IaaS cloud, PaaS provider, on premises server, or laptop. 
 
-In a nutshell, DreamFactory enables developers to quickly hook up a wide variety of backend systems, and to expose these assets with a comprehensive palette of RESTful services. The REST API allows client-server separation that simplifies component implementation, reduces the complexity of connectivity, improves performance tuning, and increases the scalability of server-side components.
+DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
+
+![](http://www.dreamfactory.com/sites/default/files/marchitecture-1.png)
+
 
 ### Architecture
 
