@@ -55,13 +55,13 @@ Another problem DreamFactory solves is the generation of client SDKs for every m
 
 ###**What types of apps are well suited for DreamFactory?**
 
-At the highest level of abstraction, any data-driven application that would benefit from a REST API is a great fit for DreamFactory. Static apps or websites that do not depend on backend data are not a good fit.
+Any data-driven application that would benefit from a REST API is a great fit for DreamFactory. This includes mobile apps, web apps, and IoT apps.
 
-Native, hybrid, and HTML5 mobile applications are extremely well suited for DreamFactory, particularly enterprise mobile apps that need a secure REST API to return data stored in legacy SQL databases. We provide client SDKs for every major client-side technology (iOS, Android, Windows Phone, Titanium, Javascript, AngularJS).
+Native mobile, hybrid mobile, and pure HTML5 mobile applications are extremely well suited for DreamFactory, particularly enterprise mobile apps that need a secure REST API to return data stored in legacy SQL databases. DreamFactory provides client SDKs and sample applications for every major client-side technology ([iOS](https://github.com/dreamfactorysoftware/ios-sdk), [Android](https://github.com/dreamfactorysoftware/android-sdk), [Titanium](https://github.com/dreamfactorysoftware/titanium-dreamfactory), [Javascript](https://github.com/dreamfactorysoftware/javascript-sdk), [jQuery](https://github.com/dreamfactorysoftware/app-todo-jquery), [AngularJS](https://github.com/dreamfactorysoftware/angular-dreamfactory), and [Sencha](https://github.com/dreamfactorysoftware/app-todo-sencha)).
  
-Web apps (commonly “single page apps”) that use REST and JSON for data exchange are well suited to DreamFactory. Building AngularJS applications with DreamFactory is a popular choice for many developers. We provide several popular AngularJS modules for user management, API calls, and data management. 
+Web apps that rely on REST and JSON for data exchange are well suited to DreamFactory. Building AngularJS applications with DreamFactory is a popular choice for many developers. DreamFactory has several AngularJS modules for [user management](https://github.com/dreamfactorysoftware/angular_dreamfactory_user_management_module), [API calls](https://github.com/dreamfactorysoftware/angular-dreamfactory), and [data management](https://github.com/dreamfactorysoftware/angular-data-manager). 
 
-DreamFactory is also a good fit for server-to-server API calls. For example, you can easily call DreamFactory from a .Net application running on a server or in the cloud.
+DreamFactory is also a good fit for server-to-server API calls. For example, you can easily call DreamFactory from a .Net application running on a server.
 
 Lastly, DreamFactory is becoming a popular technology for IoT (Internet of Things) applications. Device sensors can easily transmit data RESTfully to DreamFactory and human end users (or machines) can access the transmitted data via REST calls.
 
