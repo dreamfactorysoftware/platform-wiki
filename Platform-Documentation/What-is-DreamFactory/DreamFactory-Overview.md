@@ -10,7 +10,7 @@ In technical terms, DreamFactory is a LAMP / WAMP / MAMP stack that runs on Linu
 
 DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
 
-  
+<br>
 
 ![](http://www.dreamfactory.com/sites/default/files/short_stack.png)
 
