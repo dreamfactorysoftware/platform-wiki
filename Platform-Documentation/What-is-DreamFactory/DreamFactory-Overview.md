@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 DreamFactory is an open source mobile backend that provides RESTful services for building modern applications. 
 
@@ -10,36 +10,25 @@ In technical terms, DreamFactory is a LAMP stack (Linux, Apache, MySQL, PHP) tha
 
 DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
 
+## Features
 
-### Architecture
+### Automatically Generated REST APIs for Any Backend Data Source 
 
-![DreamFactory Architecture](http://dev.dreamfactory.com/sites/default/files/DF-diagram-alt-3-02.png)
+DreamFactory automatically generates a comprehensive REST API for SQL databases, NoSQL document stores, file storage, email, and push notifications. You can also use DreamFactory to securely call any RESTful web service, including custom-built REST APIs. DreamFactory securely stores the credentials of backend data sources and exposes these data sources as a standard REST interface. The REST API includes live API documentation and client SDKs for iOS, Android, Titanium, Javascript, and AngularJS.
 
-### RESTful Access to Backend Data
+### API Customization with Server-Side Scripting
 
-DreamFactory provides REST APIs for SQL, NoSQL, file storage, and any REST-accessible web service.
+Any non-trivial application requires server-side logic. To handle server-side logic, DreamFactory provides server-side scripting with the V8 Javascript Engine. DreamFactory makes it easy to write server-side scripts with Javascript and attach your scripts to any API request and response event. DreamFactory also provides the flexibility to implement business logic as custom scripts, which can be invoked as simple REST API calls. 
 
-* DreamFactory supports RESTful data and metadata access to any ANSI SQL database including MySQL, SQL Server, Oracle, and PostgreSQL. 
-* DreamFactory also provides RESTful access to a wide variety of NoSQL databases including Amazon Web Services DynamoDB and SimpleDB, Microsoft Azure Tables, MongoDB, and CouchDB. 
-* For file storage DreamFactory provides RESTful access to Amazon S3, Azure Tables, and OpenStack Objects. 
-* DreamFactory supports external service integration manually or automatically with Swagger or RAML (i.e., the ability to securely access any REST API that returns JSON or XML to the client).
+### API Security with Role-Based Access Control
 
-### Security and Core Backend Features
+DreamFactory’s user management system provides runtime security on all API calls and server-side scripts. The user management system includes an administrative application to manage end users, user roles, OAuth, LDAP, and Active Directory integration.
 
-DreamFactory provides other services for application development. 
+Under the hood, DreamFactory handles secure password hashing, authentication, and session handling for you. You can easily configure explicit role-based access control to every backend resource, for both the REST API and server-side scripts, including configurable access control to SQL tables, NoSQL collections, SQL and NoSQL record sets, BLOB storage, email, and push notifications. 
 
-* User management features include password hashing, single sign-on, OAuth, Active Directory, Guest Users, and Open Registration. 
-* Security services include the ability to control access to all backend assets through user roles and permissions. 
-* Application hosting includes the ability to store and run application files from any cloud storage system. 
-* Advanced features include server-side filters, events, and scripting (server-side Javascript is currently supported). 
+The security system also governs access to any remote REST service you add. For example, you can easily connect to a custom REST API with DreamFactory and use the role system to control end user access to your custom-built API.
 
-### Client SDKs for Consuming REST APIs
-
-On the client side, all transactions use either JSON objects or XML documents. DreamFactory is compatible with applications written in either HTML5 or native client technologies such as iOS and Android. We provide HTML5 example projects for [jQuery](http://www.dreamfactory.com/jquery-example), [AngularJS](http://www.dreamfactory.com/angularjs-example), and [Sencha](http://www.dreamfactory.com/sencha-touch-example). 
-
-As each new service is hooked up, DreamFactory automatically produces written documentation on the service interface, creates an interactive API browser for exploring the service manually, and generates a dynamic software development kit (SDK) for calling the service from [JavaScript](javascript-sdk), [AngularJS](angular-dreamfactory), [iOS](ios-sdk), [Android](android-sdk), [Windows Mobile](Windows-Mobile-SDK), and [Titanium](Titanium-SDK).
-
-### Installation Options
+## Installation Options
 
 On the server side, you can sign up for a free developer account at www.dreamfactory.com or install the DreamFactory open source software package (Apache license) on an IaaS Cloud, PaaS Cloud, Linux, Mac OS X, and Windows.
 
