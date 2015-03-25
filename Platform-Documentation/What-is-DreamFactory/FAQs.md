@@ -27,7 +27,7 @@ DreamFactory helps front-end developers
 * Focus on front-end development rather than working on (or waiting on) server-side software
 * Connect to new data sources in minutes with just a few clicks
 * Access multiple data sources with RESTful ease and automatic security
-* Deliver projects cheaper and faster via instant, robust RESTful services
+* Deliver projects much faster via instant, robust RESTful services
 
 DreamFactory helps back-end / API developers
 
