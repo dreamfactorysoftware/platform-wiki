@@ -12,6 +12,8 @@ DreamFactory is “runtime” software, which is to say that your application ma
 
 ## Features
 
+![](http://www.dreamfactory.com/sites/default/files/marchitecture-2.png)
+
 ### Automatically Generated REST APIs for Any Backend Data Source 
 
 DreamFactory automatically generates a comprehensive REST API for SQL databases, NoSQL document stores, file storage, email, and push notifications. You can also use DreamFactory to securely call any RESTful web service, including custom-built REST APIs. DreamFactory securely stores the credentials of backend data sources and exposes these data sources as a standard REST interface. The REST API includes live API documentation and client SDKs for iOS, Android, Titanium, Javascript, and AngularJS.
@@ -28,7 +30,6 @@ Under the hood, DreamFactory handles secure password hashing, authentication, an
 
 The security system also governs access to any remote REST service you add. For example, you can easily connect to a custom REST API with DreamFactory and use the role system to control end user access to your custom-built API.
 
-![](http://www.dreamfactory.com/sites/default/files/marchitecture-2.png)
 
 ## Installation Options
 
