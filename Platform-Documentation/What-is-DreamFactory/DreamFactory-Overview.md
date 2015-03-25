@@ -40,6 +40,8 @@ The security system also governs access to any remote REST service you add. For 
 
 ## Benefits
 
+DreamFactory helps development teams in a number of ways, depending on your role on the team.
+
 ### Front-end Developers
 
 * Focus on front-end development rather than working on (or waiting on) server-side software
