@@ -18,11 +18,11 @@ DreamFactory is “runtime” software, which is to say that your application ma
 
 DreamFactory automatically generates a comprehensive REST API for SQL databases, NoSQL document stores, file storage, email, and push notifications. You can also use DreamFactory to securely call any RESTful web service, including custom-built REST APIs. DreamFactory securely stores the credentials of backend data sources and exposes these data sources as a standard REST interface. The REST API includes live API documentation and client SDKs for iOS, Android, Titanium, Javascript, and AngularJS.
 
-### API Customization with Server-Side Scripting
+### Server-Side Scripting & Customization
 
 Any non-trivial application requires server-side logic. To handle server-side logic, DreamFactory provides server-side scripting with the V8 Javascript Engine. DreamFactory makes it easy to write server-side scripts with Javascript and attach your scripts to any API request and response event. DreamFactory also provides the flexibility to implement business logic as custom scripts, which can be invoked as simple REST API calls. 
 
-### API Security with Role-Based Access Control
+### Security Controls
 
 DreamFactory’s user management system provides runtime security on all API calls and server-side scripts. The user management system includes an administrative application to manage end users, user roles, OAuth, LDAP, and Active Directory integration.
 
