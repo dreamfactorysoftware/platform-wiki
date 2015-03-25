@@ -10,8 +10,6 @@ In technical terms, DreamFactory is a LAMP stack (Linux, Apache, MySQL, PHP) tha
 
 DreamFactory is “runtime” software, which is to say that your application makes API calls to DreamFactory and DreamFactory returns JSON (or XML) at runtime back to your application over SSL. 
 
-![](http://www.dreamfactory.com/sites/default/files/marchitecture-1.png)
-
 
 ### Architecture
 
