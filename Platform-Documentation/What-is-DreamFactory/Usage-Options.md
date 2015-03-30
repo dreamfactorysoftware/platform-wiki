@@ -2,9 +2,9 @@ DreamFactory is free open source software available under the [Apache License 2.
 
 There are many ways to try out and use DreamFactory. 
 
-### Free Developer Environment
+### [Free Developer Environment](Free-Sandbox-Account)
 
-Sign up for a free developer environment at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. Your developer environment is hosted by DreamFactory and lets you try out the software. It has all the same capabilities as the installed open source package (except for server-side scripting), but it's for trying out DreamFactory, not for running production applications.
+Sign up for a free developer account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. Your developer environment is hosted by DreamFactory and lets you try out the software. It has all the same capabilities as the installed open source package (except for server-side scripting), but it's for trying out DreamFactory, not for running production applications.
 
 ### Install on IaaS Cloud
 
