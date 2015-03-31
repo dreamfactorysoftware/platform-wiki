@@ -1,5 +1,24 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.9.1 (Released 2015-03-12)
+
+### New!
+* Using new DreamFactory images.
+* Add support for more CURL options for inline requests in scripting.
+* Add support for MongoDB object notation in filters.
+
+### Fixes
+* Fixed several issues for new admin application including 
+  * MongoDB SSL designation
+  * Downloads and Packaging bug fixes
+  * Service selection drop down correction.
+  * Role assignment bug fixes.
+  * Schema editing fixes, particularly reference table assignment.
+* Fixed stored procedures for Oracle database service.
+* Fixed service request for components API to avoid hit on remote web services.
+* Added Basic Auth header to pass through check on remote web services.
+* Fix processing of ticket on user/session API.
+
 ## v1.9.0 (Released 2015-01-21)
 
 ## NOTE: Schema update required if upgrading from prior versions
