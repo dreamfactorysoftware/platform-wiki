@@ -11,11 +11,12 @@ Sign up for a free developer account at <a href="http://www.dreamfactory.com">ww
 DreamFactory currently supports the following IaaS cloud platforms (Infrastructure as a Service). To install DreamFactory on any of them, follow the instruction links below.
 
 * [Amazon Web Services (AWS)](https://bitnami.com/stack/dreamfactory/cloud/amazon)   
-* [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud)   
 * [Microsoft Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
+* [Google Cloud](https://bitnami.com/stack/dreamfactory/cloud/google)
 * [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
 * [IBM Cloud](https://www.dreamfactory.com/ibmcloudlanding)
 * [Rackspace](https://www.dreamfactory.com/rackspacelanding)  
+* [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud)   
 
 ### Install on PaaS Cloud
 
