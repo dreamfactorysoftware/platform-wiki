@@ -34,7 +34,7 @@
 
 <b>Invite User</b>
 <p>A more popular way to add users would be to invite them and let them manage their own passwords. In this case, the admin still creates the user with email address, role, etc, but does not set a password. This user is created in a suspended state until a password is set.</p>
-<p>If a default email service is setup, the email service can be used to notify the user via their email address that they are invited to the system.  This can be accomplished in the previous Create User screen by not selecting the "Skip email confirmation..." checkbox. Likewise, in the API request mentioned earlier, just leave off the "password" in the posted data.  Utilizing the email service to invite the user is as follows.</p>
+<p>If a default email service is setup, the email service can be used to notify the user via their email address that they are invited to the system.  This can be accomplished in the previous Create User screen by not selecting the "Skip email confirmation..." checkbox. Likewise, in the API request mentioned earlier, just leave off the "password" in the posted data and add the URI parameter `?send_invite=true`.  Utilizing the email service to invite the user is as follows.</p>
 
 <pre class="dfpre">curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/email/ \
 -H 'X-DreamFactory-Application-Name: admin' \
