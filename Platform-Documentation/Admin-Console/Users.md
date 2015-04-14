@@ -53,22 +53,4 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/?send_inv
 }'
 ```
 
-How the email service is called to invite the user is as follows.
-
-<pre class="dfpre">curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/email/ \
--H 'X-DreamFactory-Application-Name: admin' \
--d ' \
-{ \
-	"to": "joe.smith@acme.com", \
-	"subject": "Welcome to DreamFactory", \
-	"body_html": "Hi {first_name},<br><br>You have been invited to become a DreamFactory user. Click the confirmation link below to set your password and log in.<br><br>{_invite_url_}<br><br>Enjoy!<br><br>DreamFactory", \
-	"from_name": "DreamFactory", \
-	"from_email": "no-reply@dreamfactory.com", \
-	"reply_to_name": "DreamFactory", \
-	"reply_to_email": "no-reply@dreamfactory.com", \
-	"first_name": "Joe" \
-}'
-</pre>
-
-<p>That user can then follow the link in the email and complete the password requirement.</p>
-
+The configured email service is then called to invite the user, and an email is sent using the selected template. The receiving user may then follow the `{_invite_url_}` link in the email and complete the password requirement.
