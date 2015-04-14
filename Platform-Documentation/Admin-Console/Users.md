@@ -1,5 +1,5 @@
 <p>The <b>Users</b> module allows the administrator to create user accounts, to grant system admin access to new users, and to assign roles to user accounts. The administrator account on your DreamFactory has complete control over how users are added to the system. By default, only those with system administrator privileges can add users to the system.</p>
-<b>Create User</b>
+## <a name="create"></a><b>Create User</b>
 <p>To create a new user:</p>
 <ol>
 <li>Access the <b>Admin Console</b> by clicking the gear icon in the upper-right tool bar.</li>
@@ -32,7 +32,7 @@
 
 <p>This is useful for creating consumer accounts for things like opening up services for other web servers or test account access, or for creating specific users with default passwords, which they can change later.</p> <p><b>NOTE:</b> Using this part of the REST API requires a valid session, i.e., the administrator must be logged into DreamFactory. Also note that the password can only be set and never retrieved via the API for security reasons.</p>
 
-<b>Invite User</b>
+## <a name="invite"></a><b>Invite User</b>
 <p>A more popular way to add users would be to invite them and let them manage their own passwords. In this case, the admin still creates the user with email address, role, etc, but does not set a password. This user is created in a suspended state until a password is set.</p>
 
 If a default email service is setup, the email service can be used to notify the user via their email address that they are invited to the system.  This can be accomplished in the previous Create User screen by selecting the "Send Email Invitation" checkbox. Likewise, in the API request mentioned earlier, just leave off the "password" in the posted data and add the URI parameter `?send_invite=true`. The CURL request would be as follows:
