@@ -34,7 +34,26 @@
 
 <b>Invite User</b>
 <p>A more popular way to add users would be to invite them and let them manage their own passwords. In this case, the admin still creates the user with email address, role, etc, but does not set a password. This user is created in a suspended state until a password is set.</p>
-<p>If a default email service is setup, the email service can be used to notify the user via their email address that they are invited to the system.  This can be accomplished in the previous Create User screen by not selecting the "Skip email confirmation..." checkbox. Likewise, in the API request mentioned earlier, just leave off the "password" in the posted data and add the URI parameter `?send_invite=true`.  Utilizing the email service to invite the user is as follows.</p>
+
+If a default email service is setup, the email service can be used to notify the user via their email address that they are invited to the system.  This can be accomplished in the previous Create User screen by selecting the "Send Email Invitation" checkbox. Likewise, in the API request mentioned earlier, just leave off the "password" in the posted data and add the URI parameter `?send_invite=true`. The CURL request would be as follows:
+
+```bash
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/?send_invite=true \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"display_name":"Joe Smith", \
+	"first_name":"Joe", \
+	"last_name":"Smith", \
+	"email":"joe.smith@acme.com", \
+	"phone":"555-666-7777", \
+	"is_active":true, \
+	"is_sys_admin":false, \
+	"role_id":1, \
+}'
+```
+
+How the email service is called to invite the user is as follows.
 
 <pre class="dfpre">curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/email/ \
 -H 'X-DreamFactory-Application-Name: admin' \
