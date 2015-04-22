@@ -20,7 +20,7 @@
 <li>git</li>
 </ul>
 
-<p>Please note that the <b>php-mcrypt</b> and <b>php-json</b> packages aren't available is some distro repositories. If this is the case, you can add the [http://fedoraproject.org/wiki/EPEL RHEL EPEL] repository to your sources list.  Instructions for doing this are available [http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x here].</p>
+Please note that the <b>php-mcrypt</b> and <b>php-json</b> packages aren't available is some distro repositories. If this is the case, you can add the [RHEL EPEL](http://fedoraproject.org/wiki/EPEL) repository to your sources list.  Instructions for doing this are available [here](http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x).
 
 <b>Configuring Your System</b>
 
