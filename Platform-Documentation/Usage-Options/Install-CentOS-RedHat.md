@@ -200,8 +200,8 @@ DocumentRoot /opt/dreamfactory/platform/web
 Change the rights of the assets directory to writeable.</p>
 
 ```bash
-$ sudo chmod 777/opt/dreamfactory/platform/web/assets/
-$ sudo chmod 777/opt/dreamfactory/platform/log/
+$ sudo chmod 777 /opt/dreamfactory/platform/web/assets/
+$ sudo chmod 777 /opt/dreamfactory/platform/log/
 
 ```
 
