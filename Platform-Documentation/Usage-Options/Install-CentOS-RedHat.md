@@ -75,6 +75,9 @@ Is this ok [y/N]: y
 
 ```
 
+<B>Note for CentOS 7</B>
+As of version 7 CentOS no longer includes MySQL in its repos. If you are using CentOS 7 you will need to install MySQL following these instructions: [http://serverlab.org/view/8/How-to-install-latest-mysql-5.6-on-CentOS7](http://serverlab.org/view/8/How-to-install-latest-mysql-5.6-on-CentOS7)
+
 <B>Set up MySQL</B>
 
 You need to create a database, and a DreamFactory user in your MySQL instance.  On a fresh install, this is quite simple:
