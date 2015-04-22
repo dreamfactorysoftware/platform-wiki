@@ -118,7 +118,7 @@ Bye
 ```bash
 $ sudo mkdir -p /opt/dreamfactory/platform
 
-$ sudo chmod 777 /opt /dreamfactory/platform
+$ sudo chmod 777 /opt/dreamfactory/platform
 ```
 
 <p>Next we will do a git clone to download the DreamFactory repository dsp-core.</p>
