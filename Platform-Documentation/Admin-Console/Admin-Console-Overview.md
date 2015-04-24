@@ -7,10 +7,12 @@ The Admin Console includes the following tabs. The functionality in each tab is 
 * [Users](Users)
 * [Roles](Roles)
 * [Services](Services)
-* [Data](Data)
 * [Schema](Schema)
+* [Data](Data)
 * [Files](Files)
-* [API Docs](API-Docs)
-* [Packages](Packages)
-* [Config](Config)
 * [Scripts](Scripts)
+* [API Docs](API-Docs)
+* [Config](Config)
+* [Packages](Packages)
+
+
