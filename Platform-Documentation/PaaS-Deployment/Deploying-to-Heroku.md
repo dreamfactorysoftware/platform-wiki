@@ -7,9 +7,9 @@ For a basic installation of DreamFactory on Heroku, click the button below and f
 Follow these instructions if you need to customize the image:
 
 1. Click the "Deploy to Heroku" button on this page and follow the instructions to create a "staging" environment.
-1. Clone the repo using the instructions under the "Make your first edit" link.
-1. Make your changes (customize the theme, write a script, etc).
-1. Push your changes to the staging environment.
-1. Once everything is working properly, click the button again to create a "production" environment.
-1. Inside your git clone of the staging environment, `git remote add production git@heroku.com:the-name-of-the-application-you-just-created.git`.
-1. `git push -f production master`.
+2. Clone the repo using the instructions under the "Make your first edit" link.
+3. Make your changes (customize the theme, write a script, etc).
+4. Push your changes to the staging environment.
+5. Once everything is working properly, click the button again to create a "production" environment.
+6. Inside your git clone of the staging environment, `git remote add production git@heroku.com:the-name-of-the-application-you-just-created.git`.
+7. `git push -f production master`.
