@@ -4,7 +4,6 @@ The Admin Console includes the following tabs. The functionality in each tab is 
 
 * [Quickstart](Admin-Console-QuickStart)
 * [Apps](Apps)
-* [App Groups](App-Groups)
 * [Users](Users)
 * [Roles](Roles)
 * [Services](Services)
