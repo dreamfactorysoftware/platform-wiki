@@ -5,7 +5,7 @@ This site is the central document repository for all things DreamFactory! Develo
 The documentation on this site is geared towards developers. For general information about DreamFactory, check out our [website](http://www.dreamfactory.com).
 
 ### Current Release
-The current release is version 1.9.1. For more information please see the [[CHANGELOG]].
+The current release is version 1.9.2. For more information please see the [[CHANGELOG]].
 
 ### Project Overview
 
