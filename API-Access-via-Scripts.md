@@ -64,6 +64,8 @@ result = platform.api.post("http://localhost/rest/db/todo", JSON.stringify({"nam
 
 ```
 
+> Please note the double quotation marks around the `CURLOPT_*` constant names. Unlike PHP, this is required in Javascript. 
+
 You can also add multiple cURL options like this.
 
 ```
