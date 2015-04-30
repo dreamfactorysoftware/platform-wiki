@@ -1,5 +1,15 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.9.2 (Released 2015-04-29)
+
+### New!
+* Admin console supports live chat with DreamFactory support.
+* Chat can be enabled or disabled in config/common.config.php.
+* New welcome page for admin console with intro movie and help links.
+
+### Fixes
+* Fixed admin console problem with SMTP services not being saved properly.
+
 ## v1.9.1 (Released 2015-03-12)
 
 ### New!
