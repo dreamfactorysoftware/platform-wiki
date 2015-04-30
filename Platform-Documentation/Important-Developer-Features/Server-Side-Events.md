@@ -58,7 +58,9 @@ Logging events should be disabled in production unless you're troubleshooting so
 
 ## Event Representation
 
-All events are normalized down to a single **container** which is then passed to all the listeners. PHP listeners will receive this as an array. Scripts will receive this as a native object. All others get arrays of data. 
+All events are normalized down to a single **container** called **event**. It is passed to all the listeners. PHP listeners will receive this as an array. Scripts will receive this as a native object. All others get arrays of data. 
+
+> Of all the variables provided to your script, only this **event** container object is writable. There is a **read-only** copy of the original event information stored in the `DSP` object called `DSP.event`. Any changes to `DSP.event` will be lost/overwritten. If you need to modify data you **must** use the **event** container, not the `DSP.event` container.
 
 This container properties are defined as follows:
 
