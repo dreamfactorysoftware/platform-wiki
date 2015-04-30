@@ -62,24 +62,22 @@ All events are normalized down to a single **container** called **event**. It is
 
 > Of all the variables provided to your script, only this **event** container object is writable. There is a **read-only** copy of the original event information stored in the `DSP` object called `DSP.event`. Any changes to `DSP.event` will be lost/overwritten. If you need to modify data you **must** use the **event** container, not the `DSP.event` container.
 
-This container properties are defined as follows:
+### Event Properties
+The `event` object has the following properties:
 
 |Property|Type|Description|
 |--------|-----------|----|
-| `id` | string | A unique event ID |
-| `name` |string| The name of the event |
-| `timestamp` |string| The time and date of this event |
-| `request_path` |string| The inbound HTTP path that triggered this event |
-| `trigger` |string| The inbound REST API call that triggered this event |
-| `stop_propagation` |boolean| Set this to **true** to halt propagation of the event to downstream listeners |
-| `dispatcher_id` | string|The ID of the dispatcher |
-| `dispatcher_type` | string|The dispatcher's type |
-| `extra` | array|Any extra relevant data sent by the triggerer |
-| `request` | object|An object representing the inbound REST API call |
-| `response` | object|An object containing the response to an inbound REST API call |
-| `platform.api` |object|An object with methods to make in-line REST API calls|
-| `platform.config` |array|The configuration of the DSP|
-| `platform.session` |array|The session of the current user|
+| `event.id` | string | A unique event ID |
+| `event.name` |string| The name of the event |
+| `event.timestamp` |string| The time and date of this event |
+| `event.request_path` |string| The inbound HTTP path that triggered this event |
+| `event.trigger` |string| The inbound REST API call that triggered this event |
+| `event.stop_propagation` |boolean| Set this to **true** to halt propagation of the event to downstream listeners |
+| `event.dispatcher_id` | string|The ID of the dispatcher |
+| `event.dispatcher_type` | string|The dispatcher's type |
+| `event.extra` | array|Any extra relevant data sent by the triggerer |
+| `event.request` | object|An object representing the inbound REST API call |
+| `event.response` | object|An object containing the response to an inbound REST API call |
 
 ### event.request
 In `event.request` you will find all the components of the original HTTP request.
@@ -100,8 +98,19 @@ In `event.response` object contains the data being sent back to the client from 
    
 Just like `event.request`, any changes to `event.response` will overwrite existing data in the response, before it is sent back to the client. 
 
-### event.platform
-This object provides information about the platform configuration, the current session, and access to the REST API via **inline** calls. This make DSP requests directly without requiring an HTTP call. This object is only available in server-side scripts.
+### Listener Priority
+
+While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called.
+
+### Scripts and Propagation
+
+Event scripts can halt propagation to future listeners as well. Setting the `event.stop_propagation` property to **true** will halt propagation of the event immediately upon return from the script.
+
+## API Representation
+There is a second parameter passed to your scripts called `platorm`. It may be used to access the REST API of your DSP via **inline** calls. This make DSP requests directly without requiring an HTTP call. The `platform` object is only available in server-side scripts.
+
+### Platform Properties
+The `platform` object has the following properties:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -110,14 +119,6 @@ This object provides information about the platform configuration, the current s
 | `platform.session` | object | The current session information |
 
 More information about `platform.api` is available on the [[API-Access-via-Scripts]] page.
-
-### Listener Priority
-
-While you are able to prioritize listeners when registering with the dispatcher, scripts do not have priorities. In fact, event scripts run **before** any listeners are called.
-
-#### Scripts and Propagation
-
-Event scripts can halt propagation to future listeners as well. Setting the `event.stop_propagation` property to **true** will halt propagation of the event immediately upon return from the script.
 
 ## Event Types
 There are three categories of events:
