@@ -6,6 +6,10 @@ intro
 
 This was previously accessed as **PHP**. It is the PHP context that owns the V8 instance. There is no data in this object other then the event, which is extracted for you.
 
+#### DSP Properties
+
+The `DSP` object contains various properties that are all **read-only**. Changes to the values of these properties (like `DSP.event`) will be completely ignored. If you wish to change the value of something in the event, request or response; you **must** use the `event.*` properties (`event`, `event.request`, and `event.response`). 
+
 ### The Event Object
 
 In the initial release of server-side scripting (v1.5), the `event` object only contained the contents of the original event's `data` element. That made it necessary to test if `event.record` or `event.records` etc.
