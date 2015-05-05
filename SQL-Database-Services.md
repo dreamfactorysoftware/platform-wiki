@@ -8,7 +8,7 @@
 
 _We have tested connecting to MS SQL Server 2005 and above. Most testing is done on 2008 R2._
 
-* <a name="sqlsrv-linux>Linux</a>
+* Linux
   1. [Install DSP](Install-on-Linux). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
   2. DSP uses the PHP PDO_DBLIB driver and the FreeTDS library for SQL Server connections from Linux. Documentation on PDO_DBLIB is available [here](http://php.net/manual/en/ref.pdo-dblib.php) and on FreeTDS is available [here](http://www.freetds.org/docs.html). [Bitnami packages](https://github.com/dreamfactorysoftware/dsp-core/wiki/Install-on-Linux#bitnami-installer) come with dblib and FreeTDS already integrated with PHP and enabled.
   3. Check your PHP extensions directory to ensure pdo_dblib.so is present, and check `php.ini` to ensure the value `extension=pdo_dblib.so` is present and uncommented.
@@ -42,7 +42,7 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
     * Connection String: you will need to specify the port, even if using the default of 1433. Add `:1433` (or replace 1433 with the non-default port number you plan to use) immediately after hostname/IP (e.g., `host=localhost:1433` or `host=192.168.1.1:1433`).
   8. Click over to the "API Docs" tab, expand your new service, and perform a simple GET request to verify connectivity.
 
-* <a name="sqlsrv-windows>Windows</a>
+* Windows
   1. [Install DSP](Install-Microsoft-Windows). (The below steps assume a DSP install in `C:\dsp\` with its PHP installed in `C:\dsp\php\`.)
   2. Download and install Microsoft ODBC Driver 11 for SQL Server (if not already installed). Currently this is available [here](http://www.microsoft.com/en-us/download/details.aspx?id=36434). In 32-bit environments, install the x86 package. In 64-bit environments, install the x64 package.
   3. Download and install the appropriate SQL Server Native Client (if not already installed and SQL Server is not hosted on the same machine as DSP). In 32-bit environments, install the x86 package. In 64-bit environments, install the x64 package. Currently the Microsoft SQL Server 2012 Native Client is available [here](http://www.microsoft.com/en-us/download/details.aspx?id=29065), and the Microsoft SQL Server 2008 R2 Native Client is available [here](http://www.microsoft.com/en-us/download/details.aspx?id=16978).
