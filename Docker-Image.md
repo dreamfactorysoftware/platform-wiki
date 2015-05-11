@@ -1,0 +1,1 @@
+DreamFactory can be run as a Docker container. You can build your own image or pull the latest image from Docker Hub. See README.md at dreamfactorysoftare/dsp-docker for details.
