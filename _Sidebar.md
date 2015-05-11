@@ -82,7 +82,7 @@
  * [[Javascript SDK]]
  * [[AngularJS SDK]]
  * [[Titanium SDK]]
- * [[Windows Mobile SDK]]
+ * [[.NET SDK]]
 
 <!-- * [[Sencha SDK]]-->
 <!-- * [[Backbone.js SDK]]-->
