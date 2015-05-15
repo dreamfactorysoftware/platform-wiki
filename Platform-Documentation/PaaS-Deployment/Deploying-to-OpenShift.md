@@ -25,15 +25,13 @@ MySQL 5.5 database added.  Please make note of these credentials:
    Root Password: <password>
    Database Name: <db-name>
   ```
-7. Set the MySQL credentials output by step 5 as environment variables: 
-`rhc set-env OPENSHIFT_MYSQL_DB_USER=<user> OPENSHIFT_MYSQL_DB_PASS=<password> OPENSHIFT_MYSQL_DB_NAME=<db-name> -a <your-app-name>`
 
-8. If not already, make the deploy script executable.
+7. If not already, make the deploy script executable.
 `chmod +x on .openshift/action_hooks/deploy`
 
-9. Commit any local changes, if any, to the local repo.
+8. Commit any local changes, if any, to the local repo.
 
-10. Push the DSP application code to your instance: 
+9. Push the DSP application code to your instance: 
 `git push openshift master`
 
 Note, in my case, the push fails with being out of sync with the remote, even though nothing has been submitted to the remote. 
