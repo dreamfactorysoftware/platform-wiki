@@ -6,6 +6,10 @@ There are many ways to try out and use DreamFactory.
 
 Sign up for a free developer account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. Your developer environment is hosted by DreamFactory and lets you try out the software. It has all the same capabilities as the installed open source package (except for server-side scripting), but it's for trying out DreamFactory, not for running production applications.
 
+### Docker Package
+
+https://github.com/dreamfactorysoftware/dsp-docker
+
 ### Install on IaaS Cloud
 
 DreamFactory currently supports the following IaaS cloud platforms (Infrastructure as a Service). To install DreamFactory on any of them, follow the instruction links below.
