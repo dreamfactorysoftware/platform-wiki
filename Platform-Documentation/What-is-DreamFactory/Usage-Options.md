@@ -6,13 +6,13 @@ There are many ways to try out and use DreamFactory.
 
 Sign up for a free developer account at <a href="http://www.dreamfactory.com">www.dreamfactory.com</a>. Your developer environment is hosted by DreamFactory and lets you try out the software. It has all the same capabilities as the installed open source package (except for server-side scripting), but it's for trying out DreamFactory, not for running production applications.
 
-### Docker Package
+### Docker Image
 
-https://github.com/dreamfactorysoftware/dsp-docker
+You can build your own Docker image or pull the latest Docker image from Docker Hub. Follow the instructions [here](https://github.com/dreamfactorysoftware/dsp-docker).
 
-### Install on IaaS Cloud
+### IaaS Cloud
 
-DreamFactory currently supports the following IaaS cloud platforms (Infrastructure as a Service). To install DreamFactory on any of them, follow the instruction links below.
+You can install DreamFactory on IaaS cloud platforms (Infrastructure as a Service). Follow the instructions below.
 
 * [Amazon Web Services (AWS)](https://bitnami.com/stack/dreamfactory/cloud/amazon)   
 * [Microsoft Azure](https://bitnami.com/stack/dreamfactory/cloud/azure)
@@ -22,29 +22,29 @@ DreamFactory currently supports the following IaaS cloud platforms (Infrastructu
 * [Rackspace](https://www.dreamfactory.com/rackspacelanding)  
 * [Bitnami Cloud Hosting (AWS)](https://bitnami.com/stack/dreamfactory/cloud)   
 
-### Install on PaaS Cloud
+### PaaS Clouds
 
-DreamFactory currently supports the following PaaS cloud vendors (Platform as a Service). To install DreamFactory on any of them, follow the instruction links below.
+You can install DreamFactory on PaaS cloud platforms (Platform as a Service). Follow the instructions below.
 
 * [Pivotal Web Services](http://www.dreamfactory.com/pwslanding)
 * [IBM Bluemix](https://www.dreamfactory.com/bluemixlanding)
 * [Red Hat OpenShift](Deploying-to-OpenShift)
 * [Heroku](Deploying-to-Heroku)
 
-### Install on Linux
+### Linux
 
-You can install DreamFactory on a Linux server or Linux desktop, either using a Bitnami package or deploying the open source code on GitHub. CentOS, Red Hat, Debian, and Ubuntu are supported. Follow the instruction link below. 
+You can install DreamFactory on CentOS, Red Hat, Debian, and Ubuntu (desktop and server supported) using the Bitnami installer or the open source code on GitHub. Follow the instructions below. 
 
 * [Install on Linux](Install-on-Linux)
 
-### Install on Mac OS X
+### Mac OS X
 
-You can install DreamFactory on a Mac OS X desktop, either using a Bitnami package or deploying the open source code on GitHub. Follow the instruction link below. 
+You can install DreamFactory on Mac OS X using the Bitnami installer or the open source code on GitHub. Follow the instructions below. 
 
 * [Install on Mac OS X](Install-Mac-OS-X)
 
-### Install on Windows
+### Windows
 
-You can install DreamFactory on a Windows server or Windows desktop, either using a Bitnami package or deploying the open source code on GitHub. Follow the instruction link below. 
+You can install DreamFactory on Windows (desktop and server supported) using the Bitnami package or the open source code on GitHub. Follow the instructions below. 
 
 * [Install on Windows](Install-Microsoft-Windows)
