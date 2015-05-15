@@ -33,18 +33,12 @@ You can install DreamFactory on PaaS cloud platforms (Platform as a Service). Fo
 
 ### Linux
 
-You can install DreamFactory on CentOS, Red Hat, Debian, and Ubuntu (desktop and server supported) using the Bitnami installer or the open source code on GitHub. Follow the instructions below. 
-
-* [Install on Linux](Install-on-Linux)
+You can install [DreamFactory on Linux](Install-on-Linux) (CentOS, Red Hat, Debian, and Ubuntu desktop and server installation is supported) using the Bitnami installer or the open source code on GitHub. 
 
 ### Mac OS X
 
-You can install DreamFactory on Mac OS X using the Bitnami installer or the open source code on GitHub. Follow the instructions below. 
-
-* [Install on Mac OS X](Install-Mac-OS-X)
+You can install [DreamFactory on Mac OS X](Install-Mac-OS-X) using the Bitnami installer or the open source code on GitHub. 
 
 ### Windows
 
-You can install DreamFactory on Windows (desktop and server supported) using the Bitnami package or the open source code on GitHub. Follow the instructions below. 
-
-* [Install on Windows](Install-Microsoft-Windows)
+You can install [DreamFactory on Windows](Install-Microsoft-Windows) (Windows desktop and server installation is supported) using the Bitnami package or the open source code on GitHub. 
