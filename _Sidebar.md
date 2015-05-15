@@ -111,9 +111,9 @@
  * [[Tutorials]]
  * [[Screencasts]]
 
-**Product Roadmap**
+<!-- **Product Roadmap** -->
 
- * [[Upcoming Features]]
+<!-- * [[Upcoming Features]] -->
 
 **Community and Support Resources**
 
