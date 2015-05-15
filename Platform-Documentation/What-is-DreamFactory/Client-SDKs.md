@@ -30,6 +30,6 @@ Get the [new AngularJS SDK](https://github.com/dreamfactorysoftware/platform-sdk
 
 Get the [Titanium SDK](https://github.com/dreamfactorysoftware/titanium-dreamfactory) on GitHub.
 
-### .Net SDK
+### .NET SDK
 
-Get the [.Net SDK](https://github.com/dreamfactorysoftware/.net-sdk) on GitHub.
+Get the [.NET SDK](https://github.com/dreamfactorysoftware/.net-sdk) on GitHub.
