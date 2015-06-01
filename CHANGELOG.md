@@ -1,5 +1,10 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.9.3 (Released 2015-06-01)
+
+### Fixes
+* Fixed env variable names in OpenShift db config.
+
 ## v1.9.2 (Released 2015-04-29)
 
 ### New!
