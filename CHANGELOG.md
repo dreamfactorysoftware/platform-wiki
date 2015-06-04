@@ -1,5 +1,10 @@
 # DreamFactory Services Platform&trade; Release/Change Log
 
+## v1.9.4 (Released 2015-06-03)
+
+### Fixes
+* Fixed permissions on OpenShift deploy script.
+
 ## v1.9.3 (Released 2015-06-01)
 
 ### Fixes
