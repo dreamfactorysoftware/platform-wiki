@@ -131,7 +131,7 @@ Below are the instructions to change the default site on Apache2.  For instructi
 In this example we will edit the Apache default configuration file.
 </p>
 ```bash
-$ sudo nano /etc/apache2/sites-available/default
+$ sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
 <p>Change the DocumentRoot to /opt/dreamfactory/platform/web  and the value of AllowOverride to <B>All</B></p>
