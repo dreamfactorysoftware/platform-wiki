@@ -153,24 +153,19 @@ In this example we will edit the Apache default configuration file.
 $ sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
-<p>Change the DocumentRoot to /opt/dreamfactory/platform/web  and the value of AllowOverride to <B>All</B></p>
+<p>Change the DocumentRoot to /opt/dreamfactory/platform/web</p>
 
 ```bash
 DocumentRoot /opt/dreamfactory/platform/web
-<Directory />
-        Options FollowSymLinks
-        AllowOverride All
-</Directory>
 ```
 
-<p>Update the Directory Path and the value of AllowOverride to <B>All</B></p>
+<p>Update the Directory settings</p>
 
 ```bash
 <Directory /opt/dreamfactory/platform/web/>
-	Options Indexes FollowSymLinks MultiViews
-   AllowOverride All #update to all
-   Order allow,deny
-   allow from all
+	Options -Indexes +FollowSymLinks -MultiViews
+   AllowOverride None
+   Require all granted
 </Directory>
 ```
 <p>Enable the apache2 rewrite engine.</p>
