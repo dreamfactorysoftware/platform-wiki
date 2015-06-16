@@ -1,6 +1,6 @@
 # DSP Software Upgrades
 
-
+## From a Bitnami installed package
 Mac OS X and Linux
 
 ```shell
