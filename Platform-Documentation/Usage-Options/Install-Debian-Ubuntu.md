@@ -64,10 +64,26 @@ Query OK, 1 row affected (0.00 sec)
 mysql> grant all privileges on dreamfactory.* to 'dsp_user'@'localhost' identified by 'dsp_user';
 Query OK, 0 rows affected (0.05 sec)
 ```
+You may choose to use a different username and password. If so, you will need to manually configure the database connection.
 
 ```bash
 mysql> quit
 Bye
+```
+
+<b>Manually configure your database connection</b>
+In your project's `config/databases` directory there is a file called `database.config.php-dist`. Copy this to `config/database.config.php`
+
+From your project's root directory:
+
+```bash
+$ cp config/databases/database.config.php-dist config/database.config.php
+```
+
+You will then need to edit this file to change the username password for connecting to your database.
+
+```bash
+$ nano config/database.config.php
 ```
 
 
