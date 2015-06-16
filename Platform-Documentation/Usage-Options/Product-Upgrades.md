@@ -42,6 +42,8 @@ C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\
 C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar update --no-dev
 ```
 
+Use the Bitnami DreamFactory Stack Manager to restart your servers.
+
 Problems?
 
 Some upgrades require database schema updates to continue operating correctly. If you run into errors after a software upgrade, log out of your DSP (go to <server>/web/logout), complete any requested schema upgrades, and log back in.
