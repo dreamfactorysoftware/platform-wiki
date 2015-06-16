@@ -34,6 +34,45 @@ The following extra packages will be installed:
 Updating the super catalog...
 ```
 
+
+<b>DSP Installation from Github</b>
+
+<p>To prepare for the DreamFactory installation from Github, create the DreamFactory directory on your server with the appropriate rights.</p>
+
+```bash
+$ sudo mkdir -p /opt/dreamfactory/platform
+
+$ sudo chmod 777 /opt/dreamfactory/platform
+```
+
+<p>Next we will do a git clone to download the DreamFactory repository dsp-core.</p>
+
+```bash
+$ git clone https://github.com/dreamfactorysoftware/dsp-core.git /opt/dreamfactory/platform
+```
+
+<p>Now that the DreamFactory files are downloaded we will execute the installation script.</p>
+
+```bash
+$ cd /opt/dreamfactory/platform
+
+$ sudo ./scripts/installer.sh –cv
+
+
+********************************************************************************
+  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.3]
+********************************************************************************
+
+  * info:	Clean install. Dependencies removed.
+  * info:	Verbose mode enabled
+  * info:	Install user is "ubuntu"
+  * info:	No composer found, installing: /opt/dreamfactory/platform/composer.phar
+#!/usr/bin/env php
+All settings correct for using Composer
+...
+```
+
+
 <B>Set up MySQL</B>
 
 <p>You need to create a database, and a DreamFactory user in your MySQL instance.  On a fresh install, this is quite simple:</p>
@@ -100,43 +139,6 @@ Starting to download mongo-1.4.1.tgz (138,957 bytes)
 84 source files, building
 ```
 
-
-<b>DSP Installation from Github</b>
-
-<p>To prepare for the DreamFactory installation from Github, create the DreamFactory directory on your server with the appropriate rights.</p>
-
-```bash
-$ sudo mkdir -p /opt/dreamfactory/platform
-
-$ sudo chmod 777 /opt/dreamfactory/platform
-```
-
-<p>Next we will do a git clone to download the DreamFactory repository dsp-core.</p>
-
-```bash
-$ git clone https://github.com/dreamfactorysoftware/dsp-core.git /opt/dreamfactory/platform
-```
-
-<p>Now that the DreamFactory files are downloaded we will execute the installation script.</p>
-
-```bash
-$ cd /opt/dreamfactory/platform
-
-$ sudo ./scripts/installer.sh –cv
-
-
-********************************************************************************
-  DreamFactory Services Platform(tm) Linux Installer [Mode: Local v1.3.3]
-********************************************************************************
-
-  * info:	Clean install. Dependencies removed.
-  * info:	Verbose mode enabled
-  * info:	Install user is "ubuntu"
-  * info:	No composer found, installing: /opt/dreamfactory/platform/composer.phar
-#!/usr/bin/env php
-All settings correct for using Composer
-...
-```
 
 <b>Enable Site</b>
 <p>
