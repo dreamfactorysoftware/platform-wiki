@@ -22,10 +22,22 @@ cp ../htdocs.old/web/themes/classic/views/.htaccess  ./web/themes/classic/views/
 
 Windows
 
-Using whatever Git client you have installed for Windows, follow the Windows equivalent of the steps above. Resuming at the line `# self-update is optional`:
+Copy the folder C:\Bitnami\dreamfactory-x.x.x-x\apps\dreamfactory\htdocs to C:\Bitnami\dreamfactory-x.x.x-x\apps\dreamfactory\htdocs.old
 
+In your GIT client of choice run:
+```shell
+cd C:\Bitnami\dreamfactory-x.x.x-x\apps\dreamfactory\htdocs
+git stash
+git checkout master
+git pull origin master
+```
+
+Now open your command prompt and run:
 ```shell
 cd C:\Bitnami\dreamfactory-1.9.0-1\apps\dreamfactory\htdocs\
+copy ..\htdocs.old\scripts\installer.sh scripts\
+copy ..\htdocs.old\web\.htaccess web\
+copy ..\htdocs.old\web\themes\classic\views\.htaccess web\themes\classic\views\
 C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar self-update
 C:\Bitnami\dreamfactory-1.9.0-1\php\php.exe C:\Bitnami\dreamfactory-1.9.0-1\php\composer.phar update --no-dev
 ```
