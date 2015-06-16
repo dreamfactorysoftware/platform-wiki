@@ -166,6 +166,14 @@ DocumentRoot /opt/dreamfactory/platform/web
 	Options -Indexes +FollowSymLinks -MultiViews
    AllowOverride None
    Require all granted
+   
+   RewriteEngine on
+   RewriteBase /
+
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+
+   RewriteRule ^.*$ /index.php [L]
 </Directory>
 ```
 <p>Enable the apache2 rewrite engine.</p>
