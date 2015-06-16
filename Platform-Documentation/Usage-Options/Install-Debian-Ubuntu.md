@@ -111,6 +111,7 @@ Bye
 ```
 
 <b>Manually configure your database connection</b>
+
 In your project's `config/databases` directory there is a file called `database.config.php-dist`. Copy this to `config/database.config.php`
 
 From your project's root directory:
