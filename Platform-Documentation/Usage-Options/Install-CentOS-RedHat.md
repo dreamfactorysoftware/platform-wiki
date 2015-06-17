@@ -77,6 +77,7 @@ Is this ok [y/N]: y
 
 <B>Note for CentOS 7</B>
 As of version 7 CentOS no longer includes MySQL in its repos. If you are using CentOS 7 you will need to install MySQL following these instructions: [http://serverlab.org/view/8/How-to-install-latest-mysql-5.6-on-CentOS7](http://serverlab.org/view/8/How-to-install-latest-mysql-5.6-on-CentOS7)
+Or you can use MariaDB instead of MySQL. You will still need the mysql-client. 
 
 <B>Set up MySQL</B>
 
@@ -114,6 +115,14 @@ mysql> quit
 Bye
 ```
 
+<b>Open the Firewall for http</b>
+
+```bash
+setenforce 0
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+```
+
 <b>DSP Installation from Github</b>
 
 <p>To prepare for the DreamFactory installation from Github, create the DreamFactory directory on your server with the appropriate rights.</p>
@@ -131,6 +140,8 @@ $ git clone https://github.com/dreamfactorysoftware/dsp-core.git /opt/dreamfacto
 ```
 
 <p>Now that the DreamFactory files are downloaded we will execute the installation script.</p>
+
+First edit /opt/dreamfactory/platform/scripts/installer.sh to change "WEB_USER=www-data" to "WEB_USER=apache" 
 
 ```bash
 $ cd /opt/dreamfactory/platform
