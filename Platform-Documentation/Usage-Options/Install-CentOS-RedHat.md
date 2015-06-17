@@ -191,22 +191,24 @@ Edit the httpd default configuration file.
 $ sudo nano /etc/httpd/conf/httpd.conf
 ```
 
-<p>Change the DocumentRoot to /opt/dreamfactory/platform/web</p>
+<p>Change the DocumentRoot and the Directory settings</p>
 
 ```bash
-DocumentRoot /opt/dreamfactory/platform/web
-```
+DocumentRoot "/opt/dreamfactory/platform/web"
 
-<p>Update the Directory Path and the value of AllowOverride to <B>All</B></p>
-
-```bash
-<Directory "/opt/dreamfactory/platform/web/">
-
-<Directory />
-    Options FollowSymLinks
+<Directory "/opt/dreamfactory/platform/web">
+    Options -Indexes +FollowSymLinks -MultiViews
     AllowOverride All
+    Require all granted
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ /index.php [L]
+    <LimitExcept GET HEAD PUT DELETE PATCH POST>
+        Allow from all
+    </LimitExcept>
 </Directory>
-
 ```
 
 <p>Enable the apache2 rewrite engine.
