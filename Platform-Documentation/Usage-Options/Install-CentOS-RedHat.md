@@ -166,8 +166,8 @@ If the installation script shows and error related to ownership of local files.
   * notice:	Error changing ownership of local files. Additional steps required. See note at end of run.
   * notice:
   * notice:	Be sure to run the following commands (with sudo as shown) in order to complete installation:
-  * notice:	    sudo chown -R root:www-data * .git*
-  * notice:	    sudo chown -R root:www-data * .git*
+  * notice:	    sudo chown -R root:apache * .git*
+  * notice:	    sudo chown -R root:apache * .git*
   * notice:
   * info:	Complete. Enjoy the rest of your day!
 
@@ -176,7 +176,8 @@ If the installation script shows and error related to ownership of local files.
 <p>If you receive an error asking you to change the ownership of your files, run the following command:</p>
 
 ```bash
-$ sudo chown -R root:apache * .git*
+$ sudo chown -R root:apache * .git* .dreamfactory*
+$ sudo chown -R :apache /opt/dreamfactory/platform/vendor/ ./composer.lock
 ```
 
 <b> Enable Site </b>
