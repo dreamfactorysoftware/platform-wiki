@@ -7,4 +7,4 @@ You can install DreamFactory on a number of IaaS Cloud Platforms (Infrastructure
 * [Google Cloud Platform](https://bitnami.com/stack/dreamfactory/cloud/google)
 * [IBM SoftLayer](https://www.dreamfactory.com/ibmcloudlanding)
 * [Rackspace](https://www.dreamfactory.com/rackspacelanding)
-* [VMware](https://bitnami.com/stack/dreamfactory/virtual-machine)
+* [VMware](https://bitnami.com/stack/dreamfactory/cloud/vmware)
