@@ -11,7 +11,12 @@ _We have tested connecting to MS SQL Server 2005 and above. Most testing is done
 * Linux
   1. [Install DSP](Install-on-Linux). (The below steps assume a DSP install in `~/dsp/` with its PHP installed in `~/dsp/php/`.)
   2. DSP uses the PHP PDO_DBLIB driver and the FreeTDS library for SQL Server connections from Linux. Documentation on PDO_DBLIB is available [here](http://php.net/manual/en/ref.pdo-dblib.php) and on FreeTDS is available [here](http://www.freetds.org/docs.html). [Bitnami packages](https://github.com/dreamfactorysoftware/dsp-core/wiki/Install-on-Linux#bitnami-installer) come with dblib and FreeTDS already integrated with PHP and enabled.
-  3. Check your PHP extensions directory to ensure pdo_dblib.so is present, and check `php.ini` to ensure the value `extension=pdo_dblib.so` is present and uncommented.
+  3. Install pdo_dblib
+    1. For Ubuntu/Debian you can install from the command line
+    ```bash
+    $ sudo apt-get install php5-sybase
+    ```
+    2. For others: Check your PHP extensions directory to ensure pdo_dblib.so is present, and check `php.ini` to ensure the value `extension=pdo_dblib.so` is present and uncommented.
   4. Confirm PDO_DBLIB is configured in PHP.
 
     ```bash
